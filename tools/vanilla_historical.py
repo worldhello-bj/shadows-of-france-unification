@@ -28,7 +28,7 @@ PROFILES=[
  ('ITA_dino_grandi','executive','believe_obey_fight dino_grandi_focus','fascism neutrality','',{'stability_factor':.12,'political_power_factor':.22,'improve_relations_maintain_cost_factor':-.25}),
  ('ITA_vittorio_emanuele_iii','executive','power_to_the_king democratic_king','neutrality democratic','the_italian_republic',{'stability_factor':.15,'army_org_factor':.12,'political_power_factor':.15}),
  ('ITA_alcide_de_gasperi','executive','revoke_the_acerbo_law disband_the_blackshirts common_ground christian_democracy','democratic neutrality','',{'stability_factor':.15,'political_power_factor':.25,'consumer_goods_factor':-.03}),
- ('ITA_ivanoe_bonomi','executive','unite_the_opposition defy_the_duce italian_socialism','democratic','',{'stability_factor':.12,'political_power_factor':.20,'compliance_gain':.016}),
+ ('ITA_ivanoe_bonomi','executive','unite_the_opposition defy_the_duce italian_socialism the_italian_republic','democratic','',{'stability_factor':.12,'political_power_factor':.20,'compliance_gain':.016}),
  ('ITA_antonio_gramsci','executive','liberate_gramsci','communism','',{'research_speed_factor':.08,'production_factory_efficiency_gain_factor':.20,'political_power_factor':.20}),
  ('ITA_amadeo_bordiga','executive','unite_the_opposition defy_the_duce the_popular_front','communism','',{'industrial_capacity_factory':.18,'mobilization_speed':.25,'political_power_factor':.15}),
  ('ITA_pietro_d_acquarone','interior','convene_the_grand_council','neutrality fascism','',{'political_power_factor':.20,'stability_factor':.10,'required_garrison_factor':-.12}),

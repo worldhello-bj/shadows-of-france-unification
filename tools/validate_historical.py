@@ -137,7 +137,9 @@ def audit(check,gfx):
         c=State('sofzh_paris' if old.startswith('FRA_') else 'sofzh_corsica');c.focus.add(fid);c.ideas={'sof_van_prs_fra_political_violence','sof20_terrain_mountain'}
         before=copy.deepcopy((c.variables,c.dynamic));run=Runner(ideas,triggers,effects,[c]);run.execute(effects['sof_hist_setup'],c)
         check(c.leader==char_id(source) and c.gov==gov,'Old completed focus receives historical leader: '+old)
-        if idea_id(source) in ideas:check(idea_id(source) in c.ideas and c.pp==500,'Leader focus appoints chief without charging PP: '+old)
+        if idea_id(source) in ideas:
+            check(idea_id(source) in c.ideas and c.pp==500,'Leader focus appoints chief without charging PP: '+old)
+            check(not run.matches(one(ideas[idea_id(source)],'cancel').value,c),'Automatically appointed chief satisfies the completed route: '+old)
         check(before==(c.variables,c.dynamic) and 'sof20_terrain_mountain' in c.ideas,'Upgrade preserves earned variables and terrain: '+old)
         check('sof_van_prs_fra_political_violence' not in c.ideas,'Upgrade removes empty donor event marker: '+old)
         snapshot=copy.deepcopy(c.__dict__);run.execute(effects['sof_hist_setup'],c);check(snapshot==c.__dict__,'Historical upgrade runs once: '+old)
