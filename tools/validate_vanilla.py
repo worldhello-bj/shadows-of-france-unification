@@ -67,6 +67,14 @@ def audit(check,loc,gfx):
                 if r.key in ['prerequisite','mutually_exclusive']:r.value=[v for v in r.value if v.key!='focus' or v.value not in removed]
             fields=[r for r in fields if r.key not in ['prerequisite','mutually_exclusive'] or r.value]
             a=shape(fields);a=json.loads(re.sub(r'\b'+prefix+r'\w+',lambda m:dest+m[0][4:],json.dumps(a)))
+            if (ROOT/'design/balance-4.3.json').exists():
+                from vanilla_balance import filter_graph
+                # Apply only the reviewed mutual-exclusion whitelist to the
+                # native graph. Coordinates, prerequisite groups and cost stay exact.
+                namespaced=copy.deepcopy(fields)
+                for r in walk(namespaced):
+                    if isinstance(r.value,str):r.value=re.sub(r'\b'+prefix+r'\w+',lambda m:dest+m[0][4:],r.value)
+                a=json.loads(json.dumps(shape(filter_graph(namespaced,fid))))
             c=json.loads(json.dumps(shape([r for r in target.value if r.key in graphkeys])))
             check(a==c,'Native coordinates, prerequisites, exclusions and cost: '+fid)
             check(fid in all_loc and fid+'_desc' in all_loc,'Chinese focus text: '+fid)

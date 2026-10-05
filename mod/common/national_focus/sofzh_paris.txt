@@ -149,8 +149,8 @@ focus = {
  relative_position_id = SFP_industrial_expansion
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
- available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } custom_effect_tooltip = sof_hist_fra_irene_joliot_curie_unlock_tt }
+ available = { is_subject = no has_capitulated = no  custom_trigger_tooltip = { tooltip = sof_balance_research_requirements_tt sof_balance_research_ready = yes } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof_balance_research_slot_tt sof_balance_research_slot = yes else = { add_political_power = 75 } custom_effect_tooltip = sof_hist_fra_irene_joliot_curie_unlock_tt custom_effect_tooltip = SFP_extra_research_slot_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -161,8 +161,8 @@ focus = {
  relative_position_id = SFP_colonial_industry
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
- available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } }
+ available = { is_subject = no has_capitulated = no  custom_trigger_tooltip = { tooltip = sof_balance_research_requirements_tt sof_balance_research_ready = yes } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof_balance_research_slot_tt sof_balance_research_slot = yes else = { add_political_power = 75 } custom_effect_tooltip = SFP_extra_research_slot_2_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -189,14 +189,14 @@ focus = {
 }
 focus = {
  id = SFP_defensive_focus icon = GFX_sof_focus_unique_sfp_defensive_focus
- mutually_exclusive = { focus = SFP_aggressive_focus }
+ 
  x = -2
  y = 1
  cost = 10
  prerequisite = { focus = SFP_begin_rearmament }
  relative_position_id = SFP_begin_rearmament
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_command_power = 30 custom_effect_tooltip = sof_hist_fra_maxime_weygand_unlock_tt }
+ completion_reward = { add_command_power = 30 custom_effect_tooltip = sof_hist_fra_maxime_weygand_unlock_tt custom_effect_tooltip = SFP_defensive_focus_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -204,11 +204,11 @@ focus = {
  x = -2
  y = 1
  prerequisite = { focus = SFP_defensive_focus }
- mutually_exclusive = { focus = SFP_methodical_battle }
+ 
  relative_position_id = SFP_defensive_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_ideas = sof_van_prs_fra_firepower }
+ completion_reward = { add_ideas = sof_van_prs_fra_firepower custom_effect_tooltip = SFP_firepower_kills_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -216,12 +216,12 @@ focus = {
  x = 0
  y = 1
  prerequisite = { focus = SFP_defensive_focus }
- mutually_exclusive = { focus = SFP_firepower_kills }
+ 
  relative_position_id = SFP_defensive_focus
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_doctrine_cost_reduction = { name = SFP_methodical_battle category = land_doctrine uses = 2 cost_reduction = 0.65 } }
+ completion_reward = { add_doctrine_cost_reduction = { name = SFP_methodical_battle category = land_doctrine uses = 2 cost_reduction = 0.4 } custom_effect_tooltip = SFP_methodical_battle_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -276,7 +276,7 @@ focus = {
  relative_position_id = SFP_infantry_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_artillery_focus bonus = 1.0 uses = 1 category = artillery } }
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_artillery_focus bonus = 0.5 uses = 1 category = artillery } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -287,7 +287,7 @@ focus = {
  relative_position_id = SFP_artillery_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_heavy_armor_focus bonus = 1.0 uses = 1 category = cat_heavy_armor } }
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_heavy_armor_focus bonus = 0.5 uses = 1 category = cat_heavy_armor } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -331,19 +331,19 @@ focus = {
  relative_position_id = SFP_infantry_tanks
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { sof20_learn_coast = yes navy_experience = 10 add_tech_bonus = { name = SFP_fusiliers_marine category = tp_tech category = marine_tech uses = 2 bonus = 0.5 } if = { limit = { has_dlc = "Arms Against Tyranny" } add_doctrine_cost_reduction = { cost_reduction = 0.5 uses = 2 category = special_forces_doctrine } } }
+ completion_reward = { sof20_learn_coast = yes navy_experience = 10 add_tech_bonus = { name = SFP_fusiliers_marine category = tp_tech category = marine_tech uses = 2 bonus = 0.5 } if = { limit = { has_dlc = "Arms Against Tyranny" } add_doctrine_cost_reduction = { cost_reduction = 0.4 uses = 2 category = special_forces_doctrine } } }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFP_aggressive_focus icon = GFX_sof_focus_unique_sfp_aggressive_focus
- mutually_exclusive = { focus = SFP_defensive_focus }
+ 
  x = 2
  y = 1
  cost = 10
  relative_position_id = SFP_begin_rearmament
  prerequisite = { focus = SFP_begin_rearmament }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 25.0 custom_effect_tooltip = sof_hist_fra_maurice_gamelin_unlock_tt }
+ completion_reward = { army_experience = 25.0 custom_effect_tooltip = sof_hist_fra_maurice_gamelin_unlock_tt custom_effect_tooltip = SFP_aggressive_focus_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -351,11 +351,11 @@ focus = {
  x = 0
  y = 1
  prerequisite = { focus = SFP_aggressive_focus }
- mutually_exclusive = { focus = SFP_air_dominance }
+ 
  relative_position_id = SFP_aggressive_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { sof20_learn_plain = yes army_experience = 10 }
+ completion_reward = { sof20_learn_plain = yes army_experience = 10 custom_effect_tooltip = SFP_battle_of_maneuver_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -377,7 +377,7 @@ focus = {
  relative_position_id = SFP_motorized_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_mechanized_focus bonus = 1.0 uses = 1 category = cat_mechanized_equipment } }
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_mechanized_focus bonus = 0.5 uses = 1 category = cat_mechanized_equipment } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -388,7 +388,7 @@ focus = {
  relative_position_id = SFP_mechanized_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_light_medium_armor bonus = 1.0 uses = 1 category = cat_light_armor category = cat_medium_armor } }
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_light_medium_armor bonus = 0.5 uses = 1 category = cat_light_armor category = cat_medium_armor } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -396,11 +396,11 @@ focus = {
  x = 2
  y = 1
  prerequisite = { focus = SFP_aggressive_focus }
- mutually_exclusive = { focus = SFP_battle_of_maneuver }
+ 
  relative_position_id = SFP_aggressive_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_ideas = sof_van_prs_fra_air_dominance }
+ completion_reward = { add_ideas = sof_van_prs_fra_air_dominance custom_effect_tooltip = SFP_air_dominance_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -411,7 +411,7 @@ focus = {
  relative_position_id = SFP_air_dominance
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_cas_focus bonus = 1.0 uses = 2 category = cas_bomber } }
+ completion_reward = { add_tech_bonus = { name = SFP_cas_focus bonus = 0.5 uses = 2 category = cas_bomber } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -423,7 +423,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_doctrine_cost_reduction = { name = SFP_air_ground_cooperation category = air_doctrine uses = 2 cost_reduction = 0.5 } }
+ completion_reward = { add_doctrine_cost_reduction = { name = SFP_air_ground_cooperation category = air_doctrine uses = 2 cost_reduction = 0.4 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -446,7 +446,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { remove_ideas = sof_van_prs_fra_victors_of_wwi army_experience = 10.0 add_doctrine_cost_reduction = { name = SFP_army_reform cost_reduction = 0.5 uses = 2 category = land_doctrine } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
+ completion_reward = { remove_ideas = sof_van_prs_fra_victors_of_wwi army_experience = 10.0 add_doctrine_cost_reduction = { name = SFP_army_reform cost_reduction = 0.4 uses = 2 category = land_doctrine } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -900,7 +900,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_expanded_citizenship } swap_ideas = { remove_idea = sof_van_prs_fra_expanded_citizenship add_idea = sof_van_prs_fra_france_undividable } } else = { add_ideas = sof_van_prs_fra_france_undividable } every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 } }
+ completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_expanded_citizenship } swap_ideas = { remove_idea = sof_van_prs_fra_expanded_citizenship add_idea = sof_van_prs_fra_france_undividable } } else = { add_ideas = sof_van_prs_fra_france_undividable } every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 } remove_ideas = sof_van_prs_fra_expanded_citizenship }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1251,7 +1251,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_laissez_faire category = industry uses = 3 bonus = 1.5 } }
+ completion_reward = { add_tech_bonus = { name = SFP_laissez_faire category = industry uses = 2 bonus = 0.75 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1395,12 +1395,12 @@ focus = {
  x = -2
  y = 1
  prerequisite = { focus = SFP_integralism }
- mutually_exclusive = { focus = SFP_family focus = SFP_fatherland }
+ 
  relative_position_id = SFP_integralism
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_ideas = sof_van_prs_fra_travail }
+ completion_reward = { add_ideas = sof_van_prs_fra_travail custom_effect_tooltip = SFP_work_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1408,12 +1408,12 @@ focus = {
  x = 0
  y = 1
  prerequisite = { focus = SFP_integralism }
- mutually_exclusive = { focus = SFP_work focus = SFP_fatherland }
+ 
  relative_position_id = SFP_integralism
  cost = 10
  search_filters = { FOCUS_FILTER_STABILITY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_stability = 0.1 }
+ completion_reward = { add_stability = 0.1 custom_effect_tooltip = SFP_family_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1421,12 +1421,12 @@ focus = {
  x = 2
  y = 1
  prerequisite = { focus = SFP_integralism }
- mutually_exclusive = { focus = SFP_family focus = SFP_work }
+ 
  relative_position_id = SFP_integralism
  cost = 10
  search_filters = { FOCUS_FILTER_WAR_SUPPORT }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_war_support = 0.1 }
+ completion_reward = { add_war_support = 0.1 custom_effect_tooltip = SFP_fatherland_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1559,11 +1559,11 @@ focus = {
  x = -1
  y = 1
  prerequisite = { focus = SFP_establish_spheres_of_influence }
- mutually_exclusive = { focus = SFP_align_belgium }
+ 
  relative_position_id = SFP_establish_spheres_of_influence
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_picardie = yes }
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_picardie = yes custom_effect_tooltip = SFP_split_belgium_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1571,11 +1571,11 @@ focus = {
  x = 1
  y = 1
  prerequisite = { focus = SFP_establish_spheres_of_influence }
- mutually_exclusive = { focus = SFP_split_belgium }
+ 
  relative_position_id = SFP_establish_spheres_of_influence
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_nord = yes }
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_nord = yes custom_effect_tooltip = SFP_align_belgium_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1649,7 +1649,7 @@ focus = {
 }
 focus = {
  id = SFP_france_first icon = GFX_sof_focus_unique_sfp_france_first
- mutually_exclusive = { focus = SFP_join_germany focus = SFP_woo_italy }
+ mutually_exclusive = { focus = SFP_join_germany }
  prerequisite = { focus = SFP_army_of_aggression }
  x = -2
  y = 1
@@ -1657,12 +1657,12 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = SFP_france_first_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFP_woo_italy icon = GFX_sof_focus_unique_sfp_woo_italy
- mutually_exclusive = { focus = SFP_join_germany focus = SFP_france_first }
+ 
  prerequisite = { focus = SFP_army_of_aggression }
  x = 0
  y = 1
@@ -1670,7 +1670,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = SFP_woo_italy_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1687,7 +1687,7 @@ focus = {
 }
 focus = {
  id = SFP_join_germany icon = GFX_sof_focus_unique_sfp_join_germany
- mutually_exclusive = { focus = SFP_woo_italy focus = SFP_france_first }
+ mutually_exclusive = { focus = SFP_france_first }
  prerequisite = { focus = SFP_army_of_aggression }
  x = 2
  y = 1
@@ -1695,7 +1695,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_eastern_pact } set_country_flag = sof_van_coalition_enabled }
+ completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_eastern_pact } set_country_flag = sof_van_coalition_enabled custom_effect_tooltip = SFP_join_germany_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1991,38 +1991,38 @@ focus = {
 focus = {
  id = SFP_the_old_school icon = GFX_sof_focus_unique_sfp_the_old_school
  prerequisite = { focus = SFP_naval_rearmament }
- mutually_exclusive = { focus = SFP_the_young_school }
+ 
  x = 0
  y = 1
  relative_position_id = SFP_naval_rearmament
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } custom_effect_tooltip = SFP_the_old_school_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFP_capital_ship_focus icon = GFX_sof_focus_unique_sfp_capital_ship_focus
- mutually_exclusive = { focus = SFP_carrier_focus }
+ 
  prerequisite = { focus = SFP_the_old_school }
  x = -1
  y = 1
  relative_position_id = SFP_the_old_school
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_capital_ship_focus bonus = 1.0 uses = 2 category = bb_tech category = bc_tech } }
+ completion_reward = { add_tech_bonus = { name = SFP_capital_ship_focus bonus = 0.5 uses = 2 category = bb_tech category = bc_tech } custom_effect_tooltip = SFP_capital_ship_focus_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFP_carrier_focus icon = GFX_sof_focus_unique_sfp_carrier_focus
- mutually_exclusive = { focus = SFP_capital_ship_focus }
+ 
  prerequisite = { focus = SFP_the_old_school }
  x = 1
  y = 1
  relative_position_id = SFP_the_old_school
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_carrier_focus bonus = 1.0 uses = 2 category = cv_tech } }
+ completion_reward = { add_tech_bonus = { name = SFP_carrier_focus bonus = 0.5 uses = 2 category = cv_tech } custom_effect_tooltip = SFP_carrier_focus_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2033,7 +2033,7 @@ focus = {
  relative_position_id = SFP_carrier_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_carrier_focus bonus = 1.0 uses = 2 category = naval_air } }
+ completion_reward = { add_tech_bonus = { name = SFP_carrier_focus bonus = 0.5 uses = 2 category = naval_air } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2061,14 +2061,14 @@ focus = {
 focus = {
  id = SFP_the_young_school icon = GFX_sof_focus_unique_sfp_the_young_school
  prerequisite = { focus = SFP_naval_rearmament }
- mutually_exclusive = { focus = SFP_the_old_school }
+ 
  x = 4
  y = 1
  relative_position_id = SFP_naval_rearmament
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_ideas = sof_van_prs_fra_the_young_school }
+ completion_reward = { add_ideas = sof_van_prs_fra_the_young_school custom_effect_tooltip = SFP_the_young_school_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2079,7 +2079,7 @@ focus = {
  relative_position_id = SFP_the_young_school
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_undersea_combat bonus = 1.0 uses = 2 category = ss_tech } }
+ completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_undersea_combat bonus = 0.5 uses = 2 category = ss_tech } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2090,7 +2090,7 @@ focus = {
  relative_position_id = SFP_the_young_school
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_surface_combat bonus = 2.0 uses = 1 category = dd_tech } }
+ completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_surface_combat bonus = 0.75 uses = 1 category = dd_tech } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2102,7 +2102,7 @@ focus = {
  relative_position_id = SFP_surface_combat
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_improved_screen_ships bonus = 2.0 uses = 1 category = ca_tech } }
+ completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_improved_screen_ships bonus = 0.75 uses = 1 category = ca_tech } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2114,7 +2114,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_doctrine_cost_reduction = { name = SFP_naval_doctrine cost_reduction = 0.5 uses = 2 category = naval_doctrine } }
+ completion_reward = { add_doctrine_cost_reduction = { name = SFP_naval_doctrine cost_reduction = 0.4 uses = 2 category = naval_doctrine } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2129,14 +2129,14 @@ focus = {
 }
 focus = {
  id = SFP_fighter_focus icon = GFX_sof_focus_unique_sfp_fighter_focus
- mutually_exclusive = { focus = SFP_bomber_focus }
+ 
  prerequisite = { focus = SFP_air_focus }
  x = -1
  y = 1
  relative_position_id = SFP_air_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_fighter_focus bonus = 1.0 uses = 1 category = light_fighter } }
+ completion_reward = { add_tech_bonus = { name = SFP_fighter_focus bonus = 0.5 uses = 1 category = light_fighter } custom_effect_tooltip = SFP_fighter_focus_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2147,19 +2147,19 @@ focus = {
  relative_position_id = SFP_fighter_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_heavy_fighter_focus bonus = 1.0 uses = 2 category = cat_heavy_fighter } }
+ completion_reward = { add_tech_bonus = { name = SFP_heavy_fighter_focus bonus = 0.5 uses = 2 category = cat_heavy_fighter } }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFP_bomber_focus icon = GFX_sof_focus_unique_sfp_bomber_focus
- mutually_exclusive = { focus = SFP_fighter_focus }
+ 
  prerequisite = { focus = SFP_air_focus }
  x = 1
  y = 1
  relative_position_id = SFP_air_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_bomber_focus bonus = 1.0 uses = 1 category = tactical_bomber } }
+ completion_reward = { add_tech_bonus = { name = SFP_bomber_focus bonus = 0.5 uses = 1 category = tactical_bomber } custom_effect_tooltip = SFP_bomber_focus_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2171,7 +2171,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { air_experience = 25 add_doctrine_cost_reduction = { name = SFP_air_doctrine cost_reduction = 0.5 uses = 2 category = air_doctrine } }
+ completion_reward = { air_experience = 25 add_doctrine_cost_reduction = { name = SFP_air_doctrine cost_reduction = 0.4 uses = 2 category = air_doctrine } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2182,7 +2182,7 @@ focus = {
  relative_position_id = SFP_bomber_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_heavy_bomber_focus bonus = 1.0 uses = 2 category = cat_strategic_bomber } }
+ completion_reward = { add_tech_bonus = { name = SFP_heavy_bomber_focus bonus = 0.5 uses = 2 category = cat_strategic_bomber } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2193,7 +2193,7 @@ focus = {
  relative_position_id = SFP_bomber_focus
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFP_naval_bomber_focus bonus = 1.0 uses = 2 category = naval_bomber } }
+ completion_reward = { add_tech_bonus = { name = SFP_naval_bomber_focus bonus = 0.5 uses = 2 category = naval_bomber } }
  ai_will_do = { factor = 1 }
 }
 }

@@ -140,7 +140,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = oil amount = 4 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } add_building_construction = { type = fuel_silo level = 1 instant_build = yes } } } else = { add_political_power = 40 } }
+ completion_reward = { add_fuel = 2500 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } add_building_construction = { type = fuel_silo level = 1 instant_build = yes } } } else = { add_political_power = 40 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -152,33 +152,33 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = oil amount = 4 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = synthetic_refinery size > 0 } } add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_fuel = 2500 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = synthetic_refinery size > 0 } } add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_polizia_dell_africa_italiana icon = GFX_sof_focus_unique_sfc_polizia_dell_africa_italiana
  prerequisite = { focus = SFC_regional_development }
- mutually_exclusive = { focus = SFC_strengthen_ascari_corps }
+ 
  x = 1
  y = 1
  relative_position_id = SFC_regional_development
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sof_van_police_reform }
+ completion_reward = { set_country_flag = sof_van_police_reform custom_effect_tooltip = SFC_polizia_dell_africa_italiana_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_strengthen_ascari_corps icon = GFX_sof_focus_unique_sfc_strengthen_ascari_corps
  prerequisite = { focus = SFC_regional_development }
- mutually_exclusive = { focus = SFC_polizia_dell_africa_italiana }
+ 
  x = 3
  y = 1
  relative_position_id = SFC_regional_development
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { NOT = { has_template = "岛内守备旅" } } division_template = { name = "岛内守备旅" regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 1 y = 0 } infantry = { x = 1 y = 1 } } } } add_manpower = 800 add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 200 producer = ROOT } }
+ completion_reward = { if = { limit = { NOT = { has_template = "岛内守备旅" } } division_template = { name = "岛内守备旅" regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 1 y = 0 } infantry = { x = 1 y = 1 } } } } add_manpower = 800 add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 200 producer = ROOT } custom_effect_tooltip = SFC_strengthen_ascari_corps_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -196,27 +196,27 @@ focus = {
 focus = {
  id = SFC_steel_industry_in_terni icon = GFX_sof_focus_unique_sfc_steel_industry_in_terni
  prerequisite = { focus = SFC_italian_highways_bba }
- mutually_exclusive = { focus = SFC_power_plants_in_terni }
+ 
  x = -1
  y = 1
  relative_position_id = SFC_italian_highways_bba
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.025 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = steel amount = 4 } } }
+ completion_reward = { add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.025 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } sof_balance_resource_steel = yes hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_steel_industry_in_terni_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_power_plants_in_terni icon = GFX_sof_focus_unique_sfc_power_plants_in_terni
  prerequisite = { focus = SFC_italian_highways_bba }
- mutually_exclusive = { focus = SFC_steel_industry_in_terni }
+ 
  x = 1
  y = 1
  relative_position_id = SFC_italian_highways_bba
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_power_plants_in_terni_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -234,27 +234,27 @@ focus = {
 focus = {
  id = SFC_strengthen_northern_industry icon = GFX_sof_focus_unique_sfc_strengthen_northern_industry
  prerequisite = { focus = SFC_industria_della_gomma_sintetica }
- mutually_exclusive = { focus = SFC_modernize_the_mezzogiorno }
+ 
  x = -1
  y = 1
  relative_position_id = SFC_industria_della_gomma_sintetica
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 3 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { owns_state = 485 485 = { is_fully_controlled_by = PREV arms_factory < 20 } } 485 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else_if = { limit = { owns_state = 491 491 = { is_fully_controlled_by = PREV arms_factory < 20 } } 491 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else_if = { limit = { owns_state = 499 499 = { is_fully_controlled_by = PREV arms_factory < 20 } } 499 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_political_power = 40 } add_tech_bonus = { name = sof_balance_northern_industry bonus = 0.5 uses = 1 category = industry } custom_effect_tooltip = SFC_strengthen_northern_industry_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_modernize_the_mezzogiorno icon = GFX_sof_focus_unique_sfc_modernize_the_mezzogiorno
  prerequisite = { focus = SFC_industria_della_gomma_sintetica }
- mutually_exclusive = { focus = SFC_strengthen_northern_industry }
+ 
  x = 1
  y = 1
  relative_position_id = SFC_industria_della_gomma_sintetica
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_political_power = 40 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT naval_base < 10 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT naval_base < 10 is_coastal = yes } add_building_construction = { type = naval_base level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = steel amount = 4 } } }
+ completion_reward = { if = { limit = { owns_state = 504 504 = { is_fully_controlled_by = PREV industrial_complex < 20 } } 504 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else_if = { limit = { owns_state = 509 509 = { is_fully_controlled_by = PREV industrial_complex < 20 } } 509 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { owns_state = 504 504 = { is_fully_controlled_by = PREV infrastructure < 5 } } 504 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else_if = { limit = { owns_state = 509 509 = { is_fully_controlled_by = PREV infrastructure < 5 } } 509 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_political_power = 40 } custom_effect_tooltip = SFC_modernize_the_mezzogiorno_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -267,7 +267,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } if = { limit = { has_completed_focus = SFC_strengthen_northern_industry } } custom_effect_tooltip = sof_hist_ita_guido_jung_unlock_tt }
+ completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } if = { limit = { has_completed_focus = SFC_strengthen_northern_industry } } custom_effect_tooltip = sof_hist_ita_guido_jung_unlock_tt hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -279,7 +279,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFC_railway_innovations ahead_reduction = 1.5 bonus = 0.5 uses = 1 category = train_tech } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_tech_bonus = { name = SFC_railway_innovations ahead_reduction = 1 bonus = 0.5 uses = 1 category = train_tech } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -303,7 +303,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.10 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.10 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -314,8 +314,8 @@ focus = {
  relative_position_id = SFC_investments_in_edison
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
- available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } }
+ available = { is_subject = no has_capitulated = no  custom_trigger_tooltip = { tooltip = sof_balance_research_requirements_tt sof_balance_research_ready = yes } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof_balance_research_slot_tt sof_balance_research_slot = yes else = { add_political_power = 75 } custom_effect_tooltip = SFC_expand_national_universities_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -339,7 +339,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_brescia_small_arms_industry bonus = 0.75 uses = 1 category = infantry_weapons } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_brescia_small_arms_industry bonus = 0.5 uses = 1 category = infantry_weapons } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -351,7 +351,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT radar_station < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT radar_station < 20 } add_building_construction = { type = radar_station level = 1 instant_build = yes } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_milan_comms_industry bonus = 1 uses = 1 category = radar_tech } }
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT radar_station < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT radar_station < 20 } add_building_construction = { type = radar_station level = 1 instant_build = yes } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_milan_comms_industry bonus = 0.5 uses = 1 category = radar_tech } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -363,7 +363,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_redirect_alfa_romeo_production bonus = 0.50 uses = 2 category = motorized_equipment category = light_air } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_redirect_alfa_romeo_production bonus = 0.5 uses = 2 category = motorized_equipment category = light_air } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -377,7 +377,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_line_change_production_efficiency_factor = 0.2 } add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = -0.04 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } }
+ completion_reward = { add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_line_change_production_efficiency_factor = 0.2 } add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = -0.04 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -391,7 +391,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = 0.1 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 } add_to_variable = { SFC_military_industry_dm_line_change_production_efficiency_factor = -0.2 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } }
+ completion_reward = { add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = 0.1 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 } add_to_variable = { SFC_military_industry_dm_line_change_production_efficiency_factor = -0.2 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -403,7 +403,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_breakthrough_progress = { specialization = specialization_air value = 1 } add_tech_bonus = { name = SFC_thermojet_research bonus = 1 uses = 1 category = air_equipment } add_tech_bonus = { name = SFC_thermojet_research ahead_reduction = 1 bonus = 1.0 category = jet_technology category = rocketry } }
+ completion_reward = { add_breakthrough_progress = { specialization = specialization_air value = 1 } add_tech_bonus = { name = SFC_thermojet_research bonus = 0.5 uses = 1 category = air_equipment } add_tech_bonus = { name = SFC_thermojet_research ahead_reduction = 1 bonus = 0.5 category = jet_technology category = rocketry } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -414,7 +414,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_doctrine_cost_reduction = { name = SFC_army_primacy_bba cost_reduction = 0.5 uses = 1 category = land_doctrine } }
+ completion_reward = { army_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_doctrine_cost_reduction = { name = SFC_army_primacy_bba cost_reduction = 0.4 uses = 1 category = land_doctrine } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -427,7 +427,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_army_army_org_factor = 0.05 } add_to_variable = { SFC_re_army_morale_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_infantry_defence_factor = 0.05 } army_experience = 25.0 add_doctrine_cost_reduction = { name = SFC_preserve_army_traditions cost_reduction = 0.5 uses = 1 category = land_doctrine } }
+ completion_reward = { add_to_variable = { SFC_re_army_army_org_factor = 0.05 } add_to_variable = { SFC_re_army_morale_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_infantry_defence_factor = 0.05 } army_experience = 25.0 add_doctrine_cost_reduction = { name = SFC_preserve_army_traditions cost_reduction = 0.4 uses = 1 category = land_doctrine } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -465,7 +465,7 @@ focus = {
  cost = 5
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_army_core_defence_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_re_army_core_defence_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -478,7 +478,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_org_loss_when_moving = -0.15 } add_to_variable = { SFC_re_army_speed_factor = 0.05 } add_mastery_bonus = { name = SFC_a_bandits_war bonus = 0.25 days = 240 grand_doctrine = new_mobile_warfare } add_doctrine_cost_reduction = { name = SFC_a_bandits_war cost_reduction = 0.5 uses = 1 category = land_doctrine } add_tech_bonus = { name = SFC_a_bandits_war uses = 2 bonus = 0.5 category = motorized_equipment category = recon_tech } if = { limit = { has_dlc = "La Resistance" } add_tech_bonus = { name = SFC_a_bandits_war bonus = 1 uses = 1 category = cat_armored_cars } add_ideas = sof_van_cor_ita_bandits_war } custom_effect_tooltip = sof_hist_ita_alberto_pariani_unlock_tt }
+ completion_reward = { add_to_variable = { SFC_re_org_loss_when_moving = -0.15 } add_to_variable = { SFC_re_army_speed_factor = 0.05 } add_mastery_bonus = { name = SFC_a_bandits_war bonus = 0.25 days = 240 grand_doctrine = new_mobile_warfare } add_doctrine_cost_reduction = { name = SFC_a_bandits_war cost_reduction = 0.4 uses = 1 category = land_doctrine } add_tech_bonus = { name = SFC_a_bandits_war uses = 2 bonus = 0.5 category = motorized_equipment category = recon_tech } if = { limit = { has_dlc = "La Resistance" } add_tech_bonus = { name = SFC_a_bandits_war bonus = 0.5 uses = 1 category = cat_armored_cars } add_ideas = sof_van_cor_ita_bandits_war } custom_effect_tooltip = sof_hist_ita_alberto_pariani_unlock_tt hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -490,7 +490,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_cavalry_speed_factor = 0.03 } add_to_variable = { SFC_re_modifier_army_sub_unit_cavalry_attack_factor = 0.03 } add_to_variable = { SFC_re_unit_cavalry_design_cost_factor = -0.25 } add_to_variable = { SFC_re_unit_camelry_design_cost_factor = -0.25 } army_experience = 25.0 }
+ completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_cavalry_speed_factor = 0.03 } add_to_variable = { SFC_re_modifier_army_sub_unit_cavalry_attack_factor = 0.03 } add_to_variable = { SFC_re_unit_cavalry_design_cost_factor = -0.25 } add_to_variable = { SFC_re_unit_camelry_design_cost_factor = -0.25 } army_experience = 25.0 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -502,7 +502,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_army_leader_cost_factor = -0.15 } add_to_variable = { SFC_re_experience_gain_factor = 0.1 } add_to_variable = { SFC_re_promote_cost_factor = -0.25 } add_to_variable = { SFC_re_army_speed_factor = 0.05 } army_experience = 25.0 if = { limit = { NOT = { has_government = communism } } } if = { limit = { OR = { has_government = democratic has_government = neutrality } } } custom_effect_tooltip = sof_hist_ita_achille_starace_unlock_tt }
+ completion_reward = { add_to_variable = { SFC_re_army_leader_cost_factor = -0.15 } add_to_variable = { SFC_re_experience_gain_factor = 0.1 } add_to_variable = { SFC_re_promote_cost_factor = -0.25 } add_to_variable = { SFC_re_army_speed_factor = 0.05 } army_experience = 25.0 if = { limit = { NOT = { has_government = communism } } } if = { limit = { OR = { has_government = democratic has_government = neutrality } } } custom_effect_tooltip = sof_hist_ita_achille_starace_unlock_tt hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -514,7 +514,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_land_doctrine_cost_factor = -0.1 } add_to_variable = { SFC_re_army_army_org_factor = 0.05 } add_to_variable = { SFC_re_org_loss_when_moving = -0.05 } army_experience = 25 }
+ completion_reward = { add_to_variable = { SFC_re_land_doctrine_cost_factor = -0.1 } add_to_variable = { SFC_re_army_army_org_factor = 0.05 } add_to_variable = { SFC_re_org_loss_when_moving = -0.05 } army_experience = 25 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -526,7 +526,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFC_italian_tankettes bonus = 1 uses = 1 category = cat_light_armor } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = improved_light_tank_chassis } } } }
+ completion_reward = { add_tech_bonus = { name = SFC_italian_tankettes bonus = 0.5 uses = 1 category = cat_light_armor } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = improved_light_tank_chassis } } } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -539,7 +539,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_special_forces_cap = 0.05 } add_to_variable = { SFC_re_special_forces_attack_factor = 0.03 } add_to_variable = { SFC_re_special_forces_defence_factor = 0.03 } army_experience = 15.0 add_tech_bonus = { name = SFC_bersaglieri bonus = 0.75 uses = 2 category = cat_special_forces_generic } set_technology = { bicycle_infantry = 1 popup = no } if = { limit = { NOT = { has_template = "Reggimento Bersaglieri" } } division_template = { name = "Reggimento Bersaglieri" regiments = { bicycle_battalion = { x = 0 y = 0 } bicycle_battalion = { x = 0 y = 1 } bicycle_battalion = { x = 1 y = 0 } bicycle_battalion = { x = 1 y = 1 } } support = { engineer = { x = 0 y = 0 } artillery = { x = 0 y = 1 } } } } }
+ completion_reward = { add_to_variable = { SFC_re_special_forces_cap = 0.05 } add_to_variable = { SFC_re_special_forces_attack_factor = 0.03 } add_to_variable = { SFC_re_special_forces_defence_factor = 0.03 } army_experience = 15.0 add_tech_bonus = { name = SFC_bersaglieri bonus = 0.5 uses = 2 category = cat_special_forces_generic } set_technology = { bicycle_infantry = 1 popup = no } if = { limit = { NOT = { has_template = "Reggimento Bersaglieri" } } division_template = { name = "Reggimento Bersaglieri" regiments = { bicycle_battalion = { x = 0 y = 0 } bicycle_battalion = { x = 0 y = 1 } bicycle_battalion = { x = 1 y = 0 } bicycle_battalion = { x = 1 y = 1 } } support = { engineer = { x = 0 y = 0 } artillery = { x = 0 y = 1 } } } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -551,7 +551,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { sof20_learn_mountain = yes army_experience = 10 add_to_variable = { SFC_re_special_forces_cap = 0.02 } add_to_variable = { SFC_re_modifier_army_sub_unit_mountaineers_defence_factor = 0.03 } add_to_variable = { SFC_re_modifier_army_sub_unit_mountaineers_max_org_factor = 0.05 } army_experience = 15.0 add_tech_bonus = { name = SFC_divisioni_alpine bonus = 1 uses = 1 category = mountaineers_tech } }
+ completion_reward = { sof20_learn_mountain = yes army_experience = 10 add_to_variable = { SFC_re_special_forces_cap = 0.02 } add_to_variable = { SFC_re_modifier_army_sub_unit_mountaineers_defence_factor = 0.03 } add_to_variable = { SFC_re_modifier_army_sub_unit_mountaineers_max_org_factor = 0.05 } army_experience = 15.0 add_tech_bonus = { name = SFC_divisioni_alpine bonus = 0.75 uses = 1 category = mountaineers_tech } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -563,7 +563,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_special_forces_cap = 0.02 } add_to_variable = { SFC_re_special_forces_out_of_supply_factor = -0.1 } add_to_variable = { SFC_re_modifier_army_sub_unit_paratrooper_max_org_factor = 0.05 } army_experience = 15.0 if = { limit = { NOT = { has_template = "Paratroopers" } } } add_tech_bonus = { name = SFC_fanti_dell_aria bonus = 1 uses = 1 category = para_tech } }
+ completion_reward = { add_to_variable = { SFC_re_special_forces_cap = 0.02 } add_to_variable = { SFC_re_special_forces_out_of_supply_factor = -0.1 } add_to_variable = { SFC_re_modifier_army_sub_unit_paratrooper_max_org_factor = 0.05 } army_experience = 15.0 if = { limit = { NOT = { has_template = "Paratroopers" } } } add_tech_bonus = { name = SFC_fanti_dell_aria bonus = 0.5 uses = 1 category = para_tech } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -576,33 +576,33 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFC_self_propelled_guns bonus = 0.5 uses = 3 category = artillery } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } } }
+ completion_reward = { add_tech_bonus = { name = SFC_self_propelled_guns bonus = 0.5 uses = 2 category = artillery } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } } }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_end_fiat_ansaldo_duopoly icon = GFX_sof_focus_unique_sfc_end_fiat_ansaldo_duopoly
  prerequisite = { focus = SFC_self_propelled_guns }
- mutually_exclusive = { focus = SFC_modernize_ansaldo_facilities }
+ 
  x = -1
  y = 1
  relative_position_id = SFC_self_propelled_guns
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_dm_production_lack_of_resource_penalty_factor = -0.1 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = improved_medium_tank_chassis } } if = { limit = { has_tech = improved_heavy_tank_chassis } } } }
+ completion_reward = { add_to_variable = { SFC_military_industry_dm_production_lack_of_resource_penalty_factor = -0.1 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = improved_medium_tank_chassis } } if = { limit = { has_tech = improved_heavy_tank_chassis } } } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_end_fiat_ansaldo_duopoly_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_modernize_ansaldo_facilities icon = GFX_sof_focus_unique_sfc_modernize_ansaldo_facilities
  prerequisite = { focus = SFC_self_propelled_guns }
- mutually_exclusive = { focus = SFC_end_fiat_ansaldo_duopoly }
+ 
  x = 1
  y = 1
  relative_position_id = SFC_self_propelled_guns
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_dm_equipment_upgrade_xp_cost = -0.15 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_dockyard = 0.05 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = improved_medium_tank_chassis } } if = { limit = { has_tech = improved_heavy_tank_chassis } } } }
+ completion_reward = { add_to_variable = { SFC_military_industry_dm_equipment_upgrade_xp_cost = -0.15 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_dockyard = 0.05 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = improved_medium_tank_chassis } } if = { limit = { has_tech = improved_heavy_tank_chassis } } } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_modernize_ansaldo_facilities_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -614,7 +614,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 25 add_tech_bonus = { name = SFC_ferrea_mole_ferreo_cuore bonus = 1 uses = 2 category = armor } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = advanced_medium_tank_chassis } } if = { limit = { has_tech = advanced_heavy_tank_chassis } } } }
+ completion_reward = { army_experience = 25 add_tech_bonus = { name = SFC_ferrea_mole_ferreo_cuore bonus = 0.5 uses = 2 category = armor } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = advanced_medium_tank_chassis } } if = { limit = { has_tech = advanced_heavy_tank_chassis } } } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -625,7 +625,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { air_experience = 25.0 add_tech_bonus = { name = SFC_air_innovations_bba bonus = 0.5 uses = 1 category = light_fighter } add_doctrine_cost_reduction = { name = air_doc_bonus cost_reduction = 0.5 uses = 2 category = air_doctrine } }
+ completion_reward = { air_experience = 25.0 add_tech_bonus = { name = SFC_air_innovations_bba bonus = 0.5 uses = 1 category = light_fighter } add_doctrine_cost_reduction = { name = air_doc_bonus cost_reduction = 0.4 uses = 2 category = air_doctrine } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -637,7 +637,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFC_citta_dell_aria bonus = 0.25 uses = 3 category = air_equipment } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT air_facility < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT air_facility < 20 } add_building_construction = { type = air_facility level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } }
+ completion_reward = { add_tech_bonus = { name = SFC_citta_dell_aria bonus = 0.25 uses = 2 category = air_equipment } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT air_base < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT air_base < 10 } add_building_construction = { type = air_base level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -649,7 +649,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_AIR_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_ra_air_ace_generation_chance_factor = 0.05 } add_to_variable = { SFC_ra_air_night_penalty = -0.1 } add_to_variable = { SFC_ra_air_weather_penalty = -0.1 } add_to_variable = { SFC_ra_air_training_xp_gain_factor = 0.05 } air_experience = 25.0 }
+ completion_reward = { add_to_variable = { SFC_ra_air_ace_generation_chance_factor = 0.05 } add_to_variable = { SFC_ra_air_night_penalty = -0.1 } add_to_variable = { SFC_ra_air_weather_penalty = -0.1 } add_to_variable = { SFC_ra_air_training_xp_gain_factor = 0.05 } air_experience = 25.0 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -661,7 +661,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.02 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_reggianes_exports bonus = 0.50 uses = 1 category = air_equipment } if = { limit = { has_dlc = "By Blood Alone" } } }
+ completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.02 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_reggianes_exports bonus = 0.5 uses = 1 category = air_equipment } if = { limit = { has_dlc = "By Blood Alone" } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -686,7 +686,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_AIR_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_ra_air_mission_efficiency = 0.05 } add_to_variable = { SFC_ra_air_mission_xp_gain_factor = 0.05 } add_to_variable = { SFC_ra_air_doctrine_cost_factor = -0.1 } air_experience = 25 }
+ completion_reward = { add_to_variable = { SFC_ra_air_mission_efficiency = 0.05 } add_to_variable = { SFC_ra_air_mission_xp_gain_factor = 0.05 } add_to_variable = { SFC_ra_air_doctrine_cost_factor = -0.1 } air_experience = 25 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -699,7 +699,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_AIR_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_ra_air_night_penalty = -0.05 } add_to_variable = { SFC_ra_air_weather_penalty = -0.05 } add_to_variable = { SFC_ra_air_accidents_factor = -0.1 } air_experience = 25.0 }
+ completion_reward = { add_to_variable = { SFC_ra_air_night_penalty = -0.05 } add_to_variable = { SFC_ra_air_weather_penalty = -0.05 } add_to_variable = { SFC_ra_air_accidents_factor = -0.1 } air_experience = 25.0 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -712,7 +712,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_air_equipment_upgrade_xp_cost = 0.25 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } add_tech_bonus = { name = SFC_standardization bonus = 0.75 uses = 1 category = tactical_bomber category = light_fighter category = cat_strategic_bomber } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_military_industry_air_equipment_upgrade_xp_cost = 0.25 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } add_tech_bonus = { name = SFC_standardization bonus = 0.5 uses = 1 category = tactical_bomber category = light_fighter category = cat_strategic_bomber } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -725,7 +725,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_AIR_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_air_equipment_upgrade_xp_cost = -0.5 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } air_experience = 15.0 add_tech_bonus = { name = SFC_specialization bonus = 0.5 uses = 2 category = air_equipment } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_military_industry_air_equipment_upgrade_xp_cost = -0.5 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } air_experience = 15.0 add_tech_bonus = { name = SFC_specialization bonus = 0.5 uses = 2 category = air_equipment } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -737,7 +737,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_ra_strategic_bomb_visibility = -0.05 } add_to_variable = { SFC_ra_air_strategic_bomber_bombing_factor = 0.05 } add_to_variable = { SFC_ra_air_range_factor = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } }
+ completion_reward = { add_to_variable = { SFC_ra_strategic_bomb_visibility = -0.05 } add_to_variable = { SFC_ra_air_strategic_bomber_bombing_factor = 0.05 } add_to_variable = { SFC_ra_air_range_factor = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -773,7 +773,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_AIR_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_air_equipment_upgrade_xp_cost = -0.25 } add_to_variable = { SFC_ra_air_mission_xp_gain_factor = 0.1 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } }
+ completion_reward = { add_to_variable = { SFC_military_industry_air_equipment_upgrade_xp_cost = -0.25 } add_to_variable = { SFC_ra_air_mission_xp_gain_factor = 0.1 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -785,7 +785,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_AIR_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_ra_air_superiority_bonus_in_combat = 0.05 } add_to_variable = { SFC_ra_air_superiority_efficiency = 0.05 } add_to_variable = { SFC_ra_air_intercept_efficiency = 0.05 } air_experience = 25 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } }
+ completion_reward = { add_to_variable = { SFC_ra_air_superiority_bonus_in_combat = 0.05 } add_to_variable = { SFC_ra_air_superiority_efficiency = 0.05 } add_to_variable = { SFC_ra_air_intercept_efficiency = 0.05 } air_experience = 25 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "By Blood Alone" } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -796,7 +796,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_doctrine_cost_reduction = { name = naval_doc_bonus cost_reduction = 0.5 uses = 1 category = naval_doctrine } }
+ completion_reward = { navy_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_doctrine_cost_reduction = { name = naval_doc_bonus cost_reduction = 0.4 uses = 1 category = naval_doctrine } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -808,7 +808,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_convoy_raiding_efficiency_factor = 0.05 } add_to_variable = { SFC_rm_naval_strike_attack_factor = 0.05 } add_to_variable = { SFC_rm_navy_submarine_attack_factor = 0.05 } if = { limit = { has_dlc = "Man the Guns" } add_tech_bonus = { name = SFC_intensify_torpedo_manufacturing bonus = 1.0 uses = 1 category = cat_torpedoes } } else = { add_mastery_bonus = { name = SFC_intensify_torpedo_manufacturing bonus = 0.1 days = 180 grand_doctrine = new_convoy_raiding track = submarines } add_doctrine_cost_reduction = { name = SFC_intensify_torpedo_manufacturing cost_reduction = 0.5 uses = 1 category = naval_doctrine } } }
+ completion_reward = { add_to_variable = { SFC_rm_convoy_raiding_efficiency_factor = 0.05 } add_to_variable = { SFC_rm_naval_strike_attack_factor = 0.05 } add_to_variable = { SFC_rm_navy_submarine_attack_factor = 0.05 } if = { limit = { has_dlc = "Man the Guns" } add_tech_bonus = { name = SFC_intensify_torpedo_manufacturing bonus = 0.75 uses = 1 category = cat_torpedoes } } else = { add_mastery_bonus = { name = SFC_intensify_torpedo_manufacturing bonus = 0.1 days = 180 grand_doctrine = new_convoy_raiding track = submarines } add_doctrine_cost_reduction = { name = SFC_intensify_torpedo_manufacturing cost_reduction = 0.4 uses = 1 category = naval_doctrine } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -832,7 +832,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_navy_capital_ship_attack_factor = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Man the Guns" } add_tech_bonus = { name = SFC_oto_naval_guns bonus = 1.0 uses = 2 category = cat_ship_heavy_battery } } else = { navy_experience = 15.0 } }
+ completion_reward = { add_to_variable = { SFC_rm_navy_capital_ship_attack_factor = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Man the Guns" } add_tech_bonus = { name = SFC_oto_naval_guns bonus = 0.5 uses = 2 category = cat_ship_heavy_battery } } else = { navy_experience = 15.0 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -856,7 +856,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFC_milizia_marittima_di_artiglieria bonus = 1.0 uses = 1 category = artillery } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } add_building_construction = { type = coastal_bunker level = 1 instant_build = yes province = { all_provinces = yes limit_to_coastal = yes } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_tech_bonus = { name = SFC_milizia_marittima_di_artiglieria bonus = 0.5 uses = 1 category = artillery } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } add_building_construction = { type = coastal_bunker level = 1 instant_build = yes province = { all_provinces = yes limit_to_coastal = yes } } } } else = { add_political_power = 40 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -868,7 +868,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_naval_doctrine_cost_factor = -0.1 } add_to_variable = { SFC_rm_naval_morale_factor = 0.1 } add_to_variable = { SFC_rm_strike_force_movement_org_loss = -0.05 } navy_experience = 25 custom_effect_tooltip = sof_hist_ita_domenico_cavagnari_unlock_tt }
+ completion_reward = { add_to_variable = { SFC_rm_naval_doctrine_cost_factor = -0.1 } add_to_variable = { SFC_rm_naval_morale_factor = 0.1 } add_to_variable = { SFC_rm_strike_force_movement_org_loss = -0.05 } navy_experience = 25 custom_effect_tooltip = sof_hist_ita_domenico_cavagnari_unlock_tt hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -892,7 +892,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { sof20_learn_coast = yes navy_experience = 10 add_to_variable = { SFC_rm_special_forces_cap = 0.02 } add_to_variable = { SFC_rm_amphibious_invasion = 0.05 } add_to_variable = { SFC_rm_naval_invasion_capacity = 2 } add_to_variable = { SFC_rm_invasion_preparation = -0.1 } if = { limit = { NOT = { has_template = "Marines" } } } if = { limit = { has_tech = improved_infantry_weapons } if = { limit = { NOT = { has_template = "Ascari di Marina" } } division_template = { name = "Ascari di Marina" obsolete = yes regiments = { marine = { x = 0 y = 0 } marine = { x = 0 y = 1 } marine = { x = 1 y = 0 } marine = { x = 1 y = 1 } } } } } else = { if = { limit = { NOT = { has_template = "Ascari di Marina" } } division_template = { name = "Ascari di Marina" obsolete = yes regiments = { marine = { x = 0 y = 0 } marine = { x = 0 y = 1 } marine = { x = 1 y = 0 } marine = { x = 1 y = 1 } } } } } add_tech_bonus = { name = SFC_forza_navale_especiale bonus = 1.0 uses = 1 category = marine_tech category = tp_tech } if = { limit = { NOT = { has_completed_focus = SFC_strengthen_ascari_corps } NOT = { has_completed_focus = SFC_forza_navale_especiale } } } }
+ completion_reward = { sof20_learn_coast = yes navy_experience = 10 add_to_variable = { SFC_rm_special_forces_cap = 0.02 } add_to_variable = { SFC_rm_amphibious_invasion = 0.05 } add_to_variable = { SFC_rm_naval_invasion_capacity = 2 } add_to_variable = { SFC_rm_invasion_preparation = -0.1 } if = { limit = { NOT = { has_template = "Marines" } } } if = { limit = { has_tech = improved_infantry_weapons } if = { limit = { NOT = { has_template = "Ascari di Marina" } } division_template = { name = "Ascari di Marina" obsolete = yes regiments = { marine = { x = 0 y = 0 } marine = { x = 0 y = 1 } marine = { x = 1 y = 0 } marine = { x = 1 y = 1 } } } } } else = { if = { limit = { NOT = { has_template = "Ascari di Marina" } } division_template = { name = "Ascari di Marina" obsolete = yes regiments = { marine = { x = 0 y = 0 } marine = { x = 0 y = 1 } marine = { x = 1 y = 0 } marine = { x = 1 y = 1 } } } } } add_tech_bonus = { name = SFC_forza_navale_especiale bonus = 0.75 uses = 1 category = marine_tech category = tp_tech } if = { limit = { NOT = { has_completed_focus = SFC_strengthen_ascari_corps } NOT = { has_completed_focus = SFC_forza_navale_especiale } } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -905,7 +905,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_naval_coordination = 0.05 } add_to_variable = { SFC_rm_spotting_chance = 0.1 } add_to_variable = { SFC_rm_naval_strike_agility_factor = 0.05 } air_experience = 25.0 navy_experience = 25.0 add_tech_bonus = { name = SFC_naval_air_coordination bonus = 1.0 uses = 2 category = naval_bomber } if = { limit = { has_dlc = "By Blood Alone" } } }
+ completion_reward = { add_to_variable = { SFC_rm_naval_coordination = 0.05 } add_to_variable = { SFC_rm_spotting_chance = 0.1 } add_to_variable = { SFC_rm_naval_strike_agility_factor = 0.05 } air_experience = 25.0 navy_experience = 25.0 add_tech_bonus = { name = SFC_naval_air_coordination bonus = 0.5 uses = 2 category = naval_bomber } if = { limit = { has_dlc = "By Blood Alone" } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -917,33 +917,33 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_convoy_raiding_efficiency_factor = 0.02 } add_to_variable = { SFC_rm_naval_critical_score_chance_factor = 0.02 } add_to_variable = { SFC_rm_sub_retreat_speed = 0.05 } navy_experience = 25.0 }
+ completion_reward = { add_to_variable = { SFC_rm_convoy_raiding_efficiency_factor = 0.02 } add_to_variable = { SFC_rm_naval_critical_score_chance_factor = 0.02 } add_to_variable = { SFC_rm_sub_retreat_speed = 0.05 } navy_experience = 25.0 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_incrociatori_leggeri icon = GFX_sof_focus_unique_sfc_incrociatori_leggeri
  prerequisite = { focus = SFC_supermarina }
- mutually_exclusive = { focus = SFC_incrociatori_pesanti }
+ 
  x = -2
  y = 1
  relative_position_id = SFC_supermarina
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_screening_efficiency = 0.05 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } navy_experience = 25.0 add_mastery_bonus = { name = SFC_incrociatori_leggeri bonus = 0.2 days = 180 track = screens } add_doctrine_cost_reduction = { name = SFC_incrociatori_leggeri cost_reduction = 0.5 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_incrociatori_leggeri bonus = 1 uses = 1 category = ca_tech } }
+ completion_reward = { add_to_variable = { SFC_rm_screening_efficiency = 0.05 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } navy_experience = 25.0 add_mastery_bonus = { name = SFC_incrociatori_leggeri bonus = 0.2 days = 180 track = screens } add_doctrine_cost_reduction = { name = SFC_incrociatori_leggeri cost_reduction = 0.4 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_incrociatori_leggeri bonus = 0.5 uses = 1 category = ca_tech } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_incrociatori_leggeri_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_incrociatori_pesanti icon = GFX_sof_focus_unique_sfc_incrociatori_pesanti
  prerequisite = { focus = SFC_supermarina }
- mutually_exclusive = { focus = SFC_incrociatori_leggeri }
+ 
  x = 2
  y = 1
  relative_position_id = SFC_supermarina
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_strike_force_movement_org_loss = -0.05 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } navy_experience = 25.0 add_mastery_bonus = { name = SFC_incrociatori_pesanti bonus = 0.2 days = 180 track = capital_ships } add_doctrine_cost_reduction = { name = SFC_incrociatori_pesanti cost_reduction = 0.50 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_incrociatori_pesanti bonus = 1 uses = 1 category = ca_tech } }
+ completion_reward = { add_to_variable = { SFC_rm_strike_force_movement_org_loss = -0.05 } add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 } navy_experience = 25.0 add_mastery_bonus = { name = SFC_incrociatori_pesanti bonus = 0.2 days = 180 track = capital_ships } add_doctrine_cost_reduction = { name = SFC_incrociatori_pesanti cost_reduction = 0.4 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_incrociatori_pesanti bonus = 0.5 uses = 1 category = ca_tech } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_incrociatori_pesanti_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -955,7 +955,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_decryption_factor = 0.05 } add_to_variable = { SFC_rm_navy_intel_factor = 0.1 } navy_experience = 25.0 }
+ completion_reward = { add_to_variable = { SFC_rm_decryption_factor = 0.05 } add_to_variable = { SFC_rm_navy_intel_factor = 0.1 } navy_experience = 25.0 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -973,27 +973,27 @@ focus = {
 focus = {
  id = SFC_cruiser_submarines icon = GFX_sof_focus_unique_sfc_cruiser_submarines
  prerequisite = { focus = SFC_incrociatori_leggeri }
- mutually_exclusive = { focus = SFC_midget_submarines }
+ 
  x = -4
  y = 1
  relative_position_id = SFC_incrociatori_leggeri
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_cruiser_submarines bonus = 0.1 days = 180 track = submarines } add_tech_bonus = { name = SFC_cruiser_submarines bonus = 1.0 uses = 1 category = ss_tech } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_cruiser_submarines bonus = 0.1 days = 180 track = submarines } add_tech_bonus = { name = SFC_cruiser_submarines bonus = 0.75 uses = 1 category = ss_tech } else = { add_political_power = 40 } custom_effect_tooltip = SFC_cruiser_submarines_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_midget_submarines icon = GFX_sof_focus_unique_sfc_midget_submarines
  prerequisite = { focus = SFC_incrociatori_leggeri }
- mutually_exclusive = { focus = SFC_cruiser_submarines }
+ 
  x = -2
  y = 1
  relative_position_id = SFC_incrociatori_leggeri
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_midget_submarines bonus = 0.1 days = 180 track = submarines } add_tech_bonus = { name = SFC_midget_submarines bonus = 1.0 uses = 1 category = ss_tech } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_completed_focus = SFC_cooperation_programs } } }
+ completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_midget_submarines bonus = 0.1 days = 180 track = submarines } add_tech_bonus = { name = SFC_midget_submarines bonus = 0.75 uses = 1 category = ss_tech } else = { add_political_power = 40 } if = { limit = { has_completed_focus = SFC_cooperation_programs } } custom_effect_tooltip = SFC_midget_submarines_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1005,7 +1005,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_cacciatorpediniere_di_scorta bonus = 0.2 days = 180 grand_doctrine = new_base_strike } add_doctrine_cost_reduction = { name = SFC_cacciatorpediniere_di_scorta cost_reduction = 0.25 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_cacciatorpediniere_di_scorta bonus = 1.0 uses = 1 category = dd_tech } if = { limit = { has_dlc = "Man the Guns" } if = { limit = { has_tech = basic_dp_light_battery } } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_cacciatorpediniere_di_scorta bonus = 0.2 days = 180 grand_doctrine = new_base_strike } add_doctrine_cost_reduction = { name = SFC_cacciatorpediniere_di_scorta cost_reduction = 0.25 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_cacciatorpediniere_di_scorta bonus = 0.75 uses = 1 category = dd_tech } if = { limit = { has_dlc = "Man the Guns" } if = { limit = { has_tech = basic_dp_light_battery } } } else = { add_political_power = 40 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1017,7 +1017,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_rm_naval_detection = 0.1 } navy_experience = 15.0 add_tech_bonus = { name = SFC_ispettorato_dei_mezzi_antisommergibili ahead_reduction = 2 uses = 1 category = asw_tech } if = { limit = { has_dlc = "Man the Guns" } if = { limit = { has_tech = improved_sonar } } } else = { if = { limit = { NOT = { has_tech = improved_destroyer } } set_technology = { improved_destroyer = 1 } } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_rm_naval_detection = 0.1 } navy_experience = 15.0 add_tech_bonus = { name = SFC_ispettorato_dei_mezzi_antisommergibili ahead_reduction = 1 uses = 1 category = asw_tech } if = { limit = { has_dlc = "Man the Guns" } if = { limit = { has_tech = improved_sonar } } } else = { if = { limit = { NOT = { has_tech = improved_destroyer } } set_technology = { improved_destroyer = 1 } } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1029,33 +1029,33 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_navi_da_battaglia bonus = 0.2 days = 180 grand_doctrine = new_fleet_in_being } add_doctrine_cost_reduction = { name = SFC_navi_da_battaglia cost_reduction = 0.25 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_navi_da_battaglia bonus = 1 uses = 1 category = bb_tech } if = { limit = { has_dlc = "Man the Guns" } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { navy_experience = 15.0 add_mastery_bonus = { name = SFC_navi_da_battaglia bonus = 0.2 days = 180 grand_doctrine = new_fleet_in_being } add_doctrine_cost_reduction = { name = SFC_navi_da_battaglia cost_reduction = 0.25 uses = 1 category = naval_doctrine } add_tech_bonus = { name = SFC_navi_da_battaglia bonus = 0.5 uses = 1 category = bb_tech } if = { limit = { has_dlc = "Man the Guns" } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_proper_carriers icon = GFX_sof_focus_unique_sfc_proper_carriers
  prerequisite = { focus = SFC_incrociatori_pesanti }
- mutually_exclusive = { focus = SFC_refit_civilian_ships }
+ 
  x = 2
  y = 1
  relative_position_id = SFC_incrociatori_pesanti
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 15.0 add_tech_bonus = { name = SFC_proper_carriers bonus = 1.0 uses = 1 category = cv_tech } if = { limit = { has_dlc = "Man the Guns" } if = { limit = { NOT = { has_tech = basic_ship_hull_carrier } } set_technology = { basic_ship_hull_carrier = 1 } } } else = { if = { limit = { NOT = { has_tech = basic_carrier } } set_technology = { basic_carrier = 1 } } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { navy_experience = 15.0 add_tech_bonus = { name = SFC_proper_carriers bonus = 0.5 uses = 1 category = cv_tech } if = { limit = { has_dlc = "Man the Guns" } if = { limit = { NOT = { has_tech = basic_ship_hull_carrier } } set_technology = { basic_ship_hull_carrier = 1 } } } else = { if = { limit = { NOT = { has_tech = basic_carrier } } set_technology = { basic_carrier = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = SFC_proper_carriers_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_refit_civilian_ships icon = GFX_sof_focus_unique_sfc_refit_civilian_ships
  prerequisite = { focus = SFC_incrociatori_pesanti }
- mutually_exclusive = { focus = SFC_proper_carriers }
+ 
  x = 4
  y = 1
  relative_position_id = SFC_incrociatori_pesanti
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 15.0 if = { limit = { has_dlc = "Man the Guns" } if = { limit = { NOT = { has_tech = early_ship_hull_carrier } } set_technology = { early_ship_hull_carrier = 1 } } } else = { if = { limit = { NOT = { has_tech = early_carrier } } set_technology = { early_carrier = 1 } } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { navy_experience = 15.0 if = { limit = { has_dlc = "Man the Guns" } if = { limit = { NOT = { has_tech = early_ship_hull_carrier } } set_technology = { early_ship_hull_carrier = 1 } } } else = { if = { limit = { NOT = { has_tech = early_carrier } } set_technology = { early_carrier = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = SFC_refit_civilian_ships_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1290,27 +1290,27 @@ focus = {
 focus = {
  id = SFC_la_battaglia_del_grano icon = GFX_sof_focus_unique_sfc_la_battaglia_del_grano
  prerequisite = { focus = SFC_culto_del_duce }
- mutually_exclusive = { focus = SFC_la_battaglia_per_la_terra }
+ 
  x = -1
  y = 1
  relative_position_id = SFC_culto_del_duce
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_timed_idea = { idea = sof_van_cor_ita_battaglia_del_grano days = 730 } }
+ completion_reward = { add_timed_idea = { idea = sof_van_cor_ita_battaglia_del_grano days = 730 } custom_effect_tooltip = SFC_la_battaglia_del_grano_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_la_battaglia_per_la_terra icon = GFX_sof_focus_unique_sfc_la_battaglia_per_la_terra
  prerequisite = { focus = SFC_culto_del_duce }
- mutually_exclusive = { focus = SFC_la_battaglia_del_grano }
+ 
  x = 1
  y = 1
  relative_position_id = SFC_culto_del_duce
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } add_timed_idea = { idea = sof_van_cor_ita_battaglia_per_la_terra days = 730 } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } add_timed_idea = { idea = sof_van_cor_ita_battaglia_per_la_terra days = 730 } custom_effect_tooltip = SFC_la_battaglia_per_la_terra_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1372,7 +1372,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_conscription_factor = 0.1 } add_political_power = 75 add_war_support = 0.02 add_stability = 0.02 add_popularity = { ideology = fascism popularity = 0.05 } custom_effect_tooltip = sof_hist_ita_dino_grandi_unlock_tt }
+ completion_reward = { add_to_variable = { SFC_re_conscription_factor = 0.1 } add_political_power = 75 add_war_support = 0.02 add_stability = 0.02 add_popularity = { ideology = fascism popularity = 0.05 } custom_effect_tooltip = sof_hist_ita_dino_grandi_unlock_tt hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1417,7 +1417,7 @@ focus = {
 focus = {
  id = SFC_battaglioni_d_assalto icon = GFX_sof_focus_unique_sfc_battaglioni_d_assalto
  prerequisite = { focus = SFC_security_militias }
- mutually_exclusive = { focus = SFC_strengthen_the_blackshirts }
+ 
  x = -1
  y = 2
  relative_position_id = SFC_security_militias
@@ -1425,20 +1425,20 @@ focus = {
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_tech_bonus = { name = SFC_battaglioni_d_assalto bonus = 0.5 uses = 1 category = infantry_weapons } }
+ completion_reward = { add_tech_bonus = { name = SFC_battaglioni_d_assalto bonus = 0.5 uses = 1 category = infantry_weapons } custom_effect_tooltip = SFC_battaglioni_d_assalto_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_strengthen_the_blackshirts icon = GFX_sof_focus_unique_sfc_strengthen_the_blackshirts
  prerequisite = { focus = SFC_security_militias }
- mutually_exclusive = { focus = SFC_battaglioni_d_assalto }
+ 
  x = 2
  y = 0
  relative_position_id = SFC_battaglioni_d_assalto
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { has_idea = sof_van_cor_ita_camicie_nere } swap_ideas = { remove_idea = sof_van_cor_ita_camicie_nere add_idea = sof_van_cor_ita_camicie_nere_strengthened } } else = { add_ideas = sof_van_cor_ita_camicie_nere_strengthened } }
+ completion_reward = { if = { limit = { has_idea = sof_van_cor_ita_camicie_nere } swap_ideas = { remove_idea = sof_van_cor_ita_camicie_nere add_idea = sof_van_cor_ita_camicie_nere_strengthened } } else = { add_ideas = sof_van_cor_ita_camicie_nere_strengthened } custom_effect_tooltip = SFC_strengthen_the_blackshirts_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1478,7 +1478,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_WAR_SUPPORT }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_promote_cost_factor = -0.2 } add_to_variable = { SFC_re_command_power_gain_mult = 0.15 } army_experience = 25.0 navy_experience = 25.0 air_experience = 25.0 add_war_support = 0.05 }
+ completion_reward = { add_to_variable = { SFC_re_promote_cost_factor = -0.2 } add_to_variable = { SFC_re_command_power_gain_mult = 0.15 } army_experience = 25.0 navy_experience = 25.0 air_experience = 25.0 add_war_support = 0.05 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1492,7 +1492,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_BALANCE_OF_POWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_war_support = 0.05 add_stability = -0.05 add_political_power = 75 add_command_power = 50 add_popularity = { ideology = fascism popularity = 0.1 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = super_heavy_tank_chassis } } else = { add_tech_bonus = { name = SFC_capo_supremo ahead_reduction = 2 bonus = 1.0 uses = 1 technology = super_heavy_tank_chassis } } } else = { add_tech_bonus = { name = SFC_capo_supremo ahead_reduction = 2 bonus = 1.0 uses = 1 technology = super_heavy_tank technology = super_heavy_td technology = super_heavy_art technology = super_heavy_spaa } } }
+ completion_reward = { add_war_support = 0.05 add_stability = -0.05 add_political_power = 75 add_command_power = 50 add_popularity = { ideology = fascism popularity = 0.1 } if = { limit = { has_dlc = "No Step Back" } if = { limit = { has_tech = super_heavy_tank_chassis } } else = { add_tech_bonus = { name = SFC_capo_supremo ahead_reduction = 1 bonus = 0.5 uses = 1 technology = super_heavy_tank_chassis } } } else = { add_tech_bonus = { name = SFC_capo_supremo ahead_reduction = 1 bonus = 0.5 uses = 1 technology = super_heavy_tank technology = super_heavy_td technology = super_heavy_art technology = super_heavy_spaa } } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1528,7 +1528,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_non_core_manpower = 0.15 } }
+ completion_reward = { add_to_variable = { SFC_re_non_core_manpower = 0.03 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1540,7 +1540,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_army_morale_factor = 0.05 } add_to_variable = { SFC_re_conscription_factor = 0.05 } add_to_variable = { SFC_re_army_attack_factor = 0.05 } add_to_variable = { SFC_ra_air_superiority_bonus_in_combat = 0.05 } add_to_variable = { SFC_rm_naval_morale_factor = 0.05 } add_stability = -0.1 add_war_support = 0.1 }
+ completion_reward = { add_to_variable = { SFC_re_army_morale_factor = 0.05 } add_to_variable = { SFC_re_conscription_factor = 0.05 } add_to_variable = { SFC_re_army_attack_factor = 0.05 } add_to_variable = { SFC_ra_air_superiority_bonus_in_combat = 0.05 } add_to_variable = { SFC_rm_naval_morale_factor = 0.05 } add_stability = -0.1 add_war_support = 0.1 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1615,7 +1615,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_BALANCE_OF_POWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1721,21 +1721,21 @@ focus = {
  id = SFC_reorganize_regio_esercito icon = GFX_sof_focus_unique_sfc_reorganize_regio_esercito
  prerequisite = { focus = SFC_italo_balbo_focus }
  prerequisite = { focus = SFC_stop_the_squandering }
- mutually_exclusive = { focus = SFC_reinforce_regia_aeronautica }
+ 
  relative_position_id = SFC_italo_balbo_focus
  x = -1
  y = 2
  cost = 10
  search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_INDUSTRY FOCUS_FILTER_BALANCE_OF_POWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 25.0 add_timed_idea = { idea = sof_van_cor_ita_prioritizing_the_military days = 365 } add_to_variable = { SFC_re_infantry_attack = 0.05 } add_to_variable = { SFC_re_motorized_attack = 0.05 } add_to_variable = { SFC_re_mechanized_attack = 0.05 } }
+ completion_reward = { army_experience = 25.0 add_timed_idea = { idea = sof_van_cor_ita_prioritizing_the_military days = 365 } add_to_variable = { SFC_re_infantry_attack = 0.05 } add_to_variable = { SFC_re_motorized_attack = 0.05 } add_to_variable = { SFC_re_mechanized_attack = 0.05 } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_reorganize_regio_esercito_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_reinforce_regia_aeronautica icon = GFX_sof_focus_unique_sfc_reinforce_regia_aeronautica
  prerequisite = { focus = SFC_italo_balbo_focus }
  prerequisite = { focus = SFC_stop_the_squandering }
- mutually_exclusive = { focus = SFC_reorganize_regio_esercito }
+ 
  relative_position_id = SFC_italo_balbo_focus
  x = 1
  y = 2
@@ -1743,7 +1743,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY FOCUS_FILTER_BALANCE_OF_POWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { air_experience = 25.0 add_timed_idea = { idea = sof_van_cor_ita_prioritizing_the_military days = 365 } add_to_variable = { SFC_ra_air_accidents_factor = -0.1 } add_to_variable = { SFC_ra_air_agility_factor = 0.05 } add_to_variable = { SFC_ra_air_attack = 0.05 } add_to_variable = { SFC_ra_air_superiority_bonus_in_combat = 0.05 } }
+ completion_reward = { air_experience = 25.0 add_timed_idea = { idea = sof_van_cor_ita_prioritizing_the_military days = 365 } add_to_variable = { SFC_ra_air_accidents_factor = -0.1 } add_to_variable = { SFC_ra_air_agility_factor = 0.05 } add_to_variable = { SFC_ra_air_attack = 0.05 } add_to_variable = { SFC_ra_air_superiority_bonus_in_combat = 0.05 } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_reinforce_regia_aeronautica_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1755,7 +1755,7 @@ focus = {
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_ra_ground_attack_factor = 0.05 } add_to_variable = { SFC_ra_air_intercept_efficiency = 0.05 } add_to_variable = { SFC_re_org_loss_when_moving = -0.05 } add_to_variable = { SFC_re_out_of_supply = -0.05 } }
+ completion_reward = { add_to_variable = { SFC_ra_ground_attack_factor = 0.05 } add_to_variable = { SFC_ra_air_intercept_efficiency = 0.05 } add_to_variable = { SFC_re_org_loss_when_moving = -0.05 } add_to_variable = { SFC_re_out_of_supply = -0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1767,7 +1767,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_ARMY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_ra_air_mission_efficiency = 0.05 } add_to_variable = { SFC_ra_air_cas_present_factor = 0.05 } add_to_variable = { SFC_re_army_army_org_factor = 0.05 } add_to_variable = { SFC_re_armor_attack = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_ra_air_mission_efficiency = 0.05 } add_to_variable = { SFC_ra_air_cas_present_factor = 0.05 } add_to_variable = { SFC_re_army_army_org_factor = 0.05 } add_to_variable = { SFC_re_armor_attack = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1786,27 +1786,27 @@ focus = {
 focus = {
  id = SFC_oil_in_tripoli icon = GFX_sof_focus_unique_sfc_oil_in_tripoli
  prerequisite = { focus = SFC_the_fourth_shore }
- mutually_exclusive = { focus = SFC_steel_in_tripoli }
+ 
  relative_position_id = SFC_the_fourth_shore
  x = -1
  y = 1
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = oil amount = 4 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } add_building_construction = { type = fuel_silo level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { has_tech = synth_oil_experiments } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = synthetic_refinery size > 0 } } add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } } add_tech_bonus = { name = SFC_oil_in_tripoli bonus = 1 uses = 1 category = synth_resources } }
+ completion_reward = { add_fuel = 2500 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT fuel_silo < 20 } add_building_construction = { type = fuel_silo level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { has_tech = synth_oil_experiments } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = synthetic_refinery size > 0 } } add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } } add_tech_bonus = { name = SFC_oil_in_tripoli bonus = 0.5 uses = 1 category = synth_resources } custom_effect_tooltip = SFC_oil_in_tripoli_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_steel_in_tripoli icon = GFX_sof_focus_unique_sfc_steel_in_tripoli
  prerequisite = { focus = SFC_the_fourth_shore }
- mutually_exclusive = { focus = SFC_oil_in_tripoli }
+ 
  relative_position_id = SFC_the_fourth_shore
  x = 1
  y = 1
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = steel amount = 4 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_steel_in_tripoli bonus = 1 uses = 1 category = excavation_tech } }
+ completion_reward = { sof_balance_resource_steel = yes random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_steel_in_tripoli bonus = 0.5 uses = 1 category = excavation_tech } custom_effect_tooltip = SFC_steel_in_tripoli_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1818,20 +1818,20 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_BALANCE_OF_POWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } add_to_variable = { SFC_re_irregular_org = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } add_building_construction = { type = bunker level = 1 instant_build = yes province = { all_provinces = yes } } } } else = { add_political_power = 40 } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } division_template = { name = "Divisione Ascari Libica" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } }
+ completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } add_to_variable = { SFC_re_irregular_org = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } add_building_construction = { type = bunker level = 1 instant_build = yes province = { all_provinces = yes } } } } else = { add_political_power = 40 } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } division_template = { name = "Divisione Ascari Libica" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_seek_british_military_cooperation icon = GFX_sof_focus_unique_sfc_seek_british_military_cooperation
  prerequisite = { focus = SFC_dino_grandi_focus focus = SFC_monarchia_d_italia }
- mutually_exclusive = { focus = SFC_invite_france_to_military_partnership }
+ 
  relative_position_id = SFC_dino_grandi_focus
  x = 2
  y = 1
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = ROU ROU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } ROU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
+ completion_reward = { if = { limit = { country_exists = ROU ROU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } ROU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Arms Against Tyranny" } } custom_effect_tooltip = SFC_seek_british_military_cooperation_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1849,14 +1849,14 @@ focus = {
 focus = {
  id = SFC_invite_france_to_military_partnership icon = GFX_sof_focus_unique_sfc_invite_france_to_military_partnership
  prerequisite = { focus = SFC_dino_grandi_focus focus = SFC_monarchia_d_italia }
- mutually_exclusive = { focus = SFC_seek_british_military_cooperation }
+ 
  relative_position_id = SFC_seek_british_military_cooperation
  x = 2
  y = 0
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = PRS PRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } PRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
+ completion_reward = { if = { limit = { country_exists = PRS PRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } PRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Arms Against Tyranny" } } custom_effect_tooltip = SFC_invite_france_to_military_partnership_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1906,7 +1906,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { has_dlc = "La Resistance" } } if = { limit = { NOT = { has_tech = atomic_research } } add_tech_bonus = { name = SFC_meritocracy bonus = 0.75 uses = 1 category = nuclear } add_breakthrough_progress = { specialization = specialization_nuclear value = 0.25 } } else = { add_breakthrough_progress = { specialization = specialization_nuclear value = 0.5 } } custom_effect_tooltip = sof_hist_ita_giovanni_duca_unlock_tt custom_effect_tooltip = sof_hist_ita_vittorio_emanuele_orlando_unlock_tt }
+ completion_reward = { if = { limit = { has_dlc = "La Resistance" } } if = { limit = { NOT = { has_tech = atomic_research } } add_tech_bonus = { name = SFC_meritocracy bonus = 0.5 uses = 1 category = nuclear } add_breakthrough_progress = { specialization = specialization_nuclear value = 0.25 } } else = { add_breakthrough_progress = { specialization = specialization_nuclear value = 0.5 } } custom_effect_tooltip = sof_hist_ita_giovanni_duca_unlock_tt custom_effect_tooltip = sof_hist_ita_vittorio_emanuele_orlando_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1918,7 +1918,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.05 } add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.05 } add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_iri_consumer_goods_factor = -0.05 } add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.05 } add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1930,7 +1930,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_conversion_cost_civ_to_mil_factor = -0.1 } add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_line_change_production_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_iri_conversion_cost_civ_to_mil_factor = -0.1 } add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_line_change_production_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1943,7 +1943,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.05 } add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_production_lack_of_resource_penalty_factor = -0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.05 } add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_production_lack_of_resource_penalty_factor = -0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1968,7 +1968,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_local_resources_factor = 0.1 } add_to_variable = { SFC_military_industry_dm_production_lack_of_resource_penalty_factor = -0.15 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = steel amount = 4 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = oil amount = 2 } } }
+ completion_reward = { add_to_variable = { SFC_iri_local_resources_factor = 0.1 } add_to_variable = { SFC_military_industry_dm_production_lack_of_resource_penalty_factor = -0.15 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } sof_balance_resource_steel = yes add_fuel = 2500 hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1980,7 +1980,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = -0.35 } add_to_variable = { SFC_iri_conversion_cost_civ_to_mil_factor = 0.15 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = -0.08 } add_to_variable = { SFC_iri_conversion_cost_civ_to_mil_factor = -0.1 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2155,7 +2155,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_cavalry_defence_factor = 0.05 } add_popularity = { ideology = neutrality popularity = 0.05 } army_experience = 15.0 if = { limit = { NOT = { has_template = "Reggimento Corazzieri" } } division_template = { name = "Reggimento Corazzieri" regiments = { cavalry = { x = 0 y = 0 } cavalry = { x = 0 y = 1 } cavalry = { x = 0 y = 2 } cavalry = { x = 1 y = 0 } cavalry = { x = 1 y = 1 } cavalry = { x = 1 y = 2 } mot_artillery_brigade = { x = 2 y = 0 } } support = { engineer = { x = 0 y = 0 } artillery = { x = 0 y = 1 } anti_air = { x = 0 y = 2 } } } } }
+ completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_cavalry_defence_factor = 0.05 } add_popularity = { ideology = neutrality popularity = 0.05 } army_experience = 15.0 if = { limit = { NOT = { has_template = "Reggimento Corazzieri" } } division_template = { name = "Reggimento Corazzieri" regiments = { cavalry = { x = 0 y = 0 } cavalry = { x = 0 y = 1 } cavalry = { x = 0 y = 2 } cavalry = { x = 1 y = 0 } cavalry = { x = 1 y = 1 } cavalry = { x = 1 y = 2 } mot_artillery_brigade = { x = 2 y = 0 } } support = { engineer = { x = 0 y = 0 } artillery = { x = 0 y = 1 } anti_air = { x = 0 y = 2 } } } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2180,7 +2180,7 @@ focus = {
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_militia_defence_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_militia_attack_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_militia_defence_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_militia_attack_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2242,7 +2242,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { has_dlc = "No Compromise, No Surrender" } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_mare_nostrum_bba ahead_reduction = 2 bonus = 1.0 uses = 1 technology = super_heavy_tank_chassis } add_tech_bonus = { name = SFC_mare_nostrum_bba ahead_reduction = 2 bonus = 1.0 uses = 1 category = heavy_air } add_breakthrough_progress = { specialization = specialization_naval value = 0.75 } }
+ completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { has_dlc = "No Compromise, No Surrender" } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 1 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_mare_nostrum_bba ahead_reduction = 1 bonus = 0.5 uses = 1 technology = super_heavy_tank_chassis } add_tech_bonus = { name = SFC_mare_nostrum_bba ahead_reduction = 1 bonus = 0.5 uses = 1 category = heavy_air } add_breakthrough_progress = { specialization = specialization_naval value = 0.75 } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2254,7 +2254,7 @@ focus = {
  cost = 5
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_militia_speed_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_militia_attack_factor = 0.03 } }
+ completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_militia_speed_factor = 0.05 } add_to_variable = { SFC_re_modifier_army_sub_unit_militia_attack_factor = 0.03 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2266,7 +2266,7 @@ focus = {
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_army_core_defence_factor = 0.05 } add_to_variable = { SFC_re_army_speed_factor = 0.05 } add_to_variable = { SFC_re_max_command_power_mult = 0.15 } }
+ completion_reward = { add_to_variable = { SFC_re_army_core_defence_factor = 0.05 } add_to_variable = { SFC_re_army_speed_factor = 0.05 } add_to_variable = { SFC_re_max_command_power_mult = 0.15 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2290,7 +2290,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_production_speed_infrastructure_factor = 0.1 } add_to_variable = { SFC_re_supply_node_range = 0.1 } }
+ completion_reward = { add_to_variable = { SFC_iri_production_speed_infrastructure_factor = 0.1 } add_to_variable = { SFC_re_supply_node_range = 0.1 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2302,7 +2302,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_the_king_of_the_skies ahead_reduction = 2 bonus = 1.0 uses = 1 category = heavy_air } if = { limit = { has_dlc = "By Blood Alone" } } add_breakthrough_progress = { specialization = specialization_air value = 0.5 } if = { limit = { has_dlc = "Gotterdammerung" } add_to_variable = { SFC_ra_sp_air_intercontinental_bomber_speed_factor = 0.2 } add_to_variable = { SFC_ra_sp_air_mothership_aircraft_speed_factor = 0.2 } } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_tech_bonus = { name = SFC_the_king_of_the_skies ahead_reduction = 1 bonus = 0.5 uses = 1 category = heavy_air } if = { limit = { has_dlc = "By Blood Alone" } } add_breakthrough_progress = { specialization = specialization_air value = 0.5 } if = { limit = { has_dlc = "Gotterdammerung" } add_to_variable = { SFC_ra_sp_air_intercontinental_bomber_speed_factor = 0.2 } add_to_variable = { SFC_ra_sp_air_mothership_aircraft_speed_factor = 0.2 } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2314,7 +2314,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } } else = { add_tech_bonus = { name = SFC_modern_musculus ahead_reduction = 2 bonus = 1.0 uses = 1 technology = super_heavy_tank technology = super_heavy_td technology = super_heavy_art technology = super_heavy_spaa } } add_breakthrough_progress = { specialization = specialization_land value = 0.5 } if = { limit = { has_dlc = "Gotterdammerung" } add_to_variable = { SFC_re_sp_land_land_cruiser_speed_factor = 0.2 } } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "No Step Back" } } else = { add_tech_bonus = { name = SFC_modern_musculus ahead_reduction = 1 bonus = 0.5 uses = 1 technology = super_heavy_tank technology = super_heavy_td technology = super_heavy_art technology = super_heavy_spaa } } add_breakthrough_progress = { specialization = specialization_land value = 0.5 } if = { limit = { has_dlc = "Gotterdammerung" } add_to_variable = { SFC_re_sp_land_land_cruiser_speed_factor = 0.2 } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2326,7 +2326,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Man the Guns" } add_tech_bonus = { name = SFC_caligulas_pride ahead_reduction = 2 bonus = 1.0 uses = 1 category = bb_tech category = bc_tech category = cat_ship_heavy_battery } } else = { if = { limit = { NOT = { has_tech = heavy_battleship2 } } add_tech_bonus = { name = SFC_caligulas_pride ahead_reduction = 2 bonus = 1.0 uses = 1 category = shbb_tech } } } add_breakthrough_progress = { specialization = specialization_naval value = 0.5 } if = { limit = { has_dlc = "Gotterdammerung" } add_to_variable = { SFC_rm_sp_naval_ice_carrier_speed_factor = 0.2 } } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Man the Guns" } add_tech_bonus = { name = SFC_caligulas_pride ahead_reduction = 1 bonus = 0.5 uses = 1 category = bb_tech category = bc_tech category = cat_ship_heavy_battery } } else = { if = { limit = { NOT = { has_tech = heavy_battleship2 } } add_tech_bonus = { name = SFC_caligulas_pride ahead_reduction = 1 bonus = 0.5 uses = 1 category = shbb_tech } } } add_breakthrough_progress = { specialization = specialization_naval value = 0.5 } if = { limit = { has_dlc = "Gotterdammerung" } add_to_variable = { SFC_rm_sp_naval_ice_carrier_speed_factor = 0.2 } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2415,7 +2415,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = synthetic_refinery size > 0 } } add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_resource = { type = oil amount = 2 } } }
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT synthetic_refinery < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = synthetic_refinery size > 0 } } add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } add_fuel = 2500 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2549,7 +2549,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFC_sea_wolves_bba bonus = 1.0 uses = 1 category = ss_tech } add_mastery_bonus = { name = SFC_sea_wolves_bba bonus = 0.2 days = 240 track = submarines } }
+ completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFC_sea_wolves_bba bonus = 0.75 uses = 1 category = ss_tech } add_mastery_bonus = { name = SFC_sea_wolves_bba bonus = 0.2 days = 240 track = submarines } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2668,53 +2668,53 @@ focus = {
 focus = {
  id = SFC_war_with_greece icon = GFX_sof_focus_unique_sfc_war_with_greece
  prerequisite = { focus = SFC_italian_irredentism }
- mutually_exclusive = { focus = SFC_befriend_greece }
+ 
  x = 0
  y = 2
  relative_position_id = SFC_italian_irredentism
  cost = 5
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_languedoc = yes }
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_languedoc = yes custom_effect_tooltip = SFC_war_with_greece_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_befriend_greece icon = GFX_sof_focus_unique_sfc_befriend_greece
  prerequisite = { focus = SFC_italy_first }
- mutually_exclusive = { focus = SFC_war_with_greece }
+ 
  x = 1
  y = 3
  relative_position_id = SFC_italy_first
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = SFC_befriend_greece_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_claims_on_turkey_bba icon = GFX_sof_focus_unique_sfc_claims_on_turkey_bba
  prerequisite = { focus = SFC_war_with_greece focus = SFC_befriend_greece }
- mutually_exclusive = { focus = SFC_befriend_turkey }
+ 
  x = 0
  y = 1
  relative_position_id = SFC_war_with_greece
  cost = 5
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_paca = yes }
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_paca = yes custom_effect_tooltip = SFC_claims_on_turkey_bba_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_befriend_turkey icon = GFX_sof_focus_unique_sfc_befriend_turkey
  prerequisite = { focus = SFC_war_with_greece focus = SFC_befriend_greece }
- mutually_exclusive = { focus = SFC_claims_on_turkey_bba }
+ 
  x = 2
  y = 0
  relative_position_id = SFC_claims_on_turkey_bba
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = TOU TOU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } TOU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { country_exists = TOU TOU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } TOU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = SFC_befriend_turkey_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2733,27 +2733,27 @@ focus = {
  id = SFC_spanish_italian_alliance icon = GFX_sof_focus_unique_sfc_spanish_italian_alliance
  prerequisite = { focus = SFC_corpo_di_truppe_volontarie }
  prerequisite = { focus = SFC_italy_first }
- mutually_exclusive = { focus = SFC_demand_balearic_islands_bba }
+ 
  x = -1
  y = 2
  relative_position_id = SFC_corpo_di_truppe_volontarie
  cost = 5
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = BRD BRD = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } BRD = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { country_exists = BRD BRD = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } BRD = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = SFC_spanish_italian_alliance_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_demand_balearic_islands_bba icon = GFX_sof_focus_unique_sfc_demand_balearic_islands_bba
  prerequisite = { focus = SFC_corpo_di_truppe_volontarie }
- mutually_exclusive = { focus = SFC_spanish_italian_alliance }
+ 
  x = 1
  y = 2
  relative_position_id = SFC_corpo_di_truppe_volontarie
  cost = 5
  search_filters = { FOCUS_FILTER_ANNEXATION }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_corsica = yes }
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_corsica = yes custom_effect_tooltip = SFC_demand_balearic_islands_bba_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2798,27 +2798,27 @@ focus = {
 focus = {
  id = SFC_organize_strikes_in_the_north icon = GFX_sof_focus_unique_sfc_organize_strikes_in_the_north
  prerequisite = { focus = SFC_unite_the_opposition }
- mutually_exclusive = { focus = SFC_the_southern_farmlands }
+ 
  x = -1
  y = 1
  relative_position_id = SFC_unite_the_opposition
  cost = 5
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sof_van_strike_program }
+ completion_reward = { set_country_flag = sof_van_strike_program custom_effect_tooltip = SFC_organize_strikes_in_the_north_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
  id = SFC_the_southern_farmlands icon = GFX_sof_focus_unique_sfc_the_southern_farmlands
  prerequisite = { focus = SFC_unite_the_opposition }
- mutually_exclusive = { focus = SFC_organize_strikes_in_the_north }
+ 
  x = 1
  y = 1
  relative_position_id = SFC_unite_the_opposition
  cost = 5
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } custom_effect_tooltip = SFC_the_southern_farmlands_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2917,7 +2917,7 @@ focus = {
  cost = 5
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2977,7 +2977,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_stability = -0.05 add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.1 } add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.1 } add_to_variable = { SFC_iri_production_speed_dockyard_factor = 0.1 } add_to_variable = { SFC_iri_production_speed_infrastructure_factor = 0.1 } }
+ completion_reward = { add_stability = -0.05 add_to_variable = { SFC_iri_production_speed_industrial_complex_factor = 0.1 } add_to_variable = { SFC_iri_production_speed_arms_factory_factor = 0.1 } add_to_variable = { SFC_iri_production_speed_dockyard_factor = 0.1 } add_to_variable = { SFC_iri_production_speed_infrastructure_factor = 0.1 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2989,7 +2989,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_stability = -0.05 add_to_variable = { SFC_iri_consumer_goods_factor = -0.04 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_dockyard = 0.05 } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
+ completion_reward = { add_stability = -0.05 add_to_variable = { SFC_iri_consumer_goods_factor = -0.04 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_dockyard = 0.05 } if = { limit = { has_dlc = "Arms Against Tyranny" } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3065,7 +3065,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 25.0 air_experience = 25.0 navy_experience = 25.0 add_command_power = 50 add_doctrine_cost_reduction = { name = SFC_army_modernization cost_reduction = 0.75 uses = 3 category = land_doctrine category = air_doctrine category = naval_doctrine } }
+ completion_reward = { army_experience = 25.0 air_experience = 25.0 navy_experience = 25.0 add_command_power = 50 add_doctrine_cost_reduction = { name = SFC_army_modernization cost_reduction = 0.4 uses = 2 category = land_doctrine category = air_doctrine category = naval_doctrine } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3102,7 +3102,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = TOU TOU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } TOU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } army_experience = 25.0 air_experience = 25.0 navy_experience = 25.0 add_doctrine_cost_reduction = { name = SFC_military_cooperation cost_reduction = 0.75 uses = 1 category = land_doctrine } }
+ completion_reward = { if = { limit = { country_exists = TOU TOU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } TOU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } army_experience = 25.0 air_experience = 25.0 navy_experience = 25.0 add_doctrine_cost_reduction = { name = SFC_military_cooperation cost_reduction = 0.4 uses = 1 category = land_doctrine } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3187,7 +3187,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_conscription_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_re_conscription_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3198,8 +3198,8 @@ focus = {
  relative_position_id = SFC_combined_research_effort
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
- available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } if = { limit = { has_dlc = "La Resistance" } if = { limit = { has_idea = sof_van_cor_ita_servizio_informazione_militare_ns } swap_ideas = { remove_idea = sof_van_cor_ita_servizio_informazione_militare_ns add_idea = sof_van_cor_ita_servizio_informazione_militare_banda_carita } } else = { add_ideas = sof_van_cor_ita_servizio_informazione_militare_banda_carita } } if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } }
+ available = { is_subject = no has_capitulated = no  custom_trigger_tooltip = { tooltip = sof_balance_research_requirements_tt sof_balance_research_ready = yes } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } if = { limit = { has_dlc = "La Resistance" } if = { limit = { has_idea = sof_van_cor_ita_servizio_informazione_militare_ns } swap_ideas = { remove_idea = sof_van_cor_ita_servizio_informazione_militare_ns add_idea = sof_van_cor_ita_servizio_informazione_militare_banda_carita } } else = { add_ideas = sof_van_cor_ita_servizio_informazione_militare_banda_carita } } custom_effect_tooltip = sof_balance_research_slot_tt sof_balance_research_slot = yes else = { add_political_power = 75 } hidden_effect = { sof_balance_clamp = yes } custom_effect_tooltip = SFC_il_sol_dell_avvenire_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3249,7 +3249,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_dockyard = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_factory = 0.05 } add_to_variable = { SFC_military_industry_dm_industrial_capacity_dockyard = 0.05 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3261,7 +3261,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.1 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_military_industry_dm_production_factory_start_efficiency_factor = 0.05 } add_to_variable = { SFC_military_industry_dm_factory_max_efficiency_factor = 0.1 } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3357,8 +3357,8 @@ focus = {
  relative_position_id = SFC_italia_libera
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
- available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } add_ideas = sof_van_cor_ita_scientific_cooperation_ns set_country_flag = sof_van_science_host sof_van_reward_sync = yes }
+ available = { is_subject = no has_capitulated = no  custom_trigger_tooltip = { tooltip = sof_balance_research_requirements_tt sof_balance_research_ready = yes } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof_balance_research_slot_tt sof_balance_research_slot = yes else = { add_political_power = 75 } add_ideas = sof_van_cor_ita_scientific_cooperation_ns set_country_flag = sof_van_science_host sof_van_reward_sync = yes custom_effect_tooltip = SFC_scientific_cooperation_balance_note_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3370,7 +3370,7 @@ focus = {
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_army_core_defence_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_re_army_core_defence_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3456,7 +3456,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_iri_local_resources_factor = 0.05 } }
+ completion_reward = { add_to_variable = { SFC_iri_local_resources_factor = 0.05 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3541,7 +3541,7 @@ focus = {
  cost = 10
  search_filters = {  }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_supply_consumption_factor = -0.05 } add_to_variable = { SFC_re_acclimatization_hot_climate_gain_factor = 0.15 } add_to_variable = { SFC_re_heat_attrition_factor = -0.1 } add_to_variable = { SFC_rm_naval_invasion_prep_speed = 0.1 } add_to_variable = { SFC_rm_naval_invasion_capacity = 10 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } add_building_construction = { type = bunker level = 1 instant_build = yes province = { all_provinces = yes } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } add_building_construction = { type = coastal_bunker level = 1 instant_build = yes province = { all_provinces = yes limit_to_coastal = yes } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT anti_air_building < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT anti_air_building < 20 } add_building_construction = { type = anti_air_building level = 1 instant_build = yes } } } else = { add_political_power = 40 } }
+ completion_reward = { add_to_variable = { SFC_re_supply_consumption_factor = -0.05 } add_to_variable = { SFC_re_acclimatization_hot_climate_gain_factor = 0.15 } add_to_variable = { SFC_re_heat_attrition_factor = -0.1 } add_to_variable = { SFC_rm_naval_invasion_prep_speed = 0.1 } add_to_variable = { SFC_rm_naval_invasion_capacity = 3 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } add_building_construction = { type = bunker level = 1 instant_build = yes province = { all_provinces = yes } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT coastal_bunker < 10 is_coastal = yes } add_building_construction = { type = coastal_bunker level = 1 instant_build = yes province = { all_provinces = yes limit_to_coastal = yes } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT anti_air_building < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT anti_air_building < 20 } add_building_construction = { type = anti_air_building level = 1 instant_build = yes } } } else = { add_political_power = 40 } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3553,7 +3553,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_irregular_org = 0.05 } if = { limit = { NOT = { has_template = "Truppe Irregolari a Cavallo" } } if = { limit = { NOT = { has_template = "Truppe Irregolari a Cavallo" } } division_template = { name = "Truppe Irregolari a Cavallo" regiments = { cavalry = { x = 0 y = 0 } cavalry = { x = 0 y = 1 } cavalry = { x = 1 y = 0 } cavalry = { x = 1 y = 1 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Truppe Irregolari di Cammelli" } } if = { limit = { NOT = { has_template = "Truppe Irregolari di Cammelli" } } division_template = { name = "Truppe Irregolari di Cammelli" regiments = { camelry = { x = 0 y = 0 } camelry = { x = 0 y = 1 } camelry = { x = 1 y = 0 } camelry = { x = 1 y = 1 } } priority = 0 } } } }
+ completion_reward = { add_to_variable = { SFC_re_irregular_org = 0.05 } if = { limit = { NOT = { has_template = "Truppe Irregolari a Cavallo" } } if = { limit = { NOT = { has_template = "Truppe Irregolari a Cavallo" } } division_template = { name = "Truppe Irregolari a Cavallo" regiments = { cavalry = { x = 0 y = 0 } cavalry = { x = 0 y = 1 } cavalry = { x = 1 y = 0 } cavalry = { x = 1 y = 1 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Truppe Irregolari di Cammelli" } } if = { limit = { NOT = { has_template = "Truppe Irregolari di Cammelli" } } division_template = { name = "Truppe Irregolari di Cammelli" regiments = { camelry = { x = 0 y = 0 } camelry = { x = 0 y = 1 } camelry = { x = 1 y = 0 } camelry = { x = 1 y = 1 } } priority = 0 } } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -3577,7 +3577,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_infantry_defence_factor = 0.03 } if = { limit = { NOT = { has_template = "Cavalleria Coloniale" } } if = { limit = { NOT = { has_template = "Cavalleria Coloniale" } } division_template = { name = "Cavalleria Coloniale" regiments = { cavalry = { x = 0 y = 0 } cavalry = { x = 0 y = 1 } cavalry = { x = 1 y = 0 } cavalry = { x = 1 y = 1 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Reggimento Meharista" } } if = { limit = { NOT = { has_template = "Reggimento Meharista" } } division_template = { name = "Reggimento Meharista" regiments = { camelry = { x = 0 y = 0 } camelry = { x = 0 y = 1 } camelry = { x = 1 y = 0 } camelry = { x = 1 y = 1 } } } } } if = { limit = { NOT = { has_template = "Divisione Coloniale" } } if = { limit = { NOT = { has_template = "Divisione Coloniale" } } division_template = { name = "Divisione Coloniale" regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } support = { armored_car_recon = { x = 0 y = 0 } artillery = { x = 0 y = 1 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } division_template = { name = "Divisione Ascari Libica" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Divisione Ascari Eritrea" } } if = { limit = { NOT = { has_template = "Divisione Ascari Eritrea" } } division_template = { name = "Divisione Ascari Eritrea" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Divisione Ascari Somala" } } if = { limit = { NOT = { has_template = "Divisione Ascari Somala" } } division_template = { name = "Divisione Ascari Somala" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } }
+ completion_reward = { add_to_variable = { SFC_re_modifier_army_sub_unit_infantry_defence_factor = 0.03 } if = { limit = { NOT = { has_template = "Cavalleria Coloniale" } } if = { limit = { NOT = { has_template = "Cavalleria Coloniale" } } division_template = { name = "Cavalleria Coloniale" regiments = { cavalry = { x = 0 y = 0 } cavalry = { x = 0 y = 1 } cavalry = { x = 1 y = 0 } cavalry = { x = 1 y = 1 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Reggimento Meharista" } } if = { limit = { NOT = { has_template = "Reggimento Meharista" } } division_template = { name = "Reggimento Meharista" regiments = { camelry = { x = 0 y = 0 } camelry = { x = 0 y = 1 } camelry = { x = 1 y = 0 } camelry = { x = 1 y = 1 } } } } } if = { limit = { NOT = { has_template = "Divisione Coloniale" } } if = { limit = { NOT = { has_template = "Divisione Coloniale" } } division_template = { name = "Divisione Coloniale" regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } support = { armored_car_recon = { x = 0 y = 0 } artillery = { x = 0 y = 1 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } if = { limit = { NOT = { has_template = "Divisione Ascari Libica" } } division_template = { name = "Divisione Ascari Libica" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Divisione Ascari Eritrea" } } if = { limit = { NOT = { has_template = "Divisione Ascari Eritrea" } } division_template = { name = "Divisione Ascari Eritrea" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } if = { limit = { NOT = { has_template = "Divisione Ascari Somala" } } if = { limit = { NOT = { has_template = "Divisione Ascari Somala" } } division_template = { name = "Divisione Ascari Somala" obsolete = yes regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } } priority = 0 } } } hidden_effect = { sof_balance_clamp = yes } }
  ai_will_do = { factor = 1 }
 }
 }
