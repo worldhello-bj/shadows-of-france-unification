@@ -1,0 +1,16 @@
+add_namespace = sofzh_ai_campaign
+country_event = {
+    id = sofzh_ai_campaign.1
+    hidden = yes
+    is_triggered_only = yes
+    immediate = {
+        clr_country_flag = sofzh_ai_queued
+        if = {
+            limit = {
+                sofzh_ai_campaign_ready = yes
+                NOT = { has_country_flag = sofzh_ai_selected }
+            }
+            sofzh_ai_choose_campaign = yes
+        }
+    }
+}

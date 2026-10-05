@@ -1,0 +1,616 @@
+focus_tree = {
+ id = sofzh_paris
+ country = { factor = 0 modifier = { add = 1000 original_tag = PRS } }
+ default = no
+ continuous_focus_position = { x = 50 y = 2900 }
+ initial_show_position = { focus = SOF_PRS_assembly }
+ shortcut = { name = sofzh_paris_shortcut_mission target = SOF_PRS_assembly scroll_wheel_factor = 0.65 }
+ shortcut = { name = sofzh_paris_shortcut_politics target = SOF_PRS_republican_mandate scroll_wheel_factor = 0.65 }
+ shortcut = { name = sofzh_paris_shortcut_industry target = SOF_PRS_seine_industry scroll_wheel_factor = 0.65 }
+ shortcut = { name = sofzh_paris_shortcut_army target = SOF_PRS_staff_school scroll_wheel_factor = 0.65 }
+ shortcut = { name = sofzh_paris_shortcut_campaigns target = SOF_PRS_normandy_links scroll_wheel_factor = 0.65 }
+ shortcut = { name = sofzh_paris_shortcut_reconstruction target = SOF_PRS_national_proclamation scroll_wheel_factor = 0.65 }
+ focus = {
+  id = SOF_PRS_assembly icon = GFX_sofzh_f28_sof_prs_assembly cost = 3 x = 16 y = 0
+  search_filters = { FOCUS_FILTER_POLITICAL }  
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { set_country_flag = sofzh_paris_origin set_country_flag = sofzh_unification_started add_stability = 0.05 add_ideas = sofzh_prs_capital country_event = { id = sofzh_paris.1 days = 1 } }
+  ai_will_do = { factor = 120 }
+ }
+ focus = {
+  id = SOF_PRS_municipal_ledger icon = GFX_sofzh_f28_sof_prs_municipal_ledger cost = 3 x = 16 y = 1
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_assembly } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_registry add_stability = 0.04 }
+  ai_will_do = { factor = 70 }
+ }
+ focus = {
+  id = SOF_PRS_capital_guard icon = GFX_sofzh_f28_sof_prs_capital_guard cost = 3 x = 16 y = 2
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_municipal_ledger } 
+  available = { is_subject = no has_capitulated = no    143 = { is_controlled_by = ROOT } }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_guard = yes army_experience = 15  sofzh_dedicated_infantry_1 = yes }
+  ai_will_do = { factor = 90 }
+ }
+ focus = {
+  id = SOF_PRS_prefectural_letters icon = GFX_sofzh_f28_sof_prs_prefectural_letters cost = 3 x = 16 y = 3
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_capital_guard } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_prefects country_event = { id = sofzh_paris.2 days = 1 } }
+  ai_will_do = { factor = 60 }
+ }
+ focus = {
+  id = SOF_PRS_ile_mandate icon = GFX_sofzh_f28_sof_prs_ile_mandate cost = 3 x = 16 y = 4
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_prefectural_letters } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { set_country_flag = sofzh_unification_war_ready sofzh_paris_ile_goals = yes add_war_support = 0.06 sofzh_paris_campaign_maneuver = yes }
+  ai_will_do = { factor = 100 }
+ }
+ focus = {
+  id = SOF_PRS_ile_union icon = GFX_sofzh_f28_sof_prs_ile_union cost = 3 x = 16 y = 5
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_ile_mandate } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_ile_united = yes }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_integrate_ile = yes set_cosmetic_tag = ILE_DE_FRANCE set_country_flag = form_region_flag add_stability = 0.08 }
+  ai_will_do = { factor = 95 }
+ }
+ focus = {
+  id = SOF_PRS_war_authority icon = GFX_sofzh_f28_sof_prs_war_authority cost = 5 x = 16 y = 6
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_ile_union } prerequisite = { focus = SOF_PRS_national_charter } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_war_mandate sofzh_unification_grant_border_goals = yes add_war_support = 0.08 }
+  ai_will_do = { factor = 90 }
+ }
+ focus = {
+  id = SOF_PRS_regional_administration icon = GFX_sofzh_f28_sof_prs_regional_administration cost = 3 x = 16 y = 8
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_war_authority } 
+  available = { is_subject = no has_capitulated = no  num_of_controlled_states > 24 }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_unification_integrate_territories = yes add_stability = 0.04 }
+  ai_will_do = { factor = 60 }
+ }
+ focus = {
+  id = SOF_PRS_national_congress icon = GFX_sofzh_f28_sof_prs_national_congress cost = 5 x = 16 y = 13
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_regional_administration } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_congress_ready = yes }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_congress country_event = { id = sofzh_paris.5 days = 1 } }
+  ai_will_do = { factor = 80 }
+ }
+ focus = {
+  id = SOF_PRS_national_proclamation icon = GFX_sofzh_f28_sof_prs_national_proclamation cost = 3 x = 16 y = 14
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_national_congress } 
+  available = { is_subject = no has_capitulated = no  sofzh_unification_all_france = yes has_war = no }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_unification_proclaim_france = yes country_event = { id = sofzh_paris.6 days = 1 } }
+  ai_will_do = { factor = 100 }
+ }
+ focus = {
+  id = SOF_PRS_national_market icon = GFX_sofzh_f28_sof_prs_national_market cost = 5 x = 16 y = 15
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_national_proclamation } 
+  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_market random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 2 instant_build = yes } } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_national_reconstruction icon = GFX_sofzh_f28_sof_prs_national_reconstruction cost = 5 x = 16 y = 16
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_national_market } 
+  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete has_war = no }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_end_war_mandate = yes add_ideas = sofzh_prs_reconstruction random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_republican_mandate icon = GFX_sofzh_f28_sof_prs_republican_mandate cost = 5 x = 8 y = 2
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_municipal_ledger } mutually_exclusive = { focus = SOF_PRS_directorate }
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_parliament country_event = { id = sofzh_paris.3 days = 1 } }
+  ai_will_do = { factor = 22 }
+ }
+ focus = {
+  id = SOF_PRS_budget_committee icon = GFX_sofzh_f28_sof_prs_budget_committee cost = 5 x = 8 y = 3
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_republican_mandate } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_budget add_stability = 0.04 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_civic_compact icon = GFX_sofzh_f28_sof_prs_civic_compact cost = 5 x = 8 y = 4
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_budget_committee } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_civic_compact add_war_support = 0.05 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_directorate icon = GFX_sofzh_f28_sof_prs_directorate cost = 5 x = 10 y = 2
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_municipal_ledger } mutually_exclusive = { focus = SOF_PRS_republican_mandate }
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_directorate country_event = { id = sofzh_paris.4 days = 1 } }
+  ai_will_do = { factor = 20 }
+ }
+ focus = {
+  id = SOF_PRS_unified_executive icon = GFX_sofzh_f28_sof_prs_unified_executive cost = 5 x = 10 y = 3
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_directorate } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_executive army_experience = 20 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_prefect_service icon = GFX_sofzh_f28_sof_prs_prefect_service cost = 5 x = 10 y = 4
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_unified_executive } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_civil_service add_stability = 0.04 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_national_charter icon = GFX_sofzh_f28_sof_prs_national_charter cost = 5 x = 9 y = 5
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_civic_compact focus = SOF_PRS_prefect_service } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_charter add_stability = 0.05 }
+  ai_will_do = { factor = 55 }
+ }
+ focus = {
+  id = SOF_PRS_seine_industry icon = GFX_sofzh_f28_sof_prs_seine_industry cost = 5 x = 0 y = 1
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_assembly } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_ideas = sofzh_prs_workshops  sofzh_specialist_civil_industry_1 = yes }
+  ai_will_do = { factor = 35 }
+ }
+ focus = {
+  id = SOF_PRS_factory_orders icon = GFX_sofzh_f28_sof_prs_factory_orders cost = 5 x = 0 y = 2
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_seine_industry } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry }  sofzh_specialist_mil_industry_1 = yes }
+  ai_will_do = { factor = 30 }
+ }
+ focus = {
+  id = SOF_PRS_research_college icon = GFX_sofzh_f28_sof_prs_research_college cost = 5 x = 2 y = 2
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_seine_industry } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_research_slot = 1 add_ideas = sofzh_prs_academy }
+  ai_will_do = { factor = 32 }
+ }
+ focus = {
+  id = SOF_PRS_engineering_school icon = GFX_sofzh_f28_sof_prs_engineering_school cost = 5 x = 2 y = 3
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_research_college } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = industry } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = electronics } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_suburb_arsenals icon = GFX_sofzh_f28_sof_prs_suburb_arsenals cost = 5 x = 0 y = 3
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_factory_orders } 
+  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_department }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_ideas = sofzh_prs_industrial_network  sofzh_specialist_mil_industry_2 = yes }
+  ai_will_do = { factor = 30 }
+ }
+ focus = {
+  id = SOF_PRS_rail_dispatch icon = GFX_sofzh_f28_sof_prs_rail_dispatch cost = 5 x = 0 y = 4
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_suburb_arsenals } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_ideas = sofzh_prs_railways  sofzh_specialist_engineering_1 = yes }
+  ai_will_do = { factor = 35 }
+ }
+ focus = {
+  id = SOF_PRS_logistics_depots icon = GFX_sofzh_f28_sof_prs_logistics_depots cost = 5 x = 0 y = 5
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_rail_dispatch } 
+  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_department }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_equipment_to_stockpile = { type = motorized_equipment amount = 150 producer = ROOT } add_ideas = sofzh_prs_depots  sofzh_specialist_engineering_2 = yes }
+  ai_will_do = { factor = 32 }
+ }
+ focus = {
+  id = SOF_PRS_electric_grid icon = GFX_sofzh_f28_sof_prs_electric_grid cost = 5 x = 2 y = 4
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_engineering_school } 
+  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_state }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry }  sofzh_specialist_engineering_3 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_war_bonds icon = GFX_sofzh_f28_sof_prs_war_bonds cost = 5 x = 4 y = 3
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_research_college } 
+  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_department }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_stability = 0.03  sofzh_specialist_civil_industry_2 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_industrial_plan icon = GFX_sofzh_f28_sof_prs_industrial_plan cost = 5 x = 0 y = 6
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_logistics_depots } prerequisite = { focus = SOF_PRS_electric_grid } 
+  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_state }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }  sofzh_specialist_civil_industry_3 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_laboratories icon = GFX_sofzh_f28_sof_prs_laboratories cost = 5 x = 2 y = 6
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_engineering_school } prerequisite = { focus = SOF_PRS_war_bonds } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_research_slot = 1 add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = electronics } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_staff_school icon = GFX_sofzh_f28_sof_prs_staff_school cost = 5 x = 26 y = 1
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_assembly } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_doctrine_cost_reduction = { name = sofzh_paris_research_bonus cost_reduction = 0.5 uses = 1 category = land_doctrine } army_experience = 20  sofzh_dedicated_staff_1 = yes }
+  ai_will_do = { factor = 35 }
+ }
+ focus = {
+  id = SOF_PRS_reserve icon = GFX_sofzh_f28_sof_prs_reserve cost = 3 x = 26 y = 3
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_staff_school } prerequisite = { focus = SOF_PRS_capital_guard } 
+  available = { is_subject = no has_capitulated = no    143 = { is_controlled_by = ROOT } }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_reserve = yes add_manpower = 4000  sofzh_dedicated_recruitment_1 = yes }
+  ai_will_do = { factor = 45 }
+ }
+ focus = {
+  id = SOF_PRS_rifle_standard icon = GFX_sofzh_f28_sof_prs_rifle_standard cost = 5 x = 26 y = 4
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_reserve } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = infantry_weapons } add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 1800 producer = ROOT }  sofzh_dedicated_infantry_2 = yes }
+  ai_will_do = { factor = 40 }
+ }
+ focus = {
+  id = SOF_PRS_artillery icon = GFX_sofzh_f28_sof_prs_artillery cost = 5 x = 28 y = 5
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_rifle_standard } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { set_technology = { gw_artillery = 1 } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = artillery } army_experience = 20  sofzh_dedicated_artillery_1 = yes add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 180 producer = ROOT } add_equipment_to_stockpile = { type = anti_tank_equipment_1 amount = 60 producer = ROOT } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_truck_pool icon = GFX_sofzh_f28_sof_prs_truck_pool cost = 5 x = 30 y = 5
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_rifle_standard } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { set_technology = { motorised_infantry = 1 } add_equipment_to_stockpile = { type = motorized_equipment amount = 200 producer = ROOT } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = motorized_equipment }  sofzh_dedicated_motorized_1 = yes }
+  ai_will_do = { factor = 25 }
+ }
+ focus = {
+  id = SOF_PRS_army_doctrine icon = GFX_sofzh_f28_sof_prs_army_doctrine cost = 5 x = 26 y = 5
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_rifle_standard } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_doctrine_cost_reduction = { name = sofzh_paris_research_bonus cost_reduction = 0.5 uses = 2 category = land_doctrine } add_ideas = sofzh_prs_army_school  sofzh_dedicated_staff_2 = yes }
+  ai_will_do = { factor = 28 }
+ }
+ focus = {
+  id = SOF_PRS_combined_operations icon = GFX_sofzh_f28_sof_prs_combined_operations cost = 5 x = 28 y = 6
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_artillery } prerequisite = { focus = SOF_PRS_truck_pool } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = armor } add_ideas = sofzh_prs_combined_arms  sofzh_dedicated_infantry_3 = yes sofzh_dedicated_armor_2 = yes sofzh_dedicated_artillery_2 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_medical_services icon = GFX_sofzh_f28_sof_prs_medical_services cost = 5 x = 30 y = 6
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_truck_pool } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = support_tech } add_ideas = sofzh_prs_medical  sofzh_dedicated_recovery_2 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_unified_command icon = GFX_sofzh_f28_sof_prs_unified_command cost = 5 x = 26 y = 7
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_army_doctrine } prerequisite = { focus = SOF_PRS_combined_operations } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_command army_experience = 25  sofzh_dedicated_staff_3 = yes sofzh_dedicated_recruitment_3 = yes }
+  ai_will_do = { factor = 45 }
+ }
+ focus = {
+  id = SOF_PRS_normandy_links icon = GFX_sofzh_f28_sof_prs_normandy_links cost = 5 x = 20 y = 7
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_war_authority } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_goal_normandie = yes sofzh_paris_campaign_maneuver = yes army_experience = 10 }
+  ai_will_do = { factor = 25 }
+ }
+ focus = {
+  id = SOF_PRS_northern_coal icon = GFX_sofzh_f28_sof_prs_northern_coal cost = 5 x = 22 y = 7
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_war_authority } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_goal_nord = yes sofzh_paris_campaign_industrial = yes army_experience = 10 }
+  ai_will_do = { factor = 25 }
+ }
+ focus = {
+  id = SOF_PRS_lorraine_link icon = GFX_sofzh_f28_sof_prs_lorraine_link cost = 5 x = 24 y = 7
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_war_authority } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_goal_lorraine = yes sofzh_paris_campaign_industrial = yes army_experience = 15 }
+  ai_will_do = { factor = 25 }
+ }
+ focus = {
+  id = SOF_PRS_alsace_cooperation icon = GFX_sofzh_f28_sof_prs_alsace_cooperation cost = 5 x = 24 y = 8
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_lorraine_link } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_goal_alsace = yes sofzh_paris_campaign_industrial = yes add_stability = 0.03 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_rhone_corridor icon = GFX_sofzh_f28_sof_prs_rhone_corridor cost = 5 x = 22 y = 9
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_regional_administration } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_goal_rhone_alpes = yes sofzh_paris_campaign_maneuver = yes add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = motorized_equipment } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_atlantic_ports icon = GFX_sofzh_f28_sof_prs_atlantic_ports cost = 5 x = 20 y = 10
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_normandy_links } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_has_coast = yes }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { limit = { sofzh_unification_french_state = yes is_coastal = yes } add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } } add_equipment_to_stockpile = { type = convoy amount = 40 producer = ROOT } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = naval_equipment }  sofzh_dedicated_dockyards_2 = yes sofzh_dedicated_surface_navy_2 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_mediterranean_ports icon = GFX_sofzh_f28_sof_prs_mediterranean_ports cost = 7 x = 22 y = 10
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_rhone_corridor } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_has_coast = yes }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_fleet = yes set_technology = { transport = 1 } add_equipment_to_stockpile = { type = convoy amount = 40 producer = ROOT }  sofzh_dedicated_surface_navy_3 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_corsican_mission icon = GFX_sofzh_f28_sof_prs_corsican_mission cost = 5 x = 22 y = 11
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_mediterranean_ports } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_has_coast = yes has_navy_size = { size > 3 } }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { sofzh_paris_corsican_goal = yes sofzh_paris_campaign_landing = yes navy_experience = 20  sofzh_dedicated_landing_2 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_national_logistics icon = GFX_sofzh_f28_sof_prs_national_logistics cost = 5 x = 20 y = 12
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_atlantic_ports } prerequisite = { focus = SOF_PRS_mediterranean_ports } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_national_logistics random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_building_construction = { type = infrastructure level = 1 instant_build = yes } }  sofzh_dedicated_motorized_3 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_strategic_materials icon = GFX_sofzh_f28_sof_prs_strategic_materials cost = 5 x = 24 y = 10
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_alsace_cooperation } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = industry } add_stability = 0.03 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_lorraine_foundry icon = GFX_sofzh_f28_sof_prs_lorraine_foundry cost = 5 x = 30 y = 7
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_war_authority } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_lorraine_control = yes  has_completed_focus = SOF_PRS_development_state }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_lorraine_contract random_controlled_state = { limit = { OR = { state = 94 state = 98 state = 116 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }  sofzh_specialist_mil_industry_3 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_north_coal_grid icon = GFX_sofzh_f28_sof_prs_north_coal_grid cost = 5 x = 32 y = 7
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_war_authority } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_north_control = yes }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_north_contract random_controlled_state = { limit = { OR = { state = 55 state = 61 state = 62 state = 63 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_alsace_chemistry icon = GFX_sofzh_f28_sof_prs_alsace_chemistry cost = 5 x = 30 y = 8
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_lorraine_foundry } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_alsace_control = yes }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_alsace_contract add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_bauxite_chain icon = GFX_sofzh_f28_sof_prs_bauxite_chain cost = 5 x = 30 y = 9
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_alsace_chemistry } 
+  available = { is_subject = no has_capitulated = no  sofzh_paris_bauxite_control = yes }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_bauxite_contract add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = air_equipment } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_national_arsenal icon = GFX_sofzh_f28_sof_prs_national_arsenal cost = 5 x = 30 y = 10
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_lorraine_foundry } prerequisite = { focus = SOF_PRS_north_coal_grid } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_national_arsenal add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry }  sofzh_dedicated_armor_3 = yes sofzh_dedicated_artillery_3 = yes }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_civic_amnesty icon = GFX_sofzh_f28_sof_prs_civic_amnesty cost = 5 x = 12 y = 14
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_national_congress } 
+  available = { is_subject = no has_capitulated = no   }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_amnesty add_stability = 0.04 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_constitutional_settlement icon = GFX_sofzh_f28_sof_prs_constitutional_settlement cost = 5 x = 12 y = 15
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_national_proclamation } prerequisite = { focus = SOF_PRS_national_charter } 
+  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_constitution add_stability = 0.04 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_regional_elections icon = GFX_sofzh_f28_sof_prs_regional_elections cost = 5 x = 12 y = 16
+  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_constitutional_settlement } 
+  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_local_services add_stability = 0.04 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_seine_to_provinces icon = GFX_sofzh_f28_sof_prs_seine_to_provinces cost = 5 x = 18 y = 15
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_national_proclamation } 
+  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 2 instant_build = yes } } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry } }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_public_services icon = GFX_sofzh_f28_sof_prs_public_services cost = 5 x = 18 y = 16
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_seine_to_provinces } prerequisite = { focus = SOF_PRS_medical_services } 
+  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete has_war = no }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_stability = 0.05 }
+  ai_will_do = { factor = 12 }
+ }
+ focus = {
+  id = SOF_PRS_national_science icon = GFX_sofzh_f28_sof_prs_national_science cost = 5 x = 16 y = 17
+  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_national_reconstruction } prerequisite = { focus = SOF_PRS_public_services } 
+  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete has_war = no }
+  cancel_if_invalid = yes continue_if_invalid = no
+  completion_reward = { add_ideas = sofzh_prs_national_science add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = electronics }  sofzh_dedicated_air_defence_2 = yes sofzh_dedicated_air_support_2 = yes }
+  ai_will_do = { factor = 12 }
+ }
+
+focus = {
+ id = SOF_PRS_development_arrondissement icon = GFX_sofzh_f27_sof_generic_arrondissement cost = 5 x = 36 y = 1
+ prerequisite = { focus = SOF_PRS_assembly } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_1_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_1 = yes set_country_flag = sofzh_development_arrondissement }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_PRS_development_department icon = GFX_sofzh_f27_sof_generic_department cost = 5 x = 36 y = 2
+ prerequisite = { focus = SOF_PRS_development_arrondissement } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_4_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_1 = yes set_country_flag = sofzh_development_department }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_PRS_development_province icon = GFX_sofzh_f27_sof_generic_province cost = 5 x = 36 y = 3
+ prerequisite = { focus = SOF_PRS_development_department } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_7_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_2 = yes set_country_flag = sofzh_development_province }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_PRS_development_region icon = GFX_sofzh_f27_sof_generic_region cost = 5 x = 36 y = 4
+ prerequisite = { focus = SOF_PRS_development_province } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_13_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_2 = yes set_country_flag = sofzh_development_region }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_PRS_development_state icon = GFX_sofzh_f27_sof_generic_state cost = 5 x = 36 y = 5
+ prerequisite = { focus = SOF_PRS_development_region } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_26_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_3 = yes set_country_flag = sofzh_development_state }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_PRS_development_nation icon = GFX_sofzh_f27_sof_generic_nation cost = 5 x = 36 y = 6
+ prerequisite = { focus = SOF_PRS_development_state } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_51_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_3 = yes set_country_flag = sofzh_development_nation }
+ ai_will_do = { factor = 75 }
+}
+shortcut = { name = SOF_PRS_shortcut_development target = SOF_PRS_development_arrondissement }
+
+shortcut = { name = sof20_PRS_shortcut_addition0 target = SOF20_PRS_addition0 scroll_wheel_factor = 0.65 }
+shortcut = { name = sof20_PRS_shortcut_addition7 target = SOF20_PRS_addition7 scroll_wheel_factor = 0.65 }
+focus = { id = SOF20_PRS_addition0 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 6 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL }  
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ prerequisite = { focus = SOF_PRS_national_charter } completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition1 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 7 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition0 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition2 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 8 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition1 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition3 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 9 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition2 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition4 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 10 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition3 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition5 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 11 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition4 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition6 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 12 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition5 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition7 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 6 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }  
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ prerequisite = { focus = SOF_PRS_national_charter } completion_reward = { sof20_learn_urban = yes custom_effect_tooltip = sof20_terrain_urban_tt } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition8 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 7 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition7 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition9 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 8 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition8 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition10 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 9 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition9 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition11 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 10 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition10 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition12 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 11 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition11 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_PRS_addition13 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 12 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition12 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+}

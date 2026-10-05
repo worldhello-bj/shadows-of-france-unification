@@ -1,0 +1,48 @@
+### Names generation for aces ###
+# Surnames can be male/female dependent or general. Fe. in Polish some surnames has different endings depending on the gender.
+# Names and Surnames are randomly picked and will sometimes repeat, but will never repeat in combinations for example there will never be generated another "John Smith".
+# Assigning the callsign is random - may be assigned or not. If we use the callsign, it will never be assigned to anyone again. Callsigns are not obligatory to script.
+# Picking up a gender is random, and is influenced by the amount of names scripted.
+
+default = {
+	male = {
+		names = { 
+			"阿希尔" "阿道夫" "阿德里安" "埃马布勒" "阿尔方斯" "阿梅代" "安托万" "阿尔芒" "奥古斯特" "奥古斯坦" "奥雷利安"
+			"夏尔" "达尼埃尔" "德尼" "爱德华" "艾蒂安" "埃利" "欧仁" "埃旺" "费尔南" "弗朗索瓦" "弗雷德里克"
+			"费利西安" "费利克斯" "乔治" "纪尧姆" "居斯塔夫" "亨利" "于贝尔" "雨果" "雅克" "让" "约瑟夫"
+			"朱尔" "于连" "拉扎尔" "勒鲁瓦" "路易" "吕西安" "莱奥波尔" "马蒂厄" "米歇尔" "拿破仑" "尼古拉"
+			"帕特里斯" "保罗" "菲利普" "皮埃尔" "罗贝尔" "蒂博" "蒂埃里" "托马" "布赖恩"
+		}
+		callsigns = { }
+	}
+	female = {
+		names = { "安娜" "玛丽" "弗朗索瓦丝" "吉赛勒" "玛格丽特" "玛丽安娜" "西蒙娜" "阿娜伊丝" "伊雷娜" "娜塔莉" "埃尔莎" }
+		callsigns = { }
+	}
+	surnames = {
+		"安托万" "巴拉盖·迪利耶" "巴赞" "比约" "博斯凯" "布埃·德拉佩雷尔"
+		"布朗热" "布尔巴基" "布埃-维约梅" "比若" "卡亚尔" "康罗贝尔" "库尔贝"
+		"库赞-蒙托邦" "德莱" "德卡斯泰拉讷" "德卡斯泰尔诺"  "德朗格勒·德卡里"
+		"德麦克马洪" "德蒙泰尼亚克" "德圣阿尔诺" "多尔良" "达武" "迪巴伊" "迪布瓦"
+		"迪谢纳" "迪珀蒂-图阿尔" "埃克塞尔芒" "福煦" "福雷" "弗朗谢·德斯佩雷" "加利埃尼" "古罗"
+		"纪约马" "阿姆兰" "阿里斯普" "奥什" "安贝尔" "饶勒斯" "霞飞" "勒伯夫" "利奥泰" "缪拉"
+		"内伊·德尔欣根" "尼韦勒" "佩利西耶" "贝当" "罗佩尔" "瓦扬" "拉吕埃勒" "珀蒂" "加莱" "巴斯蒂克"
+	}
+	callsigns = { "天龙" "迅捷" "猛虎" "麻雀" "撕裂者" "日舞" "蟾蜍" "抽搐" "农夫" "黄鼠狼" "靶场练习" "隐形者" "海滩男孩" "公主" "哑者" "木匠"}
+
+
+	#Operations - treat these as keys, not strings.
+	prefix = o_operation
+
+	operation = {
+		0 = { o_default_operation }
+	}
+
+	use_geographical_default_operation_names = yes
+	offensive_operation_suffix = o_strat_offensive_default
+	defensive_operation_suffix = o_strat_defensive_default
+	naval_operation_suffix = o_strat_naval_default
+
+}
+
+

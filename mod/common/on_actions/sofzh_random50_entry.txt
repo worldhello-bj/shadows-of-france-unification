@@ -1,0 +1,14 @@
+on_actions = {
+ on_startup = {
+  effect = {
+   every_country = {
+    limit = {
+     sofzh_random50_window = yes
+     NOT = { has_country_flag = sofzh_random50_hint_seen }
+    }
+    set_country_flag = sofzh_random50_hint_seen
+    country_event = { id = sofzh_cabinet.1 hours = 1 }
+   }
+  }
+ }
+}

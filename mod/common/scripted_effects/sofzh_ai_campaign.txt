@@ -1,0 +1,108 @@
+# The target is stored on the acting country, never as a global event target.
+sofzh_ai_clear_campaign = {
+    if = {
+        limit = { has_variable = sofzh_ai_target }
+        var:sofzh_ai_target = {
+            PREV = { clr_country_flag = sofzh_ai_campaign@PREV }
+        }
+    }
+    clear_variable = sofzh_ai_target
+    clr_country_flag = sofzh_ai_selected
+}
+sofzh_ai_select_this_target = {
+    # Called in target scope by a country event whose ROOT is the acting AI.
+    ROOT = {
+        set_variable = { sofzh_ai_target = PREV }
+        set_country_flag = { flag = sofzh_ai_campaign@PREV days = 120 }
+        set_country_flag = { flag = sofzh_ai_selected days = 120 }
+    }
+}
+sofzh_ai_choose_campaign = {
+    sofzh_ai_clear_campaign = yes
+    if = {
+        limit = { any_neighbor_country = { sofzh_ai_land_goal_target = yes } }
+        random_neighbor_country = {
+            limit = { sofzh_ai_land_goal_target = yes }
+            sofzh_ai_select_this_target = yes
+        }
+    }
+    else_if = {
+        limit = {
+            OR = { has_completed_focus = SOF_UNIFY_corsican_operation has_completed_focus = SOF_COR_island_mandate sofzh_corsica_naval_mission = yes has_completed_focus = SOF_PRS_corsican_mission }
+            has_navy_size = { size > 3 }
+            any_other_country = { sofzh_ai_naval_goal_target = yes }
+        }
+        random_other_country = {
+            limit = { sofzh_ai_naval_goal_target = yes }
+            sofzh_ai_select_this_target = yes
+        }
+    }
+    else = { set_country_flag = { flag = sofzh_ai_cooldown days = 21 } }
+}
+sofzh_ai_monthly_campaign = {
+    if = {
+        limit = { is_ai = yes sofzh_ai_supported_focus_tree = yes }
+        if = {
+            limit = { NOT = { has_country_flag = sofzh_ai_pacing_initialized } }
+            set_country_flag = sofzh_ai_pacing_initialized
+            set_country_flag = { flag = sofzh_ai_cooldown days = 21 }
+            sofzh_ai_clear_campaign = yes
+        }
+        if = {
+            limit = { has_war = yes }
+            sofzh_ai_clear_campaign = yes
+            set_country_flag = sofzh_ai_was_at_war
+            set_country_flag = { flag = sofzh_ai_cooldown days = 21 }
+        }
+        else_if = {
+            limit = { has_country_flag = sofzh_ai_was_at_war }
+            clr_country_flag = sofzh_ai_was_at_war
+            sofzh_ai_clear_campaign = yes
+            set_country_flag = { flag = sofzh_ai_cooldown days = 21 }
+        }
+        else_if = {
+            limit = { sofzh_ai_campaign_ready = no }
+            sofzh_ai_clear_campaign = yes
+        }
+        else_if = {
+            limit = { has_country_flag = sofzh_ai_selected }
+            if = {
+                limit = {
+                    NOT = {
+                        AND = {
+                            has_variable = sofzh_ai_target
+                            var:sofzh_ai_target = {
+                                sofzh_ai_safe_target = yes
+                                ROOT = { has_wargoal_against = PREV }
+                            }
+                        }
+                    }
+                }
+                sofzh_ai_clear_campaign = yes
+                set_country_flag = { flag = sofzh_ai_cooldown days = 21 }
+            }
+        }
+        else_if = {
+            limit = { NOT = { has_country_flag = sofzh_ai_queued } }
+            sofzh_ai_clear_campaign = yes
+            set_country_flag = { flag = sofzh_ai_queued days = 60 }
+            country_event = { id = sofzh_ai_campaign.1 days = 3 random_days = 14 }
+        }
+    }
+}
+sofzh_ai_campaign_war_started = {
+    if = {
+        limit = { is_ai = yes sofzh_ai_supported_focus_tree = yes }
+        sofzh_ai_clear_campaign = yes
+        set_country_flag = sofzh_ai_was_at_war
+        set_country_flag = { flag = sofzh_ai_cooldown days = 21 }
+    }
+}
+sofzh_ai_campaign_peace = {
+    if = {
+        limit = { is_ai = yes sofzh_ai_supported_focus_tree = yes has_war = no }
+        sofzh_ai_clear_campaign = yes
+        clr_country_flag = sofzh_ai_was_at_war
+        set_country_flag = { flag = sofzh_ai_cooldown days = 21 }
+    }
+}

@@ -1,0 +1,12 @@
+on_actions = {
+ on_monthly = { effect = { sofzh_occupation_monthly = yes } }
+ # Vanilla documented scopes: ROOT=new controller, FROM=old, FROM.FROM=state.
+ on_state_control_changed = { effect = {
+  FROM.FROM = {
+   if = { limit = { sofzh_unification_french_state = yes }
+    sofzh_occupation_clear = yes
+    if = { limit = { sofzh_occupation_state = yes } sofzh_occupation_register = yes }
+   }
+  }
+ } }
+}

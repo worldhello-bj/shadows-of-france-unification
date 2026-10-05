@@ -1,0 +1,265 @@
+# Derived from native templates_USA.txt; French microstate adaptation.
+armor_sofzh_usa = {
+
+	available_for = { ABB ABR ABU ACC ACH AGL AGN AGZ AIX AJC ALB ALE ALS ALT AMB AMI ANC ANG ANN ANT ANY APT ARE ARG ARL ARR AUR AUT AVA AVE AVG AVR AXR BAR BAY BBL BCL BEA BEB BER BES BET BEY BEZ BGB BGC BGN BLA BLC BLD BLF BLO BLY BOB BON BOU BRC BRD BRE BRG BRU BRY BSM BSS BST BVA BVG BYN CAE CAH CAL CAM CAO CBR CCL CCS CDM CER CFL CFR CGC CHA CHB CHC CHD CHE CHG CHI CHL CHM CHO CHR CHS CHT CHU CLA CLM CLV CMP COL COM COR COU CRL CRP CRR CRT CSL CST CTE CTH DAX DGG DIE DIJ DIN DIP DKQ DLB DOL DOU DRE EPE EPI ETP EVR EVY FAC FGC FLQ FON FOR FOU FOX FTB GAP GBW GEX GRD GRN GSS GUE GUI HAG HAV HLR ISO ISS IST JZC LAG LAN LAO LAR LAV LCH LDV LEN LFL LIB LIL LIS LMA LMC LMG LMX LNG LOC LON LOR LOU LRA LRO LRY LUN LUR LYO MAC MAM MAY MBE MBR MBS MEA MEN MET MLC MLJ MLL MLU MMS MOL MON MOP MOR MOU MRC MRD MRE MRL MRM MRS MTB MTD MTM MTR MUL NAN NCH NEV NIC NIM NNC NNT NOG NON NRB NRC NRT NSM NSS NTR NYO OLO ORL OSM PAU PER PEV PGX PIT PLS PMS PNT POI PON PPG PRD PRH PRI PRS PRV PTN QUI RBL RCF RCH RDZ RED REI REN RET RIB RIO RML ROA ROU SAM SAR SAU SAV SBR SCL SDI SDZ SED SEG SEL SEN SET SFR SGI SGL SGU SIN SJA SJG SJM SLC SLO SMA SME SNA SNL SOS SRC SRG SRT STD STO STQ STR TDP THA THE THO THR TLB TLN TOL TOU TRB TRC TRO TRS TSR TUL USS VAL VAN VCH VEN VER VES VIE VIG VIN VIR VIT VLC VLF VNV VOU VRS VRV VSS WIS YSS }
+
+	role = armor
+
+	upgrade_prio = {
+		base = 8
+
+		
+
+		
+
+		modifier = {
+			factor = 2
+			OR = {
+				has_tech = main_battle_tank
+				has_tech = main_battle_tank_chassis
+			}
+		}
+
+		modifier = {
+			factor = 10
+			NOT = { ai_has_role_template = armor }
+			OR = {
+				has_tech = basic_medium_tank
+				has_tech = basic_medium_tank_chassis
+			}
+		}
+	}
+
+	light_armor_early_sofzh_usa = {
+
+		upgrade_prio = {
+			base = 2
+		}
+
+		
+
+		target_template = {
+
+			
+
+			regiments = { light_armor = 2 motorized = 2 }
+		}
+	}
+
+	light_armor_mid_sofzh_usa = {
+
+		upgrade_prio = {
+			base = 1
+
+			modifier = {
+				factor = 3
+				OR = {
+					has_tech = improved_light_tank
+					has_tech = improved_light_tank_chassis
+				}
+			}
+		}
+
+		
+
+		target_template = {
+			support = {
+				engineer = 1
+				light_tank_recon = 1
+				signal_company = 1
+			}
+
+			regimental_support = {
+				anti_tank_battery = 2
+			}
+
+			regiments = {
+				light_armor = 3
+				motorized = 6
+				mot_artillery_brigade = 1
+			}
+		}
+	}
+
+#	heavy_armor_default_sofzh_usa = {
+#
+#		upgrade_prio = {
+#			factor = 2
+#
+#			modifier = {
+#				factor = 1
+#			}
+#		}
+#
+#		target_template = {
+#			support = {
+#				engineer = 1
+#				mot_recon = 1
+#				logistics_company = 1
+#				maintenance_company = 1
+#			}
+#
+#			regiments = {
+#				heavy_armor = 6
+#				infantry = 3
+#			}
+#		}
+#	}
+
+	medium_armor_early_sofzh_usa = {
+
+		upgrade_prio = {
+			base = 1
+
+			modifier = {
+				factor = 4
+				OR = {
+					has_tech = basic_medium_tank
+					has_tech = basic_medium_tank_chassis
+				}
+			}
+		}
+
+		
+
+		target_template = {
+			support = {
+				engineer = 1
+				light_tank_recon = 1
+				signal_company = 1
+			}
+
+			regimental_support = {
+				anti_tank_battery = 2
+			}
+
+			regiments = {
+				light_armor = 2
+				medium_armor = 1
+				motorized = 5
+				mechanized = 1
+				mot_artillery_brigade = 1
+			}
+		}
+	}
+
+	medium_armor_mid_sofzh_usa = {
+
+		upgrade_prio = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				OR = {
+					has_tech = improved_medium_tank
+					has_tech = improved_medium_tank_chassis
+				}
+				has_tech = mechanised_infantry
+			}
+		}
+
+		
+
+		target_template = {
+			support = {
+				engineer = 1
+				light_tank_recon = 1
+				maintenance_company = 1
+				signal_company = 1
+				logistics_company = 1
+			}
+
+			regimental_support = {
+				medium_tank_destroyer_support = 1
+				anti_air_battery = 1
+			}
+
+			regiments = {
+				light_armor = 1
+				medium_armor = 2
+				light_sp_artillery_brigade = 1
+				mechanized = 3
+				motorized = 3
+			}
+		}
+	}
+
+	medium_armor_late_sofzh_usa = {
+
+		upgrade_prio = {
+			base = 1
+
+			modifier = {
+				factor = 6
+				OR = {
+					has_tech = advanced_medium_tank
+					has_tech = advanced_medium_tank_chassis
+				}
+				has_tech = mechanised_infantry
+			}
+		}
+
+		
+
+		target_template = {
+			support = {
+				engineer = 1
+				light_tank_recon = 1
+				maintenance_company = 1
+				signal_company = 1
+				logistics_company = 1
+			}
+
+			regimental_support = {
+				medium_tank_destroyer_support = 2
+				anti_air_battery = 1
+
+			}
+
+			regiments = {
+				medium_armor = 3
+				medium_sp_artillery_brigade = 1
+				mechanized = 6
+			}
+		}
+	}
+
+	modern_armor_default_sofzh_usa = {
+
+		upgrade_prio = {
+			base = 1
+
+			modifier = {
+				factor = 7
+				OR = {
+					has_tech = main_battle_tank
+					has_tech = main_battle_tank_chassis
+				}
+			}
+		}
+
+		
+
+		target_template = {
+			support = {
+				engineer = 1
+				light_tank_recon = 1
+				maintenance_company = 1
+				signal_company = 1
+				logistics_company = 1
+			}
+
+			regimental_support = {
+				medium_tank_destroyer_support = 1
+				anti_air_battery = 1
+			}
+
+			regiments = {
+				modern_armor = 3
+				mechanized = 6
+				medium_sp_artillery_brigade = 1
+				medium_tank_destroyer_brigade = 1
+			}
+		}
+	}
+}

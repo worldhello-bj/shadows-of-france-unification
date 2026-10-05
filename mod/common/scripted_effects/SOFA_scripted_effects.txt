@@ -1,0 +1,559 @@
+###########################################################################
+### Made by MisterJay: Only to be used in SOF mods or submods 		    ###
+### NOTE: these amounts are weird because of the 0.01 equipment factor. ###
+### Without that, the unit wont spawn and we get a tiny bit of extra	###
+### equipment from the spawn.											###
+###########################################################################
+
+### Infantry Spawn-ins ###
+
+spawn_infantry_unit_in_capital_state = {
+	hidden_effect = {
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"步兵师\" start_experience_factor = 0.1 start_equipment_factor = 1"
+				owner = ROOT
+			}
+		}
+	}
+}
+
+spawn_assault_infantry_unit_in_capital_state = {
+	hidden_effect = {
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"突击步兵师\" start_experience_factor = 0.1 start_equipment_factor = 0.01"
+				owner = ROOT
+			}
+		}
+
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 1435 }
+		if = {
+			limit = { has_tech = gw_artillery }
+			add_equipment_to_stockpile = { type = artillery_equipment amount = 142 }
+		}
+		if = {
+			limit = { has_tech = tech_support }
+			add_equipment_to_stockpile = { type = support_equipment amount = 39 }
+		}
+	}
+}
+
+spawn_3_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 3
+
+		spawn_assault_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_6_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 6
+
+		spawn_assault_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_12_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 12
+
+		spawn_assault_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_24_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 24
+
+		spawn_assault_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+# For startup divisions #
+
+spawn_5_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 5
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_10_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 10
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_15_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 15
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_20_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 20
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_25_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 25
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_30_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 30
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_40_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 40
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_50_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 50
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_100_infantry_units = {
+	for_loop_effect = {
+		start = 0
+		end = 100
+
+		spawn_infantry_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+### Light Tank Spawn-ins ###
+
+spawn_light_tank_unit_in_capital_state = {
+	hidden_effect = {
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"轻型装甲师\" start_experience_factor = 0.1 start_equipment_factor = 0.01"
+				owner = ROOT
+			}
+		}
+
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 544 }
+		if = {
+			limit = { has_tech = tech_support }
+			add_equipment_to_stockpile = { type = support_equipment amount = 39 }
+		}
+		if = {
+			limit = { has_tech = motorised_infantry }
+			add_equipment_to_stockpile = { type = motorized_equipment amount = 247 }
+		}
+	}
+}
+
+spawn_9_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 9
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_18_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 18
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+# For startup divisions #
+
+spawn_5_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 5
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_10_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 10
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_15_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 15
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_25_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 25
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_50_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 50
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_100_light_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 100
+
+		spawn_light_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+### Medium Tank Spawn-ins ###
+
+spawn_medium_tank_unit_in_capital_state = {
+	hidden_effect = {
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"中型装甲师\" start_experience_factor = 0.1 start_equipment_factor = 0.01"
+				owner = ROOT
+			}
+		}
+
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 544 }
+		if = {
+			limit = { has_tech = tech_support }
+			add_equipment_to_stockpile = { type = support_equipment amount = 39 }
+		}
+		if = {
+			limit = { has_tech = motorised_infantry }
+			add_equipment_to_stockpile = { type = motorized_equipment amount = 247 }
+		}
+	}
+}
+
+spawn_3_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 3
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_6_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 6
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+# For startup divisions #
+
+spawn_5_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 5
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_10_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 10
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_15_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 15
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_25_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 25
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_50_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 50
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_100_medium_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 100
+
+		spawn_medium_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+### Heavy Tank Spawn-ins ###
+
+spawn_heavy_tank_unit_in_capital_state = {
+	hidden_effect = {
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"重型装甲师\" start_experience_factor = 0.1 start_equipment_factor = 0.01"
+				owner = ROOT
+			}
+		}
+
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 544 }
+		if = {
+			limit = { has_tech = tech_support }
+			add_equipment_to_stockpile = { type = support_equipment amount = 39 }
+		}
+		if = {
+			limit = { has_tech = motorised_infantry }
+			add_equipment_to_stockpile = { type = motorized_equipment amount = 247 }
+		}
+	}
+}
+
+spawn_2_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 2
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_4_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 4
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+# For startup divisions #
+
+spawn_5_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 5
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_10_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 10
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_15_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 15
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_25_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 25
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_50_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 50
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+spawn_100_heavy_tank_units = {
+	for_loop_effect = {
+		start = 0
+		end = 100
+
+		spawn_heavy_tank_unit_in_capital_state = yes
+
+		add = 1
+	}
+}
+
+
+### Motorised Spawn-ins ###
+
+spawn_motorised_unit_in_capital_state = {
+	hidden_effect = {
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"摩托化师\" start_experience_factor = 0.1 start_equipment_factor = 0.01"
+				owner = ROOT
+			}
+		}
+
+		add_equipment_to_stockpile = { type = infantry_equipment amount = 1040 }
+		if = {
+			limit = { has_tech = motorised_infantry }
+			add_equipment_to_stockpile = { type = motorized_equipment amount = 495 }
+		}
+		if = {
+			limit = { has_tech = tech_support }
+			add_equipment_to_stockpile = { type = support_equipment amount = 40 }
+		}
+	}
+}
+
+spawn_6_motorised_units = {
+	for_loop_effect = {
+		start = 0
+		end = 6
+
+		spawn_motorised_unit_in_capital_state = yes
+
+		add = 1
+	}
+}

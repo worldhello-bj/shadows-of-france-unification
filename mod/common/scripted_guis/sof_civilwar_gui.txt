@@ -1,0 +1,16 @@
+scripted_gui = { sof_cw_decision_gui = {
+        context_type = decision_category window_name = "sof_cw_decision_window"
+        ai_enabled = { always = no }
+        dynamic_lists = { sof_cw_neighbour_list = { array = sof_cw_neighbours index = i change_scope = yes entry_container = "sof_cw_neighbour_entry" } }
+        effects = { sof_cw_refresh_click = { sof_cw_refresh = yes } }
+        triggers = { sof_cw_empty_visible = { check_variable = { var = sof_cw_neighbour_count value = 0 compare = equals } }
+sof_cw_terrain_mountain_known_badge_visible = { has_country_flag = sof20_terrain_mountain }
+sof_cw_terrain_river_known_badge_visible = { has_country_flag = sof20_terrain_river }
+sof_cw_terrain_urban_known_badge_visible = { has_country_flag = sof20_terrain_urban }
+sof_cw_terrain_coast_known_badge_visible = { has_country_flag = sof20_terrain_coast }
+sof_cw_terrain_forest_known_badge_visible = { has_country_flag = sof20_terrain_forest }
+sof_cw_terrain_plain_known_badge_visible = { has_country_flag = sof20_terrain_plain } }
+properties = { sof_cw_order_meter = { frame = sof_cw_order_percent }
+sof_cw_control_meter = { frame = sof_cw_control_percent }
+sof_cw_neighbour_flag = { image = "[This.GetFlag]" } }
+} }

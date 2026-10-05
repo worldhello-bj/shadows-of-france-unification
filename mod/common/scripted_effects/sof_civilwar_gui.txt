@@ -1,0 +1,40 @@
+# Read-only summaries. No PP, manpower, equipment, war, or core mutation.
+sof_cw_refresh = {
+    if = {
+        limit = { is_ai = no sofzh_unification_candidate = yes }
+        save_event_target_as = sof_cw_owner
+        clear_array = sof_cw_neighbours
+        set_variable = { sof_cw_neighbour_count = 0 }
+        set_variable = { sof_cw_owned = 0 }
+        set_variable = { sof_cw_controlled = 0 }
+        set_variable = { sof_cw_noncore = 0 }
+        every_owned_state = {
+            limit = { sofzh_unification_french_state = yes }
+            event_target:sof_cw_owner = { add_to_variable = { sof_cw_owned = 1 } }
+        }
+        every_controlled_state = {
+            limit = { sofzh_unification_french_state = yes is_fully_controlled_by = event_target:sof_cw_owner }
+            event_target:sof_cw_owner = { add_to_variable = { sof_cw_controlled = 1 } }
+            if = {
+                limit = { NOT = { is_core_of = event_target:sof_cw_owner } impassable = no }
+                event_target:sof_cw_owner = { add_to_variable = { sof_cw_noncore = 1 } }
+            }
+        }
+        set_variable = { sof_cw_control_percent = sof_cw_controlled }
+        multiply_variable = { sof_cw_control_percent = 100 }
+        divide_variable = { sof_cw_control_percent = 339 }
+        clamp_variable = { var = sof_cw_control_percent min = 0 max = 100 }
+        set_variable = { sof_cw_order_percent = stability }
+        multiply_variable = { sof_cw_order_percent = 100 }
+        clamp_variable = { var = sof_cw_order_percent min = 0 max = 100 }
+        round_variable = sof_cw_control_percent
+        round_variable = sof_cw_order_percent
+        every_neighbor_country = {
+            limit = { exists = yes capital_scope = { sofzh_unification_french_state = yes } }
+            event_target:sof_cw_owner = {
+                add_to_array = { array = sof_cw_neighbours value = PREV }
+                add_to_variable = { sof_cw_neighbour_count = 1 }
+            }
+        }
+    }
+}

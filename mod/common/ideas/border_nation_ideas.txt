@@ -1,0 +1,61 @@
+ideas = {
+	trade_laws = { 
+		full_export = {
+			
+			available = {
+				always = no
+			}
+			
+			
+			cost = 0
+			removal_cost = -1
+			
+			modifier = {
+				min_export = 1
+			}
+			
+			default = no
+			
+			cancel_if_invalid = no
+			
+			picture = GFX_idea_generic_free_trade
+
+			ai_will_do = {
+   				factor = 1
+
+				modifier = {
+					factor = 0
+					is_major = no
+					has_war = no
+					is_in_faction = no
+				}
+   			}
+		}
+	}
+
+	country = {
+		border_nation_ns = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			picture = sofzh_spirit_v1_border_nation_ns
+			
+			modifier = {
+				training_time_factor = 20
+				political_power_gain = -20
+				consumer_goods_factor = 1
+				conscription_factor = -1
+				army_org_factor = -1
+				production_factory_max_efficiency_factor = -1
+			}
+		}
+	}
+}

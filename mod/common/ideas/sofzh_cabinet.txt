@@ -1,0 +1,218 @@
+ideas = {
+sofzh_cabinet_executive = { law = yes use_list_view = yes
+sofzh_minister_executive_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_executive_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_executive_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_executive_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_executive_1 has_idea = sofzh_minister_executive_2 has_idea = sofzh_minister_executive_3 } factor = 0 } }
+ modifier = { stability_factor = 0.08 political_power_factor = 0.1 compliance_gain = 0.008 }
+}
+sofzh_minister_executive_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_executive_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_executive_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_executive_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_executive_1 has_idea = sofzh_minister_executive_2 has_idea = sofzh_minister_executive_3 } factor = 0 } }
+ modifier = { army_org_factor = 0.08 war_support_factor = 0.08 stability_factor = -0.03 }
+}
+sofzh_minister_executive_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_executive_3_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_executive_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_executive_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_executive_1 has_idea = sofzh_minister_executive_2 has_idea = sofzh_minister_executive_3 } factor = 0 } }
+ modifier = { compliance_gain = 0.016 required_garrison_factor = -0.06 production_speed_infrastructure_factor = 0.12 }
+}
+}
+sofzh_cabinet_interior = { law = yes use_list_view = yes
+sofzh_minister_interior_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_interior_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_interior_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_interior_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_interior_1 has_idea = sofzh_minister_interior_2 has_idea = sofzh_minister_interior_3 } factor = 0 } }
+ modifier = { stability_factor = 0.08 resistance_target = -0.02 compliance_gain = 0.01 }
+}
+sofzh_minister_interior_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_interior_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_interior_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_interior_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_interior_1 has_idea = sofzh_minister_interior_2 has_idea = sofzh_minister_interior_3 } factor = 0 } }
+ modifier = { compliance_gain = 0.024 required_garrison_factor = -0.09 resistance_damage_to_garrison = -0.075 }
+}
+sofzh_minister_interior_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_interior_3_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_interior_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_interior_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_interior_1 has_idea = sofzh_minister_interior_2 has_idea = sofzh_minister_interior_3 } factor = 0 } }
+ modifier = { resistance_target = -0.0375 resistance_damage_to_garrison = -0.1 stability_factor = 0.04 political_power_factor = -0.03 }
+}
+}
+sofzh_cabinet_treasury = { law = yes use_list_view = yes
+sofzh_minister_treasury_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_treasury_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_treasury_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_treasury_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_treasury_1 has_idea = sofzh_minister_treasury_2 has_idea = sofzh_minister_treasury_3 } factor = 0 } }
+ modifier = { consumer_goods_factor = -0.04 production_speed_industrial_complex_factor = 0.12 stability_factor = 0.03 }
+}
+sofzh_minister_treasury_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_treasury_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_treasury_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_treasury_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_treasury_1 has_idea = sofzh_minister_treasury_2 has_idea = sofzh_minister_treasury_3 } factor = 0 } }
+ modifier = { production_speed_arms_factory_factor = 0.15 industrial_capacity_factory = 0.1 consumer_goods_factor = 0.02 }
+}
+sofzh_minister_treasury_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_treasury_3_available = yes } cost = 125 removal_cost = -1
+ picture = sofzh_minister_portrait_treasury_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_treasury_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_treasury_1 has_idea = sofzh_minister_treasury_2 has_idea = sofzh_minister_treasury_3 } factor = 0 } }
+ modifier = { industrial_capacity_factory = 0.08 industrial_capacity_dockyard = 0.08 production_factory_efficiency_gain_factor = 0.12 }
+}
+}
+sofzh_cabinet_industry = { law = yes use_list_view = yes
+sofzh_minister_industry_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_industry_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_industry_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_industry_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_industry_1 has_idea = sofzh_minister_industry_2 has_idea = sofzh_minister_industry_3 } factor = 0 } }
+ modifier = { production_speed_industrial_complex_factor = 0.18 industry_repair_factor = 0.2 production_speed_infrastructure_factor = 0.1 }
+}
+sofzh_minister_industry_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_industry_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_industry_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_industry_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_industry_1 has_idea = sofzh_minister_industry_2 has_idea = sofzh_minister_industry_3 } factor = 0 } }
+ modifier = { industrial_capacity_factory = 0.12 production_factory_start_efficiency_factor = 0.1 production_speed_arms_factory_factor = 0.15 }
+}
+sofzh_minister_industry_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_industry_3_available = yes } cost = 125 removal_cost = -1
+ picture = sofzh_minister_portrait_industry_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_industry_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_industry_1 has_idea = sofzh_minister_industry_2 has_idea = sofzh_minister_industry_3 } factor = 0 } }
+ modifier = { production_factory_efficiency_gain_factor = 0.2 production_factory_max_efficiency_factor = 0.08 line_change_production_efficiency_factor = 0.15 }
+}
+}
+sofzh_cabinet_defence = { law = yes use_list_view = yes
+sofzh_minister_defence_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_defence_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_defence_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_defence_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_defence_1 has_idea = sofzh_minister_defence_2 has_idea = sofzh_minister_defence_3 } factor = 0 } }
+ modifier = { army_infantry_defence_factor = 0.12 army_morale_factor = 0.12 dig_in_speed_factor = 0.15 }
+}
+sofzh_minister_defence_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_defence_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_defence_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_defence_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_defence_1 has_idea = sofzh_minister_defence_2 has_idea = sofzh_minister_defence_3 } factor = 0 } }
+ modifier = { max_planning_factor = 0.12 planning_speed = 0.2 land_reinforce_rate = 0.03 }
+}
+sofzh_minister_defence_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_defence_3_available = yes } cost = 125 removal_cost = -1
+ picture = sofzh_minister_portrait_defence_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_defence_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_defence_1 has_idea = sofzh_minister_defence_2 has_idea = sofzh_minister_defence_3 } factor = 0 } }
+ modifier = { army_speed_factor = 0.08 supply_consumption_factor = -0.1 org_loss_when_moving = -0.12 }
+}
+}
+sofzh_cabinet_naval = { law = yes use_list_view = yes
+sofzh_minister_naval_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_naval_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_naval_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_naval_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_naval_1 has_idea = sofzh_minister_naval_2 has_idea = sofzh_minister_naval_3 } factor = 0 } }
+ modifier = { industrial_capacity_dockyard = 0.15 navy_org_factor = 0.1 production_speed_dockyard_factor = 0.15 }
+}
+sofzh_minister_naval_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_naval_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_naval_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_naval_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_naval_1 has_idea = sofzh_minister_naval_2 has_idea = sofzh_minister_naval_3 } factor = 0 } }
+ modifier = { invasion_preparation = -0.15 modifier_army_sub_unit_marine_attack_factor = 0.12 modifier_army_sub_unit_marine_defence_factor = 0.1 }
+}
+sofzh_minister_naval_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_naval_3_available = yes } cost = 125 removal_cost = -1
+ picture = sofzh_minister_portrait_naval_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_naval_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_naval_1 has_idea = sofzh_minister_naval_2 has_idea = sofzh_minister_naval_3 } factor = 0 } }
+ modifier = { air_mission_efficiency = 0.1 air_accidents_factor = -0.15 experience_gain_air_factor = 0.15 }
+}
+}
+sofzh_cabinet_science = { law = yes use_list_view = yes
+sofzh_minister_science_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_science_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_science_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_science_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_science_1 has_idea = sofzh_minister_science_2 has_idea = sofzh_minister_science_3 } factor = 0 } }
+ modifier = { research_speed_factor = 0.06 production_factory_efficiency_gain_factor = 0.1 experience_gain_army_factor = 0.1 }
+}
+sofzh_minister_science_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_science_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_science_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_science_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_science_1 has_idea = sofzh_minister_science_2 has_idea = sofzh_minister_science_3 } factor = 0 } }
+ modifier = { research_speed_factor = 0.08 line_change_production_efficiency_factor = 0.15 production_factory_max_efficiency_factor = 0.05 }
+}
+sofzh_minister_science_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_science_3_available = yes } cost = 125 removal_cost = -1
+ picture = sofzh_minister_portrait_science_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_science_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_science_1 has_idea = sofzh_minister_science_2 has_idea = sofzh_minister_science_3 } factor = 0 } }
+ modifier = { research_speed_factor = 0.1 experience_gain_air_factor = 0.15 experience_gain_navy_factor = 0.15 }
+}
+}
+sofzh_cabinet_foreign = { law = yes use_list_view = yes
+sofzh_minister_foreign_1 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_foreign_1_available = yes } cost = 75 removal_cost = -1
+ picture = sofzh_minister_portrait_foreign_1 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_foreign_cooldown days = 90 } }
+ ai_will_do = { factor = 3 modifier = { OR = { has_idea = sofzh_minister_foreign_1 has_idea = sofzh_minister_foreign_2 has_idea = sofzh_minister_foreign_3 } factor = 0 } }
+ modifier = { stability_factor = 0.05 compliance_gain = 0.02 required_garrison_factor = -0.05 }
+}
+sofzh_minister_foreign_2 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_foreign_2_available = yes } cost = 100 removal_cost = -1
+ picture = sofzh_minister_portrait_foreign_2 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_foreign_cooldown days = 90 } }
+ ai_will_do = { factor = 2 modifier = { OR = { has_idea = sofzh_minister_foreign_1 has_idea = sofzh_minister_foreign_2 has_idea = sofzh_minister_foreign_3 } factor = 0 } }
+ modifier = { justify_war_goal_time = -0.15 war_support_factor = 0.08 mobilization_speed = 0.15 }
+}
+sofzh_minister_foreign_3 = {
+ allowed = { always = yes } visible = { sofzh_cabinet_country = yes }
+ available = { sofzh_minister_foreign_3_available = yes } cost = 125 removal_cost = -1
+ picture = sofzh_minister_portrait_foreign_3 cancel_if_invalid = no
+ on_add = { set_country_flag = { flag = sofzh_cabinet_foreign_cooldown days = 90 } }
+ ai_will_do = { factor = 1 modifier = { OR = { has_idea = sofzh_minister_foreign_1 has_idea = sofzh_minister_foreign_2 has_idea = sofzh_minister_foreign_3 } factor = 0 } }
+ modifier = { industry_repair_factor = 0.25 production_speed_rail_way_factor = 0.2 compliance_gain = 0.016 }
+}
+}
+country = {
+sofzh_policy_works = { allowed = { always = no } removal_cost = -1 picture = sofzh_spirit_v1_sofzh_policy_works modifier = { production_speed_infrastructure_factor = 0.25 production_speed_rail_way_factor = 0.2 industry_repair_factor = 0.2 } }
+sofzh_policy_arsenals = { allowed = { always = no } removal_cost = -1 picture = sofzh_spirit_v1_sofzh_policy_arsenals modifier = { industrial_capacity_factory = 0.15 production_factory_efficiency_gain_factor = 0.2 consumer_goods_factor = 0.02 } }
+sofzh_policy_mediation = { allowed = { always = no } removal_cost = -1 picture = sofzh_spirit_v1_sofzh_policy_mediation modifier = { stability_factor = 0.06 compliance_gain = 0.02 resistance_target = -0.02 } }
+sofzh_policy_drill = { allowed = { always = no } removal_cost = -1 picture = sofzh_spirit_v1_sofzh_policy_drill modifier = { planning_speed = 0.2 experience_gain_army_factor = 0.15 army_morale_factor = 0.1 } }
+sofzh_policy_research = { allowed = { always = no } removal_cost = -1 picture = sofzh_spirit_v1_sofzh_policy_research modifier = { research_speed_factor = 0.08 line_change_production_efficiency_factor = 0.15 production_factory_efficiency_gain_factor = 0.1 } }
+sofzh_policy_sea = { allowed = { always = no } removal_cost = -1 picture = sofzh_spirit_v1_sofzh_policy_sea modifier = { navy_org_factor = 0.1 air_mission_efficiency = 0.08 experience_gain_navy_factor = 0.15 } }
+}
+}

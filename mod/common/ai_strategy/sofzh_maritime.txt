@@ -1,0 +1,4461 @@
+# Restore the naval portion excluded by the 2.11 US land/air strategy.
+sofzh_coastal_naval_production = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        capital_scope = { sofzh_logistics_french_state = yes }
+        any_controlled_state = { is_coastal = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = unit_ratio id = capital_ship value = 10 }
+    ai_strategy = { type = unit_ratio id = submarine value = 10 }
+    ai_strategy = { type = unit_ratio id = screen_ship value = 40 }
+    ai_strategy = { type = unit_ratio id = convoy value = 15 }
+}
+sofzh_coastal_convoy_production = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        capital_scope = { sofzh_logistics_french_state = yes }
+        any_controlled_state = { is_coastal = yes }
+        num_of_naval_factories > 0
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = equipment_production_min_factories id = convoy value = 1 }
+}
+sofzh_naval_transport_research = {
+    allowed = { always = yes }
+    enable = { sofzh_ai_naval_preparation_needed = yes NOT = { has_tech = transport } }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = research_tech id = transport value = 100 }
+}
+sofzh_naval_hull_research_mtg = {
+    allowed = { always = yes }
+    enable = {
+        sofzh_ai_naval_preparation_needed = yes
+        num_of_naval_factories > 0
+        has_dlc = "Man the Guns"
+        NOT = { has_tech = early_ship_hull_light }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = research_tech id = early_ship_hull_light value = 100 }
+}
+sofzh_naval_hull_research_legacy = {
+    allowed = { always = yes }
+    enable = {
+        sofzh_ai_naval_preparation_needed = yes
+        num_of_naval_factories > 0
+        NOT = { has_dlc = "Man the Guns" }
+        NOT = { has_tech = early_destroyer }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = research_tech id = early_destroyer value = 100 }
+}
+# War support must survive on_war/on_monthly clearing the campaign flags.
+# The 1.19 base invasion division cap is four; transport improves capacity.
+sofzh_naval_wartime_focus = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war = yes
+        sofzh_ai_naval_actor = yes
+        any_enemy_country = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = naval_invasion_focus value = 150 }
+    ai_strategy = { type = naval_invasion_dominance_weight value = 100 }
+}
+
+sofzh_naval_enemy_ABB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ABB
+        sofzh_ai_naval_actor = yes
+        ABB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ABB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ABB value = 50 }
+}
+
+sofzh_naval_enemy_ABR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ABR
+        sofzh_ai_naval_actor = yes
+        ABR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ABR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ABR value = 50 }
+}
+
+sofzh_naval_enemy_ABU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ABU
+        sofzh_ai_naval_actor = yes
+        ABU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ABU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ABU value = 50 }
+}
+
+sofzh_naval_enemy_ACC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ACC
+        sofzh_ai_naval_actor = yes
+        ACC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ACC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ACC value = 50 }
+}
+
+sofzh_naval_enemy_ACH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ACH
+        sofzh_ai_naval_actor = yes
+        ACH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ACH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ACH value = 50 }
+}
+
+sofzh_naval_enemy_AGL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AGL
+        sofzh_ai_naval_actor = yes
+        AGL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AGL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AGL value = 50 }
+}
+
+sofzh_naval_enemy_AGN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AGN
+        sofzh_ai_naval_actor = yes
+        AGN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AGN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AGN value = 50 }
+}
+
+sofzh_naval_enemy_AGZ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AGZ
+        sofzh_ai_naval_actor = yes
+        AGZ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AGZ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AGZ value = 50 }
+}
+
+sofzh_naval_enemy_AIX = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AIX
+        sofzh_ai_naval_actor = yes
+        AIX = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AIX value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AIX value = 50 }
+}
+
+sofzh_naval_enemy_AJC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AJC
+        sofzh_ai_naval_actor = yes
+        AJC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AJC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AJC value = 50 }
+}
+
+sofzh_naval_enemy_ALB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ALB
+        sofzh_ai_naval_actor = yes
+        ALB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ALB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ALB value = 50 }
+}
+
+sofzh_naval_enemy_ALE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ALE
+        sofzh_ai_naval_actor = yes
+        ALE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ALE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ALE value = 50 }
+}
+
+sofzh_naval_enemy_ALS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ALS
+        sofzh_ai_naval_actor = yes
+        ALS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ALS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ALS value = 50 }
+}
+
+sofzh_naval_enemy_ALT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ALT
+        sofzh_ai_naval_actor = yes
+        ALT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ALT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ALT value = 50 }
+}
+
+sofzh_naval_enemy_AMB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AMB
+        sofzh_ai_naval_actor = yes
+        AMB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AMB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AMB value = 50 }
+}
+
+sofzh_naval_enemy_AMI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AMI
+        sofzh_ai_naval_actor = yes
+        AMI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AMI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AMI value = 50 }
+}
+
+sofzh_naval_enemy_ANC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ANC
+        sofzh_ai_naval_actor = yes
+        ANC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ANC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ANC value = 50 }
+}
+
+sofzh_naval_enemy_AND = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AND
+        sofzh_ai_naval_actor = yes
+        AND = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AND value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AND value = 50 }
+}
+
+sofzh_naval_enemy_ANG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ANG
+        sofzh_ai_naval_actor = yes
+        ANG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ANG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ANG value = 50 }
+}
+
+sofzh_naval_enemy_ANN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ANN
+        sofzh_ai_naval_actor = yes
+        ANN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ANN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ANN value = 50 }
+}
+
+sofzh_naval_enemy_ANT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ANT
+        sofzh_ai_naval_actor = yes
+        ANT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ANT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ANT value = 50 }
+}
+
+sofzh_naval_enemy_ANY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ANY
+        sofzh_ai_naval_actor = yes
+        ANY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ANY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ANY value = 50 }
+}
+
+sofzh_naval_enemy_APT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = APT
+        sofzh_ai_naval_actor = yes
+        APT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = APT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = APT value = 50 }
+}
+
+sofzh_naval_enemy_ARE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ARE
+        sofzh_ai_naval_actor = yes
+        ARE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ARE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ARE value = 50 }
+}
+
+sofzh_naval_enemy_ARG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ARG
+        sofzh_ai_naval_actor = yes
+        ARG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ARG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ARG value = 50 }
+}
+
+sofzh_naval_enemy_ARL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ARL
+        sofzh_ai_naval_actor = yes
+        ARL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ARL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ARL value = 50 }
+}
+
+sofzh_naval_enemy_ARR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ARR
+        sofzh_ai_naval_actor = yes
+        ARR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ARR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ARR value = 50 }
+}
+
+sofzh_naval_enemy_AUR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AUR
+        sofzh_ai_naval_actor = yes
+        AUR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AUR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AUR value = 50 }
+}
+
+sofzh_naval_enemy_AUS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AUS
+        sofzh_ai_naval_actor = yes
+        AUS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AUS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AUS value = 50 }
+}
+
+sofzh_naval_enemy_AUT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AUT
+        sofzh_ai_naval_actor = yes
+        AUT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AUT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AUT value = 50 }
+}
+
+sofzh_naval_enemy_AVA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AVA
+        sofzh_ai_naval_actor = yes
+        AVA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AVA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AVA value = 50 }
+}
+
+sofzh_naval_enemy_AVE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AVE
+        sofzh_ai_naval_actor = yes
+        AVE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AVE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AVE value = 50 }
+}
+
+sofzh_naval_enemy_AVG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AVG
+        sofzh_ai_naval_actor = yes
+        AVG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AVG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AVG value = 50 }
+}
+
+sofzh_naval_enemy_AVR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AVR
+        sofzh_ai_naval_actor = yes
+        AVR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AVR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AVR value = 50 }
+}
+
+sofzh_naval_enemy_AXR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = AXR
+        sofzh_ai_naval_actor = yes
+        AXR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = AXR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = AXR value = 50 }
+}
+
+sofzh_naval_enemy_BAR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BAR
+        sofzh_ai_naval_actor = yes
+        BAR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BAR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BAR value = 50 }
+}
+
+sofzh_naval_enemy_BAY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BAY
+        sofzh_ai_naval_actor = yes
+        BAY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BAY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BAY value = 50 }
+}
+
+sofzh_naval_enemy_BBL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BBL
+        sofzh_ai_naval_actor = yes
+        BBL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BBL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BBL value = 50 }
+}
+
+sofzh_naval_enemy_BCL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BCL
+        sofzh_ai_naval_actor = yes
+        BCL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BCL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BCL value = 50 }
+}
+
+sofzh_naval_enemy_BEA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BEA
+        sofzh_ai_naval_actor = yes
+        BEA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BEA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BEA value = 50 }
+}
+
+sofzh_naval_enemy_BEB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BEB
+        sofzh_ai_naval_actor = yes
+        BEB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BEB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BEB value = 50 }
+}
+
+sofzh_naval_enemy_BEL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BEL
+        sofzh_ai_naval_actor = yes
+        BEL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BEL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BEL value = 50 }
+}
+
+sofzh_naval_enemy_BER = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BER
+        sofzh_ai_naval_actor = yes
+        BER = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BER value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BER value = 50 }
+}
+
+sofzh_naval_enemy_BES = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BES
+        sofzh_ai_naval_actor = yes
+        BES = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BES value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BES value = 50 }
+}
+
+sofzh_naval_enemy_BET = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BET
+        sofzh_ai_naval_actor = yes
+        BET = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BET value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BET value = 50 }
+}
+
+sofzh_naval_enemy_BEY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BEY
+        sofzh_ai_naval_actor = yes
+        BEY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BEY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BEY value = 50 }
+}
+
+sofzh_naval_enemy_BEZ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BEZ
+        sofzh_ai_naval_actor = yes
+        BEZ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BEZ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BEZ value = 50 }
+}
+
+sofzh_naval_enemy_BGB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BGB
+        sofzh_ai_naval_actor = yes
+        BGB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BGB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BGB value = 50 }
+}
+
+sofzh_naval_enemy_BGC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BGC
+        sofzh_ai_naval_actor = yes
+        BGC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BGC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BGC value = 50 }
+}
+
+sofzh_naval_enemy_BGN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BGN
+        sofzh_ai_naval_actor = yes
+        BGN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BGN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BGN value = 50 }
+}
+
+sofzh_naval_enemy_BLA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BLA
+        sofzh_ai_naval_actor = yes
+        BLA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BLA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BLA value = 50 }
+}
+
+sofzh_naval_enemy_BLC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BLC
+        sofzh_ai_naval_actor = yes
+        BLC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BLC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BLC value = 50 }
+}
+
+sofzh_naval_enemy_BLD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BLD
+        sofzh_ai_naval_actor = yes
+        BLD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BLD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BLD value = 50 }
+}
+
+sofzh_naval_enemy_BLF = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BLF
+        sofzh_ai_naval_actor = yes
+        BLF = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BLF value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BLF value = 50 }
+}
+
+sofzh_naval_enemy_BLO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BLO
+        sofzh_ai_naval_actor = yes
+        BLO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BLO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BLO value = 50 }
+}
+
+sofzh_naval_enemy_BLY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BLY
+        sofzh_ai_naval_actor = yes
+        BLY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BLY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BLY value = 50 }
+}
+
+sofzh_naval_enemy_BOB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BOB
+        sofzh_ai_naval_actor = yes
+        BOB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BOB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BOB value = 50 }
+}
+
+sofzh_naval_enemy_BON = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BON
+        sofzh_ai_naval_actor = yes
+        BON = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BON value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BON value = 50 }
+}
+
+sofzh_naval_enemy_BOU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BOU
+        sofzh_ai_naval_actor = yes
+        BOU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BOU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BOU value = 50 }
+}
+
+sofzh_naval_enemy_BRC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BRC
+        sofzh_ai_naval_actor = yes
+        BRC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BRC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BRC value = 50 }
+}
+
+sofzh_naval_enemy_BRD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BRD
+        sofzh_ai_naval_actor = yes
+        BRD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BRD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BRD value = 50 }
+}
+
+sofzh_naval_enemy_BRE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BRE
+        sofzh_ai_naval_actor = yes
+        BRE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BRE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BRE value = 50 }
+}
+
+sofzh_naval_enemy_BRG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BRG
+        sofzh_ai_naval_actor = yes
+        BRG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BRG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BRG value = 50 }
+}
+
+sofzh_naval_enemy_BRU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BRU
+        sofzh_ai_naval_actor = yes
+        BRU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BRU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BRU value = 50 }
+}
+
+sofzh_naval_enemy_BRY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BRY
+        sofzh_ai_naval_actor = yes
+        BRY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BRY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BRY value = 50 }
+}
+
+sofzh_naval_enemy_BSM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BSM
+        sofzh_ai_naval_actor = yes
+        BSM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BSM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BSM value = 50 }
+}
+
+sofzh_naval_enemy_BSS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BSS
+        sofzh_ai_naval_actor = yes
+        BSS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BSS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BSS value = 50 }
+}
+
+sofzh_naval_enemy_BST = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BST
+        sofzh_ai_naval_actor = yes
+        BST = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BST value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BST value = 50 }
+}
+
+sofzh_naval_enemy_BVA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BVA
+        sofzh_ai_naval_actor = yes
+        BVA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BVA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BVA value = 50 }
+}
+
+sofzh_naval_enemy_BVG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BVG
+        sofzh_ai_naval_actor = yes
+        BVG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BVG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BVG value = 50 }
+}
+
+sofzh_naval_enemy_BYN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = BYN
+        sofzh_ai_naval_actor = yes
+        BYN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = BYN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = BYN value = 50 }
+}
+
+sofzh_naval_enemy_CAE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CAE
+        sofzh_ai_naval_actor = yes
+        CAE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CAE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CAE value = 50 }
+}
+
+sofzh_naval_enemy_CAH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CAH
+        sofzh_ai_naval_actor = yes
+        CAH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CAH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CAH value = 50 }
+}
+
+sofzh_naval_enemy_CAL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CAL
+        sofzh_ai_naval_actor = yes
+        CAL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CAL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CAL value = 50 }
+}
+
+sofzh_naval_enemy_CAM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CAM
+        sofzh_ai_naval_actor = yes
+        CAM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CAM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CAM value = 50 }
+}
+
+sofzh_naval_enemy_CAO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CAO
+        sofzh_ai_naval_actor = yes
+        CAO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CAO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CAO value = 50 }
+}
+
+sofzh_naval_enemy_CBR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CBR
+        sofzh_ai_naval_actor = yes
+        CBR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CBR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CBR value = 50 }
+}
+
+sofzh_naval_enemy_CCL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CCL
+        sofzh_ai_naval_actor = yes
+        CCL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CCL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CCL value = 50 }
+}
+
+sofzh_naval_enemy_CCS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CCS
+        sofzh_ai_naval_actor = yes
+        CCS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CCS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CCS value = 50 }
+}
+
+sofzh_naval_enemy_CDM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CDM
+        sofzh_ai_naval_actor = yes
+        CDM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CDM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CDM value = 50 }
+}
+
+sofzh_naval_enemy_CER = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CER
+        sofzh_ai_naval_actor = yes
+        CER = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CER value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CER value = 50 }
+}
+
+sofzh_naval_enemy_CFL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CFL
+        sofzh_ai_naval_actor = yes
+        CFL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CFL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CFL value = 50 }
+}
+
+sofzh_naval_enemy_CFR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CFR
+        sofzh_ai_naval_actor = yes
+        CFR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CFR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CFR value = 50 }
+}
+
+sofzh_naval_enemy_CGC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CGC
+        sofzh_ai_naval_actor = yes
+        CGC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CGC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CGC value = 50 }
+}
+
+sofzh_naval_enemy_CHA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHA
+        sofzh_ai_naval_actor = yes
+        CHA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHA value = 50 }
+}
+
+sofzh_naval_enemy_CHB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHB
+        sofzh_ai_naval_actor = yes
+        CHB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHB value = 50 }
+}
+
+sofzh_naval_enemy_CHC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHC
+        sofzh_ai_naval_actor = yes
+        CHC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHC value = 50 }
+}
+
+sofzh_naval_enemy_CHD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHD
+        sofzh_ai_naval_actor = yes
+        CHD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHD value = 50 }
+}
+
+sofzh_naval_enemy_CHE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHE
+        sofzh_ai_naval_actor = yes
+        CHE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHE value = 50 }
+}
+
+sofzh_naval_enemy_CHG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHG
+        sofzh_ai_naval_actor = yes
+        CHG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHG value = 50 }
+}
+
+sofzh_naval_enemy_CHI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHI
+        sofzh_ai_naval_actor = yes
+        CHI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHI value = 50 }
+}
+
+sofzh_naval_enemy_CHL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHL
+        sofzh_ai_naval_actor = yes
+        CHL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHL value = 50 }
+}
+
+sofzh_naval_enemy_CHM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHM
+        sofzh_ai_naval_actor = yes
+        CHM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHM value = 50 }
+}
+
+sofzh_naval_enemy_CHO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHO
+        sofzh_ai_naval_actor = yes
+        CHO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHO value = 50 }
+}
+
+sofzh_naval_enemy_CHR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHR
+        sofzh_ai_naval_actor = yes
+        CHR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHR value = 50 }
+}
+
+sofzh_naval_enemy_CHS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHS
+        sofzh_ai_naval_actor = yes
+        CHS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHS value = 50 }
+}
+
+sofzh_naval_enemy_CHT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHT
+        sofzh_ai_naval_actor = yes
+        CHT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHT value = 50 }
+}
+
+sofzh_naval_enemy_CHU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CHU
+        sofzh_ai_naval_actor = yes
+        CHU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CHU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CHU value = 50 }
+}
+
+sofzh_naval_enemy_CLA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CLA
+        sofzh_ai_naval_actor = yes
+        CLA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CLA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CLA value = 50 }
+}
+
+sofzh_naval_enemy_CLM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CLM
+        sofzh_ai_naval_actor = yes
+        CLM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CLM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CLM value = 50 }
+}
+
+sofzh_naval_enemy_CLV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CLV
+        sofzh_ai_naval_actor = yes
+        CLV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CLV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CLV value = 50 }
+}
+
+sofzh_naval_enemy_CMP = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CMP
+        sofzh_ai_naval_actor = yes
+        CMP = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CMP value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CMP value = 50 }
+}
+
+sofzh_naval_enemy_COL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = COL
+        sofzh_ai_naval_actor = yes
+        COL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = COL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = COL value = 50 }
+}
+
+sofzh_naval_enemy_COM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = COM
+        sofzh_ai_naval_actor = yes
+        COM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = COM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = COM value = 50 }
+}
+
+sofzh_naval_enemy_COR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = COR
+        sofzh_ai_naval_actor = yes
+        COR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = COR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = COR value = 50 }
+}
+
+sofzh_naval_enemy_COU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = COU
+        sofzh_ai_naval_actor = yes
+        COU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = COU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = COU value = 50 }
+}
+
+sofzh_naval_enemy_CRL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CRL
+        sofzh_ai_naval_actor = yes
+        CRL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CRL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CRL value = 50 }
+}
+
+sofzh_naval_enemy_CRP = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CRP
+        sofzh_ai_naval_actor = yes
+        CRP = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CRP value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CRP value = 50 }
+}
+
+sofzh_naval_enemy_CRR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CRR
+        sofzh_ai_naval_actor = yes
+        CRR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CRR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CRR value = 50 }
+}
+
+sofzh_naval_enemy_CRT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CRT
+        sofzh_ai_naval_actor = yes
+        CRT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CRT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CRT value = 50 }
+}
+
+sofzh_naval_enemy_CSL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CSL
+        sofzh_ai_naval_actor = yes
+        CSL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CSL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CSL value = 50 }
+}
+
+sofzh_naval_enemy_CST = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CST
+        sofzh_ai_naval_actor = yes
+        CST = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CST value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CST value = 50 }
+}
+
+sofzh_naval_enemy_CTE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CTE
+        sofzh_ai_naval_actor = yes
+        CTE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CTE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CTE value = 50 }
+}
+
+sofzh_naval_enemy_CTH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = CTH
+        sofzh_ai_naval_actor = yes
+        CTH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = CTH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = CTH value = 50 }
+}
+
+sofzh_naval_enemy_DAX = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DAX
+        sofzh_ai_naval_actor = yes
+        DAX = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DAX value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DAX value = 50 }
+}
+
+sofzh_naval_enemy_DGG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DGG
+        sofzh_ai_naval_actor = yes
+        DGG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DGG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DGG value = 50 }
+}
+
+sofzh_naval_enemy_DIE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DIE
+        sofzh_ai_naval_actor = yes
+        DIE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DIE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DIE value = 50 }
+}
+
+sofzh_naval_enemy_DIJ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DIJ
+        sofzh_ai_naval_actor = yes
+        DIJ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DIJ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DIJ value = 50 }
+}
+
+sofzh_naval_enemy_DIN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DIN
+        sofzh_ai_naval_actor = yes
+        DIN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DIN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DIN value = 50 }
+}
+
+sofzh_naval_enemy_DIP = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DIP
+        sofzh_ai_naval_actor = yes
+        DIP = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DIP value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DIP value = 50 }
+}
+
+sofzh_naval_enemy_DKQ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DKQ
+        sofzh_ai_naval_actor = yes
+        DKQ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DKQ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DKQ value = 50 }
+}
+
+sofzh_naval_enemy_DLB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DLB
+        sofzh_ai_naval_actor = yes
+        DLB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DLB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DLB value = 50 }
+}
+
+sofzh_naval_enemy_DOL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DOL
+        sofzh_ai_naval_actor = yes
+        DOL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DOL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DOL value = 50 }
+}
+
+sofzh_naval_enemy_DOU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DOU
+        sofzh_ai_naval_actor = yes
+        DOU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DOU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DOU value = 50 }
+}
+
+sofzh_naval_enemy_DRE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = DRE
+        sofzh_ai_naval_actor = yes
+        DRE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = DRE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = DRE value = 50 }
+}
+
+sofzh_naval_enemy_ENG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ENG
+        sofzh_ai_naval_actor = yes
+        ENG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ENG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ENG value = 50 }
+}
+
+sofzh_naval_enemy_EPE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = EPE
+        sofzh_ai_naval_actor = yes
+        EPE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = EPE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = EPE value = 50 }
+}
+
+sofzh_naval_enemy_EPI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = EPI
+        sofzh_ai_naval_actor = yes
+        EPI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = EPI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = EPI value = 50 }
+}
+
+sofzh_naval_enemy_ETP = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ETP
+        sofzh_ai_naval_actor = yes
+        ETP = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ETP value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ETP value = 50 }
+}
+
+sofzh_naval_enemy_EVR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = EVR
+        sofzh_ai_naval_actor = yes
+        EVR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = EVR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = EVR value = 50 }
+}
+
+sofzh_naval_enemy_EVY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = EVY
+        sofzh_ai_naval_actor = yes
+        EVY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = EVY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = EVY value = 50 }
+}
+
+sofzh_naval_enemy_FAC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FAC
+        sofzh_ai_naval_actor = yes
+        FAC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FAC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FAC value = 50 }
+}
+
+sofzh_naval_enemy_FGC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FGC
+        sofzh_ai_naval_actor = yes
+        FGC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FGC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FGC value = 50 }
+}
+
+sofzh_naval_enemy_FLQ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FLQ
+        sofzh_ai_naval_actor = yes
+        FLQ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FLQ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FLQ value = 50 }
+}
+
+sofzh_naval_enemy_FON = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FON
+        sofzh_ai_naval_actor = yes
+        FON = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FON value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FON value = 50 }
+}
+
+sofzh_naval_enemy_FOR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FOR
+        sofzh_ai_naval_actor = yes
+        FOR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FOR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FOR value = 50 }
+}
+
+sofzh_naval_enemy_FOU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FOU
+        sofzh_ai_naval_actor = yes
+        FOU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FOU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FOU value = 50 }
+}
+
+sofzh_naval_enemy_FOX = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FOX
+        sofzh_ai_naval_actor = yes
+        FOX = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FOX value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FOX value = 50 }
+}
+
+sofzh_naval_enemy_FTB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = FTB
+        sofzh_ai_naval_actor = yes
+        FTB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = FTB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = FTB value = 50 }
+}
+
+sofzh_naval_enemy_GAP = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GAP
+        sofzh_ai_naval_actor = yes
+        GAP = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GAP value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GAP value = 50 }
+}
+
+sofzh_naval_enemy_GBW = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GBW
+        sofzh_ai_naval_actor = yes
+        GBW = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GBW value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GBW value = 50 }
+}
+
+sofzh_naval_enemy_GER = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GER
+        sofzh_ai_naval_actor = yes
+        GER = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GER value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GER value = 50 }
+}
+
+sofzh_naval_enemy_GEX = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GEX
+        sofzh_ai_naval_actor = yes
+        GEX = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GEX value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GEX value = 50 }
+}
+
+sofzh_naval_enemy_GRD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GRD
+        sofzh_ai_naval_actor = yes
+        GRD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GRD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GRD value = 50 }
+}
+
+sofzh_naval_enemy_GRN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GRN
+        sofzh_ai_naval_actor = yes
+        GRN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GRN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GRN value = 50 }
+}
+
+sofzh_naval_enemy_GSS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GSS
+        sofzh_ai_naval_actor = yes
+        GSS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GSS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GSS value = 50 }
+}
+
+sofzh_naval_enemy_GUE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GUE
+        sofzh_ai_naval_actor = yes
+        GUE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GUE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GUE value = 50 }
+}
+
+sofzh_naval_enemy_GUI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = GUI
+        sofzh_ai_naval_actor = yes
+        GUI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = GUI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = GUI value = 50 }
+}
+
+sofzh_naval_enemy_HAG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = HAG
+        sofzh_ai_naval_actor = yes
+        HAG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = HAG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = HAG value = 50 }
+}
+
+sofzh_naval_enemy_HAV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = HAV
+        sofzh_ai_naval_actor = yes
+        HAV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = HAV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = HAV value = 50 }
+}
+
+sofzh_naval_enemy_HLR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = HLR
+        sofzh_ai_naval_actor = yes
+        HLR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = HLR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = HLR value = 50 }
+}
+
+sofzh_naval_enemy_HOL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = HOL
+        sofzh_ai_naval_actor = yes
+        HOL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = HOL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = HOL value = 50 }
+}
+
+sofzh_naval_enemy_ISO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ISO
+        sofzh_ai_naval_actor = yes
+        ISO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ISO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ISO value = 50 }
+}
+
+sofzh_naval_enemy_ISS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ISS
+        sofzh_ai_naval_actor = yes
+        ISS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ISS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ISS value = 50 }
+}
+
+sofzh_naval_enemy_IST = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = IST
+        sofzh_ai_naval_actor = yes
+        IST = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = IST value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = IST value = 50 }
+}
+
+sofzh_naval_enemy_ITA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ITA
+        sofzh_ai_naval_actor = yes
+        ITA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ITA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ITA value = 50 }
+}
+
+sofzh_naval_enemy_JZC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = JZC
+        sofzh_ai_naval_actor = yes
+        JZC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = JZC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = JZC value = 50 }
+}
+
+sofzh_naval_enemy_LAG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LAG
+        sofzh_ai_naval_actor = yes
+        LAG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LAG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LAG value = 50 }
+}
+
+sofzh_naval_enemy_LAN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LAN
+        sofzh_ai_naval_actor = yes
+        LAN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LAN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LAN value = 50 }
+}
+
+sofzh_naval_enemy_LAO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LAO
+        sofzh_ai_naval_actor = yes
+        LAO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LAO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LAO value = 50 }
+}
+
+sofzh_naval_enemy_LAR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LAR
+        sofzh_ai_naval_actor = yes
+        LAR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LAR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LAR value = 50 }
+}
+
+sofzh_naval_enemy_LAV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LAV
+        sofzh_ai_naval_actor = yes
+        LAV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LAV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LAV value = 50 }
+}
+
+sofzh_naval_enemy_LCH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LCH
+        sofzh_ai_naval_actor = yes
+        LCH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LCH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LCH value = 50 }
+}
+
+sofzh_naval_enemy_LDV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LDV
+        sofzh_ai_naval_actor = yes
+        LDV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LDV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LDV value = 50 }
+}
+
+sofzh_naval_enemy_LEN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LEN
+        sofzh_ai_naval_actor = yes
+        LEN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LEN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LEN value = 50 }
+}
+
+sofzh_naval_enemy_LFL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LFL
+        sofzh_ai_naval_actor = yes
+        LFL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LFL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LFL value = 50 }
+}
+
+sofzh_naval_enemy_LIB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LIB
+        sofzh_ai_naval_actor = yes
+        LIB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LIB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LIB value = 50 }
+}
+
+sofzh_naval_enemy_LIL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LIL
+        sofzh_ai_naval_actor = yes
+        LIL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LIL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LIL value = 50 }
+}
+
+sofzh_naval_enemy_LIS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LIS
+        sofzh_ai_naval_actor = yes
+        LIS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LIS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LIS value = 50 }
+}
+
+sofzh_naval_enemy_LMA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LMA
+        sofzh_ai_naval_actor = yes
+        LMA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LMA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LMA value = 50 }
+}
+
+sofzh_naval_enemy_LMC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LMC
+        sofzh_ai_naval_actor = yes
+        LMC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LMC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LMC value = 50 }
+}
+
+sofzh_naval_enemy_LMG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LMG
+        sofzh_ai_naval_actor = yes
+        LMG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LMG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LMG value = 50 }
+}
+
+sofzh_naval_enemy_LMX = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LMX
+        sofzh_ai_naval_actor = yes
+        LMX = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LMX value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LMX value = 50 }
+}
+
+sofzh_naval_enemy_LNG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LNG
+        sofzh_ai_naval_actor = yes
+        LNG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LNG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LNG value = 50 }
+}
+
+sofzh_naval_enemy_LOC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LOC
+        sofzh_ai_naval_actor = yes
+        LOC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LOC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LOC value = 50 }
+}
+
+sofzh_naval_enemy_LON = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LON
+        sofzh_ai_naval_actor = yes
+        LON = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LON value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LON value = 50 }
+}
+
+sofzh_naval_enemy_LOR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LOR
+        sofzh_ai_naval_actor = yes
+        LOR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LOR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LOR value = 50 }
+}
+
+sofzh_naval_enemy_LOU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LOU
+        sofzh_ai_naval_actor = yes
+        LOU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LOU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LOU value = 50 }
+}
+
+sofzh_naval_enemy_LRA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LRA
+        sofzh_ai_naval_actor = yes
+        LRA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LRA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LRA value = 50 }
+}
+
+sofzh_naval_enemy_LRO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LRO
+        sofzh_ai_naval_actor = yes
+        LRO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LRO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LRO value = 50 }
+}
+
+sofzh_naval_enemy_LRY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LRY
+        sofzh_ai_naval_actor = yes
+        LRY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LRY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LRY value = 50 }
+}
+
+sofzh_naval_enemy_LUN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LUN
+        sofzh_ai_naval_actor = yes
+        LUN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LUN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LUN value = 50 }
+}
+
+sofzh_naval_enemy_LUR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LUR
+        sofzh_ai_naval_actor = yes
+        LUR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LUR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LUR value = 50 }
+}
+
+sofzh_naval_enemy_LUX = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LUX
+        sofzh_ai_naval_actor = yes
+        LUX = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LUX value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LUX value = 50 }
+}
+
+sofzh_naval_enemy_LYO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = LYO
+        sofzh_ai_naval_actor = yes
+        LYO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = LYO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = LYO value = 50 }
+}
+
+sofzh_naval_enemy_MAC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MAC
+        sofzh_ai_naval_actor = yes
+        MAC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MAC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MAC value = 50 }
+}
+
+sofzh_naval_enemy_MAM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MAM
+        sofzh_ai_naval_actor = yes
+        MAM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MAM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MAM value = 50 }
+}
+
+sofzh_naval_enemy_MAY = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MAY
+        sofzh_ai_naval_actor = yes
+        MAY = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MAY value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MAY value = 50 }
+}
+
+sofzh_naval_enemy_MBE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MBE
+        sofzh_ai_naval_actor = yes
+        MBE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MBE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MBE value = 50 }
+}
+
+sofzh_naval_enemy_MBR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MBR
+        sofzh_ai_naval_actor = yes
+        MBR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MBR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MBR value = 50 }
+}
+
+sofzh_naval_enemy_MBS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MBS
+        sofzh_ai_naval_actor = yes
+        MBS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MBS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MBS value = 50 }
+}
+
+sofzh_naval_enemy_MEA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MEA
+        sofzh_ai_naval_actor = yes
+        MEA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MEA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MEA value = 50 }
+}
+
+sofzh_naval_enemy_MEN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MEN
+        sofzh_ai_naval_actor = yes
+        MEN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MEN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MEN value = 50 }
+}
+
+sofzh_naval_enemy_MET = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MET
+        sofzh_ai_naval_actor = yes
+        MET = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MET value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MET value = 50 }
+}
+
+sofzh_naval_enemy_MLC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MLC
+        sofzh_ai_naval_actor = yes
+        MLC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MLC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MLC value = 50 }
+}
+
+sofzh_naval_enemy_MLJ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MLJ
+        sofzh_ai_naval_actor = yes
+        MLJ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MLJ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MLJ value = 50 }
+}
+
+sofzh_naval_enemy_MLL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MLL
+        sofzh_ai_naval_actor = yes
+        MLL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MLL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MLL value = 50 }
+}
+
+sofzh_naval_enemy_MLU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MLU
+        sofzh_ai_naval_actor = yes
+        MLU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MLU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MLU value = 50 }
+}
+
+sofzh_naval_enemy_MMS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MMS
+        sofzh_ai_naval_actor = yes
+        MMS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MMS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MMS value = 50 }
+}
+
+sofzh_naval_enemy_MOL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MOL
+        sofzh_ai_naval_actor = yes
+        MOL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MOL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MOL value = 50 }
+}
+
+sofzh_naval_enemy_MON = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MON
+        sofzh_ai_naval_actor = yes
+        MON = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MON value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MON value = 50 }
+}
+
+sofzh_naval_enemy_MOP = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MOP
+        sofzh_ai_naval_actor = yes
+        MOP = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MOP value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MOP value = 50 }
+}
+
+sofzh_naval_enemy_MOR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MOR
+        sofzh_ai_naval_actor = yes
+        MOR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MOR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MOR value = 50 }
+}
+
+sofzh_naval_enemy_MOU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MOU
+        sofzh_ai_naval_actor = yes
+        MOU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MOU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MOU value = 50 }
+}
+
+sofzh_naval_enemy_MRC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MRC
+        sofzh_ai_naval_actor = yes
+        MRC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MRC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MRC value = 50 }
+}
+
+sofzh_naval_enemy_MRD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MRD
+        sofzh_ai_naval_actor = yes
+        MRD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MRD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MRD value = 50 }
+}
+
+sofzh_naval_enemy_MRE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MRE
+        sofzh_ai_naval_actor = yes
+        MRE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MRE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MRE value = 50 }
+}
+
+sofzh_naval_enemy_MRL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MRL
+        sofzh_ai_naval_actor = yes
+        MRL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MRL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MRL value = 50 }
+}
+
+sofzh_naval_enemy_MRM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MRM
+        sofzh_ai_naval_actor = yes
+        MRM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MRM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MRM value = 50 }
+}
+
+sofzh_naval_enemy_MRS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MRS
+        sofzh_ai_naval_actor = yes
+        MRS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MRS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MRS value = 50 }
+}
+
+sofzh_naval_enemy_MTB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MTB
+        sofzh_ai_naval_actor = yes
+        MTB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MTB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MTB value = 50 }
+}
+
+sofzh_naval_enemy_MTD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MTD
+        sofzh_ai_naval_actor = yes
+        MTD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MTD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MTD value = 50 }
+}
+
+sofzh_naval_enemy_MTM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MTM
+        sofzh_ai_naval_actor = yes
+        MTM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MTM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MTM value = 50 }
+}
+
+sofzh_naval_enemy_MTR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MTR
+        sofzh_ai_naval_actor = yes
+        MTR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MTR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MTR value = 50 }
+}
+
+sofzh_naval_enemy_MUL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = MUL
+        sofzh_ai_naval_actor = yes
+        MUL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = MUL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = MUL value = 50 }
+}
+
+sofzh_naval_enemy_NAN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NAN
+        sofzh_ai_naval_actor = yes
+        NAN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NAN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NAN value = 50 }
+}
+
+sofzh_naval_enemy_NCH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NCH
+        sofzh_ai_naval_actor = yes
+        NCH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NCH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NCH value = 50 }
+}
+
+sofzh_naval_enemy_NEV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NEV
+        sofzh_ai_naval_actor = yes
+        NEV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NEV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NEV value = 50 }
+}
+
+sofzh_naval_enemy_NIC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NIC
+        sofzh_ai_naval_actor = yes
+        NIC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NIC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NIC value = 50 }
+}
+
+sofzh_naval_enemy_NIM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NIM
+        sofzh_ai_naval_actor = yes
+        NIM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NIM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NIM value = 50 }
+}
+
+sofzh_naval_enemy_NNC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NNC
+        sofzh_ai_naval_actor = yes
+        NNC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NNC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NNC value = 50 }
+}
+
+sofzh_naval_enemy_NNT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NNT
+        sofzh_ai_naval_actor = yes
+        NNT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NNT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NNT value = 50 }
+}
+
+sofzh_naval_enemy_NOG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NOG
+        sofzh_ai_naval_actor = yes
+        NOG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NOG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NOG value = 50 }
+}
+
+sofzh_naval_enemy_NON = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NON
+        sofzh_ai_naval_actor = yes
+        NON = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NON value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NON value = 50 }
+}
+
+sofzh_naval_enemy_NRB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NRB
+        sofzh_ai_naval_actor = yes
+        NRB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NRB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NRB value = 50 }
+}
+
+sofzh_naval_enemy_NRC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NRC
+        sofzh_ai_naval_actor = yes
+        NRC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NRC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NRC value = 50 }
+}
+
+sofzh_naval_enemy_NRT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NRT
+        sofzh_ai_naval_actor = yes
+        NRT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NRT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NRT value = 50 }
+}
+
+sofzh_naval_enemy_NSM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NSM
+        sofzh_ai_naval_actor = yes
+        NSM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NSM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NSM value = 50 }
+}
+
+sofzh_naval_enemy_NSS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NSS
+        sofzh_ai_naval_actor = yes
+        NSS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NSS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NSS value = 50 }
+}
+
+sofzh_naval_enemy_NTR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NTR
+        sofzh_ai_naval_actor = yes
+        NTR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NTR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NTR value = 50 }
+}
+
+sofzh_naval_enemy_NYO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = NYO
+        sofzh_ai_naval_actor = yes
+        NYO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = NYO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = NYO value = 50 }
+}
+
+sofzh_naval_enemy_OLO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = OLO
+        sofzh_ai_naval_actor = yes
+        OLO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = OLO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = OLO value = 50 }
+}
+
+sofzh_naval_enemy_ORL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ORL
+        sofzh_ai_naval_actor = yes
+        ORL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ORL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ORL value = 50 }
+}
+
+sofzh_naval_enemy_OSM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = OSM
+        sofzh_ai_naval_actor = yes
+        OSM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = OSM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = OSM value = 50 }
+}
+
+sofzh_naval_enemy_PAU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PAU
+        sofzh_ai_naval_actor = yes
+        PAU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PAU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PAU value = 50 }
+}
+
+sofzh_naval_enemy_PER = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PER
+        sofzh_ai_naval_actor = yes
+        PER = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PER value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PER value = 50 }
+}
+
+sofzh_naval_enemy_PEV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PEV
+        sofzh_ai_naval_actor = yes
+        PEV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PEV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PEV value = 50 }
+}
+
+sofzh_naval_enemy_PGX = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PGX
+        sofzh_ai_naval_actor = yes
+        PGX = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PGX value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PGX value = 50 }
+}
+
+sofzh_naval_enemy_PIT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PIT
+        sofzh_ai_naval_actor = yes
+        PIT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PIT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PIT value = 50 }
+}
+
+sofzh_naval_enemy_PLS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PLS
+        sofzh_ai_naval_actor = yes
+        PLS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PLS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PLS value = 50 }
+}
+
+sofzh_naval_enemy_PMS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PMS
+        sofzh_ai_naval_actor = yes
+        PMS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PMS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PMS value = 50 }
+}
+
+sofzh_naval_enemy_PNT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PNT
+        sofzh_ai_naval_actor = yes
+        PNT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PNT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PNT value = 50 }
+}
+
+sofzh_naval_enemy_POI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = POI
+        sofzh_ai_naval_actor = yes
+        POI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = POI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = POI value = 50 }
+}
+
+sofzh_naval_enemy_PON = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PON
+        sofzh_ai_naval_actor = yes
+        PON = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PON value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PON value = 50 }
+}
+
+sofzh_naval_enemy_PPG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PPG
+        sofzh_ai_naval_actor = yes
+        PPG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PPG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PPG value = 50 }
+}
+
+sofzh_naval_enemy_PRD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PRD
+        sofzh_ai_naval_actor = yes
+        PRD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PRD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PRD value = 50 }
+}
+
+sofzh_naval_enemy_PRH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PRH
+        sofzh_ai_naval_actor = yes
+        PRH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PRH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PRH value = 50 }
+}
+
+sofzh_naval_enemy_PRI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PRI
+        sofzh_ai_naval_actor = yes
+        PRI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PRI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PRI value = 50 }
+}
+
+sofzh_naval_enemy_PRS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PRS
+        sofzh_ai_naval_actor = yes
+        PRS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PRS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PRS value = 50 }
+}
+
+sofzh_naval_enemy_PRV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PRV
+        sofzh_ai_naval_actor = yes
+        PRV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PRV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PRV value = 50 }
+}
+
+sofzh_naval_enemy_PTN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = PTN
+        sofzh_ai_naval_actor = yes
+        PTN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = PTN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = PTN value = 50 }
+}
+
+sofzh_naval_enemy_QUI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = QUI
+        sofzh_ai_naval_actor = yes
+        QUI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = QUI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = QUI value = 50 }
+}
+
+sofzh_naval_enemy_RBL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RBL
+        sofzh_ai_naval_actor = yes
+        RBL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RBL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RBL value = 50 }
+}
+
+sofzh_naval_enemy_RCF = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RCF
+        sofzh_ai_naval_actor = yes
+        RCF = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RCF value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RCF value = 50 }
+}
+
+sofzh_naval_enemy_RCH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RCH
+        sofzh_ai_naval_actor = yes
+        RCH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RCH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RCH value = 50 }
+}
+
+sofzh_naval_enemy_RDZ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RDZ
+        sofzh_ai_naval_actor = yes
+        RDZ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RDZ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RDZ value = 50 }
+}
+
+sofzh_naval_enemy_RED = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RED
+        sofzh_ai_naval_actor = yes
+        RED = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RED value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RED value = 50 }
+}
+
+sofzh_naval_enemy_REI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = REI
+        sofzh_ai_naval_actor = yes
+        REI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = REI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = REI value = 50 }
+}
+
+sofzh_naval_enemy_REN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = REN
+        sofzh_ai_naval_actor = yes
+        REN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = REN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = REN value = 50 }
+}
+
+sofzh_naval_enemy_RET = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RET
+        sofzh_ai_naval_actor = yes
+        RET = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RET value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RET value = 50 }
+}
+
+sofzh_naval_enemy_RIB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RIB
+        sofzh_ai_naval_actor = yes
+        RIB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RIB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RIB value = 50 }
+}
+
+sofzh_naval_enemy_RIO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RIO
+        sofzh_ai_naval_actor = yes
+        RIO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RIO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RIO value = 50 }
+}
+
+sofzh_naval_enemy_RML = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = RML
+        sofzh_ai_naval_actor = yes
+        RML = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = RML value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = RML value = 50 }
+}
+
+sofzh_naval_enemy_ROA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ROA
+        sofzh_ai_naval_actor = yes
+        ROA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ROA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ROA value = 50 }
+}
+
+sofzh_naval_enemy_ROU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = ROU
+        sofzh_ai_naval_actor = yes
+        ROU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = ROU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = ROU value = 50 }
+}
+
+sofzh_naval_enemy_SAM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SAM
+        sofzh_ai_naval_actor = yes
+        SAM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SAM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SAM value = 50 }
+}
+
+sofzh_naval_enemy_SAR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SAR
+        sofzh_ai_naval_actor = yes
+        SAR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SAR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SAR value = 50 }
+}
+
+sofzh_naval_enemy_SAU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SAU
+        sofzh_ai_naval_actor = yes
+        SAU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SAU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SAU value = 50 }
+}
+
+sofzh_naval_enemy_SAV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SAV
+        sofzh_ai_naval_actor = yes
+        SAV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SAV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SAV value = 50 }
+}
+
+sofzh_naval_enemy_SBR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SBR
+        sofzh_ai_naval_actor = yes
+        SBR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SBR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SBR value = 50 }
+}
+
+sofzh_naval_enemy_SCL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SCL
+        sofzh_ai_naval_actor = yes
+        SCL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SCL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SCL value = 50 }
+}
+
+sofzh_naval_enemy_SDI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SDI
+        sofzh_ai_naval_actor = yes
+        SDI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SDI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SDI value = 50 }
+}
+
+sofzh_naval_enemy_SDZ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SDZ
+        sofzh_ai_naval_actor = yes
+        SDZ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SDZ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SDZ value = 50 }
+}
+
+sofzh_naval_enemy_SED = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SED
+        sofzh_ai_naval_actor = yes
+        SED = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SED value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SED value = 50 }
+}
+
+sofzh_naval_enemy_SEG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SEG
+        sofzh_ai_naval_actor = yes
+        SEG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SEG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SEG value = 50 }
+}
+
+sofzh_naval_enemy_SEL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SEL
+        sofzh_ai_naval_actor = yes
+        SEL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SEL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SEL value = 50 }
+}
+
+sofzh_naval_enemy_SEN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SEN
+        sofzh_ai_naval_actor = yes
+        SEN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SEN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SEN value = 50 }
+}
+
+sofzh_naval_enemy_SET = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SET
+        sofzh_ai_naval_actor = yes
+        SET = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SET value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SET value = 50 }
+}
+
+sofzh_naval_enemy_SFR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SFR
+        sofzh_ai_naval_actor = yes
+        SFR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SFR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SFR value = 50 }
+}
+
+sofzh_naval_enemy_SGI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SGI
+        sofzh_ai_naval_actor = yes
+        SGI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SGI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SGI value = 50 }
+}
+
+sofzh_naval_enemy_SGL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SGL
+        sofzh_ai_naval_actor = yes
+        SGL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SGL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SGL value = 50 }
+}
+
+sofzh_naval_enemy_SGU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SGU
+        sofzh_ai_naval_actor = yes
+        SGU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SGU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SGU value = 50 }
+}
+
+sofzh_naval_enemy_SIN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SIN
+        sofzh_ai_naval_actor = yes
+        SIN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SIN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SIN value = 50 }
+}
+
+sofzh_naval_enemy_SJA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SJA
+        sofzh_ai_naval_actor = yes
+        SJA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SJA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SJA value = 50 }
+}
+
+sofzh_naval_enemy_SJG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SJG
+        sofzh_ai_naval_actor = yes
+        SJG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SJG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SJG value = 50 }
+}
+
+sofzh_naval_enemy_SJM = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SJM
+        sofzh_ai_naval_actor = yes
+        SJM = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SJM value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SJM value = 50 }
+}
+
+sofzh_naval_enemy_SLC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SLC
+        sofzh_ai_naval_actor = yes
+        SLC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SLC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SLC value = 50 }
+}
+
+sofzh_naval_enemy_SLO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SLO
+        sofzh_ai_naval_actor = yes
+        SLO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SLO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SLO value = 50 }
+}
+
+sofzh_naval_enemy_SMA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SMA
+        sofzh_ai_naval_actor = yes
+        SMA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SMA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SMA value = 50 }
+}
+
+sofzh_naval_enemy_SME = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SME
+        sofzh_ai_naval_actor = yes
+        SME = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SME value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SME value = 50 }
+}
+
+sofzh_naval_enemy_SNA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SNA
+        sofzh_ai_naval_actor = yes
+        SNA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SNA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SNA value = 50 }
+}
+
+sofzh_naval_enemy_SNL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SNL
+        sofzh_ai_naval_actor = yes
+        SNL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SNL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SNL value = 50 }
+}
+
+sofzh_naval_enemy_SOS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SOS
+        sofzh_ai_naval_actor = yes
+        SOS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SOS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SOS value = 50 }
+}
+
+sofzh_naval_enemy_SPR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SPR
+        sofzh_ai_naval_actor = yes
+        SPR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SPR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SPR value = 50 }
+}
+
+sofzh_naval_enemy_SRC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SRC
+        sofzh_ai_naval_actor = yes
+        SRC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SRC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SRC value = 50 }
+}
+
+sofzh_naval_enemy_SRG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SRG
+        sofzh_ai_naval_actor = yes
+        SRG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SRG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SRG value = 50 }
+}
+
+sofzh_naval_enemy_SRT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SRT
+        sofzh_ai_naval_actor = yes
+        SRT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SRT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SRT value = 50 }
+}
+
+sofzh_naval_enemy_STD = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = STD
+        sofzh_ai_naval_actor = yes
+        STD = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = STD value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = STD value = 50 }
+}
+
+sofzh_naval_enemy_STO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = STO
+        sofzh_ai_naval_actor = yes
+        STO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = STO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = STO value = 50 }
+}
+
+sofzh_naval_enemy_STQ = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = STQ
+        sofzh_ai_naval_actor = yes
+        STQ = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = STQ value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = STQ value = 50 }
+}
+
+sofzh_naval_enemy_STR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = STR
+        sofzh_ai_naval_actor = yes
+        STR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = STR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = STR value = 50 }
+}
+
+sofzh_naval_enemy_SWI = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = SWI
+        sofzh_ai_naval_actor = yes
+        SWI = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = SWI value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = SWI value = 50 }
+}
+
+sofzh_naval_enemy_TDP = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TDP
+        sofzh_ai_naval_actor = yes
+        TDP = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TDP value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TDP value = 50 }
+}
+
+sofzh_naval_enemy_THA = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = THA
+        sofzh_ai_naval_actor = yes
+        THA = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = THA value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = THA value = 50 }
+}
+
+sofzh_naval_enemy_THE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = THE
+        sofzh_ai_naval_actor = yes
+        THE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = THE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = THE value = 50 }
+}
+
+sofzh_naval_enemy_THO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = THO
+        sofzh_ai_naval_actor = yes
+        THO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = THO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = THO value = 50 }
+}
+
+sofzh_naval_enemy_THR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = THR
+        sofzh_ai_naval_actor = yes
+        THR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = THR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = THR value = 50 }
+}
+
+sofzh_naval_enemy_TLB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TLB
+        sofzh_ai_naval_actor = yes
+        TLB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TLB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TLB value = 50 }
+}
+
+sofzh_naval_enemy_TLN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TLN
+        sofzh_ai_naval_actor = yes
+        TLN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TLN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TLN value = 50 }
+}
+
+sofzh_naval_enemy_TOL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TOL
+        sofzh_ai_naval_actor = yes
+        TOL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TOL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TOL value = 50 }
+}
+
+sofzh_naval_enemy_TOU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TOU
+        sofzh_ai_naval_actor = yes
+        TOU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TOU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TOU value = 50 }
+}
+
+sofzh_naval_enemy_TRB = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TRB
+        sofzh_ai_naval_actor = yes
+        TRB = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TRB value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TRB value = 50 }
+}
+
+sofzh_naval_enemy_TRC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TRC
+        sofzh_ai_naval_actor = yes
+        TRC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TRC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TRC value = 50 }
+}
+
+sofzh_naval_enemy_TRO = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TRO
+        sofzh_ai_naval_actor = yes
+        TRO = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TRO value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TRO value = 50 }
+}
+
+sofzh_naval_enemy_TRS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TRS
+        sofzh_ai_naval_actor = yes
+        TRS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TRS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TRS value = 50 }
+}
+
+sofzh_naval_enemy_TSR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TSR
+        sofzh_ai_naval_actor = yes
+        TSR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TSR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TSR value = 50 }
+}
+
+sofzh_naval_enemy_TUL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = TUL
+        sofzh_ai_naval_actor = yes
+        TUL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = TUL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = TUL value = 50 }
+}
+
+sofzh_naval_enemy_USS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = USS
+        sofzh_ai_naval_actor = yes
+        USS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = USS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = USS value = 50 }
+}
+
+sofzh_naval_enemy_VAL = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VAL
+        sofzh_ai_naval_actor = yes
+        VAL = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VAL value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VAL value = 50 }
+}
+
+sofzh_naval_enemy_VAN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VAN
+        sofzh_ai_naval_actor = yes
+        VAN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VAN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VAN value = 50 }
+}
+
+sofzh_naval_enemy_VCH = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VCH
+        sofzh_ai_naval_actor = yes
+        VCH = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VCH value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VCH value = 50 }
+}
+
+sofzh_naval_enemy_VEN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VEN
+        sofzh_ai_naval_actor = yes
+        VEN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VEN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VEN value = 50 }
+}
+
+sofzh_naval_enemy_VER = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VER
+        sofzh_ai_naval_actor = yes
+        VER = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VER value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VER value = 50 }
+}
+
+sofzh_naval_enemy_VES = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VES
+        sofzh_ai_naval_actor = yes
+        VES = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VES value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VES value = 50 }
+}
+
+sofzh_naval_enemy_VIE = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VIE
+        sofzh_ai_naval_actor = yes
+        VIE = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VIE value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VIE value = 50 }
+}
+
+sofzh_naval_enemy_VIG = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VIG
+        sofzh_ai_naval_actor = yes
+        VIG = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VIG value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VIG value = 50 }
+}
+
+sofzh_naval_enemy_VIN = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VIN
+        sofzh_ai_naval_actor = yes
+        VIN = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VIN value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VIN value = 50 }
+}
+
+sofzh_naval_enemy_VIR = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VIR
+        sofzh_ai_naval_actor = yes
+        VIR = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VIR value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VIR value = 50 }
+}
+
+sofzh_naval_enemy_VIT = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VIT
+        sofzh_ai_naval_actor = yes
+        VIT = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VIT value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VIT value = 50 }
+}
+
+sofzh_naval_enemy_VLC = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VLC
+        sofzh_ai_naval_actor = yes
+        VLC = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VLC value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VLC value = 50 }
+}
+
+sofzh_naval_enemy_VLF = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VLF
+        sofzh_ai_naval_actor = yes
+        VLF = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VLF value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VLF value = 50 }
+}
+
+sofzh_naval_enemy_VNV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VNV
+        sofzh_ai_naval_actor = yes
+        VNV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VNV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VNV value = 50 }
+}
+
+sofzh_naval_enemy_VOU = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VOU
+        sofzh_ai_naval_actor = yes
+        VOU = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VOU value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VOU value = 50 }
+}
+
+sofzh_naval_enemy_VRS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VRS
+        sofzh_ai_naval_actor = yes
+        VRS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VRS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VRS value = 50 }
+}
+
+sofzh_naval_enemy_VRV = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VRV
+        sofzh_ai_naval_actor = yes
+        VRV = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VRV value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VRV value = 50 }
+}
+
+sofzh_naval_enemy_VSS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = VSS
+        sofzh_ai_naval_actor = yes
+        VSS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = VSS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = VSS value = 50 }
+}
+
+sofzh_naval_enemy_WIS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = WIS
+        sofzh_ai_naval_actor = yes
+        WIS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = WIS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = WIS value = 50 }
+}
+
+sofzh_naval_enemy_YSS = {
+    allowed = { always = yes }
+    enable = {
+        is_ai = yes
+        has_war_with = YSS
+        sofzh_ai_naval_actor = yes
+        YSS = { sofzh_ai_overseas_enemy = yes }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = { type = invade id = YSS value = 200 }
+    ai_strategy = { type = invasion_unit_request tag = YSS value = 50 }
+}

@@ -1,0 +1,14 @@
+# Preserve every game script/localization/texture byte, including BOM and CRLF.
+* -text
+*.py text eol=lf
+*.md text eol=lf
+*.cjs text eol=lf
+*.ps1 -text
+.github/workflows/*.yml text eol=lf
+*.dds binary
+*.png binary
+*.jpg binary
+*.tga binary
+*.bmp binary
+# Override Markdown normalization inside the actual game payload too.
+mod/** -text

@@ -1,0 +1,20 @@
+# ROOT is the new controller, FROM the former controller, FROM.FROM the state.
+# Control hooks handle battles; the country weekly pulse repairs old saves,
+# civil-war inheritance and scripted transfers without a global scan per country.
+on_actions = {
+	on_startup = { effect = { every_country = { sofzh_refresh_resource_spirits = yes } } }
+	on_state_control_changed = {
+		effect = {
+			if = { limit = { FROM.FROM = { OR = { state = 55 state = 61 state = 62 state = 63 state = 94 state = 98 state = 109 state = 116 state = 127 state = 214 state = 217 state = 292 state = 360 state = 446 } } }
+				sofzh_refresh_resource_spirits = yes
+			FROM = { sofzh_refresh_resource_spirits = yes }
+			}
+		}
+	}
+	on_annex = { effect = { sofzh_refresh_resource_spirits = yes
+			FROM = { sofzh_refresh_resource_spirits = yes } } }
+	on_capitulation = { effect = { sofzh_refresh_resource_spirits = yes
+			FROM = { sofzh_refresh_resource_spirits = yes } } }
+	on_peaceconference_ended = { effect = { every_country = { sofzh_refresh_resource_spirits = yes } } }
+	on_weekly = { effect = { sofzh_refresh_resource_spirits = yes } }
+}

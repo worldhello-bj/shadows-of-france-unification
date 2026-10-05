@@ -1,0 +1,2134 @@
+###########################
+# SOFA division spawn Events
+###########################
+
+add_namespace = SOFA_spawn_divisions
+
+# Spawn Infantry test event
+country_event = {
+	id = SOFA_spawn_divisions.1
+	title = SOFA_spawn_divisions.1.t
+	desc = SOFA_spawn_divisions.1.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOFA_spawn_divisions.1.a
+		division_template = {
+			name = "步兵师"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				
+				infantry = { x = 0 y = 3 }
+				infantry = { x = 0 y = 4 }
+				infantry = { x = 1 y = 0 }
+				
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 1 y = 3 }
+				infantry = { x = 1 y = 4 }
+			}
+		}
+
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+		}
+	}
+}
+
+# Spawn LT test event
+country_event = {
+	id = SOFA_spawn_divisions.2
+	title = SOFA_spawn_divisions.2.t
+	desc = SOFA_spawn_divisions.2.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOFA_spawn_divisions.2.a
+		division_template = {
+			name = "轻型装甲师"
+
+			regiments = {
+				motorized = { x = 0 y = 0 }
+				motorized = { x = 0 y = 1 }
+				motorized = { x = 0 y = 2 }
+				motorized = { x = 0 y = 3 }
+				motorized = { x = 0 y = 4 }
+				light_armor = { x = 1 y = 0 }
+				light_armor = { x = 1 y = 1 }
+				light_armor = { x = 1 y = 2 }
+				light_armor = { x = 1 y = 3 }
+				light_armor = { x = 1 y = 4 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+		
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+}
+
+# Spawn MT test event
+country_event = {
+	id = SOFA_spawn_divisions.3
+	title = SOFA_spawn_divisions.3.t
+	desc = SOFA_spawn_divisions.3.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOFA_spawn_divisions.3.a
+		division_template = {
+			name = "中型装甲师"
+
+			regiments = {
+				motorized = { x = 0 y = 0 }
+				motorized = { x = 0 y = 1 }
+				motorized = { x = 0 y = 2 }
+				motorized = { x = 0 y = 3 }
+				motorized = { x = 0 y = 4 }
+
+				medium_armor = { x = 1 y = 0 }
+				medium_armor = { x = 1 y = 1 }
+				medium_armor = { x = 1 y = 2 }
+				medium_armor = { x = 1 y = 3 }
+				medium_armor = { x = 1 y = 4 }
+
+				medium_armor = { x = 2 y = 0 }
+				medium_armor = { x = 2 y = 1 }
+				medium_armor = { x = 2 y = 2 }
+				medium_armor = { x = 2 y = 3 }
+				medium_armor = { x = 2 y = 4 }
+
+				medium_armor = { x = 3 y = 0 }
+				medium_armor = { x = 3 y = 1 }
+				medium_armor = { x = 3 y = 2 }
+				medium_armor = { x = 3 y = 3 }
+				medium_armor = { x = 3 y = 4 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+		
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+}
+
+# Spawn HT test event
+country_event = {
+	id = SOFA_spawn_divisions.4
+	title = SOFA_spawn_divisions.4.t
+	desc = SOFA_spawn_divisions.4.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOFA_spawn_divisions.4.a
+		division_template = {
+			name = "重型装甲师"
+
+			regiments = {
+				motorized = { x = 0 y = 0 }
+				motorized = { x = 0 y = 1 }
+				motorized = { x = 0 y = 2 }
+				motorized = { x = 0 y = 3 }
+				motorized = { x = 0 y = 4 }
+
+				heavy_armor = { x = 1 y = 0 }
+				heavy_armor = { x = 1 y = 1 }
+				heavy_armor = { x = 1 y = 2 }
+				heavy_armor = { x = 1 y = 3 }
+				heavy_armor = { x = 1 y = 4 }
+
+				heavy_armor = { x = 2 y = 0 }
+				heavy_armor = { x = 2 y = 1 }
+				heavy_armor = { x = 2 y = 2 }
+				heavy_armor = { x = 2 y = 3 }
+				heavy_armor = { x = 2 y = 4 }
+
+				heavy_armor = { x = 3 y = 0 }
+				heavy_armor = { x = 3 y = 1 }
+				heavy_armor = { x = 3 y = 2 }
+				heavy_armor = { x = 3 y = 3 }
+				heavy_armor = { x = 3 y = 4 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+			}
+		}
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+}
+
+# Spawn Tanks choice 1
+country_event = {
+	id = SOFA_spawn_divisions.5
+	title = SOFA_spawn_divisions.5.t
+	desc = SOFA_spawn_divisions.5.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOFA_spawn_divisions.5.a
+		trigger = {
+			has_tech = gwtank
+		}
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+
+	option = {
+		name = SOFA_spawn_divisions.5.b
+		trigger = {
+			has_tech = basic_medium_tank
+		}
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+
+	option = {
+		name = SOFA_spawn_divisions.5.c
+		trigger = {
+			has_tech = basic_heavy_tank
+		}
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+}
+
+# Spawn Tanks choice 2
+country_event = {
+	id = SOFA_spawn_divisions.6
+	title = SOFA_spawn_divisions.6.t
+	desc = SOFA_spawn_divisions.6.d
+	#picture =
+
+	is_triggered_only = yes
+
+	option = {
+		name = SOFA_spawn_divisions.6.a
+		trigger = {
+			has_tech = gwtank
+		}
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第10轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第11轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第12轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第13轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第14轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第15轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第16轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第17轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第18轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+
+	option = {
+		name = SOFA_spawn_divisions.6.b
+		trigger = {
+			has_tech = basic_medium_tank
+		}
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			 create_unit = { 
+				division = "name = \"第4中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+
+	option = {
+		name = SOFA_spawn_divisions.6.c
+		trigger = {
+			has_tech = basic_heavy_tank
+		}
+		random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			 create_unit = { 
+				division = "name = \"第3重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+		}
+	}
+}
+
+# Spawn start divisions
+country_event = {
+	id = SOFA_spawn_divisions.7
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+	# INFANTRY #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_infantry
+						option = normal
+					}
+				}
+			}
+			set_technology = { gw_artillery = 1 }
+			set_technology = { tech_support = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry
+					option = level_3
+				}
+			}
+					random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第10步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第11步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第12步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第13步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第14步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第15步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry
+					option = level_4
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第11步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第13步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第14步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第16步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第17步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第18步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第19步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第20步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}	
+			}
+		}
+	#
+	# LIGHT TANKS #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_light_tanks
+						option = normal
+					}
+				}
+			}
+			set_technology = { gwtank = 1 }
+			set_technology = { basic_light_tank = 1 }
+			set_technology = { improved_light_tank = 1 }
+			set_technology = { tech_support = 1 }
+			set_technology = { motorised_infantry = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_light_tanks
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+				}
+			}
+		}	
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_light_tanks
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第10轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+				owner = ROOT 
+				}
+			}
+		}	
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_light_tanks
+					option = level_3
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第11轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第13轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第14轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}	
+	#
+	# MEDIUM TANKS #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_medium_tanks
+						option = normal
+					}
+				}
+			}
+			set_technology = { gwtank = 1 }
+			set_technology = { basic_light_tank = 1 }
+			set_technology = { improved_light_tank = 1 }
+			set_technology = { basic_medium_tank = 1 }
+			set_technology = { tech_support = 1 }
+			set_technology = { motorised_infantry = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_medium_tanks
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第4中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}	
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_medium_tanks
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第4中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第9中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_medium_tanks
+					option = level_3
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第4中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第9中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第11中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第13中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第14中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+	#
+	# HEAVY TANKS #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_heavy_tanks
+						option = normal
+					}
+				}
+			}
+			set_technology = { gwtank = 1 }
+			set_technology = { basic_heavy_tank = 1 }
+			set_technology = { tech_support = 1 }
+			set_technology = { motorised_infantry = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_heavy_tanks
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第3重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_heavy_tanks
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第3重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第6重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第8重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}	
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_heavy_tanks
+					option = level_3
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第3重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第6重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第8重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第11重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第13重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第14重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}			
+			}
+		}
+		#
+	}
+	option = {
+		name = SOFA_spawn_divisions.7.a
+	}
+}
+
+# Spawn start divisions
+country_event = {
+id = SOFA_spawn_divisions.8
+hidden = yes
+
+is_triggered_only = yes
+
+immediate = {
+	# INFANTRY #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_infantry_player
+						option = normal
+					}
+				}
+			}
+			set_technology = { gw_artillery = 1 }
+			set_technology = { tech_support = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry_player
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+		}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry_player
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第10步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+		}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry_player
+					option = level_3
+				}
+			}
+			random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第10步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第11步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第12步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第13步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第14步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第15步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+		}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry_player
+					option = level_4
+				}
+			}
+			random_owned_controlled_state = {
+			create_unit = { 
+				division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第6步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第7步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第8步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第9步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第10步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第11步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第12步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第13步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第14步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第15步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+				}
+			create_unit = { 
+				division = "name = \"第16步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第17步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第18步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第19步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+			}
+			create_unit = { 
+				division = "name = \"第20步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+				owner = ROOT 
+				}	
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_infantry_player
+					option = level_5
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第11步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第13步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第14步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第16步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第17步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第18步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第19步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第20步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第21步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第22步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第23步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第24步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第25步兵师\" division_template = \"步兵师\" start_experience_factor = 0.5"
+					owner = ROOT 
+				}			
+			}
+		}
+	#
+	# LIGHT TANKS #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_light_tanks_player
+						option = normal
+					}
+				}
+			}
+			set_technology = { gwtank = 1 }
+			set_technology = { basic_light_tank = 1 }
+			set_technology = { improved_light_tank = 1 }
+			set_technology = { tech_support = 1 }
+			set_technology = { motorised_infantry = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_light_tanks_player
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_light_tanks_player
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_light_tanks_player
+					option = level_3
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第11轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第13轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第14轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15轻型装甲师\" division_template = \"轻型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+	#
+	# MEDIUM TANKS #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_medium_tanks_player
+						option = normal
+					}
+				}
+			}
+			set_technology = { gwtank = 1 }
+			set_technology = { basic_light_tank = 1 }
+			set_technology = { improved_light_tank = 1 }
+			set_technology = { basic_medium_tank = 1 }
+			set_technology = { tech_support = 1 }
+			set_technology = { motorised_infantry = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_medium_tanks_player
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第4中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_medium_tanks_player
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第4中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第9中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_medium_tanks_player
+					option = level_3
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第3中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第4中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第6中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第8中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第9中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第11中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第13中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第14中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15中型装甲师\" division_template = \"中型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+			}
+		}
+	#
+	# HEAVY TANKS #
+		if = {
+			limit = {
+				NOT = {
+					has_game_rule = {
+						rule = start_spawn_ins_heavy_tanks_player
+						option = normal
+					}
+				}
+			}
+			set_technology = { gwtank = 1 }
+			set_technology = { basic_heavy_tank = 1 }
+			set_technology = { tech_support = 1 }
+			set_technology = { motorised_infantry = 1 }
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_heavy_tanks_player
+					option = level_1
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第3重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}			
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_heavy_tanks_player
+					option = level_2
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第3重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第6重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第8重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}			
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = {
+					rule = start_spawn_ins_heavy_tanks_player
+					option = level_3
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = { 
+					division = "name = \"第1重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第2重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第3重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第4重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第5重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第6重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第7重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第8重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第9重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第10重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+					}
+				create_unit = { 
+					division = "name = \"第11重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第12重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				 create_unit = { 
+					division = "name = \"第13重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第14重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}
+				create_unit = { 
+					division = "name = \"第15重型装甲师\" division_template = \"重型装甲师\" start_experience_factor = 0.7"
+					owner = ROOT 
+				}	
+			}
+		}
+		#
+	}
+
+	option = {
+		name = SOFA_spawn_divisions.8.a
+	}
+}

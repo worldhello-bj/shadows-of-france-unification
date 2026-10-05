@@ -1,0 +1,74 @@
+sofzh_corsica_island_goals = {
+    every_other_country = {
+        limit = { sofzh_unification_legal_target = yes sofzh_unification_is_in_corsica = yes NOT = { ROOT = { has_wargoal_against = PREV } } }
+        ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } }
+    }
+}
+sofzh_corsica_integrate_island = {
+    485 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } }
+    491 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } }
+    499 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } }
+    504 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } }
+    509 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } }
+}
+sofzh_corsica_provence_goal = {
+if = { limit = { 469 = { owner = { sofzh_unification_legal_target = yes NOT = { ROOT = { has_wargoal_against = PREV } } } } } 469 = { owner = { ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } } }
+else_if = { limit = { 463 = { owner = { sofzh_unification_legal_target = yes NOT = { ROOT = { has_wargoal_against = PREV } } } } } 463 = { owner = { ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } } }
+else_if = { limit = { 441 = { owner = { sofzh_unification_legal_target = yes NOT = { ROOT = { has_wargoal_against = PREV } } } } } 441 = { owner = { ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } } }
+}
+sofzh_corsica_riviera_goal = {
+if = { limit = { 422 = { owner = { sofzh_unification_legal_target = yes NOT = { ROOT = { has_wargoal_against = PREV } } } } } 422 = { owner = { ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } } }
+else_if = { limit = { 469 = { owner = { sofzh_unification_legal_target = yes NOT = { ROOT = { has_wargoal_against = PREV } } } } } 469 = { owner = { ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } } }
+else_if = { limit = { 463 = { owner = { sofzh_unification_legal_target = yes NOT = { ROOT = { has_wargoal_against = PREV } } } } } 463 = { owner = { ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } } }
+}
+sofzh_corsica_patrol_flotilla = {
+    if = {
+        limit = { NOT = { has_country_flag = sofzh_corsica_fleet_delivered } }
+        set_country_flag = sofzh_corsica_fleet_delivered
+        if = {
+            limit = { has_dlc = "Man the Guns" }
+            set_technology = { early_ship_hull_light = 1 basic_battery = 1 basic_torpedo = 1 gw_artillery = 1 electronic_mechanical_engineering = 1 }
+            create_equipment_variant = {
+                name = "科西嘉巡逻舰级"
+                type = ship_hull_light_1
+                parent_version = 0
+                modules = {
+                    fixed_ship_battery_slot = ship_light_battery_1
+                    fixed_ship_anti_air_slot = ship_anti_air_1
+                    fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+                    fixed_ship_radar_slot = empty
+                    fixed_ship_engine_slot = light_ship_engine_1
+                    fixed_ship_torpedo_slot = ship_torpedo_1
+                    mid_1_custom_slot = empty
+                    rear_1_custom_slot = empty
+                }
+            }
+            create_ship = { type = ship_hull_light_1 equipment_variant = "科西嘉巡逻舰级" amount = 4 }
+        }
+        else = {
+            set_technology = { early_destroyer = 1 }
+            create_ship = { type = destroyer_1 amount = 4 }
+        }
+    }
+}
+sofzh_corsica_marine_cadres = {
+    if = {
+        limit = { NOT = { has_country_flag = sofzh_corsica_marines_delivered } }
+        set_country_flag = sofzh_corsica_marines_delivered
+        set_technology = { marines = 1 infantry_weapons = 1 }
+        add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 1200 producer = ROOT }
+        division_template = {
+            name = "科西嘉海军陆战团"
+            regiments = { marine = { x = 0 y = 0 } marine = { x = 0 y = 1 } marine = { x = 0 y = 2 } marine = { x = 0 y = 3 } }
+        }
+        random_controlled_state = {
+            limit = { } prioritize = { 485 491 499 504 509 }
+            create_unit = { division = "name = \"科西嘉第一登陆团\" division_template = \"科西嘉海军陆战团\" start_experience_factor = 0.2" owner = ROOT }
+            create_unit = { division = "name = \"科西嘉第二登陆团\" division_template = \"科西嘉海军陆战团\" start_experience_factor = 0.2" owner = ROOT }
+        }
+    }
+}
+sofzh_corsica_end_war_mandate = {
+    remove_ideas = sofzh_cor_landing
+    remove_ideas = sofzh_cor_expedition
+}

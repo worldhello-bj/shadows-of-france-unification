@@ -1,0 +1,70 @@
+sofzh_paris_integrate_ile = { 115 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 119 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 121 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 123 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 130 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 131 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 132 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 135 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 137 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 138 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 140 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 141 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 143 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 144 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 147 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 149 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 150 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 152 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 153 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 155 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 157 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 158 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 161 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 175 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } 182 = { if = { limit = { is_fully_controlled_by = ROOT } add_claim_by = ROOT } } }
+sofzh_paris_goal_ile = {
+ if = { limit = { is_ai = no } random_neighbor_country = { limit = { sofzh_unification_new_land_target = yes sofzh_unification_is_in_ile-de-france = yes } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+ else_if = { limit = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } NOT = { has_country_flag = sofzh_ai_queued } } random_neighbor_country = { limit = { sofzh_ai_safe_land_target = yes sofzh_unification_is_in_ile-de-france = yes NOT = { ROOT = { has_wargoal_against = PREV } } } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+}
+sofzh_paris_goal_normandie = {
+ if = { limit = { is_ai = no } random_neighbor_country = { limit = { sofzh_unification_new_land_target = yes sofzh_unification_is_in_normandie = yes } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+ else_if = { limit = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } NOT = { has_country_flag = sofzh_ai_queued } } random_neighbor_country = { limit = { sofzh_ai_safe_land_target = yes sofzh_unification_is_in_normandie = yes NOT = { ROOT = { has_wargoal_against = PREV } } } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+}
+sofzh_paris_goal_nord = {
+ if = { limit = { is_ai = no } random_neighbor_country = { limit = { sofzh_unification_new_land_target = yes sofzh_unification_is_in_nord = yes } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+ else_if = { limit = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } NOT = { has_country_flag = sofzh_ai_queued } } random_neighbor_country = { limit = { sofzh_ai_safe_land_target = yes sofzh_unification_is_in_nord = yes NOT = { ROOT = { has_wargoal_against = PREV } } } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+}
+sofzh_paris_goal_lorraine = {
+ if = { limit = { is_ai = no } random_neighbor_country = { limit = { sofzh_unification_new_land_target = yes sofzh_unification_is_in_lorraine = yes } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+ else_if = { limit = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } NOT = { has_country_flag = sofzh_ai_queued } } random_neighbor_country = { limit = { sofzh_ai_safe_land_target = yes sofzh_unification_is_in_lorraine = yes NOT = { ROOT = { has_wargoal_against = PREV } } } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+}
+sofzh_paris_goal_alsace = {
+ if = { limit = { is_ai = no } random_neighbor_country = { limit = { sofzh_unification_new_land_target = yes sofzh_unification_is_in_alsace = yes } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+ else_if = { limit = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } NOT = { has_country_flag = sofzh_ai_queued } } random_neighbor_country = { limit = { sofzh_ai_safe_land_target = yes sofzh_unification_is_in_alsace = yes NOT = { ROOT = { has_wargoal_against = PREV } } } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+}
+sofzh_paris_goal_rhone_alpes = {
+ if = { limit = { is_ai = no } random_neighbor_country = { limit = { sofzh_unification_new_land_target = yes sofzh_unification_is_in_rhone-alpes = yes } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+ else_if = { limit = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } NOT = { has_country_flag = sofzh_ai_queued } } random_neighbor_country = { limit = { sofzh_ai_safe_land_target = yes sofzh_unification_is_in_rhone-alpes = yes NOT = { ROOT = { has_wargoal_against = PREV } } } ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+}
+sofzh_paris_campaign_maneuver = { sof20_learn_plain = yes }
+sofzh_paris_campaign_industrial = { sof20_learn_urban = yes }
+sofzh_paris_campaign_landing = { sof20_learn_coast = yes }
+sofzh_paris_end_war_mandate = { remove_ideas = sofzh_prs_campaign_industrial remove_ideas = sofzh_prs_campaign_landing remove_ideas = sofzh_prs_campaign_maneuver remove_ideas = sofzh_prs_command remove_ideas = sofzh_prs_war_mandate }
+sofzh_paris_fleet = {
+    if = {
+        limit = { NOT = { has_country_flag = sofzh_paris_fleet_delivered } }
+        set_country_flag = sofzh_paris_fleet_delivered
+        if = {
+            limit = { has_dlc = "Man the Guns" }
+            set_technology = { early_ship_hull_light = 1 basic_battery = 1 basic_torpedo = 1 gw_artillery = 1 electronic_mechanical_engineering = 1 }
+            create_equipment_variant = {
+                name = "巴黎巡逻舰级"
+                type = ship_hull_light_1
+                parent_version = 0
+                modules = {
+                    fixed_ship_battery_slot = ship_light_battery_1
+                    fixed_ship_anti_air_slot = ship_anti_air_1
+                    fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+                    fixed_ship_radar_slot = empty
+                    fixed_ship_engine_slot = light_ship_engine_1
+                    fixed_ship_torpedo_slot = ship_torpedo_1
+                    mid_1_custom_slot = empty
+                    rear_1_custom_slot = empty
+                }
+            }
+            create_ship = { type = ship_hull_light_1 equipment_variant = "巴黎巡逻舰级" amount = 4 }
+        }
+        else = {
+            set_technology = { early_destroyer = 1 }
+            create_ship = { type = destroyer_1 amount = 4 }
+        }
+    }
+}
+sofzh_paris_guard = { if = { limit = { NOT = { has_country_flag = sofzh_paris_guard_delivered } 143 = { is_controlled_by = ROOT } }
+ set_country_flag = sofzh_paris_guard_delivered set_technology = { infantry_weapons = 1 } add_manpower = 2400 add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 1200 producer = ROOT } division_template = { name = "巴黎共同步兵旅" regiments = { infantry = { x = 0 y = 0 } infantry = { x = 0 y = 1 } infantry = { x = 0 y = 2 } infantry = { x = 1 y = 0 } infantry = { x = 1 y = 1 } infantry = { x = 1 y = 2 } } } 143 = { create_unit = { division = "name = \"巴黎守备1旅\" division_template = \"巴黎共同步兵旅\" start_experience_factor = 0.2" owner = ROOT } create_unit = { division = "name = \"巴黎守备2旅\" division_template = \"巴黎共同步兵旅\" start_experience_factor = 0.2" owner = ROOT } }
+ } }
+sofzh_paris_reserve = { if = { limit = { NOT = { has_country_flag = sofzh_paris_reserve_delivered } 143 = { is_controlled_by = ROOT } }
+ set_country_flag = sofzh_paris_reserve_delivered set_technology = { infantry_weapons = 1 } add_manpower = 2400 add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 1200 producer = ROOT }  143 = { create_unit = { division = "name = \"巴黎后备1旅\" division_template = \"巴黎共同步兵旅\" start_experience_factor = 0.2" owner = ROOT } create_unit = { division = "name = \"巴黎后备2旅\" division_template = \"巴黎共同步兵旅\" start_experience_factor = 0.2" owner = ROOT } }
+ } }
+sofzh_paris_corsican_goal = {
+ if = { limit = { sofzh_paris_has_coast = yes has_navy_size = { size > 3 } OR = { is_ai = no AND = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } NOT = { has_country_flag = sofzh_ai_queued } } } }
+ random_other_country = { limit = { sofzh_unification_legal_target = yes sofzh_unification_is_in_corsica = yes NOT = { ROOT = { has_wargoal_against = PREV } } OR = { ROOT = { is_ai = no } sofzh_ai_safe_target = yes } }
+ ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } } } }
+}

@@ -1,0 +1,28 @@
+# Reuse original recruitment rewards; do not conjure armies in the new route.
+sofzh_unification_build_army = {
+    name = "统一战争建军准备"
+    desc = "缺少部队时优先行政准备、基础工业和三个步兵师"
+    allowed = { always = yes }
+    enable = {
+        has_focus_tree = sof_generic
+        sofzh_unification_candidate = yes
+        has_country_flag = sofzh_unification_started
+        NOT = { has_country_flag = sofzh_unification_complete }
+        num_divisions < 2
+    }
+    abort = {
+        OR = {
+            NOT = { sofzh_unification_candidate = yes }
+            has_country_flag = sofzh_unification_complete
+            num_divisions > 1
+        }
+    }
+    focus_factors = {
+        SOF_GENERIC_arrondissement = 40
+        SOF_GENERIC_basic_infrastructure = 15
+        SOF_GENERIC_basic_industry = 10
+        SOF_GENERIC_3_infantry_divisions = 40
+    }
+    research = { industry = 20 infantry_weapons = 15 armor = 40 motorized_equipment = 20 light_air = 40 air_equipment = 30 support_tech = 10 }
+    weight = { factor = 1 }
+}

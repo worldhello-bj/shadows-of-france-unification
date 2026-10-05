@@ -1,0 +1,44 @@
+state={
+	id=310
+	name="STATE_310"
+	provinces ={
+		2003 2104 5180 5410 7198 7202 7784 14269 14319 14339 14353 14378 14379 14384 14423 14432 14436 14476 14477 14506 14519 
+	}
+	manpower = 84037
+	state_category = small_town
+	buildings_max_level_factor=1.000
+
+	history = {
+		buildings = {
+			infrastructure = 4
+			arms_factory = 2
+			industrial_complex = 3
+			5180 = {
+				naval_base = 4
+			}
+		
+			air_base = 1
+		}
+		owner = LRO
+		add_core_of = LRO
+			1936.1.2.1 = {
+		owner = POI
+		controller = POI
+		add_core_of = POI
+     			 }
+	
+		victory_points = { 5180 10 }
+	
+		add_extra_state_shared_building_slots = 2 # Retain existing industry after population-based classification.
+	
+		# SOF 2.9.8 secondary towns.
+		victory_points = { 14269 1 }
+		victory_points = { 14519 1 }
+	
+		# SOF 2.10.0 census-backed secondary towns.
+		victory_points = { 7784 1 }
+	}
+
+	# SOF 2.10.0 local gameplay supply; historically based nodes documented separately.
+	resources = { coal = 2 steel = 2 rubber = 1 }
+}

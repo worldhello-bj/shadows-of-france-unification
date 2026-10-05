@@ -1,0 +1,19 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = { is_in_france = yes }
+				sofzh_logistics_seed_transport = yes
+				if = {
+					limit = { is_ai = yes }
+					country_event = SOFA_spawn_divisions.7
+					add_ideas = fra_generic_ai_training
+				}
+				else = {
+					country_event = SOFA_spawn_divisions.8
+				}
+				add_manpower = 50000
+			}
+		}
+	}
+}

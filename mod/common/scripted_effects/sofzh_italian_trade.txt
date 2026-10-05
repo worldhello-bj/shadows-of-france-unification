@@ -1,0 +1,17 @@
+sofzh_italian_trade_restore_apply = {
+ if = {
+  limit = { sofzh_italian_trade_restore_available = yes }
+  477 = {
+   add_resource = { type = steel amount = 4000 }
+   set_building_level = {
+    type = naval_base level = 4
+    province = { id = 17903 level < 4 }
+   }
+  }
+  ITA = {
+   add_equipment_to_stockpile = { type = convoy amount = 20 producer = ITA }
+   set_country_flag = sofzh_italian_trade_seeded
+  }
+  log = "[SOF Italian trade] restored export steel and coastal port for an existing save"
+ }
+}

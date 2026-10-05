@@ -1,0 +1,49 @@
+defined_text = { name = GetSofCwStage
+text = { trigger = { has_country_flag = sofzh_unification_complete } localization_key = sof_cw_stage_complete }
+text = { trigger = { has_war = yes } localization_key = sof_cw_stage_war }
+text = { trigger = { has_country_flag = sofzh_unification_war_ready } localization_key = sof_cw_stage_ready }
+text = { localization_key = sof_cw_stage_wait }
+}
+
+defined_text = { name = GetSofCwTargetStatus
+text = { trigger = { exists = no } localization_key = sof_cw_target_gone }
+text = { trigger = { has_war_with = FROM } localization_key = sof_cw_target_war }
+text = { trigger = { OR = { is_subject = yes has_capitulated = yes } } localization_key = sof_cw_target_blocked }
+text = { trigger = { is_in_faction_with = FROM } localization_key = sof_cw_target_ally }
+text = { trigger = { has_non_aggression_pact_with = FROM } localization_key = sof_cw_target_pact }
+text = { trigger = { FROM = { has_country_flag = sofzh_unification_complete } } localization_key = sof_cw_target_complete }
+text = { trigger = { FROM = { NOT = { has_country_flag = sofzh_unification_war_ready } } } localization_key = sof_cw_target_wait }
+text = { trigger = { FROM = { has_war = yes } } localization_key = sof_cw_target_busy }
+text = { trigger = { FROM = { has_wargoal_against = PREV } } localization_key = sof_cw_target_goal }
+text = { localization_key = sof_cw_target_available }
+}
+
+defined_text = { name = GetSofCwTerrainMountain
+text = { trigger = { has_country_flag = sof20_terrain_mountain } localization_key = sof_cw_terrain_known }
+text = { localization_key = sof_cw_terrain_unknown }
+}
+
+defined_text = { name = GetSofCwTerrainRiver
+text = { trigger = { has_country_flag = sof20_terrain_river } localization_key = sof_cw_terrain_known }
+text = { localization_key = sof_cw_terrain_unknown }
+}
+
+defined_text = { name = GetSofCwTerrainUrban
+text = { trigger = { has_country_flag = sof20_terrain_urban } localization_key = sof_cw_terrain_known }
+text = { localization_key = sof_cw_terrain_unknown }
+}
+
+defined_text = { name = GetSofCwTerrainCoast
+text = { trigger = { has_country_flag = sof20_terrain_coast } localization_key = sof_cw_terrain_known }
+text = { localization_key = sof_cw_terrain_unknown }
+}
+
+defined_text = { name = GetSofCwTerrainForest
+text = { trigger = { has_country_flag = sof20_terrain_forest } localization_key = sof_cw_terrain_known }
+text = { localization_key = sof_cw_terrain_unknown }
+}
+
+defined_text = { name = GetSofCwTerrainPlain
+text = { trigger = { has_country_flag = sof20_terrain_plain } localization_key = sof_cw_terrain_known }
+text = { localization_key = sof_cw_terrain_unknown }
+}

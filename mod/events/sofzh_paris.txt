@@ -1,0 +1,15 @@
+add_namespace = sofzh_paris
+country_event = { id = sofzh_paris.1 title = sofzh_paris.1.t desc = sofzh_paris.1.d picture = GFX_report_event_generic_parliament is_triggered_only = yes option = { name = sofzh_paris.1.a } }
+country_event = { id = sofzh_paris.2 title = sofzh_paris.2.t desc = sofzh_paris.2.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sofzh_paris.2.a } }
+country_event = { id = sofzh_paris.3 title = sofzh_paris.3.t desc = sofzh_paris.3.d picture = GFX_report_event_generic_parliament is_triggered_only = yes option = { name = sofzh_paris.3.a } }
+country_event = { id = sofzh_paris.4 title = sofzh_paris.4.t desc = sofzh_paris.4.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sofzh_paris.4.a } }
+country_event = { id = sofzh_paris.5 title = sofzh_paris.5.t desc = sofzh_paris.5.d picture = GFX_report_event_generic_parliament is_triggered_only = yes option = { name = sofzh_paris.5.a } }
+country_event = { id = sofzh_paris.6 title = sofzh_paris.6.t desc = sofzh_paris.6.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sofzh_paris.6.a } }
+country_event = { id = sofzh_paris.7 title = sofzh_paris.7.t desc = sofzh_paris.7.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sofzh_paris.7.a trigger = { sofzh_paris_can_accept_offer = yes }
+ ai_chance = { factor = 0 modifier = { add = 40 is_ai = yes num_of_controlled_states < 4 has_stability < 0.65 FROM = { strength_ratio = { tag = ROOT ratio > 2 } } } }
+ FROM = { clr_country_flag = sofzh_prs_talks_pending ROOT = { every_owned_state = { set_state_flag = sofzh_negotiated_transfer } } annex_country = { target = ROOT transfer_troops = yes } every_owned_state = { limit = { has_state_flag = sofzh_negotiated_transfer } if = { limit = { sofzh_unification_french_state = yes is_owned_by = PREV is_fully_controlled_by = PREV NOT = { is_core_of = PREV } impassable = no } if = { limit = { NOT = { has_state_flag = sofzh_occupation_registered } } sofzh_occupation_register = yes } add_compliance = 10 add_resistance = -5 add_dynamic_modifier = { modifier = sofzh_local_accord days = 180 } } clr_state_flag = sofzh_negotiated_transfer } country_event = { id = sofzh_paris.9 days = 1 } }
+}
+option = { name = sofzh_paris.7.b ai_chance = { factor = 60 } set_country_flag = { flag = sofzh_prs_offer_cooldown days = 180 } FROM = { clr_country_flag = sofzh_prs_talks_pending country_event = { id = sofzh_paris.8 days = 1 } } }
+ }
+country_event = { id = sofzh_paris.8 title = sofzh_paris.8.t desc = sofzh_paris.8.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sofzh_paris.8.a } }
+country_event = { id = sofzh_paris.9 title = sofzh_paris.9.t desc = sofzh_paris.9.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sofzh_paris.9.a } }

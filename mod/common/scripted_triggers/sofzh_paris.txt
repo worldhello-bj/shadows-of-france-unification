@@ -1,0 +1,21 @@
+sofzh_paris_ile_united = { 115 = { is_fully_controlled_by = ROOT } 119 = { is_fully_controlled_by = ROOT } 121 = { is_fully_controlled_by = ROOT } 123 = { is_fully_controlled_by = ROOT } 130 = { is_fully_controlled_by = ROOT } 131 = { is_fully_controlled_by = ROOT } 132 = { is_fully_controlled_by = ROOT } 135 = { is_fully_controlled_by = ROOT } 137 = { is_fully_controlled_by = ROOT } 138 = { is_fully_controlled_by = ROOT } 140 = { is_fully_controlled_by = ROOT } 141 = { is_fully_controlled_by = ROOT } 143 = { is_fully_controlled_by = ROOT } 144 = { is_fully_controlled_by = ROOT } 147 = { is_fully_controlled_by = ROOT } 149 = { is_fully_controlled_by = ROOT } 150 = { is_fully_controlled_by = ROOT } 152 = { is_fully_controlled_by = ROOT } 153 = { is_fully_controlled_by = ROOT } 155 = { is_fully_controlled_by = ROOT } 157 = { is_fully_controlled_by = ROOT } 158 = { is_fully_controlled_by = ROOT } 161 = { is_fully_controlled_by = ROOT } 175 = { is_fully_controlled_by = ROOT } 182 = { is_fully_controlled_by = ROOT } }
+sofzh_paris_lorraine_control = { custom_trigger_tooltip = { tooltip = sofzh_control_lorraine_tt OR = { 94 = { is_controlled_by = ROOT } 98 = { is_controlled_by = ROOT } 116 = { is_controlled_by = ROOT } } } }
+sofzh_paris_north_control = { custom_trigger_tooltip = { tooltip = sofzh_control_north_tt OR = { 55 = { is_controlled_by = ROOT } 61 = { is_controlled_by = ROOT } 62 = { is_controlled_by = ROOT } 63 = { is_controlled_by = ROOT } } } }
+sofzh_paris_alsace_control = { custom_trigger_tooltip = { tooltip = sofzh_control_alsace_tt OR = { 127 = { is_controlled_by = ROOT } 214 = { is_controlled_by = ROOT } 217 = { is_controlled_by = ROOT } } } }
+sofzh_paris_bauxite_control = { custom_trigger_tooltip = { tooltip = sofzh_control_bauxite_tt OR = { 446 = { is_controlled_by = ROOT } } } }
+sofzh_paris_has_coast = { any_controlled_state = { is_coastal = yes } }
+sofzh_paris_congress_ready = { 143 = { is_controlled_by = ROOT } num_of_controlled_states > 99 }
+# Target scope; ROOT is Paris. Never negotiate for foreign or occupied territory.
+sofzh_paris_offer_target = {
+ sofzh_unification_legal_target = yes is_neighbor_of = ROOT has_war = no is_in_faction = no num_of_controlled_states < 10
+ NOT = { has_country_flag = sofzh_prs_offer_cooldown }
+ all_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = PREV }
+}
+# Event recipient scope; FROM is the sender, so do not reuse a ROOT-based target predicate.
+sofzh_paris_can_accept_offer = {
+ is_subject = no has_capitulated = no has_war = no is_in_faction = no num_of_controlled_states < 10 is_neighbor_of = FROM
+ NOT = { is_in_faction_with = FROM } NOT = { has_non_aggression_pact_with = FROM }
+ capital_scope = { sofzh_unification_french_state = yes }
+ all_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = PREV }
+ FROM = { exists = yes original_tag = PRS has_focus_tree = sofzh_paris is_subject = no has_capitulated = no has_war = no has_completed_focus = SOF_PRS_prefectural_letters 143 = { is_owned_by = PREV is_fully_controlled_by = PREV } }
+}

@@ -1,0 +1,53 @@
+# Acting-country scope. Cheap gates first; territorial tests last.
+sofzh_ai_campaign_ready = {
+    is_ai = yes
+    sofzh_ai_supported_focus_tree = yes
+    has_war = no
+    NOT = { has_country_flag = sofzh_ai_cooldown }
+    has_country_flag = sofzh_unification_war_ready
+    NOT = { has_country_flag = sofzh_unification_complete }
+    num_divisions > 1
+    has_manpower > 250
+    has_stability > 0.25
+    sofzh_unification_candidate = yes
+}
+# Target scope, ROOT is the acting country. Avoid opening a faction war or
+# adding to an existing conflict; this is a cautious preference, not a player rule.
+sofzh_ai_safe_target = {
+    has_war = no
+    is_in_faction = no
+    sofzh_unification_legal_target = yes
+    ROOT = { strength_ratio = { tag = PREV ratio > 1.0 } }
+    OR = {
+        is_neighbor_of = ROOT
+        AND = {
+            sofzh_unification_is_in_corsica = yes
+            ROOT = {
+                OR = { has_completed_focus = SOF_UNIFY_corsican_operation has_completed_focus = SOF_COR_island_mandate sofzh_corsica_naval_mission = yes has_completed_focus = SOF_PRS_corsican_mission }
+                has_navy_size = { size > 3 }
+            }
+        }
+    
+        AND = {
+            sofzh_corsica_coastal_target = yes
+            ROOT = {
+                has_focus_tree = sofzh_corsica
+                sofzh_corsica_naval_mission = yes
+                has_navy_size = { size > 3 }
+            }
+        }
+}
+}
+sofzh_ai_safe_land_target = {
+    is_neighbor_of = ROOT
+    sofzh_ai_safe_target = yes
+}
+sofzh_ai_land_goal_target = {
+    sofzh_ai_safe_land_target = yes
+    ROOT = { has_wargoal_against = PREV }
+}
+sofzh_ai_naval_goal_target = {
+    NOT = { is_neighbor_of = ROOT }
+    sofzh_ai_safe_target = yes
+    ROOT = { has_wargoal_against = PREV }
+}

@@ -1,0 +1,28 @@
+# State scope; ROOT is the acting country.
+sofzh_occupation_state = {
+ sofzh_unification_french_state = yes
+ is_fully_controlled_by = ROOT
+ NOT = { is_core_of = ROOT }
+ impassable = no
+}
+sofzh_occupation_owned_state = {
+ sofzh_occupation_state = yes
+ is_owned_by = ROOT
+}
+sofzh_occupation_integrable = {
+ sofzh_occupation_owned_state = yes
+ has_state_flag = sofzh_occupation_registered
+ NOT = { has_state_flag = sofzh_occupation_recent }
+ compliance >= 60
+ resistance < 20
+ ROOT = { is_subject = no has_war = no has_capitulated = no }
+}
+sofzh_occupation_enemy_state = {
+ sofzh_unification_french_state = yes
+ impassable = no
+ controller = {
+  NOT = { tag = ROOT }
+  has_war_with = ROOT
+  PREV = { NOT = { is_core_of = PREV } }
+ }
+}

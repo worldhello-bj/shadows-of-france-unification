@@ -1,0 +1,33 @@
+# ROOT is the acting country; the enemy predicate runs in enemy scope.
+sofzh_ai_overseas_enemy = {
+    has_capitulated = no
+    NOT = { is_neighbor_of = ROOT }
+    any_controlled_state = { is_coastal = yes }
+}
+sofzh_ai_naval_actor = {
+    is_ai = yes
+    sofzh_ai_supported_focus_tree = yes
+    has_capitulated = no
+    naval_base > 0
+    num_divisions > 1
+    has_navy_size = { size > 0 }
+}
+sofzh_ai_naval_intent = {
+    OR = {
+        has_completed_focus = SOF_UNIFY_corsican_operation
+        has_completed_focus = SOF_COR_island_mandate
+        sofzh_corsica_naval_mission = yes
+        has_completed_focus = SOF_PRS_atlantic_ports
+        has_completed_focus = SOF_PRS_mediterranean_ports
+        has_completed_focus = SOF_PRS_corsican_mission
+        AND = { has_war = yes any_enemy_country = { sofzh_ai_overseas_enemy = yes } }
+    }
+}
+sofzh_ai_naval_preparation_needed = {
+    is_ai = yes
+    sofzh_ai_supported_focus_tree = yes
+    has_capitulated = no
+    any_controlled_state = { is_coastal = yes }
+    sofzh_ai_naval_intent = yes
+    OR = { NOT = { has_tech = transport } NOT = { has_navy_size = { size > 3 } } }
+}

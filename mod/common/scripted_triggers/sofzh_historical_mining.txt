@@ -1,0 +1,197 @@
+# Real mineral districts; state scope candidates, country scope eligibility.
+
+sofzh_has_historical_mining_district = {
+	any_controlled_state = {
+		OR = { state = 55 state = 61 state = 62 state = 63 state = 94 state = 98 state = 109 state = 116 state = 127 state = 214 state = 217 state = 292 state = 360 state = 446 }
+		is_controlled_by = ROOT
+	}
+}
+
+sofzh_can_lorraine_iron_1 = {
+	any_controlled_state = {
+		OR = { state = 94 state = 98 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_lorraine_iron_1 }
+	}
+}
+
+sofzh_can_lorraine_iron_2 = {
+	any_controlled_state = {
+		OR = { state = 94 state = 98 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_lorraine_iron_2 }
+				has_state_flag = sofzh_mining_lorraine_iron_1
+	}
+}
+
+sofzh_can_lorraine_iron_3 = {
+	any_controlled_state = {
+		OR = { state = 94 state = 98 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_lorraine_iron_3 }
+				has_state_flag = sofzh_mining_lorraine_iron_2
+	}
+}
+
+sofzh_can_lorraine_coal_1 = {
+	any_controlled_state = {
+		OR = { state = 116 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_lorraine_coal_1 }
+	}
+}
+
+sofzh_can_lorraine_coal_2 = {
+	any_controlled_state = {
+		OR = { state = 116 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_lorraine_coal_2 }
+				has_state_flag = sofzh_mining_lorraine_coal_1
+	}
+}
+
+sofzh_can_alsace_oil_1 = {
+	any_controlled_state = {
+		OR = { state = 127 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_alsace_oil_1 }
+	}
+}
+
+sofzh_can_alsace_oil_2 = {
+	any_controlled_state = {
+		OR = { state = 127 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_alsace_oil_2 }
+				has_state_flag = sofzh_mining_alsace_oil_1
+	}
+}
+
+sofzh_can_alsace_oil_3 = {
+	any_controlled_state = {
+		OR = { state = 127 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_alsace_oil_3 }
+				has_state_flag = sofzh_mining_alsace_oil_2
+	}
+}
+
+sofzh_can_alsace_potash_1 = {
+	any_controlled_state = {
+		OR = { state = 214 state = 217 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_alsace_potash_1 }
+	}
+}
+
+sofzh_can_alsace_potash_2 = {
+	any_controlled_state = {
+		OR = { state = 214 state = 217 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_alsace_potash_2 }
+				has_state_flag = sofzh_mining_alsace_potash_1
+	}
+}
+
+sofzh_can_northern_coal_1 = {
+	any_controlled_state = {
+		OR = { state = 55 state = 61 state = 62 state = 63 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_northern_coal_1 }
+	}
+}
+
+sofzh_can_northern_coal_2 = {
+	any_controlled_state = {
+		OR = { state = 55 state = 61 state = 62 state = 63 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_northern_coal_2 }
+				has_state_flag = sofzh_mining_northern_coal_1
+	}
+}
+
+sofzh_can_northern_coal_3 = {
+	any_controlled_state = {
+		OR = { state = 55 state = 61 state = 62 state = 63 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_northern_coal_3 }
+				has_state_flag = sofzh_mining_northern_coal_2
+	}
+}
+
+sofzh_can_provence_bauxite_1 = {
+	any_controlled_state = {
+		OR = { state = 446 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_provence_bauxite_1 }
+	}
+}
+
+sofzh_can_provence_bauxite_2 = {
+	any_controlled_state = {
+		OR = { state = 446 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_provence_bauxite_2 }
+				has_state_flag = sofzh_mining_provence_bauxite_1
+	}
+}
+
+sofzh_can_provence_bauxite_3 = {
+	any_controlled_state = {
+		OR = { state = 446 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_provence_bauxite_3 }
+				has_state_flag = sofzh_mining_provence_bauxite_2
+	}
+}
+
+sofzh_can_normandy_iron_1 = {
+	any_controlled_state = {
+		OR = { state = 109 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_normandy_iron_1 }
+	}
+}
+
+sofzh_can_normandy_iron_2 = {
+	any_controlled_state = {
+		OR = { state = 109 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_normandy_iron_2 }
+				has_state_flag = sofzh_mining_normandy_iron_1
+	}
+}
+
+sofzh_can_loire_coal_1 = {
+	any_controlled_state = {
+		OR = { state = 360 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_loire_coal_1 }
+	}
+}
+
+sofzh_can_loire_coal_2 = {
+	any_controlled_state = {
+		OR = { state = 360 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_loire_coal_2 }
+				has_state_flag = sofzh_mining_loire_coal_1
+	}
+}
+
+sofzh_can_echassieres_tungsten_1 = {
+	any_controlled_state = {
+		OR = { state = 292 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_echassieres_tungsten_1 }
+	}
+}
+
+sofzh_can_echassieres_tungsten_2 = {
+	any_controlled_state = {
+		OR = { state = 292 }
+				is_controlled_by = ROOT
+				NOT = { has_state_flag = sofzh_mining_echassieres_tungsten_2 }
+				has_state_flag = sofzh_mining_echassieres_tungsten_1
+	}
+}

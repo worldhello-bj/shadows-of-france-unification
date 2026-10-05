@@ -1,0 +1,46 @@
+sofzh_unification_grant_border_goals = {
+    if = {
+        limit = { is_ai = yes }
+        if = {
+            limit = { sofzh_ai_campaign_ready = yes NOT = { has_country_flag = sofzh_ai_selected } }
+            random_neighbor_country = {
+                limit = {
+                    sofzh_ai_safe_land_target = yes
+                    NOT = { ROOT = { has_wargoal_against = PREV } }
+                }
+                ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } }
+            }
+        }
+    }
+    else = {
+        every_neighbor_country = {
+            limit = { sofzh_unification_new_land_target = yes }
+            ROOT = { create_wargoal = { type = annex_everything target = PREV expire = 730 } }
+        }
+    }
+}
+sofzh_unification_integrate_territories = { set_country_flag = sofzh_unification_integrated custom_effect_tooltip = sofzh_occupation_integration_tt }
+sofzh_unification_end_war_mandate = {
+	remove_ideas = sofzh_unify_mobilization
+	remove_ideas = sofzh_unify_unified_command
+	remove_ideas = sofzh_unify_logistics
+
+    sofzh_corsica_end_war_mandate = yes
+
+    sofzh_paris_end_war_mandate = yes
+}
+sofzh_unification_proclaim_france = {
+	if = {
+		limit = { sofzh_unification_all_france = yes is_subject = no has_war = no NOT = { has_country_flag = sofzh_unification_complete } }
+		sofzh_unification_integrate_territories = yes
+		set_capital = { state = 143 }
+		set_cosmetic_tag = FRANCE
+		set_country_flag = form_country_flag
+		set_country_flag = sofzh_unification_complete
+		sofzh_unification_end_war_mandate = yes
+		add_ideas = sofzh_unify_french_state
+		add_stability = 0.1
+		add_political_power = 200
+	}
+}
+

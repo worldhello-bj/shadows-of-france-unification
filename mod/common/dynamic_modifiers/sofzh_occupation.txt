@@ -1,0 +1,40 @@
+# State modifiers use fractional percentages, effects use percentage points.
+sofzh_local_underground = {
+ icon = GFX_modifiers_generic_resistance
+ enable = { always = yes }
+ resistance_target = 0.06
+ compliance_growth = -0.10
+ required_garrison_factor = 0.10
+}
+sofzh_local_guerrillas = {
+ icon = GFX_modifiers_generic_resistance
+ enable = { always = yes }
+ resistance_target = 0.10
+ compliance_growth = -0.20
+ required_garrison_factor = 0.20
+ resistance_damage_to_garrison = 0.20
+ state_resources_factor = -0.10
+ local_non_core_supply_impact_factor = 0.10
+}
+sofzh_local_insurgency = {
+ icon = GFX_modifiers_generic_resistance
+ enable = { always = yes }
+ resistance_target = 0.15
+ compliance_growth = -0.30
+ required_garrison_factor = 0.30
+ resistance_damage_to_garrison = 0.35
+ state_resources_factor = -0.20
+ local_non_core_supply_impact_factor = 0.20
+}
+sofzh_local_reconstruction = {
+ icon = GFX_idea_sofzh_spirit_v1_sofzh_reward_reconstruction_2
+ enable = { always = yes }
+ compliance_growth = 0.15
+ resistance_target = -0.02
+}
+sofzh_local_accord = {
+ icon = GFX_idea_sofzh_spirit_v1_sofzh_reward_occupation_2
+ enable = { always = yes }
+ resistance_target = -0.05
+ resistance_damage_to_garrison = -0.10
+}
