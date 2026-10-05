@@ -28,6 +28,9 @@ STAT_NAMES = {
     'production_resource_need_factor': '生产资源需求',
     'production_efficiency_gain_factor': '生产效率增长',
     'production_efficiency_cap_factor': '生产效率上限',
+    'military_industrial_organization_funds_gain': '组织经费获取',
+    'military_industrial_organization_research_bonus': '额外专项科研',
+    'military_industrial_organization_task_capacity': '额外并行任务容量',
 }
 
 
@@ -53,7 +56,17 @@ def gate(row, focuses, mio=False):
 
 
 def stats_text(values):
-    return '、'.join(STAT_NAMES[k] + f'{v:+.0%}' for k, v in values.items())
+    return '、'.join(STAT_NAMES[k] + (f'{v:+.0f}' if k == 'military_industrial_organization_task_capacity' else f'{v:+.0%}') for k, v in values.items())
+
+
+def totals(row, design):
+    result = {"equipment": dict(row['initial_equipment']), "production": dict(row['initial_production']),
+              "organization": dict(design['initial_organization'])}
+    for trait in row['traits']:
+        for group in result:
+            for stat, amount in trait.get(group, {}).items():
+                result[group][stat] = round(result[group].get(stat, 0) + amount, 6)
+    return result
 
 
 def localized_focuses(row, field):
@@ -74,8 +87,9 @@ def render(design):
     documents = [
         '# 地区专属制造商', '',
         '20 个大区代表国家各有一家主打企业。所有企业都限制原籍及当前国家代码，兼容现行通用国策与旧地区树存档；控制厂址并完成实际工业国策后开放。占领其他大区不会获得该地专属企业。', '',
-        '启用《Arms Against Tyranny》时使用原生军工组织：10% 专项科研、1 项起始工艺、4 项成长特质，后两项继续受工业国策约束。没有该 DLC 时同一家企业进入传统设计商对应槽位，聘用费用 125 政治点、解聘费用 10；科研同为 10%，装备加成仅为起始工艺。两种版本通过相反 DLC 条件隔离。', '',
-        '数值只影响该企业承接的装备与生产线。一般起始强项 4–6%，代价 2–3%；完成全部成长后主打性能通常 8–10%，成本路线最多降低 6%，额外生产效率上限或增长 3%，资源需求最多降低 6%。不直接增加全国军工产能、全军攻防或额外科研槽。', '',
+        '4.3.2：每家企业为8层、两条可兼修的成长线，共16项特质。地方工程与工场协作各有8层，原生详情页使用两列纵向布局；各层之间有实际前置，未完成对应工业国策的特质保持灰色。', '',
+        '启用《Arms Against Tyranny》时使用原生军工组织：起始专项科研15%、组织经费获取+25%、并行任务容量3。完成工业研究中心后科研提高到20%、经费合计+50%、容量4。没有该 DLC 时同一家企业进入传统设计商对应槽位，聘用费用125政治点、解聘费用10，专项科研15%，装备加成取强化后的起始工艺；不模拟原生军工组织成长。两种版本通过相反DLC条件隔离。', '',
+        '起始主打性能8–10%，满成长主打性能通常38–40%，副项约16%；廉价装备路线的装备造价降低25%。工场协作提供生产成本−12%、效率上限和增长各+12%、资源需求−8%。数值只作用于承接的装备、生产线或组织本身；装备造价与生产成本是两个不同的原生指标，按引擎结算。初始的性能或价格代价保留。', '',
         '| 国家 | 企业与主打 | 起始强项 / 代价 | 厂址 | 解锁国策 |',
         '| --- | --- | --- | --- | --- |',
     ]
@@ -89,18 +103,11 @@ def render(design):
         summary = stats_text(initial)
         if initial_prod:
             summary += ('；' if summary else '') + stats_text(initial_prod)
-        full_equipment = dict(initial)
-        full_production = dict(initial_prod)
-        for trait in row['traits']:
-            for target, values in [(full_equipment, trait.get('equipment', {})), (full_production, trait.get('production', {}))]:
-                for stat, amount in values.items():
-                    target[stat] = round(target.get(stat, 0) + amount, 6)
-        full_summary = stats_text(full_equipment)
-        if full_production:
-            full_summary += '；' + stats_text(full_production)
+        full = totals(row, design)
+        full_summary = '；'.join(stats_text(full[group]) for group in ['equipment', 'production', 'organization'] if full[group])
         conditions = '完全控制' + row['factory_name'] + '，完成“' + localized_focuses(row, 'unlock') + '”。'
-        localize(key + '_desc', row['description'] + '\n起始工艺：' + summary + '。专项科研：+10%。\n全部成长：' + full_summary + '。\n解锁：' + conditions)
-        localize(key + '_legacy_desc', row['description'] + '\n起始工艺：' + stats_text(initial) + '。专项科研：+10%。\n解锁：' + conditions + '\n传统设计商版本仅提供起始装备工艺，不含军工组织成长。')
+        localize(key + '_desc', row['description'] + '\n起始工艺：' + summary + '。专项科研：+15%。\n8层、16项成长：' + full_summary + '。\n解锁：' + conditions)
+        localize(key + '_legacy_desc', row['description'] + '\n起始工艺：' + stats_text(initial) + '。专项科研：+15%。\n解锁：' + conditions + '\n传统设计商版本仅提供起始装备工艺，不含军工组织成长。')
         localize(key + '_initial', row['initial_name'])
         localize(key + '_unlock_tt', '完全控制' + row['factory_name'] + '，并完成“' + localized_focuses(row, 'unlock') + '”。')
         localize(key + '_specialize_tt', '完成“' + localized_focuses(row, 'specialize') + '”。')
@@ -111,7 +118,7 @@ def render(design):
             f' available = {{ custom_trigger_tooltip = {{ tooltip = {key}_unlock_tt {gate(row, row["unlock"], True)} }} }}',
             ' equipment_type = { ' + ' '.join(row['equipment']) + ' }',
             ' research_categories = { ' + ' '.join(row['research_categories']) + ' }',
-            ' research_bonus = 0.10', ' task_capacity = 2',
+            f' research_bonus = {number(design["research_bonus"])}', f' task_capacity = {design["task_capacity"]}',
             ' tree_header_text = { text = sof_regional_manufacturer_quality_header x = 1 }',
             ' tree_header_text = { text = sof_regional_manufacturer_production_header x = 4 }',
             f' initial_trait = {{ name = {key}_initial',
@@ -120,22 +127,27 @@ def render(design):
             mio.append('  ' + block('equipment_bonus', initial))
         if initial_prod:
             mio.append('  ' + block('production_bonus', initial_prod))
+        mio.append('  ' + block('organization_modifier', design['initial_organization']))
         mio.append(' }')
-        for i, trait in enumerate(row['traits']):
-            token = key + '_trait_' + str(i + 1)
+        for trait in row['traits']:
+            token = key + '_trait_' + str(trait['token_suffix'])
             localize(token, trait['name'])
+            details = '；'.join(stats_text(trait[group]) for group in ['equipment','production','organization'] if trait.get(group))
+            localize(token + '_desc', f'第{trait["tier"]}层，' + ('地方工程' if trait['branch']=='quality' else '工场协作') + '：' + details + '。')
             mio.extend([f' trait = {{ token = {token} name = {token}',
                         f'  icon = {trait["icon"]}',
-                        '  position = { x = ' + str(1 if i % 2 == 0 else 4) + ' y = ' + str(i // 2) + ' }'])
-            if i:
-                mio.append(f'  any_parent = {{ {key}_trait_{i} }}')
-            if i >= 2:
-                field = 'specialize' if i == 2 else 'capstone'
+                        '  position = { x = ' + str(1 if trait['branch']=='quality' else 4) + ' y = ' + str(trait['tier']-1) + ' }'])
+            if trait['parents']:
+                mio.append('  all_parents = { ' + ' '.join(key + '_trait_' + str(parent) for parent in trait['parents']) + ' }')
+            if trait.get('gate'):
+                field = trait['gate']
                 mio.append(f'  available = {{ custom_trigger_tooltip = {{ tooltip = {key}_{field}_tt FROM = {{ {completed(row[field])} }} }} }}')
             if trait.get('equipment'):
                 mio.append('  ' + block('equipment_bonus', trait['equipment']))
             if trait.get('production'):
                 mio.append('  ' + block('production_bonus', trait['production']))
+            if trait.get('organization'):
+                mio.append('  ' + block('organization_modifier', trait['organization']))
             mio.append(' }')
         mio.extend([' ai_will_do = { factor = 1.15 }', '}'])
 
@@ -145,7 +157,7 @@ def render(design):
                   f'  available = {{ custom_trigger_tooltip = {{ tooltip = {key}_unlock_tt {gate(row, row["unlock"])} }} }}',
                   f'  cancel = {{ NOT = {{ {gate(row, row["unlock"])} }} }}',
                   '  cost = 125', '  removal_cost = 10',
-                  '  research_bonus = { ' + ' '.join(k + ' = 0.10' for k in row['research_categories']) + ' }']
+                  '  research_bonus = { ' + ' '.join(k + ' = ' + number(design['research_bonus']) for k in row['research_categories']) + ' }']
         # Production resource/efficiency modifiers do not have a per-line legacy
         # equivalent. The fallback intentionally carries only equipment effects.
         if initial:
@@ -165,15 +177,12 @@ def render(design):
     ideas.append('}')
     documents.extend(['', '## 满级特色', '', '| 国家 | 所有特质完成后的装备与生产线加成 |', '| --- | --- |'])
     for row in companies:
-        full = dict(row['initial_equipment'])
-        prod = dict(row['initial_production'])
-        for trait in row['traits']:
-            for target, values in [(full, trait.get('equipment', {})), (prod, trait.get('production', {}))]:
-                for stat, amount in values.items():
-                    target[stat] = round(target.get(stat, 0) + amount, 6)
-        documents.append('| ' + row['tag'] + ' | ' + stats_text(full) + ('；' + stats_text(prod) if prod else '') + ' |')
+        full = totals(row, design)
+        documents.append('| ' + row['tag'] + ' | ' + '；'.join(stats_text(full[group]) for group in ['equipment','production']) + ' |')
     documents.extend(['', '## 国策与成长', '',
-                      '18 个普通地区的新局使用通用国策：改进工业解锁企业，先进工业解锁第三项特质，军工复合体解锁末项特质；旧地区国策树分别兼容 eco4、eco7、eco11。巴黎使用首都工业扩张、军工工厂及重型/轻中型装甲研究；科西嘉使用岛屿弹药工场、岛内小武器工业与扩大生产/维持专业化。', '',
+                      '18个普通地区的新局使用通用国策：改进工业解锁企业，先进工业解锁第3–5层，军工复合体解锁第6–8层；旧地区国策树分别兼容eco4、eco7、eco11。巴黎使用首都工业扩张、军工工厂及重型/轻中型装甲研究；科西嘉使用岛屿弹药工场、岛内小武器工业与扩大生产/维持专业化。', '',
+                      '原版通用模板有12–15项特质，单项5%～10%性能提升很常见。本轮保留原生组织经验、点数、前置和装备适用方式，把布局扩展为8层；原版参照记录见 `design/vanilla-mio-growth-reference.json`。', '',
+                      '组织ID和原来的trait_1至trait_4全部保留，新特质使用新增token；旧组织已有的四项选择不会因改名或删除ID而丢失。组织已有点数和等级不重置。原生装备设计的更新、真实旧档中的组织数值和滚动显示仍须实机检查。', '',
                       '军工组织在解锁前仍可查看，并显示完成国策与控制厂址的提示。新增国策提示文本由父级国策集成添加；本模块不修改既有国策奖励与人物。', '',
                       '## 产业依据与架空设计', '',
                       '雷诺、菲夫—里尔、贝利埃、拉特科尔、米其林、彭奥埃与沙泰勒罗以历史企业或工场为基础；其承包结构与所有数值属于剧本设计。其余命名为架空地方联合体，用于表现地区矿冶、船舶、精密、军需与通信产业，未宣称它们是史实公司。', ''])
