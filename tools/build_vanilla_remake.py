@@ -6,7 +6,7 @@ import vanilla_local_policy as policy
 import vanilla_naming as naming
 
 ROOT=Path(__file__).resolve().parent.parent;MOD=ROOT/'mod'
-VERSION='4.0.1'
+VERSION='4.0.2'
 BASE_EOL={}
 
 def save(rel,text,bom=False):
@@ -388,6 +388,8 @@ def main():
     b.output(reports)
     save('design/vanilla-startup.json',json.dumps(startup,ensure_ascii=False,indent=2))
     save('VERSION',VERSION);save('mod/descriptor.mod',baseline('mod/descriptor.mod').replace('version="3.2.0"',f'version="{VERSION}"'))
+    from focus_art import apply as apply_art
+    apply_art()
     print(json.dumps(dict(ok=True,countries=[dict(tag=r['tag'],nodes=r['nodes'],unadapted=r['unadapted']) for r in reports],ideas=len(b.idea_code),dynamics=len(b.dynamic),art=len(b.art)),ensure_ascii=False))
 
 if __name__=='__main__':main()

@@ -1,8 +1,8 @@
 # 法兰西之影：统一战争
 
-《钢铁雄心 IV》独立中文模组的协作源码。当前候选版本 **4.0.1**，适配游戏 **1.19.***。巴黎直接移植原版法国的185项国策；科西嘉以原版意大利314项为底稿，删除26项无法迁移的内战与教皇分支后保留288项。其他国家继续使用原有153项通用国策。永久小幅地形经验、通用内战决议GUI和生成美术继续保留。
+《钢铁雄心 IV》独立中文模组的协作源码。当前候选版本 **4.0.2**，适配游戏 **1.19.***。巴黎直接移植原版法国的185项国策；科西嘉以原版意大利314项为底稿，删除26项无法迁移的内战与教皇分支后保留288项。两国国策采用48幅新绘制的本地主题徽章；其他国家继续使用原有153项通用国策。永久小幅地形经验、通用内战决议GUI和生成美术继续保留。
 
-[查看两国布局预览](docs/previews/4.0.1/INDEX.html) · [重制范围与适配说明](docs/VANILLA-REMAKE-ZH.md)
+[查看两国布局预览](docs/previews/4.0.2/INDEX.html) · [重制范围与适配说明](docs/VANILLA-REMAKE-ZH.md) · [重绘图标原尺寸预览](art/focus/review/CONTACT-96.png)
 
 ![内战界面设计预览](docs/previews/GUI-READY-CONTEXT.png)
 
@@ -18,7 +18,7 @@ python tools/validate.py --output dist/validation.json
 python tools/package.py
 ```
 
-`dist/shadows-of-france-4.0.1.zip` 是独立候选安装包。解压后运行其中的 `install.ps1`；安装器会先备份原有独立版文件，再核验安装哈希，并保留已有创意工坊ID和封面。更新安装前应保存并关闭游戏。启用“法兰西之影：统一战争（独立中文版）”即可。
+`dist/shadows-of-france-4.0.2.zip` 是独立候选安装包。解压后运行其中的 `install.ps1`；安装器会先备份原有独立版文件，再核验安装哈希，并保留已有创意工坊ID和封面。更新安装前应保存并关闭游戏。启用“法兰西之影：统一战争（独立中文版）”即可。
 
 ## 编辑入口
 
@@ -33,6 +33,8 @@ python tools/package.py
 | `mod/common/scripted_guis/sof_civilwar_gui.txt` | 数据绑定、动态旗帜列表及刷新操作 |
 | `mod/gfx/interface/sof_civilwar/` | 背景、衬板、32像素决议图标及52×40分类徽章 |
 | `art/civilwar/` | 12张美术原稿、PNG尺寸导出及完整生成提示词 |
+| `art/focus/` | 48幅重绘国策原稿、96/64/32像素导出及原尺寸预览 |
+| `design/focus-art-spec.json`、`focus-art-bindings.json` | 完整生成提示词、原稿哈希和逐项图标绑定 |
 | `design/vanilla-major-remake.json` | 两国原版节点对照、奖励适配、原文与来源哈希 |
 | `design/country-design.json` | 3.x历史设计数据；已不决定4.0的国策选择 |
 | `references/vanilla/` | 本机1.19.3原版底稿，供对照与重建 |
@@ -50,4 +52,4 @@ python tools/package.py
 
 从 `main` 建立功能分支，提交后开Pull Request。按[CONTRIBUTING.md](CONTRIBUTING.md)记录修改、检查结果与实机范围。GitHub Actions在推送和PR时执行源码／美术检查并打包候选产物；流程依据[GitHub官方Python工作流文档](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)。
 
-4.0.1已通过源码、原版结构对照和54组迁移模拟；检查记录在 `docs/reports/4.0.1/`。**GUI实机显示、两个剧本开局、真实旧档迁移及长期平衡仍待验证。** 预览为实际源码坐标排版图，不是游戏截图。3.2和4.0.0的历史报告仍保留在对应版本目录。
+4.0.2已通过源码、原版结构对照、54组迁移模拟与新增图标检查；检查记录在 `docs/reports/4.0.2/`。**GUI实机显示、两个剧本开局、真实旧档迁移及长期平衡仍待验证。** 预览为实际源码坐标排版图，不是游戏截图。历史报告仍保留在对应版本目录。

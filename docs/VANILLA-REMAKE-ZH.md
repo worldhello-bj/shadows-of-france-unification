@@ -1,4 +1,4 @@
-# 巴黎与科西嘉重制：4.0.1候选
+# 巴黎与科西嘉重制：4.0.2候选
 
 本轮仅重制巴黎和科西嘉。巴黎以本机HOI4 1.19.3的 `common/national_focus/france.txt` 为底稿；科西嘉以 `italy.txt` 为底稿。完整底稿在 `references/vanilla/`，逐节点对照在 `design/vanilla-major-remake.json`。
 
@@ -11,6 +11,10 @@
 保留节点的坐标、相对位置、前置组、互斥组和耗时均来自原版；已删除节点的互斥与前置引用随之清理。条件偏移继续沿用原版数值，涉及ITA身份的触发器改为本地身份。分支显示保持原版布局规则，DLC路线不以玩家拥有相应DLC作为显示门槛；涉及具体装备科技的奖励仍保留对应DLC判断。原版ABDA共享联盟分支没有移入法国城市地图。
 
 4.0.1删除意大利的教皇执政、意大利解放战争、社会共和国三个分支入口，以及依赖这些入口且无法到达的子节点，共26项。它们分别依赖教皇权力平衡、RDS解放战争事件、RSI外国傀儡与内战事件，当前模组没有对应体系。具体节点与原因记录在 `design/vanilla-major-remake.json` 的 `donors[].removed`。巴黎不删除节点；其余科西嘉政治、工业与军事路线保留原版结构，不新增替代链条。
+
+4.0.2采用48幅逐幅生成的透明金属徽章，对应工业、军种、政治机构和本地身份。巴黎与科西嘉的473项国策、103项移植精神、5个动态修正模块、7项新增政策决议及政策分类都使用这套美术。原版意大利人物肖像、国旗和企业徽记由本地主题图案替代；同主题节点共用相应徽章。原稿和完整提示词保存在 `art/focus/` 与 `design/focus-art-spec.json`，实际绑定和使用数量见 `design/focus-art-bindings.json`。
+
+国策纹理为96×96、精神64×64、决议32×32、分类52×40像素。导出保留原稿alpha，仅等比缩小并居中留白。更新前后六个游戏脚本的结构对照排除图标字段，以验证布局、条件、奖励和文字保持一致。原尺寸美术预览见 `art/focus/review/CONTACT-96.png`。
 
 名称与描述按本地图重新整理：原版意大利人物、企业和外国协定改为岛内机构、工业计划或本地伙伴；技术与军种等适用的原版名称保留。例如“释放葛兰西”改为“释放工人代表”，“转向阿尔法·罗密欧生产”改为“机械工场转产”，“英意协定”改为“诺曼底合作协定”。主要政治与外交节点采用专属本地叙述；其他节点采用对应产业或军种叙述，并补充实际政策效果。解锁决议会直接写明决议名称；合作提案明确允许拒绝，战争授权不写成自动吞并。
 
@@ -28,7 +32,7 @@
 
 ```powershell
 python tools/build_vanilla_remake.py --apply --game "D:/steam/steamapps/common/Hearts of Iron IV"
-python tools/validate.py --output docs/reports/4.0.1/validation.json
+python tools/validate.py --output docs/reports/4.0.2/validation.json
 python tools/preview_vanilla_remake.py
 python tools/package.py
 ```

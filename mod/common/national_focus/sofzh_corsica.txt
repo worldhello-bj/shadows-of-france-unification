@@ -1,6 +1,6 @@
 focus_tree = { id = sofzh_corsica country = { factor = 0 modifier = { add = 1000 OR = { original_tag = AJC original_tag = BST original_tag = CLV original_tag = COR original_tag = SRT } } } default = no reset_on_civilwar = no initial_show_position = { focus = SFC_ethiopian_war_logistics_bba } continuous_focus_position = { x = 50 y = 2750 }
 focus = {
- id = SFC_ethiopian_war_logistics_bba icon = GFX_sof_van_goal_generic_position_armies
+ id = SFC_ethiopian_war_logistics_bba icon = GFX_sof_focus_logistics
  x = 2
  y = 0
  offset = { x = 6 y = 0 trigger = { SFC_cw_branches_are_visible = yes } }
@@ -11,7 +11,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italian_highways_bba icon = GFX_sof_van_focus_generic_truck
+ id = SFC_italian_highways_bba icon = GFX_sof_focus_roads
  x = 6
  y = 0
  relative_position_id = SFC_ethiopian_war_logistics_bba
@@ -22,7 +22,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_ministry_of_italian_africa icon = GFX_sof_van_focus_ITA_ministry_of_italian_africa
+ id = SFC_ministry_of_italian_africa icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_italian_highways_bba }
  prerequisite = { focus = SFC_ethiopian_war_logistics_bba }
  x = -5
@@ -35,7 +35,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_develop_ethiopia icon = GFX_sof_van_focus_generic_develop_ethiopia
+ id = SFC_develop_ethiopia icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_ministry_of_italian_africa }
  x = -3
  y = 1
@@ -47,7 +47,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_develop_libya icon = GFX_sof_van_focus_generic_develop_libya
+ id = SFC_develop_libya icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_ministry_of_italian_africa }
  x = -1
  y = 1
@@ -59,7 +59,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_develop_eritrea icon = GFX_sof_van_focus_generic_develop_eritrea
+ id = SFC_develop_eritrea icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_ministry_of_italian_africa }
  x = 1
  y = 1
@@ -71,7 +71,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_develop_somaliland icon = GFX_sof_van_focus_generic_develop_somaliland
+ id = SFC_develop_somaliland icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_ministry_of_italian_africa }
  x = 3
  y = 1
@@ -83,7 +83,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_regional_development icon = GFX_sof_van_goal_generic_construction
+ id = SFC_regional_development icon = GFX_sof_focus_engineering
  prerequisite = { focus = SFC_develop_eritrea focus = SFC_develop_libya focus = SFC_develop_somaliland focus = SFC_develop_ethiopia }
  x = 1
  y = 1
@@ -95,7 +95,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_litoranea_balbo icon = GFX_sof_van_focus_generic_improve_roads
+ id = SFC_litoranea_balbo icon = GFX_sof_focus_roads
  prerequisite = { focus = SFC_regional_development }
  x = -3
  y = 1
@@ -107,7 +107,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_via_della_vittoria icon = GFX_sof_van_goal_reichsautobahn
+ id = SFC_via_della_vittoria icon = GFX_sof_focus_roads
  prerequisite = { focus = SFC_litoranea_balbo }
  x = 0
  y = 1
@@ -119,7 +119,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_libyan_railway icon = GFX_sof_van_focus_generic_railroad
+ id = SFC_libyan_railway icon = GFX_sof_focus_railway
  prerequisite = { focus = SFC_litoranea_balbo }
  prerequisite = { focus = SFC_prospect_for_oil }
  x = 1
@@ -132,7 +132,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_prospect_for_oil icon = GFX_sof_van_goal_generic_oil_refinery
+ id = SFC_prospect_for_oil icon = GFX_sof_focus_fuel
  prerequisite = { focus = SFC_regional_development }
  x = -1
  y = 1
@@ -144,7 +144,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_libyan_refineries icon = GFX_sof_van_focus_generic_rubber
+ id = SFC_libyan_refineries icon = GFX_sof_focus_fuel
  prerequisite = { focus = SFC_prospect_for_oil }
  x = 0
  y = 1
@@ -156,7 +156,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_polizia_dell_africa_italiana icon = GFX_sof_van_goal_generic_military_sphere
+ id = SFC_polizia_dell_africa_italiana icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_regional_development }
  mutually_exclusive = { focus = SFC_strengthen_ascari_corps }
  x = 1
@@ -169,7 +169,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_strengthen_ascari_corps icon = GFX_sof_van_focus_ITA_strengthen_ascari_corps
+ id = SFC_strengthen_ascari_corps icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_regional_development }
  mutually_exclusive = { focus = SFC_polizia_dell_africa_italiana }
  x = 3
@@ -182,7 +182,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_comandante_diavolo icon = GFX_sof_van_focus_ITA_comandante_diavolo
+ id = SFC_comandante_diavolo icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_polizia_dell_africa_italiana focus = SFC_strengthen_ascari_corps }
  x = 1
  y = 1
@@ -194,7 +194,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_steel_industry_in_terni icon = GFX_sof_van_focus_generic_steel
+ id = SFC_steel_industry_in_terni icon = GFX_sof_focus_steel
  prerequisite = { focus = SFC_italian_highways_bba }
  mutually_exclusive = { focus = SFC_power_plants_in_terni }
  x = -1
@@ -207,7 +207,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_power_plants_in_terni icon = GFX_sof_van_goal_generic_construct_civ_factory
+ id = SFC_power_plants_in_terni icon = GFX_sof_focus_power
  prerequisite = { focus = SFC_italian_highways_bba }
  mutually_exclusive = { focus = SFC_steel_industry_in_terni }
  x = 1
@@ -220,7 +220,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_industria_della_gomma_sintetica icon = GFX_sof_van_focus_generic_rubber
+ id = SFC_industria_della_gomma_sintetica icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_steel_industry_in_terni focus = SFC_power_plants_in_terni }
  x = 1
  y = 1
@@ -232,7 +232,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_strengthen_northern_industry icon = GFX_sof_van_focus_ITA_northern_industry
+ id = SFC_strengthen_northern_industry icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_industria_della_gomma_sintetica }
  mutually_exclusive = { focus = SFC_modernize_the_mezzogiorno }
  x = -1
@@ -245,7 +245,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_modernize_the_mezzogiorno icon = GFX_sof_van_focus_ITA_southern_industry
+ id = SFC_modernize_the_mezzogiorno icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_industria_della_gomma_sintetica }
  mutually_exclusive = { focus = SFC_strengthen_northern_industry }
  x = 1
@@ -258,7 +258,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_new_industrialization_program icon = GFX_sof_van_focus_generic_industry_3
+ id = SFC_new_industrialization_program icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_strengthen_northern_industry focus = SFC_modernize_the_mezzogiorno }
  prerequisite = { focus = SFC_expand_national_universities }
  x = 1
@@ -271,7 +271,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_railway_innovations icon = GFX_sof_van_goal_generic_construct_infrastructure
+ id = SFC_railway_innovations icon = GFX_sof_focus_railway
  prerequisite = { focus = SFC_italian_highways_bba }
  x = 3
  y = 1
@@ -283,7 +283,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expand_foggia_farm_fields icon = GFX_sof_van_goal_generic_consumer_goods
+ id = SFC_expand_foggia_farm_fields icon = GFX_sof_focus_agriculture
  prerequisite = { focus = SFC_railway_innovations }
  x = -1
  y = 1
@@ -295,7 +295,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_investments_in_edison icon = GFX_sof_van_focus_generic_hydroelectric_energy
+ id = SFC_investments_in_edison icon = GFX_sof_focus_power
  prerequisite = { focus = SFC_railway_innovations }
  x = 0
  y = 2
@@ -307,7 +307,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expand_national_universities icon = GFX_sof_van_focus_research
+ id = SFC_expand_national_universities icon = GFX_sof_focus_science
  prerequisite = { focus = SFC_investments_in_edison }
  x = 0
  y = 1
@@ -319,7 +319,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_fiocchi_munizioni icon = GFX_sof_van_goal_generic_construct_mil_factory
+ id = SFC_fiocchi_munizioni icon = GFX_sof_focus_military_industry
  prerequisite = { focus = SFC_italian_highways_bba }
  x = 5
  y = 1
@@ -331,7 +331,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_brescia_small_arms_industry icon = GFX_sof_van_focus_focus_fra_maquis
+ id = SFC_brescia_small_arms_industry icon = GFX_sof_focus_military_industry
  prerequisite = { focus = SFC_fiocchi_munizioni }
  x = -1
  y = 1
@@ -343,7 +343,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_milan_comms_industry icon = GFX_sof_van_goal_generic_radar
+ id = SFC_milan_comms_industry icon = GFX_sof_focus_communications
  prerequisite = { focus = SFC_fiocchi_munizioni }
  x = 1
  y = 1
@@ -355,7 +355,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_redirect_alfa_romeo_production icon = GFX_sof_van_focus_ITA_redirect_alfa_romeo_production
+ id = SFC_redirect_alfa_romeo_production icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_brescia_small_arms_industry focus = SFC_milan_comms_industry }
  x = 1
  y = 1
@@ -367,7 +367,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_increase_production icon = GFX_sof_van_focus_generic_combined_arms
+ id = SFC_increase_production icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_expand_national_universities }
  prerequisite = { focus = SFC_redirect_alfa_romeo_production }
  mutually_exclusive = { focus = SFC_keep_specialization }
@@ -381,7 +381,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_keep_specialization icon = GFX_sof_van_goal_generic_production
+ id = SFC_keep_specialization icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_expand_national_universities }
  prerequisite = { focus = SFC_redirect_alfa_romeo_production }
  mutually_exclusive = { focus = SFC_increase_production }
@@ -395,7 +395,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_thermojet_research icon = GFX_sof_van_focus_rocketry
+ id = SFC_thermojet_research icon = GFX_sof_focus_science
  prerequisite = { focus = SFC_increase_production focus = SFC_keep_specialization }
  x = 1
  y = 1
@@ -407,7 +407,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_army_primacy_bba icon = GFX_sof_van_goal_generic_axis_build_infantry
+ id = SFC_army_primacy_bba icon = GFX_sof_focus_army
  x = 13
  y = 0
  relative_position_id = SFC_italian_highways_bba
@@ -418,7 +418,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_preserve_army_traditions icon = GFX_sof_van_focus_generic_little_entente
+ id = SFC_preserve_army_traditions icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_army_primacy_bba }
  mutually_exclusive = { focus = SFC_a_bandits_war }
  x = -3
@@ -431,7 +431,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_increase_artillery_production icon = GFX_sof_van_goal_generic_army_artillery2
+ id = SFC_increase_artillery_production icon = GFX_sof_focus_military_industry
  prerequisite = { focus = SFC_fiocchi_munizioni }
  prerequisite = { focus = SFC_army_primacy_bba }
  x = 3
@@ -444,7 +444,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_vallo_alpino_del_littorio icon = GFX_sof_van_goal_fortify_the_westwall
+ id = SFC_vallo_alpino_del_littorio icon = GFX_sof_focus_fortification
  prerequisite = { focus = SFC_milan_comms_industry }
  prerequisite = { focus = SFC_increase_artillery_production }
  x = 1
@@ -457,7 +457,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_moschettieri_del_duce icon = GFX_sof_van_focus_ITA_moschettieri_del_duce
+ id = SFC_moschettieri_del_duce icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_preserve_army_traditions }
  x = 0
  y = 2
@@ -469,7 +469,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_a_bandits_war icon = GFX_sof_van_goal_generic_small_arms
+ id = SFC_a_bandits_war icon = GFX_sof_focus_mountain
  prerequisite = { focus = SFC_army_primacy_bba }
  mutually_exclusive = { focus = SFC_preserve_army_traditions }
  x = 3
@@ -482,7 +482,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_carica_di_isbuscenskij icon = GFX_sof_van_focus_ITA_cavalry_charge
+ id = SFC_carica_di_isbuscenskij icon = GFX_sof_focus_motorized
  prerequisite = { focus = SFC_a_bandits_war }
  x = 0
  y = 2
@@ -494,7 +494,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_army_leaders icon = GFX_sof_van_focus_generic_military_mission
+ id = SFC_army_leaders icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_preserve_army_traditions focus = SFC_a_bandits_war }
  x = 1
  y = 1
@@ -506,7 +506,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_superesercito icon = GFX_sof_van_goal_generic_army_doctrines
+ id = SFC_superesercito icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_preserve_army_traditions focus = SFC_a_bandits_war }
  x = 3
  y = 1
@@ -518,7 +518,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italian_tankettes icon = GFX_sof_van_focus_generic_tankette
+ id = SFC_italian_tankettes icon = GFX_sof_focus_armor
  prerequisite = { focus = SFC_preserve_army_traditions focus = SFC_a_bandits_war }
  x = 5
  y = 1
@@ -530,7 +530,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_bersaglieri icon = GFX_sof_van_focus_ITA_bersaglieri
+ id = SFC_bersaglieri icon = GFX_sof_focus_infantry
  prerequisite = { focus = SFC_army_leaders }
  prerequisite = { focus = SFC_superesercito }
  x = 1
@@ -543,7 +543,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_divisioni_alpine icon = GFX_sof_van_focus_ITA_alpine_division
+ id = SFC_divisioni_alpine icon = GFX_sof_focus_mountain
  prerequisite = { focus = SFC_bersaglieri }
  x = -1
  y = 1
@@ -555,7 +555,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_fanti_dell_aria icon = GFX_sof_van_focus_generic_paratrooper
+ id = SFC_fanti_dell_aria icon = GFX_sof_focus_special_forces
  prerequisite = { focus = SFC_bersaglieri }
  x = 0
  y = 2
@@ -567,7 +567,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_self_propelled_guns icon = GFX_sof_van_focus_generic_self_propelled_gun
+ id = SFC_self_propelled_guns icon = GFX_sof_focus_artillery
  prerequisite = { focus = SFC_superesercito }
  prerequisite = { focus = SFC_italian_tankettes }
  x = 1
@@ -580,7 +580,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_end_fiat_ansaldo_duopoly icon = GFX_sof_van_focus_ITA_fiat_ansaldo_duopoly
+ id = SFC_end_fiat_ansaldo_duopoly icon = GFX_sof_focus_military_industry
  prerequisite = { focus = SFC_self_propelled_guns }
  mutually_exclusive = { focus = SFC_modernize_ansaldo_facilities }
  x = -1
@@ -593,7 +593,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_modernize_ansaldo_facilities icon = GFX_sof_van_focus_ITA_modernize_ansaldo_facilities
+ id = SFC_modernize_ansaldo_facilities icon = GFX_sof_focus_military_industry
  prerequisite = { focus = SFC_self_propelled_guns }
  mutually_exclusive = { focus = SFC_end_fiat_ansaldo_duopoly }
  x = 1
@@ -606,7 +606,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_ferrea_mole_ferreo_cuore icon = GFX_sof_van_focus_ITA_ferrea_mole_ferreo_cuore
+ id = SFC_ferrea_mole_ferreo_cuore icon = GFX_sof_focus_armor
  prerequisite = { focus = SFC_end_fiat_ansaldo_duopoly focus = SFC_modernize_ansaldo_facilities }
  x = 1
  y = 1
@@ -618,7 +618,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_air_innovations_bba icon = GFX_sof_van_goal_expand_the_luftwaffe
+ id = SFC_air_innovations_bba icon = GFX_sof_focus_fighter
  x = 7
  y = 0
  relative_position_id = SFC_army_primacy_bba
@@ -629,7 +629,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_citta_dell_aria icon = GFX_sof_van_focus_generic_aircraft_production
+ id = SFC_citta_dell_aria icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_air_innovations_bba }
  x = 0
  y = 1
@@ -641,7 +641,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expand_rome_flying_school icon = GFX_sof_van_focus_generic_military_academy
+ id = SFC_expand_rome_flying_school icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_air_innovations_bba }
  x = 4
  y = 1
@@ -653,7 +653,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_reggianes_exports icon = GFX_sof_van_goal_generic_air_fighter2
+ id = SFC_reggianes_exports icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_citta_dell_aria }
  x = -2
  y = 1
@@ -665,7 +665,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_diving_bombers icon = GFX_sof_van_goal_poland_goal
+ id = SFC_diving_bombers icon = GFX_sof_focus_bomber
  prerequisite = { focus = SFC_citta_dell_aria }
  prerequisite = { focus = SFC_expand_rome_flying_school }
  x = 2
@@ -678,7 +678,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_superaereo icon = GFX_sof_van_goal_generic_air_doctrine
+ id = SFC_superaereo icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_citta_dell_aria }
  x = 0
  y = 1
@@ -690,7 +690,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_officers_of_the_service_role icon = GFX_sof_van_focus_generic_military_mission
+ id = SFC_officers_of_the_service_role icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_superaereo }
  prerequisite = { focus = SFC_expand_rome_flying_school }
  x = 3
@@ -703,7 +703,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_standardization icon = GFX_sof_van_goal_generic_production2
+ id = SFC_standardization icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_superaereo }
  mutually_exclusive = { focus = SFC_specialization }
  x = -1
@@ -716,7 +716,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_specialization icon = GFX_sof_van_goal_generic_air_production
+ id = SFC_specialization icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_superaereo }
  mutually_exclusive = { focus = SFC_standardization }
  x = 1
@@ -729,7 +729,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_long_range_aircraft icon = GFX_sof_van_focus_generic_long_range_aircraft
+ id = SFC_long_range_aircraft icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_standardization }
  x = -2
  y = 1
@@ -741,7 +741,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_bomber_designs icon = GFX_sof_van_goal_generic_air_bomber
+ id = SFC_bomber_designs icon = GFX_sof_focus_bomber
  prerequisite = { focus = SFC_standardization focus = SFC_specialization }
  x = 2
  y = 0
@@ -753,7 +753,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_fighter_designs icon = GFX_sof_van_goal_generic_air_fighter
+ id = SFC_fighter_designs icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_standardization focus = SFC_specialization }
  x = 4
  y = 0
@@ -765,7 +765,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_multirole_aircraft icon = GFX_sof_van_focus_generic_multi_role_aircraft
+ id = SFC_multirole_aircraft icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_specialization }
  x = 6
  y = 0
@@ -777,7 +777,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_supremacy_in_the_skies icon = GFX_sof_van_goal_generic_CAS
+ id = SFC_supremacy_in_the_skies icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_multirole_aircraft focus = SFC_long_range_aircraft focus = SFC_fighter_designs focus = SFC_bomber_designs }
  x = 1
  y = 1
@@ -789,7 +789,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_naval_power_projection icon = GFX_sof_van_goal_generic_build_navy
+ id = SFC_naval_power_projection icon = GFX_sof_focus_battleship
  x = 11
  y = 0
  relative_position_id = SFC_air_innovations_bba
@@ -800,7 +800,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_intensify_torpedo_manufacturing icon = GFX_sof_van_focus_generic_torpedo_production
+ id = SFC_intensify_torpedo_manufacturing icon = GFX_sof_focus_destroyer
  prerequisite = { focus = SFC_naval_power_projection }
  x = -2
  y = 1
@@ -812,7 +812,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expand_naval_facilities icon = GFX_sof_van_goal_generic_construct_naval_dockyard
+ id = SFC_expand_naval_facilities icon = GFX_sof_focus_battleship
  prerequisite = { focus = SFC_naval_power_projection }
  x = 0
  y = 1
@@ -824,7 +824,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_oto_naval_guns icon = GFX_sof_van_goal_generic_occupy_states_coastal
+ id = SFC_oto_naval_guns icon = GFX_sof_focus_military_industry
  prerequisite = { focus = SFC_naval_power_projection }
  x = 2
  y = 1
@@ -836,7 +836,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_improve_overseas_naval_bases icon = GFX_sof_van_focus_generic_coastal_fort
+ id = SFC_improve_overseas_naval_bases icon = GFX_sof_focus_naval_base
  prerequisite = { focus = SFC_expand_naval_facilities }
  x = -4
  y = 1
@@ -848,7 +848,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_milizia_marittima_di_artiglieria icon = GFX_sof_van_focus_ITA_milizia_marittima_di_artiglieria
+ id = SFC_milizia_marittima_di_artiglieria icon = GFX_sof_focus_coast_defense
  prerequisite = { focus = SFC_expand_naval_facilities }
  x = -2
  y = 1
@@ -860,7 +860,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_supermarina icon = GFX_sof_van_goal_generic_navy_doctrines_tactics
+ id = SFC_supermarina icon = GFX_sof_focus_battleship
  prerequisite = { focus = SFC_expand_naval_facilities }
  x = 0
  y = 1
@@ -872,7 +872,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_stockpile_fuel icon = GFX_sof_van_focus_generic_stockpile_fuel
+ id = SFC_stockpile_fuel icon = GFX_sof_focus_fuel
  prerequisite = { focus = SFC_expand_naval_facilities }
  x = 2
  y = 1
@@ -884,7 +884,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_forza_navale_especiale icon = GFX_sof_van_goal_generic_amphibious_assault
+ id = SFC_forza_navale_especiale icon = GFX_sof_focus_special_forces
  prerequisite = { focus = SFC_expand_naval_facilities }
  x = 4
  y = 1
@@ -896,7 +896,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_naval_air_coordination icon = GFX_sof_van_goal_generic_air_naval_bomber
+ id = SFC_naval_air_coordination icon = GFX_sof_focus_naval_air
  prerequisite = { focus = SFC_supermarina }
  prerequisite = { focus = SFC_expand_rome_flying_school }
  x = -6
@@ -909,7 +909,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_decima_flottiglia_mas icon = GFX_sof_van_focus_ITA_decima_flottiglia_mas
+ id = SFC_decima_flottiglia_mas icon = GFX_sof_focus_destroyer
  prerequisite = { focus = SFC_supermarina }
  x = -4
  y = 1
@@ -921,7 +921,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_incrociatori_leggeri icon = GFX_sof_van_focus_generic_cruiser2
+ id = SFC_incrociatori_leggeri icon = GFX_sof_focus_cruiser
  prerequisite = { focus = SFC_supermarina }
  mutually_exclusive = { focus = SFC_incrociatori_pesanti }
  x = -2
@@ -934,7 +934,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_incrociatori_pesanti icon = GFX_sof_van_focus_generic_navy_battleship2
+ id = SFC_incrociatori_pesanti icon = GFX_sof_focus_cruiser
  prerequisite = { focus = SFC_supermarina }
  mutually_exclusive = { focus = SFC_incrociatori_leggeri }
  x = 2
@@ -947,7 +947,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expand_naval_intelligence icon = GFX_sof_van_goal_generic_navy_cruiser
+ id = SFC_expand_naval_intelligence icon = GFX_sof_focus_communications
  prerequisite = { focus = SFC_supermarina }
  x = 4
  y = 1
@@ -959,7 +959,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_cooperation_programs icon = GFX_sof_van_goal_generic_scientific_exchange
+ id = SFC_cooperation_programs icon = GFX_sof_focus_naval_base
  prerequisite = { focus = SFC_supermarina }
  x = 6
  y = 1
@@ -971,7 +971,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_cruiser_submarines icon = GFX_sof_van_goal_generic_navy_anti_submarine
+ id = SFC_cruiser_submarines icon = GFX_sof_focus_submarine
  prerequisite = { focus = SFC_incrociatori_leggeri }
  mutually_exclusive = { focus = SFC_midget_submarines }
  x = -4
@@ -984,7 +984,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_midget_submarines icon = GFX_sof_van_focus_generic_midget_submarines
+ id = SFC_midget_submarines icon = GFX_sof_focus_submarine
  prerequisite = { focus = SFC_incrociatori_leggeri }
  mutually_exclusive = { focus = SFC_cruiser_submarines }
  x = -2
@@ -997,7 +997,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_cacciatorpediniere_di_scorta icon = GFX_sof_van_focus_generic_destroyer
+ id = SFC_cacciatorpediniere_di_scorta icon = GFX_sof_focus_destroyer
  prerequisite = { focus = SFC_incrociatori_leggeri }
  x = 0
  y = 1
@@ -1009,7 +1009,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_ispettorato_dei_mezzi_antisommergibili icon = GFX_sof_van_goal_generic_navy_submarine
+ id = SFC_ispettorato_dei_mezzi_antisommergibili icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_incrociatori_leggeri focus = SFC_incrociatori_pesanti }
  x = 2
  y = 1
@@ -1021,7 +1021,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_navi_da_battaglia icon = GFX_sof_van_goal_generic_navy_battleship
+ id = SFC_navi_da_battaglia icon = GFX_sof_focus_battleship
  prerequisite = { focus = SFC_incrociatori_pesanti }
  x = 0
  y = 1
@@ -1033,7 +1033,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_proper_carriers icon = GFX_sof_van_goal_generic_navy_carrier
+ id = SFC_proper_carriers icon = GFX_sof_focus_carrier
  prerequisite = { focus = SFC_incrociatori_pesanti }
  mutually_exclusive = { focus = SFC_refit_civilian_ships }
  x = 2
@@ -1046,7 +1046,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_refit_civilian_ships icon = GFX_sof_van_focus_generic_refit_civilian_ships
+ id = SFC_refit_civilian_ships icon = GFX_sof_focus_naval_base
  prerequisite = { focus = SFC_incrociatori_pesanti }
  mutually_exclusive = { focus = SFC_proper_carriers }
  x = 4
@@ -1059,7 +1059,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_flotta_d_evasione icon = GFX_sof_van_focus_ITA_new_horizons
+ id = SFC_flotta_d_evasione icon = GFX_sof_focus_battleship
  prerequisite = { focus = SFC_ispettorato_dei_mezzi_antisommergibili focus = SFC_cacciatorpediniere_di_scorta focus = SFC_navi_da_battaglia }
  x = 0
  y = 1
@@ -1071,7 +1071,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_abyssinian_fiasco icon = GFX_sof_van_focus_generic_anti_fascist_diplomacy
+ id = SFC_the_abyssinian_fiasco icon = GFX_sof_focus_unification
  mutually_exclusive = { focus = SFC_solid_progress focus = SFC_struggle_in_ethiopia }
  x = 29
  y = 0
@@ -1085,7 +1085,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_solid_progress icon = GFX_sof_van_focus_generic_attack_ethiopia
+ id = SFC_solid_progress icon = GFX_sof_focus_unification
  mutually_exclusive = { focus = SFC_the_abyssinian_fiasco focus = SFC_struggle_in_ethiopia }
  x = 2
  y = 0
@@ -1098,7 +1098,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_struggle_in_ethiopia icon = GFX_sof_van_goal_generic_major_war
+ id = SFC_struggle_in_ethiopia icon = GFX_sof_focus_mountain
  mutually_exclusive = { focus = SFC_the_abyssinian_fiasco focus = SFC_solid_progress }
  x = 2
  y = 0
@@ -1110,7 +1110,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_undermine_the_duce icon = GFX_sof_van_focus_eng_move_to_secure_the_dominions
+ id = SFC_undermine_the_duce icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_struggle_in_ethiopia }
  x = 6
  y = 1
@@ -1123,7 +1123,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_servizio_informazione_militare icon = GFX_sof_van_focus_generic_secret_service_agency
+ id = SFC_servizio_informazione_militare icon = GFX_sof_focus_communications
  prerequisite = { focus = SFC_solid_progress focus = SFC_the_abyssinian_fiasco focus = SFC_struggle_in_ethiopia }
  x = 0
  y = 1
@@ -1136,7 +1136,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_conspiracies_in_the_shadows icon = GFX_sof_van_focus_eng_concessions_to_the_trade_unions
+ id = SFC_conspiracies_in_the_shadows icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_undermine_the_duce }
  x = 0
  y = 1
@@ -1148,7 +1148,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_triumph_in_africa_bba icon = GFX_sof_van_focus_ETH_the_second_italo_ethiopian_war
+ id = SFC_triumph_in_africa_bba icon = GFX_sof_focus_corsica
  prerequisite = { focus = SFC_servizio_informazione_militare }
  x = 0
  y = 1
@@ -1160,7 +1160,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_convene_the_grand_council icon = GFX_sof_van_focus_generic_military_dictatorship
+ id = SFC_convene_the_grand_council icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_triumph_in_africa_bba focus = SFC_conspiracies_in_the_shadows }
  mutually_exclusive = { focus = SFC_culto_del_duce focus = SFC_defy_the_duce }
  x = 20
@@ -1176,7 +1176,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_devaluate_the_lire icon = GFX_sof_van_focus_ITA_devaluate_the_lire
+ id = SFC_devaluate_the_lire icon = GFX_sof_focus_currency
  prerequisite = { focus = SFC_triumph_in_africa_bba }
  x = -3
  y = 1
@@ -1188,7 +1188,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_anglo_italian_agreements icon = GFX_sof_van_focus_chi_british_cooperation
+ id = SFC_anglo_italian_agreements icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_triumph_in_africa_bba }
  x = -1
  y = 1
@@ -1200,7 +1200,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_topple_amhara_rulers icon = GFX_sof_van_focus_ITA_topple_amhara_rulers
+ id = SFC_topple_amhara_rulers icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_triumph_in_africa_bba }
  x = 1
  y = 1
@@ -1212,7 +1212,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_new_emperor_of_ethiopia icon = GFX_sof_van_focus_ITA_the_new_emperor_of_ethiopia
+ id = SFC_the_new_emperor_of_ethiopia icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_triumph_in_africa_bba }
  x = 3
  y = 1
@@ -1224,7 +1224,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_culto_del_duce icon = GFX_sof_van_focus_ITA_culto_del_duce
+ id = SFC_culto_del_duce icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_triumph_in_africa_bba }
  mutually_exclusive = { focus = SFC_convene_the_grand_council focus = SFC_defy_the_duce }
  x = 0
@@ -1238,7 +1238,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_man_of_providence icon = GFX_sof_van_goal_demand_sudetenland
+ id = SFC_the_man_of_providence icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_culto_del_duce }
  x = -3
  y = 1
@@ -1250,7 +1250,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_legge_bottai icon = GFX_sof_van_focus_generic_treaty
+ id = SFC_legge_bottai icon = GFX_sof_focus_constitution
  prerequisite = { focus = SFC_the_man_of_providence }
  x = 0
  y = 1
@@ -1262,7 +1262,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_boost_the_grand_council_of_fascism icon = GFX_sof_van_focus_generic_strike_at_democracy1
+ id = SFC_boost_the_grand_council_of_fascism icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_the_man_of_providence }
  mutually_exclusive = { focus = SFC_to_live_as_a_lion }
  x = -1
@@ -1275,7 +1275,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_to_live_as_a_lion icon = GFX_sof_van_focus_ITA_to_live_as_a_lion
+ id = SFC_to_live_as_a_lion icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_the_man_of_providence }
  mutually_exclusive = { focus = SFC_boost_the_grand_council_of_fascism }
  x = 2
@@ -1288,7 +1288,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_la_battaglia_del_grano icon = GFX_sof_van_focus_SOV_breadbasket_of_the_union
+ id = SFC_la_battaglia_del_grano icon = GFX_sof_focus_agriculture
  prerequisite = { focus = SFC_culto_del_duce }
  mutually_exclusive = { focus = SFC_la_battaglia_per_la_terra }
  x = -1
@@ -1301,7 +1301,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_la_battaglia_per_la_terra icon = GFX_sof_van_focus_generic_land_reclamation
+ id = SFC_la_battaglia_per_la_terra icon = GFX_sof_focus_agriculture
  prerequisite = { focus = SFC_culto_del_duce }
  mutually_exclusive = { focus = SFC_la_battaglia_del_grano }
  x = 1
@@ -1314,7 +1314,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_la_battaglia_per_le_nascite icon = GFX_sof_van_focus_generic_population_growth
+ id = SFC_la_battaglia_per_le_nascite icon = GFX_sof_focus_social_welfare
  prerequisite = { focus = SFC_la_battaglia_del_grano focus = SFC_la_battaglia_per_la_terra }
  x = 1
  y = 2
@@ -1326,7 +1326,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_strengthen_the_regime icon = GFX_sof_van_goal_generic_political_pressure
+ id = SFC_strengthen_the_regime icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_la_battaglia_per_le_nascite }
  x = 0
  y = 5
@@ -1338,7 +1338,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_devotion icon = GFX_sof_van_goal_generic_propaganda
+ id = SFC_devotion icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_to_live_as_a_lion focus = SFC_boost_the_grand_council_of_fascism }
  prerequisite = { focus = SFC_strengthen_the_regime }
  x = -3
@@ -1351,7 +1351,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_ministero_della_cultura_popolare icon = GFX_sof_van_focus_generic_italy_propaganda
+ id = SFC_ministero_della_cultura_popolare icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_culto_del_duce focus = SFC_convene_the_grand_council }
  x = 3
  y = 1
@@ -1364,7 +1364,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_believe_obey_fight icon = GFX_sof_van_focus_generic_little_entente
+ id = SFC_believe_obey_fight icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_ministero_della_cultura_popolare }
  x = 0
  y = 1
@@ -1376,7 +1376,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_banda_carita icon = GFX_sof_van_focus_ITA_banda_carita
+ id = SFC_banda_carita icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_believe_obey_fight }
  x = 0
  y = 2
@@ -1389,7 +1389,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_banda_koch icon = GFX_sof_van_focus_generic_national_security
+ id = SFC_banda_koch icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_banda_carita }
  x = 0
  y = 2
@@ -1402,7 +1402,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_security_militias icon = GFX_sof_van_goal_generic_military_sphere
+ id = SFC_security_militias icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_culto_del_duce focus = SFC_convene_the_grand_council }
  x = 6
  y = 2
@@ -1415,7 +1415,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_battaglioni_d_assalto icon = GFX_sof_van_focus_ITA_blackshirts
+ id = SFC_battaglioni_d_assalto icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_security_militias }
  mutually_exclusive = { focus = SFC_strengthen_the_blackshirts }
  x = -1
@@ -1429,7 +1429,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_strengthen_the_blackshirts icon = GFX_sof_van_focus_generic_manpower
+ id = SFC_strengthen_the_blackshirts icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_security_militias }
  mutually_exclusive = { focus = SFC_battaglioni_d_assalto }
  x = 2
@@ -1442,7 +1442,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_milizia_coloniale icon = GFX_sof_van_focus_secret_rearmament
+ id = SFC_milizia_coloniale icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_battaglioni_d_assalto focus = SFC_strengthen_the_blackshirts }
  x = 1
  y = 2
@@ -1454,7 +1454,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_towards_a_greater_italy icon = GFX_sof_van_focus_ITA_greater_italy
+ id = SFC_towards_a_greater_italy icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_strengthen_the_regime focus = SFC_blackshirt_loyalty focus = SFC_setting_course }
  mutually_exclusive = { focus = SFC_mare_nostrum_bba }
  x = 0
@@ -1468,7 +1468,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_heroes_of_the_nation icon = GFX_sof_van_focus_generic_military_dictatorship
+ id = SFC_heroes_of_the_nation icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_towards_a_greater_italy }
  prerequisite = { focus = SFC_devotion }
  mutually_exclusive = { focus = SFC_capo_supremo }
@@ -1482,7 +1482,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_capo_supremo icon = GFX_sof_van_focus_ITA_capo_supremo
+ id = SFC_capo_supremo icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_towards_a_greater_italy }
  prerequisite = { focus = SFC_devotion }
  mutually_exclusive = { focus = SFC_heroes_of_the_nation }
@@ -1496,7 +1496,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_bend_the_bars icon = GFX_sof_van_focus_ITA_bend_the_bars
+ id = SFC_bend_the_bars icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_towards_a_greater_italy }
  x = 0
  y = 1
@@ -1508,7 +1508,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_subdue_the_sentinels icon = GFX_sof_van_focus_ITA_subdue_the_sentinels
+ id = SFC_subdue_the_sentinels icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_bend_the_bars }
  x = 0
  y = 1
@@ -1520,7 +1520,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_a_colonial_empire icon = GFX_sof_van_focus_ITA_a_colonial_empire
+ id = SFC_a_colonial_empire icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_subdue_the_sentinels }
  x = 0
  y = 1
@@ -1532,7 +1532,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_by_blood_alone icon = GFX_sof_van_focus_ITA_by_blood_alone
+ id = SFC_by_blood_alone icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_a_colonial_empire }
  x = 0
  y = 1
@@ -1544,7 +1544,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_masters_of_the_aegean icon = GFX_sof_van_focus_generic_aegean_sea_focus
+ id = SFC_masters_of_the_aegean icon = GFX_sof_focus_coast_defense
  prerequisite = { focus = SFC_bend_the_bars }
  x = 2
  y = 1
@@ -1556,7 +1556,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_masters_of_the_mediterranean icon = GFX_sof_van_focus_generic_mediterranean_sea_focus
+ id = SFC_masters_of_the_mediterranean icon = GFX_sof_focus_battleship
  prerequisite = { focus = SFC_masters_of_the_aegean }
  x = 0
  y = 1
@@ -1568,7 +1568,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_depose_mussolini icon = GFX_sof_van_focus_ITA_depose_mussolini
+ id = SFC_depose_mussolini icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_convene_the_grand_council }
  relative_position_id = SFC_convene_the_grand_council
  x = 0
@@ -1581,7 +1581,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italo_balbo_focus icon = GFX_sof_van_focus_ITA_italo_balbo
+ id = SFC_italo_balbo_focus icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_depose_mussolini }
  mutually_exclusive = { focus = SFC_dino_grandi_focus focus = SFC_monarchia_d_italia }
  relative_position_id = SFC_depose_mussolini
@@ -1594,7 +1594,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_dino_grandi_focus icon = GFX_sof_van_focus_ITA_dino_grandi
+ id = SFC_dino_grandi_focus icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_depose_mussolini }
  mutually_exclusive = { focus = SFC_italo_balbo_focus focus = SFC_monarchia_d_italia }
  relative_position_id = SFC_depose_mussolini
@@ -1607,7 +1607,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_stop_the_squandering icon = GFX_sof_van_focus_mex_privatisation
+ id = SFC_stop_the_squandering icon = GFX_sof_focus_currency
  prerequisite = { focus = SFC_italo_balbo_focus focus = SFC_dino_grandi_focus }
  relative_position_id = SFC_italo_balbo_focus
  x = 5
@@ -1619,7 +1619,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_consolidate_power icon = GFX_sof_van_goal_demand_sudetenland
+ id = SFC_consolidate_power icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_italo_balbo_focus focus = SFC_dino_grandi_focus }
  relative_position_id = SFC_stop_the_squandering
  x = 2
@@ -1631,7 +1631,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_purge_the_party icon = GFX_sof_van_focus_generic_conspiracy
+ id = SFC_purge_the_party icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_consolidate_power }
  prerequisite = { focus = SFC_stop_the_squandering }
  relative_position_id = SFC_stop_the_squandering
@@ -1644,7 +1644,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_fate_of_mussolini icon = GFX_sof_van_focus_ger_assassinate_mussolini
+ id = SFC_the_fate_of_mussolini icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_purge_the_party }
  relative_position_id = SFC_purge_the_party
  x = 0
@@ -1656,7 +1656,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_divino_duce icon = GFX_sof_van_focus_generic_fascist_propaganda
+ id = SFC_divino_duce icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_the_fate_of_mussolini }
  mutually_exclusive = { focus = SFC_a_greater_purpose }
  relative_position_id = SFC_the_fate_of_mussolini
@@ -1669,7 +1669,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_blackshirt_loyalty icon = GFX_sof_van_focus_generic_fascist_troops
+ id = SFC_blackshirt_loyalty icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_divino_duce }
  relative_position_id = SFC_divino_duce
  x = 0
@@ -1681,7 +1681,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_a_greater_purpose icon = GFX_sof_van_goal_support_fascism
+ id = SFC_a_greater_purpose icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_the_fate_of_mussolini }
  mutually_exclusive = { focus = SFC_divino_duce }
  relative_position_id = SFC_the_fate_of_mussolini
@@ -1694,7 +1694,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_spreading_the_eagles_wings icon = GFX_sof_van_focus_generic_spread_fascism
+ id = SFC_spreading_the_eagles_wings icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_a_greater_purpose }
  relative_position_id = SFC_a_greater_purpose
  x = 0
@@ -1706,7 +1706,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italian_hegemony icon = GFX_sof_van_focus_ITA_italian_hegemony
+ id = SFC_italian_hegemony icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_spreading_the_eagles_wings }
  relative_position_id = SFC_a_greater_purpose
  x = 0
@@ -1718,7 +1718,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_reorganize_regio_esercito icon = GFX_sof_van_focus_generic_combined_arms
+ id = SFC_reorganize_regio_esercito icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_italo_balbo_focus }
  prerequisite = { focus = SFC_stop_the_squandering }
  mutually_exclusive = { focus = SFC_reinforce_regia_aeronautica }
@@ -1732,7 +1732,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_reinforce_regia_aeronautica icon = GFX_sof_van_focus_SOV_flying_clubs
+ id = SFC_reinforce_regia_aeronautica icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_italo_balbo_focus }
  prerequisite = { focus = SFC_stop_the_squandering }
  mutually_exclusive = { focus = SFC_reorganize_regio_esercito }
@@ -1747,7 +1747,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_compagnie_auto_avio_sahariane icon = GFX_sof_van_focus_generic_armored_air_support
+ id = SFC_compagnie_auto_avio_sahariane icon = GFX_sof_focus_motorized
  prerequisite = { focus = SFC_reorganize_regio_esercito focus = SFC_reinforce_regia_aeronautica }
  relative_position_id = SFC_reorganize_regio_esercito
  x = 1
@@ -1759,7 +1759,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_combined_land_and_air_warfare icon = GFX_sof_van_focus_generic_tank_air_support
+ id = SFC_combined_land_and_air_warfare icon = GFX_sof_focus_bomber
  prerequisite = { focus = SFC_compagnie_auto_avio_sahariane }
  relative_position_id = SFC_reorganize_regio_esercito
  x = 1
@@ -1771,7 +1771,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_fourth_shore icon = GFX_sof_van_focus_generic_develop_libya
+ id = SFC_the_fourth_shore icon = GFX_sof_focus_landing
  prerequisite = { focus = SFC_italo_balbo_focus }
  prerequisite = { focus = SFC_stop_the_squandering }
  relative_position_id = SFC_italo_balbo_focus
@@ -1784,7 +1784,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_oil_in_tripoli icon = GFX_sof_van_goal_generic_oil_refinery
+ id = SFC_oil_in_tripoli icon = GFX_sof_focus_fuel
  prerequisite = { focus = SFC_the_fourth_shore }
  mutually_exclusive = { focus = SFC_steel_in_tripoli }
  relative_position_id = SFC_the_fourth_shore
@@ -1797,7 +1797,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_steel_in_tripoli icon = GFX_sof_van_focus_generic_steel
+ id = SFC_steel_in_tripoli icon = GFX_sof_focus_steel
  prerequisite = { focus = SFC_the_fourth_shore }
  mutually_exclusive = { focus = SFC_oil_in_tripoli }
  relative_position_id = SFC_the_fourth_shore
@@ -1810,7 +1810,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_novus_ordo icon = GFX_sof_van_focus_ITA_strengthen_ascari_corps
+ id = SFC_novus_ordo icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_steel_in_tripoli focus = SFC_oil_in_tripoli }
  relative_position_id = SFC_the_fourth_shore
  x = 0
@@ -1822,7 +1822,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_seek_british_military_cooperation icon = GFX_sof_van_goal_generic_scientific_exchange
+ id = SFC_seek_british_military_cooperation icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_dino_grandi_focus focus = SFC_monarchia_d_italia }
  mutually_exclusive = { focus = SFC_invite_france_to_military_partnership }
  relative_position_id = SFC_dino_grandi_focus
@@ -1835,7 +1835,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_anglo_italian_pact icon = GFX_sof_van_focus_chi_british_cooperation
+ id = SFC_anglo_italian_pact icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_seek_british_military_cooperation }
  relative_position_id = SFC_seek_british_military_cooperation
  x = 0
@@ -1847,7 +1847,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_invite_france_to_military_partnership icon = GFX_sof_van_goal_tfv_generic_tech_sharing
+ id = SFC_invite_france_to_military_partnership icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_dino_grandi_focus focus = SFC_monarchia_d_italia }
  mutually_exclusive = { focus = SFC_seek_british_military_cooperation }
  relative_position_id = SFC_seek_british_military_cooperation
@@ -1860,7 +1860,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_franco_italian_pact icon = GFX_sof_van_focus_chi_reach_out_to_france
+ id = SFC_franco_italian_pact icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_invite_france_to_military_partnership }
  relative_position_id = SFC_seek_british_military_cooperation
  x = 2
@@ -1872,7 +1872,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_proclaim_the_italian_empire icon = GFX_sof_van_focus_ITA_imperial_recognition
+ id = SFC_proclaim_the_italian_empire icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_anglo_italian_pact focus = SFC_franco_italian_pact }
  relative_position_id = SFC_seek_british_military_cooperation
  x = 1
@@ -1884,7 +1884,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_reorganize_the_party icon = GFX_sof_van_goal_generic_neutrality_focus
+ id = SFC_reorganize_the_party icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_dino_grandi_focus }
  prerequisite = { focus = SFC_consolidate_power }
  relative_position_id = SFC_dino_grandi_focus
@@ -1897,7 +1897,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_meritocracy icon = GFX_sof_van_goal_generic_intelligence_exchange
+ id = SFC_meritocracy icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_reorganize_the_party }
  prerequisite = { focus = SFC_purge_the_party }
  relative_position_id = SFC_reorganize_the_party
@@ -1910,7 +1910,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_economic_reforms icon = GFX_sof_van_focus_usa_reestablish_the_gold_standard
+ id = SFC_economic_reforms icon = GFX_sof_focus_currency
  prerequisite = { focus = SFC_reorganize_the_party }
  relative_position_id = SFC_reorganize_the_party
  x = 2
@@ -1922,7 +1922,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_improve_the_industries icon = GFX_sof_van_focus_generic_industry_2
+ id = SFC_improve_the_industries icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_economic_reforms }
  relative_position_id = SFC_economic_reforms
  x = 0
@@ -1934,7 +1934,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expanded_corporatism icon = GFX_sof_van_focus_ITA_generic_fascist_workers
+ id = SFC_expanded_corporatism icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_meritocracy }
  prerequisite = { focus = SFC_improve_the_industries }
  relative_position_id = SFC_reorganize_the_party
@@ -1947,7 +1947,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_monarchia_d_italia icon = GFX_sof_van_focus_generic_monarchy_1
+ id = SFC_monarchia_d_italia icon = GFX_sof_focus_crown
  prerequisite = { focus = SFC_depose_mussolini }
  mutually_exclusive = { focus = SFC_dino_grandi_focus focus = SFC_italo_balbo_focus }
  x = 9
@@ -1960,7 +1960,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_extraction_industry icon = GFX_sof_van_goal_generic_construction2
+ id = SFC_extraction_industry icon = GFX_sof_focus_steel
  prerequisite = { focus = SFC_monarchia_d_italia }
  x = -2
  y = 1
@@ -1972,7 +1972,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_new_corporations icon = GFX_sof_van_goal_generic_construct_civ_factory
+ id = SFC_new_corporations icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_extraction_industry }
  x = -1
  y = 1
@@ -1984,7 +1984,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_prepare_for_the_coming_wars icon = GFX_sof_van_goal_generic_construct_mil_factory
+ id = SFC_prepare_for_the_coming_wars icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_extraction_industry }
  x = 0
  y = 2
@@ -1996,7 +1996,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_mobilize_the_railway_guns icon = GFX_sof_van_focus_generic_railway_gun
+ id = SFC_mobilize_the_railway_guns icon = GFX_sof_focus_railway
  prerequisite = { focus = SFC_prepare_for_the_coming_wars }
  x = -1
  y = 1
@@ -2009,7 +2009,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_bring_back_old_glories icon = GFX_sof_van_goal_generic_navy_battleship
+ id = SFC_bring_back_old_glories icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_prepare_for_the_coming_wars }
  x = 1
  y = 1
@@ -2021,7 +2021,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_new_forms_of_weaponry icon = GFX_sof_van_focus_wonderweapons
+ id = SFC_new_forms_of_weaponry icon = GFX_sof_focus_engineering
  prerequisite = { focus = SFC_prepare_for_the_coming_wars }
  x = 0
  y = 2
@@ -2033,7 +2033,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_revoke_the_acerbo_law icon = GFX_sof_van_focus_renounce_the_treaty_of_trianon
+ id = SFC_revoke_the_acerbo_law icon = GFX_sof_focus_constitution
  prerequisite = { focus = SFC_monarchia_d_italia }
  mutually_exclusive = { focus = SFC_power_to_the_king }
  x = 1
@@ -2046,7 +2046,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_christian_democracy icon = GFX_sof_van_focus_ITA_alcide_de_gasperi
+ id = SFC_christian_democracy icon = GFX_sof_focus_church
  prerequisite = { focus = SFC_revoke_the_acerbo_law }
  mutually_exclusive = { focus = SFC_democratic_king }
  x = -1
@@ -2059,7 +2059,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_democratic_king icon = GFX_sof_van_goal_tfv_strengthen_commonwealth_ties
+ id = SFC_democratic_king icon = GFX_sof_focus_crown
  prerequisite = { focus = SFC_revoke_the_acerbo_law }
  mutually_exclusive = { focus = SFC_christian_democracy }
  x = 1
@@ -2072,7 +2072,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_cooperate_with_moderates icon = GFX_sof_van_goal_generic_improve_relations
+ id = SFC_cooperate_with_moderates icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_christian_democracy focus = SFC_democratic_king }
  x = 0
  y = 1
@@ -2084,7 +2084,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expand_intelligence_services icon = GFX_sof_van_goal_generic_intelligence_exchange
+ id = SFC_expand_intelligence_services icon = GFX_sof_focus_communications
  prerequisite = { focus = SFC_democratic_king focus = SFC_christian_democracy }
  x = 0
  y = 1
@@ -2096,7 +2096,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_crush_opposition icon = GFX_sof_van_focus_eng_move_to_secure_the_dominions
+ id = SFC_crush_opposition icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_cooperate_with_moderates focus = SFC_expand_intelligence_services }
  x = 1
  y = 1
@@ -2108,7 +2108,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_power_to_the_king icon = GFX_sof_van_focus_ITA_king_vittorio
+ id = SFC_power_to_the_king icon = GFX_sof_focus_crown
  prerequisite = { focus = SFC_monarchia_d_italia }
  mutually_exclusive = { focus = SFC_revoke_the_acerbo_law }
  x = 5
@@ -2121,7 +2121,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_disband_the_blackshirts icon = GFX_sof_van_focus_spr_the_anti_fascist_workers_revolution
+ id = SFC_disband_the_blackshirts icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_power_to_the_king focus = SFC_revoke_the_acerbo_law }
  mutually_exclusive = { focus = SFC_utilize_the_blackshirts }
  x = -2
@@ -2134,7 +2134,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_utilize_the_blackshirts icon = GFX_sof_van_focus_generic_fascist_troops
+ id = SFC_utilize_the_blackshirts icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_power_to_the_king }
  mutually_exclusive = { focus = SFC_disband_the_blackshirts }
  x = 0
@@ -2147,7 +2147,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_expand_the_royal_guard icon = GFX_sof_van_focus_generic_little_entente
+ id = SFC_expand_the_royal_guard icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_disband_the_blackshirts focus = SFC_utilize_the_blackshirts }
  x = 1
  y = 1
@@ -2159,7 +2159,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_gloria_al_regno_d_italia icon = GFX_sof_van_focus_rom_royal_dictatorship
+ id = SFC_gloria_al_regno_d_italia icon = GFX_sof_focus_empire
  prerequisite = { focus = SFC_expand_the_royal_guard focus = SFC_democratic_king }
  x = -2
  y = 1
@@ -2171,7 +2171,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_paramilitary_training icon = GFX_sof_van_focus_prc_infiltration
+ id = SFC_paramilitary_training icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_expand_the_royal_guard }
  prerequisite = { focus = SFC_utilize_the_blackshirts }
  x = 1
@@ -2184,7 +2184,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_seek_papal_support icon = GFX_sof_van_focus_por_concordat
+ id = SFC_seek_papal_support icon = GFX_sof_focus_church
  prerequisite = { focus = SFC_power_to_the_king }
  x = 2
  y = 1
@@ -2196,7 +2196,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_agents_of_the_church icon = GFX_sof_van_focus_generic_vatican_agents
+ id = SFC_agents_of_the_church icon = GFX_sof_focus_church
  prerequisite = { focus = SFC_seek_papal_support }
  x = 0
  y = 1
@@ -2208,7 +2208,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_strengthen_the_papacy icon = GFX_sof_van_focus_generic_pope
+ id = SFC_strengthen_the_papacy icon = GFX_sof_focus_church
  prerequisite = { focus = SFC_agents_of_the_church }
  x = 0
  y = 1
@@ -2220,7 +2220,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_setting_course icon = GFX_sof_van_goal_generic_political_pressure
+ id = SFC_setting_course icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_gloria_al_regno_d_italia focus = SFC_crush_opposition focus = SFC_strengthen_the_papacy }
  x = -1
  y = 2
@@ -2232,7 +2232,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_mare_nostrum_bba icon = GFX_sof_van_focus_ITA_mare_nostrum
+ id = SFC_mare_nostrum_bba icon = GFX_sof_focus_battleship
  prerequisite = { focus = SFC_setting_course focus = SFC_strengthen_the_regime focus = SFC_blackshirt_loyalty }
  mutually_exclusive = { focus = SFC_towards_a_greater_italy }
  x = 31
@@ -2246,7 +2246,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_auxiliaries icon = GFX_sof_van_focus_ETH_peacekeeping_forces
+ id = SFC_auxiliaries icon = GFX_sof_focus_infantry
  prerequisite = { focus = SFC_mare_nostrum_bba }
  x = -2
  y = 1
@@ -2258,7 +2258,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_italian_legions icon = GFX_sof_van_focus_generic_fascist_troops
+ id = SFC_the_italian_legions icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_mare_nostrum_bba }
  x = 0
  y = 1
@@ -2270,7 +2270,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_new_roman_citizens icon = GFX_sof_van_focus_ETH_invite_italian_settlers
+ id = SFC_new_roman_citizens icon = GFX_sof_focus_equality
  prerequisite = { focus = SFC_mare_nostrum_bba }
  x = 2
  y = 1
@@ -2282,7 +2282,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_all_roads_lead_to_rome icon = GFX_sof_van_focus_generic_spread_fascism
+ id = SFC_all_roads_lead_to_rome icon = GFX_sof_focus_roads
  prerequisite = { focus = SFC_the_italian_legions }
  x = 0
  y = 1
@@ -2294,7 +2294,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_king_of_the_skies icon = GFX_sof_van_focus_generic_long_range_aircraft
+ id = SFC_the_king_of_the_skies icon = GFX_sof_focus_fighter
  prerequisite = { focus = SFC_all_roads_lead_to_rome }
  x = -2
  y = 1
@@ -2306,7 +2306,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_modern_musculus icon = GFX_sof_van_goal_generic_army_tanks
+ id = SFC_modern_musculus icon = GFX_sof_focus_landing
  prerequisite = { focus = SFC_all_roads_lead_to_rome }
  x = 0
  y = 1
@@ -2318,7 +2318,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_caligulas_pride icon = GFX_sof_van_focus_generic_navy_battleship2
+ id = SFC_caligulas_pride icon = GFX_sof_focus_battleship
  prerequisite = { focus = SFC_all_roads_lead_to_rome }
  x = 2
  y = 1
@@ -2330,7 +2330,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_iberian_protection icon = GFX_sof_van_focus_generic_free_iberia
+ id = SFC_iberian_protection icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_mare_nostrum_bba }
  x = 4
  y = 2
@@ -2342,7 +2342,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_south_american_alliances icon = GFX_sof_van_focus_por_recover_latin_america
+ id = SFC_south_american_alliances icon = GFX_sof_focus_naval_base
  prerequisite = { focus = SFC_iberian_protection }
  x = 0
  y = 1
@@ -2354,7 +2354,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_foreign_affairs icon = GFX_sof_van_goal_generic_dangerous_deal
+ id = SFC_foreign_affairs icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_triumph_in_africa_bba focus = SFC_conspiracies_in_the_shadows }
  x = 50
  y = 1
@@ -2369,7 +2369,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_balkan_ambition icon = GFX_sof_van_focus_generic_balkans_focus
+ id = SFC_balkan_ambition icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_foreign_affairs }
  mutually_exclusive = { focus = SFC_potential_allies_in_the_balkans }
  x = -1
@@ -2382,7 +2382,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_potential_allies_in_the_balkans icon = GFX_sof_van_focus_generic_balkan_diplomacy
+ id = SFC_potential_allies_in_the_balkans icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_foreign_affairs }
  mutually_exclusive = { focus = SFC_balkan_ambition }
  x = 1
@@ -2395,7 +2395,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_albanian_occupation icon = GFX_sof_van_goal_generic_more_territorial_claims
+ id = SFC_albanian_occupation icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_potential_allies_in_the_balkans focus = SFC_balkan_ambition }
  x = -12
  y = 1
@@ -2407,7 +2407,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_albanian_oil icon = GFX_sof_van_goal_generic_oil_refinery
+ id = SFC_albanian_oil icon = GFX_sof_focus_fuel
  prerequisite = { focus = SFC_albanian_occupation }
  x = -2
  y = 1
@@ -2419,7 +2419,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_support_albanian_irredentism icon = GFX_sof_van_focus_ITA_albanian_irredentism
+ id = SFC_support_albanian_irredentism icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_albanian_occupation }
  x = 0
  y = 1
@@ -2431,7 +2431,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_albanian_fascist_militia icon = GFX_sof_van_focus_ITA_albanian_fascist_militia
+ id = SFC_albanian_fascist_militia icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_support_albanian_irredentism }
  x = 0
  y = 1
@@ -2443,7 +2443,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_guarantee_austrian_independence icon = GFX_sof_van_goal_generic_territory_or_war
+ id = SFC_guarantee_austrian_independence icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_potential_allies_in_the_balkans focus = SFC_balkan_ambition }
  mutually_exclusive = { focus = SFC_pact_of_steel focus = SFC_italy_first }
  x = -10
@@ -2456,7 +2456,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_negotiate_italian_claims icon = GFX_sof_van_goal_generic_position_armies
+ id = SFC_negotiate_italian_claims icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_guarantee_austrian_independence }
  x = 0
  y = 1
@@ -2468,7 +2468,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_ratify_the_stresa_front icon = GFX_sof_van_focus_focus_fra_ratify_stresa
+ id = SFC_ratify_the_stresa_front icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_negotiate_italian_claims }
  x = 0
  y = 1
@@ -2480,7 +2480,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_joint_military_programs icon = GFX_sof_van_focus_prc_infiltration
+ id = SFC_joint_military_programs icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_ratify_the_stresa_front }
  x = -2
  y = 1
@@ -2492,7 +2492,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italys_destiny icon = GFX_sof_van_focus_generic_balkans_focus
+ id = SFC_italys_destiny icon = GFX_sof_focus_corsica
  prerequisite = { focus = SFC_ratify_the_stresa_front }
  x = 0
  y = 1
@@ -2504,7 +2504,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_eastern_threat icon = GFX_sof_van_focus_ger_strike_at_the_source
+ id = SFC_the_eastern_threat icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_italys_destiny }
  x = 0
  y = 1
@@ -2516,7 +2516,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_pact_of_steel icon = GFX_sof_van_goal_support_fascism
+ id = SFC_pact_of_steel icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_potential_allies_in_the_balkans focus = SFC_balkan_ambition }
  mutually_exclusive = { focus = SFC_guarantee_austrian_independence focus = SFC_italy_first }
  x = -4
@@ -2529,7 +2529,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_german_military_cooperation icon = GFX_sof_van_focus_ger_oppose_hitler
+ id = SFC_german_military_cooperation icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_pact_of_steel }
  x = -3
  y = 1
@@ -2541,7 +2541,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_sea_wolves_bba icon = GFX_sof_van_goal_generic_wolf_pack
+ id = SFC_sea_wolves_bba icon = GFX_sof_focus_submarine
  prerequisite = { focus = SFC_german_military_cooperation }
  x = -1
  y = 1
@@ -2553,7 +2553,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_secret_weapons icon = GFX_sof_van_goal_generic_secret_weapon
+ id = SFC_secret_weapons icon = GFX_sof_focus_science
  prerequisite = { focus = SFC_german_military_cooperation }
  x = 1
  y = 1
@@ -2565,7 +2565,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_treaty_with_germany icon = GFX_sof_van_focus_generic_diplomatic_treaty
+ id = SFC_treaty_with_germany icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_pact_of_steel }
  x = -1
  y = 1
@@ -2577,7 +2577,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_request_control_of_french_territories icon = GFX_sof_van_goal_generic_territory_or_war
+ id = SFC_request_control_of_french_territories icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_pact_of_steel }
  prerequisite = { focus = SFC_italian_irredentism }
  mutually_exclusive = { focus = SFC_war_with_france }
@@ -2591,7 +2591,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italy_first icon = GFX_sof_van_focus_generic_italy_first
+ id = SFC_italy_first icon = GFX_sof_focus_corsica
  prerequisite = { focus = SFC_potential_allies_in_the_balkans focus = SFC_balkan_ambition }
  mutually_exclusive = { focus = SFC_guarantee_austrian_independence focus = SFC_pact_of_steel }
  x = 0
@@ -2604,7 +2604,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_befriend_japan icon = GFX_sof_van_focus_chi_collaboration_with_the_japanese
+ id = SFC_befriend_japan icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_pact_of_steel focus = SFC_italy_first }
  x = 1
  y = 1
@@ -2616,7 +2616,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italian_irredentism icon = GFX_sof_van_focus_ITA_italian_irredentism
+ id = SFC_italian_irredentism icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_pact_of_steel focus = SFC_italy_first }
  x = 3
  y = 1
@@ -2628,7 +2628,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_war_with_france icon = GFX_sof_van_focus_attack_france
+ id = SFC_war_with_france icon = GFX_sof_focus_landing
  prerequisite = { focus = SFC_italian_irredentism }
  mutually_exclusive = { focus = SFC_request_control_of_french_territories }
  x = -1
@@ -2641,7 +2641,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_demand_ticino icon = GFX_sof_van_focus_attack_switzerland
+ id = SFC_demand_ticino icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_war_with_france focus = SFC_request_control_of_french_territories }
  x = -1
  y = 1
@@ -2653,7 +2653,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_war_with_the_uk icon = GFX_sof_van_focus_attack_britain
+ id = SFC_war_with_the_uk icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_italy_first }
  prerequisite = { focus = SFC_italian_irredentism }
  x = 0
@@ -2666,7 +2666,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_war_with_greece icon = GFX_sof_van_focus_generic_attack_greece
+ id = SFC_war_with_greece icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_italian_irredentism }
  mutually_exclusive = { focus = SFC_befriend_greece }
  x = 0
@@ -2679,7 +2679,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_befriend_greece icon = GFX_sof_van_focus_generic_befriend_greece
+ id = SFC_befriend_greece icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_italy_first }
  mutually_exclusive = { focus = SFC_war_with_greece }
  x = 1
@@ -2692,7 +2692,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_claims_on_turkey_bba icon = GFX_sof_van_focus_generic_attack_turkey
+ id = SFC_claims_on_turkey_bba icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_war_with_greece focus = SFC_befriend_greece }
  mutually_exclusive = { focus = SFC_befriend_turkey }
  x = 0
@@ -2705,7 +2705,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_befriend_turkey icon = GFX_sof_van_focus_generic_befriend_turkey
+ id = SFC_befriend_turkey icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_war_with_greece focus = SFC_befriend_greece }
  mutually_exclusive = { focus = SFC_claims_on_turkey_bba }
  x = 2
@@ -2718,7 +2718,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_corpo_di_truppe_volontarie icon = GFX_sof_van_goal_generic_military_deal
+ id = SFC_corpo_di_truppe_volontarie icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_foreign_affairs }
  x = 4
  y = 1
@@ -2730,7 +2730,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_spanish_italian_alliance icon = GFX_sof_van_focus_intervention_spain_nationalists
+ id = SFC_spanish_italian_alliance icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_corpo_di_truppe_volontarie }
  prerequisite = { focus = SFC_italy_first }
  mutually_exclusive = { focus = SFC_demand_balearic_islands_bba }
@@ -2744,7 +2744,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_demand_balearic_islands_bba icon = GFX_sof_van_goal_generic_more_territorial_claims
+ id = SFC_demand_balearic_islands_bba icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_corpo_di_truppe_volontarie }
  mutually_exclusive = { focus = SFC_spanish_italian_alliance }
  x = 1
@@ -2757,7 +2757,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_befriend_portugal icon = GFX_sof_van_focus_generic_befriend_portugal
+ id = SFC_befriend_portugal icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_spanish_italian_alliance focus = SFC_demand_balearic_islands_bba }
  x = 1
  y = 1
@@ -2769,7 +2769,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_unite_the_opposition icon = GFX_sof_van_focus_spr_the_anti_fascist_workers_revolution
+ id = SFC_unite_the_opposition icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_the_abyssinian_fiasco }
  x = -19
  y = 1
@@ -2783,7 +2783,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_liberate_gramsci icon = GFX_sof_van_focus_ITA_liberate_gramsci
+ id = SFC_liberate_gramsci icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_unite_the_opposition focus = SFC_triumph_in_africa_bba }
  x = 2
  y = 2
@@ -2796,7 +2796,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_organize_strikes_in_the_north icon = GFX_sof_van_focus_SOV_organize_wreckers
+ id = SFC_organize_strikes_in_the_north icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_unite_the_opposition }
  mutually_exclusive = { focus = SFC_the_southern_farmlands }
  x = -1
@@ -2809,7 +2809,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_southern_farmlands icon = GFX_sof_van_focus_SOV_breadbasket_of_the_union
+ id = SFC_the_southern_farmlands icon = GFX_sof_focus_agriculture
  prerequisite = { focus = SFC_unite_the_opposition }
  mutually_exclusive = { focus = SFC_organize_strikes_in_the_north }
  x = 1
@@ -2822,7 +2822,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_defy_the_duce icon = GFX_sof_van_focus_ITA_liberation_or_death
+ id = SFC_defy_the_duce icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_organize_strikes_in_the_north focus = SFC_the_southern_farmlands focus = SFC_triumph_in_africa_bba }
  mutually_exclusive = { focus = SFC_culto_del_duce focus = SFC_convene_the_grand_council }
  x = 1
@@ -2836,7 +2836,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_appeal_to_the_bourgeoisie icon = GFX_sof_van_focus_eng_concessions_to_the_trade_unions
+ id = SFC_appeal_to_the_bourgeoisie icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_defy_the_duce }
  x = -1
  y = 1
@@ -2848,7 +2848,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_seize_old_equipment icon = GFX_sof_van_focus_generic_railway_gun
+ id = SFC_seize_old_equipment icon = GFX_sof_focus_logistics
  prerequisite = { focus = SFC_defy_the_duce }
  x = 1
  y = 1
@@ -2860,7 +2860,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_italian_republic icon = GFX_sof_van_focus_ITA_the_italian_republic
+ id = SFC_the_italian_republic icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_defy_the_duce }
  x = 0
  y = 2
@@ -2872,7 +2872,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_popular_front icon = GFX_sof_van_focus_generic_join_comintern
+ id = SFC_the_popular_front icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_the_italian_republic }
  mutually_exclusive = { focus = SFC_italian_socialism }
  x = -5
@@ -2885,7 +2885,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_garibaldi_legion icon = GFX_sof_van_focus_ITA_garibaldi_legion
+ id = SFC_the_garibaldi_legion icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_the_popular_front }
  x = -5
  y = 1
@@ -2897,7 +2897,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_gruppi_di_difesa_della_donna icon = GFX_sof_van_focus_generic_women_in_military
+ id = SFC_gruppi_di_difesa_della_donna icon = GFX_sof_focus_equality
  prerequisite = { focus = SFC_the_garibaldi_legion }
  x = -1
  y = 1
@@ -2909,7 +2909,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_a_new_era_for_the_red_shirts icon = GFX_sof_van_focus_YUG_pan_slavic_congress
+ id = SFC_a_new_era_for_the_red_shirts icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_the_garibaldi_legion }
  x = 1
  y = 1
@@ -2921,7 +2921,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_pugno_alzato icon = GFX_sof_van_focus_ITA_corpo_volontari_della_liberta
+ id = SFC_pugno_alzato icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_gruppi_di_difesa_della_donna focus = SFC_a_new_era_for_the_red_shirts }
  x = 1
  y = 1
@@ -2933,7 +2933,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_a_leader_steps_forward icon = GFX_sof_van_focus_ITA_communist_leadership
+ id = SFC_a_leader_steps_forward icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_the_popular_front }
  x = -2
  y = 1
@@ -2945,7 +2945,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_path_to_progress icon = GFX_sof_van_focus_SOV_proclaim_soviet_hegemony
+ id = SFC_the_path_to_progress icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_a_leader_steps_forward }
  x = 0
  y = 1
@@ -2957,7 +2957,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_industrial_socialization icon = GFX_sof_van_goal_generic_soviet_construction
+ id = SFC_industrial_socialization icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_the_popular_front }
  x = 0
  y = 1
@@ -2969,7 +2969,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_institute_the_five_year_plan icon = GFX_sof_van_goal_generic_construct_civ_factory
+ id = SFC_institute_the_five_year_plan icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_industrial_socialization }
  x = 0
  y = 1
@@ -2981,7 +2981,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_new_ricostruzione_industriale icon = GFX_sof_van_goal_generic_construct_civilian
+ id = SFC_new_ricostruzione_industriale icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_institute_the_five_year_plan }
  x = 0
  y = 1
@@ -2993,7 +2993,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_political_commissars icon = GFX_sof_van_goal_generic_war_with_comintern
+ id = SFC_political_commissars icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_industrial_socialization }
  mutually_exclusive = { focus = SFC_appease_the_military focus = SFC_empower_the_carabinieri }
  x = 2
@@ -3006,7 +3006,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_common_ground icon = GFX_sof_van_goal_generic_national_unity
+ id = SFC_common_ground icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_the_popular_front focus = SFC_italian_socialism }
  x = 4
  y = 1
@@ -3018,7 +3018,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_appease_the_military icon = GFX_sof_van_focus_generic_military_mission
+ id = SFC_appease_the_military icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_common_ground }
  mutually_exclusive = { focus = SFC_political_commissars focus = SFC_empower_the_carabinieri }
  x = 0
@@ -3031,7 +3031,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_crush_the_mafia icon = GFX_sof_van_focus_eng_move_to_secure_the_dominions
+ id = SFC_crush_the_mafia icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_the_popular_front focus = SFC_italian_socialism }
  mutually_exclusive = { focus = SFC_cooperate_with_the_mafia }
  x = 6
@@ -3044,7 +3044,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_empower_the_carabinieri icon = GFX_sof_van_goal_generic_small_arms
+ id = SFC_empower_the_carabinieri icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_crush_the_mafia }
  mutually_exclusive = { focus = SFC_political_commissars focus = SFC_appease_the_military }
  x = 0
@@ -3057,7 +3057,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_army_modernization icon = GFX_sof_van_focus_generic_tank_air_support
+ id = SFC_army_modernization icon = GFX_sof_focus_army
  prerequisite = { focus = SFC_appease_the_military focus = SFC_political_commissars focus = SFC_empower_the_carabinieri }
  x = 0
  y = 1
@@ -3069,7 +3069,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_union_in_the_party icon = GFX_sof_van_focus_generic_soviet_politics
+ id = SFC_union_in_the_party icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_the_path_to_progress }
  x = 0
  y = 2
@@ -3081,7 +3081,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_follow_the_soviet_union icon = GFX_sof_van_focus_chi_mission_to_the_soviet_union
+ id = SFC_follow_the_soviet_union icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_union_in_the_party }
  mutually_exclusive = { focus = SFC_defend_the_land }
  x = -2
@@ -3094,7 +3094,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_military_cooperation icon = GFX_sof_van_goal_support_communism
+ id = SFC_military_cooperation icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_follow_the_soviet_union }
  x = 0
  y = 1
@@ -3106,7 +3106,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_defense_against_capitalism icon = GFX_sof_van_focus_spr_the_anti_fascist_workers_revolution
+ id = SFC_defense_against_capitalism icon = GFX_sof_focus_fortification
  prerequisite = { focus = SFC_military_cooperation }
  x = -1
  y = 1
@@ -3118,7 +3118,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_combined_research_effort icon = GFX_sof_van_focus_generic_socialist_science
+ id = SFC_combined_research_effort icon = GFX_sof_focus_science
  prerequisite = { focus = SFC_military_cooperation }
  x = 0
  y = 2
@@ -3130,7 +3130,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_special_brigades icon = GFX_sof_van_focus_SOV_mobilization_plan
+ id = SFC_special_brigades icon = GFX_sof_focus_special_forces
  prerequisite = { focus = SFC_follow_the_soviet_union focus = SFC_defend_the_land }
  x = 2
  y = 2
@@ -3142,7 +3142,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_defend_the_land icon = GFX_sof_van_focus_prc_agrarian_socialism
+ id = SFC_defend_the_land icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_union_in_the_party }
  mutually_exclusive = { focus = SFC_follow_the_soviet_union }
  x = 2
@@ -3155,7 +3155,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_united_anarchist_confederations icon = GFX_sof_van_goal_generic_military_deal
+ id = SFC_united_anarchist_confederations icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_defend_the_land }
  x = -1
  y = 1
@@ -3167,7 +3167,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_fight_against_stalinism icon = GFX_sof_van_focus_spr_masters_of_our_own_fate
+ id = SFC_the_fight_against_stalinism icon = GFX_sof_focus_parliament
  prerequisite = { focus = SFC_defend_the_land }
  x = 1
  y = 1
@@ -3179,7 +3179,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_raise_the_peoples icon = GFX_sof_van_focus_ITA_peasants_rise
+ id = SFC_raise_the_peoples icon = GFX_sof_focus_propaganda
  prerequisite = { focus = SFC_defend_the_land }
  x = 0
  y = 3
@@ -3191,7 +3191,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_il_sol_dell_avvenire icon = GFX_sof_van_focus_ITA_il_sol_dell_avvenire
+ id = SFC_il_sol_dell_avvenire icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_combined_research_effort focus = SFC_raise_the_peoples }
  x = 2
  y = 1
@@ -3203,7 +3203,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italian_socialism icon = GFX_sof_van_focus_generic_the_giant_wakes
+ id = SFC_italian_socialism icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_the_italian_republic }
  mutually_exclusive = { focus = SFC_the_popular_front }
  x = 11
@@ -3216,7 +3216,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_cooperate_with_the_mafia icon = GFX_sof_van_goal_generic_dangerous_deal
+ id = SFC_cooperate_with_the_mafia icon = GFX_sof_focus_security
  prerequisite = { focus = SFC_italian_socialism }
  mutually_exclusive = { focus = SFC_crush_the_mafia }
  x = -3
@@ -3229,7 +3229,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_mafia_abroad icon = GFX_sof_van_focus_generic_conspiracy
+ id = SFC_mafia_abroad icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_cooperate_with_the_mafia }
  x = 0
  y = 2
@@ -3241,7 +3241,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_empower_the_unions icon = GFX_sof_van_focus_ITA_workers_unions
+ id = SFC_empower_the_unions icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_italian_socialism }
  x = -1
  y = 1
@@ -3253,7 +3253,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_production_lines icon = GFX_sof_van_goal_generic_construct_mil_factory
+ id = SFC_production_lines icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_empower_the_unions }
  x = 0
  y = 1
@@ -3265,7 +3265,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_republics_leadership icon = GFX_sof_van_focus_ITA_democratic_leadership
+ id = SFC_the_republics_leadership icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_italian_socialism }
  x = 1
  y = 1
@@ -3277,7 +3277,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_bring_back_exiled_intellectuals icon = GFX_sof_van_goal_tfv_generic_tech_sharing
+ id = SFC_bring_back_exiled_intellectuals icon = GFX_sof_focus_science
  prerequisite = { focus = SFC_the_republics_leadership }
  x = 0
  y = 1
@@ -3289,7 +3289,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_social_stability icon = GFX_sof_van_goal_generic_propaganda
+ id = SFC_social_stability icon = GFX_sof_focus_social_welfare
  prerequisite = { focus = SFC_bring_back_exiled_intellectuals }
  x = 0
  y = 2
@@ -3301,7 +3301,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_aid_for_the_spanish_republic icon = GFX_sof_van_focus_intervention_spain_republic
+ id = SFC_aid_for_the_spanish_republic icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_italian_socialism }
  x = 3
  y = 1
@@ -3313,7 +3313,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_italia_libera icon = GFX_sof_van_goal_generic_demand_territory
+ id = SFC_italia_libera icon = GFX_sof_focus_corsica
  prerequisite = { focus = SFC_social_stability }
  mutually_exclusive = { focus = SFC_reestablish_old_alliances }
  x = -1
@@ -3326,7 +3326,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_european_democracies icon = GFX_sof_van_focus_generic_italy_propaganda
+ id = SFC_european_democracies icon = GFX_sof_focus_republic
  prerequisite = { focus = SFC_italia_libera }
  x = -1
  y = 1
@@ -3338,7 +3338,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_peace_preservation icon = GFX_sof_van_focus_generic_self_management
+ id = SFC_peace_preservation icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_european_democracies }
  x = -1
  y = 1
@@ -3350,7 +3350,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_scientific_cooperation icon = GFX_sof_van_goal_generic_scientific_exchange
+ id = SFC_scientific_cooperation icon = GFX_sof_focus_science
  prerequisite = { focus = SFC_italia_libera focus = SFC_reestablish_old_alliances }
  x = 1
  y = 1
@@ -3362,7 +3362,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_secure_the_borders icon = GFX_sof_van_goal_fortify_the_westwall
+ id = SFC_secure_the_borders icon = GFX_sof_focus_fortification
  prerequisite = { focus = SFC_scientific_cooperation }
  x = -1
  y = 1
@@ -3374,7 +3374,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_bring_down_fascist_strongholds icon = GFX_sof_van_focus_generic_anti_fascist_diplomacy
+ id = SFC_bring_down_fascist_strongholds icon = GFX_sof_focus_unification
  prerequisite = { focus = SFC_scientific_cooperation }
  x = 1
  y = 1
@@ -3386,7 +3386,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_reestablish_old_alliances icon = GFX_sof_van_goal_support_democracy
+ id = SFC_reestablish_old_alliances icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_social_stability }
  mutually_exclusive = { focus = SFC_italia_libera }
  x = 1
@@ -3399,7 +3399,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_military_agreements icon = GFX_sof_van_focus_generic_license_production
+ id = SFC_military_agreements icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_reestablish_old_alliances }
  x = 1
  y = 1
@@ -3411,7 +3411,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_enemies_of_capitalism icon = GFX_sof_van_focus_ger_bulwark_against_bolshevism
+ id = SFC_the_enemies_of_capitalism icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_military_agreements }
  x = 1
  y = 1
@@ -3423,7 +3423,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_ethiopian_question icon = GFX_sof_van_focus_ETH_the_emperor_stays
+ id = SFC_the_ethiopian_question icon = GFX_sof_focus_corsica
  prerequisite = { focus = SFC_defy_the_duce }
  x = 13
  y = 1
@@ -3435,7 +3435,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_abolish_the_colonies icon = GFX_sof_van_goal_generic_alliance
+ id = SFC_abolish_the_colonies icon = GFX_sof_focus_equality
  prerequisite = { focus = SFC_the_ethiopian_question }
  mutually_exclusive = { focus = SFC_new_colonial_policies }
  x = -1
@@ -3448,7 +3448,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_cooperatives_for_intensive_exploitation icon = GFX_sof_van_goal_generic_construction
+ id = SFC_cooperatives_for_intensive_exploitation icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_abolish_the_colonies }
  x = -1
  y = 2
@@ -3460,7 +3460,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_condemn_colonialism icon = GFX_sof_van_goal_generic_attack_allies
+ id = SFC_condemn_colonialism icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_cooperatives_for_intensive_exploitation }
  x = 0
  y = 1
@@ -3472,7 +3472,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_new_colonial_policies icon = GFX_sof_van_focus_ETH_invite_italian_settlers
+ id = SFC_new_colonial_policies icon = GFX_sof_focus_equality
  prerequisite = { focus = SFC_the_ethiopian_question }
  mutually_exclusive = { focus = SFC_abolish_the_colonies }
  x = 1
@@ -3485,7 +3485,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_negotiations_with_albania icon = GFX_sof_van_focus_generic_befriend_albania
+ id = SFC_negotiations_with_albania icon = GFX_sof_focus_diplomacy
  prerequisite = { focus = SFC_abolish_the_colonies focus = SFC_new_colonial_policies }
  x = 1
  y = 1
@@ -3497,7 +3497,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_enlist_the_bashkimi_kombetar icon = GFX_sof_van_focus_ITA_albanian_fascist_militia
+ id = SFC_enlist_the_bashkimi_kombetar icon = GFX_sof_focus_militia
  prerequisite = { focus = SFC_negotiations_with_albania }
  x = 0
  y = 1
@@ -3509,7 +3509,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_italian_confederation icon = GFX_sof_van_focus_ITA_a_colonial_empire
+ id = SFC_the_italian_confederation icon = GFX_sof_focus_corsica
  prerequisite = { focus = SFC_new_colonial_policies }
  x = 1
  y = 2
@@ -3521,7 +3521,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_planned_economy icon = GFX_sof_van_focus_ETH_adopt_the_lira
+ id = SFC_planned_economy icon = GFX_sof_focus_civilian_industry
  prerequisite = { focus = SFC_the_italian_confederation }
  x = 0
  y = 1
@@ -3533,7 +3533,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_the_fight_overseas icon = GFX_sof_van_focus_generic_africa_defense
+ id = SFC_the_fight_overseas icon = GFX_sof_focus_landing
  prerequisite = { focus = SFC_cooperatives_for_intensive_exploitation focus = SFC_the_italian_confederation }
  x = 2
  y = 2
@@ -3545,7 +3545,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_irregulars icon = GFX_sof_van_focus_ETH_peacekeeping_forces
+ id = SFC_irregulars icon = GFX_sof_focus_infantry
  prerequisite = { focus = SFC_the_fight_overseas }
  x = -2
  y = 1
@@ -3557,7 +3557,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_liberate_the_workers_of_africa icon = GFX_sof_van_focus_generic_africa_liberation
+ id = SFC_liberate_the_workers_of_africa icon = GFX_sof_focus_workers
  prerequisite = { focus = SFC_the_fight_overseas }
  x = 0
  y = 1
@@ -3569,7 +3569,7 @@ focus = {
  ai_will_do = { factor = 1 }
 }
 focus = {
- id = SFC_ascari icon = GFX_sof_van_focus_ITA_strengthen_ascari_corps
+ id = SFC_ascari icon = GFX_sof_focus_infantry
  prerequisite = { focus = SFC_the_fight_overseas }
  x = 2
  y = 1
