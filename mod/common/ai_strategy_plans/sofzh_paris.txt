@@ -1,9 +1,1 @@
-sofzh_paris_unification_plan = {
- name = "sofzh_paris_campaign_category" desc = "SOF_PRS_assembly_desc" allowed = { always = yes }
- enable = { is_ai = yes has_focus_tree = sofzh_paris NOT = { has_country_flag = sofzh_unification_complete } }
- abort = { OR = { is_ai = no NOT = { has_focus_tree = sofzh_paris } has_country_flag = sofzh_unification_complete } }
- focus_factors = { SOF_PRS_assembly = 30 SOF_PRS_capital_guard = 35 SOF_PRS_reserve = 25 SOF_PRS_ile_mandate = 40 SOF_PRS_ile_union = 40 SOF_PRS_national_charter = 20 SOF_PRS_war_authority = 40 SOF_PRS_regional_administration = 30 SOF_PRS_national_congress = 30 SOF_PRS_national_proclamation = 40 
- SOF_PRS_development_arrondissement = 25 SOF_PRS_development_department = 25 SOF_PRS_development_province = 25 SOF_PRS_development_region = 25 SOF_PRS_development_state = 25 SOF_PRS_development_nation = 25
-}
- research = { industry = 20 infantry_weapons = 15 armor = 40 motorized_equipment = 20 light_air = 40 air_equipment = 30 support_tech = 10 } weight = { factor = 1 }
-}
+sofzh_paris_native_plan = { name = "SFP_devalue_the_franc" desc = "SFP_devalue_the_franc_desc" allowed = { always = yes } enable = { is_ai = yes has_focus_tree = sofzh_paris } abort = { NOT = { has_focus_tree = sofzh_paris } } focus_factors = { SFP_devalue_the_franc = 20 SFP_begin_rearmament = 20 SFP_metropolitan_france = 20 SFP_reform_the_labour_laws = 20 } research = { industry = 20 infantry_weapons = 20 naval_equipment = 15 } weight = { factor = 1 } }

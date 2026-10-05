@@ -1,616 +1,2199 @@
-focus_tree = {
- id = sofzh_paris
- country = { factor = 0 modifier = { add = 1000 original_tag = PRS } }
- default = no
- continuous_focus_position = { x = 50 y = 2900 }
- initial_show_position = { focus = SOF_PRS_assembly }
- shortcut = { name = sofzh_paris_shortcut_mission target = SOF_PRS_assembly scroll_wheel_factor = 0.65 }
- shortcut = { name = sofzh_paris_shortcut_politics target = SOF_PRS_republican_mandate scroll_wheel_factor = 0.65 }
- shortcut = { name = sofzh_paris_shortcut_industry target = SOF_PRS_seine_industry scroll_wheel_factor = 0.65 }
- shortcut = { name = sofzh_paris_shortcut_army target = SOF_PRS_staff_school scroll_wheel_factor = 0.65 }
- shortcut = { name = sofzh_paris_shortcut_campaigns target = SOF_PRS_normandy_links scroll_wheel_factor = 0.65 }
- shortcut = { name = sofzh_paris_shortcut_reconstruction target = SOF_PRS_national_proclamation scroll_wheel_factor = 0.65 }
- focus = {
-  id = SOF_PRS_assembly icon = GFX_sofzh_f28_sof_prs_assembly cost = 3 x = 16 y = 0
-  search_filters = { FOCUS_FILTER_POLITICAL }  
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { set_country_flag = sofzh_paris_origin set_country_flag = sofzh_unification_started add_stability = 0.05 add_ideas = sofzh_prs_capital country_event = { id = sofzh_paris.1 days = 1 } }
-  ai_will_do = { factor = 120 }
- }
- focus = {
-  id = SOF_PRS_municipal_ledger icon = GFX_sofzh_f28_sof_prs_municipal_ledger cost = 3 x = 16 y = 1
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_assembly } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_registry add_stability = 0.04 }
-  ai_will_do = { factor = 70 }
- }
- focus = {
-  id = SOF_PRS_capital_guard icon = GFX_sofzh_f28_sof_prs_capital_guard cost = 3 x = 16 y = 2
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_municipal_ledger } 
-  available = { is_subject = no has_capitulated = no    143 = { is_controlled_by = ROOT } }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_guard = yes army_experience = 15  sofzh_dedicated_infantry_1 = yes }
-  ai_will_do = { factor = 90 }
- }
- focus = {
-  id = SOF_PRS_prefectural_letters icon = GFX_sofzh_f28_sof_prs_prefectural_letters cost = 3 x = 16 y = 3
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_capital_guard } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_prefects country_event = { id = sofzh_paris.2 days = 1 } }
-  ai_will_do = { factor = 60 }
- }
- focus = {
-  id = SOF_PRS_ile_mandate icon = GFX_sofzh_f28_sof_prs_ile_mandate cost = 3 x = 16 y = 4
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_prefectural_letters } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { set_country_flag = sofzh_unification_war_ready sofzh_paris_ile_goals = yes add_war_support = 0.06 sofzh_paris_campaign_maneuver = yes }
-  ai_will_do = { factor = 100 }
- }
- focus = {
-  id = SOF_PRS_ile_union icon = GFX_sofzh_f28_sof_prs_ile_union cost = 3 x = 16 y = 5
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_ile_mandate } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_ile_united = yes }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_integrate_ile = yes set_cosmetic_tag = ILE_DE_FRANCE set_country_flag = form_region_flag add_stability = 0.08 }
-  ai_will_do = { factor = 95 }
- }
- focus = {
-  id = SOF_PRS_war_authority icon = GFX_sofzh_f28_sof_prs_war_authority cost = 5 x = 16 y = 6
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_ile_union } prerequisite = { focus = SOF_PRS_national_charter } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_war_mandate sofzh_unification_grant_border_goals = yes add_war_support = 0.08 }
-  ai_will_do = { factor = 90 }
- }
- focus = {
-  id = SOF_PRS_regional_administration icon = GFX_sofzh_f28_sof_prs_regional_administration cost = 3 x = 16 y = 8
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_war_authority } 
-  available = { is_subject = no has_capitulated = no  num_of_controlled_states > 24 }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_unification_integrate_territories = yes add_stability = 0.04 }
-  ai_will_do = { factor = 60 }
- }
- focus = {
-  id = SOF_PRS_national_congress icon = GFX_sofzh_f28_sof_prs_national_congress cost = 5 x = 16 y = 13
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_regional_administration } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_congress_ready = yes }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_congress country_event = { id = sofzh_paris.5 days = 1 } }
-  ai_will_do = { factor = 80 }
- }
- focus = {
-  id = SOF_PRS_national_proclamation icon = GFX_sofzh_f28_sof_prs_national_proclamation cost = 3 x = 16 y = 14
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_national_congress } 
-  available = { is_subject = no has_capitulated = no  sofzh_unification_all_france = yes has_war = no }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_unification_proclaim_france = yes country_event = { id = sofzh_paris.6 days = 1 } }
-  ai_will_do = { factor = 100 }
- }
- focus = {
-  id = SOF_PRS_national_market icon = GFX_sofzh_f28_sof_prs_national_market cost = 5 x = 16 y = 15
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_national_proclamation } 
-  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_market random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 2 instant_build = yes } } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_national_reconstruction icon = GFX_sofzh_f28_sof_prs_national_reconstruction cost = 5 x = 16 y = 16
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_national_market } 
-  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete has_war = no }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_end_war_mandate = yes add_ideas = sofzh_prs_reconstruction random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_republican_mandate icon = GFX_sofzh_f28_sof_prs_republican_mandate cost = 5 x = 8 y = 2
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_municipal_ledger } mutually_exclusive = { focus = SOF_PRS_directorate }
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_parliament country_event = { id = sofzh_paris.3 days = 1 } }
-  ai_will_do = { factor = 22 }
- }
- focus = {
-  id = SOF_PRS_budget_committee icon = GFX_sofzh_f28_sof_prs_budget_committee cost = 5 x = 8 y = 3
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_republican_mandate } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_budget add_stability = 0.04 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_civic_compact icon = GFX_sofzh_f28_sof_prs_civic_compact cost = 5 x = 8 y = 4
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_budget_committee } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_civic_compact add_war_support = 0.05 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_directorate icon = GFX_sofzh_f28_sof_prs_directorate cost = 5 x = 10 y = 2
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_municipal_ledger } mutually_exclusive = { focus = SOF_PRS_republican_mandate }
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_directorate country_event = { id = sofzh_paris.4 days = 1 } }
-  ai_will_do = { factor = 20 }
- }
- focus = {
-  id = SOF_PRS_unified_executive icon = GFX_sofzh_f28_sof_prs_unified_executive cost = 5 x = 10 y = 3
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_directorate } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_executive army_experience = 20 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_prefect_service icon = GFX_sofzh_f28_sof_prs_prefect_service cost = 5 x = 10 y = 4
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_unified_executive } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_civil_service add_stability = 0.04 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_national_charter icon = GFX_sofzh_f28_sof_prs_national_charter cost = 5 x = 9 y = 5
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_civic_compact focus = SOF_PRS_prefect_service } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_charter add_stability = 0.05 }
-  ai_will_do = { factor = 55 }
- }
- focus = {
-  id = SOF_PRS_seine_industry icon = GFX_sofzh_f28_sof_prs_seine_industry cost = 5 x = 0 y = 1
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_assembly } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_ideas = sofzh_prs_workshops  sofzh_specialist_civil_industry_1 = yes }
-  ai_will_do = { factor = 35 }
- }
- focus = {
-  id = SOF_PRS_factory_orders icon = GFX_sofzh_f28_sof_prs_factory_orders cost = 5 x = 0 y = 2
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_seine_industry } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry }  sofzh_specialist_mil_industry_1 = yes }
-  ai_will_do = { factor = 30 }
- }
- focus = {
-  id = SOF_PRS_research_college icon = GFX_sofzh_f28_sof_prs_research_college cost = 5 x = 2 y = 2
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_seine_industry } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_research_slot = 1 add_ideas = sofzh_prs_academy }
-  ai_will_do = { factor = 32 }
- }
- focus = {
-  id = SOF_PRS_engineering_school icon = GFX_sofzh_f28_sof_prs_engineering_school cost = 5 x = 2 y = 3
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_research_college } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = industry } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = electronics } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_suburb_arsenals icon = GFX_sofzh_f28_sof_prs_suburb_arsenals cost = 5 x = 0 y = 3
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_factory_orders } 
-  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_department }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_ideas = sofzh_prs_industrial_network  sofzh_specialist_mil_industry_2 = yes }
-  ai_will_do = { factor = 30 }
- }
- focus = {
-  id = SOF_PRS_rail_dispatch icon = GFX_sofzh_f28_sof_prs_rail_dispatch cost = 5 x = 0 y = 4
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_suburb_arsenals } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_ideas = sofzh_prs_railways  sofzh_specialist_engineering_1 = yes }
-  ai_will_do = { factor = 35 }
- }
- focus = {
-  id = SOF_PRS_logistics_depots icon = GFX_sofzh_f28_sof_prs_logistics_depots cost = 5 x = 0 y = 5
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_rail_dispatch } 
-  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_department }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_equipment_to_stockpile = { type = motorized_equipment amount = 150 producer = ROOT } add_ideas = sofzh_prs_depots  sofzh_specialist_engineering_2 = yes }
-  ai_will_do = { factor = 32 }
- }
- focus = {
-  id = SOF_PRS_electric_grid icon = GFX_sofzh_f28_sof_prs_electric_grid cost = 5 x = 2 y = 4
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_engineering_school } 
-  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_state }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry }  sofzh_specialist_engineering_3 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_war_bonds icon = GFX_sofzh_f28_sof_prs_war_bonds cost = 5 x = 4 y = 3
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_research_college } 
-  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_department }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_stability = 0.03  sofzh_specialist_civil_industry_2 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_industrial_plan icon = GFX_sofzh_f28_sof_prs_industrial_plan cost = 5 x = 0 y = 6
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_logistics_depots } prerequisite = { focus = SOF_PRS_electric_grid } 
-  available = { is_subject = no has_capitulated = no    has_completed_focus = SOF_PRS_development_state }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } random_controlled_state = { prioritize = { 115 119 121 123 130 131 132 135 137 138 140 141 143 144 147 149 150 152 153 155 157 158 161 175 182 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }  sofzh_specialist_civil_industry_3 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_laboratories icon = GFX_sofzh_f28_sof_prs_laboratories cost = 5 x = 2 y = 6
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_engineering_school } prerequisite = { focus = SOF_PRS_war_bonds } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_research_slot = 1 add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = electronics } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_staff_school icon = GFX_sofzh_f28_sof_prs_staff_school cost = 5 x = 26 y = 1
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_assembly } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_doctrine_cost_reduction = { name = sofzh_paris_research_bonus cost_reduction = 0.5 uses = 1 category = land_doctrine } army_experience = 20  sofzh_dedicated_staff_1 = yes }
-  ai_will_do = { factor = 35 }
- }
- focus = {
-  id = SOF_PRS_reserve icon = GFX_sofzh_f28_sof_prs_reserve cost = 3 x = 26 y = 3
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_staff_school } prerequisite = { focus = SOF_PRS_capital_guard } 
-  available = { is_subject = no has_capitulated = no    143 = { is_controlled_by = ROOT } }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_reserve = yes add_manpower = 4000  sofzh_dedicated_recruitment_1 = yes }
-  ai_will_do = { factor = 45 }
- }
- focus = {
-  id = SOF_PRS_rifle_standard icon = GFX_sofzh_f28_sof_prs_rifle_standard cost = 5 x = 26 y = 4
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_reserve } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = infantry_weapons } add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 1800 producer = ROOT }  sofzh_dedicated_infantry_2 = yes }
-  ai_will_do = { factor = 40 }
- }
- focus = {
-  id = SOF_PRS_artillery icon = GFX_sofzh_f28_sof_prs_artillery cost = 5 x = 28 y = 5
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_rifle_standard } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { set_technology = { gw_artillery = 1 } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = artillery } army_experience = 20  sofzh_dedicated_artillery_1 = yes add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 180 producer = ROOT } add_equipment_to_stockpile = { type = anti_tank_equipment_1 amount = 60 producer = ROOT } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_truck_pool icon = GFX_sofzh_f28_sof_prs_truck_pool cost = 5 x = 30 y = 5
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_rifle_standard } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { set_technology = { motorised_infantry = 1 } add_equipment_to_stockpile = { type = motorized_equipment amount = 200 producer = ROOT } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = motorized_equipment }  sofzh_dedicated_motorized_1 = yes }
-  ai_will_do = { factor = 25 }
- }
- focus = {
-  id = SOF_PRS_army_doctrine icon = GFX_sofzh_f28_sof_prs_army_doctrine cost = 5 x = 26 y = 5
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_rifle_standard } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_doctrine_cost_reduction = { name = sofzh_paris_research_bonus cost_reduction = 0.5 uses = 2 category = land_doctrine } add_ideas = sofzh_prs_army_school  sofzh_dedicated_staff_2 = yes }
-  ai_will_do = { factor = 28 }
- }
- focus = {
-  id = SOF_PRS_combined_operations icon = GFX_sofzh_f28_sof_prs_combined_operations cost = 5 x = 28 y = 6
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_artillery } prerequisite = { focus = SOF_PRS_truck_pool } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = armor } add_ideas = sofzh_prs_combined_arms  sofzh_dedicated_infantry_3 = yes sofzh_dedicated_armor_2 = yes sofzh_dedicated_artillery_2 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_medical_services icon = GFX_sofzh_f28_sof_prs_medical_services cost = 5 x = 30 y = 6
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_truck_pool } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = support_tech } add_ideas = sofzh_prs_medical  sofzh_dedicated_recovery_2 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_unified_command icon = GFX_sofzh_f28_sof_prs_unified_command cost = 5 x = 26 y = 7
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_army_doctrine } prerequisite = { focus = SOF_PRS_combined_operations } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_command army_experience = 25  sofzh_dedicated_staff_3 = yes sofzh_dedicated_recruitment_3 = yes }
-  ai_will_do = { factor = 45 }
- }
- focus = {
-  id = SOF_PRS_normandy_links icon = GFX_sofzh_f28_sof_prs_normandy_links cost = 5 x = 20 y = 7
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_war_authority } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_goal_normandie = yes sofzh_paris_campaign_maneuver = yes army_experience = 10 }
-  ai_will_do = { factor = 25 }
- }
- focus = {
-  id = SOF_PRS_northern_coal icon = GFX_sofzh_f28_sof_prs_northern_coal cost = 5 x = 22 y = 7
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_war_authority } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_goal_nord = yes sofzh_paris_campaign_industrial = yes army_experience = 10 }
-  ai_will_do = { factor = 25 }
- }
- focus = {
-  id = SOF_PRS_lorraine_link icon = GFX_sofzh_f28_sof_prs_lorraine_link cost = 5 x = 24 y = 7
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_war_authority } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_goal_lorraine = yes sofzh_paris_campaign_industrial = yes army_experience = 15 }
-  ai_will_do = { factor = 25 }
- }
- focus = {
-  id = SOF_PRS_alsace_cooperation icon = GFX_sofzh_f28_sof_prs_alsace_cooperation cost = 5 x = 24 y = 8
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_lorraine_link } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_goal_alsace = yes sofzh_paris_campaign_industrial = yes add_stability = 0.03 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_rhone_corridor icon = GFX_sofzh_f28_sof_prs_rhone_corridor cost = 5 x = 22 y = 9
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_regional_administration } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_goal_rhone_alpes = yes sofzh_paris_campaign_maneuver = yes add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = motorized_equipment } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_atlantic_ports icon = GFX_sofzh_f28_sof_prs_atlantic_ports cost = 5 x = 20 y = 10
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_normandy_links } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_has_coast = yes }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { limit = { sofzh_unification_french_state = yes is_coastal = yes } add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } } add_equipment_to_stockpile = { type = convoy amount = 40 producer = ROOT } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = naval_equipment }  sofzh_dedicated_dockyards_2 = yes sofzh_dedicated_surface_navy_2 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_mediterranean_ports icon = GFX_sofzh_f28_sof_prs_mediterranean_ports cost = 7 x = 22 y = 10
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_rhone_corridor } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_has_coast = yes }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_fleet = yes set_technology = { transport = 1 } add_equipment_to_stockpile = { type = convoy amount = 40 producer = ROOT }  sofzh_dedicated_surface_navy_3 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_corsican_mission icon = GFX_sofzh_f28_sof_prs_corsican_mission cost = 5 x = 22 y = 11
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION } prerequisite = { focus = SOF_PRS_mediterranean_ports } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_has_coast = yes has_navy_size = { size > 3 } }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { sofzh_paris_corsican_goal = yes sofzh_paris_campaign_landing = yes navy_experience = 20  sofzh_dedicated_landing_2 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_national_logistics icon = GFX_sofzh_f28_sof_prs_national_logistics cost = 5 x = 20 y = 12
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_atlantic_ports } prerequisite = { focus = SOF_PRS_mediterranean_ports } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_national_logistics random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_building_construction = { type = infrastructure level = 1 instant_build = yes } }  sofzh_dedicated_motorized_3 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_strategic_materials icon = GFX_sofzh_f28_sof_prs_strategic_materials cost = 5 x = 24 y = 10
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_alsace_cooperation } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = industry } add_stability = 0.03 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_lorraine_foundry icon = GFX_sofzh_f28_sof_prs_lorraine_foundry cost = 5 x = 30 y = 7
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_war_authority } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_lorraine_control = yes  has_completed_focus = SOF_PRS_development_state }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_lorraine_contract random_controlled_state = { limit = { OR = { state = 94 state = 98 state = 116 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }  sofzh_specialist_mil_industry_3 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_north_coal_grid icon = GFX_sofzh_f28_sof_prs_north_coal_grid cost = 5 x = 32 y = 7
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_war_authority } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_north_control = yes }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_north_contract random_controlled_state = { limit = { OR = { state = 55 state = 61 state = 62 state = 63 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_alsace_chemistry icon = GFX_sofzh_f28_sof_prs_alsace_chemistry cost = 5 x = 30 y = 8
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_lorraine_foundry } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_alsace_control = yes }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_alsace_contract add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_bauxite_chain icon = GFX_sofzh_f28_sof_prs_bauxite_chain cost = 5 x = 30 y = 9
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_alsace_chemistry } 
-  available = { is_subject = no has_capitulated = no  sofzh_paris_bauxite_control = yes }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_bauxite_contract add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = air_equipment } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_national_arsenal icon = GFX_sofzh_f28_sof_prs_national_arsenal cost = 5 x = 30 y = 10
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_lorraine_foundry } prerequisite = { focus = SOF_PRS_north_coal_grid } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_national_arsenal add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry }  sofzh_dedicated_armor_3 = yes sofzh_dedicated_artillery_3 = yes }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_civic_amnesty icon = GFX_sofzh_f28_sof_prs_civic_amnesty cost = 5 x = 12 y = 14
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_national_congress } 
-  available = { is_subject = no has_capitulated = no   }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_amnesty add_stability = 0.04 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_constitutional_settlement icon = GFX_sofzh_f28_sof_prs_constitutional_settlement cost = 5 x = 12 y = 15
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_national_proclamation } prerequisite = { focus = SOF_PRS_national_charter } 
-  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_constitution add_stability = 0.04 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_regional_elections icon = GFX_sofzh_f28_sof_prs_regional_elections cost = 5 x = 12 y = 16
-  search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF_PRS_constitutional_settlement } 
-  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_local_services add_stability = 0.04 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_seine_to_provinces icon = GFX_sofzh_f28_sof_prs_seine_to_provinces cost = 5 x = 18 y = 15
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_national_proclamation } 
-  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 2 instant_build = yes } } add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 1 category = industry } }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_public_services icon = GFX_sofzh_f28_sof_prs_public_services cost = 5 x = 18 y = 16
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY } prerequisite = { focus = SOF_PRS_seine_to_provinces } prerequisite = { focus = SOF_PRS_medical_services } 
-  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete has_war = no }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { random_controlled_state = { limit = { sofzh_unification_french_state = yes } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_stability = 0.05 }
-  ai_will_do = { factor = 12 }
- }
- focus = {
-  id = SOF_PRS_national_science icon = GFX_sofzh_f28_sof_prs_national_science cost = 5 x = 16 y = 17
-  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH } prerequisite = { focus = SOF_PRS_national_reconstruction } prerequisite = { focus = SOF_PRS_public_services } 
-  available = { is_subject = no has_capitulated = no  has_country_flag = sofzh_unification_complete has_war = no }
-  cancel_if_invalid = yes continue_if_invalid = no
-  completion_reward = { add_ideas = sofzh_prs_national_science add_tech_bonus = { name = sofzh_paris_research_bonus bonus = 0.5 uses = 2 category = electronics }  sofzh_dedicated_air_defence_2 = yes sofzh_dedicated_air_support_2 = yes }
-  ai_will_do = { factor = 12 }
- }
-
+focus_tree = { id = sofzh_paris country = { factor = 0 modifier = { add = 1000 original_tag = PRS } } default = no reset_on_civilwar = no initial_show_position = { focus = SFP_devalue_the_franc } continuous_focus_position = { x = 50 y = 2200 }
 focus = {
- id = SOF_PRS_development_arrondissement icon = GFX_sofzh_f27_sof_generic_arrondissement cost = 5 x = 36 y = 1
- prerequisite = { focus = SOF_PRS_assembly } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
- available = { is_subject = no has_capitulated = no sofzh_development_1_states = yes }
- cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_political_power = 150 sofzh_specialist_administration_1 = yes set_country_flag = sofzh_development_arrondissement }
- ai_will_do = { factor = 75 }
+ id = SFP_devalue_the_franc icon = GFX_sof_van_focus_fra_devalue_the_franc
+ x = 0
+ y = 0
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_devalue_the_franc days = 365 } }
+ ai_will_do = { factor = 1 }
 }
 focus = {
- id = SOF_PRS_development_department icon = GFX_sofzh_f27_sof_generic_department cost = 5 x = 36 y = 2
- prerequisite = { focus = SOF_PRS_development_arrondissement } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
- available = { is_subject = no has_capitulated = no sofzh_development_4_states = yes }
- cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_political_power = 150 sofzh_specialist_administration_1 = yes set_country_flag = sofzh_development_department }
- ai_will_do = { factor = 75 }
+ id = SFP_autoroutes icon = GFX_sof_van_goal_generic_construct_infrastructure
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_devalue_the_franc }
+ relative_position_id = SFP_devalue_the_franc
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
 }
 focus = {
- id = SOF_PRS_development_province icon = GFX_sofzh_f27_sof_generic_province cost = 5 x = 36 y = 3
- prerequisite = { focus = SOF_PRS_development_department } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
- available = { is_subject = no has_capitulated = no sofzh_development_7_states = yes }
- cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_political_power = 150 sofzh_specialist_administration_2 = yes set_country_flag = sofzh_development_province }
- ai_will_do = { factor = 75 }
+ id = SFP_invest_in_the_metropole icon = GFX_sof_van_goal_generic_construct_civilian
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_devalue_the_franc }
+ relative_position_id = SFP_devalue_the_franc
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = 0.05 }
+ ai_will_do = { factor = 1 }
 }
 focus = {
- id = SOF_PRS_development_region icon = GFX_sofzh_f27_sof_generic_region cost = 5 x = 36 y = 4
- prerequisite = { focus = SOF_PRS_development_province } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
- available = { is_subject = no has_capitulated = no sofzh_development_13_states = yes }
- cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_political_power = 150 sofzh_specialist_administration_2 = yes set_country_flag = sofzh_development_region }
- ai_will_do = { factor = 75 }
+ id = SFP_metropolitan_france icon = GFX_sof_van_focus_generic_industry_1
+ x = 0
+ y = 2
+ cost = 10
+ prerequisite = { focus = SFP_invest_in_the_metropole }
+ relative_position_id = SFP_devalue_the_franc
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
+ ai_will_do = { factor = 1 }
 }
 focus = {
- id = SOF_PRS_development_state icon = GFX_sofzh_f27_sof_generic_state cost = 5 x = 36 y = 5
- prerequisite = { focus = SOF_PRS_development_region } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
- available = { is_subject = no has_capitulated = no sofzh_development_26_states = yes }
- cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_political_power = 150 sofzh_specialist_administration_3 = yes set_country_flag = sofzh_development_state }
- ai_will_do = { factor = 75 }
+ id = SFP_industrial_expansion icon = GFX_sof_van_focus_generic_industry_3
+ prerequisite = { focus = SFP_metropolitan_france focus = SFP_algerie_france }
+ x = 0
+ y = 1
+ relative_position_id = SFP_metropolitan_france
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
 }
 focus = {
- id = SOF_PRS_development_nation icon = GFX_sofzh_f27_sof_generic_nation cost = 5 x = 36 y = 6
- prerequisite = { focus = SOF_PRS_development_state } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
- available = { is_subject = no has_capitulated = no sofzh_development_51_states = yes }
- cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_political_power = 150 sofzh_specialist_administration_3 = yes set_country_flag = sofzh_development_nation }
- ai_will_do = { factor = 75 }
+ id = SFP_military_factories icon = GFX_sof_van_goal_generic_construct_mil_factory
+ prerequisite = { focus = SFP_industrial_expansion focus = SFP_colonial_industry }
+ x = 2
+ y = 1
+ relative_position_id = SFP_industrial_expansion
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
 }
-shortcut = { name = SOF_PRS_shortcut_development target = SOF_PRS_development_arrondissement }
-
-shortcut = { name = sof20_PRS_shortcut_addition0 target = SOF20_PRS_addition0 scroll_wheel_factor = 0.65 }
-shortcut = { name = sof20_PRS_shortcut_addition7 target = SOF20_PRS_addition7 scroll_wheel_factor = 0.65 }
-focus = { id = SOF20_PRS_addition0 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 6 cost = 3
- search_filters = { FOCUS_FILTER_POLITICAL }  
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- prerequisite = { focus = SOF_PRS_national_charter } completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition1 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 7 cost = 3
- search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition0 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition2 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 8 cost = 3
- search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition1 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition3 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 9 cost = 3
- search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition2 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition4 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 10 cost = 3
- search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition3 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition5 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 11 cost = 3
- search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition4 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition6 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 12 cost = 3
- search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_PRS_addition5 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition7 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 6 cost = 3
- search_filters = { FOCUS_FILTER_WAR_SUPPORT }  
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- prerequisite = { focus = SOF_PRS_national_charter } completion_reward = { sof20_learn_urban = yes custom_effect_tooltip = sof20_terrain_urban_tt } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition8 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 7 cost = 3
- search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition7 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition9 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 8 cost = 3
- search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition8 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition10 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 9 cost = 3
- search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition9 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition11 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 10 cost = 3
- search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition10 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition12 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 11 cost = 3
- search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition11 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
-focus = { id = SOF20_PRS_addition13 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 12 cost = 3
- search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_PRS_addition12 } 
- available = { is_subject = no has_capitulated = no  }
- cancel_if_invalid = yes continue_if_invalid = no 
- completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+focus = {
+ id = SFP_algerie_france icon = GFX_sof_van_focus_generic_industry_1
+ x = 2
+ y = 1
+ cost = 10
+ prerequisite = { focus = SFP_invest_in_the_metropole focus = SFP_invest_in_the_colonies }
+ relative_position_id = SFP_invest_in_the_metropole
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invest_in_the_colonies icon = GFX_sof_van_goal_generic_construct_civilian
+ x = 4
+ y = 1
+ prerequisite = { focus = SFP_devalue_the_franc }
+ relative_position_id = SFP_devalue_the_franc
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invest_in_west_africa icon = GFX_sof_van_focus_generic_industry_1
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_invest_in_the_colonies }
+ relative_position_id = SFP_invest_in_the_colonies
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invest_in_indochina icon = GFX_sof_van_focus_generic_industry_1
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_invest_in_the_colonies }
+ relative_position_id = SFP_invest_in_the_colonies
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invest_in_syria icon = GFX_sof_van_focus_generic_industry_1
+ x = 4
+ y = 1
+ prerequisite = { focus = SFP_invest_in_the_colonies }
+ relative_position_id = SFP_invest_in_the_colonies
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_colonial_industry icon = GFX_sof_van_focus_generic_industry_3
+ prerequisite = { focus = SFP_algerie_france focus = SFP_invest_in_west_africa focus = SFP_invest_in_indochina focus = SFP_invest_in_syria }
+ x = 2
+ y = 1
+ relative_position_id = SFP_algerie_france
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_extra_research_slot icon = GFX_sof_van_focus_research
+ prerequisite = { focus = SFP_industrial_expansion }
+ x = 0
+ y = 1
+ relative_position_id = SFP_industrial_expansion
+ cost = 10
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_extra_research_slot_2 icon = GFX_sof_van_focus_research
+ prerequisite = { focus = SFP_colonial_industry }
+ x = 0
+ y = 1
+ relative_position_id = SFP_colonial_industry
+ cost = 10
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_global_integration icon = GFX_sof_van_goal_generic_construction
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_colonial_industry }
+ relative_position_id = SFP_colonial_industry
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_global_investments }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_begin_rearmament icon = GFX_sof_van_goal_generic_construct_mil_factory
+ x = 15
+ y = 0
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready sofzh_unification_grant_border_goals = yes random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_defensive_focus icon = GFX_sof_van_goal_generic_defence
+ mutually_exclusive = { focus = SFP_aggressive_focus }
+ x = -2
+ y = 1
+ cost = 10
+ prerequisite = { focus = SFP_begin_rearmament }
+ relative_position_id = SFP_begin_rearmament
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_command_power = 30 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_firepower_kills icon = GFX_sof_van_goal_generic_army_artillery
+ x = -2
+ y = 1
+ prerequisite = { focus = SFP_defensive_focus }
+ mutually_exclusive = { focus = SFP_methodical_battle }
+ relative_position_id = SFP_defensive_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_firepower }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_methodical_battle icon = GFX_sof_van_goal_generic_cavalry
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_defensive_focus }
+ mutually_exclusive = { focus = SFP_firepower_kills }
+ relative_position_id = SFP_defensive_focus
+ cost = 10
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_doctrine_cost_reduction = { name = SFP_methodical_battle category = land_doctrine uses = 2 cost_reduction = 0.65 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_fortification_focus icon = GFX_sof_van_goal_generic_construction2
+ prerequisite = { focus = SFP_methodical_battle }
+ x = 0
+ y = 1
+ relative_position_id = SFP_methodical_battle
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_fortification_focus }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_alpine_forts icon = GFX_sof_van_goal_generic_construct_military
+ prerequisite = { focus = SFP_fortification_focus }
+ x = 0
+ y = 1
+ relative_position_id = SFP_fortification_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } add_building_construction = { type = bunker level = 1 instant_build = yes province = { all_provinces = yes } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_extend_the_maginot_line icon = GFX_sof_van_goal_generic_fortify_city
+ prerequisite = { focus = SFP_alpine_forts }
+ x = 0
+ y = 1
+ relative_position_id = SFP_alpine_forts
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT bunker < 10 } add_building_construction = { type = bunker level = 1 instant_build = yes province = { all_provinces = yes } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_infantry_focus icon = GFX_sof_van_goal_generic_allies_build_infantry
+ prerequisite = { focus = SFP_firepower_kills }
+ x = 0
+ y = 1
+ relative_position_id = SFP_firepower_kills
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 5.0 add_ideas = sof_van_prs_fra_infantry_focus }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_artillery_focus icon = GFX_sof_van_goal_generic_army_artillery2
+ prerequisite = { focus = SFP_infantry_focus }
+ x = 0
+ y = 1
+ relative_position_id = SFP_infantry_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_artillery_focus bonus = 1.0 uses = 1 category = artillery } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_heavy_armor_focus icon = GFX_sof_van_goal_generic_army_tanks
+ prerequisite = { focus = SFP_artillery_focus }
+ x = 0
+ y = 1
+ relative_position_id = SFP_artillery_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_heavy_armor_focus bonus = 1.0 uses = 1 category = cat_heavy_armor } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_division_cuirassee icon = GFX_sof_van_focus_generic_army_tanks2
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_heavy_armor_focus }
+ relative_position_id = SFP_heavy_armor_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { NOT = { has_template = "Division Cuirassée" } } division_template = { name = "Division Cuirassée" regiments = { medium_armor = { x = 0 y = 0 } heavy_armor = { x = 0 y = 1 } medium_armor = { x = 1 y = 0 } medium_armor = { x = 1 y = 1 } motorized = { x = 2 y = 0 } motorized = { x = 2 y = 1 } motorized = { x = 2 y = 2 } } support = { recon = { x = 0 y = 0 } artillery = { x = 0 y = 1 } engineer = { x = 0 y = 2 } } } } if = { limit = { has_dlc = "No Step Back" } } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_infantry_tanks icon = GFX_sof_van_focus_generic_combined_arms
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_defensive_focus focus = SFP_aggressive_focus }
+ relative_position_id = SFP_defensive_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_infantry_tanks bonus = 0.5 uses = 1 category = armor } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_special_forces icon = GFX_sof_van_goal_generic_special_forces
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_infantry_tanks }
+ relative_position_id = SFP_infantry_tanks
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_special_forces if = { limit = { has_dlc = "Arms Against Tyranny" } } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_fusiliers_marine icon = GFX_sof_van_goal_generic_amphibious_assault
+ x = 0
+ y = 2
+ prerequisite = { focus = SFP_special_forces }
+ relative_position_id = SFP_infantry_tanks
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof20_learn_coast = yes navy_experience = 10 add_tech_bonus = { name = SFP_fusiliers_marine category = tp_tech category = marine_tech uses = 2 bonus = 0.5 } if = { limit = { has_dlc = "Arms Against Tyranny" } add_doctrine_cost_reduction = { cost_reduction = 0.5 uses = 2 category = special_forces_doctrine } } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_aggressive_focus icon = GFX_sof_van_goal_generic_major_war
+ mutually_exclusive = { focus = SFP_defensive_focus }
+ x = 2
+ y = 1
+ cost = 10
+ relative_position_id = SFP_begin_rearmament
+ prerequisite = { focus = SFP_begin_rearmament }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 25.0 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_battle_of_maneuver icon = GFX_sof_van_goal_generic_position_armies
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_aggressive_focus }
+ mutually_exclusive = { focus = SFP_air_dominance }
+ relative_position_id = SFP_aggressive_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof20_learn_plain = yes army_experience = 10 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_motorized_focus icon = GFX_sof_van_goal_generic_army_motorized
+ prerequisite = { focus = SFP_battle_of_maneuver }
+ x = 0
+ y = 1
+ relative_position_id = SFP_battle_of_maneuver
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 5.0 add_ideas = sof_van_prs_fra_motorized_focus }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_mechanized_focus icon = GFX_sof_van_goal_generic_build_tank
+ prerequisite = { focus = SFP_motorized_focus }
+ x = 0
+ y = 1
+ relative_position_id = SFP_motorized_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_mechanized_focus bonus = 1.0 uses = 1 category = cat_mechanized_equipment } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_light_medium_armor icon = GFX_sof_van_goal_generic_army_tanks
+ prerequisite = { focus = SFP_mechanized_focus }
+ x = 0
+ y = 1
+ relative_position_id = SFP_mechanized_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_light_medium_armor bonus = 1.0 uses = 1 category = cat_light_armor category = cat_medium_armor } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_air_dominance icon = GFX_sof_van_goal_generic_air_fighter2
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_aggressive_focus }
+ mutually_exclusive = { focus = SFP_battle_of_maneuver }
+ relative_position_id = SFP_aggressive_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_air_dominance }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_cas_focus icon = GFX_sof_van_goal_generic_CAS
+ prerequisite = { focus = SFP_air_dominance }
+ x = 0
+ y = 1
+ relative_position_id = SFP_air_dominance
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_cas_focus bonus = 1.0 uses = 2 category = cas_bomber } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_air_ground_cooperation icon = GFX_sof_van_goal_generic_air_bomber
+ x = 0
+ y = 2
+ prerequisite = { focus = SFP_cas_focus }
+ relative_position_id = SFP_air_dominance
+ cost = 10
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_doctrine_cost_reduction = { name = SFP_air_ground_cooperation category = air_doctrine uses = 2 cost_reduction = 0.5 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_flying_artillery icon = GFX_sof_van_goal_poland_goal
+ x = 0
+ y = 3
+ prerequisite = { focus = SFP_air_ground_cooperation }
+ relative_position_id = SFP_air_dominance
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_flying_artillery }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_army_reform icon = GFX_sof_van_goal_generic_army_doctrines
+ prerequisite = { focus = SFP_light_medium_armor focus = SFP_heavy_armor_focus focus = SFP_extend_the_maginot_line focus = SFP_flying_artillery }
+ x = -2
+ y = 1
+ relative_position_id = SFP_light_medium_armor
+ cost = 10
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { remove_ideas = sof_van_prs_fra_victors_of_wwi army_experience = 10.0 add_doctrine_cost_reduction = { name = SFP_army_reform cost_reduction = 0.5 uses = 2 category = land_doctrine } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_form_the_popular_front icon = GFX_sof_van_goal_generic_intelligence_exchange
+ x = 26
+ y = 0
+ offset = { x = -3 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_review_foreign_policy has_completed_focus = SFP_form_the_popular_front } }
+ mutually_exclusive = { focus = SFP_revive_the_national_bloc }
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ allow_branch = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_revive_the_national_bloc } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = democratic elections_allowed = yes } add_popularity = { ideology = democratic popularity = 0.10 } add_stability = 0.05 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invite_communist_ministers icon = GFX_sof_van_goal_support_communism
+ x = -3
+ y = 1
+ relative_position_id = SFP_form_the_popular_front
+ prerequisite = { focus = SFP_form_the_popular_front }
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+ allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_revive_the_national_bloc has_completed_focus = SFP_review_foreign_policy } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = communism elections_allowed = no } add_popularity = { ideology = communism popularity = 0.10 } add_stability = -0.03 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_strengthen_the_unions icon = GFX_sof_van_goal_generic_demand_territory
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_invite_communist_ministers }
+ relative_position_id = SFP_invite_communist_ministers
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_popularity = { ideology = communism popularity = 0.05 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_celebrate_the_commune icon = GFX_sof_van_goal_generic_propaganda
+ x = -1
+ y = 4
+ prerequisite = { focus = SFP_strengthen_the_unions }
+ relative_position_id = SFP_invite_communist_ministers
+ cost = 5
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_popularity = { ideology = communism popularity = 0.05 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_womens_suffrage icon = GFX_sof_van_focus_generic_treaty
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_invite_communist_ministers }
+ relative_position_id = SFP_invite_communist_ministers
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_womens_suffrage add_popularity = { ideology = communism popularity = 0.05 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_legal_equality icon = GFX_sof_van_goal_generic_major_alliance
+ x = 1
+ y = 4
+ prerequisite = { focus = SFP_womens_suffrage }
+ relative_position_id = SFP_invite_communist_ministers
+ cost = 5
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_popularity = { ideology = communism popularity = 0.05 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_industrial_collectivization icon = GFX_sof_van_goal_generic_construct_civ_factory
+ x = 0
+ y = 2
+ prerequisite = { focus = SFP_womens_suffrage }
+ prerequisite = { focus = SFP_strengthen_the_unions }
+ relative_position_id = SFP_invite_communist_ministers
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_agricultural_collectivization icon = GFX_sof_van_focus_prc_agrarian_socialism
+ x = 0
+ y = 3
+ prerequisite = { focus = SFP_industrial_collectivization }
+ relative_position_id = SFP_invite_communist_ministers
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_agricultural_collectivization add_stability = -0.05 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_force_the_issue icon = GFX_sof_van_goal_demand_sudetenland
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_celebrate_the_commune focus = SFP_legal_equality }
+ relative_position_id = SFP_celebrate_the_commune
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = communism elections_allowed = no } add_stability = -0.05 remove_ideas = sof_van_prs_fra_disjointed_government }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_reconciliation icon = GFX_sof_van_goal_generic_improve_relations
+ x = -2
+ y = 1
+ prerequisite = { focus = SFP_force_the_issue }
+ search_filters = { FOCUS_FILTER_STABILITY }
+ mutually_exclusive = { focus = SFP_revolution_to_the_utmost }
+ relative_position_id = SFP_force_the_issue
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = 0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_constitutional_convention icon = GFX_sof_van_focus_generic_treaty
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_reconciliation }
+ relative_position_id = SFP_reconciliation
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 120 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_anti_fascist_coalition icon = GFX_sof_van_goal_generic_military_deal
+ x = -1
+ y = 2
+ prerequisite = { focus = SFP_constitutional_convention }
+ mutually_exclusive = { focus = SFP_loyalty_to_moscow focus = SFP_loyalty_to_the_cause }
+ relative_position_id = SFP_reconciliation
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invite_anti_fascist_emigrants icon = GFX_sof_van_goal_generic_national_unity
+ x = -1
+ y = 3
+ prerequisite = { focus = SFP_anti_fascist_coalition }
+ relative_position_id = SFP_reconciliation
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_anti_fascist_immigrants }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_reconnect_to_the_balkans icon = GFX_sof_van_goal_generic_military_sphere
+ x = -1
+ y = 4
+ prerequisite = { focus = SFP_invite_anti_fascist_emigrants }
+ relative_position_id = SFP_reconciliation
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = STR STR = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } STR = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_pre_empt_the_fascist_attack icon = GFX_sof_van_focus_focus_fra_fascist_threat
+ x = 0
+ y = 5
+ prerequisite = { focus = SFP_reconnect_to_the_balkans focus = SFP_host_the_german_exiles }
+ relative_position_id = SFP_reconciliation
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_lorraine = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_loyalty_to_moscow icon = GFX_sof_van_goal_support_communism
+ x = 2
+ y = 2
+ prerequisite = { focus = SFP_constitutional_convention focus = SFP_destroy_the_counter_revolution }
+ mutually_exclusive = { focus = SFP_anti_fascist_coalition focus = SFP_loyalty_to_the_cause }
+ relative_position_id = SFP_reconciliation
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_league_of_french_bolshevist_volunteers icon = GFX_sof_van_focus_YUG_pan_slavic_congress
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_loyalty_to_moscow }
+ relative_position_id = SFP_loyalty_to_moscow
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_league_of_french_bolshevist_volunteers }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_host_the_german_exiles icon = GFX_sof_van_focus_generic_self_management
+ x = 0
+ y = 2
+ prerequisite = { focus = SFP_league_of_french_bolshevist_volunteers }
+ relative_position_id = SFP_loyalty_to_moscow
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = STR STR = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } STR = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_revolution_to_the_utmost icon = GFX_sof_van_focus_focus_fra_revolution_utmost
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_force_the_issue }
+ mutually_exclusive = { focus = SFP_reconciliation }
+ relative_position_id = SFP_force_the_issue
+ cost = 10
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_war_support = 0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_destroy_the_counter_revolution icon = GFX_sof_van_goal_generic_secret_weapon
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_revolution_to_the_utmost }
+ relative_position_id = SFP_revolution_to_the_utmost
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = -0.03 add_popularity = { ideology = communism popularity = 0.15 } add_political_power = -25 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_revolutionary_zeal icon = GFX_sof_van_goal_generic_war_with_comintern
+ x = 3
+ y = 1
+ prerequisite = { focus = SFP_destroy_the_counter_revolution }
+ relative_position_id = SFP_destroy_the_counter_revolution
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_revolutionary_zeal }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_loyalty_to_the_cause icon = GFX_sof_van_goal_generic_demand_territory
+ x = 1
+ y = 2
+ prerequisite = { focus = SFP_destroy_the_counter_revolution }
+ mutually_exclusive = { focus = SFP_loyalty_to_moscow focus = SFP_anti_fascist_coalition }
+ relative_position_id = SFP_revolution_to_the_utmost
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_carry_the_revolution_north icon = GFX_sof_van_goal_generic_position_armies
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_loyalty_to_the_cause }
+ relative_position_id = SFP_loyalty_to_the_cause
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_nord = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_carry_the_revolution_west icon = GFX_sof_van_goal_generic_territory_or_war
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_carry_the_revolution_north }
+ relative_position_id = SFP_carry_the_revolution_north
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_normandie = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_carry_the_revolution_east icon = GFX_sof_van_goal_generic_occupy_states_ongoing_war
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_carry_the_revolution_north }
+ relative_position_id = SFP_carry_the_revolution_north
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_lorraine = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_carry_the_revolution_south icon = GFX_sof_van_goal_generic_major_war
+ x = 0
+ y = 2
+ prerequisite = { focus = SFP_carry_the_revolution_west }
+ prerequisite = { focus = SFP_carry_the_revolution_east }
+ relative_position_id = SFP_carry_the_revolution_north
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_paca = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_egalite_liberte_solidarite icon = GFX_sof_van_focus_focus_fra_liberte_egalite_solidarite
+ x = 0
+ y = 3
+ prerequisite = { focus = SFP_carry_the_revolution_south }
+ relative_position_id = SFP_carry_the_revolution_north
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_egalite_liberte_solidarite }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_reform_the_labour_laws icon = GFX_sof_van_goal_generic_production
+ x = 0
+ y = 2
+ prerequisite = { focus = SFP_form_the_popular_front }
+ relative_position_id = SFP_form_the_popular_front
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_matignon_agreements if = { limit = { has_idea = sof_van_prs_fra_factory_strikes } remove_ideas = sof_van_prs_fra_factory_strikes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_nationalize_key_industry icon = GFX_sof_van_goal_generic_construct_civ_factory
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_reform_the_labour_laws }
+ relative_position_id = SFP_reform_the_labour_laws
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } swap_ideas = { remove_idea = sof_van_prs_fra_inefficient_economy_2 add_idea = sof_van_prs_fra_inefficient_economy_1 } } else = { add_ideas = sof_van_prs_fra_inefficient_economy_1 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_reorganize_the_aviation_industry icon = GFX_sof_van_goal_generic_air_production
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_nationalize_key_industry }
+ relative_position_id = SFP_nationalize_key_industry
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_form_the_state_arsenals icon = GFX_sof_van_goal_generic_construct_mil_factory
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_nationalize_key_industry }
+ relative_position_id = SFP_nationalize_key_industry
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_general_work_council icon = GFX_sof_van_goal_generic_construction
+ x = 0
+ y = 2
+ prerequisite = { focus = SFP_reorganize_the_aviation_industry }
+ prerequisite = { focus = SFP_form_the_state_arsenals }
+ relative_position_id = SFP_nationalize_key_industry
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_1 } remove_ideas = sof_van_prs_fra_inefficient_economy_1 } if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } remove_ideas = sof_van_prs_fra_inefficient_economy_2 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_dirigisme icon = GFX_sof_van_focus_generic_the_giant_wakes
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_general_work_council }
+ relative_position_id = SFP_general_work_council
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_dirigisme }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_national_champions icon = GFX_sof_van_focus_generic_industry_3
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_general_work_council }
+ relative_position_id = SFP_general_work_council
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_ban_the_leagues icon = GFX_sof_van_goal_generic_forceful_treaty
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_form_the_popular_front }
+ relative_position_id = SFP_form_the_popular_front
+ cost = 10
+ search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = -0.02 add_popularity = { ideology = democratic popularity = 0.05 } add_political_power = 50 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_blum_viollette_proposal icon = GFX_sof_van_goal_generic_improve_relations
+ x = 4
+ y = 1
+ offset = { x = -8 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc } }
+ prerequisite = { focus = SFP_reform_the_labour_laws focus = SFP_protect_the_rights_of_man }
+ relative_position_id = SFP_reform_the_labour_laws
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 } add_stability = 0.03 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_expand_the_citizenship icon = GFX_sof_van_goal_generic_national_unity
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_the_blum_viollette_proposal }
+ relative_position_id = SFP_the_blum_viollette_proposal
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_expanded_citizenship }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_france_undividable icon = GFX_sof_van_focus_chi_reach_out_to_france
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_expand_the_citizenship }
+ mutually_exclusive = { focus = SFP_encourage_immigration }
+ relative_position_id = SFP_expand_the_citizenship
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_expanded_citizenship } swap_ideas = { remove_idea = sof_van_prs_fra_expanded_citizenship add_idea = sof_van_prs_fra_france_undividable } } else = { add_ideas = sof_van_prs_fra_france_undividable } every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_french_union icon = GFX_sof_van_focus_fra_french_union
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_france_undividable }
+ relative_position_id = SFP_france_undividable
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 15 } add_stability = 0.03 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_encourage_immigration icon = GFX_sof_van_goal_generic_national_unity
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_expand_the_citizenship }
+ mutually_exclusive = { focus = SFP_france_undividable }
+ relative_position_id = SFP_expand_the_citizenship
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { remove_ideas = sof_van_prs_fra_full_employment add_manpower = 1000 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_review_foreign_policy icon = GFX_sof_van_goal_support_democracy
+ x = 10
+ y = 1
+ offset = { x = -1 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_form_the_popular_front } }
+ offset = { x = -9 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc } }
+ prerequisite = { focus = SFP_reform_the_labour_laws focus = SFP_protect_the_rights_of_man }
+ relative_position_id = SFP_reform_the_labour_laws
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ allow_branch = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_invite_communist_ministers has_completed_focus = SFP_utilize_the_leagues } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 120 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_intervention_in_spain icon = GFX_sof_van_focus_focus_fra_intervention_spain
+ x = 7
+ y = 2
+ offset = { x = -4 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_form_the_popular_front } }
+ offset = { x = -5 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc } }
+ offset = { x = -7 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_utilize_the_leagues } }
+ prerequisite = { focus = SFP_form_the_popular_front focus = SFP_revive_the_national_bloc }
+ relative_position_id = SFP_form_the_popular_front
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sof_van_volunteer_program }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_support_the_finns icon = GFX_sof_van_focus_invite_finland
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_review_foreign_policy }
+ relative_position_id = SFP_review_foreign_policy
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { army_experience = 10.0 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_confirm_eastern_commitments icon = GFX_sof_van_goal_tripartite_pact
+ x = -2
+ y = 2
+ prerequisite = { focus = SFP_review_foreign_policy }
+ mutually_exclusive = { focus = SFP_buy_time }
+ relative_position_id = SFP_review_foreign_policy
+ cost = 10
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_strengthen_the_little_entente icon = GFX_sof_van_focus_generic_little_entente
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_confirm_eastern_commitments }
+ relative_position_id = SFP_confirm_eastern_commitments
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invite_yugoslavia icon = GFX_sof_van_focus_invite_yugoslavia
+ prerequisite = { focus = SFP_strengthen_the_little_entente }
+ x = -1
+ y = 1
+ relative_position_id = SFP_strengthen_the_little_entente
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = STR STR = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } STR = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invite_romania icon = GFX_sof_van_focus_invite_romania
+ prerequisite = { focus = SFP_invite_yugoslavia }
+ x = 0
+ y = 1
+ relative_position_id = SFP_invite_yugoslavia
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = DIJ DIJ = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } DIJ = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invest_in_our_weaker_allies icon = GFX_sof_van_goal_generic_build_tank
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_invite_romania }
+ relative_position_id = SFP_invite_romania
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sof_van_allied_investment }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_coordinate_rearmament icon = GFX_sof_van_goal_generic_position_armies
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_invest_in_our_weaker_allies }
+ relative_position_id = SFP_invest_in_our_weaker_allies
+ cost = 10
+ allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_invite_communist_ministers has_completed_focus = SFP_utilize_the_leagues } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = LYO LYO = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } LYO = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_foreign_guest_workers icon = GFX_sof_van_focus_generic_manpower
+ x = 3
+ y = 1
+ prerequisite = { focus = SFP_strengthen_the_little_entente }
+ relative_position_id = SFP_strengthen_the_little_entente
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { remove_ideas = sof_van_prs_fra_full_employment add_manpower = 1000 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_join_the_ententes icon = GFX_sof_van_focus_chi_british_cooperation
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_strengthen_the_little_entente }
+ relative_position_id = SFP_strengthen_the_little_entente
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = ROU ROU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } ROU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_revive_the_franco_polish_alliance icon = GFX_sof_van_focus_generic_polish_deal
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_confirm_eastern_commitments }
+ relative_position_id = SFP_confirm_eastern_commitments
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_buy_time icon = GFX_sof_van_goal_generic_neutrality_focus
+ x = 4
+ y = 2
+ prerequisite = { focus = SFP_review_foreign_policy }
+ mutually_exclusive = { focus = SFP_confirm_eastern_commitments }
+ relative_position_id = SFP_review_foreign_policy
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_strengthen_government_support icon = GFX_sof_van_goal_generic_demand_territory
+ prerequisite = { focus = SFP_strengthen_the_little_entente focus = SFP_buy_time }
+ x = 5
+ y = 1
+ relative_position_id = SFP_strengthen_the_little_entente
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_strengthen_government_support_focus days = 365 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_defensive_strategems icon = GFX_sof_van_goal_generic_fortify_city
+ prerequisite = { focus = SFP_strengthen_government_support }
+ x = 0
+ y = 1
+ relative_position_id = SFP_strengthen_government_support
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { remove_ideas = sof_van_prs_fra_disjointed_government }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_go_with_britain icon = GFX_sof_van_focus_chi_british_cooperation
+ prerequisite = { focus = SFP_buy_time }
+ mutually_exclusive = { focus = SFP_france_leads }
+ x = 0
+ y = 1
+ relative_position_id = SFP_buy_time
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = ROU ROU = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } ROU = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_arms_purchases_in_the_us icon = GFX_sof_van_goal_generic_build_tank
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_go_with_britain }
+ relative_position_id = SFP_go_with_britain
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sof_van_arms_market }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_france_leads icon = GFX_sof_van_goal_generic_demand_territory
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_buy_time }
+ mutually_exclusive = { focus = SFP_go_with_britain }
+ relative_position_id = SFP_buy_time
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 120 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_concessions_to_italy icon = GFX_sof_van_focus_befriend_italy
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_france_leads }
+ relative_position_id = SFP_france_leads
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_ratify_the_stresa_front icon = GFX_sof_van_focus_focus_fra_ratify_stresa
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_concessions_to_italy }
+ relative_position_id = SFP_concessions_to_italy
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_franco_soviet_treaty icon = GFX_sof_van_focus_chi_mission_to_the_soviet_union
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_france_leads }
+ relative_position_id = SFP_france_leads
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_leftist_rhetoric icon = GFX_sof_van_goal_generic_propaganda
+ prerequisite = { focus = SFP_form_the_popular_front }
+ x = -3
+ y = 1
+ relative_position_id = SFP_form_the_popular_front
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ allow_branch = { NOT = { always = yes } if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_revive_the_national_bloc } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = communism elections_allowed = no } add_popularity = { ideology = communism popularity = 0.10 } add_stability = 0.02 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_national_mobilization icon = GFX_sof_van_goal_generic_allies_build_infantry
+ prerequisite = { focus = SFP_leftist_rhetoric }
+ x = 0
+ y = 1
+ relative_position_id = SFP_leftist_rhetoric
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { remove_ideas = sof_van_prs_fra_disjointed_government add_ideas = sof_van_prs_fra_national_mobilization_focus }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_join_comintern icon = GFX_sof_van_goal_support_communism
+ mutually_exclusive = { focus = SFP_humanite_unie }
+ prerequisite = { focus = SFP_national_mobilization }
+ x = 1
+ y = 1
+ relative_position_id = SFP_national_mobilization
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_workers_front } set_country_flag = sof_van_coalition_enabled }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_humanite_unie icon = GFX_sof_van_goal_generic_dangerous_deal
+ mutually_exclusive = { focus = SFP_join_comintern }
+ prerequisite = { focus = SFP_national_mobilization }
+ x = -1
+ y = 1
+ relative_position_id = SFP_national_mobilization
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_revive_the_national_bloc icon = GFX_sof_van_focus_generic_strike_at_democracy2
+ x = 42
+ y = 0
+ offset = { x = -9 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc } }
+ offset = { x = -7 y = 0 trigger = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_utilize_the_leagues } }
+ cost = 10
+ mutually_exclusive = { focus = SFP_form_the_popular_front }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ allow_branch = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = neutrality elections_allowed = no } add_popularity = { ideology = neutrality popularity = 0.10 } add_stability = 0.03 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_laissez_faire icon = GFX_sof_van_goal_generic_consumer_goods
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_revive_the_national_bloc }
+ mutually_exclusive = { focus = SFP_agricultural_protectionism }
+ relative_position_id = SFP_revive_the_national_bloc
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_laissez_faire category = industry uses = 3 bonus = 1.5 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_protect_the_rights_of_man icon = GFX_sof_van_goal_generic_demand_territory
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_laissez_faire focus = SFP_agricultural_protectionism }
+ relative_position_id = SFP_laissez_faire
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = 0.05 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_freedom_front icon = GFX_sof_van_goal_generic_national_unity
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_protect_the_rights_of_man }
+ relative_position_id = SFP_protect_the_rights_of_man
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { not = { has_completed_focus = SFP_utilize_the_leagues } } add_popularity = { ideology = democratic popularity = SFP_fascism } add_popularity = { ideology = fascism popularity = SFP_fascism } } else = { add_popularity = { ideology = fascism popularity = SFP_democracy } add_popularity = { ideology = democratic popularity = SFP_democracy } } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_stimulate_the_dynamic_market icon = GFX_sof_van_goal_generic_construct_civilian
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_freedom_front focus = SFP_promote_entrepeneurship }
+ relative_position_id = SFP_freedom_front
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_market_dynamism }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_agricultural_protectionism icon = GFX_sof_van_goal_generic_defence
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_revive_the_national_bloc }
+ mutually_exclusive = { focus = SFP_laissez_faire }
+ relative_position_id = SFP_revive_the_national_bloc
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_agricultural_protectionism }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_economic_devolution icon = GFX_sof_van_goal_generic_positive_trade_relations
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_agricultural_protectionism focus = SFP_laissez_faire }
+ relative_position_id = SFP_agricultural_protectionism
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } swap_ideas = { remove_idea = sof_van_prs_fra_inefficient_economy_2 add_idea = sof_van_prs_fra_inefficient_economy_1 } } else = { add_ideas = sof_van_prs_fra_inefficient_economy_1 } } else_if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_1 } remove_ideas = sof_van_prs_fra_inefficient_economy_1 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_promote_entrepeneurship icon = GFX_sof_van_goal_generic_propaganda
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_economic_devolution }
+ relative_position_id = SFP_economic_devolution
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_entrepeneurship }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_ban_communism icon = GFX_sof_van_goal_anti_comintern_pact
+ x = -3
+ y = 1
+ prerequisite = { focus = SFP_revive_the_national_bloc }
+ relative_position_id = SFP_revive_the_national_bloc
+ cost = 10
+ search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = -0.02 add_popularity = { ideology = democratic popularity = 0.05 } add_political_power = 50 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_utilize_the_leagues icon = GFX_sof_van_focus_generic_strike_at_democracy1
+ x = 8
+ y = 1
+ relative_position_id = SFP_revive_the_national_bloc
+ offset = { x = -1 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc } }
+ offset = { x = -3 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_the_council_of_rambouillet } }
+ prerequisite = { focus = SFP_revive_the_national_bloc }
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL }
+ allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front has_completed_focus = SFP_review_foreign_policy } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 75 add_stability = -0.03 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_national_regeneration icon = GFX_sof_van_goal_generic_political_pressure
+ x = 0
+ y = 1
+ relative_position_id = SFP_utilize_the_leagues
+ prerequisite = { focus = SFP_utilize_the_leagues }
+ mutually_exclusive = { focus = SFP_the_council_of_rambouillet }
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } NOT = { has_completed_focus = SFP_review_foreign_policy } NOT = { has_completed_focus = SFP_the_council_of_rambouillet } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = fascism elections_allowed = no } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_destroy_decadence icon = GFX_sof_van_focus_rom_parties_end
+ x = -4
+ y = 1
+ prerequisite = { focus = SFP_national_regeneration }
+ relative_position_id = SFP_national_regeneration
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_anti_decandence days = 365 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_integralism icon = GFX_sof_van_focus_generic_diplomatic_treaty
+ x = -2
+ y = 1
+ prerequisite = { focus = SFP_national_regeneration }
+ relative_position_id = SFP_national_regeneration
+ cost = 5
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 50 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_work icon = GFX_sof_van_goal_generic_construction2
+ x = -2
+ y = 1
+ prerequisite = { focus = SFP_integralism }
+ mutually_exclusive = { focus = SFP_family focus = SFP_fatherland }
+ relative_position_id = SFP_integralism
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_travail }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_family icon = GFX_sof_van_focus_generic_support_the_left_right
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_integralism }
+ mutually_exclusive = { focus = SFP_work focus = SFP_fatherland }
+ relative_position_id = SFP_integralism
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = 0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_fatherland icon = GFX_sof_van_focus_generic_military_mission
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_integralism }
+ mutually_exclusive = { focus = SFP_family focus = SFP_work }
+ relative_position_id = SFP_integralism
+ cost = 10
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_war_support = 0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_political_unity icon = GFX_sof_van_goal_generic_intelligence_exchange
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_national_regeneration }
+ relative_position_id = SFP_national_regeneration
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { remove_ideas = sof_van_prs_fra_disjointed_government add_popularity = { ideology = fascism popularity = party_popularity@neutrality } add_popularity = { ideology = neutrality popularity = -1 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_diplomatic_freedom icon = GFX_sof_van_focus_renounce_the_treaty_of_trianon
+ x = 4
+ y = 1
+ prerequisite = { focus = SFP_national_regeneration }
+ relative_position_id = SFP_national_regeneration
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 75 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_latin_entente icon = GFX_sof_van_goal_generic_dangerous_deal
+ x = -2
+ y = 1
+ prerequisite = { focus = SFP_diplomatic_freedom }
+ mutually_exclusive = { focus = SFP_towards_a_new_europe }
+ relative_position_id = SFP_diplomatic_freedom
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_reach_out_to_spain icon = GFX_sof_van_goal_generic_improve_relations
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_latin_entente }
+ relative_position_id = SFP_latin_entente
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = BRD BRD = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } BRD = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_invite_portugal icon = GFX_sof_van_focus_generic_befriend_portugal
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_reach_out_to_spain }
+ relative_position_id = SFP_reach_out_to_spain
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = NAN NAN = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } NAN = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_compensate_italy icon = GFX_sof_van_goal_generic_position_armies
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_latin_entente }
+ relative_position_id = SFP_latin_entente
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_intervention_in_greece icon = GFX_sof_van_goal_generic_occupy_states_ongoing_war
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_compensate_italy }
+ relative_position_id = SFP_compensate_italy
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MOP MOP = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MOP = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_congress_of_paris icon = GFX_sof_van_goal_generic_military_deal
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_invite_portugal }
+ prerequisite = { focus = SFP_intervention_in_greece }
+ relative_position_id = SFP_invite_portugal
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_paris_congress } set_country_flag = sof_van_coalition_enabled }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_natural_borders_of_france icon = GFX_sof_van_focus_focus_fra_border
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_the_congress_of_paris }
+ relative_position_id = SFP_the_congress_of_paris
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_ile_de_france = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_towards_a_new_europe icon = GFX_sof_van_goal_tripartite_pact
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_diplomatic_freedom }
+ mutually_exclusive = { focus = SFP_latin_entente }
+ relative_position_id = SFP_diplomatic_freedom
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = -0.05 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_establish_spheres_of_influence icon = GFX_sof_van_goal_generic_more_territorial_claims
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_towards_a_new_europe }
+ relative_position_id = SFP_towards_a_new_europe
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_split_belgium icon = GFX_sof_van_goal_generic_territory_or_war
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_establish_spheres_of_influence }
+ mutually_exclusive = { focus = SFP_align_belgium }
+ relative_position_id = SFP_establish_spheres_of_influence
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_picardie = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_align_belgium icon = GFX_sof_van_goal_generic_forceful_treaty
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_establish_spheres_of_influence }
+ mutually_exclusive = { focus = SFP_split_belgium }
+ relative_position_id = SFP_establish_spheres_of_influence
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_nord = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_grow_the_empire icon = GFX_sof_van_goal_generic_political_pressure
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_split_belgium focus = SFP_align_belgium }
+ relative_position_id = SFP_align_belgium
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_centre = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_bring_home_quebec icon = GFX_sof_van_focus_attack_canada
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_grow_the_empire }
+ relative_position_id = SFP_grow_the_empire
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_aquitaine = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_expand_to_the_suez icon = GFX_sof_van_goal_generic_occupy_states_coastal
+ x = 1
+ y = 2
+ prerequisite = { focus = SFP_intervention_in_greece focus = SFP_grow_the_empire }
+ relative_position_id = SFP_intervention_in_greece
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_paca = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_dominate_the_middle_east icon = GFX_sof_van_goal_generic_attack_allies
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_expand_to_the_suez }
+ relative_position_id = SFP_expand_to_the_suez
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = STR STR = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } STR = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_right_wing_rhetoric icon = GFX_sof_van_goal_generic_propaganda
+ prerequisite = { focus = SFP_revive_the_national_bloc }
+ x = 5
+ y = 1
+ relative_position_id = SFP_revive_the_national_bloc
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ allow_branch = { NOT = { always = yes } if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = fascism elections_allowed = no } add_popularity = { ideology = fascism popularity = 0.10 } add_stability = 0.02 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_army_of_aggression icon = GFX_sof_van_goal_generic_occupy_states_ongoing_war
+ prerequisite = { focus = SFP_right_wing_rhetoric }
+ x = 0
+ y = 1
+ relative_position_id = SFP_right_wing_rhetoric
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { remove_ideas = sof_van_prs_fra_protected_by_the_maginot_line remove_ideas = sof_van_prs_fra_disjointed_government add_ideas = sof_van_prs_fra_army_of_aggression_focus }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_france_first icon = GFX_sof_van_goal_generic_attack_allies
+ mutually_exclusive = { focus = SFP_join_germany focus = SFP_woo_italy }
+ prerequisite = { focus = SFP_army_of_aggression }
+ x = -2
+ y = 1
+ relative_position_id = SFP_army_of_aggression
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_woo_italy icon = GFX_sof_van_goal_tripartite_pact
+ mutually_exclusive = { focus = SFP_join_germany focus = SFP_france_first }
+ prerequisite = { focus = SFP_army_of_aggression }
+ x = 0
+ y = 1
+ relative_position_id = SFP_army_of_aggression
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_dismantle_the_democracies icon = GFX_sof_van_goal_generic_major_war
+ prerequisite = { focus = SFP_woo_italy }
+ x = 0
+ y = 1
+ relative_position_id = SFP_woo_italy
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_rhone_alpes = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_join_germany icon = GFX_sof_van_goal_support_fascism
+ mutually_exclusive = { focus = SFP_woo_italy focus = SFP_france_first }
+ prerequisite = { focus = SFP_army_of_aggression }
+ x = 2
+ y = 1
+ relative_position_id = SFP_army_of_aggression
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_eastern_pact } set_country_flag = sof_van_coalition_enabled }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_council_of_rambouillet icon = GFX_sof_van_goal_generic_major_alliance
+ x = 14
+ y = 1
+ offset = { x = -14 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_the_council_of_rambouillet } }
+ relative_position_id = SFP_utilize_the_leagues
+ prerequisite = { focus = SFP_utilize_the_leagues }
+ mutually_exclusive = { focus = SFP_national_regeneration }
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } NOT = { has_completed_focus = SFP_review_foreign_policy } NOT = { has_completed_focus = SFP_national_regeneration } } }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_popularity = { ideology = neutrality popularity = 0.1 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_revise_the_constitution icon = GFX_sof_van_focus_generic_treaty
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_the_council_of_rambouillet }
+ relative_position_id = SFP_the_council_of_rambouillet
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_constitutional_revision days = 365 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_repeal_the_law_of_exile icon = GFX_sof_van_focus_renounce_the_treaty_of_trianon
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_revise_the_constitution }
+ relative_position_id = SFP_revise_the_constitution
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 120 remove_ideas = sof_van_prs_fra_disjointed_government }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_orleanist_restoration icon = GFX_sof_van_focus_focus_fra_orleans_restoration
+ x = -3
+ y = 1
+ prerequisite = { focus = SFP_repeal_the_law_of_exile }
+ mutually_exclusive = { focus = SFP_the_legitimate_heir focus = SFP_proclaim_the_third_empire }
+ relative_position_id = SFP_repeal_the_law_of_exile
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = neutrality } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_guarantee_the_constitution icon = GFX_sof_van_goal_generic_military_sphere
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_orleanist_restoration }
+ relative_position_id = SFP_orleanist_restoration
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = 0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_first_citizen_of_the_state icon = GFX_sof_van_focus_generic_military_mission
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_orleanist_restoration }
+ relative_position_id = SFP_orleanist_restoration
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = neutrality elections_allowed = no } add_popularity = { ideology = neutrality popularity = 0.10 } add_stability = 0.05 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_counter_action icon = GFX_sof_van_goal_tfv_saf_anti_colonialist_crusade
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_guarantee_the_constitution focus = SFP_the_first_citizen_of_the_state }
+ relative_position_id = SFP_guarantee_the_constitution
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_counter_action days = 730 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_no_further_humiliations icon = GFX_sof_van_focus_generic_support_the_left_right
+ x = -2
+ y = 1
+ prerequisite = { focus = SFP_counter_action }
+ relative_position_id = SFP_counter_action
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_slum_clearing icon = GFX_sof_van_goal_generic_construction
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_counter_action }
+ relative_position_id = SFP_counter_action
+ cost = 5
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 3 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_public_welfare icon = GFX_sof_van_goal_generic_consumer_goods
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_slum_clearing }
+ relative_position_id = SFP_slum_clearing
+ cost = 10
+ search_filters = { FOCUS_FILTER_STABILITY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = 0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_legitimate_heir icon = GFX_sof_van_focus_rom_royal_dictatorship
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_repeal_the_law_of_exile }
+ mutually_exclusive = { focus = SFP_orleanist_restoration focus = SFP_proclaim_the_third_empire }
+ relative_position_id = SFP_repeal_the_law_of_exile
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = neutrality } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_secure_the_crown_of_spain icon = GFX_sof_van_goal_generic_position_armies
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_the_legitimate_heir }
+ relative_position_id = SFP_the_legitimate_heir
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_aquitaine = yes set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_unite_the_crowns icon = GFX_sof_van_goal_generic_demand_territory
+ x = -1
+ y = 1
+ prerequisite = { focus = SFP_secure_the_crown_of_spain }
+ mutually_exclusive = { focus = SFP_two_countries_two_crowns }
+ relative_position_id = SFP_secure_the_crown_of_spain
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_stability = -0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_two_countries_two_crowns icon = GFX_sof_van_goal_tripartite_pact
+ x = 1
+ y = 1
+ prerequisite = { focus = SFP_secure_the_crown_of_spain }
+ mutually_exclusive = { focus = SFP_unite_the_crowns }
+ relative_position_id = SFP_secure_the_crown_of_spain
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_rule = { can_create_factions = yes } add_stability = 0.1 }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_proclaim_the_third_empire icon = GFX_sof_van_focus_focus_fra_third_empire
+ x = 3
+ y = 1
+ prerequisite = { focus = SFP_repeal_the_law_of_exile }
+ mutually_exclusive = { focus = SFP_orleanist_restoration focus = SFP_the_legitimate_heir }
+ relative_position_id = SFP_repeal_the_law_of_exile
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_politics = { ruling_party = neutrality } set_rule = { can_create_factions = yes } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_avenge_waterloo icon = GFX_sof_van_focus_attack_britain
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_proclaim_the_third_empire }
+ relative_position_id = SFP_proclaim_the_third_empire
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_nord = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_reorganize_the_dutch icon = GFX_sof_van_focus_CZE_german_puppet
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_avenge_waterloo }
+ relative_position_id = SFP_avenge_waterloo
+ cost = 10
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_picardie = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_retribution_for_sedan icon = GFX_sof_van_focus_attack_germany
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_avenge_waterloo }
+ relative_position_id = SFP_avenge_waterloo
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_champagne = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_disunite_germany icon = GFX_sof_van_goal_generic_occupy_states_ongoing_war
+ x = 2
+ y = 1
+ prerequisite = { focus = SFP_retribution_for_sedan }
+ relative_position_id = SFP_retribution_for_sedan
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_lorraine = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_return_to_borodino icon = GFX_sof_van_focus_attack_soviet
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_retribution_for_sedan }
+ relative_position_id = SFP_retribution_for_sedan
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_lorraine = yes }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_je_suis_la_deluge icon = GFX_sof_van_focus_fra_le_deluge
+ x = 0
+ y = 1
+ prerequisite = { focus = SFP_return_to_borodino }
+ relative_position_id = SFP_return_to_borodino
+ cost = 10
+ search_filters = { FOCUS_FILTER_MANPOWER }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_la_deluge }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_naval_rearmament icon = GFX_sof_van_goal_generic_construct_naval_dockyard
+ x = 70
+ y = 0
+ offset = { x = -16 y = 0 trigger = { NOT = { has_dlc = "La Resistance" } } }
+ offset = { x = -12 y = 0 trigger = { NOT = { has_dlc = "La Resistance" } has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_form_the_popular_front } }
+ offset = { x = -9 y = 0 trigger = { NOT = { has_dlc = "La Resistance" } has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc } }
+ offset = { x = -27 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_form_the_popular_front } }
+ offset = { x = -8 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_invite_communist_ministers } }
+ offset = { x = -10 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc } }
+ offset = { x = -6 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_utilize_the_leagues } }
+ offset = { x = -3 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_form_the_popular_front has_completed_focus = SFP_review_foreign_policy } }
+ offset = { x = -20 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_revive_the_national_bloc has_completed_focus = SFP_review_foreign_policy } }
+ offset = { x = -11 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_national_regeneration } }
+ offset = { x = -17 y = 0 trigger = { has_dlc = "La Resistance" has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } has_completed_focus = SFP_the_council_of_rambouillet } }
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { navy_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_colonial_naval_bases icon = GFX_sof_van_goal_generic_build_navy
+ prerequisite = { focus = SFP_naval_rearmament }
+ x = -3
+ y = 1
+ relative_position_id = SFP_naval_rearmament
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT naval_base < 10 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT naval_base < 10 is_coastal = yes } add_building_construction = { type = naval_base level = 1 instant_build = yes } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_develop_colonial_dockyards icon = GFX_sof_van_goal_generic_construct_naval_dockyard
+ prerequisite = { focus = SFP_colonial_naval_bases }
+ x = 0
+ y = 1
+ relative_position_id = SFP_colonial_naval_bases
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_old_school icon = GFX_sof_van_focus_generic_navy_battleship2
+ prerequisite = { focus = SFP_naval_rearmament }
+ mutually_exclusive = { focus = SFP_the_young_school }
+ x = 0
+ y = 1
+ relative_position_id = SFP_naval_rearmament
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_capital_ship_focus icon = GFX_sof_van_goal_generic_navy_battleship
+ mutually_exclusive = { focus = SFP_carrier_focus }
+ prerequisite = { focus = SFP_the_old_school }
+ x = -1
+ y = 1
+ relative_position_id = SFP_the_old_school
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_capital_ship_focus bonus = 1.0 uses = 2 category = bb_tech category = bc_tech } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_carrier_focus icon = GFX_sof_van_goal_generic_navy_carrier
+ mutually_exclusive = { focus = SFP_capital_ship_focus }
+ prerequisite = { focus = SFP_the_old_school }
+ x = 1
+ y = 1
+ relative_position_id = SFP_the_old_school
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_carrier_focus bonus = 1.0 uses = 2 category = cv_tech } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_carrier_planes icon = GFX_sof_van_goal_generic_air_fighter
+ prerequisite = { focus = SFP_carrier_focus }
+ x = -1
+ y = 1
+ relative_position_id = SFP_carrier_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_carrier_focus bonus = 1.0 uses = 2 category = naval_air } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_rush_the_richelieus icon = GFX_sof_van_focus_generic_cruiser2
+ prerequisite = { focus = SFP_capital_ship_focus }
+ x = 0
+ y = 2
+ relative_position_id = SFP_capital_ship_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_rush_the_richelieus bonus = 0.5 uses = 1 category = bb_tech } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_prioritize_the_joffre icon = GFX_sof_van_goal_generic_navy_carrier
+ prerequisite = { focus = SFP_carrier_focus }
+ x = 0
+ y = 2
+ relative_position_id = SFP_carrier_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_prioritize_the_joffre bonus = 0.5 uses = 1 category = cv_tech } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_the_young_school icon = GFX_sof_van_goal_generic_navy_cruiser
+ prerequisite = { focus = SFP_naval_rearmament }
+ mutually_exclusive = { focus = SFP_the_old_school }
+ x = 4
+ y = 1
+ relative_position_id = SFP_naval_rearmament
+ cost = 10
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_ideas = sof_van_prs_fra_the_young_school }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_undersea_combat icon = GFX_sof_van_goal_generic_navy_submarine
+ prerequisite = { focus = SFP_the_young_school }
+ x = -1
+ y = 1
+ relative_position_id = SFP_the_young_school
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_undersea_combat bonus = 1.0 uses = 2 category = ss_tech } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_surface_combat icon = GFX_sof_van_focus_generic_destroyer
+ prerequisite = { focus = SFP_the_young_school }
+ x = 1
+ y = 1
+ relative_position_id = SFP_the_young_school
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_surface_combat bonus = 2.0 uses = 1 category = dd_tech } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_improved_screen_ships icon = GFX_sof_van_goal_generic_navy_cruiser
+ prerequisite = { focus = SFP_surface_combat }
+ prerequisite = { focus = SFP_undersea_combat }
+ x = 0
+ y = 2
+ relative_position_id = SFP_surface_combat
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { navy_experience = 25.0 add_tech_bonus = { name = SFP_improved_screen_ships bonus = 2.0 uses = 1 category = ca_tech } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_naval_doctrine icon = GFX_sof_van_goal_generic_navy_doctrines_tactics
+ prerequisite = { focus = SFP_prioritize_the_joffre focus = SFP_rush_the_richelieus focus = SFP_improved_screen_ships }
+ x = 3
+ y = 1
+ relative_position_id = SFP_rush_the_richelieus
+ cost = 10
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_doctrine_cost_reduction = { name = SFP_naval_doctrine cost_reduction = 0.5 uses = 2 category = naval_doctrine } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_air_focus icon = GFX_sof_van_goal_generic_build_airforce
+ x = 9
+ y = 0
+ relative_position_id = SFP_naval_rearmament
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { air_experience = 25.0 if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT air_base < 10 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT air_base < 10 } add_building_construction = { type = air_base level = 1 instant_build = yes } } } else = { add_political_power = 40 } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_fighter_focus icon = GFX_sof_van_goal_generic_air_fighter
+ mutually_exclusive = { focus = SFP_bomber_focus }
+ prerequisite = { focus = SFP_air_focus }
+ x = -1
+ y = 1
+ relative_position_id = SFP_air_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_fighter_focus bonus = 1.0 uses = 1 category = light_fighter } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_heavy_fighter_focus icon = GFX_sof_van_goal_generic_air_fighter2
+ prerequisite = { focus = SFP_fighter_focus }
+ x = -1
+ y = 1
+ relative_position_id = SFP_fighter_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_heavy_fighter_focus bonus = 1.0 uses = 2 category = cat_heavy_fighter } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_bomber_focus icon = GFX_sof_van_goal_generic_air_bomber
+ mutually_exclusive = { focus = SFP_fighter_focus }
+ prerequisite = { focus = SFP_air_focus }
+ x = 1
+ y = 1
+ relative_position_id = SFP_air_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_bomber_focus bonus = 1.0 uses = 1 category = tactical_bomber } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_air_doctrine icon = GFX_sof_van_goal_generic_air_doctrine
+ prerequisite = { focus = SFP_fighter_focus focus = SFP_bomber_focus }
+ x = 1
+ y = 1
+ relative_position_id = SFP_fighter_focus
+ cost = 10
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { air_experience = 25 add_doctrine_cost_reduction = { name = SFP_air_doctrine cost_reduction = 0.5 uses = 2 category = air_doctrine } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_heavy_bomber_focus icon = GFX_sof_van_goal_generic_occupy_start_war
+ prerequisite = { focus = SFP_bomber_focus }
+ x = 1
+ y = 1
+ relative_position_id = SFP_bomber_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_heavy_bomber_focus bonus = 1.0 uses = 2 category = cat_strategic_bomber } }
+ ai_will_do = { factor = 1 }
+}
+focus = {
+ id = SFP_naval_bomber_focus icon = GFX_sof_van_goal_generic_air_naval_bomber
+ prerequisite = { focus = SFP_bomber_focus }
+ x = 3
+ y = 1
+ relative_position_id = SFP_bomber_focus
+ cost = 10
+ available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_tech_bonus = { name = SFP_naval_bomber_focus bonus = 1.0 uses = 2 category = naval_bomber } }
+ ai_will_do = { factor = 1 }
+}
 }

@@ -1,0 +1,1077 @@
+focus_tree = {
+    id = sofzh_corsica_legacy
+    country = { factor = 0 }
+    default = no
+    continuous_focus_position = { x = 50 y = 2700 }
+    initial_show_position = { focus = SOF_COR_consulta }
+    shortcut = { name = sofzh_corsica_shortcut_mission target = SOF_COR_consulta scroll_wheel_factor = 0.65 }
+    shortcut = { name = sofzh_corsica_shortcut_politics target = SOF_COR_ajaccio_memory scroll_wheel_factor = 0.65 }
+    shortcut = { name = sofzh_corsica_shortcut_industry target = SOF_COR_terraces scroll_wheel_factor = 0.65 }
+    shortcut = { name = sofzh_corsica_shortcut_navy target = SOF_COR_harbours scroll_wheel_factor = 0.65 }
+    shortcut = { name = sofzh_corsica_shortcut_army target = SOF_COR_mountain_militia scroll_wheel_factor = 0.65 }
+
+    focus = {
+        id = SOF_COR_consulta
+        icon = GFX_sofzh_f27_sof_cor_consulta
+        search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+        cost = 5
+        x = 12
+        y = 0
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { set_country_flag = sofzh_corsica_origin set_country_flag = sofzh_unification_started add_political_power = 100 add_ideas = sofzh_cor_solidarity country_event = { id = sofzh_corsica.1 days = 1 } 
+				sofzh_reward_sof_cor_consulta = yes}
+        ai_will_do = { factor = 100 }
+    }
+
+    focus = {
+        id = SOF_COR_pieve_compacts
+        icon = GFX_sofzh_f27_sof_cor_pieve_compacts
+        search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+        cost = 3
+        x = 12
+        y = 1
+        prerequisite = { focus = SOF_COR_consulta }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_stability = 0.08 add_political_power = 75 
+				sofzh_reward_sof_cor_pieve_compacts = yes}
+        ai_will_do = { factor = 60 }
+    }
+
+    focus = {
+        id = SOF_COR_island_mandate
+        icon = GFX_sofzh_f27_sof_cor_island_mandate
+        search_filters = { FOCUS_FILTER_ANNEXATION }
+        cost = 3
+        x = 12
+        y = 2
+        prerequisite = { focus = SOF_COR_pieve_compacts }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { set_country_flag = sofzh_unification_war_ready add_ideas = sofzh_unify_mobilization sofzh_corsica_island_goals = yes army_experience = 15 
+				sofzh_reward_sof_cor_island_mandate = yes}
+        ai_will_do = { factor = 80 }
+    }
+
+    focus = {
+        id = SOF_COR_island_union
+        icon = GFX_sofzh_f27_sof_cor_island_union
+        search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_STABILITY }
+        cost = 3
+        x = 12
+        y = 4
+        prerequisite = { focus = SOF_COR_island_mandate }
+        
+        available = { is_subject = no has_capitulated = no sofzh_corsica_island_united = yes }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { sofzh_corsica_integrate_island = yes set_cosmetic_tag = CORSICA add_stability = 0.10 country_event = { id = sofzh_corsica.2 days = 1 } 
+				sofzh_reward_sof_cor_island_union = yes}
+        ai_will_do = { factor = 80 }
+    }
+
+    focus = {
+        id = SOF_COR_ajaccio_memory
+        icon = GFX_sofzh_f27_sof_cor_ajaccio_memory
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        cost = 5
+        x = 6
+        y = 2
+        prerequisite = { focus = SOF_COR_consulta }
+        mutually_exclusive = { focus = SOF_COR_corte_republic }
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_political_power = 75 country_event = { id = sofzh_corsica.3 days = 1 } 
+				sofzh_reward_sof_cor_ajaccio_memory = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_bonaparte_council
+        icon = GFX_sofzh_f27_sof_cor_bonaparte_council
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        cost = 5
+        x = 6
+        y = 3
+        prerequisite = { focus = SOF_COR_ajaccio_memory }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_cor_bonaparte add_political_power = 100 
+				sofzh_reward_sof_cor_bonaparte_council = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_imperial_staff
+        icon = GFX_sofzh_f27_sof_cor_imperial_staff
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 6
+        y = 4
+        prerequisite = { focus = SOF_COR_bonaparte_council }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { army_experience = 30 add_doctrine_cost_reduction = { name = sofzh_corsica_research_bonus cost_reduction = 0.5 uses = 1 category = land_doctrine } 
+				sofzh_reward_sof_cor_imperial_staff = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_corte_republic
+        icon = GFX_sofzh_f27_sof_cor_corte_republic
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        cost = 5
+        x = 8
+        y = 2
+        prerequisite = { focus = SOF_COR_consulta }
+        mutually_exclusive = { focus = SOF_COR_ajaccio_memory }
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_political_power = 75 country_event = { id = sofzh_corsica.4 days = 1 } 
+				sofzh_reward_sof_cor_corte_republic = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_consulta_charter
+        icon = GFX_sofzh_f27_sof_cor_consulta_charter
+        search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+        cost = 5
+        x = 8
+        y = 3
+        prerequisite = { focus = SOF_COR_corte_republic }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_cor_paoli add_stability = 0.05 
+				sofzh_reward_sof_cor_consulta_charter = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_civil_officers
+        icon = GFX_sofzh_f27_sof_cor_civil_officers
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        cost = 5
+        x = 8
+        y = 4
+        prerequisite = { focus = SOF_COR_consulta_charter }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { army_experience = 25 add_political_power = 75 
+				sofzh_reward_sof_cor_civil_officers = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_french_mission
+        icon = GFX_sofzh_f27_sof_cor_french_mission
+        search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+        cost = 5
+        x = 8
+        y = 5
+        prerequisite = { focus = SOF_COR_imperial_staff focus = SOF_COR_civil_officers }
+        prerequisite = { focus = SOF_COR_island_union }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_war_support = 0.10 add_political_power = 100 
+				sofzh_reward_sof_cor_french_mission = yes}
+        ai_will_do = { factor = 50 }
+    }
+
+    focus = {
+        id = SOF_COR_terraces
+        icon = GFX_sofzh_f27_sof_cor_terraces
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 0
+        y = 1
+        prerequisite = { focus = SOF_COR_consulta }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  }  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } 
+				sofzh_reward_sof_cor_terraces = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_cooperatives
+        icon = GFX_sofzh_f27_sof_cor_cooperatives
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 0
+        y = 2
+        prerequisite = { focus = SOF_COR_terraces }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } 
+				sofzh_reward_sof_cor_cooperatives = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_corte_school
+        icon = GFX_sofzh_f27_sof_cor_corte_school
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 0
+        y = 3
+        prerequisite = { focus = SOF_COR_cooperatives }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_research_slot = 1 
+				sofzh_reward_sof_cor_corte_school = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_island_arsenals
+        icon = GFX_sofzh_f27_sof_cor_island_arsenals
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 0
+        y = 4
+        prerequisite = { focus = SOF_COR_corte_school }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_ideas = sofzh_cor_arsenals 
+				sofzh_reward_sof_cor_island_arsenals = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_hydropower
+        icon = GFX_sofzh_f27_sof_cor_hydropower
+        search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 0
+        y = 5
+        prerequisite = { focus = SOF_COR_island_arsenals }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  }  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } add_tech_bonus = { name = sofzh_corsica_research_bonus bonus = 0.5 uses = 1 category = industry } 
+				sofzh_reward_sof_cor_hydropower = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_workshop_mobilization
+        icon = GFX_sofzh_f27_sof_cor_workshop_mobilization
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 2
+        y = 5
+        prerequisite = { focus = SOF_COR_island_arsenals }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_political_power = 50 
+				sofzh_reward_sof_cor_workshop_mobilization = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_capital_works
+        icon = GFX_sofzh_f27_sof_cor_capital_works
+        search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+        cost = 5
+        x = 0
+        y = 6
+        prerequisite = { focus = SOF_COR_hydropower }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_stability = 0.05 
+				sofzh_reward_sof_cor_capital_works = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_island_labs
+        icon = GFX_sofzh_f27_sof_cor_island_labs
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 2
+        y = 6
+        prerequisite = { focus = SOF_COR_corte_school }
+        prerequisite = { focus = SOF_COR_workshop_mobilization }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_research_slot = 1 
+				sofzh_reward_sof_cor_island_labs = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_harbours
+        icon = GFX_sofzh_f27_sof_cor_harbours
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 18
+        y = 1
+        prerequisite = { focus = SOF_COR_consulta }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { navy_experience = 15 add_tech_bonus = { name = sofzh_corsica_research_bonus bonus = 0.5 uses = 1 category = naval_equipment } 
+				sofzh_reward_sof_cor_harbours = yes}
+        ai_will_do = { factor = 25 }
+    }
+
+    focus = {
+        id = SOF_COR_convoy_office
+        icon = GFX_sofzh_f27_sof_cor_convoy_office
+        search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+        cost = 5
+        x = 18
+        y = 2
+        prerequisite = { focus = SOF_COR_harbours }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_equipment_to_stockpile = { type = convoy amount = 40 producer = ROOT } 
+				sofzh_reward_sof_cor_convoy_office = yes}
+        ai_will_do = { factor = 30 }
+    }
+
+    focus = {
+        id = SOF_COR_dockyards
+        icon = GFX_sofzh_f27_sof_cor_dockyards
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 18
+        y = 3
+        prerequisite = { focus = SOF_COR_convoy_office }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  is_coastal = yes } add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } } add_ideas = sofzh_cor_maritime 
+				sofzh_reward_sof_cor_dockyards = yes}
+        ai_will_do = { factor = 40 }
+    }
+
+    focus = {
+        id = SOF_COR_patrol_flotilla
+        icon = GFX_sofzh_f27_sof_cor_patrol_flotilla
+        search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+        cost = 7
+        x = 18
+        y = 4
+        prerequisite = { focus = SOF_COR_dockyards }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { sofzh_corsica_patrol_flotilla = yes navy_experience = 20 
+				sofzh_reward_sof_cor_patrol_flotilla = yes}
+        ai_will_do = { factor = 70 }
+    }
+
+    focus = {
+        id = SOF_COR_naval_school
+        icon = GFX_sofzh_f27_sof_cor_naval_school
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 20
+        y = 4
+        prerequisite = { focus = SOF_COR_dockyards }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { navy_experience = 35 add_doctrine_cost_reduction = { name = sofzh_corsica_research_bonus cost_reduction = 0.5 uses = 1 category = naval_doctrine } 
+				sofzh_reward_sof_cor_naval_school = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_transport_training
+        icon = GFX_sofzh_f27_sof_cor_transport_training
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 3
+        x = 18
+        y = 5
+        prerequisite = { focus = SOF_COR_patrol_flotilla }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { set_technology = { transport = 1 } add_equipment_to_stockpile = { type = convoy amount = 30 producer = ROOT } 
+				sofzh_reward_sof_cor_transport_training = yes}
+        ai_will_do = { factor = 70 }
+    }
+
+    focus = {
+        id = SOF_COR_marine_routes
+        icon = GFX_sofzh_f27_sof_cor_marine_routes
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 20
+        y = 5
+        prerequisite = { focus = SOF_COR_naval_school }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { navy_experience = 20 add_tech_bonus = { name = sofzh_corsica_research_bonus bonus = 0.5 uses = 1 category = naval_equipment } 
+				sofzh_reward_sof_cor_marine_routes = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_air_sea_coordination
+        icon = GFX_sofzh_f27_sof_cor_air_sea_coordination
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 18
+        y = 6
+        prerequisite = { focus = SOF_COR_transport_training }
+        prerequisite = { focus = SOF_COR_marine_routes }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { air_experience = 25 add_tech_bonus = { name = sofzh_corsica_research_bonus bonus = 0.5 uses = 1 category = naval_bomber } 
+				sofzh_reward_sof_cor_air_sea_coordination = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_island_airfields
+        icon = GFX_sofzh_f27_sof_cor_island_airfields
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 22
+        y = 6
+        prerequisite = { focus = SOF_COR_naval_school }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { prioritize = { 485 491 499 504 509 }  limit = {  }  add_building_construction = { type = air_base level = 2 instant_build = yes } } air_experience = 25 
+				sofzh_reward_sof_cor_island_airfields = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_mediterranean_screen
+        icon = GFX_sofzh_f27_sof_cor_mediterranean_screen
+        search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+        cost = 5
+        x = 18
+        y = 7
+        prerequisite = { focus = SOF_COR_air_sea_coordination }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_equipment_to_stockpile = { type = convoy amount = 30 producer = ROOT } navy_experience = 25 
+				sofzh_reward_sof_cor_mediterranean_screen = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_mountain_militia
+        icon = GFX_sofzh_f27_sof_cor_mountain_militia
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 26
+        y = 1
+        prerequisite = { focus = SOF_COR_consulta }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { army_experience = 20 add_tech_bonus = { name = sofzh_corsica_research_bonus bonus = 0.5 uses = 1 category = infantry_weapons } 
+				sofzh_reward_sof_cor_mountain_militia = yes}
+        ai_will_do = { factor = 35 }
+    }
+
+    focus = {
+        id = SOF_COR_island_recruitment
+        icon = GFX_sofzh_f27_sof_cor_island_recruitment
+        search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+        cost = 3
+        x = 26
+        y = 2
+        prerequisite = { focus = SOF_COR_mountain_militia }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_manpower = 4000 add_war_support = 0.05 
+				sofzh_reward_sof_cor_island_recruitment = yes}
+        ai_will_do = { factor = 40 }
+    }
+
+    focus = {
+        id = SOF_COR_small_arms
+        icon = GFX_sofzh_f27_sof_cor_small_arms
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 26
+        y = 3
+        prerequisite = { focus = SOF_COR_island_recruitment }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { set_technology = { infantry_weapons = 1 } add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 1500 producer = ROOT } 
+				sofzh_reward_sof_cor_small_arms = yes}
+        ai_will_do = { factor = 45 }
+    }
+
+    focus = {
+        id = SOF_COR_marine_cadres
+        icon = GFX_sofzh_f27_sof_cor_marine_cadres
+        search_filters = { FOCUS_FILTER_MANPOWER }
+        cost = 5
+        x = 26
+        y = 4
+        prerequisite = { focus = SOF_COR_small_arms }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { sofzh_corsica_marine_cadres = yes 
+				sofzh_reward_sof_cor_marine_cadres = yes}
+        ai_will_do = { factor = 65 }
+    }
+
+    focus = {
+        id = SOF_COR_artillery_school
+        icon = GFX_sofzh_f27_sof_cor_artillery_school
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 28
+        y = 4
+        prerequisite = { focus = SOF_COR_small_arms }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { army_experience = 20 add_tech_bonus = { name = sofzh_corsica_research_bonus bonus = 0.5 uses = 1 category = artillery } 
+				sofzh_reward_sof_cor_artillery_school = yes sofzh_dedicated_artillery_2 = yes }
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_landing_drills
+        icon = GFX_sofzh_f27_sof_cor_landing_drills
+        search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+        cost = 5
+        x = 26
+        y = 5
+        prerequisite = { focus = SOF_COR_marine_cadres }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_cor_landing army_experience = 25 
+				sofzh_reward_sof_cor_landing_drills = yes}
+        ai_will_do = { factor = 60 }
+    }
+
+    focus = {
+        id = SOF_COR_field_logistics
+        icon = GFX_sofzh_f27_sof_cor_field_logistics
+        search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+        cost = 5
+        x = 28
+        y = 5
+        prerequisite = { focus = SOF_COR_artillery_school }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_unify_logistics army_experience = 15 
+				sofzh_reward_sof_cor_field_logistics = yes sofzh_dedicated_recovery_2 = yes }
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_expeditionary_corps
+        icon = GFX_sofzh_f27_sof_cor_expeditionary_corps
+        search_filters = { FOCUS_FILTER_MANPOWER }
+        cost = 5
+        x = 26
+        y = 6
+        prerequisite = { focus = SOF_COR_landing_drills }
+        prerequisite = { focus = SOF_COR_field_logistics }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_cor_expedition army_experience = 30 
+				sofzh_reward_sof_cor_expeditionary_corps = yes sofzh_dedicated_staff_3 = yes sofzh_dedicated_artillery_3 = yes sofzh_dedicated_recruitment_3 = yes sofzh_dedicated_infantry_3 = yes sofzh_dedicated_motorized_3 = yes sofzh_dedicated_recovery_3 = yes }
+        ai_will_do = { factor = 65 }
+    }
+
+    focus = {
+        id = SOF_COR_mountain_tactics
+        icon = GFX_sofzh_f27_sof_cor_mountain_tactics
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 28
+        y = 6
+        prerequisite = { focus = SOF_COR_field_logistics }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { army_experience = 30 add_doctrine_cost_reduction = { name = sofzh_corsica_research_bonus cost_reduction = 0.5 uses = 1 category = land_doctrine } 
+				sofzh_reward_sof_cor_mountain_tactics = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_cross_mediterranean
+        icon = GFX_sofzh_f27_sof_cor_cross_mediterranean
+        search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
+        cost = 3
+        x = 12
+        y = 7
+        prerequisite = { focus = SOF_COR_french_mission }
+        prerequisite = { focus = SOF_COR_transport_training }
+        prerequisite = { focus = SOF_COR_expeditionary_corps }
+        
+        available = { is_subject = no has_capitulated = no sofzh_corsica_island_united = yes has_navy_size = { size > 3 } }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_political_power = 100 add_war_support = 0.08 
+				sofzh_reward_sof_cor_cross_mediterranean = yes}
+        ai_will_do = { factor = 80 }
+    }
+
+    focus = {
+        id = SOF_COR_provence_landing
+        icon = GFX_sofzh_f27_sof_cor_provence_landing
+        search_filters = { FOCUS_FILTER_ANNEXATION }
+        cost = 3
+        x = 10
+        y = 8
+        prerequisite = { focus = SOF_COR_cross_mediterranean }
+        mutually_exclusive = { focus = SOF_COR_riviera_landing }
+        available = { is_subject = no has_capitulated = no has_war = no }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { sofzh_corsica_provence_goal = yes navy_experience = 15 
+				sofzh_reward_sof_cor_provence_landing = yes}
+        ai_will_do = { factor = 50 }
+    }
+
+    focus = {
+        id = SOF_COR_riviera_landing
+        icon = GFX_sofzh_f27_sof_cor_riviera_landing
+        search_filters = { FOCUS_FILTER_ANNEXATION }
+        cost = 3
+        x = 14
+        y = 8
+        prerequisite = { focus = SOF_COR_cross_mediterranean }
+        mutually_exclusive = { focus = SOF_COR_provence_landing }
+        available = { is_subject = no has_capitulated = no has_war = no }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { sofzh_corsica_riviera_goal = yes navy_experience = 15 
+				sofzh_reward_sof_cor_riviera_landing = yes}
+        ai_will_do = { factor = 40 }
+    }
+
+    focus = {
+        id = SOF_COR_bridgehead
+        icon = GFX_sofzh_f27_sof_cor_bridgehead
+        search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_STABILITY }
+        cost = 3
+        x = 12
+        y = 9
+        prerequisite = { focus = SOF_COR_provence_landing focus = SOF_COR_riviera_landing }
+        
+        available = { is_subject = no has_capitulated = no sofzh_corsica_has_bridgehead = yes }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_stability = 0.05 country_event = { id = sofzh_corsica.5 days = 1 } 
+				sofzh_reward_sof_cor_bridgehead = yes}
+        ai_will_do = { factor = 80 }
+    }
+
+    focus = {
+        id = SOF_COR_civil_administration
+        icon = GFX_sofzh_f27_sof_cor_civil_administration
+        search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
+        cost = 5
+        x = 10
+        y = 10
+        prerequisite = { focus = SOF_COR_bridgehead }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { set_country_flag = sofzh_unification_integrated sofzh_unification_integrate_territories = yes add_political_power = 100 
+				sofzh_reward_sof_cor_civil_administration = yes}
+        ai_will_do = { factor = 70 }
+    }
+
+    focus = {
+        id = SOF_COR_supply_spine
+        icon = GFX_sofzh_f27_sof_cor_supply_spine
+        search_filters = { FOCUS_FILTER_RESEARCH }
+        cost = 5
+        x = 14
+        y = 10
+        prerequisite = { focus = SOF_COR_bridgehead }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_unify_logistics add_tech_bonus = { name = sofzh_corsica_research_bonus bonus = 0.5 uses = 1 category = industry } 
+				sofzh_reward_sof_cor_supply_spine = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_rhone_advance
+        icon = GFX_sofzh_f27_sof_cor_rhone_advance
+        search_filters = { FOCUS_FILTER_ANNEXATION }
+        cost = 3
+        x = 12
+        y = 11
+        prerequisite = { focus = SOF_COR_civil_administration }
+        prerequisite = { focus = SOF_COR_supply_spine }
+        
+        available = { is_subject = no has_capitulated = no  }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { sofzh_unification_grant_border_goals = yes army_experience = 25 
+				sofzh_reward_sof_cor_rhone_advance = yes}
+        ai_will_do = { factor = 70 }
+    }
+
+    focus = {
+        id = SOF_COR_lorraine_arsenals
+        icon = GFX_sofzh_f27_sof_cor_lorraine_arsenals
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 6
+        y = 12
+        prerequisite = { focus = SOF_COR_rhone_advance }
+        
+        available = { is_subject = no has_capitulated = no sofzh_corsica_lorraine_control = yes }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { limit = { OR = { state = 94 state = 98 state = 116 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_ideas = sofzh_cor_continental 
+				sofzh_reward_sof_cor_lorraine_arsenals = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_alsace_granaries
+        icon = GFX_sofzh_f27_sof_cor_alsace_granaries
+        search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+        cost = 5
+        x = 10
+        y = 12
+        prerequisite = { focus = SOF_COR_rhone_advance }
+        
+        available = { is_subject = no has_capitulated = no sofzh_corsica_alsace_control = yes }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_cor_granaries add_stability = 0.05 
+				sofzh_reward_sof_cor_alsace_granaries = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_northern_coal
+        icon = GFX_sofzh_f27_sof_cor_northern_coal
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 14
+        y = 12
+        prerequisite = { focus = SOF_COR_rhone_advance }
+        
+        available = { is_subject = no has_capitulated = no sofzh_corsica_northern_control = yes }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { random_controlled_state = { limit = { OR = { state = 55 state = 61 state = 62 state = 63 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_political_power = 75 
+				sofzh_reward_sof_cor_northern_coal = yes}
+        ai_will_do = { factor = 10 }
+    }
+
+    focus = {
+        id = SOF_COR_paris_mandate
+        icon = GFX_sofzh_f27_sof_cor_paris_mandate
+        search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+        cost = 5
+        x = 12
+        y = 13
+        prerequisite = { focus = SOF_COR_rhone_advance }
+        
+        available = { is_subject = no has_capitulated = no 143 = { is_controlled_by = ROOT } num_of_controlled_states > 20 }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_cor_legitimacy add_political_power = 150 country_event = { id = sofzh_corsica.6 days = 1 } 
+				sofzh_reward_sof_cor_paris_mandate = yes}
+        ai_will_do = { factor = 80 }
+    }
+
+    focus = {
+        id = SOF_COR_national_congress
+        icon = GFX_sofzh_f27_sof_cor_national_congress
+        search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+        cost = 3
+        x = 12
+        y = 14
+        prerequisite = { focus = SOF_COR_paris_mandate }
+        
+        available = { is_subject = no has_capitulated = no 143 = { is_controlled_by = ROOT } num_of_controlled_states > 100 }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_stability = 0.10 add_political_power = 100 
+				sofzh_reward_sof_cor_national_congress = yes}
+        ai_will_do = { factor = 80 }
+    }
+
+    focus = {
+        id = SOF_COR_proclaim_france
+        icon = GFX_sofzh_f27_sof_cor_proclaim_france
+        search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
+        cost = 3
+        x = 12
+        y = 15
+        prerequisite = { focus = SOF_COR_national_congress }
+        
+        available = { is_subject = no has_capitulated = no sofzh_unification_all_france = yes is_subject = no has_war = no }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        bypass = { has_country_flag = sofzh_unification_complete }
+        completion_reward = { sofzh_unification_proclaim_france = yes country_event = { id = sofzh_corsica.7 days = 1 } 
+				sofzh_reward_sof_cor_proclaim_france = yes}
+        ai_will_do = { factor = 100 }
+    }
+
+    focus = {
+        id = SOF_COR_reconstruction
+        icon = GFX_sofzh_f27_sof_cor_reconstruction
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        cost = 5
+        x = 12
+        y = 16
+        prerequisite = { focus = SOF_COR_proclaim_france }
+        
+        available = { is_subject = no has_capitulated = no has_country_flag = sofzh_unification_complete }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        
+        completion_reward = { add_ideas = sofzh_unify_national_market add_ideas = sofzh_cor_reconstruction 
+				sofzh_reward_sof_cor_reconstruction = yes}
+        ai_will_do = { factor = 80 }
+    }
+
+focus = {
+ id = SOF_COR_development_arrondissement icon = GFX_sofzh_f27_sof_generic_arrondissement cost = 5 x = 32 y = 1
+ prerequisite = { focus = SOF_COR_consulta } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_1_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_1 = yes set_country_flag = sofzh_development_arrondissement }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_COR_development_department icon = GFX_sofzh_f27_sof_generic_department cost = 5 x = 32 y = 2
+ prerequisite = { focus = SOF_COR_development_arrondissement } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_4_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_1 = yes set_country_flag = sofzh_development_department }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_COR_development_province icon = GFX_sofzh_f27_sof_generic_province cost = 5 x = 32 y = 3
+ prerequisite = { focus = SOF_COR_development_department } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_7_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_2 = yes set_country_flag = sofzh_development_province }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_COR_development_region icon = GFX_sofzh_f27_sof_generic_region cost = 5 x = 32 y = 4
+ prerequisite = { focus = SOF_COR_development_province } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_13_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_2 = yes set_country_flag = sofzh_development_region }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_COR_development_state icon = GFX_sofzh_f27_sof_generic_state cost = 5 x = 32 y = 5
+ prerequisite = { focus = SOF_COR_development_region } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_26_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_3 = yes set_country_flag = sofzh_development_state }
+ ai_will_do = { factor = 75 }
+}
+focus = {
+ id = SOF_COR_development_nation icon = GFX_sofzh_f27_sof_generic_nation cost = 5 x = 32 y = 6
+ prerequisite = { focus = SOF_COR_development_state } search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ available = { is_subject = no has_capitulated = no sofzh_development_51_states = yes }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { add_political_power = 150 sofzh_specialist_administration_3 = yes set_country_flag = sofzh_development_nation }
+ ai_will_do = { factor = 75 }
+}
+shortcut = { name = SOF_COR_shortcut_development target = SOF_COR_development_arrondissement }
+
+shortcut = { name = sof20_AJC_shortcut_addition0 target = SOF20_AJC_addition0 scroll_wheel_factor = 0.65 }
+shortcut = { name = sof20_AJC_shortcut_addition7 target = SOF20_AJC_addition7 scroll_wheel_factor = 0.65 }
+focus = { id = SOF20_AJC_addition0 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 1 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL }  
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ prerequisite = { focus = SOF_COR_consulta } completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition1 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 2 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_AJC_addition0 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition2 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 3 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_AJC_addition1 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition3 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 4 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_AJC_addition2 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition4 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 5 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_AJC_addition3 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition5 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 6 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_AJC_addition4 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition6 icon = GFX_sofzh_f27_sof_unify_national_congress x = 40 y = 7 cost = 3
+ search_filters = { FOCUS_FILTER_POLITICAL } prerequisite = { focus = SOF20_AJC_addition5 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition7 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 1 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }  
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ prerequisite = { focus = SOF_COR_consulta } completion_reward = { sof20_learn_coast = yes custom_effect_tooltip = sof20_terrain_coast_tt } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition8 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 2 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_AJC_addition7 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition9 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 3 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_AJC_addition8 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition10 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 4 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_AJC_addition9 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition11 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 5 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_AJC_addition10 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { army_experience = 8 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition12 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 6 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_AJC_addition11 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_political_power = 35 } ai_will_do = { factor = 12 } }
+focus = { id = SOF20_AJC_addition13 icon = GFX_sofzh_f27_sof_unify_army_staff x = 44 y = 7 cost = 3
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT } prerequisite = { focus = SOF20_AJC_addition12 } 
+ available = { is_subject = no has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no 
+ completion_reward = { add_stability = 0.02 } ai_will_do = { factor = 12 } }
+}

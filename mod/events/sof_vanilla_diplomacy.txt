@@ -1,0 +1,13 @@
+add_namespace = sof_van_diplomacy
+country_event = {
+ id = sof_van_diplomacy.1 title = sof_van_diplomacy.1.t desc = sof_van_diplomacy.1.d
+ is_triggered_only = yes
+ trigger = { sofzh_unification_candidate = yes has_war = no FROM = { sofzh_unification_candidate = yes has_war = no } NOT = { tag = FROM } }
+ option = { name = sof_van_accept ai_chance = { factor = 40 modifier = { factor = 2 has_government = FROM } }
+  diplomatic_relation = { country = FROM relation = non_aggression_pact active = yes }
+  add_stability = 0.02 FROM = { add_stability = 0.02 }
+  if = { limit = { is_in_faction = no has_government = FROM FROM = { is_faction_leader = yes } } FROM = { add_to_faction = ROOT } }
+ }
+ option = { name = sof_van_decline ai_chance = { factor = 60 } FROM = { country_event = { id = sof_van_diplomacy.2 days = 1 } } }
+}
+country_event = { id = sof_van_diplomacy.2 title = sof_van_diplomacy.2.t desc = sof_van_diplomacy.2.d is_triggered_only = yes option = { name = sof_van_acknowledge } }

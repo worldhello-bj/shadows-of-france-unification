@@ -30,7 +30,9 @@ def validate():
                 loc[key]=value
     check(not duplicates,'Duplicate new localization keys: '+str(duplicates))
     profiles=json.loads((ROOT/'design/country-design.json').read_text(encoding='utf-8'))
-    selected={p['tag']:p for p in profiles};check(len(selected)==20,'20 representative countries')
+    remake=version.startswith('4.')
+    expected_major={r['tag']:r['nodes'] for r in json.loads((ROOT/'design/vanilla-major-remake.json').read_text(encoding='utf-8'))['donors']} if remake else {}
+    selected={p['tag']:p for p in profiles if not remake or p['tag'] in ['PRS','AJC']};check(len(selected)==(2 if remake else 20),'Representative country scope')
     all_ids=set();focus_counts={}
     for p in (MOD/'common/national_focus').glob('*.txt'):
         rows=parse(p.read_text(encoding='utf-8-sig'))
@@ -54,10 +56,10 @@ def validate():
                     for r in entries(prerequisite.value,'focus'):check(r.value in ids,'Prerequisite resolves: '+ident+' -> '+r.value)
                 for mutual in entries(f.value,'mutually_exclusive'):
                     for r in entries(mutual.value,'focus'):check(r.value in ids,'Mutual exclusion resolves: '+ident+' -> '+r.value)
-    check(len(focus_counts)==20,'All 20 trees resolved: '+str(focus_counts))
-    check(sum(focus_counts.values())==1408,'Expected 1408 visible focuses')
+    check(len(focus_counts)==(2 if remake else 20),'All active bespoke trees resolved: '+str(focus_counts))
+    check(sum(focus_counts.values())==(sum(expected_major.values()) if remake else 1408),'Expected active bespoke focus count')
     for tag,profile in selected.items():
-        if tag in focus_counts:check(focus_counts[tag]==profile['quota'],'Country focus quota: '+tag)
+        if tag in focus_counts:check(focus_counts[tag]==(expected_major[tag] if remake else profile['quota']),'Country focus quota: '+tag)
     gfx={}
     for p in (MOD/'interface').rglob('*.gfx'):
         for group in parse(p.read_text(encoding='utf-8-sig')):
@@ -109,6 +111,9 @@ def validate():
     for p in (ROOT/'art/civilwar/source').glob('*.png'):
         im=Image.open(p)
         if p.stem!='background':check(im.mode=='RGBA' and im.getchannel('A').getextrema()==(0,255),'Master transparent: '+p.name)
+    if remake:
+        from validate_vanilla import audit
+        audit(check,loc,gfx)
     report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),
         decisions=decisions,categories=categories,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
     return report
