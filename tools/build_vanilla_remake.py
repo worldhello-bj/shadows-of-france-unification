@@ -6,7 +6,7 @@ import vanilla_local_policy as policy
 import vanilla_naming as naming
 
 ROOT=Path(__file__).resolve().parent.parent;MOD=ROOT/'mod'
-VERSION='4.1.0'
+VERSION='4.2.0'
 BASE_EOL={}
 
 def save(rel,text,bom=False):

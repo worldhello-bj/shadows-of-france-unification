@@ -36,9 +36,11 @@
 
 ## 验证与重建
 
+4.2.0将巴黎185项和科西嘉288项改为473幅独占插画：118幅本轮逐幅生成、47幅已有独立生成稿、308幅按主题筛选的原版插画。每项有独立GFX与96×96透明DDS，来源内容和实际像素均无重复；22组近似轮廓候选逐对核验，主体不同。六份游戏脚本排除图标后的结构与4.1.0一致；其他国家的153项通用树保持原文件。完整图标与布局见[4.2.0预览](previews/4.2.0/INDEX.html)，来源和最终视觉审核见 `design/unique-focus-art.json` 与 `design/unique-focus-art-review.json`。
+
 ```powershell
 python tools/build_vanilla_remake.py --apply --game "D:/steam/steamapps/common/Hearts of Iron IV"
-python tools/validate.py --output docs/reports/4.1.0/validation.json
+python tools/validate.py --output docs/reports/4.2.0/validation.json
 python tools/preview_vanilla_remake.py
 python tools/preview_historical.py
 python tools/package.py

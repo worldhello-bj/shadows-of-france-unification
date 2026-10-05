@@ -61,7 +61,7 @@ def main():
         w=round((maxx-minx)*96+240);h=round((maxy-miny)*130+380)
         im=Image.new('RGB',(w,h),'#1c2328');d=ImageDraw.Draw(im)
         d.text((35,24),name+' · 原版'+donor+'国策树重制',font=font(30),fill='#efdbad')
-        d.text((35,72),f'保留 {len(nodes)} 项 / 开局可见分支 {len(render_ids)} 项 / 原版结构与间距 · 本地重绘图标',font=font(18),fill='#b1c3c8')
+        d.text((35,72),f'保留 {len(nodes)} 项 / 开局可见分支 {len(render_ids)} 项 / 原版结构与间距 · 每项独占图标',font=font(18),fill='#b1c3c8')
         d.text((35,106),'源码布局审阅图；条件偏移按开局状态计算。后续分支随政治路线展开。不是游戏截图。',font=font(16),fill='#95a9b2')
         for fid in render_ids:
             x,y=pos[fid];b=nodes[fid]
@@ -95,7 +95,9 @@ def main():
     metadata=json.loads(read(ROOT/'design/vanilla-major-remake.json'))
     style='body{background:#1c2328;color:#efdbad;font:17px Microsoft YaHei;margin:28px}p{color:#a9bec6;line-height:1.75}a{color:#c8bd91}img{max-width:100%;height:auto}article{margin:30px 0}details{border-top:1px solid #3d4b50;padding:12px 0;max-width:900px}summary{cursor:pointer}small{color:#95a9b2}'
     page=f'<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>巴黎与科西嘉国策重制</title><style>{style}</style><h1>巴黎与科西嘉 · 原版大国树重制</h1><p>版本 {metadata["version"]}。巴黎185项；科西嘉288项，删除26项无法迁移的教皇与内战分支。其他国家继续使用153项通用国策。以下是实际源码坐标与注册DDS图标排版，尚非游戏截图。</p><p><a href="TEXT.html">逐项查看图标、名称与中文描述</a> · <a href="../../../art/focus/review/CONTACT-96.png">查看整套重绘图标</a></p>'
+    if metadata['version']=='4.2.0':page=page.replace('<a href="../../../art/focus/review/CONTACT-96.png">查看整套重绘图标</a>','<a href="ICONS.html">查看全部473项独占图标</a>')
     if metadata['version']=='4.1.0':page+='<p><a href="HISTORICAL.html">40位历史内阁：原版肖像、解锁国策和加成</a></p>'
+    if metadata['version']=='4.2.0':page+='<p><a href="ICONS.html">473项独占图标：按96像素逐项审阅</a> · <a href="../4.1.0/HISTORICAL.html">40位历史内阁：解锁国策和加成</a></p>'
     for tag,name in [('PRS','巴黎：原版法国树'),('AJC','科西嘉：原版意大利树')]:page+=f'<article><h2>{name}</h2><p><a href="{tag}-TREE.png">打开完整分辨率</a></p><img src="{tag}-OVERVIEW.png"><h3>开局局部</h3><img src="{tag}-OPENING.png"></article>'
     textpage=f'<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>两国国策名称与描述</title><style>{style}</style><h1>国策名称与描述 · {metadata["version"]}</h1><p><a href="INDEX.html">返回布局预览</a>。点击标题展开当前游戏源码中的中文描述。数值效果由游戏悬停框显示。</p>'
     for tag,name in [('PRS','巴黎'),('AJC','科西嘉')]:
@@ -103,9 +105,10 @@ def main():
         for node in metadata['nodes']:
             if node['tag']!=tag:continue
             fid=node['id'];title=html.escape(loc[fid]);desc=html.escape(loc[fid+'_desc']).replace('\\n','<br>')
-            art=node.get('art');thumb=f'<img src="../../../art/focus/exports/{art}-96.png" width="48" height="48" style="vertical-align:middle;margin-right:12px" alt="">' if art else ''
+            art=node.get('art');icon_path=(f'../../../art/focus/unique/exports/{art}.png' if node.get('art_source') else f'../../../art/focus/exports/{art}-96.png')
+            thumb=f'<img src="{icon_path}" width="48" height="48" style="vertical-align:middle;margin-right:12px" alt="">' if art else ''
             textpage+=f'<details id="{fid}"><summary>{thumb}{title}</summary><p>{desc}</p></details>'
-    (OUT/'INDEX.html').write_text(page,encoding='utf-8');(OUT/'TEXT.html').write_text(textpage,encoding='utf-8')
-    (OUT/'layout.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+    (OUT/'INDEX.html').write_text(page,encoding='utf-8',newline='\n');(OUT/'TEXT.html').write_text(textpage,encoding='utf-8',newline='\n')
+    (OUT/'layout.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
     print(json.dumps(report,ensure_ascii=False))
 if __name__=='__main__':main()

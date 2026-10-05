@@ -25,7 +25,7 @@ def audit(check,gfx):
     for name in ['paris','corsica']:
         tree=one(parse((MOD/'common/national_focus'/f'sofzh_{name}.txt').read_text(encoding='utf-8')),'focus_tree').value
         for n in entries(tree,'focus'):
-            fid=scalar(n.value,'id');sprite='GFX_sof_focus_'+expected[fid]['art']
+            fid=scalar(n.value,'id');sprite=('GFX_sof_focus_unique_' if expected[fid].get('exclusive') else 'GFX_sof_focus_')+expected[fid]['art']
             check(scalar(n.value,'icon')==sprite and sprite in gfx,'New local art binding: '+fid)
     ideas=entries(one(parse((MOD/'common/ideas/sof_vanilla_major.txt').read_text()),'ideas').value,'country')[0].value
     for n in ideas:
@@ -44,3 +44,6 @@ def audit(check,gfx):
         current=shape(parse((ROOT/relative).read_text(encoding='utf-8-sig')))
         actual=hashlib.sha256(json.dumps(current,ensure_ascii=False).encode('utf-8')).hexdigest()
         check(actual==sha,'Art update preserves text, layout, triggers and effects: '+relative)
+    if (ROOT/'VERSION').read_text().strip()=='4.2.0':
+        from validate_unique_focus_art import audit as unique_audit
+        unique_audit(check,gfx)

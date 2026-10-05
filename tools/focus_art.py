@@ -221,6 +221,12 @@ def apply():
     out={'version':data['version'],'assets':len(keys),'bindings':bindings,'usage':dict(collections.Counter(r['art'] for r in bindings)),'game_engine_verified':False}
     (ROOT/'design/focus-art-bindings.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps({'ok':True,'assets':len(keys),'bindings':len(bindings),'focuses':sum(b['role']=='focus' for b in bindings)}))
+    unique=ROOT/'design/unique-focus-art.json'
+    if unique.exists():
+        data=json.loads(unique.read_text(encoding='utf-8'))
+        if all('source_sha256' in a for a in data['assets']):
+            from unique_focus_art import apply as apply_unique
+            apply_unique()
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--partial',action='store_true');args=parser.parse_args()

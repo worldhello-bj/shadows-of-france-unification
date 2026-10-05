@@ -117,7 +117,7 @@ def validate():
     if version.startswith('4.'):
         from validate_focus_art import audit as audit_focus_art
         audit_focus_art(check,gfx)
-    if version=='4.1.0':
+    if version in ['4.1.0','4.2.0']:
         from validate_historical import audit as audit_historical
         audit_historical(check,gfx)
     report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),
@@ -127,7 +127,7 @@ def validate():
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path);args=parser.parse_args();report=validate()
     if args.output:
-        args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps(report,ensure_ascii=False));raise SystemExit(0 if report['ok'] else 1)
 
 if __name__=='__main__':main()
