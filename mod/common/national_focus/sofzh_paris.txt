@@ -6,7 +6,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_devalue_the_franc days = 365 } }
+ completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_devalue_the_franc days = 365 } custom_effect_tooltip = sof_hist_fra_vincent_auriol_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -54,7 +54,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } custom_effect_tooltip = sof_hist_fra_louis_renault_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -150,7 +150,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } }
+ completion_reward = { if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 } custom_effect_tooltip = sof_hist_fra_irene_joliot_curie_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -196,7 +196,7 @@ focus = {
  prerequisite = { focus = SFP_begin_rearmament }
  relative_position_id = SFP_begin_rearmament
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_command_power = 30 }
+ completion_reward = { add_command_power = 30 custom_effect_tooltip = sof_hist_fra_maxime_weygand_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -343,7 +343,7 @@ focus = {
  relative_position_id = SFP_begin_rearmament
  prerequisite = { focus = SFP_begin_rearmament }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { army_experience = 25.0 }
+ completion_reward = { army_experience = 25.0 custom_effect_tooltip = sof_hist_fra_maurice_gamelin_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -459,7 +459,7 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  allow_branch = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_revive_the_national_bloc } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_politics = { ruling_party = democratic elections_allowed = yes } add_popularity = { ideology = democratic popularity = 0.10 } add_stability = 0.05 }
+ completion_reward = { set_politics = { ruling_party = democratic elections_allowed = yes } add_popularity = { ideology = democratic popularity = 0.10 } add_stability = 0.05 custom_effect_tooltip = sof_hist_fra_leon_blum_unlock_tt sof_hist_complete_fra_form_the_popular_front = yes }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -593,7 +593,7 @@ focus = {
  relative_position_id = SFP_reconciliation
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_anti_fascist_coalition = yes }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -709,7 +709,7 @@ focus = {
  relative_position_id = SFP_revolution_to_the_utmost
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_loyalty_to_the_cause = yes }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -977,7 +977,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_WAR_SUPPORT }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = sof_hist_fra_rene_massigli_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1080,7 +1080,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_STABILITY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
+ completion_reward = { if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = sof_hist_fra_georges_bonnet_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1387,7 +1387,7 @@ focus = {
  cost = 5
  search_filters = { FOCUS_FILTER_STABILITY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { add_political_power = 50 }
+ completion_reward = { add_political_power = 50 custom_effect_tooltip = sof_hist_fra_charles_maurras_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1746,7 +1746,7 @@ focus = {
  relative_position_id = SFP_repeal_the_law_of_exile
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_politics = { ruling_party = neutrality } }
+ completion_reward = { set_politics = { ruling_party = neutrality } custom_effect_tooltip = sof_hist_fra_charles_maurras_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1962,7 +1962,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { navy_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
+ completion_reward = { navy_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } custom_effect_tooltip = sof_hist_fra_francois_darlan_unlock_tt }
  ai_will_do = { factor = 1 }
 }
 focus = {

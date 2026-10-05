@@ -1,0 +1,611 @@
+{
+  "version": "4.0.2",
+  "source_commit": "338cb188793d5c0dc51fe46b4894722464312163",
+  "assessment": "incomplete",
+  "game_engine_verified": false,
+  "scope": "Source and installed-file comparison. No focus completion or gameplay execution.",
+  "source_matches_installed": {
+    "common/national_focus/sofzh_paris.txt": true,
+    "common/national_focus/sofzh_corsica.txt": true,
+    "common/ideas/sof_vanilla_major.txt": true,
+    "common/dynamic_modifiers/sof_vanilla_major.txt": true,
+    "common/scripted_effects/sof_vanilla_major.txt": true,
+    "common/scripted_triggers/sofzh_cabinet.txt": true,
+    "common/characters/PRS.txt": true
+  },
+  "cabinet": {
+    "retained_nodes_with_direct_personnel_operations": 12,
+    "direct_personnel_nodes": [
+      {
+        "id": "SFP_form_the_popular_front",
+        "donor": "FRA_form_the_popular_front",
+        "title": "成立人民阵线",
+        "original_operations": {
+          "add_country_leader_role": 1
+        },
+        "current_rewards": [
+          "set_politics = { ruling_party = democratic elections_allowed = yes }",
+          "add_popularity = { ideology = democratic popularity = 0.10 }",
+          "add_stability = 0.05"
+        ]
+      },
+      {
+        "id": "SFP_anti_fascist_coalition",
+        "donor": "FRA_anti_fascist_coalition",
+        "title": "反法西斯联盟",
+        "original_operations": {
+          "promote_character": 1,
+          "add_trait": 1
+        },
+        "current_rewards": [
+          "set_rule = { can_create_factions = yes }"
+        ]
+      },
+      {
+        "id": "SFP_loyalty_to_the_cause",
+        "donor": "FRA_loyalty_to_the_cause",
+        "title": "忠于事业",
+        "original_operations": {
+          "promote_character": 1,
+          "add_trait": 1
+        },
+        "current_rewards": [
+          "set_rule = { can_create_factions = yes }"
+        ]
+      },
+      {
+        "id": "SFC_depose_mussolini",
+        "donor": "ITA_depose_mussolini",
+        "title": "罢免岛内领袖",
+        "original_operations": {
+          "promote_character": 1
+        },
+        "current_rewards": [
+          "add_political_power = 50",
+          "add_ideas = sof_van_cor_ita_shadow_of_mussolini"
+        ]
+      },
+      {
+        "id": "SFC_italo_balbo_focus",
+        "donor": "ITA_italo_balbo_focus",
+        "title": "军官内阁",
+        "original_operations": {
+          "add_country_leader_role": 1,
+          "set_character_flag": 1
+        },
+        "current_rewards": [
+          "add_political_power = 75",
+          "add_war_support = 0.1",
+          "add_stability = 0.05"
+        ]
+      },
+      {
+        "id": "SFC_dino_grandi_focus",
+        "donor": "ITA_dino_grandi_focus",
+        "title": "文官内阁",
+        "original_operations": {
+          "add_country_leader_role": 2,
+          "set_character_flag": 1
+        },
+        "current_rewards": [
+          "if = { limit = { has_dlc = \"La Resistance\" } }",
+          "add_political_power = 75",
+          "add_war_support = 0.05",
+          "add_stability = 0.1"
+        ]
+      },
+      {
+        "id": "SFC_christian_democracy",
+        "donor": "ITA_christian_democracy",
+        "title": "基督教民主",
+        "original_operations": {
+          "promote_character": 1
+        },
+        "current_rewards": [
+          "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
+          "add_political_power = 50",
+          "add_popularity = { ideology = democratic popularity = 0.1 }",
+          "set_politics = { ruling_party = democratic elections_allowed = no }"
+        ]
+      },
+      {
+        "id": "SFC_democratic_king",
+        "donor": "ITA_democratic_king",
+        "title": "立宪的波拿巴",
+        "original_operations": {
+          "add_country_leader_role": 1
+        },
+        "current_rewards": [
+          "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
+          "add_political_power = 50",
+          "add_popularity = { ideology = democratic popularity = 0.1 }",
+          "set_politics = { ruling_party = democratic elections_allowed = no }"
+        ]
+      },
+      {
+        "id": "SFC_liberate_gramsci",
+        "donor": "ITA_liberate_gramsci",
+        "title": "释放工人代表",
+        "original_operations": {
+          "add_country_leader_role": 1
+        },
+        "current_rewards": [
+          "add_popularity = { ideology = communism popularity = 0.1 }",
+          "add_political_power = 50"
+        ]
+      },
+      {
+        "id": "SFC_the_italian_republic",
+        "donor": "ITA_the_italian_republic",
+        "title": "科西嘉共和国",
+        "original_operations": {
+          "retire_character": 1,
+          "remove_country_leader_role": 1
+        },
+        "current_rewards": [
+          "add_stability = 0.1",
+          "add_political_power = 50",
+          "add_ideas = sof_van_cor_ita_disgruntled_military",
+          "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 5 }"
+        ]
+      },
+      {
+        "id": "SFC_the_popular_front",
+        "donor": "ITA_the_popular_front",
+        "title": "人民阵线",
+        "original_operations": {
+          "remove_country_leader_role": 1
+        },
+        "current_rewards": [
+          "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
+          "add_political_power = 50",
+          "add_popularity = { ideology = communism popularity = 0.15 }",
+          "if = { limit = { NOT = { has_government = communism } } set_politics = { ruling_party = communism } }"
+        ]
+      },
+      {
+        "id": "SFC_italian_socialism",
+        "donor": "ITA_italian_socialism",
+        "title": "科西嘉社会共和道路",
+        "original_operations": {
+          "remove_country_leader_role": 1
+        },
+        "current_rewards": [
+          "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
+          "add_political_power = 50",
+          "add_popularity = { ideology = democratic popularity = 0.15 }",
+          "if = { limit = { NOT = { has_government = democratic } } set_politics = { ruling_party = democratic } }"
+        ]
+      }
+    ],
+    "retained_nodes_with_explicit_advisor_notices": 24,
+    "advisor_notice_nodes": [
+      {
+        "id": "SFP_defensive_focus",
+        "donor": "FRA_defensive_focus",
+        "title": "重视防御",
+        "original_notices": [
+          "available_chief_of_army"
+        ],
+        "original_advisors": [
+          "maxime_weygand"
+        ]
+      },
+      {
+        "id": "SFP_aggressive_focus",
+        "donor": "FRA_aggressive_focus",
+        "title": "重视进攻",
+        "original_notices": [
+          "available_chief_of_army"
+        ],
+        "original_advisors": [
+          "maurice_gamelin"
+        ]
+      },
+      {
+        "id": "SFP_confirm_eastern_commitments",
+        "donor": "FRA_confirm_eastern_commitments",
+        "title": "重申东方承诺",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "rene_massigli"
+        ]
+      },
+      {
+        "id": "SFP_buy_time",
+        "donor": "FRA_buy_time",
+        "title": "争取时间",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "georges_bonnet"
+        ]
+      },
+      {
+        "id": "SFP_integralism",
+        "donor": "FRA_integralism",
+        "title": "整合主义",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "charles_maurras"
+        ]
+      },
+      {
+        "id": "SFP_orleanist_restoration",
+        "donor": "FRA_orleanist_restoration",
+        "title": "奥尔良派复辟",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "charles_maurras"
+        ]
+      },
+      {
+        "id": "SFC_a_bandits_war",
+        "donor": "ITA_a_bandits_war",
+        "title": "山地袭扰战",
+        "original_notices": [
+          "available_chief_of_army"
+        ],
+        "original_advisors": [
+          "ITA_alberto_pariani"
+        ]
+      },
+      {
+        "id": "SFC_army_leaders",
+        "donor": "ITA_army_leaders",
+        "title": "陆军军官",
+        "original_notices": [
+          "available_military_high_command"
+        ],
+        "original_advisors": [
+          "ITA_achille_starace"
+        ]
+      },
+      {
+        "id": "SFC_convene_the_grand_council",
+        "donor": "ITA_convene_the_grand_council",
+        "title": "召集岛内委员会",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_pietro_d_acquarone"
+        ]
+      },
+      {
+        "id": "SFC_legge_bottai",
+        "donor": "ITA_legge_bottai",
+        "title": "岛内教育改革",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_giuseppe_bottai"
+        ]
+      },
+      {
+        "id": "SFC_believe_obey_fight",
+        "donor": "ITA_believe_obey_fight",
+        "title": "相信、服从、战斗",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_dino_grandi"
+        ]
+      },
+      {
+        "id": "SFC_security_militias",
+        "donor": "ITA_security_militias",
+        "title": "治安民兵",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_renato_ricci"
+        ]
+      },
+      {
+        "id": "SFC_meritocracy",
+        "donor": "ITA_meritocracy",
+        "title": "任人唯贤",
+        "original_notices": [
+          "available_political_advisor",
+          "available_chief_of_army"
+        ],
+        "original_advisors": [
+          "ITA_vittorio_emanuele_orlando",
+          "ITA_giovanni_duca"
+        ]
+      },
+      {
+        "id": "SFC_monarchia_d_italia",
+        "donor": "ITA_monarchia_d_italia",
+        "title": "科西嘉君主政体",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_vittorio_emanuele_orlando"
+        ]
+      },
+      {
+        "id": "SFC_revoke_the_acerbo_law",
+        "donor": "ITA_revoke_the_acerbo_law",
+        "title": "废除特权选举法",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_alcide_de_gasperi",
+          "ITA_luigi_einaudi"
+        ]
+      },
+      {
+        "id": "SFC_christian_democracy",
+        "donor": "ITA_christian_democracy",
+        "title": "基督教民主",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_mario_scelba"
+        ]
+      },
+      {
+        "id": "SFC_cooperate_with_moderates",
+        "donor": "ITA_cooperate_with_moderates",
+        "title": "与温和派合作",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_guido_de_ruggiero",
+          "ITA_alberto_de_stefani",
+          "ITA_curzio_malaparte"
+        ]
+      },
+      {
+        "id": "SFC_power_to_the_king",
+        "donor": "ITA_power_to_the_king",
+        "title": "波拿巴委任",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_alberto_de_stefani"
+        ]
+      },
+      {
+        "id": "SFC_disband_the_blackshirts",
+        "donor": "ITA_disband_the_blackshirts",
+        "title": "解散岛内卫队",
+        "original_notices": [
+          "available_political_advisor",
+          "remove_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_alcide_de_gasperi",
+          "ITA_renato_ricci",
+          "ITA_achille_starace",
+          "ITA_adelchi_serena"
+        ]
+      },
+      {
+        "id": "SFC_foreign_affairs",
+        "donor": "ITA_foreign_affairs",
+        "title": "外交事务",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_gian_galeazzo_ciano"
+        ]
+      },
+      {
+        "id": "SFC_pact_of_steel",
+        "donor": "ITA_pact_of_steel",
+        "title": "东方军事协约",
+        "original_notices": [
+          "remove_political_advisor"
+        ],
+        "original_advisors": [
+          "ITA_guido_jung"
+        ]
+      },
+      {
+        "id": "SFC_unite_the_opposition",
+        "donor": "ITA_unite_the_opposition",
+        "title": "团结反对派",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "amadeo_bordiga",
+          "ivanoe_bonomi"
+        ]
+      },
+      {
+        "id": "SFC_defy_the_duce",
+        "donor": "ITA_defy_the_duce",
+        "title": "拒绝独裁",
+        "original_notices": [
+          "available_political_advisor"
+        ],
+        "original_advisors": [
+          "amadeo_bordiga",
+          "ivanoe_bonomi"
+        ]
+      },
+      {
+        "id": "SFC_common_ground",
+        "donor": "ITA_common_ground",
+        "title": "立足共识",
+        "original_notices": [
+          "available_political_advisor",
+          "available_chief_of_army",
+          "available_political_advisor",
+          "available_military_high_command"
+        ],
+        "original_advisors": [
+          "ITA_guido_de_ruggiero",
+          "ITA_alberto_tarchiani",
+          "ITA_luigi_einaudi",
+          "ITA_giovanni_duca",
+          "ITA_luigi_einaudi",
+          "ITA_alcide_de_gasperi",
+          "ITA_mario_scelba",
+          "ITA_vittorio_emanuele_orlando",
+          "ITA_antonio_pesenti",
+          "ITA_fausto_gullo",
+          "ITA_luigi_longo",
+          "ITA_randolfo_pacciardi"
+        ]
+      }
+    ],
+    "runtime_personnel_operations": [],
+    "runtime_custom_cabinet_bindings": []
+  },
+  "spirits": {
+    "definitions": 103,
+    "static_payloads_matching_donor": 103,
+    "static_payload_mismatches": [],
+    "empty_static_payloads": [
+      {
+        "id": "sof_van_prs_fra_political_violence",
+        "original_empty": true,
+        "awarded_by": []
+      },
+      {
+        "id": "sof_van_cor_ita_the_eastern_threat_ns",
+        "original_empty": true,
+        "awarded_by": [
+          "SFC_the_eastern_threat",
+          "SFC_the_enemies_of_capitalism"
+        ]
+      },
+      {
+        "id": "sof_van_cor_ita_the_fight_against_stalinism",
+        "original_empty": true,
+        "awarded_by": [
+          "SFC_the_fight_against_stalinism"
+        ]
+      }
+    ],
+    "omitted_behavior_fields": [
+      {
+        "idea": "sof_van_cor_ita_the_eastern_threat_ns",
+        "field": "targeted_modifier",
+        "original": "targeted_modifier = { tag = SOV attack_bonus_against = 0.1 }",
+        "awarded_by": [
+          "SFC_the_eastern_threat",
+          "SFC_the_enemies_of_capitalism"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_cooperation_of_the_bourgeoisie",
+        "field": "cancel",
+        "original": "cancel = { has_civil_war = no }",
+        "awarded_by": [
+          "SFC_appeal_to_the_bourgeoisie"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_seizing_old_equipment",
+        "field": "cancel",
+        "original": "cancel = { has_civil_war = no }",
+        "awarded_by": [
+          "SFC_seize_old_equipment"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_the_garibaldi_legion_ns",
+        "field": "cancel",
+        "original": "cancel = { has_global_flag = scw_over }",
+        "awarded_by": [
+          "SFC_the_garibaldi_legion"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_the_fight_against_stalinism",
+        "field": "targeted_modifier",
+        "original": "targeted_modifier = { tag = SOU attack_bonus_against = 0.05 defense_bonus_against = 0.15 }",
+        "awarded_by": [
+          "SFC_the_fight_against_stalinism"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_aiding_the_spanish_republic",
+        "field": "cancel",
+        "original": "cancel = { has_global_flag = scw_over }",
+        "awarded_by": [
+          "SFC_aid_for_the_spanish_republic"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_scientific_cooperation_ns",
+        "field": "do_effect",
+        "original": "do_effect = { OR = { AND = { original_tag = ITA any_other_country = { is_in_faction_with = ITA } } AND = { NOT = { original_tag = ITA } is_in_faction_with = ITA } } }",
+        "awarded_by": [
+          "SFC_scientific_cooperation"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_italian_confederation_leader",
+        "field": "cancel",
+        "original": "cancel = { num_subjects < 1 }",
+        "awarded_by": [
+          "SFC_the_italian_confederation"
+        ]
+      },
+      {
+        "idea": "sof_van_cor_ita_italian_confederation_leader_improved",
+        "field": "cancel",
+        "original": "cancel = { num_subjects < 1 }",
+        "awarded_by": [
+          "SFC_planned_economy",
+          "SFC_planned_economy"
+        ]
+      }
+    ]
+  },
+  "dynamic_modifiers": [
+    {
+      "id": "SFC_regio_esercito_dynamic_modifier",
+      "variable_modifier_fields": 45,
+      "payload_matches": true
+    },
+    {
+      "id": "SFC_regia_marina_dynamic_modifier",
+      "variable_modifier_fields": 24,
+      "payload_matches": true
+    },
+    {
+      "id": "SFC_regia_aeronautica_dynamic_modifier",
+      "variable_modifier_fields": 21,
+      "payload_matches": true
+    },
+    {
+      "id": "SFC_ricostruzione_industriale_dynamic_modifier",
+      "variable_modifier_fields": 12,
+      "payload_matches": true
+    },
+    {
+      "id": "SFC_military_industry_dynamic_modifier",
+      "variable_modifier_fields": 10,
+      "payload_matches": true
+    }
+  ],
+  "dynamic_variables": {
+    "declared": 112,
+    "initialized": 112,
+    "missing_initialization": []
+  }
+}

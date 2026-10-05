@@ -22,7 +22,10 @@ def write(b):
         removal=' '.join('remove_ideas = '+k for k in oldids+LEGACY_INITIAL)
         cleanup.append('if = { limit = { original_tag = '+tag+' NOT = { has_country_flag = sof_van_generic_migrated } OR = { has_country_flag = sof_van_regional_bookmark has_focus_tree = sof20_'+tag+' } } '+removal+' if = { limit = { has_focus_tree = sof20_'+tag+' } load_focus_tree = { tree = sof_generic keep_completed = yes } } set_country_flag = sof_van_generic_migrated }')
     remove=lambda rel:' '.join('remove_ideas = '+r.key for r in one(one(parse(baseline(rel)),'ideas').value,'country').value)
-    paris=[b.import_idea(k,'france') for k in ['FRA_disjointed_government','FRA_victors_of_wwi','FRA_full_employment','FRA_inefficient_economy_1','FRA_political_violence']]
+    # Keep the old marker definition for saved-game cleanup, but new games no
+    # longer receive the empty marker whose donor-only event chain was removed.
+    b.import_idea('FRA_political_violence','france')
+    paris=[b.import_idea(k,'france') for k in ['FRA_disjointed_government','FRA_victors_of_wwi','FRA_full_employment','FRA_inefficient_economy_1']]
     assert all(paris),paris
     history=parse((b.game/'history/countries/ITA - Italy.txt').read_text(encoding='utf-8-sig'))
     initial={}

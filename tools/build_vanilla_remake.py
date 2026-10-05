@@ -6,7 +6,7 @@ import vanilla_local_policy as policy
 import vanilla_naming as naming
 
 ROOT=Path(__file__).resolve().parent.parent;MOD=ROOT/'mod'
-VERSION='4.0.2'
+VERSION='4.1.0'
 BASE_EOL={}
 
 def save(rel,text,bom=False):
@@ -60,7 +60,7 @@ class Builder:
                     for row in country.value:self.native_ideas[row.key]=row.value
         for p in (game/'common/dynamic_modifiers').glob('*.txt'):
             for r in parse(read(p)):self.native_dm[r.key]=r.value
-        for p in (game/'interface').rglob('*.gfx'):
+        for p in list((game/'interface').rglob('*.gfx'))+sorted((game/'dlc').glob('*/interface/*.gfx')):
             try:rows=parse(read(p))
             except (AssertionError,UnicodeError):continue
             for group in entries(rows,'spriteTypes'):
@@ -90,6 +90,9 @@ class Builder:
         if gfx not in self.native_gfx:raise AssertionError('Missing original sprite '+gfx)
         data=self.native_gfx[gfx];tex=scalar(data,'texturefile','').strip('"');src=self.game/tex
         if not src.is_file():src=MOD/tex
+        if not src.is_file():
+            candidates=sorted((self.game/'dlc').glob('*/'+tex));assert candidates,(gfx,tex)
+            src=candidates[-1]
         assert src.is_file(),(gfx,tex)
         key='GFX_sof_van_'+gfx.removeprefix('GFX_');dest='gfx/interface/sof_vanilla/'+Path(tex).name
         if (MOD/dest).exists() and (MOD/dest).read_bytes()!=src.read_bytes():dest='gfx/interface/sof_vanilla/'+gfx.removeprefix('GFX_')+src.suffix
@@ -299,7 +302,7 @@ class Builder:
                 allow.append(code)
             borrowed=self.harvest(one(b,'completion_reward').value,donor)
             adapted=policy.actions(self,old,donor,borrowed)
-            actions=self.special(old,donor)+adapted
+            actions=self.special(old,donor)+adapted+self.historical.actions(old)
             for gone in removed:actions=[a.replace('has_completed_focus = '+mapping[gone],'always = no') for a in actions]
             actions=list(dict.fromkeys(actions))
             if adapted!=borrowed:self.adaptations.append(old)
@@ -313,7 +316,7 @@ class Builder:
                 elif any(v in old for v in ['air','fighter','bomber','aviation','aereo']):story=f'{title}是建立本地航空力量的一环。统一设计、训练与后勤，使航空兵能够配合地面和海上行动。'
                 elif any(v in old for v in ['naval','navy','marina','carrier','ship','submarine','flott','torpedo']):story=f'{title}将为'+('法国海军重建' if donor=='france' else '科西嘉跨海行动')+'准备基础。有限的船厂和人员应当围绕明确的任务安排。'
                 else:story=f'{title}关系到'+('巴黎' if donor=='france' else '科西嘉')+'政府下一步的方向。把这一主张落实为政策，为后续建设、治理与地区合作创造条件。'
-            self.loc[new+'_desc']=story+'\\n\\n'+self.description(actions,donor)
+            self.loc[new+'_desc']=story+'\\n\\n'+self.description(actions,donor)+self.historical.description(old)
             self.records.append(dict(tag=tag,donor=old,id=new,title=title,actions=actions,empty=not actions,original_reward=emit(one(b,'completion_reward').value),original_title=self.native_loc.get(old),original_description=self.native_loc.get(old+'_desc')))
         selector='original_tag = PRS' if tag=='PRS' else 'OR = { original_tag = AJC original_tag = BST original_tag = CLV original_tag = COR original_tag = SRT }'
         ident='sofzh_paris' if tag=='PRS' else 'sofzh_corsica';start='SFP_devalue_the_franc' if tag=='PRS' else 'SFC_ethiopian_war_logistics_bba'
@@ -381,10 +384,11 @@ def disable_generated_trees():
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--game',type=Path,default=Path('D:/steam/steamapps/common/Hearts of Iron IV'));parser.add_argument('--apply',action='store_true');args=parser.parse_args()
     if not args.apply:parser.error('--apply required; use a working branch')
-    b=Builder(args.game);b.import_dynamics();reports=[b.tree('france','PRS'),b.tree('italy','AJC')]
+    from vanilla_historical import Historical
+    b=Builder(args.game);b.import_dynamics();b.historical=Historical(b);reports=[b.tree('france','PRS'),b.tree('italy','AJC')]
     disable_generated_trees()
     import vanilla_startup,vanilla_diplomacy
-    startup=vanilla_startup.write(b);vanilla_diplomacy.write(b)
+    startup=vanilla_startup.write(b);vanilla_diplomacy.write(b);b.historical.write()
     b.output(reports)
     save('design/vanilla-startup.json',json.dumps(startup,ensure_ascii=False,indent=2))
     save('VERSION',VERSION);save('mod/descriptor.mod',baseline('mod/descriptor.mod').replace('version="3.2.0"',f'version="{VERSION}"'))

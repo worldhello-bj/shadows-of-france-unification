@@ -38,7 +38,9 @@ def audit(check,gfx):
             icon=scalar(n.value,'icon');sprite='GFX_decision_'+('category_' if category else '')+icon
             check(icon=='sof_focus_'+expected[n.key]['art'] and sprite in gfx,'New local policy art: '+n.key)
     baseline=json.loads((ROOT/'design/focus-art-behavior-baseline.json').read_text(encoding='utf-8'))
-    for relative,sha in baseline['semantic_sha256'].items():
+    # This baseline proves the art-only 4.0.2 release. 4.1.0 deliberately
+    # changes rewards and is checked by its cabinet/lifecycle scenarios.
+    for relative,sha in (baseline['semantic_sha256'].items() if (ROOT/'VERSION').read_text().strip()=='4.0.2' else []):
         current=shape(parse((ROOT/relative).read_text(encoding='utf-8-sig')))
         actual=hashlib.sha256(json.dumps(current,ensure_ascii=False).encode('utf-8')).hexdigest()
         check(actual==sha,'Art update preserves text, layout, triggers and effects: '+relative)

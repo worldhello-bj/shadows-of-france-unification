@@ -218,7 +218,7 @@ def apply():
     path=MOD/'common/decisions/categories/sof_vanilla_major.txt';text=path.read_text(encoding='utf-8');icon=one(one(parse(text),'sof_van_native_policies').value,'icon');path.write_text(replace(text,[(icon.start,icon.end,'icon = sof_focus_diplomacy')]),encoding='utf-8',newline='\n')
     bindings.append(dict(id='sof_van_native_policies',art='diplomacy',role='category'))
     data['art_style']='Generated local metal emblems';(ROOT/'design/vanilla-major-remake.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
-    out={'version':spec['version'],'assets':len(keys),'bindings':bindings,'usage':dict(collections.Counter(r['art'] for r in bindings)),'game_engine_verified':False}
+    out={'version':data['version'],'assets':len(keys),'bindings':bindings,'usage':dict(collections.Counter(r['art'] for r in bindings)),'game_engine_verified':False}
     (ROOT/'design/focus-art-bindings.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     print(json.dumps({'ok':True,'assets':len(keys),'bindings':len(bindings),'focuses':sum(b['role']=='focus' for b in bindings)}))
 

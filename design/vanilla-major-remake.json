@@ -1,5 +1,5 @@
 {
-  "version": "4.0.2",
+  "version": "4.1.0",
   "donors": [
     {
       "tag": "PRS",
@@ -557,7 +557,8 @@
       "id": "SFP_devalue_the_franc",
       "title": "统一首都货币",
       "actions": [
-        "add_timed_idea = { idea = sof_van_prs_fra_devalue_the_franc days = 365 }"
+        "add_timed_idea = { idea = sof_van_prs_fra_devalue_the_franc days = 365 }",
+        "custom_effect_tooltip = sof_hist_fra_vincent_auriol_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_timed_idea = { idea = FRA_devalue_the_franc days = 365 }",
@@ -613,7 +614,8 @@
       "id": "SFP_industrial_expansion",
       "title": "工业扩张",
       "actions": [
-        "if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 }"
+        "if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 }",
+        "custom_effect_tooltip = sof_hist_fra_louis_renault_unlock_tt"
       ],
       "empty": false,
       "original_reward": "custom_effect_tooltip = FRA_industrial_expansion_effect_tt every_owned_state = { limit = { is_controlled_by = ROOT has_state_flag = FRA_industrial_expansion_target } add_building_construction = { type = industrial_complex level = 2 instant_build = yes } }",
@@ -726,7 +728,8 @@
       "id": "SFP_extra_research_slot",
       "title": "支持大学校",
       "actions": [
-        "if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 }"
+        "if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 }",
+        "custom_effect_tooltip = sof_hist_fra_irene_joliot_curie_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_research_slot = 1",
@@ -786,7 +789,8 @@
       "id": "SFP_defensive_focus",
       "title": "重视防御",
       "actions": [
-        "add_command_power = 30"
+        "add_command_power = 30",
+        "custom_effect_tooltip = sof_hist_fra_maxime_weygand_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_command_power = 30 custom_effect_tooltip = available_chief_of_army show_ideas_tooltip = maxime_weygand",
@@ -976,7 +980,8 @@
       "id": "SFP_aggressive_focus",
       "title": "重视进攻",
       "actions": [
-        "army_experience = 25.0"
+        "army_experience = 25.0",
+        "custom_effect_tooltip = sof_hist_fra_maurice_gamelin_unlock_tt"
       ],
       "empty": false,
       "original_reward": "army_experience = 25 custom_effect_tooltip = available_chief_of_army show_ideas_tooltip = maurice_gamelin",
@@ -1125,7 +1130,9 @@
       "actions": [
         "set_politics = { ruling_party = democratic elections_allowed = yes }",
         "add_popularity = { ideology = democratic popularity = 0.10 }",
-        "add_stability = 0.05"
+        "add_stability = 0.05",
+        "custom_effect_tooltip = sof_hist_fra_leon_blum_unlock_tt",
+        "sof_hist_complete_fra_form_the_popular_front = yes"
       ],
       "empty": false,
       "original_reward": "add_country_leader_role = { character = FRA_leon_blum country_leader = { expire = \"1965.1.1\" ideology = socialism traits = { reluctant_interventionist stout_defender } } promote_leader = yes } set_country_flag = { flag = FRA_popular_front_cooldown value = 1 days = 360 } hidden_effect = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } mark_focus_tree_layout_dirty = yes } }",
@@ -1286,7 +1293,9 @@
       "id": "SFP_anti_fascist_coalition",
       "title": "反法西斯联盟",
       "actions": [
-        "set_rule = { can_create_factions = yes }"
+        "set_rule = { can_create_factions = yes }",
+        "custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt",
+        "sof_hist_complete_fra_anti_fascist_coalition = yes"
       ],
       "empty": false,
       "original_reward": "promote_character = FRA_rene_nicod add_trait = { character = FRA_rene_nicod ideology = marxism trait = reluctant_veteran } set_party_name = { ideology = communism long_name = FRA_union_populaire_long name = FRA_union_populaire } if = { limit = { NOT = { any_neighbor_country = { is_faction_leader = yes OR = { has_government = democratic has_government = communism } } } } set_rule = { can_create_factions = yes } create_faction = FRA_anti_fascist_coalition every_neighbor_country = { limit = { is_in_faction = no OR = { has_government = communism has_government = democratic } } country_event = generic.5 } } else_if = { limit = { any_neighbor_country = { is_faction_leader = yes has_government = communism } } random_neighbor_country = { limit = { is_faction_leader = yes has_government = communism } country_event = generic.2 } } else_if = { limit = { any_neighbor_country = { is_faction_leader = yes has_government = democratic } } random_neighbor_country = { limit = { is_faction_leader = yes has_government = democratic } country_event = generic.2 } }",
@@ -1429,7 +1438,9 @@
       "id": "SFP_loyalty_to_the_cause",
       "title": "忠于事业",
       "actions": [
-        "set_rule = { can_create_factions = yes }"
+        "set_rule = { can_create_factions = yes }",
+        "custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt",
+        "sof_hist_complete_fra_loyalty_to_the_cause = yes"
       ],
       "empty": false,
       "original_reward": "promote_character = FRA_rene_nicod add_trait = { character = FRA_rene_nicod ideology = marxism trait = proletariat_internationalist } set_party_name = { ideology = communism long_name = FRA_union_populaire_long name = FRA_union_populaire } custom_effect_tooltip = generic_skip_one_line_tt set_rule = { can_create_factions = yes } create_faction_from_template = { template = faction_template_POR_popular_front_bloc name = FRA_communist_faction icon = GFX_faction_logo_generic_14 } custom_effect_tooltip = generic_skip_one_line_tt create_operative_leader = { name = \"Jacques Duclos\" GFX = GFX_portrait_jacques_duclos traits = { operative_infiltrator operative_natural_orator } bypass_recruitment = no available_to_spy_master = yes nationalities = { FRA } }",
@@ -1754,7 +1765,8 @@
       "id": "SFP_confirm_eastern_commitments",
       "title": "重申东方承诺",
       "actions": [
-        "if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 }"
+        "if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 }",
+        "custom_effect_tooltip = sof_hist_fra_rene_massigli_unlock_tt"
       ],
       "empty": false,
       "original_reward": "every_other_country = { limit = { OR = { original_tag = YUG original_tag = CZE original_tag = ROM original_tag = POL } exists = yes not = { has_war_with = ROOT } } add_opinion_modifier = { target = ROOT modifier = FRA_confirm_eastern_commitments } } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = rene_massigli",
@@ -1881,7 +1893,8 @@
       "id": "SFP_buy_time",
       "title": "争取时间",
       "actions": [
-        "if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 }"
+        "if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 }",
+        "custom_effect_tooltip = sof_hist_fra_georges_bonnet_unlock_tt"
       ],
       "empty": false,
       "original_reward": "custom_effect_tooltip = available_political_advisor show_ideas_tooltip = georges_bonnet if = { limit = { YUG = { is_guaranteed_by = ROOT } } ROOT = { diplomatic_relation = { country = YUG relation = guarantee active = no } add_ai_strategy = { type = ignore id = \"YUG\" value = 100 } } YUG = { add_opinion_modifier = { target = ROOT modifier = western_betrayal } } } if = { limit = { CZE = { is_guaranteed_by = ROOT } } ROOT = { diplomatic_relation = { country = CZE relation = guarantee active = no } add_ai_strategy = { type = ignore id = \"CZE\" value = 100 } } CZE = { add_opinion_modifier = { target = ROOT modifier = western_betrayal } } }",
@@ -2244,7 +2257,8 @@
       "id": "SFP_integralism",
       "title": "整合主义",
       "actions": [
-        "add_political_power = 50"
+        "add_political_power = 50",
+        "custom_effect_tooltip = sof_hist_fra_charles_maurras_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_political_power = 50 custom_effect_tooltip = available_political_advisor show_ideas_tooltip = charles_maurras",
@@ -2683,7 +2697,8 @@
       "id": "SFP_orleanist_restoration",
       "title": "奥尔良派复辟",
       "actions": [
-        "set_politics = { ruling_party = neutrality }"
+        "set_politics = { ruling_party = neutrality }",
+        "custom_effect_tooltip = sof_hist_fra_charles_maurras_unlock_tt"
       ],
       "empty": false,
       "original_reward": "if = { limit = { date < 1940.8.25 } create_country_leader = { name = \"Jean III\" desc = \"POLITICS_ÉDOUARD_DALADIER_DESC\" picture = GFX_portrait_fra_jean_duke_of_guise expire = \"1965.1.1\" ideology = moderatism traits = { duke_of_orleans } } } else = { create_country_leader = { name = \"Henri VI\" desc = \"POLITICS_ÉDOUARD_DALADIER_DESC\" picture = GFX_portrait_fra_henry_count_of_paris expire = \"1965.1.1\" ideology = moderatism traits = { count_of_paris } } } set_party_name = { ideology = neutrality long_name = FRA_orleanist_party_long name = FRA_orleanist_party } set_politics = { ruling_party = neutrality } custom_effect_tooltip = generic_skip_one_line_tt set_cosmetic_tag = FRA_ORLEANS hidden_effect = { news_event = { id = lar_news.8 days = 3 random_days = 5 } } custom_effect_tooltip = generic_skip_one_line_tt custom_effect_tooltip = available_political_advisor show_ideas_tooltip = charles_maurras",
@@ -2948,7 +2963,8 @@
       "actions": [
         "navy_experience = 25.0",
         "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 }",
-        "if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 }"
+        "if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 }",
+        "custom_effect_tooltip = sof_hist_fra_francois_darlan_unlock_tt"
       ],
       "empty": false,
       "original_reward": "navy_experience = 25 random_owned_controlled_state = { limit = { ROOT = { has_full_control_of_state = PREV } free_building_slots = { building = dockyard size > 0 include_locked = yes } } prioritize = { 21 } add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } set_state_flag = FRA_naval_rearmament_2NB } random_owned_controlled_state = { limit = { ROOT = { has_full_control_of_state = PREV } free_building_slots = { building = dockyard size > 0 include_locked = yes } } prioritize = { 14 } add_extra_state_shared_building_slots = 2 add_building_construction = { type = dockyard level = 2 instant_build = yes } set_state_flag = FRA_naval_rearmament_2NB }",
@@ -3577,7 +3593,8 @@
       "title": "新工业化计划",
       "actions": [
         "add_to_variable = { SFC_iri_consumer_goods_factor = 0.02 }",
-        "if = { limit = { has_completed_focus = SFC_strengthen_northern_industry } }"
+        "if = { limit = { has_completed_focus = SFC_strengthen_northern_industry } }",
+        "custom_effect_tooltip = sof_hist_ita_guido_jung_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 } custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt if = { limit = { has_completed_focus = ITA_strengthen_northern_industry } custom_effect_tooltip = ITA_new_industrialization_program_north_tt ITA_replace_designers_by_improved_version_north = yes } else_if = { limit = { has_completed_focus = ITA_modernize_the_mezzogiorno } custom_effect_tooltip = ITA_new_industrialization_program_south_tt ITA_replace_designers_by_improved_version_south = yes } else = { custom_effect_tooltip = ITA_new_industrialization_program_generic_tt }",
@@ -3850,7 +3867,8 @@
         "add_mastery_bonus = { name = SFC_a_bandits_war bonus = 0.25 days = 240 grand_doctrine = new_mobile_warfare }",
         "add_doctrine_cost_reduction = { name = SFC_a_bandits_war cost_reduction = 0.5 uses = 1 category = land_doctrine }",
         "add_tech_bonus = { name = SFC_a_bandits_war uses = 2 bonus = 0.5 category = motorized_equipment category = recon_tech }",
-        "if = { limit = { has_dlc = \"La Resistance\" } add_tech_bonus = { name = SFC_a_bandits_war bonus = 1 uses = 1 category = cat_armored_cars } add_ideas = sof_van_cor_ita_bandits_war }"
+        "if = { limit = { has_dlc = \"La Resistance\" } add_tech_bonus = { name = SFC_a_bandits_war bonus = 1 uses = 1 category = cat_armored_cars } add_ideas = sof_van_cor_ita_bandits_war }",
+        "custom_effect_tooltip = sof_hist_ita_alberto_pariani_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_to_variable = { ITA_re_org_loss_when_moving = -0.15 } add_to_variable = { ITA_re_army_speed_factor = 0.05 } custom_effect_tooltip = ITA_a_bandits_war_re_tt custom_effect_tooltip = available_chief_of_army show_ideas_tooltip = ITA_alberto_pariani add_mastery_bonus = { name = ITA_a_bandits_war bonus = 0.25 days = 240 grand_doctrine = new_mobile_warfare } add_doctrine_cost_reduction = { name = ITA_a_bandits_war cost_reduction = 0.5 uses = 1 category = land_doctrine } add_tech_bonus = { name = ITA_a_bandits_war uses = 2 bonus = 0.5 category = motorized_equipment category = recon_tech } if = { limit = { has_dlc = \"La Resistance\" } add_tech_bonus = { name = ITA_a_bandits_war bonus = 1 uses = 1 category = cat_armored_cars } add_ideas = ITA_bandits_war } else = { add_ideas = ITA_bandits_war_no_lar } hidden_effect = { if = { limit = { is_ai = yes } if = { limit = { has_doctrine = grand_battleplan } set_grand_doctrine = new_mobile_warfare } } }",
@@ -3888,7 +3906,8 @@
         "add_to_variable = { SFC_re_army_speed_factor = 0.05 }",
         "army_experience = 25.0",
         "if = { limit = { NOT = { has_government = communism } } }",
-        "if = { limit = { OR = { has_government = democratic has_government = neutrality } } }"
+        "if = { limit = { OR = { has_government = democratic has_government = neutrality } } }",
+        "custom_effect_tooltip = sof_hist_ita_achille_starace_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_to_variable = { ITA_re_army_leader_cost_factor = -0.15 } add_to_variable = { ITA_re_experience_gain_factor = 0.1 } add_to_variable = { ITA_re_promote_cost_factor = -0.25 } add_to_variable = { ITA_re_army_speed_factor = 0.05 } custom_effect_tooltip = ITA_army_leaders_re_tt army_experience = 25 if = { limit = { NOT = { has_government = communism } } show_unit_leaders_tooltip = ITA_annibale_bergonzoli custom_effect_tooltip = available_military_high_command show_ideas_tooltip = ITA_achille_starace } if = { limit = { OR = { has_government = democratic has_government = neutrality } } show_unit_leaders_tooltip = ITA_giovanni_duca } else_if = { limit = { has_government = communism } show_unit_leaders_tooltip = ITA_ada_gobetti }",
@@ -4415,7 +4434,8 @@
         "add_to_variable = { SFC_rm_naval_doctrine_cost_factor = -0.1 }",
         "add_to_variable = { SFC_rm_naval_morale_factor = 0.1 }",
         "add_to_variable = { SFC_rm_strike_force_movement_org_loss = -0.05 }",
-        "navy_experience = 25"
+        "navy_experience = 25",
+        "custom_effect_tooltip = sof_hist_ita_domenico_cavagnari_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_to_variable = { ITA_rm_naval_doctrine_cost_factor = -0.1 } add_to_variable = { ITA_rm_naval_morale_factor = 0.1 } add_to_variable = { ITA_rm_strike_force_movement_org_loss = -0.05 } custom_effect_tooltip = ITA_supermarina_rm_tt navy_experience = 50 ITA_improve_regia_marina_dm_effect = yes",
@@ -4844,7 +4864,8 @@
       "title": "召集岛内委员会",
       "actions": [
         "add_stability = -0.05",
-        "add_political_power = 25"
+        "add_political_power = 25",
+        "custom_effect_tooltip = sof_hist_ita_pietro_d_acquarone_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_stability = -0.05 add_political_power = 25 custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_pietro_d_acquarone ITA_bop_low_decrease_effect = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } mark_focus_tree_layout_dirty = yes }",
@@ -4923,7 +4944,8 @@
         "set_politics = { ruling_party = fascism elections_allowed = no }",
         "add_popularity = { ideology = fascism popularity = 0.10 }",
         "add_stability = 0.04",
-        "mark_focus_tree_layout_dirty = yes"
+        "mark_focus_tree_layout_dirty = yes",
+        "custom_effect_tooltip = sof_hist_ita_adelchi_serena_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_country_leader_trait = lion_tamer ITA_bop_very_low_increase_effect = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } mark_focus_tree_layout_dirty = yes }",
@@ -4954,7 +4976,8 @@
       "actions": [
         "add_political_power = 50",
         "add_popularity = { ideology = fascism popularity = 0.05 }",
-        "add_stability = 0.02"
+        "add_stability = 0.02",
+        "custom_effect_tooltip = sof_hist_ita_giuseppe_bottai_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_political_power = 50 add_popularity = { ideology = fascism popularity = 0.05 } add_stability = 0.02 custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_giuseppe_bottai",
@@ -5092,7 +5115,8 @@
         "add_political_power = 75",
         "add_war_support = 0.02",
         "add_stability = 0.02",
-        "add_popularity = { ideology = fascism popularity = 0.05 }"
+        "add_popularity = { ideology = fascism popularity = 0.05 }",
+        "custom_effect_tooltip = sof_hist_ita_dino_grandi_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_to_variable = { ITA_re_conscription_factor = 0.1 } custom_effect_tooltip = ITA_believe_obey_fight_re_tt if = { limit = { NOT = { has_country_leader = { ruling_only = yes character = ITA_dino_grandi } } } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_dino_grandi } add_political_power = 75 add_war_support = 0.02 add_stability = 0.02 add_popularity = { ideology = fascism popularity = 0.05 }",
@@ -5137,7 +5161,8 @@
       "actions": [
         "add_ideas = sof_van_cor_ita_camicie_nere",
         "set_technology = { camicie_nere_security_militias = 1 popup = no }",
-        "if = { limit = { NOT = { has_completed_focus = SFC_disband_the_blackshirts } } }"
+        "if = { limit = { NOT = { has_completed_focus = SFC_disband_the_blackshirts } } }",
+        "custom_effect_tooltip = sof_hist_ita_renato_ricci_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_ideas = ITA_camicie_nere hidden_effect = { set_technology = { camicie_nere_security_militias = 1 popup = no } } if = { limit = { NOT = { has_completed_focus = ITA_disband_the_blackshirts } } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_renato_ricci }",
@@ -5343,7 +5368,8 @@
       "title": "罢免岛内领袖",
       "actions": [
         "add_political_power = 50",
-        "add_ideas = sof_van_cor_ita_shadow_of_mussolini"
+        "add_ideas = sof_van_cor_ita_shadow_of_mussolini",
+        "sof_hist_complete_ita_depose_mussolini = yes"
       ],
       "empty": false,
       "original_reward": "add_political_power = 50 if = { limit = { has_character = ITA_grand_council } promote_character = ITA_grand_council } add_ideas = ITA_shadow_of_mussolini ITA_bop_low_decrease_effect = yes",
@@ -5359,7 +5385,9 @@
       "actions": [
         "add_political_power = 75",
         "add_war_support = 0.1",
-        "add_stability = 0.05"
+        "add_stability = 0.05",
+        "custom_effect_tooltip = sof_hist_ita_italo_balbo_unlock_tt",
+        "sof_hist_complete_ita_italo_balbo_focus = yes"
       ],
       "empty": false,
       "original_reward": "set_power_balance = { id = ITA_power_balance right_side = ITA_balbo_side } hidden_effect = { if = { limit = { has_country_flag = ITA_deposed_leader_flag } clr_country_flag = ITA_deposed_leader_flag } } custom_effect_tooltip = ITA_remove_balbo_as_advisor_tt add_country_leader_role = { character = ITA_italo_balbo promote_leader = yes country_leader = { ideology = fascism_ideology expire = 1965.1.1.1 traits = { aviation_hero } } } hidden_effect = { add_ideas = ITA_italo_balbo_traits } ITA_italo_balbo = { set_character_flag = ITA_has_new_duce_flag } add_political_power = 75 add_war_support = 0.1 add_stability = 0.05 ITA_bop_medium_increase_balbo_side_effect = yes",
@@ -5376,7 +5404,9 @@
         "if = { limit = { has_dlc = \"La Resistance\" } }",
         "add_political_power = 75",
         "add_war_support = 0.05",
-        "add_stability = 0.1"
+        "add_stability = 0.1",
+        "custom_effect_tooltip = sof_hist_ita_dino_grandi_unlock_tt",
+        "sof_hist_complete_ita_dino_grandi_focus = yes"
       ],
       "empty": false,
       "original_reward": "hidden_effect = { if = { limit = { has_country_flag = ITA_deposed_leader_flag } clr_country_flag = ITA_deposed_leader_flag } } set_power_balance = { id = ITA_power_balance right_side = ITA_grandi_side } custom_effect_tooltip = ITA_remove_grandi_as_advisor_tt if = { limit = { has_dlc = \"La Resistance\" } add_country_leader_role = { character = ITA_dino_grandi promote_leader = yes country_leader = { ideology = fascism_ideology expire = 1965.1.1.1 traits = { silver_tongue } } } } else = { add_country_leader_role = { character = ITA_dino_grandi promote_leader = yes country_leader = { ideology = fascism_ideology expire = 1965.1.1.1 traits = { silver_tongue_no_lar } } } } ITA_dino_grandi = { set_character_flag = ITA_has_new_duce_flag } add_political_power = 75 add_war_support = 0.05 add_stability = 0.1 ITA_bop_medium_increase_grandi_side_effect = yes",
@@ -5768,7 +5798,9 @@
       "actions": [
         "if = { limit = { has_dlc = \"La Resistance\" } }",
         "if = { limit = { NOT = { has_tech = atomic_research } } add_tech_bonus = { name = SFC_meritocracy bonus = 0.75 uses = 1 category = nuclear } add_breakthrough_progress = { specialization = specialization_nuclear value = 0.25 } }",
-        "else = { add_breakthrough_progress = { specialization = specialization_nuclear value = 0.5 } }"
+        "else = { add_breakthrough_progress = { specialization = specialization_nuclear value = 0.5 } }",
+        "custom_effect_tooltip = sof_hist_ita_giovanni_duca_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_vittorio_emanuele_orlando_unlock_tt"
       ],
       "empty": false,
       "original_reward": "if = { limit = { has_dlc = \"La Resistance\" } swap_ruler_traits = { remove = political_reformer_1 add = political_reformer_2 } } else = { swap_ruler_traits = { remove = political_reformer_1 add = political_reformer_2_no_lar } } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_vittorio_emanuele_orlando custom_effect_tooltip = available_chief_of_army show_ideas_tooltip = ITA_giovanni_duca show_unit_leaders_tooltip = ITA_giovanni_duca custom_effect_tooltip = { localization_key = available_scientist_one_line_tt CHARACTER = ITA_enrico_fermi } if = { limit = { has_dlc = \"La Resistance\" } ITA_create_edgardo_sogno_operative = yes } IF = { limit = { NOT = { has_tech = atomic_research } } add_tech_bonus = { name = ITA_meritocracy bonus = 0.75 uses = 1 category = nuclear } add_breakthrough_progress = { specialization = specialization_nuclear value = 0.25 } } ELSE = { add_breakthrough_progress = { specialization = specialization_nuclear value = 0.5 } } ITA_bop_very_low_increase_grandi_side_effect = yes",
@@ -5835,7 +5867,8 @@
       "actions": [
         "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
         "add_political_power = 50",
-        "set_politics = { ruling_party = neutrality }"
+        "set_politics = { ruling_party = neutrality }",
+        "custom_effect_tooltip = sof_hist_ita_vittorio_emanuele_orlando_unlock_tt"
       ],
       "empty": false,
       "original_reward": "every_owned_state = { limit = { has_resistance = yes } add_compliance = 10 } hidden_effect = { if = { limit = { has_country_flag = ITA_deposed_leader_flag } clr_country_flag = ITA_deposed_leader_flag } } add_political_power = 50 set_politics = { ruling_party = neutrality } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_vittorio_emanuele_orlando show_unit_leaders_tooltip = ITA_giuseppe_de_stefanis set_power_balance = { id = ITA_power_balance right_side = ITA_king_side } ITA_bop_low_increase_king_side_effect = yes",
@@ -5948,7 +5981,9 @@
         "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 5 }",
         "add_political_power = 50",
         "add_ideas = sof_van_cor_ita_political_reforms",
-        "add_popularity = { ideology = democratic popularity = 0.15 }"
+        "add_popularity = { ideology = democratic popularity = 0.15 }",
+        "custom_effect_tooltip = sof_hist_ita_alcide_de_gasperi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_luigi_einaudi_unlock_tt"
       ],
       "empty": false,
       "original_reward": "every_owned_state = { limit = { has_resistance = yes } add_compliance = 5 } add_political_power = 50 add_ideas = ITA_political_reforms add_popularity = { ideology = democratic popularity = 0.15 } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_alcide_de_gasperi show_ideas_tooltip = ITA_luigi_einaudi unlock_decision_tooltip = ITA_bop_constitutional_draft",
@@ -5965,7 +6000,10 @@
         "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
         "add_political_power = 50",
         "add_popularity = { ideology = democratic popularity = 0.1 }",
-        "set_politics = { ruling_party = democratic elections_allowed = no }"
+        "set_politics = { ruling_party = democratic elections_allowed = no }",
+        "custom_effect_tooltip = sof_hist_ita_alcide_de_gasperi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_mario_scelba_unlock_tt",
+        "sof_hist_complete_ita_christian_democracy = yes"
       ],
       "empty": false,
       "original_reward": "every_owned_state = { limit = { has_resistance = yes } add_compliance = 10 } add_political_power = 50 add_popularity = { ideology = democratic popularity = 0.1 } set_politics = { ruling_party = democratic elections_allowed = no } set_party_name = { ideology = democratic name = ITA_democrazia_cristiana long_name = ITA_democrazia_cristiana_long } if = { limit = { has_character = ITA_vittorio_emanuele_iii } ITA_add_king_vittorio_emanuele_back_as_idea = yes } if = { limit = { has_character = ITA_alcide_de_gasperi } promote_character = ITA_alcide_de_gasperi } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_mario_scelba hidden_effect = { set_cosmetic_tag = ITA_neutrality }",
@@ -5982,7 +6020,9 @@
         "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
         "add_political_power = 50",
         "add_popularity = { ideology = democratic popularity = 0.1 }",
-        "set_politics = { ruling_party = democratic elections_allowed = no }"
+        "set_politics = { ruling_party = democratic elections_allowed = no }",
+        "custom_effect_tooltip = sof_hist_ita_vittorio_emanuele_iii_unlock_tt",
+        "sof_hist_complete_ita_democratic_king = yes"
       ],
       "empty": false,
       "original_reward": "every_owned_state = { limit = { has_resistance = yes } add_compliance = 10 } add_political_power = 50 add_popularity = { ideology = democratic popularity = 0.1 } set_politics = { ruling_party = democratic elections_allowed = no } if = { limit = { has_character = ITA_vittorio_emanuele_iii } add_country_leader_role = { character = ITA_vittorio_emanuele_iii promote_leader = yes country_leader = { ideology = conservatism traits = { the_soldier_king } expire = \"1965.1.1.1\" id = -1 } } } else = { ITA_promote_umberto_to_country_leader = yes } hidden_effect = { set_cosmetic_tag = ITA_neutrality }",
@@ -5996,7 +6036,10 @@
       "id": "SFC_cooperate_with_moderates",
       "title": "与温和派合作",
       "actions": [
-        "add_political_power = 50"
+        "add_political_power = 50",
+        "custom_effect_tooltip = sof_hist_ita_alberto_de_stefani_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_guido_de_ruggiero_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_curzio_malaparte_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_political_power = 50 custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_guido_de_ruggiero show_ideas_tooltip = ITA_alberto_de_stefani show_ideas_tooltip = ITA_curzio_malaparte",
@@ -6042,7 +6085,9 @@
       "actions": [
         "add_political_power = 75",
         "add_ideas = sof_van_cor_ita_political_reforms_monarchist",
-        "add_popularity = { ideology = neutrality popularity = 0.1 }"
+        "add_popularity = { ideology = neutrality popularity = 0.1 }",
+        "custom_effect_tooltip = sof_hist_ita_vittorio_emanuele_iii_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_alberto_de_stefani_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_political_power = 75 add_ideas = ITA_political_reforms_monarchist add_popularity = { ideology = neutrality popularity = 0.1 } unlock_decision_tooltip = ITA_vittorio_abdicate custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_alberto_de_stefani unlock_decision_tooltip = ITA_bop_privileges_for_the_elites unlock_decision_tooltip = ITA_bop_revoke_the_lateran_treaty",
@@ -6058,7 +6103,11 @@
       "actions": [
         "add_popularity = { ideology = fascism popularity = -0.5 }",
         "if = { limit = { NOT = { has_completed_focus = SFC_revoke_the_acerbo_law } } }",
-        "if = { limit = { has_completed_focus = SFC_seek_papal_support } }"
+        "if = { limit = { has_completed_focus = SFC_seek_papal_support } }",
+        "custom_effect_tooltip = sof_hist_ita_alcide_de_gasperi_unlock_tt",
+        "remove_ideas = sof_hist_ita_achille_starace",
+        "remove_ideas = sof_hist_ita_renato_ricci",
+        "remove_ideas = sof_hist_ita_adelchi_serena"
       ],
       "empty": false,
       "original_reward": "add_popularity = { ideology = fascism popularity = -0.5 } delete_unit_template_and_units = { division_template = \"Camicie Nere\" disband = yes } if = { limit = { NOT = { has_completed_focus = ITA_revoke_the_acerbo_law } } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_alcide_de_gasperi custom_effect_tooltip = remove_political_advisor show_ideas_tooltip = ITA_renato_ricci show_ideas_tooltip = ITA_achille_starace show_ideas_tooltip = ITA_adelchi_serena } if = { limit = { has_completed_focus = ITA_seek_papal_support } unlock_decision_tooltip = ITA_bop_condemn_fascism }",
@@ -6369,7 +6418,8 @@
       "title": "外交事务",
       "actions": [
         "add_political_power = 50",
-        "if = { limit = { has_dlc = \"By Blood Alone\" } }"
+        "if = { limit = { has_dlc = \"By Blood Alone\" } }",
+        "custom_effect_tooltip = sof_hist_ita_gian_galeazzo_ciano_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_political_power = 50 custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_gian_galeazzo_ciano if = { limit = { has_dlc = \"By Blood Alone\" } custom_effect_tooltip = ITA_foreign_affairs_focus_lock_tt }",
@@ -6565,7 +6615,8 @@
       "title": "东方军事协约",
       "actions": [
         "if = { limit = { country_exists = MET MET = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MET = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 }",
-        "add_timed_idea = { idea = sof_van_cor_ita_pact_of_steel days = 365 }"
+        "add_timed_idea = { idea = sof_van_cor_ita_pact_of_steel days = 365 }",
+        "remove_ideas = sof_hist_ita_guido_jung"
       ],
       "empty": false,
       "original_reward": "GER = { add_opinion_modifier = { target = ITA modifier = pact_of_steel_opinion } } hidden_effect = { news_event = { hours = 6 id = news.184 } } add_timed_idea = { idea = ITA_pact_of_steel days = 365 } custom_effect_tooltip = remove_political_advisor show_ideas_tooltip = ITA_guido_jung",
@@ -6866,7 +6917,9 @@
       "title": "团结反对派",
       "actions": [
         "add_stability = -0.1",
-        "add_popularity = { ideology = fascism popularity = -0.1 }"
+        "add_popularity = { ideology = fascism popularity = -0.1 }",
+        "custom_effect_tooltip = sof_hist_ita_ivanoe_bonomi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_amadeo_bordiga_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_stability = -0.1 add_popularity = { ideology = fascism popularity = -0.1 } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = amadeo_bordiga show_ideas_tooltip = ivanoe_bonomi custom_effect_tooltip = ITA_unite_the_opposition_cw_benefits_tt custom_effect_tooltip = ITA_foreign_affairs_focus_locked_tt",
@@ -6881,7 +6934,9 @@
       "title": "释放工人代表",
       "actions": [
         "add_popularity = { ideology = communism popularity = 0.1 }",
-        "add_political_power = 50"
+        "add_political_power = 50",
+        "custom_effect_tooltip = sof_hist_ita_antonio_gramsci_unlock_tt",
+        "sof_hist_complete_ita_liberate_gramsci = yes"
       ],
       "empty": false,
       "original_reward": "add_popularity = { ideology = communism popularity = 0.1 } add_political_power = 50 custom_effect_tooltip = ITA_liberate_gramsci_tt effect_tooltip = { add_country_leader_role = { character = ITA_antonio_gramsci country_leader = { ideology = marxism expire = 1965.1.1 traits = { indisposed_political_scientist } } } } hidden_effect = { country_event = { id = BBA_italy_communist_events.09 days = 760 random_days = 60 } }",
@@ -6926,7 +6981,9 @@
         "set_politics = { ruling_party = democratic elections_allowed = yes }",
         "add_popularity = { ideology = democratic popularity = 0.10 }",
         "add_stability = -0.05",
-        "mark_focus_tree_layout_dirty = yes"
+        "mark_focus_tree_layout_dirty = yes",
+        "custom_effect_tooltip = sof_hist_ita_ivanoe_bonomi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_amadeo_bordiga_unlock_tt"
       ],
       "empty": false,
       "original_reward": "country_event = BBA_italy_civil_war.300 if = { limit = { NOT = { has_completed_focus = ITA_unite_the_opposition } } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = amadeo_bordiga show_ideas_tooltip = ivanoe_bonomi } custom_effect_tooltip = ITA_foreign_affairs_focus_locked_tt hidden_effect = { country_event = { id = BBA_italy_democratic_events.03 days = 40 random_days = 15 } } hidden_effect = { play_song = \"bella_ciao\" } if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } mark_focus_tree_layout_dirty = yes }",
@@ -6982,7 +7039,9 @@
         "add_stability = 0.1",
         "add_political_power = 50",
         "add_ideas = sof_van_cor_ita_disgruntled_military",
-        "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 5 }"
+        "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 5 }",
+        "sof_hist_complete_ita_the_italian_republic = yes",
+        "remove_ideas = sof_hist_ita_vittorio_emanuele_iii"
       ],
       "empty": false,
       "original_reward": "add_stability = 0.1 add_political_power = 50 effect_tooltip = { retire_character = ITA_vittorio_emanuele_iii } hidden_effect = { remove_country_leader_role = { character = ITA_vittorio_emanuele_iii ideology = despotism } } ITA_remove_king_vittorio_emanuele_as_idea = yes add_ideas = ITA_disgruntled_military every_owned_state = { limit = { has_resistance = yes } add_compliance = 5 } hidden_effect = { ITA_replace_stuff_based_on_ideology_effect = yes }",
@@ -6999,7 +7058,12 @@
         "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
         "add_political_power = 50",
         "add_popularity = { ideology = communism popularity = 0.15 }",
-        "if = { limit = { NOT = { has_government = communism } } set_politics = { ruling_party = communism } }"
+        "if = { limit = { NOT = { has_government = communism } } set_politics = { ruling_party = communism } }",
+        "custom_effect_tooltip = sof_hist_ita_amadeo_bordiga_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_antonio_pesenti_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_fausto_gullo_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_luigi_longo_unlock_tt",
+        "sof_hist_complete_ita_the_popular_front = yes"
       ],
       "empty": false,
       "original_reward": "every_owned_state = { limit = { has_resistance = yes } add_compliance = 10 } add_political_power = 50 add_popularity = { ideology = communism popularity = 0.15 } if = { limit = { NOT = { has_government = communism } } if = { limit = { has_country_leader = { character = ITA_comitato_di_liberazione_nazionale ruling_only = yes } } ITA_promote_cln_to_country_leader_communism = yes } set_politics = { ruling_party = communism } } unlock_decision_tooltip = ITA_bop_cooperation_with_anarchists hidden_effect = { if = { limit = { ITA_comitato_di_liberazione_nazionale = { has_ideology = socialism } } remove_country_leader_role = { character = ITA_comitato_di_liberazione_nazionale ideology = socialism } } } set_power_balance = { id = ITA_power_balance left_side = ITA_communism_side right_side = ITA_democratic_side set_value = -0.15 }",
@@ -7177,7 +7241,18 @@
         "add_political_power = 50",
         "add_stability = 0.05",
         "if = { limit = { has_completed_focus = SFC_the_popular_front } }",
-        "if = { limit = { has_dlc = \"La Resistance\" } add_ideas = sof_van_cor_ita_socialist_cooperation }"
+        "if = { limit = { has_dlc = \"La Resistance\" } add_ideas = sof_van_cor_ita_socialist_cooperation }",
+        "custom_effect_tooltip = sof_hist_ita_alcide_de_gasperi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_mario_scelba_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_luigi_einaudi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_antonio_pesenti_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_giovanni_duca_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_fausto_gullo_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_vittorio_emanuele_orlando_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_randolfo_pacciardi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_luigi_longo_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_guido_de_ruggiero_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_alberto_tarchiani_unlock_tt"
       ],
       "empty": false,
       "original_reward": "add_political_power = 50 add_stability = 0.05 if = { limit = { has_completed_focus = ITA_the_popular_front } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_guido_de_ruggiero show_ideas_tooltip = ITA_alberto_tarchiani show_ideas_tooltip = ITA_luigi_einaudi custom_effect_tooltip = available_chief_of_army show_ideas_tooltip = ITA_giovanni_duca } else_if = { limit = { has_completed_focus = ITA_italian_socialism } custom_effect_tooltip = available_political_advisor show_ideas_tooltip = ITA_luigi_einaudi show_ideas_tooltip = ITA_alcide_de_gasperi show_ideas_tooltip = ITA_mario_scelba show_ideas_tooltip = ITA_vittorio_emanuele_orlando show_ideas_tooltip = ITA_antonio_pesenti show_ideas_tooltip = ITA_fausto_gullo show_ideas_tooltip = ITA_luigi_longo custom_effect_tooltip = available_military_high_command show_ideas_tooltip = ITA_randolfo_pacciardi } else = { custom_effect_tooltip = ITA_common_ground_advisors_tt } unlock_decision_tooltip = ITA_bop_concesions_to_the_bourgeoisie if = { limit = { has_completed_focus = ITA_the_popular_front } ITA_bop_medium_increase_democratic_side_effect = yes } else_if = { limit = { has_completed_focus = ITA_italian_socialism } ITA_bop_medium_increase_communism_side_effect = yes } else = { custom_effect_tooltip = ITA_common_ground_bop_tt } if = { limit = { has_dlc = \"La Resistance\" } add_ideas = ITA_socialist_cooperation ITA_create_maurizio_giglio_operative = yes }",
@@ -7317,7 +7392,8 @@
       "id": "SFC_combined_research_effort",
       "title": "联合科研项目",
       "actions": [
-        "add_tech_bonus = { name = SFC_combined_research_effort bonus = 0.5 uses = 1 category = industry }"
+        "add_tech_bonus = { name = SFC_combined_research_effort bonus = 0.5 uses = 1 category = industry }",
+        "custom_effect_tooltip = sof_hist_ita_enrico_fermi_unlock_tt"
       ],
       "empty": false,
       "original_reward": "custom_effect_tooltip = BUL_soviet_bulgarian_war_industry_research_sharing_tt hidden_effect = { every_country = { limit = { is_in_tech_sharing_group = comintern_research } remove_from_tech_sharing_group = comintern_research add_to_tech_sharing_group = BUL_improved_comintern_research } }",
@@ -7424,7 +7500,11 @@
         "every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 }",
         "add_political_power = 50",
         "add_popularity = { ideology = democratic popularity = 0.15 }",
-        "if = { limit = { NOT = { has_government = democratic } } set_politics = { ruling_party = democratic } }"
+        "if = { limit = { NOT = { has_government = democratic } } set_politics = { ruling_party = democratic } }",
+        "custom_effect_tooltip = sof_hist_ita_ivanoe_bonomi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_randolfo_pacciardi_unlock_tt",
+        "custom_effect_tooltip = sof_hist_ita_alberto_tarchiani_unlock_tt",
+        "sof_hist_complete_ita_italian_socialism = yes"
       ],
       "empty": false,
       "original_reward": "every_owned_state = { limit = { has_resistance = yes } add_compliance = 10 } add_political_power = 50 add_popularity = { ideology = democratic popularity = 0.15 } if = { limit = { NOT = { has_government = democratic } } if = { limit = { has_country_leader = { character = ITA_comitato_di_liberazione_nazionale ruling_only = yes } } ITA_promote_cln_to_country_leader_democratic = yes } set_politics = { ruling_party = democratic } } show_unit_leaders_tooltip = ITA_giuseppe_de_stefanis unlock_decision_tooltip = ITA_bop_cooperation_with_christian_democrats hidden_effect = { if = { limit = { ITA_comitato_di_liberazione_nazionale = { has_ideology = marxism } } remove_country_leader_role = { character = ITA_comitato_di_liberazione_nazionale ideology = marxism } } } set_power_balance = { id = ITA_power_balance left_side = ITA_communism_side right_side = ITA_democratic_side set_value = 0.15 }",
@@ -7555,9 +7635,10 @@
       "title": "支援西南法国共和国",
       "actions": [
         "add_ideas = sof_van_cor_ita_aiding_the_spanish_republic",
-        "add_manpower = -10000.0",
         "if = { limit = { has_dlc = \"La Resistance\" } add_equipment_to_stockpile = { type = infantry_equipment amount = 200 producer = ROOT } }",
-        "else = { add_equipment_to_stockpile = { type = infantry_equipment amount = 200 producer = ROOT } }"
+        "else = { add_equipment_to_stockpile = { type = infantry_equipment amount = 200 producer = ROOT } }",
+        "set_country_flag = sof_van_volunteer_program",
+        "add_army_experience = 20"
       ],
       "empty": false,
       "original_reward": "add_ideas = ITA_aiding_the_spanish_republic add_manpower = -10000 if = { limit = { has_dlc = \"La Resistance\" } SPD = { add_manpower = 10000 add_opinion_modifier = { target = ROOT modifier = ita_supported_spain_civil_war } } hidden_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = 2500 } send_equipment = { equipment = infantry_equipment amount = 2500 target = SPD } } } else = { random_other_country = { limit = { original_tag = SPR OR = { has_government = democratic has_government = communism } } add_manpower = 10000 add_opinion_modifier = { target = ROOT modifier = ita_supported_spain_civil_war } } hidden_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = 2500 } random_other_country = { limit = { original_tag = SPR OR = { has_government = democratic has_government = communism } } ROOT = { send_equipment = { equipment = infantry_equipment amount = 2500 target = PREV } } } } } custom_effect_tooltip = ITA_aid_for_the_spanish_republic_tt if = { limit = { NOT = { has_rule = can_send_volunteers } } set_rule = { can_send_volunteers = yes } }",
@@ -7617,7 +7698,9 @@
       "title": "科研合作",
       "actions": [
         "if = { limit = { amount_research_slots < 5 } add_research_slot = 1 } else = { add_political_power = 75 }",
-        "add_ideas = sof_van_cor_ita_scientific_cooperation_ns"
+        "add_ideas = sof_van_cor_ita_scientific_cooperation_ns",
+        "set_country_flag = sof_van_science_host",
+        "sof_van_reward_sync = yes"
       ],
       "empty": false,
       "original_reward": "add_research_slot = 1 if = { limit = { num_tech_sharing_groups < 1 } add_to_tech_sharing_group = ITA_program_for_scientific_cooperation if = { limit = { any_other_country = { is_in_faction_with = ROOT } } every_other_country = { limit = { is_in_faction_with = ROOT } add_to_tech_sharing_group = ITA_program_for_scientific_cooperation } } else = { custom_effect_tooltip = ITA_scientific_cooperation_research_sharing_group_tt } } custom_effect_tooltip = ITA_scientific_cooperation_allies_ns_tt if = { limit = { any_other_country = { is_in_faction_with = ROOT } } custom_effect_tooltip = generic_current_effects add_ideas = ITA_scientific_cooperation_ns every_other_country = { limit = { is_in_faction_with = ROOT } effect_tooltip = { add_ideas = ITA_scientific_cooperation_ns } country_event = { id = BBA_italy_democratic_events.02 hours = 2 } } } else = { effect_tooltip = { add_ideas = ITA_scientific_cooperation_ns } }",
@@ -8206,6 +8289,7 @@
     "ITA_defend_the_land",
     "ITA_mafia_abroad",
     "ITA_the_republics_leadership",
+    "ITA_aid_for_the_spanish_republic",
     "ITA_european_democracies",
     "ITA_peace_preservation",
     "ITA_reestablish_old_alliances",
