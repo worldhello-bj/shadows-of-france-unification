@@ -44,6 +44,6 @@ def audit(check,gfx):
         current=shape(parse((ROOT/relative).read_text(encoding='utf-8-sig')))
         actual=hashlib.sha256(json.dumps(current,ensure_ascii=False).encode('utf-8')).hexdigest()
         check(actual==sha,'Art update preserves text, layout, triggers and effects: '+relative)
-    if (ROOT/'VERSION').read_text().strip()=='4.2.0':
+    if (ROOT/'design/unique-focus-art.json').is_file():
         from validate_unique_focus_art import audit as unique_audit
         unique_audit(check,gfx)

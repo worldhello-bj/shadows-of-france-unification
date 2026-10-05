@@ -1,0 +1,5887 @@
+{
+  "schema_version": 2,
+  "version": "4.3.2",
+  "game_engine_verified": false,
+  "scope": "20 original region representative tags; existing generic focus tree remains",
+  "dlc": "Arms Against Tyranny",
+  "legacy_cost": 125,
+  "mechanism_sources": [
+    "common/military_industrial_organization/organizations/_documentation.md",
+    "common/military_industrial_organization/organizations/FRA_organization.txt",
+    "common/military_industrial_organization/organizations/00_generic_organization.txt",
+    "common/ideas/zzz_generic.txt"
+  ],
+  "historical_sources": [
+    {
+      "title": "Renault：比扬古工厂历史",
+      "url": "https://www.renaultgroup.com/en/magazine/our-group-news/ile-seguin-renaults-historic-home/",
+      "use": "巴黎车辆工业厂址"
+    },
+    {
+      "title": "Fives：菲夫—里尔工业史",
+      "url": "https://www.fivesgroup.com/fr/a-propos-de-fives",
+      "use": "北方重械与机具产业"
+    },
+    {
+      "title": "贝利埃基金会：贝利埃简史",
+      "url": "https://www.fondationberliet.org/la-fondation/historique-berliet-paul-marius-rvi/",
+      "use": "里昂车辆和柴油动力传统"
+    },
+    {
+      "title": "Latécoère：百年航空制造",
+      "url": "https://www.latecoere.aero/en/latecoere-100-years-of-innovation/",
+      "use": "图卢兹航空工场"
+    },
+    {
+      "title": "米其林：企业历史",
+      "url": "https://www.michelin.com/en/group/heritage",
+      "use": "克莱蒙费朗轮胎及橡胶工业"
+    },
+    {
+      "title": "大西洋船厂：圣纳泽尔造船历史",
+      "url": "https://chantiers-atlantique.com/en/the-company/our-history/",
+      "use": "彭奥埃与圣纳泽尔船台"
+    },
+    {
+      "title": "法国文化部 POP：沙泰勒罗军械厂",
+      "url": "https://pop.culture.gouv.fr/notice/merimee/IA86000053",
+      "use": "沙泰勒罗轻武器厂址"
+    }
+  ],
+  "manufacturers": [
+    {
+      "id": "sof_reg_prs_organization",
+      "tag": "PRS",
+      "region_name": "巴黎",
+      "name": "雷诺·比扬古装甲工场",
+      "description": "以首都车辆工场的铸造与总装经验为基础，擅长厚实可靠的装甲车体；增加的重量会牺牲少许机动。",
+      "equipment": [
+        "armor"
+      ],
+      "equipment_name": "装甲车辆",
+      "factory_state": 64,
+      "factory_name": "比扬古",
+      "picture": "sof_reg_company_prs",
+      "legacy_slot": "tank_manufacturer",
+      "research_categories": [
+        "armor"
+      ],
+      "unlock": [
+        "SFP_industrial_expansion"
+      ],
+      "specialize": [
+        "SFP_military_factories"
+      ],
+      "capstone": [
+        "SFP_heavy_armor_focus",
+        "SFP_light_medium_armor"
+      ],
+      "initial_equipment": {
+        "armor_value": 0.1,
+        "maximum_speed": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "铸造装甲车体基础",
+      "traits": [
+        {
+          "name": "铸造装甲车体",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "armor_value": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "比扬古流水线",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "悬挂试验台",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "首都装甲标准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "armor_value": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "均质装甲轧制",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "armor_value": 0.08
+          }
+        },
+        {
+          "name": "重载悬挂总成",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          }
+        },
+        {
+          "name": "弹道铸件试验",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "armor_value": 0.07
+          }
+        },
+        {
+          "name": "比扬古装甲平台",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "armor_value": 0.05,
+            "reliability": 0.04
+          }
+        },
+        {
+          "name": "比扬古订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "比扬古专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "比扬古材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "比扬古工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "比扬古熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "比扬古批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "比扬古连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "比扬古工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "工业扩张"
+      ],
+      "specialize_names": [
+        "军用工厂"
+      ],
+      "capstone_names": [
+        "主战坦克",
+        "装甲战斗车"
+      ],
+      "source_picture": "renault",
+      "legacy_equipment": [
+        "armor"
+      ]
+    },
+    {
+      "id": "sof_reg_lil_organization",
+      "tag": "LIL",
+      "region_name": "北方",
+      "name": "菲夫—里尔重械联营",
+      "description": "矿冶、铁路与重型机械工场共同提供耐用的车辆结构，面向高强度维护需求；稳固部件较为笨重。",
+      "equipment": [
+        "armor"
+      ],
+      "equipment_name": "装甲车辆",
+      "factory_state": 51,
+      "factory_name": "里尔",
+      "picture": "sof_reg_company_lil",
+      "legacy_slot": "tank_manufacturer",
+      "research_categories": [
+        "armor"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_LIL_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_LIL_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_LIL_eco11"
+      ],
+      "initial_equipment": {
+        "reliability": 0.1,
+        "maximum_speed": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "矿区耐久试验基础",
+      "traits": [
+        {
+          "name": "矿区耐久试验",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "北方部件互换",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "重械炮架加工",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "hard_attack": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "煤钢车辆协作",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "矿尘密封总成",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.08
+          }
+        },
+        {
+          "name": "重载反坦克炮架",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "hard_attack": 0.06
+          }
+        },
+        {
+          "name": "煤钢耐磨结构",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.07
+          }
+        },
+        {
+          "name": "北方重械车辆谱系",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.05,
+            "hard_attack": 0.04
+          }
+        },
+        {
+          "name": "里尔订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "里尔专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "里尔材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "里尔工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "里尔熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "里尔批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "里尔连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "里尔工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "机具维修所"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "装甲零件标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "北方工业共同体"
+      ],
+      "source_picture": "generic_tank_manufacturer_3",
+      "legacy_equipment": [
+        "armor"
+      ]
+    },
+    {
+      "id": "sof_reg_met_organization",
+      "tag": "MET",
+      "region_name": "洛林",
+      "name": "洛林炮管联合体",
+      "description": "借助本地矿冶与钢材加工发展火炮生产，以穿甲与炮管强度见长；精密冶炼提高单件造价。",
+      "equipment": [
+        "artillery_equipment"
+      ],
+      "equipment_name": "火炮",
+      "factory_state": 112,
+      "factory_name": "梅斯",
+      "picture": "sof_reg_company_met",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "artillery"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_MET_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_MET_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_MET_eco11"
+      ],
+      "initial_equipment": {
+        "ap_attack": 0.1,
+        "build_cost_ic": 0.03
+      },
+      "initial_production": {},
+      "initial_name": "高压炮管锻造基础",
+      "traits": [
+        {
+          "name": "高压炮管锻造",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "ap_attack": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "炉批质量记录",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "弹药室精加工",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "soft_attack": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "边境火炮标准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "ap_attack": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "高压炮膛冶炼",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "ap_attack": 0.08
+          }
+        },
+        {
+          "name": "破片弹道试验",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "soft_attack": 0.06
+          }
+        },
+        {
+          "name": "长炮管精锻",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "ap_attack": 0.07
+          }
+        },
+        {
+          "name": "洛林精密火炮",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "ap_attack": 0.05,
+            "soft_attack": 0.04
+          }
+        },
+        {
+          "name": "梅斯订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "梅斯专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "梅斯材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "梅斯工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "梅斯熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "梅斯批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "梅斯连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "梅斯工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "煤铁运输计划"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "矿冶技术学校"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "洛林工业联合体"
+      ],
+      "source_picture": "generic_artillery_manufacturer_3",
+      "legacy_equipment": [
+        "artillery_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_str_organization",
+      "tag": "STR",
+      "region_name": "阿尔萨斯",
+      "name": "莱茵精密军械所",
+      "description": "以精密瞄具与行业工艺保证守备武器的稳定性，偏重阵地射击；不追求最大的近距离火力。",
+      "equipment": [
+        "infantry_equipment"
+      ],
+      "equipment_name": "步兵武器",
+      "factory_state": 173,
+      "factory_name": "斯特拉斯堡",
+      "picture": "sof_reg_company_str",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "infantry_weapons"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_STR_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_STR_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_STR_eco11"
+      ],
+      "initial_equipment": {
+        "defense": 0.1,
+        "soft_attack": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "精密瞄具校准基础",
+      "traits": [
+        {
+          "name": "精密瞄具校准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "双语图纸标准",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "轻型穿甲弹具",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "ap_attack": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "莱茵军械检验",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "耐久枪机锁闭",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.08
+          }
+        },
+        {
+          "name": "精密穿甲瞄具",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "ap_attack": 0.06
+          }
+        },
+        {
+          "name": "稳固射击支架",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.07
+          }
+        },
+        {
+          "name": "莱茵守备军械",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.05,
+            "ap_attack": 0.04
+          }
+        },
+        {
+          "name": "斯特拉斯堡订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "斯特拉斯堡专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "斯特拉斯堡材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "斯特拉斯堡工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "斯特拉斯堡熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "斯特拉斯堡批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "斯特拉斯堡连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "斯特拉斯堡工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "化工生产配套"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "边境铁路协作"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "莱茵产业协约"
+      ],
+      "source_picture": "generic_infantry_equipment_manufacturer_3",
+      "legacy_equipment": [
+        "infantry_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_rou_organization",
+      "tag": "ROU",
+      "region_name": "诺曼底",
+      "name": "塞纳河口护航船厂",
+      "description": "为河口与海峡交通建造近岸护航舰，强调反潜设备和快速检修；较小油舱限制远洋航程。",
+      "equipment": [
+        "mio_cat_eq_all_destroyer"
+      ],
+      "equipment_name": "驱逐舰",
+      "factory_state": 80,
+      "factory_name": "勒阿弗尔",
+      "picture": "sof_reg_company_rou",
+      "legacy_slot": "naval_manufacturer",
+      "research_categories": [
+        "naval_equipment"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_ROU_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_ROU_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_ROU_eco11"
+      ],
+      "initial_equipment": {
+        "sub_attack": 0.1,
+        "naval_range": -0.03
+      },
+      "initial_production": {},
+      "initial_name": "浅海反潜配置基础",
+      "traits": [
+        {
+          "name": "浅海反潜配置",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "sub_attack": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "河海部件协作",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "护航听音设备",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "sub_detection": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "海峡护航规程",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "sub_attack": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "深弹投送装置",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "sub_attack": 0.08
+          }
+        },
+        {
+          "name": "海峡听音阵列",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "sub_detection": 0.06
+          }
+        },
+        {
+          "name": "反潜射控协同",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "sub_attack": 0.07
+          }
+        },
+        {
+          "name": "塞纳护航猎手",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "sub_attack": 0.05,
+            "sub_detection": 0.04
+          }
+        },
+        {
+          "name": "勒阿弗尔订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "勒阿弗尔专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "勒阿弗尔材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "勒阿弗尔工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "勒阿弗尔熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "勒阿弗尔批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "勒阿弗尔连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "勒阿弗尔工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "诺曼底矿业协作"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "河口运输保障"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "海峡工业联营"
+      ],
+      "source_picture": "FRA_acf",
+      "legacy_equipment": [
+        "screen_ship"
+      ]
+    },
+    {
+      "id": "sof_reg_lyo_organization",
+      "tag": "LYO",
+      "region_name": "罗讷—阿尔卑斯",
+      "name": "贝利埃·罗讷车辆工坊",
+      "description": "将里昂重型车辆经验转为可靠的军用运输，重点节省燃油并适应持续负荷；柴油总成需要更多前期投入。",
+      "equipment": [
+        "motorized_equipment"
+      ],
+      "equipment_name": "运输卡车",
+      "factory_state": 336,
+      "factory_name": "里昂",
+      "picture": "sof_reg_company_lyo",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "motorized_equipment"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_LYO_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_LYO_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_LYO_eco11"
+      ],
+      "initial_equipment": {
+        "fuel_consumption": -0.1,
+        "build_cost_ic": 0.03
+      },
+      "initial_production": {},
+      "initial_name": "低耗柴油动力基础",
+      "traits": [
+        {
+          "name": "低耗柴油动力",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "fuel_consumption": -0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "罗讷零件供应",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "高地传动维护",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "耐久运输车辆",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "fuel_consumption": -0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "高压柴油喷射",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "fuel_consumption": -0.08
+          }
+        },
+        {
+          "name": "传动总成寿命",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          }
+        },
+        {
+          "name": "长途燃油试验",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "fuel_consumption": -0.07
+          }
+        },
+        {
+          "name": "罗讷柴油车队",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "fuel_consumption": -0.05,
+            "reliability": 0.04
+          }
+        },
+        {
+          "name": "里昂订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "里昂专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "里昂材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "里昂工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "里昂熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "里昂批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "里昂连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "里昂工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "机电维修工坊"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "车辆零件标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "罗讷工业联盟"
+      ],
+      "source_picture": "generic_motorized_equipment_manufacturer_3",
+      "legacy_equipment": [
+        "motorized_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_mrs_organization",
+      "tag": "MRS",
+      "region_name": "普罗旺斯",
+      "name": "地中海海防船厂",
+      "description": "依托土伦港区与沿海工场建造快速近岸舰艇，适合地中海巡护；舰体与油舱按短途部署配置。",
+      "equipment": [
+        "mio_cat_eq_all_destroyer"
+      ],
+      "equipment_name": "驱逐舰",
+      "factory_state": 469,
+      "factory_name": "土伦—拉塞讷",
+      "picture": "sof_reg_company_mrs",
+      "legacy_slot": "naval_manufacturer",
+      "research_categories": [
+        "naval_equipment"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_MRS_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_MRS_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_MRS_eco11"
+      ],
+      "initial_equipment": {
+        "naval_speed": 0.1,
+        "naval_range": -0.03
+      },
+      "initial_production": {},
+      "initial_name": "近海高速轮机基础",
+      "traits": [
+        {
+          "name": "近海高速轮机",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "naval_speed": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "港区模块装配",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "盐雾设备保护",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "地中海巡护舰",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "naval_speed": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "高速船体线型",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "naval_speed": 0.08
+          }
+        },
+        {
+          "name": "盐雾密封设备",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          }
+        },
+        {
+          "name": "近海推进试验",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "naval_speed": 0.07
+          }
+        },
+        {
+          "name": "地中海巡护轮机",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "naval_speed": 0.05,
+            "reliability": 0.04
+          }
+        },
+        {
+          "name": "土伦—拉塞讷订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "土伦—拉塞讷专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "土伦—拉塞讷材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "土伦—拉塞讷工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "土伦—拉塞讷熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "土伦—拉塞讷批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "土伦—拉塞讷连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "土伦—拉塞讷工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "铝材加工合同"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "航空零件订单"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "地中海工业协约"
+      ],
+      "source_picture": "fcm",
+      "legacy_equipment": [
+        "screen_ship"
+      ]
+    },
+    {
+      "id": "sof_reg_brd_organization",
+      "tag": "BRD",
+      "region_name": "阿基坦",
+      "name": "阿基坦海军航空联合体",
+      "description": "将西南航空机具与河口海运需求结合，发展专用海面攻击飞机；挂载与瞄准设备降低空战机动。",
+      "equipment": [
+        "mio_cat_eq_only_light_nav"
+      ],
+      "equipment_name": "海军轰炸机",
+      "factory_state": 389,
+      "factory_name": "波尔多",
+      "picture": "sof_reg_company_brd",
+      "legacy_slot": "aircraft_manufacturer",
+      "research_categories": [
+        "naval_air"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_BRD_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_BRD_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_BRD_eco11"
+      ],
+      "initial_equipment": {
+        "naval_strike_attack": 0.1,
+        "air_agility": -0.03
+      },
+      "initial_production": {},
+      "initial_name": "海面目标瞄具基础",
+      "traits": [
+        {
+          "name": "海面目标瞄具",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "naval_strike_attack": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "大西洋装配合同",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "滨海航程试验",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "air_range": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "海军航空标准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "naval_strike_attack": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "海面攻击校准",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "naval_strike_attack": 0.08
+          }
+        },
+        {
+          "name": "大西洋导航系统",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_range": 0.06
+          }
+        },
+        {
+          "name": "对舰投弹挂架",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "naval_strike_attack": 0.07
+          }
+        },
+        {
+          "name": "阿基坦海航体系",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "naval_strike_attack": 0.05,
+            "air_range": 0.04
+          }
+        },
+        {
+          "name": "波尔多订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "波尔多专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "波尔多材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "波尔多工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "波尔多熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "波尔多批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "波尔多连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "波尔多工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "航空机具工坊"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "飞机零件标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "阿基坦产业协约"
+      ],
+      "source_picture": "FRA_sncaso",
+      "legacy_equipment": [
+        "naval_bomber"
+      ]
+    },
+    {
+      "id": "sof_reg_tou_organization",
+      "tag": "TOU",
+      "region_name": "南部—比利牛斯",
+      "name": "拉特科尔·蒙托德朗工坊",
+      "description": "以图卢兹航空制造传统研制具有续航优势的中型飞机，注重远程支援；大油量与机体尺寸限制机动。",
+      "equipment": [
+        "mio_cat_eq_only_tactical_bomber"
+      ],
+      "equipment_name": "中型飞机",
+      "factory_state": 439,
+      "factory_name": "图卢兹",
+      "picture": "sof_reg_company_tou",
+      "legacy_slot": "aircraft_manufacturer",
+      "research_categories": [
+        "medium_air"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_TOU_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_TOU_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_TOU_eco11"
+      ],
+      "initial_equipment": {
+        "air_range": 0.1,
+        "air_agility": -0.03
+      },
+      "initial_production": {},
+      "initial_name": "远程机体试验基础",
+      "traits": [
+        {
+          "name": "远程机体试验",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_range": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "航空工人课程",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "协同轰炸挂架",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "air_ground_attack": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "南方航空标准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_range": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "远程油箱配置",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_range": 0.08
+          }
+        },
+        {
+          "name": "协同攻击挂架",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_ground_attack": 0.06
+          }
+        },
+        {
+          "name": "长航时机体结构",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_range": 0.07
+          }
+        },
+        {
+          "name": "南方远程航空",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_range": 0.05,
+            "air_ground_attack": 0.04
+          }
+        },
+        {
+          "name": "图卢兹订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "图卢兹专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "图卢兹材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "图卢兹工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "图卢兹熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "图卢兹批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "图卢兹连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "图卢兹工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "飞机零件标准"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "民航生产合同"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "南方航空体系"
+      ],
+      "source_picture": "generic_air_manufacturer_3",
+      "legacy_equipment": [
+        "tactical_bomber"
+      ]
+    },
+    {
+      "id": "sof_reg_nan_organization",
+      "tag": "NAN",
+      "region_name": "卢瓦尔河地区",
+      "name": "彭奥埃重型船厂",
+      "description": "以圣纳泽尔大型船台和重型船舶工艺制造坚固主力舰；强调防护的舰体会牺牲少许航速。",
+      "equipment": [
+        "mio_cat_eq_all_battleship"
+      ],
+      "equipment_name": "重型主力舰",
+      "factory_state": 237,
+      "factory_name": "圣纳泽尔",
+      "picture": "sof_reg_company_nan",
+      "legacy_slot": "naval_manufacturer",
+      "research_categories": [
+        "naval_equipment"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_NAN_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_NAN_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_NAN_eco11"
+      ],
+      "initial_equipment": {
+        "armor_value": 0.1,
+        "naval_speed": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "大型装甲分段基础",
+      "traits": [
+        {
+          "name": "大型装甲分段",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "armor_value": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "船台工序协调",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "主机耐久试验",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "大西洋重舰工艺",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "armor_value": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "表面硬化舰甲",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "armor_value": 0.08
+          }
+        },
+        {
+          "name": "耐久主机总成",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          }
+        },
+        {
+          "name": "分段装甲连接",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "armor_value": 0.07
+          }
+        },
+        {
+          "name": "彭奥埃重舰平台",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "armor_value": 0.05,
+            "reliability": 0.04
+          }
+        },
+        {
+          "name": "圣纳泽尔订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "圣纳泽尔专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "圣纳泽尔材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "圣纳泽尔工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "圣纳泽尔熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "圣纳泽尔批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "圣纳泽尔连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "圣纳泽尔工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "船舶机具工坊"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "运输船生产标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "大西洋船厂联营"
+      ],
+      "source_picture": "FRA_acl",
+      "legacy_equipment": [
+        "capital_ship"
+      ]
+    },
+    {
+      "id": "sof_reg_ren_organization",
+      "tag": "REN",
+      "region_name": "布列塔尼",
+      "name": "布雷斯特潜艇修造所",
+      "description": "把布雷斯特海军港的修造条件用于可靠的潜艇生产；严格检验增加成本，换取长期服役能力。",
+      "equipment": [
+        "submarine"
+      ],
+      "equipment_name": "潜艇",
+      "factory_state": 168,
+      "factory_name": "布雷斯特",
+      "picture": "sof_reg_company_ren",
+      "legacy_slot": "naval_manufacturer",
+      "research_categories": [
+        "naval_equipment"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_REN_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_REN_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_REN_eco11"
+      ],
+      "initial_equipment": {
+        "reliability": 0.1,
+        "build_cost_ic": 0.03
+      },
+      "initial_production": {},
+      "initial_name": "耐压壳体检验基础",
+      "traits": [
+        {
+          "name": "耐压壳体检验",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "修造工期协调",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "鱼雷维护工坊",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "torpedo_attack": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "布列塔尼潜航标准",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "深水耐压试验",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.08
+          }
+        },
+        {
+          "name": "鱼雷发射总成",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "torpedo_attack": 0.06
+          }
+        },
+        {
+          "name": "轴系密封维护",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.07
+          }
+        },
+        {
+          "name": "布列塔尼深海潜航",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.05,
+            "torpedo_attack": 0.04
+          }
+        },
+        {
+          "name": "布雷斯特订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "布雷斯特专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "布雷斯特材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "布雷斯特工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "布雷斯特熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "布雷斯特批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "布雷斯特连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "布雷斯特工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "内陆道路施工"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "沿岸修船标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "布列塔尼共同体"
+      ],
+      "source_picture": "generic_naval_manufacturer_2",
+      "legacy_equipment": [
+        "submarine"
+      ]
+    },
+    {
+      "id": "sof_reg_cfr_organization",
+      "tag": "CFR",
+      "region_name": "奥弗涅",
+      "name": "米其林·高原运输工坊",
+      "description": "以克莱蒙费朗轮胎与橡胶工艺改善运输车辆耐久性，适合长途补给；强调牵引与耐磨的配置略慢。",
+      "equipment": [
+        "motorized_equipment"
+      ],
+      "equipment_name": "运输卡车",
+      "factory_state": 345,
+      "factory_name": "克莱蒙费朗",
+      "picture": "sof_reg_company_cfr",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "motorized_equipment"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_CFR_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_CFR_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_CFR_eco11"
+      ],
+      "initial_equipment": {
+        "reliability": 0.1,
+        "maximum_speed": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "耐磨胎具配套基础",
+      "traits": [
+        {
+          "name": "耐磨胎具配套",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "橡胶零件标准",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "高原滚阻试验",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "fuel_consumption": -0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "轮胎车队协作",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "高原耐磨胎面",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.08
+          }
+        },
+        {
+          "name": "低滚阻车轮",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "fuel_consumption": -0.06
+          }
+        },
+        {
+          "name": "复合橡胶配方",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.07
+          }
+        },
+        {
+          "name": "米其林军用轮胎",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.05,
+            "fuel_consumption": -0.04
+          }
+        },
+        {
+          "name": "克莱蒙费朗订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "克莱蒙费朗专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "克莱蒙费朗材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "克莱蒙费朗工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "克莱蒙费朗熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "克莱蒙费朗批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "克莱蒙费朗连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "克莱蒙费朗工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "轮胎供应合同"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "机具生产标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "高原工业共同体"
+      ],
+      "source_picture": "generic_motorized_equipment_manufacturer_2",
+      "legacy_equipment": [
+        "motorized_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_dij_organization",
+      "tag": "DIJ",
+      "region_name": "勃艮第",
+      "name": "勃艮第铁路兵工联营",
+      "description": "在东西铁路节点组织军用列车与防空车厢生产，侧重保护军需运输；防空装置与护板提高造价。",
+      "equipment": [
+        "train_equipment"
+      ],
+      "equipment_name": "军用列车",
+      "factory_state": 226,
+      "factory_name": "第戎",
+      "picture": "sof_reg_company_dij",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "train_tech"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_DIJ_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_DIJ_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_DIJ_eco11"
+      ],
+      "initial_equipment": {
+        "air_attack": 0.1,
+        "build_cost_ic": 0.03
+      },
+      "initial_production": {},
+      "initial_name": "列车防空平台基础",
+      "traits": [
+        {
+          "name": "列车防空平台",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_attack": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "铁路车辆协作",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "车厢防护布局",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "armor_value": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "纵深军运标准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_attack": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "装甲列车防空阵列",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_attack": 0.08
+          }
+        },
+        {
+          "name": "防护车厢结构",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "armor_value": 0.06
+          }
+        },
+        {
+          "name": "列车射控协同",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_attack": 0.07
+          }
+        },
+        {
+          "name": "勃艮第军运平台",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "air_attack": 0.05,
+            "armor_value": 0.04
+          }
+        },
+        {
+          "name": "第戎订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "第戎专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "第戎材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "第戎工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "第戎熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "第戎批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "第戎连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "第戎工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "机具维修计划"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "地方兵工标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "勃艮第产业协约"
+      ],
+      "source_picture": "FRA_alsthom",
+      "legacy_equipment": [
+        "train_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_bes_organization",
+      "tag": "BES",
+      "region_name": "弗朗什—孔泰",
+      "name": "汝拉精密支援工坊",
+      "description": "以精密仪器和工匠装配保证工程、医疗与通信器材可靠性；高标准小批生产的单价较高。",
+      "equipment": [
+        "support_equipment"
+      ],
+      "equipment_name": "支援装备",
+      "factory_state": 243,
+      "factory_name": "贝桑松",
+      "picture": "sof_reg_company_bes",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "support_tech"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_BES_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_BES_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_BES_eco11"
+      ],
+      "initial_equipment": {
+        "reliability": 0.1,
+        "build_cost_ic": 0.03
+      },
+      "initial_production": {},
+      "initial_name": "仪器精密校准基础",
+      "traits": [
+        {
+          "name": "仪器精密校准",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "工匠零件互换",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "紧凑器材布置",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "汝拉检验标准",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "密封测量装置",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.08
+          }
+        },
+        {
+          "name": "轻便仪器壳体",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "精密校验台架",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.07
+          }
+        },
+        {
+          "name": "汝拉军用仪器",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.05,
+            "build_cost_ic": -0.03
+          }
+        },
+        {
+          "name": "贝桑松订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "贝桑松专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "贝桑松材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "贝桑松工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "贝桑松熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "贝桑松批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "贝桑松连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "贝桑松工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "工匠培训课程"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "支援装备标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "汝拉产业共同体"
+      ],
+      "source_picture": "generic_electronics_concern_1",
+      "legacy_equipment": [
+        "support_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_trs_organization",
+      "tag": "TRS",
+      "region_name": "中央",
+      "name": "卢瓦尔军需车队工坊",
+      "description": "把中央地区农工运输车辆改装为低价军需卡车，便于补足车队；民用零件的战地耐久性有限。",
+      "equipment": [
+        "motorized_equipment"
+      ],
+      "equipment_name": "运输卡车",
+      "factory_state": 201,
+      "factory_name": "图尔",
+      "picture": "sof_reg_company_trs",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "motorized_equipment"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_TRS_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_TRS_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_TRS_eco11"
+      ],
+      "initial_equipment": {
+        "build_cost_ic": -0.08,
+        "reliability": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "民用底盘转产基础",
+      "traits": [
+        {
+          "name": "民用底盘转产",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.03
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "卢瓦尔备件目录",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "车队燃油调度",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "fuel_consumption": -0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "中央运输订单",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.03
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "模块化运输底盘",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "长途燃油过滤",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "fuel_consumption": -0.06
+          }
+        },
+        {
+          "name": "民用部件军需化",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "卢瓦尔运输平台",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.03,
+            "fuel_consumption": -0.04
+          }
+        },
+        {
+          "name": "图尔订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "图尔专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "图尔材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "图尔工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "图尔熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "图尔批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "图尔连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "图尔工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "铁路维修计划"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "机具生产标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "中央供给共同体"
+      ],
+      "source_picture": "generic_motorized_equipment_manufacturer_1",
+      "legacy_equipment": [
+        "motorized_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_ami_organization",
+      "tag": "AMI",
+      "region_name": "皮卡第",
+      "name": "皮卡第军需器材联合体",
+      "description": "整合纺织、轻工业与铁路仓储，生产廉价的工程、医疗和随军器材；简化的物料初期较易磨损。",
+      "equipment": [
+        "support_equipment"
+      ],
+      "equipment_name": "支援装备",
+      "factory_state": 70,
+      "factory_name": "亚眠",
+      "picture": "sof_reg_company_ami",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "support_tech"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_AMI_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_AMI_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_AMI_eco11"
+      ],
+      "initial_equipment": {
+        "build_cost_ic": -0.08,
+        "reliability": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "军需器材简化基础",
+      "traits": [
+        {
+          "name": "军需器材简化",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.03
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "纺织金属配套",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "维修补丁套件",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "北方军需订单",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.03
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "冲压军需组件",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "耐久维修套件",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          }
+        },
+        {
+          "name": "统一供给规格",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "皮卡第军需体系",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.03,
+            "reliability": 0.04
+          }
+        },
+        {
+          "name": "亚眠订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "亚眠专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "亚眠材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "亚眠工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "亚眠熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "亚眠批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "亚眠连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "亚眠工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "纺织工场整备"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "工程机具标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "皮卡第供给协约"
+      ],
+      "source_picture": "generic_industrial_concern_1",
+      "legacy_equipment": [
+        "support_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_chl_organization",
+      "tag": "CHL",
+      "region_name": "香槟—阿登",
+      "name": "阿登观察炮械工场",
+      "description": "炮位稳定与观察协作优先，面向纵深守备和阵地支援；不以提高持续火力作为首要目标。",
+      "equipment": [
+        "artillery_equipment"
+      ],
+      "equipment_name": "火炮",
+      "factory_state": 111,
+      "factory_name": "沙隆",
+      "picture": "sof_reg_company_chl",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "artillery"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_CHL_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_CHL_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_CHL_eco11"
+      ],
+      "initial_equipment": {
+        "defense": 0.1,
+        "soft_attack": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "炮位稳定机构基础",
+      "traits": [
+        {
+          "name": "炮位稳定机构",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "观察器材配套",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "纵深炮管改良",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "ap_attack": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "阿登炮械标准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "炮座稳定锚定",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.08
+          }
+        },
+        {
+          "name": "精密射角调节",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "ap_attack": 0.06
+          }
+        },
+        {
+          "name": "高强度支撑机构",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.07
+          }
+        },
+        {
+          "name": "香槟纵深炮械",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.05,
+            "ap_attack": 0.04
+          }
+        },
+        {
+          "name": "沙隆订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "沙隆专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "沙隆材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "沙隆工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "沙隆熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "沙隆批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "沙隆连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "沙隆工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "铁路维修计划"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "炮兵机具标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "香槟供给协约"
+      ],
+      "source_picture": "generic_artillery_manufacturer_2",
+      "legacy_equipment": [
+        "artillery_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_mop_organization",
+      "tag": "MOP",
+      "region_name": "朗格多克",
+      "name": "南岸通信器材联社",
+      "description": "以大学技术人员和地方工坊联合制作通信与支援器材，重点防止接线与设备故障；技术员投入增加造价。",
+      "equipment": [
+        "support_equipment"
+      ],
+      "equipment_name": "支援装备",
+      "factory_state": 441,
+      "factory_name": "蒙彼利埃",
+      "picture": "sof_reg_company_mop",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "support_tech"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_MOP_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_MOP_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_MOP_eco11"
+      ],
+      "initial_equipment": {
+        "reliability": 0.08,
+        "build_cost_ic": 0.02
+      },
+      "initial_production": {},
+      "initial_name": "通信接插件标准基础",
+      "traits": [
+        {
+          "name": "通信接插件标准",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "大学工坊协作",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "紧凑电台机箱",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "南岸器材检验",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "防潮通信接插件",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.08
+          }
+        },
+        {
+          "name": "轻型接收机壳",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "密封电台检验",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.07
+          }
+        },
+        {
+          "name": "南岸军用通信",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.05,
+            "build_cost_ic": -0.03
+          }
+        },
+        {
+          "name": "蒙彼利埃订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "蒙彼利埃专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "蒙彼利埃材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "蒙彼利埃工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "蒙彼利埃熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "蒙彼利埃批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "蒙彼利埃连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "蒙彼利埃工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "沿岸道路施工"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "地方机具标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "南岸产业协约"
+      ],
+      "source_picture": "generic_electronics_concern_1",
+      "legacy_equipment": [
+        "support_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_poi_organization",
+      "tag": "POI",
+      "region_name": "普瓦图—夏朗德",
+      "name": "沙泰勒罗轻武器工场",
+      "description": "恢复沙泰勒罗军械制造的量产与维修体系，为常备军提供价格可承受的武器；早期简化配置牺牲部分防御射击表现。",
+      "equipment": [
+        "infantry_equipment"
+      ],
+      "equipment_name": "步兵武器",
+      "factory_state": 263,
+      "factory_name": "沙泰勒罗",
+      "picture": "sof_reg_company_poi",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "infantry_weapons"
+      ],
+      "unlock": [
+        "SOF_GENERIC_improved_industry",
+        "SOF20_POI_eco4"
+      ],
+      "specialize": [
+        "SOF_GENERIC_advanced_industry",
+        "SOF20_POI_eco7"
+      ],
+      "capstone": [
+        "SOF_GENERIC_military_industrial_complex",
+        "SOF20_POI_eco11"
+      ],
+      "initial_equipment": {
+        "build_cost_ic": -0.08,
+        "defense": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "军械量产工序基础",
+      "traits": [
+        {
+          "name": "军械量产工序",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.03
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "机床夹具互换",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "枪机寿命检验",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "西部轻武器标准",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "build_cost_ic": -0.03
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_production_capacity",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "枪械冲压夹具",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "耐久枪机试验",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.06
+          }
+        },
+        {
+          "name": "军械装配协同",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.04
+          }
+        },
+        {
+          "name": "沙泰勒罗制式武器",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "build_cost_ic": -0.03,
+            "reliability": 0.04
+          }
+        },
+        {
+          "name": "沙泰勒罗订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "沙泰勒罗专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "沙泰勒罗材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "沙泰勒罗工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "沙泰勒罗熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "沙泰勒罗批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "沙泰勒罗连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "沙泰勒罗工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "改良工业",
+        "轻工业整备"
+      ],
+      "specialize_names": [
+        "先进工业",
+        "轻工军需标准"
+      ],
+      "capstone_names": [
+        "军工复合体",
+        "大西洋供应协约"
+      ],
+      "source_picture": "generic_infantry_equipment_manufacturer_2",
+      "legacy_equipment": [
+        "infantry_equipment"
+      ]
+    },
+    {
+      "id": "sof_reg_ajc_organization",
+      "tag": "AJC",
+      "region_name": "科西嘉",
+      "name": "阿雅克肖山地军械联营",
+      "description": "为岛内山地守军提供易维护且耐潮湿的轻武器，强调长期携行与现场修理；火力配置保持轻便。",
+      "equipment": [
+        "infantry_equipment"
+      ],
+      "equipment_name": "步兵武器",
+      "factory_state": 504,
+      "factory_name": "阿雅克肖",
+      "picture": "sof_reg_company_ajc",
+      "legacy_slot": "materiel_manufacturer",
+      "research_categories": [
+        "infantry_weapons"
+      ],
+      "unlock": [
+        "SFC_fiocchi_munizioni"
+      ],
+      "specialize": [
+        "SFC_brescia_small_arms_industry"
+      ],
+      "capstone": [
+        "SFC_increase_production",
+        "SFC_keep_specialization"
+      ],
+      "initial_equipment": {
+        "reliability": 0.1,
+        "soft_attack": -0.02
+      },
+      "initial_production": {},
+      "initial_name": "山地枪机防尘基础",
+      "traits": [
+        {
+          "name": "山地枪机防尘",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 1,
+          "tier": 1,
+          "branch": "quality",
+          "parents": []
+        },
+        {
+          "name": "岛内维修网络",
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_efficiency_gain",
+          "token_suffix": 2,
+          "tier": 2,
+          "branch": "quality",
+          "parents": [
+            1
+          ]
+        },
+        {
+          "name": "轻便守备枪具",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "defense": 0.06
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 3,
+          "tier": 3,
+          "branch": "quality",
+          "parents": [
+            2
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "岛屿军械标准",
+          "icon": "GFX_sof_reg_trait_reliability",
+          "equipment": {
+            "reliability": 0.05
+          },
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "source_icon": "GFX_generic_mio_trait_icon_reliability",
+          "token_suffix": 4,
+          "tier": 4,
+          "branch": "quality",
+          "parents": [
+            3
+          ],
+          "gate": "specialize"
+        },
+        {
+          "name": "海岛防潮枪机",
+          "token_suffix": 5,
+          "tier": 5,
+          "branch": "quality",
+          "parents": [
+            4
+          ],
+          "gate": "specialize",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.08
+          }
+        },
+        {
+          "name": "山地守备枪架",
+          "token_suffix": 6,
+          "tier": 6,
+          "branch": "quality",
+          "parents": [
+            5
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "defense": 0.06
+          }
+        },
+        {
+          "name": "密封枪械导轨",
+          "token_suffix": 7,
+          "tier": 7,
+          "branch": "quality",
+          "parents": [
+            6
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.07
+          }
+        },
+        {
+          "name": "科西嘉山地军械",
+          "token_suffix": 8,
+          "tier": 8,
+          "branch": "quality",
+          "parents": [
+            7
+          ],
+          "gate": "capstone",
+          "icon": "GFX_sof_reg_trait_production_capacity",
+          "equipment": {
+            "reliability": 0.05,
+            "defense": 0.04
+          }
+        },
+        {
+          "name": "阿雅克肖订单统筹",
+          "token_suffix": 9,
+          "tier": 1,
+          "branch": "production",
+          "parents": [],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          }
+        },
+        {
+          "name": "阿雅克肖专用装配线",
+          "token_suffix": 10,
+          "tier": 2,
+          "branch": "production",
+          "parents": [
+            9
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          }
+        },
+        {
+          "name": "阿雅克肖材料回收协作",
+          "token_suffix": 11,
+          "tier": 3,
+          "branch": "production",
+          "parents": [
+            10
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_resource_need_factor": -0.04
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "阿雅克肖工场扩建融资",
+          "token_suffix": 12,
+          "tier": 4,
+          "branch": "production",
+          "parents": [
+            11
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "organization": {
+            "military_industrial_organization_funds_gain": 0.25
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "阿雅克肖熟练工人培训",
+          "token_suffix": 13,
+          "tier": 5,
+          "branch": "production",
+          "parents": [
+            12
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_gain_factor": 0.06
+          },
+          "gate": "specialize"
+        },
+        {
+          "name": "阿雅克肖批量采购合同",
+          "token_suffix": 14,
+          "tier": 6,
+          "branch": "production",
+          "parents": [
+            13
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "阿雅克肖连续生产调度",
+          "token_suffix": 15,
+          "tier": 7,
+          "branch": "production",
+          "parents": [
+            14
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_efficiency_cap_factor": 0.06
+          },
+          "gate": "capstone"
+        },
+        {
+          "name": "阿雅克肖工业研究中心",
+          "token_suffix": 16,
+          "tier": 8,
+          "branch": "production",
+          "parents": [
+            15
+          ],
+          "icon": "GFX_sof_reg_trait_efficiency_gain",
+          "production": {
+            "production_cost_factor": -0.04
+          },
+          "organization": {
+            "military_industrial_organization_research_bonus": 0.05,
+            "military_industrial_organization_task_capacity": 1
+          },
+          "gate": "capstone"
+        }
+      ],
+      "unlock_names": [
+        "岛内弹药工业"
+      ],
+      "specialize_names": [
+        "岛内轻武器工业"
+      ],
+      "capstone_names": [
+        "提高产能",
+        "保持专业化"
+      ],
+      "source_picture": "generic_infantry_equipment_manufacturer_1",
+      "legacy_equipment": [
+        "infantry_equipment"
+      ]
+    }
+  ],
+  "native_art_assets": [
+    {
+      "sprite": "GFX_idea_sof_reg_company_prs",
+      "source_sprite": "GFX_idea_renault",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_renault.dds",
+      "sha256": "953ae09fd2f3524e4fef8edae6457aa24c4257faf4debae0cf40667fae81c9fc",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_prs.dds"
+    },
+    {
+      "sprite": "GFX_sof_reg_trait_production_capacity",
+      "source_sprite": "GFX_generic_mio_trait_icon_production_capacity",
+      "source_gfx": "interface/military_industrial_organization/industrial_organization_policies_and_traits_icons.gfx",
+      "source_texture": "gfx/interface/military_industrial_organization/trait_icons/generic_mio_trait_icon_production_capacity.dds",
+      "sha256": "4140aa193f5d067d271f12e130c1fac7e81e1e0cc9f8885f82358b50358b66da",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/GFX_sof_reg_trait_production_capacity.dds"
+    },
+    {
+      "sprite": "GFX_sof_reg_trait_efficiency_gain",
+      "source_sprite": "GFX_generic_mio_trait_icon_efficiency_gain",
+      "source_gfx": "interface/military_industrial_organization/industrial_organization_policies_and_traits_icons.gfx",
+      "source_texture": "gfx/interface/military_industrial_organization/trait_icons/generic_mio_trait_icon_efficiency_gain.dds",
+      "sha256": "3f3b854f2a92ab908d5bef2e7ae098866480334afddf103d3b2b93170f17ea8d",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/GFX_sof_reg_trait_efficiency_gain.dds"
+    },
+    {
+      "sprite": "GFX_sof_reg_trait_reliability",
+      "source_sprite": "GFX_generic_mio_trait_icon_reliability",
+      "source_gfx": "interface/military_industrial_organization/industrial_organization_policies_and_traits_icons.gfx",
+      "source_texture": "gfx/interface/military_industrial_organization/trait_icons/generic_mio_trait_icon_reliability.dds",
+      "sha256": "49b4ca60c03ab43519bd55030a59d6ebd7c3722772b57a55f5c5ec3ffe6c0f0b",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/GFX_sof_reg_trait_reliability.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_lil",
+      "source_sprite": "GFX_idea_generic_tank_manufacturer_3",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_tank_manufacturer_3.dds",
+      "sha256": "db4bb258d6f48d817527339f191e557066274ebb5b9dfea33890d5ef7381dd33",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_lil.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_met",
+      "source_sprite": "GFX_idea_generic_artillery_manufacturer_3",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_artillery_manufacturer_3.dds",
+      "sha256": "2a45c57b443eb77cf44b882473ff2bb8a13e848abdfe4e3c65d74d32f047b73f",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_met.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_str",
+      "source_sprite": "GFX_idea_generic_infantry_equipment_manufacturer_3",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_infantry_equipment_manufacturer_3.dds",
+      "sha256": "29dd0438fe3cde5958e6239c52d8516d445bbc2c7e60881b5b549c65b6d8f7a7",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_str.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_rou",
+      "source_sprite": "GFX_idea_FRA_acf",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/fra_acf.dds",
+      "sha256": "80cabd149309016011b99f76330eec4e92876922125da8dfc29bcd712e9fed92",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_rou.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_lyo",
+      "source_sprite": "GFX_idea_generic_motorized_equipment_manufacturer_3",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_motorized_equipment_manufacturer_3.dds",
+      "sha256": "502b7177c30f0a94d9798d3b9c7200b5724a73ec96b7292ec0e85df781ee4350",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_lyo.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_mrs",
+      "source_sprite": "GFX_idea_fcm",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_fcm.dds",
+      "sha256": "80a9e4e9f04aba64e1de807ed20699b375490b6cecc1fae7eac71342a3c51577",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_mrs.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_brd",
+      "source_sprite": "GFX_idea_FRA_sncaso",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/fra_sncaso.dds",
+      "sha256": "17ba9ee09d65259ba868b5f82961368be670e7728c62e9855b3cb3ebc397b479",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_brd.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_tou",
+      "source_sprite": "GFX_idea_generic_air_manufacturer_3",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_air_manufacturer_3.dds",
+      "sha256": "25d22c2d7b0fa758d7cca8790cfdd15979fdc948382a297cb5e53761b4cf79d5",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_tou.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_nan",
+      "source_sprite": "GFX_idea_FRA_acl",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/fra_acl.dds",
+      "sha256": "1ff4828df34c50ae81b60e05cb7ca65afe560c055a12754e66c2c5753698adca",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_nan.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_ren",
+      "source_sprite": "GFX_idea_generic_naval_manufacturer_2",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_naval_manufacturer_2.dds",
+      "sha256": "46bc8737967b04f8e9cb980f0b2e1aa04c95ce8f00c9785eb1d30e5b357626b9",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_ren.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_cfr",
+      "source_sprite": "GFX_idea_generic_motorized_equipment_manufacturer_2",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_motorized_equipment_manufacturer_2.dds",
+      "sha256": "228ef0cb55c80126303a62dc346cd35d76d0b255bf0b09473773828b6945f8fa",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_cfr.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_dij",
+      "source_sprite": "GFX_idea_FRA_alsthom",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_FRA_alsthom.dds",
+      "sha256": "3e75012cf5a929aa490feb74c9614960098fce66c3daed13200ff9160fce6117",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_dij.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_bes",
+      "source_sprite": "GFX_idea_generic_electronics_concern_1",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_electronics_concern_1.dds",
+      "sha256": "cd710571180e8481dd7cef333c17a345af91e255c0cd38f7b0d50ab4a4303d64",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_bes.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_trs",
+      "source_sprite": "GFX_idea_generic_motorized_equipment_manufacturer_1",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_motorized_equipment_manufacturer_1.dds",
+      "sha256": "4f237d1d965ad31fe79a9ac084777aae290ca564ae025ca34e38fd52e0114ae7",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_trs.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_ami",
+      "source_sprite": "GFX_idea_generic_industrial_concern_1",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_industrial_concern_1.dds",
+      "sha256": "aabe92636b333120b9e154709871746669e9c3f00dce3f1236174edf82357cca",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_ami.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_chl",
+      "source_sprite": "GFX_idea_generic_artillery_manufacturer_2",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_artillery_manufacturer_2.dds",
+      "sha256": "56f36fb2f6baa87350085fc67505b7c2093223ed693346b75d9442cb84bd92e5",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_chl.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_mop",
+      "source_sprite": "GFX_idea_generic_electronics_concern_1",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_electronics_concern_1.dds",
+      "sha256": "cd710571180e8481dd7cef333c17a345af91e255c0cd38f7b0d50ab4a4303d64",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_mop.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_poi",
+      "source_sprite": "GFX_idea_generic_infantry_equipment_manufacturer_2",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_infantry_equipment_manufacturer_2.dds",
+      "sha256": "cf80b2048d05226aa8ca218bfba54725ac977a40a0dbcd6808ec2c10e3ad4104",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_poi.dds"
+    },
+    {
+      "sprite": "GFX_idea_sof_reg_company_ajc",
+      "source_sprite": "GFX_idea_generic_infantry_equipment_manufacturer_1",
+      "source_gfx": "interface/ideas.gfx",
+      "source_texture": "gfx/interface/ideas/idea_generic_infantry_equipment_manufacturer_1.dds",
+      "sha256": "92ee20949cfe7a25ae792d373fa6d1f152145e6efe3e39403e6cf36bfa621aca",
+      "destination": "mod/gfx/interface/sof_regional_manufacturers/sof_reg_company_ajc.dds"
+    }
+  ],
+  "equipment_group_source_sha256": "c72e7e5d07e2bb2f2096bcdb8702652304abe7b0f039eb3b8fda03603b55271b",
+  "tier_count": 8,
+  "traits_per_company": 16,
+  "research_bonus": 0.15,
+  "task_capacity": 3,
+  "baseline_commit": "191dfc9a1b131337e4c3de8de1c27cdb91ceab1a",
+  "initial_organization": {
+    "military_industrial_organization_funds_gain": 0.25
+  },
+  "numeric_caps": {
+    "equipment": 0.45,
+    "equipment_cost": 0.3,
+    "production": 0.2
+  },
+  "vanilla_reference": "design/vanilla-mio-growth-reference.json",
+  "old_save_compatibility": "Organization IDs and trait_1 through trait_4 are retained; new tokens are appended."
+}

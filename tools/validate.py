@@ -117,9 +117,14 @@ def validate():
     if version.startswith('4.'):
         from validate_focus_art import audit as audit_focus_art
         audit_focus_art(check,gfx)
-    if version in ['4.1.0','4.2.0']:
+    if version.startswith('4.') and version not in ['4.0.0','4.0.1','4.0.2']:
         from validate_historical import audit as audit_historical
         audit_historical(check,gfx)
+    if (ROOT/'design/balance-4.3.json').is_file():
+        from validate_balance import audit as audit_balance
+        from validate_regional_manufacturers import audit as audit_manufacturers
+        audit_balance(check,gfx)
+        audit_manufacturers(check,gfx)
     report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),
         decisions=decisions,categories=categories,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
     return report

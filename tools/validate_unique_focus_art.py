@@ -38,6 +38,12 @@ def audit(check,gfx):
         expected_pixels={a['id']:hashlib.sha256(Image.open(ROOT/'art/focus/unique/exports'/(a['key']+'.png')).tobytes()).hexdigest() for a in data['assets']}
         check(review.get('visual_review_complete') is True and review.get('source_sha256')==expected_source and review.get('native_pixel_sha256')==expected_pixels,'Visual review covers exactly the current 473 source and native images')
     for file,expected in data['semantic_baseline']['semantic_sha256'].items():
+        if (ROOT/'design/balance-4.3.json').is_file():
+            balance=json.loads((ROOT/'design/balance-4.3.json').read_text(encoding='utf-8'))
+            if file in balance['changed_files']:
+                recorded=balance['changed_files'][file]
+                check(recorded['before_semantic_sha256']==expected,'Balance overlay starts from the original reviewed gameplay: '+file)
+                expected=recorded['after_semantic_sha256']
         current=shape(parse((ROOT/file).read_text(encoding='utf-8-sig')))
         actual=hashlib.sha256(json.dumps(current,ensure_ascii=False).encode('utf-8')).hexdigest()
-        check(actual==expected,'Exclusive art preserves 4.1.0 layout, effects and conditions: '+file)
+        check(actual==expected,'Exclusive art and explicitly reviewed gameplay changes match: '+file)

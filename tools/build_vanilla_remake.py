@@ -6,7 +6,7 @@ import vanilla_local_policy as policy
 import vanilla_naming as naming
 
 ROOT=Path(__file__).resolve().parent.parent;MOD=ROOT/'mod'
-VERSION='4.2.0'
+VERSION='4.3.0'
 BASE_EOL={}
 
 def save(rel,text,bom=False):
@@ -394,6 +394,10 @@ def main():
     save('VERSION',VERSION);save('mod/descriptor.mod',baseline('mod/descriptor.mod').replace('version="3.2.0"',f'version="{VERSION}"'))
     from focus_art import apply as apply_art
     apply_art()
+    from vanilla_balance import apply as apply_balance
+    apply_balance()
+    from build_regional_manufacturers import build as build_manufacturers
+    build_manufacturers()
     print(json.dumps(dict(ok=True,countries=[dict(tag=r['tag'],nodes=r['nodes'],unadapted=r['unadapted']) for r in reports],ideas=len(b.idea_code),dynamics=len(b.dynamic),art=len(b.art)),ensure_ascii=False))
 
 if __name__=='__main__':main()
