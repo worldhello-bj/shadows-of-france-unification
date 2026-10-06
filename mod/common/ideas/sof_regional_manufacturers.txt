@@ -219,8 +219,8 @@ ideas = {
   picture = sof_reg_company_mrs
   allowed = { original_tag = MRS tag = MRS NOT = { has_dlc = "Arms Against Tyranny" } }
   allowed_civil_war = { always = no }
-  available = { custom_trigger_tooltip = { tooltip = sof_reg_mrs_organization_unlock_tt has_capitulated = no OR = { has_completed_focus = SOF_GENERIC_improved_industry has_completed_focus = SOF20_MRS_eco4 } 469 = { is_owned_by = PREV is_fully_controlled_by = PREV } } }
-  cancel = { NOT = { has_capitulated = no OR = { has_completed_focus = SOF_GENERIC_improved_industry has_completed_focus = SOF20_MRS_eco4 } 469 = { is_owned_by = PREV is_fully_controlled_by = PREV } } }
+  available = { custom_trigger_tooltip = { tooltip = sof_reg_mrs_organization_unlock_tt has_capitulated = no OR = { OR = { has_completed_focus = SOF_GENERIC_improved_industry has_completed_focus = SOF_MRS_RED_E7 } has_completed_focus = SOF20_MRS_eco4 } 469 = { is_owned_by = PREV is_fully_controlled_by = PREV } } }
+  cancel = { NOT = { has_capitulated = no OR = { OR = { has_completed_focus = SOF_GENERIC_improved_industry has_completed_focus = SOF_MRS_RED_E7 } has_completed_focus = SOF20_MRS_eco4 } 469 = { is_owned_by = PREV is_fully_controlled_by = PREV } } }
   cost = 125
   removal_cost = 10
   research_bonus = { naval_equipment = 0.15 }

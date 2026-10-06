@@ -125,7 +125,13 @@ def validate():
         from validate_regional_manufacturers import audit as audit_manufacturers
         audit_balance(check,gfx)
         audit_manufacturers(check,gfx)
-    report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),
+    if (MOD/'common/national_focus/sof_mrs_red.txt').is_file():
+        from validate_marseille_red import audit as audit_marseille_red
+        audit_marseille_red(check,loc,gfx)
+    if (ROOT/'design/generic-focus-4.4.json').is_file():
+        from validate_generic_focus import audit as audit_generic_focus
+        audit_generic_focus(check,loc,gfx)
+    report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),marseille_new_focuses=52 if (MOD/'common/national_focus/sof_mrs_red.txt').is_file() else 0,
         decisions=decisions,categories=categories,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
     return report
 

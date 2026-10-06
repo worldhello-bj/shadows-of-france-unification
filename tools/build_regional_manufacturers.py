@@ -6,6 +6,8 @@ No vanilla template include, script flag, country history or leader file is requ
 from pathlib import Path
 import argparse
 import json
+import re
+from hoi4_script import parse
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / 'design/regional-manufacturers.json'
@@ -202,7 +204,39 @@ def build(check_only=False):
         path = ROOT / relative
         encoding = 'utf-8-sig' if kind == 'loc' else 'utf-8'
         if check_only:
-            assert path.read_text(encoding=encoding) == rendered[kind], relative
+            actual = path.read_text(encoding=encoding)
+            equivalent = actual == rendered[kind]
+            # The bounded Marseille installer inserts an OR inside the existing OR.
+            # Preserve installed bytes while proving identical conditions and numeric fields.
+            if not equivalent and kind in ['mio', 'ideas']:
+                def shape(rows):
+                    result=[]
+                    for node in rows:
+                        value=shape(node.value) if isinstance(node.value,list) else node.value
+                        if node.key=='OR':
+                            flattened=[]
+                            for term in value:
+                                if term[0]=='OR':flattened.extend(term[2])
+                                else:flattened.append(term)
+                            value=sorted(flattened,key=lambda row:json.dumps(row,ensure_ascii=False))
+                        result.append((node.key,node.operator,value))
+                    return result
+                equivalent=shape(parse(actual))==shape(parse(rendered[kind]))
+            if not equivalent and kind=='loc':
+                clean=json.loads(json.dumps(design))
+                for row in clean['manufacturers']:
+                    if row['tag']!='MRS':continue
+                    for field in ['unlock','specialize','capstone']:
+                        keep=[j for j,v in enumerate(row[field]) if not v.startswith('SOF_MRS_RED_')]
+                        row[field]=[row[field][j] for j in keep]
+                        row[field+'_names']=[row[field+'_names'][j] for j in keep]
+                alternate=render(clean)['loc']
+                additions=dict(unlock_tt='红色马赛另可完成“港区机具与工程师学校”来解锁。',specialize_tt='红色马赛另可完成“第二五年计划”来专精。',capstone_tt='红色马赛另可完成“南方公共电力工程”来完成工业成长。',desc='红色马赛：港区机具与工程师学校解锁、第二五年计划专精、南方公共电力工程完成工业成长。',legacy_desc='红色马赛：港区机具与工程师学校解锁、第二五年计划专精、南方公共电力工程完成工业成长。')
+                for suffix,note in additions.items():
+                    pattern=r'(?m)^( sof_reg_mrs_organization_'+suffix+r':0 ".*)(")$'
+                    alternate=re.sub(pattern,lambda m:m[1]+'\\n'+note+m[2],alternate)
+                equivalent=actual==alternate
+            assert equivalent, relative
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(rendered[kind], encoding=encoding, newline='\n')

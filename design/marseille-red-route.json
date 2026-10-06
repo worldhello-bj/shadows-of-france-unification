@@ -1,0 +1,927 @@
+{
+  "version": "4.3.3",
+  "nodes": [
+    {
+      "code": "A1",
+      "id": "SOF_MRS_RED_A1",
+      "name": "组织港口工人",
+      "days": 35,
+      "prerequisites": [],
+      "description": "马赛独立且未投降，拥有并控制首都；共产党支持率增加8，政治点增加25。选择此入口锁定共产主义故事线。",
+      "x": 18,
+      "y": 0,
+      "gate": "sof_mrs_red_candidate = yes ",
+      "reward": "set_country_flag = sof_mrs_red_chosen add_popularity = { ideology = communism popularity = 0.08 } add_political_power = 25 country_event = { id = sof_mrs_red.1 days = 1 }",
+      "exclusive": null
+    },
+    {
+      "code": "A2",
+      "id": "SOF_MRS_RED_A2",
+      "name": "人民阵线中的共产党",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A1"
+        ]
+      ],
+      "description": "共产党支持率增加7，稳定度增加3。以现有35%支持率为基线，正常达到50%。",
+      "x": 18,
+      "y": 1,
+      "gate": "sof_mrs_red_candidate = yes ",
+      "reward": "add_popularity = { ideology = communism popularity = 0.07 } add_stability = 0.03",
+      "exclusive": null
+    },
+    {
+      "code": "A3",
+      "id": "SOF_MRS_RED_A3",
+      "name": "码头工人自卫队",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A2"
+        ]
+      ],
+      "description": "陆军经验增加15，解锁民兵训练决议；训练消耗本国装备和人力，不直接赠送师。",
+      "x": 18,
+      "y": 2,
+      "gate": "sof_mrs_red_candidate = yes ",
+      "reward": "army_experience = 15",
+      "exclusive": null
+    },
+    {
+      "code": "A4",
+      "id": "SOF_MRS_RED_A4",
+      "name": "一切权力归工人代表会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A3"
+        ]
+      ],
+      "description": "需要共产党支持率至少50%、稳定度至少35%、政治点至少50，并且马赛独立、未投降且控制首都；消耗50政治点，招募并任命克里斯托福尔，执政党转为共产主义，停止定期选举，称号改为马赛工人共和国。",
+      "x": 18,
+      "y": 3,
+      "gate": "sof_mrs_red_candidate = yes communism > 0.499 has_stability > 0.349 political_power > 49",
+      "reward": "add_political_power = -50 if = { limit = { NOT = { has_character = MRS_jean_cristofol } } recruit_character = MRS_jean_cristofol } promote_character = MRS_jean_cristofol set_politics = { ruling_party = communism elections_allowed = no } set_country_flag = sof_mrs_red_government sof_mrs_red_remove_legacy = yes set_cosmetic_tag = SOF_MRS_WORKERS country_event = { id = sof_mrs_red.2 days = 1 }",
+      "exclusive": null
+    },
+    {
+      "code": "A5",
+      "id": "SOF_MRS_RED_A5",
+      "name": "马赛共产党第一次代表大会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A4"
+        ]
+      ],
+      "description": "政治点增加25；启动党内矛盾机制，初始值20，开放中央与工会两种政治组织方式。",
+      "x": 18,
+      "y": 4,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_political_power = 25 set_variable = { sof_mrs_red_tension = 20 } set_country_flag = sof_mrs_red_congress sof_mrs_red_refresh_tension = yes country_event = { id = sof_mrs_red.3 days = 1 }",
+      "exclusive": null
+    },
+    {
+      "code": "P1",
+      "id": "SOF_MRS_RED_P1",
+      "name": "民主集中制",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A5"
+        ]
+      ],
+      "description": "与P4互斥；建立中央组织路线，党内矛盾减少10，获得政治点获取增加5%的中央组织精神初级。",
+      "x": 14,
+      "y": 5,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_to_variable = { sof_mrs_red_tension = -10 } sof_mrs_red_refresh_tension = yes sof_mrs_red_restore_ideas = yes",
+      "exclusive": "P4"
+    },
+    {
+      "code": "P2",
+      "id": "SOF_MRS_RED_P2",
+      "name": "党领导一切",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P1"
+        ]
+      ],
+      "description": "中央组织精神升级：政治点获取增加10%，工厂产出增加3%；党内矛盾增加5。",
+      "x": 14,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_to_variable = { sof_mrs_red_tension = 5 } sof_mrs_red_refresh_tension = yes sof_mrs_red_restore_ideas = yes",
+      "exclusive": null
+    },
+    {
+      "code": "P3",
+      "id": "SOF_MRS_RED_P3",
+      "name": "组织审查委员会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P2"
+        ]
+      ],
+      "description": "开放一次组织审查事件；可选择政治妥协，或免职虚构的港务反对派；必须在事件中显示代价。",
+      "x": 14,
+      "y": 7,
+      "gate": "sof_mrs_red_active = yes political_power > 24",
+      "reward": "country_event = { id = sof_mrs_red.4 days = 1 }",
+      "exclusive": null
+    },
+    {
+      "code": "P4",
+      "id": "SOF_MRS_RED_P4",
+      "name": "工会代表大会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A5"
+        ]
+      ],
+      "description": "与P1互斥；建立工会组织路线，稳定度增加5，党内矛盾减少10。",
+      "x": 22,
+      "y": 5,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_stability = 0.05 add_to_variable = { sof_mrs_red_tension = -10 } sof_mrs_red_refresh_tension = yes",
+      "exclusive": "P1"
+    },
+    {
+      "code": "P5",
+      "id": "SOF_MRS_RED_P5",
+      "name": "各市镇的工人代表",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P4"
+        ]
+      ],
+      "description": "政治点获取增加5%，稳定度增加5，工厂产出减少3%；不产生领土转移。",
+      "x": 22,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_stability = 0.05 sof_mrs_red_restore_ideas = yes",
+      "exclusive": null
+    },
+    {
+      "code": "P6",
+      "id": "SOF_MRS_RED_P6",
+      "name": "地方苏维埃自治章程",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P5"
+        ]
+      ],
+      "description": "党内矛盾减少15，解锁地方协商决议；新占领州仍需正常治理。",
+      "x": 22,
+      "y": 7,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_to_variable = { sof_mrs_red_tension = -15 } sof_mrs_red_refresh_tension = yes",
+      "exclusive": null
+    },
+    {
+      "code": "P7",
+      "id": "SOF_MRS_RED_P7",
+      "name": "社会主义宪章",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P3",
+          "P6"
+        ]
+      ],
+      "description": "稳定度增加5，战争支持度增加5；明确军事、工会和市政机构的权限。",
+      "x": 18,
+      "y": 8,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_stability = 0.05 add_war_support = 0.05",
+      "exclusive": null
+    },
+    {
+      "code": "P8",
+      "id": "SOF_MRS_RED_P8",
+      "name": "结束革命紧急状态",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P7"
+        ]
+      ],
+      "description": "距A5完成至少180天，党内矛盾低于40、稳定度至少45%；关闭被动矛盾增长，解除对应危机精神，稳定度增加5。",
+      "x": 18,
+      "y": 9,
+      "gate": "sof_mrs_red_active = yes has_country_flag = { flag = sof_mrs_red_congress days > 179 } check_variable = { sof_mrs_red_tension < 40 } has_stability > 0.449",
+      "reward": "set_country_flag = sof_mrs_red_emergency_ended clr_country_flag = sof_mrs_red_crisis_pending add_stability = 0.05 sof_mrs_red_refresh_tension = yes",
+      "exclusive": null
+    },
+    {
+      "code": "E1",
+      "id": "SOF_MRS_RED_E1",
+      "name": "马赛国家计划委员会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A4"
+        ]
+      ],
+      "description": "设立计划管理机构，获得工业研究一次50%加成。",
+      "x": 4,
+      "y": 4,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_tech_bonus = { name = sof_mrs_red_study bonus = 0.5 uses = 1 category = industry }",
+      "exclusive": null
+    },
+    {
+      "code": "E2",
+      "id": "SOF_MRS_RED_E2",
+      "name": "第一五年计划",
+      "days": 70,
+      "prerequisites": [
+        [
+          "E1"
+        ]
+      ],
+      "description": "在合格州增加1座民用工厂，记录计划开始日期；获得建设速度增加5%、消费品需求系数增加5%的计划精神。",
+      "x": 0,
+      "y": 5,
+      "gate": "sof_mrs_red_active = yes any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } }",
+      "reward": "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } set_country_flag = sof_mrs_red_plan_started sof_mrs_red_restore_ideas = yes",
+      "exclusive": null
+    },
+    {
+      "code": "E3",
+      "id": "SOF_MRS_RED_E3",
+      "name": "港务和仓储国有化",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E1"
+        ]
+      ],
+      "description": "在合格州增加1座民用工厂；港口国有化表现为工业建设，不生成商船或资源。",
+      "x": 8,
+      "y": 5,
+      "gate": "sof_mrs_red_active = yes any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } }",
+      "reward": "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }",
+      "exclusive": null
+    },
+    {
+      "code": "E4",
+      "id": "SOF_MRS_RED_E4",
+      "name": "煤炭采购网络",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E3"
+        ]
+      ],
+      "description": "开采技术研究一次50%加成，开放国内资源供应联络；煤炭依赖地图现有产量和原生贸易，不直接增加虚构煤田。",
+      "x": 8,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_tech_bonus = { name = sof_mrs_red_study bonus = 0.5 uses = 1 category = excavation_tech }",
+      "exclusive": null
+    },
+    {
+      "code": "E5",
+      "id": "SOF_MRS_RED_E5",
+      "name": "瓦尔铝土矿扩产",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E4"
+        ]
+      ],
+      "description": "需要拥有并完全控制已核实的446州矿区；一次增加4铝。与同矿区既有扩产节点共享奖励记录，先领旧奖励则此项只保留剧情，不重复扩产。",
+      "x": 8,
+      "y": 7,
+      "gate": "sof_mrs_red_active = yes 446 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }",
+      "reward": "446 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT NOT = { OR = { has_state_flag = sofzh_generic_aluminium_expansion has_state_flag = sofzh_mining_provence_bauxite_1 has_state_flag = sof_mrs_red_aluminium } } } add_resource = { type = aluminium amount = 4 } set_state_flag = sofzh_generic_aluminium_expansion set_state_flag = sofzh_mining_provence_bauxite_1 set_state_flag = sof_mrs_red_aluminium } }",
+      "exclusive": null
+    },
+    {
+      "code": "E6",
+      "id": "SOF_MRS_RED_E6",
+      "name": "港口通往罗讷河谷",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E2"
+        ]
+      ],
+      "description": "开放交通投资决议，选择本国实际控制的港口至内陆线路；建设使用民用工业，不凭空赠送跨国铁路。",
+      "x": 0,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "custom_effect_tooltip = sof_mrs_red_transport_tt",
+      "exclusive": null
+    },
+    {
+      "code": "E7",
+      "id": "SOF_MRS_RED_E7",
+      "name": "港区机具与工程师学校",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E2"
+        ],
+        [
+          "E3"
+        ]
+      ],
+      "description": "在合格州增加1座军用工厂；工业研究一次50%加成。拥有至少12座民用及军用工厂后，可一次解锁额外科研槽，科研槽总数上限4。",
+      "x": 4,
+      "y": 7,
+      "gate": "sof_mrs_red_active = yes any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = no } }",
+      "reward": "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } add_tech_bonus = { name = sof_mrs_red_study bonus = 0.5 uses = 1 category = industry }",
+      "exclusive": null
+    },
+    {
+      "code": "E8",
+      "id": "SOF_MRS_RED_E8",
+      "name": "第一计划验收",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E2"
+        ],
+        [
+          "E6"
+        ],
+        [
+          "E7"
+        ]
+      ],
+      "description": "E2完成至少365天，拥有至少6座民用及军用工厂；增加1座民用工厂，计划精神升级为建设速度增加8%、消费品需求系数增加3%。",
+      "x": 2,
+      "y": 8,
+      "gate": "sof_mrs_red_active = yes has_country_flag = { flag = sof_mrs_red_plan_started days > 364 } OR = { AND = { num_of_civilian_factories >= 0 num_of_military_factories >= 6 } AND = { num_of_civilian_factories >= 1 num_of_military_factories >= 5 } AND = { num_of_civilian_factories >= 2 num_of_military_factories >= 4 } AND = { num_of_civilian_factories >= 3 num_of_military_factories >= 3 } AND = { num_of_civilian_factories >= 4 num_of_military_factories >= 2 } AND = { num_of_civilian_factories >= 5 num_of_military_factories >= 1 } AND = { num_of_civilian_factories >= 6 num_of_military_factories >= 0 } } any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } }",
+      "reward": "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } sof_mrs_red_restore_ideas = yes country_event = { id = sof_mrs_red.5 days = 1 }",
+      "exclusive": null
+    },
+    {
+      "code": "E9",
+      "id": "SOF_MRS_RED_E9",
+      "name": "第二五年计划",
+      "days": 70,
+      "prerequisites": [
+        [
+          "E8"
+        ]
+      ],
+      "description": "至少拥有并完全控制15个法国州；增加1座军用工厂，开放工业方向选择。",
+      "x": 2,
+      "y": 9,
+      "gate": "sof_mrs_red_active = yes check_variable = { sof_mrs_red_french_states >= 15 } any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = no } }",
+      "reward": "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } }",
+      "exclusive": null
+    },
+    {
+      "code": "E10",
+      "id": "SOF_MRS_RED_E10",
+      "name": "重工业优先",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E9"
+        ]
+      ],
+      "description": "与E11互斥；计划精神替换为建设速度增加8%、军用工厂产出增加8%、生产效率上限增加5%、消费品需求系数增加5%。",
+      "x": 0,
+      "y": 10,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "sof_mrs_red_restore_ideas = yes",
+      "exclusive": "E11"
+    },
+    {
+      "code": "E11",
+      "id": "SOF_MRS_RED_E11",
+      "name": "工人住房与消费工业",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E9"
+        ]
+      ],
+      "description": "与E10互斥；计划精神替换为建设速度增加8%、军用工厂产出增加3%、消费品需求系数减少2%；稳定度增加5。",
+      "x": 6,
+      "y": 10,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_stability = 0.05 sof_mrs_red_restore_ideas = yes",
+      "exclusive": "E10"
+    },
+    {
+      "code": "E12",
+      "id": "SOF_MRS_RED_E12",
+      "name": "南方公共电力工程",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E10",
+          "E11"
+        ]
+      ],
+      "description": "在合格州增加1座民用工厂，工业研究一次50%加成。",
+      "x": 3,
+      "y": 11,
+      "gate": "sof_mrs_red_active = yes any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } }",
+      "reward": "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_tech_bonus = { name = sof_mrs_red_study bonus = 0.5 uses = 1 category = industry }",
+      "exclusive": null
+    },
+    {
+      "code": "M1",
+      "id": "SOF_MRS_RED_M1",
+      "name": "马赛赤卫队",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A4"
+        ]
+      ],
+      "description": "陆军经验增加15，开放有装备成本的地方民兵训练。",
+      "x": 30,
+      "y": 4,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "army_experience = 15",
+      "exclusive": null
+    },
+    {
+      "code": "M2",
+      "id": "SOF_MRS_RED_M2",
+      "name": "统一革命参谋部",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M1"
+        ]
+      ],
+      "description": "开始140天整编期，期间师组织度减少5%、组织度恢复减少5%；记录起始日期。",
+      "x": 30,
+      "y": 5,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "set_country_flag = sof_mrs_red_reform_started add_timed_idea = { idea = sof_mrs_red_reform days = 140 }",
+      "exclusive": null
+    },
+    {
+      "code": "M3",
+      "id": "SOF_MRS_RED_M3",
+      "name": "红军军官学校",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M2"
+        ]
+      ],
+      "description": "陆军经验增加20，陆军学说一次50%经验花费减免。",
+      "x": 26,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "army_experience = 20 add_doctrine_cost_reduction = { name = sof_mrs_red_school cost_reduction = 0.5 uses = 1 category = land_doctrine }",
+      "exclusive": null
+    },
+    {
+      "code": "M4",
+      "id": "SOF_MRS_RED_M4",
+      "name": "政治委员制度",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M2"
+        ]
+      ],
+      "description": "建立政委精神：师组织度增加3%、组织度恢复增加2%；与通用同类精神替换衔接。",
+      "x": 30,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "sof_mrs_red_restore_ideas = yes",
+      "exclusive": null
+    },
+    {
+      "code": "M5",
+      "id": "SOF_MRS_RED_M5",
+      "name": "港口和铁路军需总署",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M2"
+        ]
+      ],
+      "description": "补给消耗减少5%，解锁铁路与港口军需调度；不免费生成车辆。",
+      "x": 34,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "sof_mrs_red_restore_ideas = yes",
+      "exclusive": null
+    },
+    {
+      "code": "M6",
+      "id": "SOF_MRS_RED_M6",
+      "name": "南方红军整编",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M3"
+        ],
+        [
+          "M4"
+        ],
+        [
+          "M5"
+        ]
+      ],
+      "description": "距M2完成至少140天；解除整编惩罚，陆军经验增加15。整编惩罚到140天自行到期，未完成此国策也不会永久保留负面。",
+      "x": 30,
+      "y": 7,
+      "gate": "sof_mrs_red_active = yes has_country_flag = { flag = sof_mrs_red_reform_started days > 139 }",
+      "reward": "remove_ideas = sof_mrs_red_reform army_experience = 15",
+      "exclusive": null
+    },
+    {
+      "code": "M7",
+      "id": "SOF_MRS_RED_M7",
+      "name": "工农群众动员",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M6"
+        ]
+      ],
+      "description": "与M8互斥；适役人口比例增加0.5个百分点，师组织度增加3%，训练时间增加5%。",
+      "x": 27,
+      "y": 8,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "sof_mrs_red_restore_ideas = yes",
+      "exclusive": "M8"
+    },
+    {
+      "code": "M8",
+      "id": "SOF_MRS_RED_M8",
+      "name": "职业骨干与统一指挥",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M6"
+        ]
+      ],
+      "description": "与M7互斥；陆军经验获取增加10%，师攻击增加3%。",
+      "x": 33,
+      "y": 8,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "sof_mrs_red_restore_ideas = yes",
+      "exclusive": "M7"
+    },
+    {
+      "code": "M9",
+      "id": "SOF_MRS_RED_M9",
+      "name": "地中海红海军",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M5"
+        ]
+      ],
+      "description": "拥有并完全控制合格沿海州，增加1座船坞；驱逐舰或潜艇技术一次50%加成。",
+      "x": 37,
+      "y": 7,
+      "gate": "sof_mrs_red_active = yes any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT is_coastal = yes free_building_slots = { building = dockyard size > 0 include_locked = no } }",
+      "reward": "random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT is_coastal = yes free_building_slots = { building = dockyard size > 0 include_locked = no } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } add_tech_bonus = { name = sof_mrs_red_study bonus = 0.5 uses = 1 category = dd_tech }",
+      "exclusive": null
+    },
+    {
+      "code": "M10",
+      "id": "SOF_MRS_RED_M10",
+      "name": "港口海军航空队",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M9"
+        ]
+      ],
+      "description": "海军轰炸机技术一次50%加成，海军经验增加15；不赠送飞机。",
+      "x": 37,
+      "y": 8,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_tech_bonus = { name = sof_mrs_red_study bonus = 0.5 uses = 1 category = naval_bomber } navy_experience = 15",
+      "exclusive": null
+    },
+    {
+      "code": "M11",
+      "id": "SOF_MRS_RED_M11",
+      "name": "保卫红色马赛",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M6"
+        ]
+      ],
+      "description": "仅被其他国家进攻的防御战争期间开放；战争支持度增加10、稳定度增加5，一次性生效。",
+      "x": 30,
+      "y": 9,
+      "gate": "sof_mrs_red_active = yes has_defensive_war = yes",
+      "reward": "add_war_support = 0.1 add_stability = 0.05",
+      "exclusive": null
+    },
+    {
+      "code": "M12",
+      "id": "SOF_MRS_RED_M12",
+      "name": "人民的卫国战争",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M11"
+        ]
+      ],
+      "description": "防御战争持续至少90天，马赛仍独立且未投降；120天内核心领土防御增加10%，同一场战争不能重复领取。",
+      "x": 30,
+      "y": 10,
+      "gate": "sof_mrs_red_active = yes has_defensive_war = yes has_country_flag = { flag = sof_mrs_red_defensive_war days > 89 }",
+      "reward": "add_timed_idea = { idea = sof_mrs_red_defence days = 120 }",
+      "exclusive": null
+    },
+    {
+      "code": "D1",
+      "id": "SOF_MRS_RED_D1",
+      "name": "苏维埃经验译介",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A4"
+        ]
+      ],
+      "description": "工业研究一次50%加成；事件内容为本地翻译和技术课程，不产生境外苏联援助。",
+      "x": 44,
+      "y": 4,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_tech_bonus = { name = sof_mrs_red_study bonus = 0.5 uses = 1 category = industry }",
+      "exclusive": null
+    },
+    {
+      "code": "D2",
+      "id": "SOF_MRS_RED_D2",
+      "name": "南方工人组织联络",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D1"
+        ]
+      ],
+      "description": "开放联络决议，政治点增加25；可向合格的独立国家发出合作提案。",
+      "x": 44,
+      "y": 5,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_political_power = 25",
+      "exclusive": null
+    },
+    {
+      "code": "D3",
+      "id": "SOF_MRS_RED_D3",
+      "name": "地中海社会主义协约",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D2"
+        ],
+        [
+          "P7"
+        ]
+      ],
+      "description": "马赛未处于其他阵营且独立，消耗75政治点建立阵营；加入需要目标同意，不能把盟友直接吞并。",
+      "x": 44,
+      "y": 9,
+      "gate": "sof_mrs_red_active = yes is_in_faction = no political_power > 74",
+      "reward": "add_political_power = -75 set_rule = { can_create_factions = yes } create_faction = sof_mrs_red_league set_country_flag = sof_mrs_red_league_created",
+      "exclusive": null
+    },
+    {
+      "code": "D4",
+      "id": "SOF_MRS_RED_D4",
+      "name": "先巩固本土社会主义",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D2"
+        ]
+      ],
+      "description": "与D5互斥；稳定度增加5，党内矛盾减少10。",
+      "x": 41,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "add_stability = 0.05 add_to_variable = { sof_mrs_red_tension = -10 } sof_mrs_red_refresh_tension = yes",
+      "exclusive": "D5"
+    },
+    {
+      "code": "D5",
+      "id": "SOF_MRS_RED_D5",
+      "name": "国际工人互助网络",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D2"
+        ]
+      ],
+      "description": "与D4互斥；解锁对一个合格非交战邻国的政治互助提案，180天冷却；目标接受后共产党支持率增加5、获得15政治点。",
+      "x": 47,
+      "y": 6,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "custom_effect_tooltip = sof_mrs_red_outreach_tt",
+      "exclusive": "D4"
+    },
+    {
+      "code": "D6",
+      "id": "SOF_MRS_RED_D6",
+      "name": "地中海护航协定",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D3"
+        ]
+      ],
+      "description": "解锁海运协作决议；实际护航由现有舰队和原生任务承担，不生成舰船或自动保证贸易安全。",
+      "x": 44,
+      "y": 10,
+      "gate": "sof_mrs_red_active = yes ",
+      "reward": "custom_effect_tooltip = sof_mrs_red_escort_tt",
+      "exclusive": null
+    },
+    {
+      "code": "D7",
+      "id": "SOF_MRS_RED_D7",
+      "name": "社会主义技术合作",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D6"
+        ]
+      ],
+      "description": "至少一名独立、未投降的同阵营伙伴；合作成员工业研究速度增加5%，退出或阵营解散即失效。",
+      "x": 44,
+      "y": 11,
+      "gate": "sof_mrs_red_active = yes any_other_country = { is_in_faction_with = ROOT is_subject = no has_capitulated = no }",
+      "reward": "set_country_flag = sof_mrs_red_tech_enabled sof_mrs_red_share_research = yes",
+      "exclusive": null
+    },
+    {
+      "code": "U1",
+      "id": "SOF_MRS_RED_U1",
+      "name": "普罗旺斯革命委员会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A4"
+        ],
+        [
+          "M5"
+        ]
+      ],
+      "description": "至少3个陆军师、库存步兵装备至少500；解锁普罗旺斯方向的战役准备与地方合作决议。一次只准备一个实际可达的目标，消耗50政治点，准备90天。",
+      "x": 56,
+      "y": 7,
+      "gate": "sof_mrs_red_active = yes num_divisions > 2 has_equipment = { infantry_equipment > 499 }",
+      "reward": "set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready",
+      "exclusive": null
+    },
+    {
+      "code": "U2",
+      "id": "SOF_MRS_RED_U2",
+      "name": "罗讷河谷革命走廊",
+      "days": 35,
+      "prerequisites": [
+        [
+          "U1"
+        ],
+        [
+          "M6"
+        ]
+      ],
+      "description": "至少拥有并完全控制6个法国州，具备通往目标方向的本国交通联系；开放罗讷方向战役准备。",
+      "x": 56,
+      "y": 8,
+      "gate": "sof_mrs_red_active = yes check_variable = { sof_mrs_red_french_states >= 6 } sof_mrs_red_has_rhone_link = yes",
+      "reward": "custom_effect_tooltip = sof_mrs_red_rhone_tt",
+      "exclusive": null
+    },
+    {
+      "code": "U3",
+      "id": "SOF_MRS_RED_U3",
+      "name": "南方工农代表会议",
+      "days": 35,
+      "prerequisites": [
+        [
+          "U1"
+        ],
+        [
+          "D2"
+        ]
+      ],
+      "description": "至少拥有并完全控制8个法国州；开放向独立、未交战的南方政权提出合作与联邦谈判。普罗旺斯地区全部拥有并控制后才改地区称号。",
+      "x": 56,
+      "y": 8,
+      "gate": "sof_mrs_red_active = yes check_variable = { sof_mrs_red_french_states >= 8 }",
+      "reward": "sof_mrs_red_region_name = yes",
+      "exclusive": null
+    },
+    {
+      "code": "U4",
+      "id": "SOF_MRS_RED_U4",
+      "name": "北方工人联合委员会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "U2"
+        ],
+        [
+          "U3"
+        ],
+        [
+          "E8"
+        ]
+      ],
+      "description": "至少拥有并完全控制20个法国州；开放与现存北方工业政权的政治联络和供应提案。军事目标仍需真实可达路线。",
+      "x": 56,
+      "y": 9,
+      "gate": "sof_mrs_red_active = yes check_variable = { sof_mrs_red_french_states >= 20 }",
+      "reward": "custom_effect_tooltip = sof_mrs_red_north_tt",
+      "exclusive": null
+    },
+    {
+      "code": "U5",
+      "id": "SOF_MRS_RED_U5",
+      "name": "红旗飘扬在巴黎",
+      "days": 35,
+      "prerequisites": [
+        [
+          "U4"
+        ]
+      ],
+      "description": "需要拥有并完全控制巴黎州143；稳定度增加5、政治点增加50，不通过事件夺取巴黎。",
+      "x": 56,
+      "y": 10,
+      "gate": "sof_mrs_red_active = yes 143 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }",
+      "reward": "add_stability = 0.05 add_political_power = 50",
+      "exclusive": null
+    },
+    {
+      "code": "U6",
+      "id": "SOF_MRS_RED_U6",
+      "name": "全法工农代表大会",
+      "days": 35,
+      "prerequisites": [
+        [
+          "U5"
+        ],
+        [
+          "P8"
+        ]
+      ],
+      "description": "至少拥有并完全控制272个法国州，即既有339州名单的80%向上取整；开放全国政治宣言，战争支持度增加5。",
+      "x": 56,
+      "y": 11,
+      "gate": "sof_mrs_red_active = yes check_variable = { sof_mrs_red_french_states >= 272 }",
+      "reward": "add_war_support = 0.05",
+      "exclusive": null
+    },
+    {
+      "code": "U7",
+      "id": "SOF_MRS_RED_U7",
+      "name": "法兰西社会主义共和国",
+      "days": 35,
+      "prerequisites": [
+        [
+          "U6"
+        ]
+      ],
+      "description": "使用既有全国建国条件：独立、和平，339个指定法国州全部拥有并完全控制；执行共用建国效果，然后使用社会主义外观称号。全国一次性奖励与其他建国入口共用领取标记。",
+      "x": 56,
+      "y": 12,
+      "gate": "sof_mrs_red_active = yes sofzh_unification_all_france = yes has_war = no",
+      "reward": "sofzh_unification_proclaim_france = yes if = { limit = { has_country_flag = sofzh_unification_complete } remove_ideas = sofzh_unify_french_state set_cosmetic_tag = SOF_MRS_FRANCE set_country_flag = sof_mrs_red_national country_event = { id = sof_mrs_red.8 days = 1 } }",
+      "exclusive": null
+    },
+    {
+      "code": "U8",
+      "id": "SOF_MRS_RED_U8",
+      "name": "战后重建计划",
+      "days": 35,
+      "prerequisites": [
+        [
+          "U7"
+        ],
+        [
+          "E9"
+        ]
+      ],
+      "description": "和平持续180天；180天内修复速度增加20%、消费品需求系数增加5%，之后恢复玩家所选第二计划精神。重建期间工业计划家族整体替换，不能叠加两个计划精神。",
+      "x": 56,
+      "y": 13,
+      "gate": "sof_mrs_red_active = yes has_war = no has_country_flag = { flag = sof_mrs_red_peace days > 179 }",
+      "reward": "set_country_flag = { flag = sof_mrs_red_rebuilding days = 180 } sof_mrs_red_restore_ideas = yes",
+      "exclusive": null
+    }
+  ],
+  "public_focus_count": 153
+}

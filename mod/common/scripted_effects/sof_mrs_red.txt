@@ -1,0 +1,114 @@
+sof_mrs_red_remove_legacy = { remove_ideas = sofzh_dedicated_air_defence_1 remove_ideas = sofzh_dedicated_air_defence_2 remove_ideas = sofzh_dedicated_air_defence_3 remove_ideas = sofzh_dedicated_air_support_1 remove_ideas = sofzh_dedicated_air_support_2 remove_ideas = sofzh_dedicated_air_support_3 remove_ideas = sofzh_dedicated_armor_1 remove_ideas = sofzh_dedicated_armor_2 remove_ideas = sofzh_dedicated_armor_3 remove_ideas = sofzh_dedicated_artillery_1 remove_ideas = sofzh_dedicated_artillery_2 remove_ideas = sofzh_dedicated_artillery_3 remove_ideas = sofzh_dedicated_dockyards_1 remove_ideas = sofzh_dedicated_dockyards_2 remove_ideas = sofzh_dedicated_dockyards_3 remove_ideas = sofzh_dedicated_infantry_1 remove_ideas = sofzh_dedicated_infantry_2 remove_ideas = sofzh_dedicated_infantry_3 remove_ideas = sofzh_dedicated_motorized_1 remove_ideas = sofzh_dedicated_motorized_2 remove_ideas = sofzh_dedicated_motorized_3 remove_ideas = sofzh_dedicated_staff_1 remove_ideas = sofzh_dedicated_staff_2 remove_ideas = sofzh_dedicated_staff_3 remove_ideas = sofzh_dedicated_submarines_1 remove_ideas = sofzh_dedicated_submarines_2 remove_ideas = sofzh_dedicated_submarines_3 remove_ideas = sofzh_dedicated_surface_navy_1 remove_ideas = sofzh_dedicated_surface_navy_2 remove_ideas = sofzh_dedicated_surface_navy_3 remove_ideas = sofzh_ideology_authoritarian remove_ideas = sofzh_ideology_communal remove_ideas = sofzh_ideology_conservative remove_ideas = sofzh_ideology_corporatist remove_ideas = sofzh_ideology_fascist remove_ideas = sofzh_ideology_liberal remove_ideas = sofzh_ideology_monarchist remove_ideas = sofzh_ideology_national_socialist remove_ideas = sofzh_ideology_regionalist remove_ideas = sofzh_ideology_revolutionary remove_ideas = sofzh_ideology_social remove_ideas = sofzh_ideology_vanguard remove_ideas = sofzh_reward_air_defence_1 remove_ideas = sofzh_reward_air_defence_2 remove_ideas = sofzh_reward_air_defence_3 remove_ideas = sofzh_reward_air_support_1 remove_ideas = sofzh_reward_air_support_2 remove_ideas = sofzh_reward_air_support_3 remove_ideas = sofzh_reward_armor_1 remove_ideas = sofzh_reward_armor_2 remove_ideas = sofzh_reward_armor_3 remove_ideas = sofzh_reward_artillery_1 remove_ideas = sofzh_reward_artillery_2 remove_ideas = sofzh_reward_artillery_3 remove_ideas = sofzh_reward_civil_industry_1 remove_ideas = sofzh_reward_civil_industry_2 remove_ideas = sofzh_reward_civil_industry_3 remove_ideas = sofzh_reward_dockyards_1 remove_ideas = sofzh_reward_dockyards_2 remove_ideas = sofzh_reward_dockyards_3 remove_ideas = sofzh_reward_engineering_1 remove_ideas = sofzh_reward_engineering_2 remove_ideas = sofzh_reward_engineering_3 remove_ideas = sofzh_reward_infantry_1 remove_ideas = sofzh_reward_infantry_2 remove_ideas = sofzh_reward_infantry_3 remove_ideas = sofzh_reward_mil_industry_1 remove_ideas = sofzh_reward_mil_industry_2 remove_ideas = sofzh_reward_mil_industry_3 remove_ideas = sofzh_reward_motorized_1 remove_ideas = sofzh_reward_motorized_2 remove_ideas = sofzh_reward_motorized_3 remove_ideas = sofzh_reward_staff_1 remove_ideas = sofzh_reward_staff_2 remove_ideas = sofzh_reward_staff_3 remove_ideas = sofzh_reward_submarines_1 remove_ideas = sofzh_reward_submarines_2 remove_ideas = sofzh_reward_submarines_3 remove_ideas = sofzh_reward_surface_navy_1 remove_ideas = sofzh_reward_surface_navy_2 remove_ideas = sofzh_reward_surface_navy_3 remove_ideas = sofzh_unify_french_state remove_ideas = sofzh_unify_logistics remove_ideas = sofzh_unify_mobilization remove_ideas = sofzh_unify_national_market remove_ideas = sofzh_unify_unified_command }
+sof_mrs_red_restore_ideas = { if = { limit = { sof_mrs_red_active = yes }
+if = { limit = { has_country_flag = sof_mrs_red_paid_P2 } if = { limit = { NOT = { has_idea = sof_mrs_red_central_2 } } remove_ideas = sof_mrs_red_central_1 remove_ideas = sof_mrs_red_union add_ideas = sof_mrs_red_central_2 } }
+else_if = { limit = { has_country_flag = sof_mrs_red_paid_P1 } if = { limit = { NOT = { has_idea = sof_mrs_red_central_1 } } remove_ideas = sof_mrs_red_central_2 remove_ideas = sof_mrs_red_union add_ideas = sof_mrs_red_central_1 } }
+else_if = { limit = { has_country_flag = sof_mrs_red_paid_P5 } if = { limit = { NOT = { has_idea = sof_mrs_red_union } } remove_ideas = sof_mrs_red_central_1 remove_ideas = sof_mrs_red_central_2 add_ideas = sof_mrs_red_union } }
+if = { limit = { has_country_flag = sof_mrs_red_rebuilding } if = { limit = { NOT = { has_idea = sof_mrs_red_rebuilding } } remove_ideas = sof_mrs_red_plan_1 remove_ideas = sof_mrs_red_plan_2 remove_ideas = sof_mrs_red_plan_heavy remove_ideas = sof_mrs_red_plan_civil add_ideas = sof_mrs_red_rebuilding } }
+else_if = { limit = { has_country_flag = sof_mrs_red_paid_E10 } if = { limit = { NOT = { has_idea = sof_mrs_red_plan_heavy } } remove_ideas = sof_mrs_red_plan_1 remove_ideas = sof_mrs_red_plan_2 remove_ideas = sof_mrs_red_plan_civil remove_ideas = sof_mrs_red_rebuilding add_ideas = sof_mrs_red_plan_heavy } }
+else_if = { limit = { has_country_flag = sof_mrs_red_paid_E11 } if = { limit = { NOT = { has_idea = sof_mrs_red_plan_civil } } remove_ideas = sof_mrs_red_plan_1 remove_ideas = sof_mrs_red_plan_2 remove_ideas = sof_mrs_red_plan_heavy remove_ideas = sof_mrs_red_rebuilding add_ideas = sof_mrs_red_plan_civil } }
+else_if = { limit = { has_country_flag = sof_mrs_red_paid_E8 } if = { limit = { NOT = { has_idea = sof_mrs_red_plan_2 } } remove_ideas = sof_mrs_red_plan_1 remove_ideas = sof_mrs_red_plan_heavy remove_ideas = sof_mrs_red_plan_civil remove_ideas = sof_mrs_red_rebuilding add_ideas = sof_mrs_red_plan_2 } }
+else_if = { limit = { has_country_flag = sof_mrs_red_paid_E2 } if = { limit = { NOT = { has_idea = sof_mrs_red_plan_1 } } remove_ideas = sof_mrs_red_plan_2 remove_ideas = sof_mrs_red_plan_heavy remove_ideas = sof_mrs_red_plan_civil remove_ideas = sof_mrs_red_rebuilding add_ideas = sof_mrs_red_plan_1 } }
+if = { limit = { has_country_flag = sof_mrs_red_paid_M4 } if = { limit = { NOT = { has_idea = sof_mrs_red_commissars } } add_ideas = sof_mrs_red_commissars } }
+if = { limit = { has_country_flag = sof_mrs_red_paid_M5 } if = { limit = { NOT = { has_idea = sof_mrs_red_logistics } } add_ideas = sof_mrs_red_logistics } }
+if = { limit = { has_country_flag = sof_mrs_red_paid_M7 } if = { limit = { NOT = { has_idea = sof_mrs_red_mass } } add_ideas = sof_mrs_red_mass } }
+if = { limit = { has_country_flag = sof_mrs_red_paid_M8 } if = { limit = { NOT = { has_idea = sof_mrs_red_cadres } } add_ideas = sof_mrs_red_cadres } }
+} }
+
+sof_mrs_red_count_states = {
+ set_variable = { sof_mrs_red_french_states = 0 }
+ every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = PREV }
+  PREV = { add_to_variable = { sof_mrs_red_french_states = 1 } }
+ }
+}
+sof_mrs_red_region_name = {
+ if = { limit = { sof_mrs_red_active = yes }
+  if = { limit = { has_country_flag = sof_mrs_red_national } set_cosmetic_tag = SOF_MRS_FRANCE }
+  else_if = { limit = { has_completed_focus = SOF_MRS_RED_U3 sof_mrs_red_all_paca = yes } set_cosmetic_tag = SOF_MRS_PROVENCE }
+  else = { set_cosmetic_tag = SOF_MRS_WORKERS }
+ }
+}
+sof_mrs_red_resolve_crisis = {
+ if = { limit = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_emergency_ended } has_country_flag = { flag = sof_mrs_red_crisis_pending days > 89 } check_variable = { sof_mrs_red_tension >= 90 } NOT = { has_country_flag = sof_mrs_red_recovery } }
+  add_political_power = -75 add_stability = -0.15
+  remove_ideas = sof_mrs_red_distrust remove_ideas = sof_mrs_red_dispute
+  add_timed_idea = { idea = sof_mrs_red_paralysis days = 180 }
+  set_country_flag = { flag = sof_mrs_red_recovery days = 180 }
+  clr_country_flag = sof_mrs_red_crisis_pending set_variable = { sof_mrs_red_tension = 60 }
+  sof_mrs_red_refresh_tension = yes
+ }
+}
+sof_mrs_red_refresh_tension = {
+ clamp_variable = { var = sof_mrs_red_tension min = 0 max = 100 }
+ if = { limit = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_emergency_ended } NOT = { has_country_flag = sof_mrs_red_recovery } has_country_flag = sof_mrs_red_congress }
+  if = { limit = { check_variable = { sof_mrs_red_tension >= 70 } }
+   remove_ideas = sof_mrs_red_dispute
+   if = { limit = { NOT = { has_idea = sof_mrs_red_distrust } } add_ideas = sof_mrs_red_distrust }
+  } else_if = { limit = { check_variable = { sof_mrs_red_tension >= 40 } }
+   remove_ideas = sof_mrs_red_distrust
+   if = { limit = { NOT = { has_idea = sof_mrs_red_dispute } } add_ideas = sof_mrs_red_dispute }
+  } else = { remove_ideas = sof_mrs_red_dispute remove_ideas = sof_mrs_red_distrust }
+  if = { limit = { check_variable = { sof_mrs_red_tension >= 90 } NOT = { has_country_flag = sof_mrs_red_crisis_pending } NOT = { has_country_flag = sof_mrs_red_recovery } }
+   set_country_flag = sof_mrs_red_crisis_pending country_event = { id = sof_mrs_red.7 days = 1 } country_event = { id = sof_mrs_red.15 days = 90 }
+  }
+  if = { limit = { check_variable = { sof_mrs_red_tension < 90 } } clr_country_flag = sof_mrs_red_crisis_pending }
+ } else = { remove_ideas = sof_mrs_red_dispute remove_ideas = sof_mrs_red_distrust clr_country_flag = sof_mrs_red_crisis_pending }
+}
+sof_mrs_red_share_research = {
+ every_country = { limit = { has_country_flag = sof_mrs_red_tech_partner NOT = { AND = { is_subject = no has_capitulated = no MRS = { sof_mrs_red_active = yes has_country_flag = sof_mrs_red_tech_enabled is_in_faction = yes } OR = { tag = MRS is_in_faction_with = MRS } } } }
+  clr_country_flag = sof_mrs_red_tech_partner remove_ideas = sof_mrs_red_tech
+ }
+ if = { limit = { sof_mrs_red_active = yes has_country_flag = sof_mrs_red_tech_enabled is_in_faction = yes }
+  every_country = { limit = { is_subject = no has_capitulated = no OR = { tag = MRS is_in_faction_with = MRS } }
+   set_country_flag = sof_mrs_red_tech_partner if = { limit = { NOT = { has_idea = sof_mrs_red_tech } } add_ideas = sof_mrs_red_tech }
+  }
+ }
+}
+sof_mrs_red_weekly = {
+ if = { limit = { original_tag = MRS }
+  if = { limit = { OR = { has_focus_tree = sof_generic has_focus_tree = sof20_MRS } }
+   load_focus_tree = { tree = sof_mrs_red keep_completed = yes }
+  }
+  sof_mrs_red_count_states = yes
+  if = { limit = { sof_mrs_red_active = yes }
+   sof_mrs_red_remove_legacy = yes sof_mrs_red_restore_ideas = yes sof_mrs_red_refresh_tension = yes sof_mrs_red_region_name = yes
+   if = { limit = { has_war = no NOT = { has_country_flag = sof_mrs_red_peace } } set_country_flag = sof_mrs_red_peace }
+   if = { limit = { has_war = yes } clr_country_flag = sof_mrs_red_peace }
+   if = { limit = { has_defensive_war = yes NOT = { has_country_flag = sof_mrs_red_defensive_war } } set_country_flag = sof_mrs_red_defensive_war }
+   if = { limit = { has_defensive_war = no } clr_country_flag = sof_mrs_red_defensive_war }
+  } else = {
+   clr_country_flag = sof_mrs_red_peace clr_country_flag = sof_mrs_red_defensive_war
+   clr_country_flag = sof_mrs_red_crisis_pending
+   if = { limit = { has_country_flag = sof_mrs_red_government NOT = { has_government = communism } } drop_cosmetic_tag = yes }
+  }
+  sof_mrs_red_share_research = yes
+ }
+}
+sof_mrs_red_monthly = {
+ if = { limit = { sof_mrs_red_active = yes has_country_flag = sof_mrs_red_congress NOT = { has_country_flag = sof_mrs_red_emergency_ended } }
+  add_to_variable = { sof_mrs_red_tension = 3 } sof_mrs_red_refresh_tension = yes
+ }
+}
+sof_mrs_red_finish_offer = {
+ clr_country_flag = sof_mrs_red_offer_target
+ FROM = { clr_country_flag = sof_mrs_red_diplomatic_pending }
+}
+sof_mrs_red_refuse_offer = {
+ sof_mrs_red_finish_offer = yes
+ FROM = { country_event = { id = sof_mrs_red.13 days = 1 } }
+}
+sof_mrs_red_accept_federation = {
+ if = { limit = { sof_mrs_red_federation_valid = yes }
+  every_owned_state = { set_state_flag = sof_mrs_red_negotiated_transfer }
+  sof_mrs_red_finish_offer = yes
+  FROM = {
+   annex_country = { target = ROOT transfer_troops = no }
+   every_owned_state = { limit = { has_state_flag = sof_mrs_red_negotiated_transfer }
+    if = { limit = { sofzh_unification_french_state = yes is_owned_by = PREV is_fully_controlled_by = PREV NOT = { is_core_of = PREV } }
+     if = { limit = { NOT = { has_state_flag = sofzh_occupation_registered } } sofzh_occupation_register = yes }
+    }
+    clr_state_flag = sof_mrs_red_negotiated_transfer
+   }
+   country_event = { id = sof_mrs_red.14 days = 1 }
+  }
+ }
+}
