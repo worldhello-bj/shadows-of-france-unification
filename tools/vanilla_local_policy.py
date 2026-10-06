@@ -56,7 +56,7 @@ def actions(b,key,donor,borrowed):
     if key=='ITA_aid_for_the_spanish_republic':
         # The donor sent 10,000 volunteers through a removed SPR event chain.
         # A local training policy must not permanently destroy that manpower.
-        return [a for a in borrowed if not a.startswith('add_manpower = -')]+['set_country_flag = sof_van_volunteer_program','add_army_experience = 20']
+        return [a for a in borrowed if not a.startswith('add_manpower = -')]+['set_country_flag = sof_van_volunteer_program','army_experience = 20']
     if key in WAR:
         return b.goal(WAR[key])
     if key in PARTNER:return b.offer(PARTNER[key])

@@ -8353,7 +8353,7 @@
         "if = { limit = { has_dlc = \"La Resistance\" } add_equipment_to_stockpile = { type = infantry_equipment amount = 200 producer = ROOT } }",
         "else = { add_equipment_to_stockpile = { type = infantry_equipment amount = 200 producer = ROOT } }",
         "set_country_flag = sof_van_volunteer_program",
-        "add_army_experience = 20"
+        "army_experience = 20"
       ],
       "empty": false,
       "original_reward": "add_ideas = ITA_aiding_the_spanish_republic add_manpower = -10000 if = { limit = { has_dlc = \"La Resistance\" } SPD = { add_manpower = 10000 add_opinion_modifier = { target = ROOT modifier = ita_supported_spain_civil_war } } hidden_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = 2500 } send_equipment = { equipment = infantry_equipment amount = 2500 target = SPD } } } else = { random_other_country = { limit = { original_tag = SPR OR = { has_government = democratic has_government = communism } } add_manpower = 10000 add_opinion_modifier = { target = ROOT modifier = ita_supported_spain_civil_war } } hidden_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = 2500 } random_other_country = { limit = { original_tag = SPR OR = { has_government = democratic has_government = communism } } ROOT = { send_equipment = { equipment = infantry_equipment amount = 2500 target = PREV } } } } } custom_effect_tooltip = ITA_aid_for_the_spanish_republic_tt if = { limit = { NOT = { has_rule = can_send_volunteers } } set_rule = { can_send_volunteers = yes } }",
