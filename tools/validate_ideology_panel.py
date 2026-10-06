@@ -118,12 +118,12 @@ def fixtures(check):
         check(abs(sum(values)-(100 if total else 0))<1e-7, f'Fixture {count}: support total')
         for group,weight in zip(DEFAULTS,expected):
             check(abs(sum(v for v,p in zip(values,PROFILES) if p[1]==group)-weight)<1e-7, f'Fixture {count}: preserved {group} share')
-        pie=f.arrays['sofzh_chart_pie']
-        check(len(pie)==100 and all(1<=v<=13 and v==int(v) for v in pie), f'Fixture {count}: exactly 100 valid frames')
-        for i,p in enumerate(PROFILES,1):
-            check(abs(pie.count(i)-f.variables['sofzh_chart_'+p[0]])<=1.000001,f'Fixture {count}: rounding bound {p[0]}')
-        if total:check(13 not in pie,f'Fixture {count}: no empty wedges')
-        else:check(pie==[13]*100,f'Fixture {count}: zero-support empty disc')
+        check(f.arrays['sofzh_chart_pie']==[], f'Fixture {count}: obsolete segment cache removed')
+        check(f.executed<160, f'Fixture {count}: bounded compact display update')
+        gui=one(one(parse((MOD/'common/scripted_guis/sofzh_ideology_panel.txt').read_text()),'scripted_gui').value,'sofzh_ideology_panel_gui').value
+        visible=one(gui,'triggers').value
+        shown=[p for p in PROFILES if f.trigger(one(visible,'sofzh_chart_name_'+p[0]+'_visible').value)]
+        check(len(shown)==4 and {p[1] for p in shown}==set(DEFAULTS), f'Fixture {count}: exactly one active row per party')
         return f
     for weights in [(30,35,15,20),(100,0,0,0),(0,100,0,0),(0,0,100,0),(0,0,0,100),(0,0,0,0),
                     (33.333,33.333,33.334,0),(24.49,25.49,25.49,24.53),(0.01,0.01,0.01,99.97),
@@ -177,28 +177,29 @@ def audit(check):
     check(scalar(sg,'parent_window_token')=='politics_tab' and scalar(sg,'context_type')=='player_context','Chart attached to the actual politics tab')
     check(entries(one(sg,'effects').value,'sofzh_chart_refresh_click') and 'sofzh_chart_refresh' in nodes,'Paused-save refresh is a real bound button')
     props=one(sg,'properties').value
-    check(len(props)==100,'All 100 segments have scripted frame bindings')
-    for i in range(100):
-        name='sofzh_chart_piece_'+str(i)
-        check(name in nodes and scalar(one(props,name).value,'frame')=='sofzh_chart_pie^'+str(i),'Segment binding '+str(i))
-        check(abs(float(scalar(nodes[name],'rotation'))-i*math.tau/100)<1e-9,'Segment rotation '+str(i))
+    check(not props and not any(n.startswith('sofzh_chart_piece_') for n in nodes),'No scripted rotating segment renderer remains')
+    check(not any(n.key=='rotation' for n in walk(gui)),'Compact display has no texture rotation')
+    check(scalar(gui,'clipping')=='yes','Display clipped to its own bounds')
     legend=nodes['sofzh_chart_legend'];scale=float(scalar(legend,'scale'))
     for p in data['profiles']:
         name='sofzh_chart_name_'+p['id'];row=nodes[name]
         pos=one(row,'position').value
-        bottom=140-1+(float(scalar(pos,'y'))+float(scalar(row,'maxHeight')))*scale
+        bottom=140+20+(float(scalar(pos,'y'))+float(scalar(row,'maxHeight')))*scale
         check(bottom<303,'Legend stays above national spirits: '+p['id'])
         check(scalar(row,'font')=='"hoi_16mbs"','Legend uses the existing Chinese font: '+p['id'])
-    textures=[('segments',(6656,512),13),('swatches',(144,12),12),('disc',(128,128),1),('refresh',(54,18),3)]
+    textures=[('swatches',(48,12),4),('refresh',(54,18),3)]
     for name,size,frames in textures:
         im=Image.open(MOD/f'gfx/interface/sofzh_ideology_panel/{name}.dds').convert('RGBA')
         check(im.size==size,'DDS dimensions: '+name)
         check(im.getchannel('A').getextrema()==(0,255),'DDS transparency: '+name)
-        if name=='segments':
-            hashes=[hashlib.sha256(im.crop((i*512,0,(i+1)*512,512)).tobytes()).hexdigest() for i in range(frames)]
-            check(len(set(hashes))==13,'Twelve unique wedge frames and transparent no-data frame')
+    for name in ['segments','disc']:
+        check(not (MOD/f'gfx/interface/sofzh_ideology_panel/{name}.dds').exists(),'Obsolete texture removed: '+name)
     native_text=(MOD/GUI_REL).read_text(encoding='utf-8');native=one(parse(native_text),'guiTypes').value[0].value
     old_native=one(parse((ROOT/'references/ideology-panel'/GUI_REL).read_text(encoding='utf-8')),'guiTypes').value[0].value
+    pie=next(n for n in native if isinstance(n.value,list) and scalar(n.value,'name')=='"political_pie_chart"')
+    pos=one(pie.value,'position').value
+    check((scalar(pos,'x'),scalar(pos,'y'))==('185','167'),'Engine-native political pie restored at compact position')
+    check(any(n.key=='spriteType' and n.value=='"GFX_political_chart"' for n in walk(pie.value)),'Uses the native pieChartType renderer')
     allowed={('chart_explanation','position'),('political_pie_chart','position'),('pol_faction_icon','position')}
     def strip(rows):
         result=[]

@@ -12,6 +12,11 @@ from hoi4_script import parse,one,scalar,entries,walk
 ROOT=Path(__file__).resolve().parent.parent;MOD=ROOT/'mod'
 def read(p):return p.read_text(encoding='utf-8-sig')
 
+CHARACTER_ROLES = {
+    r.key: {scalar(role.value, 'ideology') for role in entries(r.value, 'country_leader')}
+    for r in one(parse(read(MOD/'common/characters/sof_vanilla_historical.txt')), 'characters').value
+}
+
 class State:
     def __init__(self,tree='sofzh_paris',gov='democratic',faction=None):
         self.tree=tree;self.gov=gov;self.faction=faction;self.focus=set();self.ideas=set();self.flags=set();self.pp=500
@@ -47,6 +52,7 @@ class Runner:
                 target=root if v=='ROOT' else prev;assert target is not None
                 value=c.faction is not None and c.faction==target.faction
             elif k.startswith('sof_hist_character_'):
+                assert k in c.characters, 'Character scope used before recruitment: '+k
                 value=scalar(v,'has_ideology') in c.roles.get(k,set())
             else:raise AssertionError('Unsupported test guard '+str(k))
             values.append(value)
@@ -71,7 +77,9 @@ class Runner:
             elif k=='remove_ideas':c.ideas.discard(v)
             elif k=='set_country_flag':c.flags.add(v if isinstance(v,str) else scalar(v,'flag'))
             elif k=='clr_country_flag':c.flags.discard(v)
-            elif k=='recruit_character':c.characters.add(v)
+            elif k=='recruit_character':
+                c.characters.add(v)
+                c.roles.setdefault(v,set()).update(CHARACTER_ROLES.get(v,set()))
             elif k=='set_politics':c.gov=scalar(v,'ruling_party')
             elif k=='add_country_leader_role':
                 ch=scalar(v,'character');assert ch in c.characters,ch
@@ -82,6 +90,7 @@ class Runner:
             elif k=='retire_character':c.characters.discard(v);c.roles.pop(v,None)
             elif k=='add_to_tech_sharing_group':c.groups.add(v)
             elif k=='remove_from_tech_sharing_group':c.groups.discard(v)
+            elif k=='hidden_effect':self.execute(v,c)
             elif k=='custom_effect_tooltip':pass
             else:raise AssertionError('Unsupported test effect '+str(k))
 

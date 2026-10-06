@@ -398,6 +398,9 @@ def main():
     apply_balance()
     from build_regional_manufacturers import build as build_manufacturers
     build_manufacturers()
+    if (ROOT/'design/focus-integration-4.6.json').is_file():
+        from build_focus_integration import build as apply_integration
+        apply_integration()
     print(json.dumps(dict(ok=True,countries=[dict(tag=r['tag'],nodes=r['nodes'],unadapted=r['unadapted']) for r in reports],ideas=len(b.idea_code),dynamics=len(b.dynamic),art=len(b.art)),ensure_ascii=False))
 
 if __name__=='__main__':main()

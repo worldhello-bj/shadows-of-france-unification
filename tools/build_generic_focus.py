@@ -90,6 +90,7 @@ def ideas():
    m=one(n.value,'modifier');values=D['legacy_modifiers'][n.key];changes.append((m.start,m.end,'modifier = { '+' '.join(k+' = '+fmt(v) for k,v in values.items())+' }'))
  put(rel,replace(source,changes))
 def rewards():
+ from idea_tier_swap import hidden_cleanup,tier_swap
  effects=[];rel='common/scripted_effects/sofzh_rewards.txt';source=read(rel);changes=[]
  peers={k:'sofzh_specialist_'+k for k in ['administration','civil_industry','mil_industry','engineering']}
  for k in ['infantry','recruitment','staff','special_forces','motorized','armor','artillery','air_defence','air_support','naval_air','dockyards','surface_navy','submarines','carrier','landing','fuel','recovery']:peers[k]='sofzh_dedicated_'+k
@@ -120,7 +121,7 @@ def rewards():
   levels=6 if family=='administration' else 3
   names=['sofzh_reward_'+family+'_'+str(j) for j in range(1,levels+1)];peer=peers.get(family)
   for tier in range(1,levels+1):
-   high=' '.join('has_idea = '+k for k in names[tier:]);remove=' '.join('remove_ideas = '+k for k in names)
+   high=' '.join('has_idea = '+k for k in names[tier:]);remove=hidden_cleanup(names)
    # Route updates must never silently downgrade a higher generic tier or stack dedicated and generic counterparts.
    target=names[tier-1];body=''
    if peer and tier<=3:
@@ -129,13 +130,12 @@ def rewards():
     if promote:promote+='else = { '+peer+'_'+str(tier)+' = yes } '
     else:promote=peer+'_'+str(tier)+' = yes '
     body='if = { limit = { OR = { '+' '.join('has_idea = '+peer+'_'+str(j) for j in [1,2,3])+' } } '+promote+remove+' } else = { '
-   upgrade=('if = { limit = { NOT = { OR = { '+high+' has_idea = '+target+' } } } '+remove)
-   if peer and tier>3:upgrade+=' '+' '.join('remove_ideas = '+peer+'_'+str(j) for j in [1,2,3])
-   upgrade+=' add_ideas = '+target+' }'
+   candidates=names+([peer+'_'+str(j) for j in [1,2,3]] if peer and tier>3 else [])
+   upgrade=('if = { limit = { NOT = { OR = { '+high+' has_idea = '+target+' } } } '+tier_swap(target,candidates)+' }')
    body+=upgrade
    if peer and tier<=3:body+=' }'
    if family=='administration' and tier<=3:
-    body='if = { limit = { OR = { '+' '.join('has_idea = '+names[j-1] for j in [4,5,6])+' } } '+' '.join('remove_ideas = '+peer+'_'+str(j) for j in [1,2,3])+' } else = { '+body+' }'
+    body='if = { limit = { OR = { '+' '.join('has_idea = '+names[j-1] for j in [4,5,6])+' } } '+hidden_cleanup(peer+'_'+str(j) for j in [1,2,3])+' } else = { '+body+' }'
    effects.append('sof_generic_upgrade_'+family+'_'+str(tier)+' = { '+body+' sof_generic_normalize_profiles_440 = yes }')
  # Clean existing accidental multi-tier/peer stacks; never replay factories, PP, units or technology bonuses.
  normalize=[]
@@ -153,7 +153,7 @@ def rewards():
      rm += ['remove_ideas = '+peer+'_'+str(k) for k in range(1,j)]
      rm.append('if = { limit = { has_idea = '+peer+'_'+str(j)+' } remove_ideas = '+target+' }')
    normalize.append(('if' if j==cap else 'else_if')+' = { limit = { '+condition+' } '+' '.join(rm)+' }')
- effects.append('sof_generic_normalize_profiles_440 = { '+' '.join(normalize)+' }')
+ effects.append('sof_generic_normalize_profiles_440 = { hidden_effect = { '+' '.join(normalize)+' } }')
  admin=[]
  for j,short in reversed(list(enumerate(['arrondissement','department','province','region','state','nation'],1))):admin.append(('if' if j==6 else 'else_if')+' = { limit = { has_completed_focus = '+f(short)+' } sof_generic_upgrade_administration_'+str(j)+' = yes }')
  effects.append('sof_generic_migrate_440 = { if = { limit = { NOT = { has_country_flag = sof_generic_migrated_440 } OR = { has_focus_tree = sof_generic has_focus_tree = sof_mrs_red has_completed_focus = SOF_GENERIC_arrondissement } } '+' '.join(admin)+' sof_generic_normalize_profiles_440 = yes set_country_flag = sof_generic_migrated_440 } }')
