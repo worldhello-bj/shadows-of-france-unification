@@ -94,7 +94,12 @@ def audit(check, gfx=None, mod=MOD):
           '52 different original native artwork files')
     check(len({a['source_sha256'] for a in assets.values()}) == 52,
           '52 different source images, not sprite aliases')
-    check(semantic_hash(tree_text) == data['gameplay_sha256'],
+    preserved = semantic_hash(tree_text) == data['gameplay_sha256']
+    if not preserved and (ROOT/'design/decision-adaptation.json').is_file():
+        from build_decision_adaptation import REF, inclusive_repair
+        original = (REF/'common/national_focus/sof_mrs_red.txt').read_text(encoding='utf-8-sig')
+        preserved = semantic_hash(original) == data['gameplay_sha256'] and tree_text == inclusive_repair(original)
+    check(preserved,
           'Icon correction preserves all focus gameplay, layout and dependencies')
     gfx = registry(mod) if gfx is None else gfx
     sprites = []; textures = []; rendered = []; normalized = []

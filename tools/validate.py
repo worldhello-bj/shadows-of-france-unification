@@ -131,6 +131,15 @@ def validate():
     if (ROOT/'design/generic-focus-4.4.json').is_file():
         from validate_generic_focus import audit as audit_generic_focus
         audit_generic_focus(check,loc,gfx)
+    if (ROOT/'design/ideology-panel.json').is_file():
+        from validate_ideology_panel import audit as audit_ideology_panel
+        audit_ideology_panel(check)
+    if (ROOT/'design/decision-adaptation.json').is_file():
+        from validate_decision_adaptation import audit as audit_decision_adaptation
+        audit_decision_adaptation(check)
+    if (ROOT/'design/economy-map-4.5.json').is_file():
+        from validate_economy_map import audit as audit_economy_map
+        audit_economy_map(check)
     report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),marseille_new_focuses=52 if (MOD/'common/national_focus/sof_mrs_red.txt').is_file() else 0,
         decisions=decisions,categories=categories,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
     return report

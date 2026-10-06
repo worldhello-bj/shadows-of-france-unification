@@ -6,7 +6,7 @@ available = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_po
 complete_effect = { set_country_flag = sof_mrs_red_political_work }
 remove_effect = { clr_country_flag = sof_mrs_red_political_work if = { limit = { sof_mrs_red_active = yes } add_to_variable = { sof_mrs_red_tension = -15 } sof_mrs_red_refresh_tension = yes add_stability = 0 } }
 cancel_trigger = { sof_mrs_red_active = no } cancel_effect = { clr_country_flag = sof_mrs_red_political_work }
-ai_will_do = { factor = 2 modifier = { factor = 8 check_variable = { sof_mrs_red_tension >= 40 } } modifier = { factor = 0 check_variable = { sof_mrs_red_tension < 20 } } } }
+ai_will_do = { factor = 2 modifier = { factor = 8 NOT = { check_variable = { sof_mrs_red_tension < 40 } } } modifier = { factor = 0 check_variable = { sof_mrs_red_tension < 20 } } } }
 sof_mrs_red_union_meeting = { 
 icon = sof_cw_accord cost = 35 days_remove = 45 days_re_enable = 90
 visible = { has_country_flag = sof_mrs_red_congress has_completed_focus = SOF_MRS_RED_P4 NOT = { has_country_flag = sof_mrs_red_emergency_ended } }
@@ -14,7 +14,7 @@ available = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_po
 complete_effect = { set_country_flag = sof_mrs_red_political_work }
 remove_effect = { clr_country_flag = sof_mrs_red_political_work if = { limit = { sof_mrs_red_active = yes } add_to_variable = { sof_mrs_red_tension = -15 } sof_mrs_red_refresh_tension = yes add_stability = 0 } }
 cancel_trigger = { sof_mrs_red_active = no } cancel_effect = { clr_country_flag = sof_mrs_red_political_work }
-ai_will_do = { factor = 2 modifier = { factor = 8 check_variable = { sof_mrs_red_tension >= 40 } } modifier = { factor = 0 check_variable = { sof_mrs_red_tension < 20 } } } }
+ai_will_do = { factor = 2 modifier = { factor = 8 NOT = { check_variable = { sof_mrs_red_tension < 40 } } } modifier = { factor = 0 check_variable = { sof_mrs_red_tension < 20 } } } }
 sof_mrs_red_food_supply = { 
 icon = sof_cw_accord cost = 50 days_remove = 60 days_re_enable = 180
 visible = { has_country_flag = sof_mrs_red_congress  NOT = { has_country_flag = sof_mrs_red_emergency_ended } }
@@ -22,7 +22,7 @@ available = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_po
 complete_effect = { set_country_flag = sof_mrs_red_political_work }
 remove_effect = { clr_country_flag = sof_mrs_red_political_work if = { limit = { sof_mrs_red_active = yes } add_to_variable = { sof_mrs_red_tension = -10 } sof_mrs_red_refresh_tension = yes add_stability = 0.03 } }
 cancel_trigger = { sof_mrs_red_active = no } cancel_effect = { clr_country_flag = sof_mrs_red_political_work }
-ai_will_do = { factor = 2 modifier = { factor = 8 check_variable = { sof_mrs_red_tension >= 40 } } modifier = { factor = 0 check_variable = { sof_mrs_red_tension < 20 } } } }
+ai_will_do = { factor = 2 modifier = { factor = 8 NOT = { check_variable = { sof_mrs_red_tension < 40 } } } modifier = { factor = 0 check_variable = { sof_mrs_red_tension < 20 } } } }
 sof_mrs_red_communist_campaign = { 
 icon = sof_cw_civil cost = 25 days_remove = 35 days_re_enable = 60
 visible = { has_country_flag = sof_mrs_red_chosen NOT = { has_country_flag = sof_mrs_red_government } }
@@ -33,7 +33,7 @@ ai_will_do = { factor = 10 modifier = { factor = 0 communism > 0.499 } } }
 sof_mrs_red_engineering_slot = { 
 icon = sof_cw_specialty cost = 75 fire_only_once = yes
 visible = { has_completed_focus = SOF_MRS_RED_E7 NOT = { has_country_flag = sof_mrs_red_research_paid } }
-available = { sof_mrs_red_active = yes OR = { AND = { num_of_civilian_factories >= 0 num_of_military_factories >= 12 } AND = { num_of_civilian_factories >= 1 num_of_military_factories >= 11 } AND = { num_of_civilian_factories >= 2 num_of_military_factories >= 10 } AND = { num_of_civilian_factories >= 3 num_of_military_factories >= 9 } AND = { num_of_civilian_factories >= 4 num_of_military_factories >= 8 } AND = { num_of_civilian_factories >= 5 num_of_military_factories >= 7 } AND = { num_of_civilian_factories >= 6 num_of_military_factories >= 6 } AND = { num_of_civilian_factories >= 7 num_of_military_factories >= 5 } AND = { num_of_civilian_factories >= 8 num_of_military_factories >= 4 } AND = { num_of_civilian_factories >= 9 num_of_military_factories >= 3 } AND = { num_of_civilian_factories >= 10 num_of_military_factories >= 2 } AND = { num_of_civilian_factories >= 11 num_of_military_factories >= 1 } AND = { num_of_civilian_factories >= 12 num_of_military_factories >= 0 } } amount_research_slots < 4 }
+available = { sof_mrs_red_active = yes OR = { AND = { NOT = { num_of_civilian_factories < 0 } NOT = { num_of_military_factories < 12 } } AND = { NOT = { num_of_civilian_factories < 1 } NOT = { num_of_military_factories < 11 } } AND = { NOT = { num_of_civilian_factories < 2 } NOT = { num_of_military_factories < 10 } } AND = { NOT = { num_of_civilian_factories < 3 } NOT = { num_of_military_factories < 9 } } AND = { NOT = { num_of_civilian_factories < 4 } NOT = { num_of_military_factories < 8 } } AND = { NOT = { num_of_civilian_factories < 5 } NOT = { num_of_military_factories < 7 } } AND = { NOT = { num_of_civilian_factories < 6 } NOT = { num_of_military_factories < 6 } } AND = { NOT = { num_of_civilian_factories < 7 } NOT = { num_of_military_factories < 5 } } AND = { NOT = { num_of_civilian_factories < 8 } NOT = { num_of_military_factories < 4 } } AND = { NOT = { num_of_civilian_factories < 9 } NOT = { num_of_military_factories < 3 } } AND = { NOT = { num_of_civilian_factories < 10 } NOT = { num_of_military_factories < 2 } } AND = { NOT = { num_of_civilian_factories < 11 } NOT = { num_of_military_factories < 1 } } AND = { NOT = { num_of_civilian_factories < 12 } NOT = { num_of_military_factories < 0 } } } amount_research_slots < 4 }
 complete_effect = { if = { limit = { amount_research_slots < 4 NOT = { has_country_flag = sof_mrs_red_research_paid } } add_research_slot = 1 set_country_flag = sof_mrs_red_research_paid } }
 ai_will_do = { factor = 8 } }
 }

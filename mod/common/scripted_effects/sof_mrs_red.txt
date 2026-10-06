@@ -28,7 +28,7 @@ sof_mrs_red_region_name = {
  }
 }
 sof_mrs_red_resolve_crisis = {
- if = { limit = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_emergency_ended } has_country_flag = { flag = sof_mrs_red_crisis_pending days > 89 } check_variable = { sof_mrs_red_tension >= 90 } NOT = { has_country_flag = sof_mrs_red_recovery } }
+ if = { limit = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_emergency_ended } has_country_flag = { flag = sof_mrs_red_crisis_pending days > 89 } NOT = { check_variable = { sof_mrs_red_tension < 90 } } NOT = { has_country_flag = sof_mrs_red_recovery } }
   add_political_power = -75 add_stability = -0.15
   remove_ideas = sof_mrs_red_distrust remove_ideas = sof_mrs_red_dispute
   add_timed_idea = { idea = sof_mrs_red_paralysis days = 180 }
@@ -40,14 +40,14 @@ sof_mrs_red_resolve_crisis = {
 sof_mrs_red_refresh_tension = {
  clamp_variable = { var = sof_mrs_red_tension min = 0 max = 100 }
  if = { limit = { sof_mrs_red_active = yes NOT = { has_country_flag = sof_mrs_red_emergency_ended } NOT = { has_country_flag = sof_mrs_red_recovery } has_country_flag = sof_mrs_red_congress }
-  if = { limit = { check_variable = { sof_mrs_red_tension >= 70 } }
+  if = { limit = { NOT = { check_variable = { sof_mrs_red_tension < 70 } } }
    remove_ideas = sof_mrs_red_dispute
    if = { limit = { NOT = { has_idea = sof_mrs_red_distrust } } add_ideas = sof_mrs_red_distrust }
-  } else_if = { limit = { check_variable = { sof_mrs_red_tension >= 40 } }
+  } else_if = { limit = { NOT = { check_variable = { sof_mrs_red_tension < 40 } } }
    remove_ideas = sof_mrs_red_distrust
    if = { limit = { NOT = { has_idea = sof_mrs_red_dispute } } add_ideas = sof_mrs_red_dispute }
   } else = { remove_ideas = sof_mrs_red_dispute remove_ideas = sof_mrs_red_distrust }
-  if = { limit = { check_variable = { sof_mrs_red_tension >= 90 } NOT = { has_country_flag = sof_mrs_red_crisis_pending } NOT = { has_country_flag = sof_mrs_red_recovery } }
+  if = { limit = { NOT = { check_variable = { sof_mrs_red_tension < 90 } } NOT = { has_country_flag = sof_mrs_red_crisis_pending } NOT = { has_country_flag = sof_mrs_red_recovery } }
    set_country_flag = sof_mrs_red_crisis_pending country_event = { id = sof_mrs_red.7 days = 1 } country_event = { id = sof_mrs_red.15 days = 90 }
   }
   if = { limit = { check_variable = { sof_mrs_red_tension < 90 } } clr_country_flag = sof_mrs_red_crisis_pending }
