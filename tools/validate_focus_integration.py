@@ -7,6 +7,7 @@ from pathlib import Path
 from hoi4_script import parse, one, entries, scalar, walk
 from validate_historical import State, Runner
 from vanilla_historical import LEADERS, char_id
+from build_focus_integration import ISLAND_TAGS, owned_character
 
 ROOT=Path(__file__).resolve().parents[1]
 MOD=ROOT/'mod'
@@ -32,7 +33,9 @@ def audit(check, gfx):
     triggers={n.key:n.value for n in parse((MOD/'common/scripted_triggers/sofzh_cabinet.txt').read_text())}
     effects={n.key:n.value for n in parse((MOD/'common/scripted_effects/sof_vanilla_major.txt').read_text())}
     chars=one(parse((MOD/'common/characters/sof_vanilla_historical.txt').read_text()),'characters').value
-    check(len(chars)==len({v[0] for v in LEADERS.values()}),'All transplanted leader tokens defined')
+    base={v[0] for v in LEADERS.values()}
+    expected_count=len(base)+len(ISLAND_TAGS)*len({v for v in base if v.startswith('ITA_')})
+    check(len(chars)==expected_count,'Base leaders and five independent island rosters defined')
     for node in chars:
         check(node.key is not None and isinstance(node.value,list),'Character definition has a valid token')
         check(bool(entries(node.value,'country_leader')),'Character has an attachable leader role: '+node.key)
@@ -71,7 +74,8 @@ def audit(check, gfx):
         existing='sofzh_minister_executive_2';state.ideas.add(existing)
         before=copy.deepcopy((state.ideas,state.variables,state.dynamic,state.pp,state.gov))
         runner=Runner(ideas,triggers,effects,[state]);runner.execute(effects['sof_hist_repair_roles_460'],state)
-        check(state.leader==char_id(source) and ideology in state.roles[char_id(source)],'Broken completed-focus save gets leader: '+old)
+        cid=owned_character(source,state.tag)
+        check(state.leader==cid and ideology in state.roles[cid],'Broken completed-focus save gets leader: '+old)
         check(before==(state.ideas,state.variables,state.dynamic,state.pp,state.gov),'Save repair preserves paid chief, regime and earned bonuses: '+old)
         snapshot=copy.deepcopy(state.__dict__);runner.execute(effects['sof_hist_repair_roles_460'],state)
         check(snapshot==state.__dict__,'Save repair is idempotent: '+old)
@@ -81,3 +85,20 @@ def audit(check, gfx):
         check(other.__dict__==snapshot,'Save repair does not reverse later political choices: '+old)
     actions=parse((MOD/'common/on_actions/sof20_startup.txt').read_text())
     check(sum(n.key=='sof_hist_repair_roles_460' for n in walk(actions))==2,'Leader repair wired to startup and weekly country pulses')
+    for old,(source,ideology,gov) in LEADERS.items():
+        if not source.startswith('ITA_'):continue
+        completion=effects['sof_hist_complete_'+old.lower()]
+        check(not entries(completion,'if') and bool(entries(completion,'hidden_effect')),
+              'Island roster dispatch is hidden from focus tooltip: '+old)
+        world=[State('sofzh_corsica',gov,tag=tag) for tag in ISLAND_TAGS]
+        # One country already owns the pre-update shared token.
+        world[1].characters.add(char_id(source))
+        for c in world:
+            c.focus.add('SFC_'+old[4:])
+            Runner(ideas,triggers,effects,world).execute(effects['sof_hist_repair_roles_460'],c)
+        check(len({c.leader for c in world})==len(world),'Simultaneous completed routes use distinct owners: '+old)
+        for c in world:
+            check(c.leader==owned_character(source,c.tag),'Every island receives its own historical leader: '+old+' '+c.tag)
+            Runner(ideas,triggers,effects,world).execute(effects['sof_hist_complete_'+old.lower()],c)
+            check(c.leader==owned_character(source,c.tag) and ideology in c.roles[c.leader],
+                  'Focus repeat cannot steal another country character: '+old+' '+c.tag)

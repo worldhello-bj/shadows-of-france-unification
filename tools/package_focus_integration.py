@@ -19,6 +19,8 @@ def main():
         name = FOLDER+'/'+rel.as_posix().removeprefix('mod/')
         payload[name] = raw
         rows.append(dict(path=name, bytes=len(raw), sha256=row['sha256'], previous_sha256=row['previous_sha256']))
+        if row.get('compatible_sha256'):
+            rows[-1]['compatible_sha256'] = row['compatible_sha256']
     for row in spec['deletions']:
         assert not (ROOT/row['relative']).exists(), row['relative']
         deleted.append(dict(path=FOLDER+'/'+row['relative'].removeprefix('mod/'), previous_sha256=row['previous_sha256']))

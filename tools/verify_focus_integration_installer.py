@@ -92,6 +92,24 @@ def verify():
     install(user)
     assert inventory(user/'mod') == after
 
+    if spec.get('compatible_release_commits'):
+        user = fixture('prior-4.6-candidate')
+        commit = spec['compatible_release_commits'][0]
+        for row in manifest['files']:
+            rel = 'mod/'+row['path'].removeprefix(FOLDER+'/')
+            raw = subprocess.check_output(['git', '-c', 'safe.directory='+git_root.as_posix(),
+                     'show', commit+':'+rel], cwd=git_root)
+            assert sha(raw) in [row['sha256'], row['previous_sha256']]+row.get('compatible_sha256', [])
+            (user/'mod'/row['path']).write_bytes(raw)
+        for row in manifest['deletions']:
+            (user/'mod'/row['path']).unlink()
+        for rel in [FOLDER+'/descriptor.mod', FOLDER+'.mod']:
+            path = user/'mod'/rel
+            path.write_bytes(path.read_bytes().replace(b'version="4.5.1"', b'version="4.6.0"'))
+        install(user)
+        for row in manifest['files']:
+            assert sha((user/'mod'/row['path']).read_bytes()) == row['sha256']
+
     for name, relative in [('modified-cabinet', manifest['files'][1]['path']),
                            ('modified-obsolete', manifest['deletions'][0]['path'])]:
         user = fixture(name)
@@ -129,7 +147,8 @@ def verify():
         scenarios=['upgrade with hash-verified backup', 'repeat upgrade is byte-stable',
                    'other-task file and workshop metadata preserved', 'modified cabinet rejected',
                    'modified obsolete texture rejected', 'path traversal rejected', 'bad hash rejected',
-                   'partial failure restores deleted textures and every changed file'], game_engine_verified=False)
+                   'partial failure restores deleted textures and every changed file',
+                   'prior 4.6 candidate upgrades to independent island rosters'], game_engine_verified=False)
     out = ROOT/'docs/reports/4.6.0/installer-fixtures.json'
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')

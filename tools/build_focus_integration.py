@@ -1,12 +1,18 @@
 """Integrate the existing transplants with local cabinet and politics controls."""
 import json
 import re
+import copy
 from pathlib import Path
 from hoi4_script import parse, one, entries, scalar, walk, replace
 from vanilla_historical import LEADERS, SLOTS, char_id, idea_id
 
 ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / 'mod'
+ISLAND_TAGS = ('AJC', 'BST', 'CLV', 'COR', 'SRT')
+
+
+def owned_character(source, tag=None):
+    return char_id(source)+(('_'+tag.lower()) if source.startswith('ITA_') and tag else '')
 
 
 def emit(rows):
@@ -65,6 +71,21 @@ def build():
             changes.append((node.end-1, node.end-1, ' country_leader = { ideology = '+ideology+' expire = "1965.1.1.1" } '))
     save(relative, replace(text, changes))
 
+    text = (MOD/relative).read_text(encoding='utf-8-sig')
+    chars = one(parse(text), 'characters')
+    defined = {n.key for n in chars.value}
+    clones = []
+    for node in chars.value:
+        if not node.key.startswith('sof_hist_character_ita_') or node.key.endswith(tuple('_'+t.lower() for t in ISLAND_TAGS)):
+            continue
+        for tag in ISLAND_TAGS:
+            cid = node.key+'_'+tag.lower()
+            if cid not in defined:
+                clone = copy.deepcopy(node);clone.key = cid
+                clones.append(emit([clone]))
+    if clones:
+        save(relative, text[:chars.end-1]+'\n'+'\n'.join(clones)+'\n'+text[chars.end-1:])
+
     relative = 'common/scripted_effects/sof_vanilla_major.txt'
     text = (MOD/relative).read_text(encoding='utf-8-sig')
     rows = parse(text)
@@ -76,9 +97,6 @@ def build():
         cid = char_id(source)
         pid = idea_id(source)
         node = one(rows, name)
-        # Do not repeatedly wrap a previously integrated block.
-        if any(n.key=='custom_effect_tooltip' and n.value==name+'_tt' for n in node.value):
-            continue
         recruit = f'if = {{ limit = {{ NOT = {{ has_character = {cid} }} }} recruit_character = {cid} }}'
         leadership = f'set_politics = {{ ruling_party = {gov} elections_allowed = '+('yes' if gov=='democratic' else 'no')+' } '
         leadership += f'if = {{ limit = {{ {cid} = {{ has_ideology = {ideology} }} }} remove_country_leader_role = {{ character = {cid} ideology = {ideology} }} }} '
@@ -91,15 +109,29 @@ def build():
         body = ('custom_effect_tooltip = '+name+'_tt hidden_effect = { '+recruit+
                 f' if = {{ limit = {{ has_character = {cid} }} '+leadership+' '+extra+f' set_country_flag = {name}_done }} }} '+
                 f'if = {{ limit = {{ has_character = {cid} }} {appointment} }}')
+        if source.startswith('ITA_'):
+            dispatch = []
+            for index, tag in enumerate(ISLAND_TAGS):
+                # Scope every historical Italian token, including the king's retirement.
+                scoped = re.sub(r'sof_hist_character_ita_[a-z0-9_]+', lambda m: m[0]+'_'+tag.lower(), body)
+                dispatch.append(('if' if index==0 else 'else_if')+' = { limit = { original_tag = '+tag+' } '+scoped+' }')
+            body = 'custom_effect_tooltip = '+name+'_tt hidden_effect = { '+' '.join(dispatch)+' }'
+            if pid in members:
+                body += ' show_ideas_tooltip = '+pid
         changes.append((node.start, node.end, name+' = { '+body+' }'))
-    if 'sof_hist_repair_roles_460' not in existing:
-        for old, (source, ideology, gov) in LEADERS.items():
-            cid = char_id(source)
+    for old, (source, ideology, gov) in LEADERS.items():
+        for tag in ISLAND_TAGS if source.startswith('ITA_') else (None,):
+            cid = owned_character(source, tag)
             fid = ('SFP_' if old.startswith('FRA_') else 'SFC_')+old[4:]
             tree = 'sofzh_paris' if old.startswith('FRA_') else 'sofzh_corsica'
-            repairs.append(f'if = {{ limit = {{ has_focus_tree = {tree} has_government = {gov} has_completed_focus = {fid} NOT = {{ has_character = {cid} }} }} recruit_character = {cid} if = {{ limit = {{ has_character = {cid} }} if = {{ limit = {{ {cid} = {{ has_ideology = {ideology} }} }} remove_country_leader_role = {{ character = {cid} ideology = {ideology} }} }} add_country_leader_role = {{ character = {cid} promote_leader = yes country_leader = {{ ideology = {ideology} expire = "1965.1.1.1" }} }} }} }}')
-        suffix = '\nsof_hist_repair_roles_460 = { '+' '.join(repairs)+' }\n'
+            gate = 'original_tag = '+tag+' ' if tag else ''
+            repairs.append(f'if = {{ limit = {{ {gate}has_focus_tree = {tree} has_government = {gov} has_completed_focus = {fid} NOT = {{ has_character = {cid} }} }} recruit_character = {cid} if = {{ limit = {{ has_character = {cid} }} if = {{ limit = {{ {cid} = {{ has_ideology = {ideology} }} }} remove_country_leader_role = {{ character = {cid} ideology = {ideology} }} }} add_country_leader_role = {{ character = {cid} promote_leader = yes country_leader = {{ ideology = {ideology} expire = "1965.1.1.1" }} }} }} }}')
+    repair_body = 'sof_hist_repair_roles_460 = { '+' '.join(repairs)+' }'
+    if 'sof_hist_repair_roles_460' not in existing:
+        suffix = '\n'+repair_body+'\n'
     else:
+        node = one(rows, 'sof_hist_repair_roles_460')
+        changes.append((node.start, node.end, repair_body))
         suffix = ''
     save(relative, replace(text, changes)+suffix)
     relative = 'common/on_actions/sof20_startup.txt'
