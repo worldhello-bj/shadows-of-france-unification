@@ -2,157 +2,205 @@ sofzh_political_direction_category = {
 	sofzh_adopt_liberal = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = democratic }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_liberal = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_liberal = yes }
 		complete_effect = {
-			set_country_leader_ideology = liberalism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_liberal_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_liberal_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_liberal = yes }
+                    set_country_leader_ideology = liberalism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_conservative = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = democratic }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_conservative = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_conservative = yes }
 		complete_effect = {
-			set_country_leader_ideology = conservatism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_conservative_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_conservative_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_conservative = yes }
+                    set_country_leader_ideology = conservatism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_social = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = democratic }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_social = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_social = yes }
 		complete_effect = {
-			set_country_leader_ideology = socialism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_social_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_social_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_social = yes }
+                    set_country_leader_ideology = socialism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_revolutionary = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = communism }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_revolutionary = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_revolutionary = yes }
 		complete_effect = {
-			set_country_leader_ideology = marxism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_revolutionary_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_revolutionary_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_revolutionary = yes }
+                    set_country_leader_ideology = marxism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_vanguard = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = communism }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_vanguard = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_vanguard = yes }
 		complete_effect = {
-			set_country_leader_ideology = leninism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_vanguard_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_vanguard_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_vanguard = yes }
+                    set_country_leader_ideology = leninism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_communal = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = communism }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_communal = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_communal = yes }
 		complete_effect = {
-			set_country_leader_ideology = anarchist_communism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_communal_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_communal_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_communal = yes }
+                    set_country_leader_ideology = anarchist_communism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_fascist = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = fascism }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_fascist = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_fascist = yes }
 		complete_effect = {
-			set_country_leader_ideology = fascism_ideology
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_fascist_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_fascist_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_fascist = yes }
+                    set_country_leader_ideology = fascism_ideology
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_national_socialist = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = fascism }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_national_socialist = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_national_socialist = yes }
 		complete_effect = {
-			set_country_leader_ideology = nazism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_national_socialist_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_national_socialist_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_national_socialist = yes }
+                    set_country_leader_ideology = nazism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_corporatist = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = fascism }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_corporatist = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_corporatist = yes }
 		complete_effect = {
-			set_country_leader_ideology = sof_corporatism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_corporatist_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_corporatist_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_corporatist = yes }
+                    set_country_leader_ideology = sof_corporatism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_monarchist = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = neutrality }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_monarchist = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_monarchist = yes }
 		complete_effect = {
-			set_country_leader_ideology = sof_monarchism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_monarchist_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_monarchist_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_monarchist = yes }
+                    set_country_leader_ideology = sof_monarchism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_authoritarian = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = neutrality }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_authoritarian = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_authoritarian = yes }
 		complete_effect = {
-			set_country_leader_ideology = despotism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_authoritarian_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_authoritarian_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_authoritarian = yes }
+                    set_country_leader_ideology = despotism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 	sofzh_adopt_regionalist = {
 		icon = generic_political_discourse
 		cost = 35
-		visible = { sofzh_politics_eligible = yes has_government = neutrality }
-		available = { NOT = { has_country_flag = sofzh_political_reform_cooldown } NOT = { sofzh_politics_regionalist = yes } }
+		visible = { sofzh_politics_eligible = yes }
+		available = { sofzh_can_adopt_regionalist = yes }
 		complete_effect = {
-			set_country_leader_ideology = sof_localism
-			set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
-			custom_effect_tooltip = sofzh_adopt_regionalist_tt
-			hidden_effect = { sofzh_sync_ideology = yes }
-		}
+            custom_effect_tooltip = sofzh_adopt_regionalist_tt
+            hidden_effect = {
+                if = { limit = { sofzh_can_adopt_regionalist = yes }
+                    set_country_leader_ideology = sof_localism
+                    set_country_flag = { flag = sofzh_political_reform_cooldown days = 180 }
+                    sofzh_sync_ideology = yes
+                }
+            }
+        }
 		ai_will_do = { factor = 0 }
 	}
 }

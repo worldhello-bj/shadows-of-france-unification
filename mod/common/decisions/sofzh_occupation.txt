@@ -42,7 +42,7 @@ sofzh_occupation_category = {
  remove_effect = { FROM = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT } if = { limit = { sofzh_occupation_owned_state = yes has_state_flag = sofzh_governance_action } add_compliance = 3 add_resistance = -8 add_dynamic_modifier = { modifier = sofzh_local_accord days = 180 } sofzh_occupation_refresh = yes } clr_state_flag = sofzh_governance_action } } }
  cancel_trigger = {  OR = { FROM = { OR = { NOT = { sofzh_occupation_owned_state = yes } is_core_of = ROOT } } } }
  cancel_effect = { FROM = { if = { limit = { is_owned_by = ROOT is_controlled_by = ROOT } clr_state_flag = sofzh_governance_action } } }
- ai_will_do = { factor = 4 modifier = { factor = 2 FROM = { resistance >= 35 } } }
+ ai_will_do = { factor = 4 modifier = { factor = 2 FROM = { NOT = { resistance < 35 } } } }
  }
  sofzh_sweep_state = {
  icon = sof_cw_sweep
@@ -51,13 +51,13 @@ sofzh_occupation_category = {
  target_trigger = { FROM = { sofzh_occupation_owned_state = yes } }
  on_map_mode = map_and_decisions_view
  cost = 25 days_remove = 45
- available = { has_manpower > 499 FROM = { resistance >= 35 NOT = { has_state_flag = sofzh_sweep_cooldown } } has_equipment = { infantry_equipment > 299 } FROM = { NOT = { has_state_flag = sofzh_governance_action } NOT = { has_state_flag = sofzh_registration_pending } } }
+ available = { has_manpower > 499 FROM = { NOT = { resistance < 35 } NOT = { has_state_flag = sofzh_sweep_cooldown } } has_equipment = { infantry_equipment > 299 } FROM = { NOT = { has_state_flag = sofzh_governance_action } NOT = { has_state_flag = sofzh_registration_pending } } }
  custom_cost_trigger = { has_equipment = { infantry_equipment > 299 } has_manpower > 499 } custom_cost_text = sofzh_sweep_equipment_tt
  complete_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = -300 } add_manpower = -500 FROM = { set_state_flag = sofzh_governance_action set_state_flag = { flag = sofzh_local_sweep days = 90 } set_state_flag = { flag = sofzh_sweep_cooldown days = 120 } } }
  remove_effect = { FROM = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT } if = { limit = { sofzh_occupation_owned_state = yes has_state_flag = sofzh_governance_action } add_resistance = -12 add_compliance = -3 sofzh_occupation_refresh = yes } clr_state_flag = sofzh_governance_action } } }
  cancel_trigger = {  OR = { FROM = { OR = { NOT = { sofzh_occupation_owned_state = yes } is_core_of = ROOT } } } }
  cancel_effect = { FROM = { if = { limit = { is_owned_by = ROOT is_controlled_by = ROOT } clr_state_flag = sofzh_governance_action } } }
- ai_will_do = { factor = 2 modifier = { factor = 3 FROM = { resistance >= 60 } } modifier = { factor = 0 OR = { has_equipment = { infantry_equipment < 600 } has_equipment = { support_equipment < 50 } } } }
+ ai_will_do = { factor = 2 modifier = { factor = 3 FROM = { NOT = { resistance < 60 } } } modifier = { factor = 0 OR = { has_equipment = { infantry_equipment < 600 } has_equipment = { support_equipment < 50 } } } }
  }
 }
 sofzh_guerrilla_support_category = {

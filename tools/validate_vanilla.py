@@ -13,13 +13,23 @@ def audit(check,loc,gfx):
     from vanilla_startup import LEGACY_INITIAL
     data=json.loads(read(ROOT/'design/vanilla-major-remake.json'))
     check(len(data['donors'])==2,'Only Paris and Corsica are remade')
-    check((MOD/'common/national_focus/SoF_generic.txt').read_bytes().decode('utf-8-sig').replace('\r\n','\n')==baseline('mod/common/national_focus/SoF_generic.txt'),'Generic focus tree remains unchanged from 3.2')
+    if (ROOT/'design/generic-focus-4.4.json').is_file():
+        old=one(parse(baseline('mod/common/national_focus/SoF_generic.txt')),'focus_tree').value
+        original={scalar(n.value,'id'):scalar(n.value,'icon') for n in entries(old,'focus')}
+        current={scalar(n.value,'id'):scalar(n.value,'icon') for n in entries(parse(read(MOD/'common/national_focus/sof_mrs_shared_generic.txt')),'shared_focus')}
+        check(original==current,'Generic optimization preserves all 153 original IDs and icon references')
+    else:
+        from validate_marseille_red import generic_equivalent
+        check(generic_equivalent(MOD,baseline('mod/common/national_focus/SoF_generic.txt')),'All generic nodes retain 3.2 behavior for other countries')
     all_loc={}
     for p in (MOD/'localisation/simp_chinese').rglob('*.yml'):
         all_loc.update(re.findall(r'(?m)^\s+([^\s:]+):\d*\s+"((?:[^"\\]|\\.)*)"',read(p)))
     all_ids=set();trees={}
     for p in (MOD/'common/national_focus').glob('*.txt'):
-        for t in entries(parse(read(p)),'focus_tree'):
+        rows=parse(read(p))
+        for n in entries(rows,'shared_focus'):
+            fid=scalar(n.value,'id');check(fid not in all_ids,'Unique shared runtime focus ID: '+fid);all_ids.add(fid)
+        for t in entries(rows,'focus_tree'):
             tid=scalar(t.value,'id');check(tid not in trees,'Unique tree ID: '+tid);trees[tid]=t.value
             for n in entries(t.value,'focus'):
                 fid=scalar(n.value,'id');check(fid not in all_ids,'Unique runtime focus ID: '+fid);all_ids.add(fid)
@@ -95,6 +105,8 @@ def audit(check,loc,gfx):
         for r in walk(parse(read(p))):
             if r.key and r.key.startswith(('SFC_','SFP_')):check(r.key in all_ids,'AI focus resolves: '+r.key)
     generic_ids={scalar(n.value,'id') for n in entries(trees['sof_generic'],'focus')}
+    if entries(trees['sof_generic'],'shared_focus'):
+        generic_ids.update(json.loads(read(ROOT/'design/marseille-public-focuses.json'))['ids'])
     startup=json.loads(read(ROOT/'design/vanilla-startup.json'))
     for tag in startup['generic_tags']:
         p=next((MOD/'history/countries').glob(tag+' - *.txt'));text=read(p)

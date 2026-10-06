@@ -1,0 +1,108 @@
+# Display-only classification of active party representatives.
+sofzh_chart_party_liberal = {
+ OR = {
+  AND = { has_government = democratic OR = { has_country_leader_ideology = liberalism has_country_leader_ideology = populism } }
+  AND = { NOT = { has_government = democratic } OR = {
+    any_character = { OR = { has_ideology = liberalism has_ideology = populism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_conservative = {
+ OR = {
+  AND = { has_government = democratic OR = { has_country_leader_ideology = conservatism } }
+  AND = { NOT = { has_government = democratic } OR = {
+    any_character = { OR = { has_ideology = conservatism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_social = {
+ OR = {
+  AND = { has_government = democratic OR = { has_country_leader_ideology = socialism } }
+  AND = { NOT = { has_government = democratic } OR = {
+    any_character = { OR = { has_ideology = socialism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_revolutionary = {
+ OR = {
+  AND = { has_government = communism OR = { has_country_leader_ideology = marxism has_country_leader_ideology = anti_revisionism has_country_leader_ideology = buddhist_socialism } }
+  AND = { NOT = { has_government = communism } OR = {
+    any_character = { OR = { has_ideology = marxism has_ideology = anti_revisionism has_ideology = buddhist_socialism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_vanguard = {
+ OR = {
+  AND = { has_government = communism OR = { has_country_leader_ideology = leninism has_country_leader_ideology = stalinism } }
+  AND = { NOT = { has_government = communism } OR = {
+    any_character = { OR = { has_ideology = leninism has_ideology = stalinism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_communal = {
+ OR = {
+  AND = { has_government = communism OR = { has_country_leader_ideology = anarchist_communism } }
+  AND = { NOT = { has_government = communism } OR = {
+    any_character = { OR = { has_ideology = anarchist_communism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_fascist = {
+ OR = {
+  AND = { has_government = fascism OR = { has_country_leader_ideology = fascism_ideology has_country_leader_ideology = emperor_fascism } }
+  AND = { NOT = { has_government = fascism } OR = {
+    any_character = { OR = { has_ideology = fascism_ideology has_ideology = emperor_fascism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_national_socialist = {
+ OR = {
+  AND = { has_government = fascism OR = { has_country_leader_ideology = nazism has_country_leader_ideology = gen_nazism } }
+  AND = { NOT = { has_government = fascism } OR = {
+    any_character = { OR = { has_ideology = nazism has_ideology = gen_nazism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_corporatist = {
+ OR = {
+  AND = { has_government = fascism OR = { has_country_leader_ideology = sof_corporatism has_country_leader_ideology = falangism has_country_leader_ideology = rexism } }
+  AND = { NOT = { has_government = fascism } OR = {
+    any_character = { OR = { has_ideology = sof_corporatism has_ideology = falangism has_ideology = rexism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_monarchist = {
+ OR = {
+  AND = { has_government = neutrality OR = { has_country_leader_ideology = sof_monarchism } }
+  AND = { NOT = { has_government = neutrality } OR = {
+    any_character = { OR = { has_ideology = sof_monarchism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_authoritarian = {
+ OR = {
+  AND = { has_government = neutrality OR = { has_country_leader_ideology = despotism has_country_leader_ideology = oligarchism has_country_leader_ideology = japan_militarism_ideology } }
+  AND = { NOT = { has_government = neutrality } OR = {
+    any_character = { OR = { has_ideology = despotism has_ideology = oligarchism has_ideology = japan_militarism_ideology } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}
+
+sofzh_chart_party_regionalist = {
+ OR = {
+  AND = { has_government = neutrality OR = { has_country_leader_ideology = sof_localism has_country_leader_ideology = moderatism has_country_leader_ideology = centrism has_country_leader_ideology = anarchism } }
+  AND = { NOT = { has_government = neutrality } OR = {
+    any_character = { OR = { has_ideology = sof_localism has_ideology = moderatism has_ideology = centrism has_ideology = anarchism } PREV = { has_country_leader = { character = PREV ruling_only = no } } }
+  } }
+ }
+}

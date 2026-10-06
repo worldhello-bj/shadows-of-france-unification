@@ -26,17 +26,17 @@ sofzh_occupation_refresh = {
  remove_dynamic_modifier = { modifier = sofzh_local_underground }
  remove_dynamic_modifier = { modifier = sofzh_local_guerrillas }
  remove_dynamic_modifier = { modifier = sofzh_local_insurgency }
- if = { limit = { resistance >= 60 }
+ if = { limit = { NOT = { resistance < 60 } }
   add_dynamic_modifier = { modifier = sofzh_local_insurgency }
  }
- else_if = { limit = { resistance >= 35 }
+ else_if = { limit = { NOT = { resistance < 35 } }
   add_dynamic_modifier = { modifier = sofzh_local_guerrillas }
  }
  else = { add_dynamic_modifier = { modifier = sofzh_local_underground } }
 }
 sofzh_occupation_attack = {
  # Called only for successful monthly rolls; never creates field divisions.
- if = { limit = { resistance >= 60 }
+ if = { limit = { NOT = { resistance < 60 } }
   ROOT = { add_manpower = -150 add_equipment_to_stockpile = { type = infantry_equipment amount = -120 } }
  }
  else = { ROOT = { add_manpower = -75 add_equipment_to_stockpile = { type = infantry_equipment amount = -60 } } }
@@ -60,8 +60,8 @@ sofzh_occupation_monthly = {
    if = { limit = { NOT = { has_state_flag = sofzh_occupation_registered } } sofzh_occupation_register = yes }
    sofzh_occupation_refresh = yes
    if = { limit = { NOT = { has_state_flag = sofzh_local_sweep } }
-    if = { limit = { resistance >= 60 } random_list = { 40 = { sofzh_occupation_attack = yes } 60 = { } } }
-    else_if = { limit = { resistance >= 35 } random_list = { 20 = { sofzh_occupation_attack = yes } 80 = { } } }
+    if = { limit = { NOT = { resistance < 60 } } random_list = { 40 = { sofzh_occupation_attack = yes } 60 = { } } }
+    else_if = { limit = { NOT = { resistance < 35 } } random_list = { 20 = { sofzh_occupation_attack = yes } 80 = { } } }
    }
   }
   else = { sofzh_occupation_clear = yes }

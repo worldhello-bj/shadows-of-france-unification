@@ -1,0 +1,49 @@
+
+sof_mrs_red_candidate = {
+ original_tag = MRS is_subject = no has_capitulated = no
+ capital_scope = { is_owned_by = PREV is_fully_controlled_by = PREV }
+}
+sof_mrs_red_active = { sof_mrs_red_candidate = yes has_government = communism has_country_flag = sof_mrs_red_government }
+sof_mrs_red_public_allowed = { NOT = { sof_mrs_red_active = yes } }
+sof_mrs_red_partner_target = {
+ sofzh_unification_candidate = yes is_subject = no has_capitulated = no has_war = no
+ NOT = { tag = ROOT } NOT = { has_war_with = ROOT }
+ NOT = { has_country_flag = sof_mrs_red_offer_target }
+ OR = { is_neighbor_of = ROOT AND = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } ROOT = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } } } }
+}
+sof_mrs_red_federation_target = {
+ sof_mrs_red_partner_target = yes has_government = communism is_in_faction_with = ROOT
+ has_opinion = { target = ROOT value > 74 }
+}
+sof_mrs_red_campaign_target = {
+ sofzh_unification_new_land_target = yes is_neighbor_of = ROOT
+ NOT = { ROOT = { has_wargoal_against = PREV } }
+}
+sof_mrs_red_sea_target = {
+ sofzh_unification_legal_target = yes NOT = { is_neighbor_of = ROOT }
+ any_owned_state = { sofzh_unification_french_state = yes is_coastal = yes is_fully_controlled_by = PREV naval_base > 0 }
+ NOT = { ROOT = { has_wargoal_against = PREV } }
+}
+sof_mrs_red_sea_ready = {
+ has_navy_size = { size > 3 } has_equipment = { convoy > 19 }
+ any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV naval_base > 0 }
+}
+sof_mrs_red_offer_sender_valid = {
+ FROM = { sof_mrs_red_active = yes has_war = no has_country_flag = sof_mrs_red_diplomatic_pending }
+ sofzh_unification_candidate = yes has_war = no
+ NOT = { has_war_with = FROM }
+ has_country_flag = sof_mrs_red_offer_target
+}
+sof_mrs_red_invitation_valid = {
+ sof_mrs_red_offer_sender_valid = yes has_government = communism is_in_faction = no
+ FROM = { is_faction_leader = yes has_country_flag = sof_mrs_red_league_created }
+}
+sof_mrs_red_federation_valid = {
+ sof_mrs_red_offer_sender_valid = yes has_government = communism
+ is_in_faction_with = FROM has_opinion = { target = FROM value > 74 }
+ OR = { is_neighbor_of = FROM AND = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } FROM = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } } } }
+}
+sof_mrs_red_paca_state = { OR = { state = 383 state = 398 state = 408 state = 413 state = 418 state = 422 state = 425 state = 426 state = 427 state = 436 state = 438 state = 440 state = 444 state = 446 state = 448 state = 452 state = 463 state = 469 state = 483 state = 484 } }
+sof_mrs_red_rhone_state = { OR = { state = 301 state = 307 state = 308 state = 313 state = 314 state = 315 state = 316 state = 319 state = 329 state = 330 state = 336 state = 337 state = 339 state = 341 state = 342 state = 355 state = 360 state = 361 state = 365 state = 375 state = 377 state = 385 state = 396 state = 397 state = 406 } }
+sof_mrs_red_all_paca = { 383 = { is_owned_by = PREV is_fully_controlled_by = PREV } 398 = { is_owned_by = PREV is_fully_controlled_by = PREV } 408 = { is_owned_by = PREV is_fully_controlled_by = PREV } 413 = { is_owned_by = PREV is_fully_controlled_by = PREV } 418 = { is_owned_by = PREV is_fully_controlled_by = PREV } 422 = { is_owned_by = PREV is_fully_controlled_by = PREV } 425 = { is_owned_by = PREV is_fully_controlled_by = PREV } 426 = { is_owned_by = PREV is_fully_controlled_by = PREV } 427 = { is_owned_by = PREV is_fully_controlled_by = PREV } 436 = { is_owned_by = PREV is_fully_controlled_by = PREV } 438 = { is_owned_by = PREV is_fully_controlled_by = PREV } 440 = { is_owned_by = PREV is_fully_controlled_by = PREV } 444 = { is_owned_by = PREV is_fully_controlled_by = PREV } 446 = { is_owned_by = PREV is_fully_controlled_by = PREV } 448 = { is_owned_by = PREV is_fully_controlled_by = PREV } 452 = { is_owned_by = PREV is_fully_controlled_by = PREV } 463 = { is_owned_by = PREV is_fully_controlled_by = PREV } 469 = { is_owned_by = PREV is_fully_controlled_by = PREV } 483 = { is_owned_by = PREV is_fully_controlled_by = PREV } 484 = { is_owned_by = PREV is_fully_controlled_by = PREV } }
+sof_mrs_red_has_rhone_link = { any_owned_state = { sof_mrs_red_rhone_state = yes is_fully_controlled_by = PREV } }

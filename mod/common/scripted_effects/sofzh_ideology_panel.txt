@@ -1,0 +1,104 @@
+# Segmented chart technique: Yard1, HoI4-Scripted-GUI-Pie-Chart.
+# Only sofzh_chart_* display caches and temporary variables are written.
+sofzh_refresh_ideology_chart = {
+ if = { limit = { is_ai = no }
+  set_variable = { sofzh_chart_liberal = 0 }
+  set_variable = { sofzh_chart_conservative = 0 }
+  set_variable = { sofzh_chart_social = 0 }
+  set_variable = { sofzh_chart_revolutionary = 0 }
+  set_variable = { sofzh_chart_vanguard = 0 }
+  set_variable = { sofzh_chart_communal = 0 }
+  set_variable = { sofzh_chart_fascist = 0 }
+  set_variable = { sofzh_chart_national_socialist = 0 }
+  set_variable = { sofzh_chart_corporatist = 0 }
+  set_variable = { sofzh_chart_monarchist = 0 }
+  set_variable = { sofzh_chart_authoritarian = 0 }
+  set_variable = { sofzh_chart_regionalist = 0 }
+  set_variable = { sofzh_chart_total = 0 }
+  set_variable = { sofzh_chart_ruling = 0 }
+  set_variable = { sofzh_chart_democratic_frame = 1 }
+  if = { limit = { sofzh_chart_party_liberal = yes } set_variable = { sofzh_chart_democratic_frame = 1 } }
+  else_if = { limit = { sofzh_chart_party_conservative = yes } set_variable = { sofzh_chart_democratic_frame = 2 } }
+  else_if = { limit = { sofzh_chart_party_social = yes } set_variable = { sofzh_chart_democratic_frame = 3 } }
+  set_variable = { sofzh_chart_democratic_pop = party_popularity_100@democratic }
+  clamp_variable = { var = sofzh_chart_democratic_pop min = 0 max = 100 }
+  add_to_variable = { sofzh_chart_total = sofzh_chart_democratic_pop }
+  if = { limit = { has_government = democratic } set_variable = { sofzh_chart_ruling = sofzh_chart_democratic_frame } }
+  set_variable = { sofzh_chart_communism_frame = 4 }
+  if = { limit = { sofzh_chart_party_revolutionary = yes } set_variable = { sofzh_chart_communism_frame = 4 } }
+  else_if = { limit = { sofzh_chart_party_vanguard = yes } set_variable = { sofzh_chart_communism_frame = 5 } }
+  else_if = { limit = { sofzh_chart_party_communal = yes } set_variable = { sofzh_chart_communism_frame = 6 } }
+  set_variable = { sofzh_chart_communism_pop = party_popularity_100@communism }
+  clamp_variable = { var = sofzh_chart_communism_pop min = 0 max = 100 }
+  add_to_variable = { sofzh_chart_total = sofzh_chart_communism_pop }
+  if = { limit = { has_government = communism } set_variable = { sofzh_chart_ruling = sofzh_chart_communism_frame } }
+  set_variable = { sofzh_chart_fascism_frame = 7 }
+  if = { limit = { sofzh_chart_party_fascist = yes } set_variable = { sofzh_chart_fascism_frame = 7 } }
+  else_if = { limit = { sofzh_chart_party_national_socialist = yes } set_variable = { sofzh_chart_fascism_frame = 8 } }
+  else_if = { limit = { sofzh_chart_party_corporatist = yes } set_variable = { sofzh_chart_fascism_frame = 9 } }
+  set_variable = { sofzh_chart_fascism_pop = party_popularity_100@fascism }
+  clamp_variable = { var = sofzh_chart_fascism_pop min = 0 max = 100 }
+  add_to_variable = { sofzh_chart_total = sofzh_chart_fascism_pop }
+  if = { limit = { has_government = fascism } set_variable = { sofzh_chart_ruling = sofzh_chart_fascism_frame } }
+  set_variable = { sofzh_chart_neutrality_frame = 12 }
+  if = { limit = { sofzh_chart_party_monarchist = yes } set_variable = { sofzh_chart_neutrality_frame = 10 } }
+  else_if = { limit = { sofzh_chart_party_authoritarian = yes } set_variable = { sofzh_chart_neutrality_frame = 11 } }
+  else_if = { limit = { sofzh_chart_party_regionalist = yes } set_variable = { sofzh_chart_neutrality_frame = 12 } }
+  set_variable = { sofzh_chart_neutrality_pop = party_popularity_100@neutrality }
+  clamp_variable = { var = sofzh_chart_neutrality_pop min = 0 max = 100 }
+  add_to_variable = { sofzh_chart_total = sofzh_chart_neutrality_pop }
+  if = { limit = { has_government = neutrality } set_variable = { sofzh_chart_ruling = sofzh_chart_neutrality_frame } }
+  clear_array = sofzh_chart_pie
+  resize_array = { array = sofzh_chart_pie size = 100 value = 13 }
+  if = { limit = { check_variable = { var = sofzh_chart_total value = 0 compare = greater_than } }
+   set_temp_variable = { sofzh_chart_sum = 0 }
+   set_temp_variable = { sofzh_chart_start = 0 }
+   divide_variable = { sofzh_chart_democratic_pop = sofzh_chart_total }
+   multiply_variable = { sofzh_chart_democratic_pop = 100 }
+   if = { limit = { check_variable = { var = sofzh_chart_democratic_frame value = 1 compare = equals } } set_variable = { sofzh_chart_liberal = sofzh_chart_democratic_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_democratic_frame value = 2 compare = equals } } set_variable = { sofzh_chart_conservative = sofzh_chart_democratic_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_democratic_frame value = 3 compare = equals } } set_variable = { sofzh_chart_social = sofzh_chart_democratic_pop } }
+   add_to_temp_variable = { sofzh_chart_sum = sofzh_chart_democratic_pop }
+   set_temp_variable = { sofzh_chart_end = sofzh_chart_sum }
+   round_temp_variable = sofzh_chart_end
+   clamp_temp_variable = { var = sofzh_chart_end min = 0 max = 100 }
+   for_loop_effect = { start = sofzh_chart_start end = sofzh_chart_end value = sofzh_chart_index set_variable = { sofzh_chart_pie^sofzh_chart_index = sofzh_chart_democratic_frame } }
+   set_temp_variable = { sofzh_chart_start = sofzh_chart_end }
+   divide_variable = { sofzh_chart_communism_pop = sofzh_chart_total }
+   multiply_variable = { sofzh_chart_communism_pop = 100 }
+   if = { limit = { check_variable = { var = sofzh_chart_communism_frame value = 4 compare = equals } } set_variable = { sofzh_chart_revolutionary = sofzh_chart_communism_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_communism_frame value = 5 compare = equals } } set_variable = { sofzh_chart_vanguard = sofzh_chart_communism_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_communism_frame value = 6 compare = equals } } set_variable = { sofzh_chart_communal = sofzh_chart_communism_pop } }
+   add_to_temp_variable = { sofzh_chart_sum = sofzh_chart_communism_pop }
+   set_temp_variable = { sofzh_chart_end = sofzh_chart_sum }
+   round_temp_variable = sofzh_chart_end
+   clamp_temp_variable = { var = sofzh_chart_end min = 0 max = 100 }
+   for_loop_effect = { start = sofzh_chart_start end = sofzh_chart_end value = sofzh_chart_index set_variable = { sofzh_chart_pie^sofzh_chart_index = sofzh_chart_communism_frame } }
+   set_temp_variable = { sofzh_chart_start = sofzh_chart_end }
+   divide_variable = { sofzh_chart_fascism_pop = sofzh_chart_total }
+   multiply_variable = { sofzh_chart_fascism_pop = 100 }
+   if = { limit = { check_variable = { var = sofzh_chart_fascism_frame value = 7 compare = equals } } set_variable = { sofzh_chart_fascist = sofzh_chart_fascism_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_fascism_frame value = 8 compare = equals } } set_variable = { sofzh_chart_national_socialist = sofzh_chart_fascism_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_fascism_frame value = 9 compare = equals } } set_variable = { sofzh_chart_corporatist = sofzh_chart_fascism_pop } }
+   add_to_temp_variable = { sofzh_chart_sum = sofzh_chart_fascism_pop }
+   set_temp_variable = { sofzh_chart_end = sofzh_chart_sum }
+   round_temp_variable = sofzh_chart_end
+   clamp_temp_variable = { var = sofzh_chart_end min = 0 max = 100 }
+   for_loop_effect = { start = sofzh_chart_start end = sofzh_chart_end value = sofzh_chart_index set_variable = { sofzh_chart_pie^sofzh_chart_index = sofzh_chart_fascism_frame } }
+   set_temp_variable = { sofzh_chart_start = sofzh_chart_end }
+   divide_variable = { sofzh_chart_neutrality_pop = sofzh_chart_total }
+   multiply_variable = { sofzh_chart_neutrality_pop = 100 }
+   if = { limit = { check_variable = { var = sofzh_chart_neutrality_frame value = 10 compare = equals } } set_variable = { sofzh_chart_monarchist = sofzh_chart_neutrality_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_neutrality_frame value = 11 compare = equals } } set_variable = { sofzh_chart_authoritarian = sofzh_chart_neutrality_pop } }
+   if = { limit = { check_variable = { var = sofzh_chart_neutrality_frame value = 12 compare = equals } } set_variable = { sofzh_chart_regionalist = sofzh_chart_neutrality_pop } }
+   add_to_temp_variable = { sofzh_chart_sum = sofzh_chart_neutrality_pop }
+   set_temp_variable = { sofzh_chart_end = sofzh_chart_sum }
+   round_temp_variable = sofzh_chart_end
+   clamp_temp_variable = { var = sofzh_chart_end min = 0 max = 100 }
+   set_temp_variable = { sofzh_chart_end = 100 } # close the circle despite rounding
+   for_loop_effect = { start = sofzh_chart_start end = sofzh_chart_end value = sofzh_chart_index set_variable = { sofzh_chart_pie^sofzh_chart_index = sofzh_chart_neutrality_frame } }
+   set_temp_variable = { sofzh_chart_start = sofzh_chart_end }
+  }
+  add_to_variable = { sofzh_chart_dirty = 1 }
+ }
+}

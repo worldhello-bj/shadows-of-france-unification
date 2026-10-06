@@ -1,0 +1,1685 @@
+{
+  "version": "4.4.0",
+  "schema": 1,
+  "baseline_version": "4.3.3",
+  "focuses": {
+    "SOF_GENERIC_arrondissement": {
+      "x": 2,
+      "y": 0,
+      "section": "行政与治理",
+      "cost": 3,
+      "available": "",
+      "factories": 0,
+      "names": "地方政务署",
+      "narrative": "从市镇议会、税务所和公共预算开始建立行政机构。有限的领土也需要稳定的政府来支撑建设。"
+    },
+    "SOF_GENERIC_department": {
+      "x": 2,
+      "y": 2,
+      "section": "行政与治理",
+      "cost": 3,
+      "available": "num_of_controlled_states > 2",
+      "factories": 0,
+      "names": "省级行政网络",
+      "narrative": "把相邻地区的税务、治安和档案接入省级网络，让扩张后的政府能够实际运作。"
+    },
+    "SOF_GENERIC_province": {
+      "x": 2,
+      "y": 4,
+      "section": "行政与治理",
+      "cost": 5,
+      "available": "num_of_controlled_states > 5",
+      "factories": 0,
+      "names": "跨省税籍协约",
+      "narrative": "统一跨省财政和户籍标准，让物资与人员调拨不再被地方边界阻断。"
+    },
+    "SOF_GENERIC_region": {
+      "x": 2,
+      "y": 6,
+      "section": "行政与治理",
+      "cost": 5,
+      "available": "num_of_controlled_states > 9",
+      "factories": 0,
+      "names": "大区协调委员会",
+      "narrative": "由大区协调委员会统筹财政与建设，把多个地方政府连接成有效的区域政权。"
+    },
+    "SOF_GENERIC_state": {
+      "x": 2,
+      "y": 8,
+      "section": "行政与治理",
+      "cost": 7,
+      "available": "num_of_controlled_states > 17",
+      "factories": 0,
+      "names": "统一邦国机构",
+      "narrative": "建立统一的邦国机关和预算制度，使军队、工业与地方事务有稳定的行政支撑。"
+    },
+    "SOF_GENERIC_nation": {
+      "x": 2,
+      "y": 10,
+      "section": "行政与治理",
+      "cost": 10,
+      "available": "num_of_controlled_states > 29",
+      "factories": 0,
+      "names": "全国行政体系",
+      "narrative": "将全国税籍、财政与行政职责纳入共同制度，为长期统一提供持续的治理能力。"
+    },
+    "SOF_GENERIC_basic_infrastructure": {
+      "x": 12,
+      "y": 0,
+      "section": "工业与资源",
+      "cost": 3,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": "修复交通骨架",
+      "narrative": "先修通干道和工业区周边设施，恢复人员、建材与货物的运输能力。"
+    },
+    "SOF_GENERIC_basic_industry": {
+      "x": 8,
+      "y": 2,
+      "section": "工业与资源",
+      "cost": 3,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": "建立地方工业区",
+      "narrative": "在地方工业区配置基础军工与民用生产线，形成第一批可持续运作的工厂。"
+    },
+    "SOF_GENERIC_improved_industry": {
+      "x": 8,
+      "y": 4,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": "扩建区域工厂",
+      "narrative": "扩建已有工厂、培训技术工人，使地方制造商具备稳定承接订单的条件。"
+    },
+    "SOF_GENERIC_advanced_industry": {
+      "x": 8,
+      "y": 6,
+      "section": "工业与资源",
+      "cost": 7,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": "集中重工业建设",
+      "narrative": "集中建设重工业和工业配套设施，为制造商的专业化工艺提供基础。"
+    },
+    "SOF_GENERIC_military_industry": {
+      "x": 6,
+      "y": 8,
+      "section": "工业与资源",
+      "cost": 7,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": "扩充兵工生产线",
+      "narrative": "扩充兵工生产线与军需管理，增加军用产能，同时为部队提供生产与装备经验。"
+    },
+    "SOF_GENERIC_civilian_industry": {
+      "x": 10,
+      "y": 8,
+      "section": "工业与资源",
+      "cost": 7,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": "完善民用工业链",
+      "narrative": "完善建材、加工与民用制造，缩短新项目的建设时间并释放可用产能。"
+    },
+    "SOF_GENERIC_military_industrial_complex": {
+      "x": 8,
+      "y": 10,
+      "section": "工业与资源",
+      "cost": 10,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 17",
+      "factories": 18,
+      "names": "整合全国军工体系",
+      "narrative": "把军工、民用配套与全国采购接入共同体系，支持制造商最高层工艺的实际应用。"
+    },
+    "SOF_GENERIC_contruction_technology": {
+      "x": 12,
+      "y": 2,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "工程师反复修改图纸，只为让桥梁更牢、厂房更快落成。施工队的经验值得整理成统一的方法，传到下一处工地。"
+    },
+    "SOF_GENERIC_basic_industrial_technology": {
+      "x": 12,
+      "y": 4,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "一件零件要在几名师傅手中反复修磨，才能装上机器。新的生产技术将让工人把更多时间用于制造，减少返工与等待。"
+    },
+    "SOF_GENERIC_advanced_industrial_technology": {
+      "x": 12,
+      "y": 8,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": null,
+      "narrative": "车间里的每次停机都会拖慢整个计划。工程师准备重新安排设备与工序，让日渐扩大的工业能够稳定运转。"
+    },
+    "SOF_GENERIC_improved_infrastructure": {
+      "x": 16,
+      "y": 2,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "道路不该只在晴天好走，桥梁也不能只容下一辆车。我们将把最初修通的路线建设成可靠的运输网络。"
+    },
+    "SOF_GENERIC_ressource_extraction": {
+      "x": 16,
+      "y": 4,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "勘探队带回了一袋矿样，矿工们则带来了更实际的建议。改善开采与运输的方法，才能把地下的资源稳妥地送进车间。"
+    },
+    "SOF_GENERIC_steel_production": {
+      "x": 14,
+      "y": 6,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_SOF_GENERIC_steel_production_site_tt any_controlled_state = { OR = { state = 94 state = 98 state = 109 }\n\t\t\t\tis_controlled_by = ROOT\n\t\t\t\tNOT = { has_state_flag = sofzh_generic_steel_expansion } } } has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "根据核实的矿区范围改善开采、分选和供给，不再在随机土地上产生矿产。"
+    },
+    "SOF_GENERIC_aluminium_production": {
+      "x": 18,
+      "y": 6,
+      "section": "工业与资源",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_SOF_GENERIC_aluminium_production_site_tt any_controlled_state = { OR = { state = 446 }\n\t\t\t\tis_controlled_by = ROOT\n\t\t\t\tNOT = { has_state_flag = sofzh_generic_aluminium_expansion } } } has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "根据核实的矿区范围改善开采、分选和供给，不再在随机土地上产生矿产。"
+    },
+    "SOF_GENERIC_tungsten_production": {
+      "x": 14,
+      "y": 8,
+      "section": "工业与资源",
+      "cost": 5,
+      "parents": [
+        [
+          "SOF_GENERIC_ressource_extraction"
+        ]
+      ],
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_SOF_GENERIC_tungsten_production_site_tt any_controlled_state = { OR = { state = 292 }\n\t\t\t\tis_controlled_by = ROOT\n\t\t\t\tNOT = { has_state_flag = sofzh_generic_tungsten_expansion } } } has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "根据核实的矿区范围改善开采、分选和供给，不再在随机土地上产生矿产。"
+    },
+    "SOF_GENERIC_oil_production": {
+      "x": 18,
+      "y": 8,
+      "section": "工业与资源",
+      "cost": 5,
+      "parents": [
+        [
+          "SOF_GENERIC_ressource_extraction"
+        ]
+      ],
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_SOF_GENERIC_oil_production_site_tt any_controlled_state = { OR = { state = 127 }\n\t\t\t\tis_controlled_by = ROOT\n\t\t\t\tNOT = { has_state_flag = sofzh_generic_oil_expansion } } } has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "根据核实的矿区范围改善开采、分选和供给，不再在随机土地上产生矿产。"
+    },
+    "SOF_GENERIC_synthethic_rubber_production": {
+      "x": 16,
+      "y": 10,
+      "section": "工业与资源",
+      "cost": 5,
+      "parents": [
+        [
+          "SOF_GENERIC_ressource_extraction"
+        ]
+      ],
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_synthetic_site_tt any_controlled_state = { \nis_controlled_by = ROOT\nNOT = { has_state_flag = sofzh_generic_synthetic_rubber }\nfree_building_slots = { building = synthetic_refinery size > 0 include_locked = yes } } } has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": "建立合成材料工业",
+      "narrative": "投资合成材料和化工设备，让缺少天然矿区的地区也能发展橡胶工业。"
+    },
+    "SOF_GENERIC_3_infantry_divisions": {
+      "x": 24,
+      "y": 0,
+      "section": "军队与动员",
+      "cost": 3,
+      "available": "has_tech = gw_artillery has_tech = tech_support sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "编成1支6营制部队，初始经验10%。规模服务于地方防卫与训练，后续扩军依靠人力、装备生产和实际部署。"
+    },
+    "SOF_GENERIC_6_infantry_divisions": {
+      "x": 22,
+      "y": 2,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "编成1支6营制部队，初始经验10%。规模服务于地方防卫与训练，后续扩军依靠人力、装备生产和实际部署。"
+    },
+    "SOF_GENERIC_12_infantry_divisions": {
+      "x": 22,
+      "y": 4,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "编成2支6营制部队，初始经验10%。规模服务于地方防卫与训练，后续扩军依靠人力、装备生产和实际部署。"
+    },
+    "SOF_GENERIC_24_infantry_divisions": {
+      "x": 22,
+      "y": 6,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "编成2支6营制部队，初始经验10%。规模服务于地方防卫与训练，后续扩军依靠人力、装备生产和实际部署。"
+    },
+    "SOF_GENERIC_propaganda_campaigns": {
+      "x": 26,
+      "y": 2,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "战况传言常常比正式公报走得更快。报纸、广播和街头集会将向民众说明政府的目标，争取他们继续支持战争。"
+    },
+    "SOF_GENERIC_extend_recruitment_laws": {
+      "x": 26,
+      "y": 6,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "征召所仍按旧条例办事，政府面对的局势却已经改变。我们将着手讨论新的征兵政策，为后续的人力动员作准备。"
+    },
+    "SOF_GENERIC_military_training": {
+      "x": 28,
+      "y": 4,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "会持枪的人未必懂得在炮火下协同行动。训练体系需要把新兵送进营地，也要让他们带着足够的准备走向前线。"
+    },
+    "SOF_GENERIC_officers_academy": {
+      "x": 28,
+      "y": 6,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "一张错误的命令足以让整支部队付出代价。我们将设立军官教育体系，把地图、参谋工作与实地演练放在同一间课堂里。"
+    },
+    "SOF_GENERIC_special_forces": {
+      "x": 30,
+      "y": 6,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "有些任务发生在道路终止的地方，有些则始于黑暗中的一段攀爬。军队需要专门训练的人手去承担这些任务。"
+    },
+    "SOF_GENERIC_mass_conscription": {
+      "x": 26,
+      "y": 8,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "更多家庭即将收到征召通知，田间与车间也要重新分配人手。扩大兵员来源，是一项牵动整个社会的决定。"
+    },
+    "SOF_GENERIC_infiltration_tactics": {
+      "x": 30,
+      "y": 8,
+      "section": "军队与动员",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "小队在夜色中越过警戒线，能依靠的只有背包里的补给和事先约定的信号。我们必须教会他们在孤立的环境中坚持作战。"
+    },
+    "SOF_GENERIC_basic_small_arms": {
+      "x": 44,
+      "y": 0,
+      "section": "陆军装备与学说",
+      "cost": 3,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "枪械故障不会因为士兵勇敢而自行消失。军械师将从最常见的问题入手，改善步兵每天都要依赖的武器。"
+    },
+    "SOF_GENERIC_improved_small_arms": {
+      "x": 44,
+      "y": 2,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "训练场上的记录揭示了旧式武器的不足。新的试制与改良，将让步兵在战斗中拥有更可靠的选择。"
+    },
+    "SOF_GENERIC_advanced_small_arms": {
+      "x": 44,
+      "y": 4,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "战斗节奏正在加快，步兵装备也必须跟上。设计人员将探索更先进的武器，准备应对下一阶段的作战需求。"
+    },
+    "SOF_GENERIC_motorisation": {
+      "x": 36,
+      "y": 2,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "徒步纵队还在路上，前方的局势已经发生变化。让部队乘上卡车，我们才能更快地把人手送往需要他们的地方。"
+    },
+    "SOF_GENERIC_mechanisation": {
+      "x": 34,
+      "y": 4,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "道路尽头的碎石与弹坑提醒我们，普通卡车有自己的极限。机械化装备的研发将为步兵争取更好的机动与防护。"
+    },
+    "SOF_GENERIC_amphibious_assault": {
+      "x": 32,
+      "y": 6,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "潮汐表与作战地图一起摊在桌上，岸线上的障碍也逐一标出。两栖装备的研究，将为跨越水面的行动提供新的工具。"
+    },
+    "SOF_GENERIC_tank_development": {
+      "x": 38,
+      "y": 6,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "parents": [
+        [
+          "SOF_GENERIC_motorisation"
+        ]
+      ],
+      "available": "has_tech = gwtank_chassis has_tech = motorised_infantry has_tech = tech_support sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "履带车的试验声引来了整座营地的围观。装甲部队的未来要从底盘、车辆与支援装备的扎实研究开始。"
+    },
+    "SOF_GENERIC_combined_arms_tactics": {
+      "x": 42,
+      "y": 8,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "前沿观察哨报来了履带声，步兵连却不能总把希望寄托在远处的炮兵身上。完善反装甲装备与协同，才能及时应对这样的威胁。"
+    },
+    "SOF_GENERIC_advanced_tanks_models": {
+      "x": 40,
+      "y": 10,
+      "section": "陆军装备与学说",
+      "cost": 7,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": null,
+      "narrative": "试验场上的旧车留下了深深的履带印，新的图纸已经铺满设计室。我们需要研究更先进的坦克，以应对不断变化的战场。"
+    },
+    "SOF_GENERIC_artillery_development": {
+      "x": 48,
+      "y": 4,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "炮兵军官把射表带进会议室，工厂代表把磨损的零件摆在桌上。新式火炮的研发，将从这些共同的问题开始。"
+    },
+    "SOF_GENERIC_basic_land_doctrine": {
+      "x": 54,
+      "y": 2,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "参谋们第一次把不同部队的经验汇总到同一册笔记里。统一的作战理论，将帮助指挥官理解彼此的任务。"
+    },
+    "SOF_GENERIC_improved_land_doctrines": {
+      "x": 54,
+      "y": 6,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "演习结束后，军官们仍围着地图争论得失。我们将把讨论中的教训整理出来，继续改进陆军的作战方法。"
+    },
+    "SOF_GENERIC_advanced_land_doctrines": {
+      "x": 54,
+      "y": 10,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": null,
+      "narrative": "更大的军队需要更成熟的指挥。我们将研究如何让不同部队在复杂战场上协同，把已有经验转化为新的作战理论。"
+    },
+    "SOF_GENERIC_support_companies": {
+      "x": 52,
+      "y": 4,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "工兵检查桥面，侦察兵探明道路，维修人员守着工具箱。支援部队的工作往往不显眼，却决定主力能否顺利行动。"
+    },
+    "SOF_GENERIC_motorised_support_companies": {
+      "x": 52,
+      "y": 6,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "伤员、补给车与通信线必须跟得上移动中的部队。我们将完善这些支援力量，减少前线与后方之间的脱节。"
+    },
+    "SOF_GENERIC_special_forces_division": {
+      "x": 54,
+      "y": 8,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "海岸、山路与空降场各有不同的考验。专门的装备和训练，需要在部队受命出发之前就准备好。"
+    },
+    "SOF_GENERIC_6_motorised_divisions": {
+      "x": 38,
+      "y": 4,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_tech = motorised_infantry sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "编成1支4营制部队，初始经验10%。规模服务于地方防卫与训练，后续扩军依靠人力、装备生产和实际部署。"
+    },
+    "SOF_GENERIC_3_tank_divisions": {
+      "x": 36,
+      "y": 8,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_tank_tech_tt OR = {\n\t\t\t\tAND = {\n\t\t\t\t\thas_tech = basic_heavy_tank\n\t\t\t\t\thas_tech = basic_medium_tank\n\t\t\t\t}\n\t\t\t\tAND = {\n\t\t\t\t\thas_tech = basic_heavy_tank_chassis\n\t\t\t\t\thas_tech = basic_medium_tank_chassis\n\t\t\t\t}\n\t\t\t} } sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "编成1支4营制部队，初始经验10%。规模服务于地方防卫与训练，后续扩军依靠人力、装备生产和实际部署。"
+    },
+    "SOF_GENERIC_6_tanks_divisions": {
+      "x": 36,
+      "y": 10,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "编成1支4营制部队，初始经验10%。规模服务于地方防卫与训练，后续扩军依靠人力、装备生产和实际部署。"
+    },
+    "SOF_GENERIC_2500_anti_tank_guns": {
+      "x": 50,
+      "y": 6,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_tech = interwar_antitank sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付60件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_5000_anti_tank_guns": {
+      "x": 50,
+      "y": 10,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付120件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_5000_anti_air_guns": {
+      "x": 48,
+      "y": 8,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_tech = interwar_antiair has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付120件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_5000_artillery_guns": {
+      "x": 46,
+      "y": 6,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "has_tech = gw_artillery sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付120件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_20000_artillery_guns": {
+      "x": 46,
+      "y": 10,
+      "section": "陆军装备与学说",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付240件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_basic_fighters": {
+      "x": 62,
+      "y": 0,
+      "section": "空军建设",
+      "cost": 3,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "机场边的工棚还很简陋，飞行员却已经开始记录每一次试飞。战斗机研发将为我们的空中力量打下基础。"
+    },
+    "SOF_GENERIC_basic_air_doctrine": {
+      "x": 60,
+      "y": 2,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "飞得起来之后，我们还得回答在哪里巡逻、何时拦截、如何返回。空军需要自己的作战理论与指挥办法。"
+    },
+    "SOF_GENERIC_improved_air_doctrine": {
+      "x": 60,
+      "y": 6,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "飞行日志里记下了错过的会合与迟到的命令。改进空军作战理论，将让下一次出动更加有序。"
+    },
+    "SOF_GENERIC_advanced_air_doctrine": {
+      "x": 60,
+      "y": 10,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": null,
+      "narrative": "越来越多的飞机升空后，出动顺序与指挥协调变得更加重要。我们将进一步完善空军作战理论。"
+    },
+    "SOF_GENERIC_improved_fighters": {
+      "x": 62,
+      "y": 4,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "机务人员与飞行员对旧机型的意见已经汇成厚厚一册。新的战斗机设计将回应这些在试飞与使用中发现的问题。"
+    },
+    "SOF_GENERIC_advanced_fighters": {
+      "x": 64,
+      "y": 8,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "试验机爬升时的声响吸引了跑道边的目光。更先进的机身与发动机，将为我们的飞行员打开新的可能。"
+    },
+    "SOF_GENERIC_support_planes": {
+      "x": 66,
+      "y": 2,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "前线的目标标在地图上，飞行员开始研究航线与载荷。轰炸机的研发将拓宽空军能够承担的任务。"
+    },
+    "SOF_GENERIC_500_fighters": {
+      "x": 62,
+      "y": 6,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_fighter_tech_tt if = {\n\t\t\t\tlimit = {\n\t\t\t\t\thas_dlc = \"By Blood Alone\"\n\t\t\t\t}\n\t\t\thas_tech = iw_small_airframe\n\t\t\thas_tech = engines_1\n\t\t\thas_tech = aa_lmg\n\t\t\t\t} else = {\n\t\t\thas_tech = early_fighter\n\t\t\t\t\t} } sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付24件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_1000_fighters": {
+      "x": 62,
+      "y": 10,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_fighter_tech_tt if = {\n\t\t\t\tlimit = {\n\t\t\t\t\thas_dlc = \"By Blood Alone\"\n\t\t\t\t}\n\t\t\thas_tech = iw_small_airframe\n\t\t\thas_tech = engines_1\n\t\t\thas_tech = aa_lmg\n\t\t\t\t} else = {\n\t\t\thas_tech = early_fighter\n\t\t\t\t\t} } sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付48件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_250_bombers": {
+      "x": 66,
+      "y": 6,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_bomber_tech_tt if = {\n\t\t\t\tlimit = {\n\t\t\t\t\thas_dlc = \"By Blood Alone\"\n\t\t\t\t}\n\t\t\t\thas_tech = iw_large_airframe \n\t\t\t\thas_tech = early_bombs\n\t\t\t\thas_tech = engines_1\n\t\t\t\thas_tech = aa_lmg\n\t\t\t} ELSE = {\n\t\t\thas_tech = early_bomber\n\t\t\t} } has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付12件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_500_bombers": {
+      "x": 66,
+      "y": 10,
+      "section": "空军建设",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_bomber_tech_tt if = {\n\t\t\t\tlimit = {\n\t\t\t\t\thas_dlc = \"By Blood Alone\"\n\t\t\t\t}\n\t\t\t\thas_tech = iw_large_airframe \n\t\t\t\thas_tech = early_bombs\n\t\t\t\thas_tech = engines_1\n\t\t\t\thas_tech = aa_lmg\n\t\t\t} ELSE = {\n\t\t\thas_tech = early_bomber\n\t\t\t} } has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "交付24件标题所示装备，用作试编部队的小规模补充；后续需求依靠本地生产。DLC机体与传统机型分支只执行一套奖励。"
+    },
+    "SOF_GENERIC_250_naval_bombers": {
+      "x": 68,
+      "y": 8,
+      "section": "空军建设",
+      "cost": 5,
+      "parents": [
+        [
+          "SOF_GENERIC_support_planes"
+        ]
+      ],
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement custom_trigger_tooltip = { tooltip = sof_generic_naval_air_tech_tt if = { limit = { has_dlc = \"By Blood Alone\" } has_tech = iw_small_airframe has_tech = engines_1 has_tech = air_torpedoe_1 } else = { has_tech = naval_bomber1 } }",
+      "factories": 0,
+      "names": null,
+      "narrative": "组建小规模海岸鱼雷航空队，用16架原型机积累反舰巡逻和海军协同经验。"
+    },
+    "SOF_GENERIC_basic_naval_doctrine": {
+      "x": 72,
+      "y": 2,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "海图上画满了航线，值班军官还在统一信号的用法。海军需要一套共同的作战理论来组织舰船行动。"
+    },
+    "SOF_GENERIC_improved_naval_doctrine": {
+      "x": 72,
+      "y": 6,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "演习中发现的问题随着舰船一同返港。我们将改进海军的协同与指挥，使下一次行动有更充分的准备。"
+    },
+    "SOF_GENERIC_advanced_naval_doctrine": {
+      "x": 72,
+      "y": 10,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": null,
+      "narrative": "舰队规模扩大以后，单舰的经验已不足以应付所有局面。海军将研究更成熟的作战理论，协调不同舰种的任务。"
+    },
+    "SOF_GENERIC_destroyer_dev": {
+      "x": 76,
+      "y": 2,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "护航任务需要一艘能够及时转向、追赶目标的舰船。驱逐舰设计人员将把这些要求带入新的方案。"
+    },
+    "SOF_GENERIC_submarines_dev": {
+      "x": 74,
+      "y": 4,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "艇员在狭窄舱室里检查阀门，岸上的设计人员则计算潜航性能。潜艇研发将为海军提供另一种行动方式。"
+    },
+    "SOF_GENERIC_battleship_dev": {
+      "x": 76,
+      "y": 6,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": null,
+      "narrative": "大型舰船的图纸占满整张长桌，每一处修改都牵动装甲、火炮与动力。我们将推进战列舰及战列巡洋舰的研发。"
+    },
+    "SOF_GENERIC_carrier_dev": {
+      "x": 76,
+      "y": 10,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": null,
+      "narrative": "把飞机送到岸上机场之外，需要一座能够航行的起降平台。航空母舰的研发将探索舰队与航空兵协同的新办法。"
+    },
+    "SOF_GENERIC_2_naval_dockyards": {
+      "x": 76,
+      "y": 0,
+      "section": "海军建设",
+      "cost": 3,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_coast_tt any_state = {\n\t\t\t\tis_coastal = yes\n\t\t\t\tis_controlled_by = ROOT\n\t\t\t} } sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement",
+      "factories": 0,
+      "names": null,
+      "narrative": "港边的空地上立起了新的测量桩，船匠开始讨论船台的位置。建立自己的造船设施，是发展海军必须迈出的第一步。"
+    },
+    "SOF_GENERIC_4_naval_dockyards": {
+      "x": 80,
+      "y": 4,
+      "section": "海军建设",
+      "cost": 5,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_coast_tt any_state = {\n\t\t\t\tis_coastal = yes\n\t\t\t\tis_controlled_by = ROOT\n\t\t\t} } sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": null,
+      "narrative": "码头边的工人开始向外铺设轨道，为新的船台运来材料。扩建船坞将使我们的造船计划有更多空间。"
+    },
+    "SOF_GENERIC_8_naval_dockyards": {
+      "x": 80,
+      "y": 8,
+      "section": "海军建设",
+      "cost": 7,
+      "available": "custom_trigger_tooltip = { tooltip = sofzh_compact_coast_tt any_state = {\n\t\t\t\tis_coastal = yes\n\t\t\t\tis_controlled_by = ROOT\n\t\t\t} } sof_mrs_red_public_allowed = yes has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 11",
+      "factories": 12,
+      "names": null,
+      "narrative": "更多舰船意味着更繁忙的港口，也意味着更多需要协调的工序。我们将继续扩大造船设施，为海军工业安排新的产能。"
+    },
+    "SOF_GENERIC_basic_research": {
+      "x": 84,
+      "y": 0,
+      "section": "科研体系",
+      "cost": 3,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 3",
+      "factories": 4,
+      "names": "建立地方研究院",
+      "narrative": "以地方研究院整合技术人员和试验设施，依托已有工业支持第三个科研槽。"
+    },
+    "SOF_GENERIC_improved_research": {
+      "x": 84,
+      "y": 4,
+      "section": "科研体系",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 7",
+      "factories": 8,
+      "names": "联合高等学校",
+      "narrative": "联合大学与工业实验室，在足够的工业规模上支持第四个科研槽。"
+    },
+    "SOF_GENERIC_advanced_research": {
+      "x": 84,
+      "y": 8,
+      "section": "科研体系",
+      "cost": 7,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 15",
+      "factories": 16,
+      "names": "国家科研委员会",
+      "narrative": "由国家科研委员会统筹高等研究与大型试验设施，成熟的工业体系可以支持第五个科研槽。"
+    },
+    "SOF_GENERIC_rocketry": {
+      "x": 84,
+      "y": 10,
+      "section": "科研体系",
+      "cost": 5,
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 15",
+      "factories": 16,
+      "names": null,
+      "narrative": "试验场上的倒计时刚结束，众人便抬头追踪那道迅速升起的尾迹。火箭与喷气技术的研究，将把我们带向仍有许多未知的领域。"
+    },
+    "SOF_GENERIC_nuclear_weapons": {
+      "x": 84,
+      "y": 12,
+      "section": "科研体系",
+      "cost": 10,
+      "parents": [
+        [
+          "SOF_GENERIC_advanced_research"
+        ]
+      ],
+      "available": "has_completed_focus = SOF_GENERIC_arrondissement num_of_factories > 23",
+      "factories": 24,
+      "names": null,
+      "narrative": "建立核研究专项，集中研究人员与大型试验设施；核物理研究可以独立于火箭计划推进。"
+    },
+    "SOF_GENERIC_battle_for_alsace": {
+      "x": 90,
+      "y": 4,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_aquitaine": {
+      "x": 92,
+      "y": 4,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_auvergne": {
+      "x": 94,
+      "y": 4,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_bourgogne": {
+      "x": 90,
+      "y": 5,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_bretagne": {
+      "x": 92,
+      "y": 5,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_centre": {
+      "x": 94,
+      "y": 5,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_champagne": {
+      "x": 90,
+      "y": 6,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_corsica": {
+      "x": 92,
+      "y": 6,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_franche_comte": {
+      "x": 94,
+      "y": 6,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_ile_de_france": {
+      "x": 90,
+      "y": 7,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_languedoc": {
+      "x": 92,
+      "y": 7,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_limousin": {
+      "x": 94,
+      "y": 7,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_lorraine": {
+      "x": 90,
+      "y": 8,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_midi_pyrenees": {
+      "x": 92,
+      "y": 8,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_nord_pas_de_calais": {
+      "x": 94,
+      "y": 8,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_normandie": {
+      "x": 90,
+      "y": 9,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_pays_de_la_loire": {
+      "x": 92,
+      "y": 9,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_picardie": {
+      "x": 94,
+      "y": 9,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_poitou_charrentes": {
+      "x": 90,
+      "y": 10,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_paca": {
+      "x": 92,
+      "y": 10,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_GENERIC_battle_for_rhone_alpes": {
+      "x": 94,
+      "y": 10,
+      "section": "地区战役",
+      "cost": 1
+    },
+    "SOF_MINING_resource_survey": {
+      "x": 40,
+      "y": 16,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_lorraine_iron_1": {
+      "x": 28,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_lorraine_iron_2": {
+      "x": 28,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_lorraine_iron_3": {
+      "x": 28,
+      "y": 19,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_lorraine_coal_1": {
+      "x": 31,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_lorraine_coal_2": {
+      "x": 31,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_alsace_oil_1": {
+      "x": 34,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_alsace_oil_2": {
+      "x": 34,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_alsace_oil_3": {
+      "x": 34,
+      "y": 19,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_alsace_potash_1": {
+      "x": 37,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_alsace_potash_2": {
+      "x": 37,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_northern_coal_1": {
+      "x": 40,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_northern_coal_2": {
+      "x": 40,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_northern_coal_3": {
+      "x": 40,
+      "y": 19,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_provence_bauxite_1": {
+      "x": 43,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_provence_bauxite_2": {
+      "x": 43,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_provence_bauxite_3": {
+      "x": 43,
+      "y": 19,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_normandy_iron_1": {
+      "x": 46,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_normandy_iron_2": {
+      "x": 46,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_loire_coal_1": {
+      "x": 49,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_loire_coal_2": {
+      "x": 49,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_echassieres_tungsten_1": {
+      "x": 52,
+      "y": 17,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_MINING_echassieres_tungsten_2": {
+      "x": 52,
+      "y": 18,
+      "section": "矿业开发",
+      "cost": 5
+    },
+    "SOF_UNIFY_national_mandate": {
+      "x": 98,
+      "y": 0,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_mobilization_ledger": {
+      "x": 98,
+      "y": 1,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_army_staff": {
+      "x": 98,
+      "y": 2,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_war_preparations": {
+      "x": 98,
+      "y": 3,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_arsenal_compact": {
+      "x": 103,
+      "y": 2,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_officer_exchange": {
+      "x": 103,
+      "y": 3,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_railway_logistics": {
+      "x": 103,
+      "y": 4,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_war_propaganda": {
+      "x": 103,
+      "y": 5,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_industrial_coordination": {
+      "x": 103,
+      "y": 6,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_medical_corps": {
+      "x": 103,
+      "y": 7,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_veterans_integration": {
+      "x": 103,
+      "y": 8,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_regional_administration": {
+      "x": 106,
+      "y": 4,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_regional_integration": {
+      "x": 106,
+      "y": 5,
+      "section": "统一与重建",
+      "cost": 5
+    },
+    "SOF_UNIFY_unified_command": {
+      "x": 106,
+      "y": 6,
+      "section": "统一与重建",
+      "cost": 5
+    },
+    "SOF_UNIFY_paris_mandate": {
+      "x": 106,
+      "y": 7,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_national_congress": {
+      "x": 106,
+      "y": 8,
+      "section": "统一与重建",
+      "cost": 5
+    },
+    "SOF_UNIFY_proclaim_france": {
+      "x": 106,
+      "y": 9,
+      "section": "统一与重建",
+      "cost": 5
+    },
+    "SOF_UNIFY_peace_conversion": {
+      "x": 106,
+      "y": 10,
+      "section": "统一与重建",
+      "cost": 5
+    },
+    "SOF_UNIFY_national_reconstruction": {
+      "x": 106,
+      "y": 11,
+      "section": "统一与重建",
+      "cost": 5
+    },
+    "SOF_UNIFY_constitutional_settlement": {
+      "x": 106,
+      "y": 12,
+      "section": "统一与重建",
+      "cost": 5
+    },
+    "SOF_UNIFY_continental_corridors": {
+      "x": 109,
+      "y": 6,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_corsican_operation": {
+      "x": 109,
+      "y": 7,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_amnesty_charter": {
+      "x": 109,
+      "y": 8,
+      "section": "统一与重建",
+      "cost": 3
+    },
+    "SOF_UNIFY_national_market": {
+      "x": 109,
+      "y": 10,
+      "section": "统一与重建",
+      "cost": 5
+    }
+  },
+  "sections": [
+    {
+      "name": "行政与治理",
+      "x": 2
+    },
+    {
+      "name": "工业与资源",
+      "x": 12
+    },
+    {
+      "name": "军队与动员",
+      "x": 26
+    },
+    {
+      "name": "陆军装备与学说",
+      "x": 44
+    },
+    {
+      "name": "空军建设",
+      "x": 64
+    },
+    {
+      "name": "海军建设",
+      "x": 76
+    },
+    {
+      "name": "科研体系",
+      "x": 84
+    },
+    {
+      "name": "地区战役",
+      "x": 92
+    },
+    {
+      "name": "统一与重建",
+      "x": 106
+    },
+    {
+      "name": "矿业开发",
+      "x": 40
+    }
+  ],
+  "modifier_series": {
+    "civil_industry": {
+      "production_speed_industrial_complex_factor": [
+        0.06,
+        0.12,
+        0.2
+      ],
+      "consumer_goods_factor": [
+        -0.01,
+        -0.02,
+        -0.03
+      ],
+      "industry_repair_factor": [
+        0.06,
+        0.12,
+        0.18
+      ]
+    },
+    "mil_industry": {
+      "industrial_capacity_factory": [
+        0.06,
+        0.12,
+        0.2
+      ],
+      "production_speed_arms_factory_factor": [
+        0.06,
+        0.12,
+        0.2
+      ],
+      "production_factory_start_efficiency_factor": [
+        0.05,
+        0.1,
+        0.15
+      ]
+    },
+    "engineering": {
+      "production_speed_infrastructure_factor": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "production_speed_rail_way_factor": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "industry_repair_factor": [
+        0.08,
+        0.16,
+        0.24
+      ]
+    },
+    "research": {
+      "research_speed_factor": [
+        0.03,
+        0.06,
+        0.1
+      ],
+      "production_factory_efficiency_gain_factor": [
+        0.04,
+        0.08,
+        0.12
+      ],
+      "line_change_production_efficiency_factor": [
+        0.05,
+        0.1,
+        0.15
+      ]
+    },
+    "dockyards": {
+      "industrial_capacity_dockyard": [
+        0.08,
+        0.16,
+        0.25
+      ],
+      "production_speed_dockyard_factor": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "repair_speed_factor": [
+        0.08,
+        0.16,
+        0.25
+      ]
+    },
+    "air_support": {
+      "air_cas_efficiency": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "air_mission_efficiency": [
+        0.03,
+        0.05,
+        0.08
+      ],
+      "air_fuel_consumption_factor": [
+        -0.04,
+        -0.08,
+        -0.12
+      ]
+    },
+    "naval_air": {
+      "air_nav_efficiency": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "naval_detection": [
+        0.05,
+        0.1,
+        0.15
+      ],
+      "air_mission_efficiency": [
+        0.02,
+        0.03,
+        0.05
+      ]
+    },
+    "surface_navy": {
+      "convoy_escort_efficiency": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "screening_efficiency": [
+        0.08,
+        0.14,
+        0.2
+      ],
+      "navy_fuel_consumption_factor": [
+        -0.03,
+        -0.05,
+        -0.08
+      ],
+      "naval_speed_factor": [
+        0.03,
+        0.06,
+        0.1
+      ]
+    },
+    "submarines": {
+      "convoy_raiding_efficiency_factor": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "navy_fuel_consumption_factor": [
+        -0.02,
+        -0.03,
+        -0.05
+      ],
+      "naval_detection": [
+        0.03,
+        0.06,
+        0.1
+      ]
+    },
+    "fuel": {
+      "fuel_gain_factor": [
+        0.08,
+        0.16,
+        0.25
+      ],
+      "max_fuel_factor": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "army_fuel_consumption_factor": [
+        -0.03,
+        -0.06,
+        -0.1
+      ],
+      "navy_fuel_consumption_factor": [
+        -0.03,
+        -0.06,
+        -0.1
+      ]
+    },
+    "administration": {
+      "stability_factor": [
+        0.04,
+        0.06,
+        0.08,
+        0.1,
+        0.12,
+        0.15
+      ],
+      "political_power_gain": [
+        0.05,
+        0.08,
+        0.11,
+        0.14,
+        0.17,
+        0.2
+      ],
+      "compliance_gain": [
+        0.002,
+        0.004,
+        0.006,
+        0.008,
+        0.01,
+        0.012
+      ],
+      "required_garrison_factor": [
+        -0.01,
+        -0.02,
+        -0.03,
+        -0.04,
+        -0.05,
+        -0.06
+      ],
+      "resistance_damage_to_garrison": [
+        -0.01,
+        -0.02,
+        -0.03,
+        -0.04,
+        -0.05,
+        -0.06
+      ]
+    }
+  },
+  "equipment_cost_series": {
+    "infantry": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "motorized": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "armor": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "artillery": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "air_support": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "naval_air": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "carrier": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "surface_navy": [
+      -0.04,
+      -0.07,
+      -0.1
+    ],
+    "air_defence": [
+      -0.03,
+      -0.05,
+      -0.08
+    ]
+  },
+  "legacy_modifiers": {
+    "fra_generic_military_industrial_complex": {
+      "production_speed_buildings_factor": 0.1,
+      "consumer_goods_factor": -0.02,
+      "industrial_capacity_factory": 0.1,
+      "production_factory_start_efficiency_factor": 0.05
+    },
+    "fra_generic_ressource_extraction": {
+      "local_resources_factor": 0.15,
+      "production_factory_efficiency_gain_factor": 0.05,
+      "production_speed_infrastructure_factor": 0.05,
+      "line_change_production_efficiency_factor": 0.05
+    },
+    "fra_generic_propaganda_campaigns": {
+      "war_support_weekly": 0.001,
+      "mobilization_speed": 0.15,
+      "stability_factor": 0.03,
+      "command_power_gain_mult": 0.1
+    },
+    "fra_generic_military_training": {
+      "weekly_manpower": 80,
+      "training_time_factor": -0.1,
+      "army_morale_factor": 0.06,
+      "experience_gain_army_factor": 0.1
+    },
+    "fra_generic_officers_academy": {
+      "army_org": 3,
+      "max_dig_in": 2,
+      "planning_speed": 0.1,
+      "land_reinforce_rate": 0.01
+    },
+    "fra_generic_special_forces": {
+      "special_forces_cap": 0.05,
+      "special_forces_min": 6,
+      "modifier_army_sub_unit_mountaineers_attack_factor": 0.08,
+      "modifier_army_sub_unit_marine_attack_factor": 0.08,
+      "modifier_army_sub_unit_marine_defence_factor": 0.06
+    },
+    "fra_generic_mass_conscription": {
+      "non_core_manpower": 0.03,
+      "conscription_factor": 0.08,
+      "mobilization_speed": 0.2,
+      "experience_gain_army_unit_factor": 0.1
+    },
+    "fra_generic_infiltration_tactics": {
+      "special_forces_attack_factor": 0.1,
+      "no_supply_grace": 24,
+      "out_of_supply_factor": -0.1,
+      "modifier_army_sub_unit_mountaineers_speed_factor": 0.08,
+      "org_loss_when_moving": -0.08
+    }
+  },
+  "research_slots": {
+    "basic_research": {
+      "factories": 4,
+      "cap": 3
+    },
+    "improved_research": {
+      "factories": 8,
+      "cap": 4
+    },
+    "advanced_research": {
+      "factories": 16,
+      "cap": 5
+    }
+  },
+  "before_sha256": {
+    "common/national_focus/SoF_generic.txt": "0c709f38e93ec17637da28900aaa059475d54f2dec6788e37f0dd9e261dc8e48",
+    "common/national_focus/sof_mrs_shared_generic.txt": "154b77ad1caff03e6ac69ce2181bfedaf4ee1ec28a8e99bea630f45e9ab433cc",
+    "common/ideas/sofzh_rewards.txt": "d8ddc0de442a6e07df6937d4813984f9d68d01bb9042eac2b19eb2767500c7b3",
+    "common/ideas/fra_generic.txt": "666247e7b32e5ad2f8a49f450be1dafed911420a9a614d567d38159345d1fbc6",
+    "common/scripted_effects/sofzh_rewards.txt": "91c8ff423bf03ec504e3c76d97abe3116223392b1121512c02352642aac10a4d",
+    "common/scripted_effects/sofzh_progression.txt": "240b3769989b67c165b35d2a5bd997840662e255b115131ad809099116fbd31e",
+    "localisation/simp_chinese/replace/sofzh_rewards_l_simp_chinese.yml": "1d3a3604da16170c4ac042f66c5f3eb2199c9ea50dbfb30a6dfd8ab19bf71d63",
+    "localisation/simp_chinese/replace/sofzh_military_balance_l_simp_chinese.yml": "466e7d05739ba79a5753225d6204ce8d5dae81eacda4059258ca7d88d6632f39"
+  },
+  "scope": "153 shared focus IDs; preserve unique majors, eight-tier MIOs, paid cores and small permanent terrain bonuses"
+}

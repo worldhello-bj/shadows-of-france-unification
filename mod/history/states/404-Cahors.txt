@@ -11,8 +11,8 @@ state={
 	history = {
 		buildings = {
 			infrastructure = 4
-			arms_factory = 2
-			industrial_complex = 3
+			arms_factory = 1
+			industrial_complex = 1
 		
 			air_base = 1
 		}
@@ -26,8 +26,6 @@ state={
 	
 		victory_points = { 5636 10 }
 	
-		add_extra_state_shared_building_slots = 2 # Retain existing industry after population-based classification.
-	
 		# SOF 2.9.8 secondary towns.
 		victory_points = { 6504 1 }
 		victory_points = { 8755 1 }
@@ -35,8 +33,9 @@ state={
 		# SOF 2.10.0 census-backed secondary towns.
 		victory_points = { 16208 1 }
 		victory_points = { 5874 1 }
+	
+		# SOF 4.5.0: this campaign already uses the new resource base.
+		set_state_flag = sof_economy_resources_450
 	}
 
-	# SOF 2.10.0 local gameplay supply; historically based nodes documented separately.
-	resources = { coal = 2 steel = 2 chromium = 1 }
 }

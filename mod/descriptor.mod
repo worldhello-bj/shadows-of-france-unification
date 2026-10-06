@@ -1,4 +1,4 @@
-version="4.3.2"
+version="4.5.0"
 name="法兰西之影：统一战争（独立中文版）"
 replace_path="portraits"
 replace_path="common/abilities"
