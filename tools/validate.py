@@ -140,8 +140,11 @@ def validate():
     if (ROOT/'design/economy-map-4.5.json').is_file():
         from validate_economy_map import audit as audit_economy_map
         audit_economy_map(check)
+    if (ROOT/'design/brittany-focus.json').is_file():
+        from validate_brittany_focus import audit as audit_brittany
+        audit_brittany(check)
     report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),marseille_new_focuses=52 if (MOD/'common/national_focus/sof_mrs_red.txt').is_file() else 0,
-        decisions=decisions,categories=categories,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
+        decisions=decisions,categories=categories,brittany_focuses=174 if (ROOT/'design/brittany-focus.json').is_file() else 0,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
     return report
 
 def main():

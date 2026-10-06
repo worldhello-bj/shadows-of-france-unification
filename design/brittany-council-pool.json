@@ -1,0 +1,175 @@
+{
+  "reserves": [
+    {
+      "slot": "chateau",
+      "key": "la_chambre",
+      "name": "居伊·拉尚布尔",
+      "short": "拉尚布尔",
+      "home": 165,
+      "town": "圣塞尔旺／圣马洛",
+      "ideology": "liberalism",
+      "source": "https://www2.assemblee-nationale.fr/sycomore/fiche/4175?legislature=47",
+      "role": "圣塞尔旺市长、圣马洛选区众议员"
+    },
+    {
+      "slot": "lemaistre",
+      "key": "lefas",
+      "name": "亚历山大·勒法",
+      "short": "勒法",
+      "home": 179,
+      "town": "圣欧班迪科尔米耶／富热尔",
+      "ideology": "conservatism",
+      "source": "https://www.senat.fr/senateur-3eme-republique/lefas_alexandre0535r3.html",
+      "role": "伊勒－维莱讷参议员、前地方议会主席"
+    },
+    {
+      "slot": "bahon",
+      "key": "goude",
+      "name": "埃米尔·古德",
+      "short": "古德",
+      "home": 168,
+      "town": "布雷斯特",
+      "ideology": "socialism",
+      "source": "https://www2.assemblee-nationale.fr/sycomore/fiche/3491",
+      "role": "布雷斯特选区众议员，历史上1936年退出议会"
+    },
+    {
+      "slot": "legorgeu",
+      "key": "rio",
+      "name": "阿尔方斯·里奥",
+      "short": "里奥",
+      "home": 198,
+      "town": "基伯龙／莫尔比昂",
+      "ideology": "liberalism",
+      "source": "https://www.senat.fr/senateur-3eme-republique/rio_alphonse0903r3.html",
+      "role": "莫尔比昂参议员、航海与海运事务政治人物"
+    },
+    {
+      "slot": "tremintin",
+      "key": "pinvidic",
+      "name": "约瑟夫·潘维迪克",
+      "short": "潘维迪克",
+      "home": 162,
+      "town": "朗迪维肖",
+      "ideology": "conservatism",
+      "source": "https://www2.assemblee-nationale.fr/sycomore/fiche/5952",
+      "role": "1935年朗迪维肖市议员；此时尚非国会议员"
+    },
+    {
+      "slot": "prigent",
+      "key": "perrot",
+      "name": "让·佩罗",
+      "short": "佩罗",
+      "home": 200,
+      "town": "埃斯基比安／坎佩尔地区",
+      "ideology": "liberalism",
+      "source": "https://www2.assemblee-nationale.fr/sycomore/fiche/5825?legislature=41",
+      "role": "菲尼斯泰尔众议员与农业地方政治人物"
+    }
+  ],
+  "primary_homes": {
+    "chateau": 188,
+    "lemaistre": 188,
+    "bahon": 188,
+    "legorgeu": 168,
+    "tremintin": 162,
+    "prigent": 162
+  },
+  "primary_towns": {
+    "chateau": "雷恩",
+    "lemaistre": "雷恩",
+    "bahon": "雷恩",
+    "legorgeu": "布雷斯特",
+    "tremintin": "普卢埃斯卡",
+    "prigent": "圣让迪杜瓦"
+  },
+  "home_states": {
+    "188": "雷恩",
+    "168": "布雷斯特",
+    "162": "莫尔莱及北菲尼斯泰尔",
+    "165": "圣马洛",
+    "179": "富热尔地区",
+    "198": "莫尔比昂沿岸",
+    "200": "坎佩尔及西南菲尼斯泰尔"
+  },
+  "programmes": {
+    "economy": {
+      "title": "公共建设与工坊拨款",
+      "pre": "has_completed_focus = SOF_BRT_P15",
+      "sponsors": [
+        "chateau",
+        "lemaistre"
+      ],
+      "mods": {
+        "production_speed_industrial_complex_factor": 0.12,
+        "industrial_capacity_factory": 0.08
+      }
+    },
+    "army": {
+      "title": "陆军训练与军需预算",
+      "pre": "has_completed_focus = SOF_BRT_M3 OR = { has_completed_focus = SOF_BRT_F0 has_completed_focus = SOF_BRT_O0 }",
+      "sponsors": [
+        "bahon",
+        "lemaistre"
+      ],
+      "mods": {
+        "army_attack_factor": 0.06,
+        "army_defence_factor": 0.08,
+        "army_org_factor": 0.04
+      }
+    },
+    "navy": {
+      "title": "海军舰艇与护航拨款",
+      "pre": "has_completed_focus = SOF_BRT_N2 has_country_flag = sof_brt_law_ports",
+      "sponsors": [
+        "legorgeu"
+      ],
+      "mods": {
+        "industrial_capacity_dockyard": 0.1,
+        "convoy_escort_efficiency": 0.08
+      }
+    },
+    "air": {
+      "title": "航空训练与维修拨款",
+      "pre": "has_completed_focus = SOF_BRT_A2",
+      "sponsors": [
+        "bahon",
+        "tremintin"
+      ],
+      "mods": {
+        "air_mission_efficiency": 0.08,
+        "air_accidents_factor": -0.08
+      }
+    },
+    "science": {
+      "title": "地方高校与实验室基金",
+      "pre": "has_completed_focus = SOF_BRT_E9 has_completed_focus = SOF_BRT_P9",
+      "sponsors": [
+        "lemaistre",
+        "tremintin"
+      ],
+      "mods": {
+        "research_speed_factor": 0.08
+      }
+    },
+    "diplomacy": {
+      "title": "西部协商与领事事务预算",
+      "pre": "has_completed_focus = SOF_BRT_D0 has_completed_focus = SOF_BRT_P20",
+      "sponsors": [
+        "chateau",
+        "legorgeu"
+      ],
+      "mods": {
+        "improve_relations_maintain_cost_factor": -0.2,
+        "trade_opinion_factor": 0.15,
+        "political_power_factor": 0.05
+      }
+    }
+  },
+  "total_seats": 100,
+  "replacement_cost": 50,
+  "replacement_cooldown": 180,
+  "events": 21,
+  "portraits": "Native unknown portrait placeholders; no fabricated historical likenesses",
+  "state_mapping": "Political bases, approximate state-level mapping; not birthplaces or exact province control"
+}

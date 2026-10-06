@@ -1,0 +1,257 @@
+sof_brt_set_stage_0 = { set_variable = { sof_brt_isolation = 0 } sof_brt_sync = yes }
+sof_brt_set_stage_1 = { set_variable = { sof_brt_isolation = 1 } sof_brt_sync = yes }
+sof_brt_set_stage_2 = { set_variable = { sof_brt_isolation = 2 } sof_brt_sync = yes }
+sof_brt_set_stage_3 = { set_variable = { sof_brt_isolation = 3 } sof_brt_sync = yes }
+sof_brt_count_support = { set_variable = { sof_brt_support = 0 }
+if = { limit = { has_country_flag = sof_brt_pledge_chateau } add_to_variable = { sof_brt_support = 20 } set_variable = { sof_brt_ui_chateau = 2 } } else = { set_variable = { sof_brt_ui_chateau = 1 } }
+if = { limit = { has_country_flag = sof_brt_pledge_lemaistre } add_to_variable = { sof_brt_support = 15 } set_variable = { sof_brt_ui_lemaistre = 2 } } else = { set_variable = { sof_brt_ui_lemaistre = 1 } }
+if = { limit = { has_country_flag = sof_brt_pledge_bahon } add_to_variable = { sof_brt_support = 15 } set_variable = { sof_brt_ui_bahon = 2 } } else = { set_variable = { sof_brt_ui_bahon = 1 } }
+if = { limit = { has_country_flag = sof_brt_pledge_legorgeu } add_to_variable = { sof_brt_support = 20 } set_variable = { sof_brt_ui_legorgeu = 2 } } else = { set_variable = { sof_brt_ui_legorgeu = 1 } }
+if = { limit = { has_country_flag = sof_brt_pledge_tremintin } add_to_variable = { sof_brt_support = 15 } set_variable = { sof_brt_ui_tremintin = 2 } } else = { set_variable = { sof_brt_ui_tremintin = 1 } }
+if = { limit = { has_country_flag = sof_brt_pledge_prigent } add_to_variable = { sof_brt_support = 15 } set_variable = { sof_brt_ui_prigent = 2 } } else = { set_variable = { sof_brt_ui_prigent = 1 } }
+clamp_variable = { var = sof_brt_support min = 0 max = 100 } }
+sof_brt_pledge_chateau_grant = { set_country_flag = { flag = sof_brt_pledge_chateau days = 180 } add_timed_idea = { idea = sof_brt_municipal days = 180 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_chateau = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P3 NOT = { has_country_flag = sof_brt_pledge_chateau } NOT = { has_country_flag = sof_brt_suspended_chateau } has_political_power >= 25 } add_political_power = -25 sof_brt_pledge_chateau_grant = yes } }
+sof_brt_pledge_lemaistre_grant = { set_country_flag = { flag = sof_brt_pledge_lemaistre days = 180 } add_timed_idea = { idea = sof_brt_fiscal days = 180 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_lemaistre = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P4 NOT = { has_country_flag = sof_brt_pledge_lemaistre } NOT = { has_country_flag = sof_brt_suspended_lemaistre } has_political_power >= 25 } add_political_power = -25 sof_brt_pledge_lemaistre_grant = yes } }
+sof_brt_pledge_bahon_grant = { set_country_flag = { flag = sof_brt_pledge_bahon days = 180 } add_timed_idea = { idea = sof_brt_labour days = 180 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_bahon = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P5 NOT = { has_country_flag = sof_brt_pledge_bahon } NOT = { has_country_flag = sof_brt_suspended_bahon } has_political_power >= 30 } add_political_power = -30 sof_brt_pledge_bahon_grant = yes } }
+sof_brt_pledge_legorgeu_grant = { set_country_flag = { flag = sof_brt_pledge_legorgeu days = 180 } add_timed_idea = { idea = sof_brt_ports days = 180 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_legorgeu = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P6 NOT = { has_country_flag = sof_brt_pledge_legorgeu } NOT = { has_country_flag = sof_brt_suspended_legorgeu } has_political_power >= 35 } add_political_power = -35 sof_brt_pledge_legorgeu_grant = yes } }
+sof_brt_pledge_tremintin_grant = { set_country_flag = { flag = sof_brt_pledge_tremintin days = 180 } add_timed_idea = { idea = sof_brt_schools days = 180 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_tremintin = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P7 NOT = { has_country_flag = sof_brt_pledge_tremintin } NOT = { has_country_flag = sof_brt_suspended_tremintin } has_political_power >= 25 } add_political_power = -25 sof_brt_pledge_tremintin_grant = yes } }
+sof_brt_pledge_prigent_grant = { set_country_flag = { flag = sof_brt_pledge_prigent days = 180 } add_timed_idea = { idea = sof_brt_rural days = 180 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_prigent = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P8 NOT = { has_country_flag = sof_brt_pledge_prigent } NOT = { has_country_flag = sof_brt_suspended_prigent } has_political_power >= 30 } add_political_power = -30 sof_brt_pledge_prigent_grant = yes } }
+sof_brt_initialize = {
+if = { limit = { original_tag = REN NOT = { has_country_flag = sof_brt_initialized } }
+ if = { limit = { NOT = { has_focus_tree = sof_brittany } } load_focus_tree = { tree = sof_brittany keep_completed = yes } }
+ set_country_flag = sof_brt_initialized set_country_flag = sof_van_generic_migrated
+ set_variable = { sof_brt_isolation = 3 }
+ set_country_flag = { flag = sof_brt_pledge_chateau days = 180 }
+ set_country_flag = { flag = sof_brt_pledge_lemaistre days = 180 }
+ clr_country_flag = sofzh_unification_war_ready
+ }
+}
+sof_brt_sync = {
+if = { limit = { sof_brt_active = yes }
+ sof_brt_count_support = yes
+ sof_brt_prepare_bench = yes
+ sof_brt_home_watch = yes
+ sof_brt_committee_sync = yes
+ if = { limit = { has_war = yes NOT = { has_country_flag = sof_brt_emergency_active } check_variable = { sof_brt_isolation > 0 } }
+  set_variable = { sof_brt_prewar_isolation = sof_brt_isolation }
+  set_variable = { sof_brt_isolation = 0 } set_country_flag = sof_brt_emergency_active
+ }
+ if = { limit = { has_war = no has_country_flag = sof_brt_emergency_active }
+  if = { limit = { NOT = { has_completed_focus = SOF_BRT_I9 } } set_variable = { sof_brt_isolation = sof_brt_prewar_isolation } }
+  clr_country_flag = sof_brt_emergency_active remove_ideas = sof_brt_wartime
+ }
+ if = { limit = { check_variable = { sof_brt_isolation = 0 } } remove_ideas = sof_brt_isolation_1 remove_ideas = sof_brt_isolation_2 remove_ideas = sof_brt_isolation_3 if = { limit = { NOT = { has_idea = sof_brt_isolation_0 } } add_ideas = sof_brt_isolation_0 } }
+if = { limit = { check_variable = { sof_brt_isolation = 1 } } remove_ideas = sof_brt_isolation_0 remove_ideas = sof_brt_isolation_2 remove_ideas = sof_brt_isolation_3 if = { limit = { NOT = { has_idea = sof_brt_isolation_1 } } add_ideas = sof_brt_isolation_1 } }
+if = { limit = { check_variable = { sof_brt_isolation = 2 } } remove_ideas = sof_brt_isolation_0 remove_ideas = sof_brt_isolation_1 remove_ideas = sof_brt_isolation_3 if = { limit = { NOT = { has_idea = sof_brt_isolation_2 } } add_ideas = sof_brt_isolation_2 } }
+if = { limit = { check_variable = { sof_brt_isolation = 3 } } remove_ideas = sof_brt_isolation_0 remove_ideas = sof_brt_isolation_1 remove_ideas = sof_brt_isolation_2 if = { limit = { NOT = { has_idea = sof_brt_isolation_3 } } add_ideas = sof_brt_isolation_3 } }
+ if = { limit = { has_country_flag = sof_brt_war_authorized check_variable = { sof_brt_isolation = 0 } }
+  set_country_flag = sofzh_unification_war_ready
+ } else = { clr_country_flag = sofzh_unification_war_ready }
+}
+}
+
+sof_brt_local_roads = { set_temp_variable = { sof_brt_road_count = 0 } every_owned_state = { limit = { is_fully_controlled_by = ROOT infrastructure < 5 OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } if = { limit = { ROOT = { check_variable = { sof_brt_road_count < 2 } } } add_building_construction = { type = infrastructure level = 1 instant_build = yes } ROOT = { add_to_temp_variable = { sof_brt_road_count = 1 } } } } }
+sof_brt_prepare_bench = { if = { limit = { sof_brt_active = yes NOT = { has_country_flag = sof_brt_bench_prepared } }
+recruit_character = SOF_BRT_la_chambre
+recruit_character = SOF_BRT_lefas
+recruit_character = SOF_BRT_goude
+recruit_character = SOF_BRT_rio
+recruit_character = SOF_BRT_pinvidic
+recruit_character = SOF_BRT_perrot
+recruit_character = SOF_BRT_legorgeu
+recruit_character = SOF_BRT_tremintin
+recruit_character = SOF_BRT_prigent
+set_country_flag = sof_brt_bench_prepared } }
+sof_brt_replace_chateau = {
+ clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal clr_country_flag = sof_brt_suspended_chateau
+ if = { limit = { has_country_flag = sof_brt_reserve_chateau } clr_country_flag = sof_brt_reserve_chateau } else = { set_country_flag = sof_brt_reserve_chateau }
+ if = { limit = { OR = { AND = { has_country_flag = sof_brt_reserve_chateau has_country_flag = sof_brt_home_seen_165 sof_brt_home_access_165 = no } AND = { NOT = { has_country_flag = sof_brt_reserve_chateau } has_country_flag = sof_brt_home_seen_188 sof_brt_home_access_188 = no } } } set_country_flag = sof_brt_suspended_chateau }
+ set_country_flag = { flag = sof_brt_replacement_cooldown_chateau days = 180 }
+ sof_brt_count_support = yes sof_brt_committee_sync = yes
+}
+sof_brt_replace_lemaistre = {
+ clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal clr_country_flag = sof_brt_suspended_lemaistre
+ if = { limit = { has_country_flag = sof_brt_reserve_lemaistre } clr_country_flag = sof_brt_reserve_lemaistre } else = { set_country_flag = sof_brt_reserve_lemaistre }
+ if = { limit = { OR = { AND = { has_country_flag = sof_brt_reserve_lemaistre has_country_flag = sof_brt_home_seen_179 sof_brt_home_access_179 = no } AND = { NOT = { has_country_flag = sof_brt_reserve_lemaistre } has_country_flag = sof_brt_home_seen_188 sof_brt_home_access_188 = no } } } set_country_flag = sof_brt_suspended_lemaistre }
+ set_country_flag = { flag = sof_brt_replacement_cooldown_lemaistre days = 180 }
+ sof_brt_count_support = yes sof_brt_committee_sync = yes
+}
+sof_brt_replace_bahon = {
+ clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour clr_country_flag = sof_brt_suspended_bahon
+ if = { limit = { has_country_flag = sof_brt_reserve_bahon } clr_country_flag = sof_brt_reserve_bahon } else = { set_country_flag = sof_brt_reserve_bahon }
+ if = { limit = { OR = { AND = { has_country_flag = sof_brt_reserve_bahon has_country_flag = sof_brt_home_seen_168 sof_brt_home_access_168 = no } AND = { NOT = { has_country_flag = sof_brt_reserve_bahon } has_country_flag = sof_brt_home_seen_188 sof_brt_home_access_188 = no } } } set_country_flag = sof_brt_suspended_bahon }
+ set_country_flag = { flag = sof_brt_replacement_cooldown_bahon days = 180 }
+ sof_brt_count_support = yes sof_brt_committee_sync = yes
+}
+sof_brt_replace_legorgeu = {
+ clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports clr_country_flag = sof_brt_suspended_legorgeu
+ if = { limit = { has_country_flag = sof_brt_reserve_legorgeu } clr_country_flag = sof_brt_reserve_legorgeu } else = { set_country_flag = sof_brt_reserve_legorgeu }
+ if = { limit = { OR = { AND = { has_country_flag = sof_brt_reserve_legorgeu has_country_flag = sof_brt_home_seen_198 sof_brt_home_access_198 = no } AND = { NOT = { has_country_flag = sof_brt_reserve_legorgeu } has_country_flag = sof_brt_home_seen_168 sof_brt_home_access_168 = no } } } set_country_flag = sof_brt_suspended_legorgeu }
+ set_country_flag = { flag = sof_brt_replacement_cooldown_legorgeu days = 180 }
+ sof_brt_count_support = yes sof_brt_committee_sync = yes
+}
+sof_brt_replace_tremintin = {
+ clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools clr_country_flag = sof_brt_suspended_tremintin
+ if = { limit = { has_country_flag = sof_brt_reserve_tremintin } clr_country_flag = sof_brt_reserve_tremintin } else = { set_country_flag = sof_brt_reserve_tremintin }
+ if = { limit = { OR = { AND = { has_country_flag = sof_brt_reserve_tremintin has_country_flag = sof_brt_home_seen_162 sof_brt_home_access_162 = no } AND = { NOT = { has_country_flag = sof_brt_reserve_tremintin } has_country_flag = sof_brt_home_seen_162 sof_brt_home_access_162 = no } } } set_country_flag = sof_brt_suspended_tremintin }
+ set_country_flag = { flag = sof_brt_replacement_cooldown_tremintin days = 180 }
+ sof_brt_count_support = yes sof_brt_committee_sync = yes
+}
+sof_brt_replace_prigent = {
+ clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural clr_country_flag = sof_brt_suspended_prigent
+ if = { limit = { has_country_flag = sof_brt_reserve_prigent } clr_country_flag = sof_brt_reserve_prigent } else = { set_country_flag = sof_brt_reserve_prigent }
+ if = { limit = { OR = { AND = { has_country_flag = sof_brt_reserve_prigent has_country_flag = sof_brt_home_seen_200 sof_brt_home_access_200 = no } AND = { NOT = { has_country_flag = sof_brt_reserve_prigent } has_country_flag = sof_brt_home_seen_162 sof_brt_home_access_162 = no } } } set_country_flag = sof_brt_suspended_prigent }
+ set_country_flag = { flag = sof_brt_replacement_cooldown_prigent days = 180 }
+ sof_brt_count_support = yes sof_brt_committee_sync = yes
+}
+sof_brt_committee_sync = {
+if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_P15 has_country_flag = sof_brt_pledge_chateau has_country_flag = sof_brt_pledge_lemaistre } } remove_ideas = sof_brt_committee_economy }
+if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_M3 OR = { has_completed_focus = SOF_BRT_F0 has_completed_focus = SOF_BRT_O0 } has_country_flag = sof_brt_pledge_bahon has_country_flag = sof_brt_pledge_lemaistre } } remove_ideas = sof_brt_committee_army }
+if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_N2 has_country_flag = sof_brt_law_ports has_country_flag = sof_brt_pledge_legorgeu } } remove_ideas = sof_brt_committee_navy }
+if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_A2 has_country_flag = sof_brt_pledge_bahon has_country_flag = sof_brt_pledge_tremintin } } remove_ideas = sof_brt_committee_air }
+if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_E9 has_completed_focus = SOF_BRT_P9 has_country_flag = sof_brt_pledge_lemaistre has_country_flag = sof_brt_pledge_tremintin } } remove_ideas = sof_brt_committee_science }
+if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_D0 has_completed_focus = SOF_BRT_P20 has_country_flag = sof_brt_pledge_chateau has_country_flag = sof_brt_pledge_legorgeu } } remove_ideas = sof_brt_committee_diplomacy }
+}
+sof_brt_home_watch = { if = { limit = { sof_brt_active = yes }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_watch_initialized } }
+if = { limit = { sof_brt_home_access_188 = yes } set_country_flag = sof_brt_home_held_188 set_country_flag = sof_brt_home_seen_188 }
+if = { limit = { sof_brt_home_access_168 = yes } set_country_flag = sof_brt_home_held_168 set_country_flag = sof_brt_home_seen_168 }
+if = { limit = { sof_brt_home_access_162 = yes } set_country_flag = sof_brt_home_held_162 set_country_flag = sof_brt_home_seen_162 }
+if = { limit = { sof_brt_home_access_165 = yes } set_country_flag = sof_brt_home_held_165 set_country_flag = sof_brt_home_seen_165 }
+if = { limit = { sof_brt_home_access_179 = yes } set_country_flag = sof_brt_home_held_179 set_country_flag = sof_brt_home_seen_179 }
+if = { limit = { sof_brt_home_access_198 = yes } set_country_flag = sof_brt_home_held_198 set_country_flag = sof_brt_home_seen_198 }
+if = { limit = { sof_brt_home_access_200 = yes } set_country_flag = sof_brt_home_held_200 set_country_flag = sof_brt_home_seen_200 }
+set_country_flag = sof_brt_home_watch_initialized } else = {
+if = { limit = { sof_brt_home_access_188 = yes NOT = { has_country_flag = sof_brt_home_held_188 } }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_188 } } if = { limit = { has_country_flag = sof_brt_home_seen_188 } country_event = { id = sof_brt_local.102 days = 1 } } else = { country_event = { id = sof_brt_local.101 days = 1 } } set_country_flag = { flag = sof_brt_home_notice_188 days = 14 } }
+set_country_flag = sof_brt_home_held_188 set_country_flag = sof_brt_home_seen_188
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_chateau } } clr_country_flag = sof_brt_suspended_chateau }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_lemaistre } } clr_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_bahon } } clr_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_prigent }
+}
+if = { limit = { sof_brt_home_access_188 = no has_country_flag = sof_brt_home_held_188 } clr_country_flag = sof_brt_home_held_188
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_chateau } } clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal set_country_flag = sof_brt_suspended_chateau }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_lemaistre } } clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal set_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_bahon } } clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour set_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports set_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools set_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural set_country_flag = sof_brt_suspended_prigent }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_188 } } country_event = { id = sof_brt_local.100 days = 1 } set_country_flag = { flag = sof_brt_home_notice_188 days = 14 } } sof_brt_count_support = yes sof_brt_committee_sync = yes }
+if = { limit = { sof_brt_home_access_168 = yes NOT = { has_country_flag = sof_brt_home_held_168 } }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_168 } } if = { limit = { has_country_flag = sof_brt_home_seen_168 } country_event = { id = sof_brt_local.105 days = 1 } } else = { country_event = { id = sof_brt_local.104 days = 1 } } set_country_flag = { flag = sof_brt_home_notice_168 days = 14 } }
+set_country_flag = sof_brt_home_held_168 set_country_flag = sof_brt_home_seen_168
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { has_country_flag = sof_brt_reserve_bahon } clr_country_flag = sof_brt_suspended_bahon }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_legorgeu } } clr_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_prigent }
+}
+if = { limit = { sof_brt_home_access_168 = no has_country_flag = sof_brt_home_held_168 } clr_country_flag = sof_brt_home_held_168
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal set_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal set_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { has_country_flag = sof_brt_reserve_bahon } clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour set_country_flag = sof_brt_suspended_bahon }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_legorgeu } } clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports set_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools set_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural set_country_flag = sof_brt_suspended_prigent }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_168 } } country_event = { id = sof_brt_local.103 days = 1 } set_country_flag = { flag = sof_brt_home_notice_168 days = 14 } } sof_brt_count_support = yes sof_brt_committee_sync = yes }
+if = { limit = { sof_brt_home_access_162 = yes NOT = { has_country_flag = sof_brt_home_held_162 } }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_162 } } if = { limit = { has_country_flag = sof_brt_home_seen_162 } country_event = { id = sof_brt_local.108 days = 1 } } else = { country_event = { id = sof_brt_local.107 days = 1 } } set_country_flag = { flag = sof_brt_home_notice_162 days = 14 } }
+set_country_flag = sof_brt_home_held_162 set_country_flag = sof_brt_home_seen_162
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { OR = { NOT = { has_country_flag = sof_brt_reserve_tremintin } has_country_flag = sof_brt_reserve_tremintin } } clr_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_prigent } } clr_country_flag = sof_brt_suspended_prigent }
+}
+if = { limit = { sof_brt_home_access_162 = no has_country_flag = sof_brt_home_held_162 } clr_country_flag = sof_brt_home_held_162
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal set_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal set_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour set_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports set_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { OR = { NOT = { has_country_flag = sof_brt_reserve_tremintin } has_country_flag = sof_brt_reserve_tremintin } } clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools set_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { NOT = { has_country_flag = sof_brt_reserve_prigent } } clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural set_country_flag = sof_brt_suspended_prigent }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_162 } } country_event = { id = sof_brt_local.106 days = 1 } set_country_flag = { flag = sof_brt_home_notice_162 days = 14 } } sof_brt_count_support = yes sof_brt_committee_sync = yes }
+if = { limit = { sof_brt_home_access_165 = yes NOT = { has_country_flag = sof_brt_home_held_165 } }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_165 } } if = { limit = { has_country_flag = sof_brt_home_seen_165 } country_event = { id = sof_brt_local.111 days = 1 } } else = { country_event = { id = sof_brt_local.110 days = 1 } } set_country_flag = { flag = sof_brt_home_notice_165 days = 14 } }
+set_country_flag = sof_brt_home_held_165 set_country_flag = sof_brt_home_seen_165
+if = { limit = { has_country_flag = sof_brt_reserve_chateau } clr_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_prigent }
+}
+if = { limit = { sof_brt_home_access_165 = no has_country_flag = sof_brt_home_held_165 } clr_country_flag = sof_brt_home_held_165
+if = { limit = { has_country_flag = sof_brt_reserve_chateau } clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal set_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal set_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour set_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports set_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools set_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural set_country_flag = sof_brt_suspended_prigent }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_165 } } country_event = { id = sof_brt_local.109 days = 1 } set_country_flag = { flag = sof_brt_home_notice_165 days = 14 } } sof_brt_count_support = yes sof_brt_committee_sync = yes }
+if = { limit = { sof_brt_home_access_179 = yes NOT = { has_country_flag = sof_brt_home_held_179 } }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_179 } } if = { limit = { has_country_flag = sof_brt_home_seen_179 } country_event = { id = sof_brt_local.114 days = 1 } } else = { country_event = { id = sof_brt_local.113 days = 1 } } set_country_flag = { flag = sof_brt_home_notice_179 days = 14 } }
+set_country_flag = sof_brt_home_held_179 set_country_flag = sof_brt_home_seen_179
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_chateau }
+if = { limit = { has_country_flag = sof_brt_reserve_lemaistre } clr_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_prigent }
+}
+if = { limit = { sof_brt_home_access_179 = no has_country_flag = sof_brt_home_held_179 } clr_country_flag = sof_brt_home_held_179
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal set_country_flag = sof_brt_suspended_chateau }
+if = { limit = { has_country_flag = sof_brt_reserve_lemaistre } clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal set_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour set_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports set_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools set_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural set_country_flag = sof_brt_suspended_prigent }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_179 } } country_event = { id = sof_brt_local.112 days = 1 } set_country_flag = { flag = sof_brt_home_notice_179 days = 14 } } sof_brt_count_support = yes sof_brt_committee_sync = yes }
+if = { limit = { sof_brt_home_access_198 = yes NOT = { has_country_flag = sof_brt_home_held_198 } }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_198 } } if = { limit = { has_country_flag = sof_brt_home_seen_198 } country_event = { id = sof_brt_local.117 days = 1 } } else = { country_event = { id = sof_brt_local.116 days = 1 } } set_country_flag = { flag = sof_brt_home_notice_198 days = 14 } }
+set_country_flag = sof_brt_home_held_198 set_country_flag = sof_brt_home_seen_198
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_bahon }
+if = { limit = { has_country_flag = sof_brt_reserve_legorgeu } clr_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_prigent }
+}
+if = { limit = { sof_brt_home_access_198 = no has_country_flag = sof_brt_home_held_198 } clr_country_flag = sof_brt_home_held_198
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal set_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal set_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour set_country_flag = sof_brt_suspended_bahon }
+if = { limit = { has_country_flag = sof_brt_reserve_legorgeu } clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports set_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools set_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural set_country_flag = sof_brt_suspended_prigent }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_198 } } country_event = { id = sof_brt_local.115 days = 1 } set_country_flag = { flag = sof_brt_home_notice_198 days = 14 } } sof_brt_count_support = yes sof_brt_committee_sync = yes }
+if = { limit = { sof_brt_home_access_200 = yes NOT = { has_country_flag = sof_brt_home_held_200 } }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_200 } } if = { limit = { has_country_flag = sof_brt_home_seen_200 } country_event = { id = sof_brt_local.120 days = 1 } } else = { country_event = { id = sof_brt_local.119 days = 1 } } set_country_flag = { flag = sof_brt_home_notice_200 days = 14 } }
+set_country_flag = sof_brt_home_held_200 set_country_flag = sof_brt_home_seen_200
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { has_country_flag = sof_brt_reserve_prigent } clr_country_flag = sof_brt_suspended_prigent }
+}
+if = { limit = { sof_brt_home_access_200 = no has_country_flag = sof_brt_home_held_200 } clr_country_flag = sof_brt_home_held_200
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_chateau remove_ideas = sof_brt_municipal set_country_flag = sof_brt_suspended_chateau }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_lemaistre remove_ideas = sof_brt_fiscal set_country_flag = sof_brt_suspended_lemaistre }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_bahon remove_ideas = sof_brt_labour set_country_flag = sof_brt_suspended_bahon }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_legorgeu remove_ideas = sof_brt_ports set_country_flag = sof_brt_suspended_legorgeu }
+if = { limit = { always = no } clr_country_flag = sof_brt_pledge_tremintin remove_ideas = sof_brt_schools set_country_flag = sof_brt_suspended_tremintin }
+if = { limit = { has_country_flag = sof_brt_reserve_prigent } clr_country_flag = sof_brt_pledge_prigent remove_ideas = sof_brt_rural set_country_flag = sof_brt_suspended_prigent }
+if = { limit = { NOT = { has_country_flag = sof_brt_home_notice_200 } } country_event = { id = sof_brt_local.118 days = 1 } set_country_flag = { flag = sof_brt_home_notice_200 days = 14 } } sof_brt_count_support = yes sof_brt_committee_sync = yes }
+} } }

@@ -1,0 +1,144 @@
+sof_brt_council = {
+sof_brt_negotiate_chateau = { icon = sof_cw_civil cost = 25 days_re_enable = 30
+visible = { has_completed_focus = SOF_BRT_P3 } available = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P3 NOT = { has_country_flag = sof_brt_pledge_chateau } NOT = { has_country_flag = sof_brt_suspended_chateau } }
+complete_effect = { sof_brt_pledge_chateau_grant = yes custom_effect_tooltip = sof_brt_support_change_tt }
+ai_will_do = { factor = 10 modifier = { factor = 0 check_variable = { sof_brt_support > 84 } } } }
+sof_brt_negotiate_lemaistre = { icon = sof_cw_civil cost = 25 days_re_enable = 30
+visible = { has_completed_focus = SOF_BRT_P4 } available = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P4 NOT = { has_country_flag = sof_brt_pledge_lemaistre } NOT = { has_country_flag = sof_brt_suspended_lemaistre } }
+complete_effect = { sof_brt_pledge_lemaistre_grant = yes custom_effect_tooltip = sof_brt_support_change_tt }
+ai_will_do = { factor = 10 modifier = { factor = 0 check_variable = { sof_brt_support > 84 } } } }
+sof_brt_negotiate_bahon = { icon = sof_cw_civil cost = 30 days_re_enable = 30
+visible = { has_completed_focus = SOF_BRT_P5 } available = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P5 NOT = { has_country_flag = sof_brt_pledge_bahon } NOT = { has_country_flag = sof_brt_suspended_bahon } }
+complete_effect = { sof_brt_pledge_bahon_grant = yes custom_effect_tooltip = sof_brt_support_change_tt }
+ai_will_do = { factor = 10 modifier = { factor = 0 check_variable = { sof_brt_support > 84 } } } }
+sof_brt_negotiate_legorgeu = { icon = sof_cw_civil cost = 35 days_re_enable = 30
+visible = { has_completed_focus = SOF_BRT_P6 } available = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P6 NOT = { has_country_flag = sof_brt_pledge_legorgeu } NOT = { has_country_flag = sof_brt_suspended_legorgeu } }
+complete_effect = { sof_brt_pledge_legorgeu_grant = yes custom_effect_tooltip = sof_brt_support_change_tt }
+ai_will_do = { factor = 10 modifier = { factor = 0 check_variable = { sof_brt_support > 84 } } } }
+sof_brt_negotiate_tremintin = { icon = sof_cw_civil cost = 25 days_re_enable = 30
+visible = { has_completed_focus = SOF_BRT_P7 } available = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P7 NOT = { has_country_flag = sof_brt_pledge_tremintin } NOT = { has_country_flag = sof_brt_suspended_tremintin } }
+complete_effect = { sof_brt_pledge_tremintin_grant = yes custom_effect_tooltip = sof_brt_support_change_tt }
+ai_will_do = { factor = 10 modifier = { factor = 0 check_variable = { sof_brt_support > 84 } } } }
+sof_brt_negotiate_prigent = { icon = sof_cw_civil cost = 30 days_re_enable = 30
+visible = { has_completed_focus = SOF_BRT_P8 } available = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P8 NOT = { has_country_flag = sof_brt_pledge_prigent } NOT = { has_country_flag = sof_brt_suspended_prigent } }
+complete_effect = { sof_brt_pledge_prigent_grant = yes custom_effect_tooltip = sof_brt_support_change_tt }
+ai_will_do = { factor = 10 modifier = { factor = 0 check_variable = { sof_brt_support > 84 } } } }
+sof_brt_vote_budget = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_P10 has_completed_focus = SOF_BRT_P11 NOT = { has_country_flag = sof_brt_law_budget } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 }  NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_budget }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_budget
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 }  } set_country_flag = sof_brt_law_budget } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_budget add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_social = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_P5 NOT = { has_country_flag = sof_brt_law_social } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } has_country_flag = sof_brt_pledge_bahon NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_social }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_social
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } has_country_flag = sof_brt_pledge_bahon } set_country_flag = sof_brt_law_social } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_social add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_rural = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_P8 NOT = { has_country_flag = sof_brt_law_rural } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } has_country_flag = sof_brt_pledge_prigent NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_rural }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_rural
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } has_country_flag = sof_brt_pledge_prigent } set_country_flag = sof_brt_law_rural } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_rural add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_ports = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_P6 NOT = { has_country_flag = sof_brt_law_ports } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } has_country_flag = sof_brt_pledge_legorgeu sof_brt_owned_coast = yes NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_ports }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_ports
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } has_country_flag = sof_brt_pledge_legorgeu sof_brt_owned_coast = yes } set_country_flag = sof_brt_law_ports } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_ports add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_aid = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_I2 has_completed_focus = SOF_BRT_P20 NOT = { has_country_flag = sof_brt_law_aid } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } sof_brt_external_threat = yes NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_aid }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_aid
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 50 } sof_brt_external_threat = yes } set_country_flag = sof_brt_law_aid } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_aid add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_revision = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_I6 has_completed_focus = SOF_BRT_P20 NOT = { has_country_flag = sof_brt_law_revision } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 65 } sof_brt_external_threat = yes NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_revision }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_revision
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 65 } sof_brt_external_threat = yes } set_country_flag = sof_brt_law_revision } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_revision add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_mobilization = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { OR = { has_completed_focus = SOF_BRT_I8 has_completed_focus = SOF_BRT_I7 } NOT = { has_country_flag = sof_brt_law_mobilization } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 65 } sof_brt_external_threat = yes has_war_support > .349 NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_mobilization }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_mobilization
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 65 } sof_brt_external_threat = yes has_war_support > .349 } set_country_flag = sof_brt_law_mobilization } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_mobilization add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_war = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_I9 has_completed_focus = SOF_BRT_P21 NOT = { has_country_flag = sof_brt_law_war } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 74 } sof_brt_external_threat = yes NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_war }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_war
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 74 } sof_brt_external_threat = yes } set_country_flag = sof_brt_law_war } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_war add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+sof_brt_vote_expedition = { icon = sof_cw_register cost = 30 days_remove = 45 days_re_enable = 45
+visible = { has_completed_focus = SOF_BRT_M0 OR = { has_completed_focus = SOF_BRT_I2 has_completed_focus = SOF_BRT_I8 } NOT = { has_country_flag = sof_brt_law_expedition } }
+available = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 65 } has_country_flag = sof_brt_pledge_legorgeu sof_brt_external_threat = yes NOT = { has_country_flag = sof_brt_bill_pending } }
+complete_effect = { set_country_flag = sof_brt_bill_pending set_country_flag = sof_brt_bill_expedition }
+remove_effect = { sof_brt_count_support = yes clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_expedition
+ if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no check_variable = { sof_brt_support > 65 } has_country_flag = sof_brt_pledge_legorgeu sof_brt_external_threat = yes } set_country_flag = sof_brt_law_expedition } else = { add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt } }
+cancel_trigger = { OR = { sof_brt_active = no is_subject = yes has_capitulated = yes } }
+cancel_effect = { clr_country_flag = sof_brt_bill_pending clr_country_flag = sof_brt_bill_expedition add_political_power = 10 custom_effect_tooltip = sof_brt_vote_fail_tt }
+ai_will_do = { factor = 8 } }
+}
+sof_brt_diplomacy = {
+sof_brt_trade_nan = { icon = sof_cw_pact cost = 25 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D1 country_exists = NAN }
+available = { sof_brt_active = yes has_war = no is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } NAN = { has_war = no is_subject = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } NAN = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.1 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_trade_rou = { icon = sof_cw_pact cost = 25 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D2 country_exists = ROU }
+available = { sof_brt_active = yes has_war = no is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } ROU = { has_war = no is_subject = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } ROU = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.1 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_trade_bre = { icon = sof_cw_pact cost = 25 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D3 country_exists = BRE }
+available = { sof_brt_active = yes has_war = no is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } BRE = { has_war = no is_subject = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } BRE = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.1 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_trade_lor = { icon = sof_cw_pact cost = 25 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D3 country_exists = LOR }
+available = { sof_brt_active = yes has_war = no is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } LOR = { has_war = no is_subject = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } LOR = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.1 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_trade_sma = { icon = sof_cw_pact cost = 25 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D3 country_exists = SMA }
+available = { sof_brt_active = yes has_war = no is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } SMA = { has_war = no is_subject = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } SMA = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.1 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_defence_nan = { icon = sof_cw_pact cost = 40 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D4 country_exists = NAN } available = { sof_brt_active = yes has_completed_focus = SOF_BRT_D4 sof_brt_supermajority = yes is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } check_variable = { sof_brt_isolation = 0 } NAN = { is_subject = no is_in_faction = no has_war = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } OR = { is_in_faction = no is_faction_leader = yes } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } NAN = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.2 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_defence_rou = { icon = sof_cw_pact cost = 40 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D4 country_exists = ROU } available = { sof_brt_active = yes has_completed_focus = SOF_BRT_D4 sof_brt_supermajority = yes is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } check_variable = { sof_brt_isolation = 0 } ROU = { is_subject = no is_in_faction = no has_war = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } OR = { is_in_faction = no is_faction_leader = yes } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } ROU = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.2 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_defence_bre = { icon = sof_cw_pact cost = 40 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D4 country_exists = BRE } available = { sof_brt_active = yes has_completed_focus = SOF_BRT_D4 sof_brt_supermajority = yes is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } check_variable = { sof_brt_isolation = 0 } BRE = { is_subject = no is_in_faction = no has_war = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } OR = { is_in_faction = no is_faction_leader = yes } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } BRE = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.2 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_defence_lor = { icon = sof_cw_pact cost = 40 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D4 country_exists = LOR } available = { sof_brt_active = yes has_completed_focus = SOF_BRT_D4 sof_brt_supermajority = yes is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } check_variable = { sof_brt_isolation = 0 } LOR = { is_subject = no is_in_faction = no has_war = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } OR = { is_in_faction = no is_faction_leader = yes } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } LOR = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.2 days = 1 } } } ai_will_do = { factor = 2 } }
+sof_brt_defence_sma = { icon = sof_cw_pact cost = 40 days_re_enable = 180
+visible = { has_completed_focus = SOF_BRT_D4 country_exists = SMA } available = { sof_brt_active = yes has_completed_focus = SOF_BRT_D4 sof_brt_supermajority = yes is_subject = no NOT = { has_country_flag = sof_brt_offer_pending } check_variable = { sof_brt_isolation = 0 } SMA = { is_subject = no is_in_faction = no has_war = no NOT = { has_war_with = ROOT } NOT = { has_country_flag = sof_brt_offer_target_pending } } OR = { is_in_faction = no is_faction_leader = yes } }
+complete_effect = { set_country_flag = { flag = sof_brt_offer_pending days = 30 } SMA = { set_country_flag = { flag = sof_brt_offer_target_pending days = 30 } country_event = { id = sof_brt.2 days = 1 } } } ai_will_do = { factor = 2 } }
+}

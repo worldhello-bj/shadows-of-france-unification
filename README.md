@@ -1,5 +1,9 @@
 # 当前候选：4.5.0
 
+布列塔尼议会扩展：174项专属国策、116项军事国策、100席政治互动、六领域委员会、六位历史候补与21个家乡事件。两条军事路线为孤立防御和积极进攻，成熟机构对应数值取通用基准的130%。[机制与历史说明](docs/BRITTANY-PARLIAMENT-ZH.md) · [原创美术](art/brittany/generated-v1) · [国策树预览源码](docs/previews/brittany/INDEX.html) · [4.5.0专用安装包](deliverables/brittany/brittany-github-4.5-overlay.zip)。游戏内界面与真实旧档迁移尚未实测。
+
+![布列塔尼专属美术与议会面板](docs/previews/brittany/ART-BOARD.png)
+
 法国资源集中与80%初始工业见 [说明](docs/ECONOMY-4.5-ZH.md)、[互动地图](docs/previews/4.5.0/ECONOMY.html) 和 [逐州配置](docs/ECONOMY-4.5.csv)。355文件窄补丁保留现有美工、人物、国策与八层制造商；工厂配置用于新开局，旧档资源可单独迁移。
 
 本次通用国策优化见 [完整说明](docs/GENERIC-4.4-ZH.md) 与 [国策预览](docs/previews/4.4.0/GENERIC.html)。继承已安装4.3.3运行文件，14文件补丁保留人物、历史、制造商与另行进行的美工工作。
