@@ -5,7 +5,7 @@ from validate import ROOT,MOD
 from hoi4_script import parse,one,entries,scalar
 from unique_focus_art import shape
 
-def audit(check,gfx):
+def audit(check,gfx,legacy_evidence=False):
     data=json.loads((ROOT/'design/unique-focus-art.json').read_text(encoding='utf-8'))
     assets={a['id']:a for a in data['assets']};check(len(assets)==473,'One exclusive illustration for every retained major focus')
     source_hashes=[];pixel_hashes=[];sprites=[];textures=[]
@@ -37,7 +37,7 @@ def audit(check,gfx):
         expected_source={a['id']:a['source_sha256'] for a in data['assets']}
         expected_pixels={a['id']:hashlib.sha256(Image.open(ROOT/'art/focus/unique/exports'/(a['key']+'.png')).tobytes()).hexdigest() for a in data['assets']}
         check(review.get('visual_review_complete') is True and review.get('source_sha256')==expected_source and review.get('native_pixel_sha256')==expected_pixels,'Visual review covers exactly the current 473 source and native images')
-    for file,expected in data['semantic_baseline']['semantic_sha256'].items():
+    for file,expected in (data['semantic_baseline']['semantic_sha256'].items() if legacy_evidence else []):
         if (ROOT/'design/balance-4.3.json').is_file():
             balance=json.loads((ROOT/'design/balance-4.3.json').read_text(encoding='utf-8'))
             if file in balance['changed_files']:

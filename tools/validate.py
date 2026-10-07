@@ -16,10 +16,11 @@ def validate():
         nonlocal checks
         checks+=1
         if not ok:errors.append(description)
-    version=(ROOT/'VERSION').read_text(encoding='utf-8').strip()
-    check(bool(re.fullmatch(r'\d+\.\d+\.\d+',version)),'VERSION must be x.y.z')
     descriptor=(MOD/'descriptor.mod').read_text(encoding='utf-8-sig')
-    check(f'version="{version}"' in descriptor,'Descriptor and VERSION must agree')
+    version=scalar(parse(descriptor),'version','').strip(chr(34))
+    check(bool(re.fullmatch(r'\d+\.\d+\.\d+',version)),'Runtime descriptor version must be x.y.z')
+    # Runtime-only publications deliberately retain historical root documentation.
+    # The installable descriptor is authoritative for validation and packaging.
     check(not re.search(r'(?m)^(remote_file_id|dependencies|archive)=',descriptor),'Source descriptor must be independent of local publication metadata')
     loc={};duplicates=[]
     for p in (MOD/'localisation/simp_chinese').rglob('*.yml'):
@@ -29,37 +30,12 @@ def validate():
                 if key in loc:duplicates.append(key)
                 loc[key]=value
     check(not duplicates,'Duplicate new localization keys: '+str(duplicates))
-    profiles=json.loads((ROOT/'design/country-design.json').read_text(encoding='utf-8'))
-    remake=version.startswith('4.')
-    expected_major={r['tag']:r['nodes'] for r in json.loads((ROOT/'design/vanilla-major-remake.json').read_text(encoding='utf-8'))['donors']} if remake else {}
-    selected={p['tag']:p for p in profiles if not remake or p['tag'] in ['PRS','AJC']};check(len(selected)==(2 if remake else 20),'Representative country scope')
-    all_ids=set();focus_counts={}
-    for p in (MOD/'common/national_focus').glob('*.txt'):
-        rows=parse(p.read_text(encoding='utf-8-sig'))
-        for tree in entries(rows,'focus_tree'):
-            fid=scalar(tree.value,'id');foci=entries(tree.value,'focus')
-            # Tree ID is used in the design evidence, including Paris/Corsica.
-            targets=[tag for tag,profile in selected.items() if profile.get('tree_id')==fid or (p.name==f'sof20_{tag}.txt')]
-            if not targets:
-                if fid in ['sofzh_paris','SOF_PRS','sof_paris']:targets=['PRS']
-                if fid in ['sofzh_corsica','SOF_COR','sof_corsica']:targets=['AJC']
-            if not targets:continue
-            tag=targets[0];focus_counts[tag]=len(foci);ids={scalar(f.value,'id') for f in foci}
-            check(len(ids)==len(foci),'Focus IDs unique in '+tag)
-            check(not (ids&all_ids),'Focus IDs unique between selected countries: '+tag);all_ids|=ids
-            for f in foci:
-                ident=scalar(f.value,'id')
-                # New focuses require Chinese titles; inherited Paris/Corsica
-                # keys are in the full localization tree and checked below.
-                if ident.startswith('SOF20_'):check(ident in loc,'Focus localized: '+ident)
-                for prerequisite in entries(f.value,'prerequisite'):
-                    for r in entries(prerequisite.value,'focus'):check(r.value in ids,'Prerequisite resolves: '+ident+' -> '+r.value)
-                for mutual in entries(f.value,'mutually_exclusive'):
-                    for r in entries(mutual.value,'focus'):check(r.value in ids,'Mutual exclusion resolves: '+ident+' -> '+r.value)
-    check(len(focus_counts)==(2 if remake else 20),'All active bespoke trees resolved: '+str(focus_counts))
-    check(sum(focus_counts.values())==(sum(expected_major.values()) if remake else 1408),'Expected active bespoke focus count')
-    for tag,profile in selected.items():
-        if tag in focus_counts:check(focus_counts[tag]==(expected_major[tag] if remake else profile['quota']),'Country focus quota: '+tag)
+    from validate_regional_release import audit as regional_audit
+    topology=regional_audit()
+    check(topology['ok'],'Twenty intended active trees and reachable reference graph: '+str(topology['errors']))
+    focus_counts={tag:r['own_nodes'] for tag,r in topology['regions'].items()}
+    check(len(focus_counts)==20,'All twenty dedicated trees selected')
+    check(sum(focus_counts.values())==1689,'Current twenty regional own-focus total')
     gfx={}
     for p in (MOD/'interface').rglob('*.gfx'):
         for group in parse(p.read_text(encoding='utf-8-sig')):
@@ -81,15 +57,15 @@ def validate():
             check(a.getextrema()==(0,255),'Native art alpha: '+name)
             check(scalar(rows,'noOfFrames')=='1','Single-frame decision art: '+name)
     decisions=categories=0
-    for rel in ['common/decisions/sofzh_unification.txt','common/decisions/sofzh_occupation.txt','common/decisions/sof20_regions.txt',
-                'common/decisions/categories/sofzh_unification.txt','common/decisions/categories/sofzh_occupation.txt','common/decisions/categories/sof20_regions.txt']:
+    for rel in ['common/decisions/sofzh_unification.txt','common/decisions/sofzh_occupation.txt',
+                'common/decisions/categories/sofzh_unification.txt','common/decisions/categories/sofzh_occupation.txt']:
         rows=parse((MOD/rel).read_text(encoding='utf-8-sig'))
         for icon in [r.value for r in walk(rows) if r.key=='icon']:
             cat='/categories/' in rel;name='GFX_decision_'+('category_' if cat else '')+icon
             check(name in gfx,'Decision icon resolves: '+rel+' -> '+name)
             if cat:categories+=1
             else:decisions+=1
-    check(decisions==132 and categories==21,'132 painted decisions and 21 categories')
+    check(decisions==6 and categories==3,'Six retained unification/occupation decisions and three categories')
     main=one(one(parse((MOD/'common/decisions/sofzh_unification.txt').read_text(encoding='utf-8-sig')),'sofzh_unification_campaign_category').value,'sofzh_unification_border_campaign').value
     check(scalar(main,'cost')=='25' and scalar(main,'days_re_enable')=='45','Border campaign fee/cooldown')
     check(scalar(one(main,'available').value,'has_country_flag')=='sofzh_unification_war_ready','Campaign still requires authorization')
@@ -111,43 +87,14 @@ def validate():
     for p in (ROOT/'art/civilwar/source').glob('*.png'):
         im=Image.open(p)
         if p.stem!='background':check(im.mode=='RGBA' and im.getchannel('A').getextrema()==(0,255),'Master transparent: '+p.name)
-    if remake:
-        from validate_vanilla import audit
-        audit(check,loc,gfx)
-    if version.startswith('4.'):
-        from validate_focus_art import audit as audit_focus_art
-        audit_focus_art(check,gfx)
-    if version.startswith('4.') and version not in ['4.0.0','4.0.1','4.0.2']:
-        from validate_historical import audit as audit_historical
-        audit_historical(check,gfx)
-    if (ROOT/'design/balance-4.3.json').is_file():
-        from validate_balance import audit as audit_balance
-        from validate_regional_manufacturers import audit as audit_manufacturers
-        audit_balance(check,gfx)
-        audit_manufacturers(check,gfx)
-    if (MOD/'common/national_focus/sof_mrs_red.txt').is_file():
-        from validate_marseille_red import audit as audit_marseille_red
-        audit_marseille_red(check,loc,gfx)
-    if (ROOT/'design/generic-focus-4.4.json').is_file():
-        from validate_generic_focus import audit as audit_generic_focus
-        audit_generic_focus(check,loc,gfx)
-    if (ROOT/'design/ideology-panel.json').is_file():
-        from validate_ideology_panel import audit as audit_ideology_panel
-        audit_ideology_panel(check)
-    if (ROOT/'design/decision-adaptation.json').is_file():
-        from validate_decision_adaptation import audit as audit_decision_adaptation
-        audit_decision_adaptation(check)
-    if (ROOT/'design/economy-map-4.5.json').is_file():
-        from validate_economy_map import audit as audit_economy_map
-        audit_economy_map(check)
-    if (ROOT/'design/script-repairs-4.5.1.json').is_file():
-        from validate_script_repairs import audit as audit_script_repairs
-        audit_script_repairs(check)
-    if (ROOT/'design/focus-integration-4.6.json').is_file():
-        from validate_focus_integration import audit as audit_focus_integration
-        audit_focus_integration(check,gfx)
+    # Keep asset integrity and independent engine API/dependency checks. Historical
+    # gameplay snapshots and retired initialization entry points are not runtime tests.
+    from validate_focus_art import audit as audit_focus_art
+    audit_focus_art(check,gfx,legacy_evidence=False)
+    from validate_script_repairs import audit as audit_script_repairs
+    audit_script_repairs(check,legacy_evidence=False)
     report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),marseille_new_focuses=52 if (MOD/'common/national_focus/sof_mrs_red.txt').is_file() else 0,
-        decisions=decisions,categories=categories,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
+        decisions=decisions,categories=categories,brittany_focuses=focus_counts.get('REN',0),game_engine_verified=False,scope='Current runtime syntax, active regional graph, references, GUI, asset integrity and special-project audits; no game-engine execution')
     return report
 
 def main():

@@ -7,7 +7,7 @@ from hoi4_script import parse,one,scalar,entries
 def shape(rows):
     return [(x.key,x.operator,shape(x.value) if isinstance(x.value,list) else x.value) for x in rows if x.key not in ['icon','picture']]
 
-def audit(check,gfx):
+def audit(check,gfx,legacy_evidence=False):
     spec=json.loads((ROOT/'design/focus-art-spec.json').read_text(encoding='utf-8'))
     binding=json.loads((ROOT/'design/focus-art-bindings.json').read_text(encoding='utf-8'))
     keys={a['key'] for a in spec['assets']}
@@ -46,4 +46,4 @@ def audit(check,gfx):
         check(actual==sha,'Art update preserves text, layout, triggers and effects: '+relative)
     if (ROOT/'design/unique-focus-art.json').is_file():
         from validate_unique_focus_art import audit as unique_audit
-        unique_audit(check,gfx)
+        unique_audit(check,gfx,legacy_evidence=legacy_evidence)
