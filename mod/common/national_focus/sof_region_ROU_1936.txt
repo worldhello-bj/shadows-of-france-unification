@@ -1,0 +1,443 @@
+focus_tree = { id = sof_region_ROU_1936 country = { factor = 0 modifier = { add = 300 original_tag = ROU } } default = no reset_on_civilwar = no
+initial_show_position = { focus = sof_ne_ROU_port_council } continuous_focus_position = { x = 0 y = 3100 }
+focus = { id = sof_ne_ROU_port_council icon = GFX_sof_van_goal_generic_political_pressure x = 18 y = 0 cost = 3
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_port_council_paid } } add_ideas = sof_ne_ROU_harbour_board set_country_flag = sof_ne_ROU_port_council_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_quay_contract icon = GFX_sof_van_goal_generic_construct_civ_factory x = 12 y = 1 cost = 5
+prerequisite = { focus = sof_ne_ROU_port_council }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076  NOT = { has_country_flag = sof_ne_ROU_quay_contract_paid } } custom_effect_tooltip = sof_ne_ROU_quays_unlock_tt set_country_flag = sof_ne_ROU_quay_contract_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_customs icon = GFX_sof_van_goal_generic_construct_civ_factory x = 22 y = 1 cost = 5
+prerequisite = { focus = sof_ne_ROU_port_council }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 80 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9962  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 80 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9962  NOT = { has_country_flag = sof_ne_ROU_customs_paid } } add_tech_bonus = { name = sof_ne_ROU_customs_bonus bonus = 0.25 uses = 1 category = logistics_tech } set_country_flag = sof_ne_ROU_customs_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_seamen icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 31 y = 1 cost = 5
+prerequisite = { focus = sof_ne_ROU_port_council }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_seamen_paid } } navy_experience = 7 set_country_flag = sof_ne_ROU_seamen_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_warehouses icon = GFX_sof_van_goal_generic_construct_civ_factory x = 8 y = 2 cost = 5
+prerequisite = { focus = sof_ne_ROU_quay_contract }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_warehouses_paid } } add_tech_bonus = { name = sof_ne_ROU_warehouses_bonus bonus = 0.3 uses = 1 category = industry } set_country_flag = sof_ne_ROU_warehouses_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_labour_board icon = GFX_sof_van_goal_generic_political_pressure x = 15 y = 2 cost = 5
+prerequisite = { focus = sof_ne_ROU_quay_contract }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_labour_board_paid } } add_ideas = sof_ne_ROU_dock_safety set_country_flag = sof_ne_ROU_labour_board_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_le_havre icon = GFX_sof_van_goal_generic_construct_civ_factory x = 22 y = 2 cost = 5
+prerequisite = { focus = sof_ne_ROU_customs }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 80 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9962  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 80 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9962  NOT = { has_country_flag = sof_ne_ROU_le_havre_paid } } 80 = { add_dynamic_modifier = { modifier = sof_ne_ROU_estuary_local } } set_country_flag = sof_ne_ROU_le_havre_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_caen_supply icon = GFX_sof_van_goal_generic_construct_civ_factory x = 27 y = 2 cost = 5
+prerequisite = { focus = sof_ne_ROU_customs }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  NOT = { has_country_flag = sof_ne_ROU_caen_supply_paid } } add_tech_bonus = { name = sof_ne_ROU_caen_supply_bonus bonus = 0.3 uses = 1 category = excavation_tech } set_country_flag = sof_ne_ROU_caen_supply_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_cherbourg icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 33 y = 2 cost = 5
+prerequisite = { focus = sof_ne_ROU_seamen }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  NOT = { has_country_flag = sof_ne_ROU_cherbourg_paid } } 88 = { add_dynamic_modifier = { modifier = sof_ne_ROU_arsenal_local } } set_country_flag = sof_ne_ROU_cherbourg_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_depots icon = GFX_sof_van_goal_generic_construct_civ_factory x = 7 y = 3 cost = 7
+prerequisite = { focus = sof_ne_ROU_warehouses }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076  NOT = { has_country_flag = sof_ne_ROU_depots_paid } } 84 = {  add_building_construction = { type = infrastructure level = 1  instant_build = yes } } set_country_flag = sof_ne_ROU_depots_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_wages icon = GFX_sof_van_goal_generic_political_pressure x = 14 y = 3 cost = 5
+prerequisite = { focus = sof_ne_ROU_labour_board }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_wages_paid } } add_stability = 0.025 set_country_flag = sof_ne_ROU_wages_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_tolls icon = GFX_sof_van_goal_generic_political_pressure x = 18 y = 3 cost = 5
+prerequisite = { focus = sof_ne_ROU_labour_board }
+prerequisite = { focus = sof_ne_ROU_customs }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_tolls_paid } } add_political_power = 30 set_country_flag = sof_ne_ROU_tolls_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_rail_link icon = GFX_sof_van_goal_generic_construct_civ_factory x = 23 y = 3 cost = 5
+prerequisite = { focus = sof_ne_ROU_le_havre }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_rail_link_paid } } add_tech_bonus = { name = sof_ne_ROU_rail_link_bonus bonus = 0.35 uses = 1 category = logistics_tech } set_country_flag = sof_ne_ROU_rail_link_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_smn icon = GFX_sof_van_goal_generic_construct_civ_factory x = 28 y = 3 cost = 5
+prerequisite = { focus = sof_ne_ROU_caen_supply }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  NOT = { has_country_flag = sof_ne_ROU_smn_paid } } custom_effect_tooltip = sof_ne_ROU_steel_unlock_tt set_country_flag = sof_ne_ROU_smn_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_merchant icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 32 y = 3 cost = 5
+prerequisite = { focus = sof_ne_ROU_cherbourg }
+mutually_exclusive = { focus = sof_ne_ROU_escort }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_merchant_paid } } add_ideas = sof_ne_ROU_merchant set_country_flag = sof_ne_ROU_merchant_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_escort icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 37 y = 3 cost = 5
+prerequisite = { focus = sof_ne_ROU_cherbourg }
+mutually_exclusive = { focus = sof_ne_ROU_merchant }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_escort_paid } } add_ideas = sof_ne_ROU_escort set_country_flag = sof_ne_ROU_escort_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_seine_timetable icon = GFX_sof_van_goal_generic_construct_civ_factory x = 10 y = 4 cost = 5
+prerequisite = { focus = sof_ne_ROU_depots }
+prerequisite = { focus = sof_ne_ROU_rail_link }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_seine_timetable_paid } } add_ideas = sof_ne_ROU_cargo set_country_flag = sof_ne_ROU_seine_timetable_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_civic_charter icon = GFX_sof_van_goal_generic_political_pressure x = 17 y = 4 cost = 5
+prerequisite = { focus = sof_ne_ROU_wages }
+prerequisite = { focus = sof_ne_ROU_tolls }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_civic_charter_paid } } add_stability = 0.03 set_country_flag = sof_ne_ROU_civic_charter_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_rolling icon = GFX_sof_van_goal_generic_construct_civ_factory x = 27 y = 4 cost = 5
+prerequisite = { focus = sof_ne_ROU_smn }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  NOT = { has_country_flag = sof_ne_ROU_rolling_paid } } add_tech_bonus = { name = sof_ne_ROU_rolling_bonus bonus = 0.45 uses = 1 category = industry } set_country_flag = sof_ne_ROU_rolling_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_shared_dock icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 35 y = 4 cost = 5
+prerequisite = { focus = sof_ne_ROU_merchant focus = sof_ne_ROU_escort }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  NOT = { has_country_flag = sof_ne_ROU_shared_dock_paid } } navy_experience = 12 set_country_flag = sof_ne_ROU_shared_dock_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_farm_routes icon = GFX_sof_van_goal_generic_construct_civ_factory x = 3 y = 5 cost = 5
+prerequisite = { focus = sof_ne_ROU_seine_timetable }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 107 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4589  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 107 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4589  NOT = { has_country_flag = sof_ne_ROU_farm_routes_paid } } 107 = { add_dynamic_modifier = { modifier = sof_ne_ROU_bocage_local } } set_country_flag = sof_ne_ROU_farm_routes_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_river_bridges icon = GFX_sof_van_goal_generic_army_doctrines x = 8 y = 5 cost = 5
+prerequisite = { focus = sof_ne_ROU_seine_timetable }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 100 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10253  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 100 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10253  NOT = { has_country_flag = sof_ne_ROU_river_bridges_paid } } add_tech_bonus = { name = sof_ne_ROU_river_bridges_bonus bonus = 0.3 uses = 1 category = engineers_tech } set_country_flag = sof_ne_ROU_river_bridges_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_picardy_offer icon = GFX_sof_van_goal_generic_alliance x = 13 y = 5 cost = 5
+prerequisite = { focus = sof_ne_ROU_seine_timetable }
+prerequisite = { focus = sof_ne_ROU_civic_charter }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   has_war = no AMI = { exists = yes is_subject = no has_capitulated = no has_war = no 70 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 8318 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   has_war = no AMI = { exists = yes is_subject = no has_capitulated = no has_war = no 70 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 8318 } NOT = { has_country_flag = sof_ne_ROU_picardy_offer_paid } } set_country_flag = sof_ne_ROU_picardy_pending AMI = { country_event = { id = sof_ne_ROU_diplomacy.1 days = 1 } } set_country_flag = sof_ne_ROU_picardy_offer_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_representation icon = GFX_sof_van_goal_generic_political_pressure x = 19 y = 5 cost = 5
+prerequisite = { focus = sof_ne_ROU_civic_charter }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_representation_paid } } add_political_power = 30 set_country_flag = sof_ne_ROU_representation_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_metallurgy icon = GFX_sof_van_goal_generic_construct_civ_factory x = 27 y = 5 cost = 5
+prerequisite = { focus = sof_ne_ROU_rolling }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  NOT = { has_country_flag = sof_ne_ROU_metallurgy_paid } } add_ideas = sof_ne_ROU_metallurgy set_country_flag = sof_ne_ROU_metallurgy_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_wireless icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 33 y = 5 cost = 5
+prerequisite = { focus = sof_ne_ROU_shared_dock }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_wireless_paid } } add_tech_bonus = { name = sof_ne_ROU_wireless_bonus bonus = 0.35 uses = 1 category = electronics } set_country_flag = sof_ne_ROU_wireless_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_convoy_yard icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 38 y = 5 cost = 10
+prerequisite = { focus = sof_ne_ROU_shared_dock }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  NOT = { has_country_flag = sof_ne_ROU_convoy_yard_paid } } 88 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1  instant_build = yes } } set_country_flag = sof_ne_ROU_convoy_yard_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_market_roads icon = GFX_sof_van_goal_generic_construct_civ_factory x = 3 y = 6 cost = 7
+prerequisite = { focus = sof_ne_ROU_farm_routes }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 104 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6534  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 104 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6534  NOT = { has_country_flag = sof_ne_ROU_market_roads_paid } } 104 = {  add_building_construction = { type = infrastructure level = 1  instant_build = yes } } set_country_flag = sof_ne_ROU_market_roads_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_evreux icon = GFX_sof_van_goal_generic_army_doctrines x = 8 y = 6 cost = 5
+prerequisite = { focus = sof_ne_ROU_river_bridges }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 117 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7635  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 117 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7635  NOT = { has_country_flag = sof_ne_ROU_evreux_paid } } add_tech_bonus = { name = sof_ne_ROU_evreux_bonus bonus = 0.35 uses = 1 category = motorized_equipment } set_country_flag = sof_ne_ROU_evreux_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_local_freight icon = GFX_sof_van_goal_generic_alliance x = 13 y = 6 cost = 5
+prerequisite = { focus = sof_ne_ROU_seine_timetable }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_local_freight_paid } } add_tech_bonus = { name = sof_ne_ROU_local_freight_bonus bonus = 0.25 uses = 1 category = logistics_tech } set_country_flag = sof_ne_ROU_local_freight_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_port_review icon = GFX_sof_van_goal_generic_political_pressure x = 19 y = 6 cost = 5
+prerequisite = { focus = sof_ne_ROU_representation }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_port_review_paid } } add_stability = 0.025 set_country_flag = sof_ne_ROU_port_review_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_caen_workshop icon = GFX_sof_van_goal_generic_construct_civ_factory x = 27 y = 6 cost = 10
+prerequisite = { focus = sof_ne_ROU_metallurgy }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5858  NOT = { has_country_flag = sof_ne_ROU_caen_workshop_paid } } 109 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1  instant_build = yes } } set_country_flag = sof_ne_ROU_caen_workshop_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_brittany_offer icon = GFX_sof_van_goal_generic_alliance x = 33 y = 6 cost = 5
+prerequisite = { focus = sof_ne_ROU_wireless }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   has_war = no REN = { exists = yes is_subject = no has_capitulated = no has_war = no 188 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 11949 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   has_war = no REN = { exists = yes is_subject = no has_capitulated = no has_war = no 188 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 11949 } NOT = { has_country_flag = sof_ne_ROU_brittany_offer_paid } } set_country_flag = sof_ne_ROU_brittany_pending REN = { country_event = { id = sof_ne_ROU_diplomacy.2 days = 1 } } set_country_flag = sof_ne_ROU_brittany_offer_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_merchant_tonnage icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 38 y = 6 cost = 7
+prerequisite = { focus = sof_ne_ROU_convoy_yard }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  NOT = { has_country_flag = sof_ne_ROU_merchant_tonnage_paid } } add_equipment_to_stockpile = { type = convoy amount = 25 producer = ROOT } set_country_flag = sof_ne_ROU_merchant_tonnage_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_food_contracts icon = GFX_sof_van_goal_generic_construct_civ_factory x = 5 y = 7 cost = 5
+prerequisite = { focus = sof_ne_ROU_market_roads }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_food_contracts_paid } } add_stability = 0.02 set_country_flag = sof_ne_ROU_food_contracts_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_coastal_reserves icon = GFX_sof_van_goal_generic_army_doctrines x = 10 y = 7 cost = 5
+prerequisite = { focus = sof_ne_ROU_evreux }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_coastal_reserves_paid } } army_experience = 14 set_country_flag = sof_ne_ROU_coastal_reserves_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_accepted_freight icon = GFX_sof_van_goal_generic_alliance x = 15 y = 7 cost = 5
+prerequisite = { focus = sof_ne_ROU_picardy_offer focus = sof_ne_ROU_brittany_offer }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {  OR = { has_country_flag = sof_ne_ROU_picardy_accepted has_country_flag = sof_ne_ROU_brittany_accepted } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {  OR = { has_country_flag = sof_ne_ROU_picardy_accepted has_country_flag = sof_ne_ROU_brittany_accepted } NOT = { has_country_flag = sof_ne_ROU_accepted_freight_paid } } add_tech_bonus = { name = sof_ne_ROU_accepted_freight_bonus bonus = 0.3 uses = 1 category = logistics_tech } set_country_flag = sof_ne_ROU_accepted_freight_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_norman_charter icon = GFX_sof_van_goal_generic_political_pressure x = 20 y = 7 cost = 7
+prerequisite = { focus = sof_ne_ROU_port_review }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_norman_charter_paid } } add_political_power = 45 set_country_flag = sof_ne_ROU_norman_charter_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_machine_repair icon = GFX_sof_van_goal_generic_construct_civ_factory x = 26 y = 7 cost = 10
+prerequisite = { focus = sof_ne_ROU_caen_workshop }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = { original_tag = ROU 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076  NOT = { has_country_flag = sof_ne_ROU_machine_repair_paid } } 84 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1  instant_build = yes } } set_country_flag = sof_ne_ROU_machine_repair_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_naval_charts icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 35 y = 7 cost = 5
+prerequisite = { focus = sof_ne_ROU_merchant_tonnage }
+prerequisite = { focus = sof_ne_ROU_wireless }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_naval_charts_paid } } navy_experience = 18 set_country_flag = sof_ne_ROU_naval_charts_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_supply_inland icon = GFX_sof_van_goal_generic_army_doctrines x = 6 y = 8 cost = 5
+prerequisite = { focus = sof_ne_ROU_food_contracts }
+prerequisite = { focus = sof_ne_ROU_coastal_reserves }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_supply_inland_paid } } add_tech_bonus = { name = sof_ne_ROU_supply_inland_bonus bonus = 0.4 uses = 1 category = logistics_tech } set_country_flag = sof_ne_ROU_supply_inland_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_clearing icon = GFX_sof_van_goal_generic_alliance x = 16 y = 8 cost = 5
+prerequisite = { focus = sof_ne_ROU_accepted_freight focus = sof_ne_ROU_local_freight }
+search_filters = { FOCUS_FILTER_POLITICAL }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_clearing_paid } } add_political_power = 25 set_country_flag = sof_ne_ROU_clearing_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_harbour_air icon = GFX_sof_van_goal_generic_army_doctrines x = 31 y = 8 cost = 7
+prerequisite = { focus = sof_ne_ROU_naval_charts }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 80 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9962  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 80 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9962  NOT = { has_country_flag = sof_ne_ROU_harbour_air_paid } } 80 = {  add_building_construction = { type = anti_air_building level = 1  instant_build = yes } } set_country_flag = sof_ne_ROU_harbour_air_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_naval_training icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 37 y = 8 cost = 5
+prerequisite = { focus = sof_ne_ROU_naval_charts }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9838  NOT = { has_country_flag = sof_ne_ROU_naval_training_paid } } navy_experience = 25 set_country_flag = sof_ne_ROU_naval_training_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_industrial_account icon = GFX_sof_van_goal_generic_construct_civ_factory x = 24 y = 9 cost = 5
+prerequisite = { focus = sof_ne_ROU_machine_repair }
+prerequisite = { focus = sof_ne_ROU_seine_timetable }
+search_filters = { FOCUS_FILTER_INDUSTRY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_industrial_account_paid } } add_tech_bonus = { name = sof_ne_ROU_industrial_account_bonus bonus = 0.45 uses = 1 category = industry } set_country_flag = sof_ne_ROU_industrial_account_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_dieppe icon = GFX_sof_van_goal_generic_army_doctrines x = 4 y = 9 cost = 7
+prerequisite = { focus = sof_ne_ROU_supply_inland }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = { original_tag = ROU 74 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3479  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { original_tag = ROU 74 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3479  NOT = { has_country_flag = sof_ne_ROU_dieppe_paid } } 74 = {  add_building_construction = { type = bunker level = 1 province = 3479 instant_build = yes } } set_country_flag = sof_ne_ROU_dieppe_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_civil_defense icon = GFX_sof_van_goal_generic_army_doctrines x = 9 y = 9 cost = 5
+prerequisite = { focus = sof_ne_ROU_supply_inland }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_civil_defense_paid } } add_stability = 0.02 set_country_flag = sof_ne_ROU_civil_defense_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_maritime_readiness icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 34 y = 9 cost = 5
+prerequisite = { focus = sof_ne_ROU_harbour_air }
+prerequisite = { focus = sof_ne_ROU_naval_training }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_maritime_readiness_paid } } navy_experience = 20 set_country_flag = sof_ne_ROU_maritime_readiness_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_corridor icon = GFX_sof_van_goal_generic_national_unity x = 17 y = 10 cost = 5
+prerequisite = { focus = sof_ne_ROU_clearing }
+prerequisite = { focus = sof_ne_ROU_norman_charter }
+prerequisite = { focus = sof_ne_ROU_industrial_account }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_corridor_paid } } add_political_power = 35 set_country_flag = sof_ne_ROU_corridor_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_defense_handover icon = GFX_sof_van_goal_generic_national_unity x = 7 y = 10 cost = 5
+prerequisite = { focus = sof_ne_ROU_dieppe }
+prerequisite = { focus = sof_ne_ROU_civil_defense }
+prerequisite = { focus = sof_ne_ROU_maritime_readiness }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_defense_handover_paid } } army_experience = 12 set_country_flag = sof_ne_ROU_defense_handover_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_national_port icon = GFX_sof_van_goal_generic_national_unity x = 17 y = 11 cost = 5
+prerequisite = { focus = sof_ne_ROU_corridor }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {  has_country_flag = sofzh_unification_complete } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {  has_country_flag = sofzh_unification_complete NOT = { has_country_flag = sof_ne_ROU_national_port_paid } } add_ideas = sof_ne_ROU_integration set_country_flag = sof_ne_ROU_national_port_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_cargo_merge icon = GFX_sof_van_goal_generic_national_unity x = 11 y = 12 cost = 5
+prerequisite = { focus = sof_ne_ROU_national_port }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_cargo_merge_paid } } add_tech_bonus = { name = sof_ne_ROU_cargo_merge_bonus bonus = 0.45 uses = 1 category = logistics_tech } set_country_flag = sof_ne_ROU_cargo_merge_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_steel_merge icon = GFX_sof_van_goal_generic_national_unity x = 18 y = 12 cost = 5
+prerequisite = { focus = sof_ne_ROU_national_port }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_steel_merge_paid } } add_tech_bonus = { name = sof_ne_ROU_steel_merge_bonus bonus = 0.4 uses = 1 category = industry } set_country_flag = sof_ne_ROU_steel_merge_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_fleet_merge icon = GFX_sof_van_goal_generic_national_unity x = 25 y = 12 cost = 5
+prerequisite = { focus = sof_ne_ROU_national_port }
+prerequisite = { focus = sof_ne_ROU_defense_handover }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_fleet_merge_paid } } navy_experience = 20 set_country_flag = sof_ne_ROU_fleet_merge_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_municipal_debts icon = GFX_sof_van_goal_generic_national_unity x = 14 y = 13 cost = 5
+prerequisite = { focus = sof_ne_ROU_cargo_merge }
+prerequisite = { focus = sof_ne_ROU_steel_merge }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_municipal_debts_paid } } add_stability = 0.03 set_country_flag = sof_ne_ROU_municipal_debts_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_coast_network icon = GFX_sof_van_goal_generic_national_unity x = 23 y = 13 cost = 5
+prerequisite = { focus = sof_ne_ROU_fleet_merge }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_coast_network_paid } } add_tech_bonus = { name = sof_ne_ROU_coast_network_bonus bonus = 0.45 uses = 1 category = electronics } set_country_flag = sof_ne_ROU_coast_network_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_unification_mandate icon = GFX_sof_van_goal_generic_army_doctrines x = 43 y = 8 cost = 7
+prerequisite = { focus = sof_ne_ROU_civic_charter }
+prerequisite = { focus = sof_ne_ROU_coastal_reserves }
+search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+available = {  is_subject = no NOT = { has_country_flag = sofzh_unification_complete } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {  is_subject = no NOT = { has_country_flag = sofzh_unification_complete } NOT = { has_country_flag = sof_ne_ROU_unification_mandate_paid } } set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready sofzh_unification_grant_border_goals = yes add_war_support = 0.05 set_country_flag = sof_ne_ROU_unification_mandate_paid } }
+ai_will_do = { factor = 10 }
+}
+focus = { id = sof_ne_ROU_normandy_in_france icon = GFX_sof_van_goal_generic_national_unity x = 18 y = 14 cost = 7
+prerequisite = { focus = sof_ne_ROU_municipal_debts }
+prerequisite = { focus = sof_ne_ROU_coast_network }
+search_filters = { FOCUS_FILTER_STABILITY }
+available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_ROU_normandy_in_france_paid } } add_research_slot = 1 set_country_flag = sof_ne_ROU_normandy_in_france_paid } }
+ai_will_do = { factor = 10 }
+}
+
+ shared_focus = SOF_NR_ROU_mandate
+ shortcut = { name = sof_nr_shortcut target = SOF_NR_ROU_mandate scroll_wheel_factor = 0.7 }
+
+# SOF_PARTY_BRANCHES_BEGIN
+shared_focus = SOF_PARTY_PCF_PCF_MANDATE
+shared_focus = SOF_PARTY_SFIO_SFIO_OFFICE
+shared_focus = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
+shared_focus = SOF_PARTY_USR_USR_COALITION
+shared_focus = SOF_PARTY_PUP_PUP_BRIDGE
+shared_focus = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
+shared_focus = SOF_PARTY_RG_AD_RG_AD_ACCOUNTS
+shared_focus = SOF_PARTY_FR_URD_FR_URD_NOTABLES
+shared_focus = SOF_PARTY_PDP_PDP_MANDATE
+shared_focus = SOF_PARTY_UPR_UPR_MANDATE
+shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
+# SOF_PARTY_BRANCHES_END
+}

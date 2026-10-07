@@ -1,0 +1,64 @@
+sof_left_policy_actions = {
+sof_left_mass_assembly = { icon = sof_cw_register cost = 25 fire_only_once = yes
+ visible = { has_country_flag = sof_party_paid_pcf_pcf_mandate has_country_flag = sof_kr_party_pcf_in_power has_government = totalist NOT = { has_country_flag = sof_left_mass_assembly_done } }
+ available = { has_country_flag = sof_party_paid_pcf_pcf_mandate has_country_flag = sof_kr_party_pcf_in_power has_government = totalist has_capitulated = no NOT = { has_country_flag = sof_left_mass_assembly_done } }
+ complete_effect = { add_stability = 0.01 set_country_flag = sof_left_mass_assembly_done }
+ ai_will_do = { factor = 1 }
+}
+sof_left_union_mediation = { icon = sof_cw_register cost = 25 fire_only_once = yes
+ visible = { has_country_flag = sof_party_paid_pcf_pcf_workshops has_country_flag = sof_kr_party_pcf_in_power has_government = totalist NOT = { has_country_flag = sof_left_union_mediation_done } }
+ available = { has_country_flag = sof_party_paid_pcf_pcf_workshops has_country_flag = sof_kr_party_pcf_in_power has_government = totalist has_capitulated = no NOT = { has_country_flag = sof_left_union_mediation_done } }
+ complete_effect = { sof_left_relieve_strike = yes set_country_flag = sof_left_union_mediation_done }
+ ai_will_do = { factor = 1 }
+}
+sof_left_food_relief = { icon = sof_cw_register cost = 20 fire_only_once = yes
+ visible = { OR = { AND = { has_country_flag = sof_party_paid_pcf_pcf_peasants has_country_flag = sof_kr_party_pcf_in_power has_government = totalist } AND = { has_country_flag = sof_party_paid_prrrs_prrrs_rural has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal } } NOT = { has_country_flag = sof_left_food_relief_done } }
+ available = { OR = { AND = { has_country_flag = sof_party_paid_pcf_pcf_peasants has_country_flag = sof_kr_party_pcf_in_power has_government = totalist } AND = { has_country_flag = sof_party_paid_prrrs_prrrs_rural has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal } } has_capitulated = no NOT = { has_country_flag = sof_left_food_relief_done } }
+ complete_effect = { add_stability = 0.01 set_country_flag = sof_left_food_relief_done }
+ ai_will_do = { factor = 1 }
+}
+sof_left_public_leisure = { icon = sof_cw_register cost = 0 fire_only_once = yes
+ visible = { has_country_flag = sof_party_paid_sfio_sfio_leisure has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat NOT = { has_country_flag = sof_left_public_leisure_done } }
+ available = { has_country_flag = sof_party_paid_sfio_sfio_leisure has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat has_capitulated = no NOT = { has_country_flag = sof_left_public_leisure_done } }
+ complete_effect = { add_stability = 0.005 add_political_power = 15 set_country_flag = sof_left_public_leisure_done }
+ ai_will_do = { factor = 1 }
+}
+sof_left_coalition_mediation = { icon = sof_cw_register cost = 0 fire_only_once = yes
+ visible = { has_country_flag = sof_party_paid_prrrs_prrrs_balance has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal NOT = { has_country_flag = sof_left_coalition_mediation_done } }
+ available = { has_country_flag = sof_party_paid_prrrs_prrrs_balance has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal has_capitulated = no NOT = { has_country_flag = sof_left_coalition_mediation_done } }
+ complete_effect = { add_stability = 0.01 set_country_flag = sof_left_coalition_mediation_done }
+ ai_will_do = { factor = 1 }
+}
+sof_left_workers_preparation = { icon = sof_cw_register cost = 15 fire_only_once = yes
+ visible = { has_country_flag = sof_party_paid_pup_pup_bridge has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist NOT = { has_country_flag = sof_left_workers_preparation_done } }
+ available = { has_country_flag = sof_party_paid_pup_pup_bridge has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist has_capitulated = no NOT = { has_country_flag = sof_left_workers_preparation_done } }
+ complete_effect = { add_stability = 0.005 set_country_flag = sof_left_workers_preparation_done }
+ ai_will_do = { factor = 1 }
+}
+sof_left_humanitarian_relief = { icon = sof_cw_register cost = 25 fire_only_once = yes
+ visible = { has_country_flag = sof_party_paid_pup_pup_against_war has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist NOT = { has_country_flag = sof_left_humanitarian_relief_done } }
+ available = { has_country_flag = sof_party_paid_pup_pup_against_war has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist has_capitulated = no NOT = { has_country_flag = sof_left_humanitarian_relief_done } }
+ complete_effect = { add_stability = 0.01 set_country_flag = sof_left_humanitarian_relief_done }
+ ai_will_do = { factor = 1 }
+}
+sof_left_defensive_offer = { icon = sof_cw_offer cost = 35 fire_only_once = yes
+ target_root_trigger = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist has_country_flag = sof_party_paid_pcf_pcf_security }
+ target_trigger = { FROM = { exists = yes is_subject = no has_capitulated = no has_war = no is_neighbor_of = ROOT NOT = { tag = ROOT } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } }
+ visible = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist has_country_flag = sof_party_paid_pcf_pcf_security NOT = { has_country_flag = sof_left_defensive_offer_done } FROM = { exists = yes is_subject = no has_capitulated = no has_war = no is_neighbor_of = ROOT NOT = { tag = ROOT } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } }
+ available = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist has_country_flag = sof_party_paid_pcf_pcf_security has_war = no has_capitulated = no is_subject = no NOT = { has_country_flag = sof_left_defensive_offer_done } FROM = { exists = yes is_subject = no has_capitulated = no has_war = no is_neighbor_of = ROOT NOT = { tag = ROOT } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } }
+ complete_effect = { set_country_flag = sof_left_defensive_offer_done
+ set_country_flag = sof_left_pcf_offer_pending@FROM
+ FROM = { set_country_flag = sof_left_pcf_offer_received@ROOT country_event = { id = sof_party_left.1 days = 1 } } }
+ ai_will_do = { factor = 1 }
+}
+sof_left_peace_offer = { icon = sof_cw_offer cost = 25 fire_only_once = yes
+ target_root_trigger = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat has_country_flag = sof_party_paid_usr_usr_geneva }
+ target_trigger = { FROM = { exists = yes is_subject = no has_capitulated = no has_war = no is_neighbor_of = ROOT NOT = { tag = ROOT } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } }
+ visible = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat has_country_flag = sof_party_paid_usr_usr_geneva NOT = { has_country_flag = sof_left_peace_offer_done } FROM = { exists = yes is_subject = no has_capitulated = no has_war = no is_neighbor_of = ROOT NOT = { tag = ROOT } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } }
+ available = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat has_country_flag = sof_party_paid_usr_usr_geneva has_war = no has_capitulated = no is_subject = no NOT = { has_country_flag = sof_left_peace_offer_done } FROM = { exists = yes is_subject = no has_capitulated = no has_war = no is_neighbor_of = ROOT NOT = { tag = ROOT } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } }
+ complete_effect = { set_country_flag = sof_left_peace_offer_done
+ set_country_flag = sof_left_usr_offer_pending@FROM
+ FROM = { set_country_flag = sof_left_usr_offer_received@ROOT country_event = { id = sof_party_left.2 days = 1 } } }
+ ai_will_do = { factor = 1 }
+}
+}

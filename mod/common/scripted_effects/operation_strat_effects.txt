@@ -130,7 +130,7 @@ update_operation_ai = {
 				# only do on fascist
 				if = {
 					limit = {
-						has_government = fascism
+						OR = { has_government = national_populist }
 						check_variable = { occupied_countries^num > 0 }
 						has_added_tension_amount > 20
 					}

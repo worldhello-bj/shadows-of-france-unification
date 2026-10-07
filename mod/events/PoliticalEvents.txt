@@ -12,9 +12,9 @@ country_event = {
 	picture = GFX_report_event_worker_protests
 
 	trigger = {
-		NOT = { has_government = communism }
-		communism > 0.6
-		NOT = { communism > 0.7 }
+		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
+		sof_kr_support_communism_gt = { VALUE = 0.6 }
+		NOT = { sof_kr_support_communism_gt = { VALUE = 0.7 } }
 	}
 
 	fire_only_once = yes
@@ -54,7 +54,7 @@ country_event = {
 		name = political.14.c
 		add_political_power = -100
 		set_politics = {
-			ruling_party = communism
+			ruling_party = radical_socialist
 			elections_allowed = no
 		}
 	}
@@ -152,9 +152,9 @@ country_event = {
 	
 	trigger = {
 		has_idea_with_trait = communist_revolutionary
-		NOT = { has_government = communism }
-		communism > 0.2
-		NOT = { communism > 0.59 }
+		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
+		sof_kr_support_communism_gt = { VALUE = 0.2 }
+		NOT = { sof_kr_support_communism_gt = { VALUE = 0.59 } }
 	}
 
 	mean_time_to_happen = {
@@ -168,7 +168,7 @@ country_event = {
 	option = {
 		name = political.4.a
 		add_popularity = {
-			ideology = communism
+			ideology = radical_socialist
 			popularity = 0.05
 		}
 		add_stability = -0.05
@@ -184,9 +184,9 @@ country_event = {
 	
 	trigger = {
 		has_idea_with_trait = communist_revolutionary
-		NOT = { has_government = communism }
-		communism > 0.3
-		NOT = { communism > 0.59 }
+		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
+		sof_kr_support_communism_gt = { VALUE = 0.3 }
+		NOT = { sof_kr_support_communism_gt = { VALUE = 0.59 } }
 		NOT = { has_idea = communist_partisans_recruiting }
 	}
 
@@ -201,7 +201,7 @@ country_event = {
 	option = {
 		name = political.5.a
 		add_popularity = {
-			ideology = communism
+			ideology = radical_socialist
 			popularity = 0.05
 		}
 		add_ideas = communist_partisans_recruiting
@@ -296,9 +296,9 @@ country_event = {
 	picture = GFX_report_event_fascist_gathering
 
 	trigger = {
-		NOT = { has_government = fascism }
-		fascism > 0.6
-		NOT = { fascism > 0.7 }
+		NOT = { OR = { has_government = national_populist } }
+		sof_kr_support_fascism_gt = { VALUE = 0.6 }
+		NOT = { sof_kr_support_fascism_gt = { VALUE = 0.7 } }
 	}
 
 	fire_only_once = yes
@@ -329,7 +329,7 @@ country_event = {
 		name = political.14.c
 		add_political_power = -100
 		set_politics = {
-			ruling_party = fascism
+			ruling_party = national_populist
 			elections_allowed = no
 		}
 	}
@@ -526,9 +526,9 @@ country_event = {
 	
 	trigger = {
 		has_idea_with_trait = fascist_demagogue
-		NOT = { has_government = fascism }
-		fascism > 0.3
-		NOT = { fascism > 0.59 }
+		NOT = { OR = { has_government = national_populist } }
+		sof_kr_support_fascism_gt = { VALUE = 0.3 }
+		NOT = { sof_kr_support_fascism_gt = { VALUE = 0.59 } }
 		NOT = { has_idea = fascist_assault_divisions }
 	}
 
@@ -543,7 +543,7 @@ country_event = {
 	option = {
 		name = political.11.a
 		add_popularity = {
-			ideology = fascism
+			ideology = national_populist
 			popularity = 0.05
 		}
 		add_ideas = fascist_assault_divisions
@@ -559,11 +559,11 @@ country_event = {
 	
 	trigger = {
 		has_idea_with_trait = fascist_demagogue
-		NOT = { has_government = fascism }
-		fascism > 0.25
-		NOT = { fascism > 0.59 }
+		NOT = { OR = { has_government = national_populist } }
+		sof_kr_support_fascism_gt = { VALUE = 0.25 }
+		NOT = { sof_kr_support_fascism_gt = { VALUE = 0.59 } }
 		any_neighbor_country = {
-			has_government = communism
+			OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 		}
 	}
 
@@ -578,7 +578,7 @@ country_event = {
 	option = {
 		name = political.12.a
 		add_popularity = {
-			ideology = fascism
+			ideology = national_populist
 			popularity = 0.1
 		}
 	}
@@ -624,9 +624,9 @@ country_event = {
 	picture = GFX_report_event_journalists_speech
 	
 	trigger = {
-		NOT = { has_government = democratic }
-		democratic > 0.6
-		NOT = { democratic > 0.7 }
+		NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
+		sof_kr_support_democratic_gt = { VALUE = 0.6 }
+		NOT = { sof_kr_support_democratic_gt = { VALUE = 0.7 } }
 	}
 
 	fire_only_once = yes
@@ -647,7 +647,7 @@ country_event = {
 		name = political.14.c
 		add_political_power = -100
 		set_politics = {
-			ruling_party = democratic
+			ruling_party = social_liberal
 			elections_allowed = yes
 		}
 	}
@@ -671,10 +671,10 @@ country_event = {
 	
 	trigger = {
 		has_idea_with_trait = democratic_reformer
-		NOT = { has_government = democratic }
+		NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 		NOT = { has_country_flag = democracy_opposition_formed }
 		is_puppet = no
-		NOT = { democratic > 0.59 }
+		NOT = { sof_kr_support_democratic_gt = { VALUE = 0.59 } }
 	}
 	
 	mean_time_to_happen = {
@@ -688,7 +688,7 @@ country_event = {
 	option = {
 		name = political.15.a
 		add_popularity = {
-			ideology = democratic
+			ideology = social_liberal
 			popularity = 0.05
 		}
 		add_stability = -0.05
@@ -705,7 +705,7 @@ country_event = {
 	
 	trigger = {
 		has_idea_with_trait = democratic_reformer
-		NOT = { has_government = democratic }
+		NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 		has_country_flag = democracy_opposition_formed
 		NOT = { has_idea = democratic_opposition_voicing_protests }
 	}
@@ -813,7 +813,7 @@ country_event = {
 	option = {
 		name = political.18.c
 		set_politics = {
-			ruling_party = fascism
+			ruling_party = national_populist
 			elections_allowed = no
 		}
 		add_stability = -0.05
@@ -847,7 +847,7 @@ country_event = {
 		name = political.19.a
 		add_political_power = -100
 		add_popularity = {
-			ideology = communism
+			ideology = radical_socialist
 			popularity = -0.10
 		}
 		add_timed_idea = {
@@ -912,15 +912,15 @@ country_event = {
 	option = {
 		name = political.20.c
 		if = {
-			limit = { has_government = fascism }
+			limit = { OR = { has_government = national_populist } }
 			add_timed_idea = { idea = fascism_defeated days = 730 }
 		}
 		if = {
-			limit = { has_government = communism }
+			limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 			add_timed_idea = { idea = communism_defeated days = 730 }
 		}
 		set_politics = {
-			ruling_party = democratic
+			ruling_party = social_liberal
 			elections_allowed = yes
 		}
 		add_stability = -0.05
@@ -937,9 +937,9 @@ country_event = {
 	picture = GFX_report_event_fascist_militia
 
 	trigger = {
-		fascism > 0.7
+		sof_kr_support_fascism_gt = { VALUE = 0.7 }
 		#has_idea = fascist_revolutionaries
-		NOT = { has_government = fascism }
+		NOT = { OR = { has_government = national_populist } }
 		has_civil_war = no
 	}
 
@@ -957,7 +957,7 @@ country_event = {
 			factor = 0
 		}
 		start_civil_war = {
-			ideology = fascism
+			ideology = national_populist
 			size = 0.5
 		}
 	}
@@ -969,31 +969,31 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_government = democratic
+				OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
 			}
 			start_civil_war = {
-				ruling_party = fascism
-				ideology = democratic
+				ruling_party = national_populist
+				ideology = social_liberal
 				size = 0.5
 			}
 		}
 		if = {
 			limit = {
-				has_government = communism
+				OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			}
 			start_civil_war = {
-				ruling_party = fascism
-				ideology = communism
+				ruling_party = national_populist
+				ideology = radical_socialist
 				size = 0.5
 			}
 		}
 		if = {
 			limit = {
-				has_government = neutrality
+				OR = { has_government = authoritarian_democrat has_government = paternal_autocrat }
 			}
 			start_civil_war = {
-				ruling_party = fascism
-				ideology = neutrality
+				ruling_party = national_populist
+				ideology = authoritarian_democrat
 				size = 0.5
 			}
 		}
@@ -1007,7 +1007,7 @@ country_event = {
 		}
 		add_political_power = -100
 		set_politics = {
-			ruling_party = fascism
+			ruling_party = national_populist
 			elections_allowed = no
 		}
 	}
@@ -1020,9 +1020,9 @@ country_event = {
 	picture = GFX_report_event_worker_protests
 
 	trigger = {
-		communism > 0.7
+		sof_kr_support_communism_gt = { VALUE = 0.7 }
 		#has_idea = communist_revolutionaries
-		NOT = { has_government = communism }
+		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 		#Special case CHI PRC
 		has_civil_war = no
 	}
@@ -1041,7 +1041,7 @@ country_event = {
 			factor = 0
 		}
 		start_civil_war = {
-			ideology = communism
+			ideology = radical_socialist
 			size = 0.5
 		}
 	}
@@ -1053,31 +1053,31 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_government = democratic
+				OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
 			}
 			start_civil_war = {
-				ruling_party = communism
-				ideology = democratic
+				ruling_party = radical_socialist
+				ideology = social_liberal
 				size = 0.5
 			}
 		}
 		if = {
 			limit = {
-				has_government = fascism
+				OR = { has_government = national_populist }
 			}
 			start_civil_war = {
-				ruling_party = communism
-				ideology = fascism
+				ruling_party = radical_socialist
+				ideology = national_populist
 				size = 0.5
 			}
 		}
 		if = {
 			limit = {
-				has_government = neutrality
+				OR = { has_government = authoritarian_democrat has_government = paternal_autocrat }
 			}
 			start_civil_war = {
-				ruling_party = communism
-				ideology = neutrality
+				ruling_party = radical_socialist
+				ideology = authoritarian_democrat
 				size = 0.5
 			}
 		}
@@ -1091,7 +1091,7 @@ country_event = {
 		}
 		add_political_power = -100
 		set_politics = {
-			ruling_party = communism
+			ruling_party = radical_socialist
 			elections_allowed = no
 		}
 	}
@@ -1104,10 +1104,10 @@ country_event = {
 	picture = GFX_report_event_gathering_protest
 
 	trigger = {
-		democratic > 0.7
+		sof_kr_support_democratic_gt = { VALUE = 0.7 }
 		#has_idea = democratic_revolutionaries
 		#Special case CHI PRC
-		NOT = { has_government = democratic }
+		NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 		has_civil_war = no
 	}
 
@@ -1125,7 +1125,7 @@ country_event = {
 			factor = 0
 		}
 		start_civil_war = {
-			ideology = democratic
+			ideology = social_liberal
 			size = 0.5
 		}
 	}
@@ -1137,33 +1137,33 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_government = neutrality
+				OR = { has_government = authoritarian_democrat has_government = paternal_autocrat }
 			}
 			start_civil_war = {
-				ruling_party = democratic
-				ideology = neutrality
+				ruling_party = social_liberal
+				ideology = authoritarian_democrat
 				size = 0.5
 			}
 		}
 		if = {
 			limit = {
-				has_government = fascism
+				OR = { has_government = national_populist }
 			}
 			add_timed_idea = { idea = fascism_defeated days = 730 }			
 			start_civil_war = {
-				ruling_party = democratic
-				ideology = fascism
+				ruling_party = social_liberal
+				ideology = national_populist
 				size = 0.5
 			}
 		}
 		if = {
 			limit = {
-				has_government = communism
+				OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			}
 			add_timed_idea = { idea = communism_defeated days = 730 }
 			start_civil_war = {
-				ruling_party = democratic
-				ideology = communism
+				ruling_party = social_liberal
+				ideology = radical_socialist
 				size = 0.5
 			}
 		}
@@ -1177,7 +1177,7 @@ country_event = {
 		}
 		add_political_power = -100
 		set_politics = {
-			ruling_party = democratic
+			ruling_party = social_liberal
 			elections_allowed = yes
 		}
 	}
@@ -1192,7 +1192,7 @@ country_event = {
 	picture = GFX_report_event_fascists_posing
 
 	trigger = {
-		fascism < 0.3
+		sof_kr_support_fascism_lt = { VALUE = 0.3 }
 		has_idea = fascist_revolutionaries
 	}
 
@@ -1213,7 +1213,7 @@ country_event = {
 	picture = GFX_report_event_stalin_propaganda
 
 	trigger = {
-		communism < 0.3
+		sof_kr_support_communism_lt = { VALUE = 0.3 }
 		has_idea = communist_revolutionaries
 	}
 
@@ -1234,7 +1234,7 @@ country_event = {
 	picture = GFX_report_event_europe_funeral
 
 	trigger = {
-		democratic < 0.3
+		sof_kr_support_democratic_lt = { VALUE = 0.3 }
 		has_idea = democratic_revolutionaries
 	}
 
@@ -1254,18 +1254,18 @@ country_event = {
 	title = political.27.t
 	desc = { 
 		text = political.27.d_fascism
-	 	trigger = { has_government = fascism }
+	 	trigger = { OR = { has_government = national_populist } }
 	}
 	desc = { 
 		text = political.27.d_communism
-	 	trigger = { has_government = communism }
+	 	trigger = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 	}
 	picture = GFX_report_event_journalists_speech
 
 	trigger = {
 		OR = {
-			has_government = fascism
-			has_government = communism
+			OR = { has_government = national_populist }
+			OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 		}
 		has_idea = neutrality_idea
 	}
@@ -1294,7 +1294,7 @@ country_event = {
 			NOT = { tag = ROOT }
 			original_tag = ROOT
 			is_subject = no
-			has_government = ROOT
+			OR = { AND = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } ROOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } } } AND = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } ROOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } } AND = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } ROOT = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } } } AND = { OR = { has_government = national_populist } ROOT = { OR = { has_government = national_populist } } } }
 		}
 	}
 

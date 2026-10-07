@@ -193,8 +193,8 @@ ideas = {
 			available = {
 				has_war_support > 0.5
 				OR = {
-					has_government = fascism
-					has_government = communism
+					OR = { has_government = national_populist }
+					OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 					custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
 					AND = {
 						has_war = yes
@@ -344,7 +344,7 @@ ideas = {
 			allowed_to_remove = {
 				OR = {
 					surrender_progress > 0.75
-					NOT = { has_government = communism }
+					NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 				}
 			}
 
@@ -373,7 +373,7 @@ ideas = {
 			allowed_to_remove = {
 				OR = {
 					surrender_progress > 0.75
-					NOT = { has_government = communism }
+					NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 				}
 			}
 
@@ -520,7 +520,7 @@ ideas = {
 			available = {
 				OR = {
 					AND = {
-						has_government = democratic
+						OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
 						has_war = yes
 						any_enemy_country = {
 							ic_ratio = {
@@ -530,7 +530,7 @@ ideas = {
 						}
 					}
 					AND = {
-						NOT = { has_government = democratic }
+						NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 						OR = {
 							has_idea = partial_economic_mobilisation
 							has_idea = war_economy
@@ -590,8 +590,8 @@ ideas = {
 			available = {
 				has_war = yes
 				OR = {
-					has_government = fascism
-					has_government = communism
+					OR = { has_government = national_populist }
+					OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 				}
 				OR = {
 					has_idea = war_economy

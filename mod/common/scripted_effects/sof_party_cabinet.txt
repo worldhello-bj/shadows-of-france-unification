@@ -1,0 +1,6 @@
+sof_party_queue_cabinet_consultation = {
+ if = { limit = { sof_party_cabinet_region = yes has_capitulated = no NOT = { has_country_flag = sof_party_cabinet_pending } NOT = { has_country_flag = sof_party_cabinet_deferred } OR = { sof_party_cabinet_can_pcf = yes sof_party_cabinet_can_sfio = yes sof_party_cabinet_can_prrrs = yes sof_party_cabinet_can_usr = yes sof_party_cabinet_can_pup = yes sof_party_cabinet_can_rg_ad = yes sof_party_cabinet_can_fr_urd = yes sof_party_cabinet_can_pdp = yes sof_party_cabinet_can_upr = yes sof_party_cabinet_can_doriot = yes } }
+  set_country_flag = { flag = sof_party_cabinet_pending days = 30 }
+  country_event = { id = sof_party_cabinet.1 days = 1 }
+ }
+}

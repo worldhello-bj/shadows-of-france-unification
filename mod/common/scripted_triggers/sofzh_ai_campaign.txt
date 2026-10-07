@@ -23,11 +23,15 @@ sofzh_ai_safe_target = {
         AND = {
             sofzh_unification_is_in_corsica = yes
             ROOT = {
-                OR = { has_completed_focus = SOF_UNIFY_corsican_operation has_completed_focus = SOF_COR_island_mandate sofzh_corsica_naval_mission = yes has_completed_focus = SOF_PRS_corsican_mission }
+                OR = { has_completed_focus = SOF_UNIFY_corsican_operation sofzh_corsica_island_mandate = yes sofzh_corsica_naval_mission = yes sof_nr_sea_ready = yes }
                 has_navy_size = { size > 3 }
             }
         }
     
+        AND = {
+            any_owned_state = { sofzh_unification_french_state = yes is_coastal = yes naval_base > 0 is_fully_controlled_by = PREV }
+            ROOT = { sof_nr_sea_ready = yes }
+        }
         AND = {
             sofzh_corsica_coastal_target = yes
             ROOT = {

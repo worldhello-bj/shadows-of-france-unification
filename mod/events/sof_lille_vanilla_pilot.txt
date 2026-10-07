@@ -1,0 +1,17 @@
+add_namespace = sof_lil36
+country_event = { id = sof_lil36.1 title = sof_lil36.1.t desc = sof_lil36.1.d is_triggered_only = yes
+option = { name = sof_lil36.1.0 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_1_settled } } set_country_flag = sof_lil36_event_1_settled add_stability = 0.02 complete_national_focus = SOF_LIL36_government_of_national_unity } }
+option = { name = sof_lil36.1.1 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_1_settled } } set_country_flag = sof_lil36_event_1_settled add_ideas = sof_lil36_labor set_country_flag = sof_lil36_popularfront_ready complete_national_focus = SOF_LIL36_vandervelde_minority } }
+}
+country_event = { id = sof_lil36.2 title = sof_lil36.2.t desc = sof_lil36.2.d is_triggered_only = yes
+option = { name = sof_lil36.2.0 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_2_settled } } set_country_flag = sof_lil36_event_2_settled add_ideas = sof_lil36_civic complete_national_focus = SOF_LIL36_paul_emile_janson } }
+option = { name = sof_lil36.2.1 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_2_settled } } set_country_flag = sof_lil36_event_2_settled add_political_power = 20 complete_national_focus = SOF_LIL36_constitutional_crisis } }
+}
+country_event = { id = sof_lil36.3 title = sof_lil36.3.t desc = sof_lil36.3.d is_triggered_only = yes
+option = { name = sof_lil36.3.0 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_3_settled } } set_country_flag = sof_lil36_event_3_settled sof_kr_set_party_rg_ad = yes add_ideas = sof_lil36_civic complete_national_focus = SOF_LIL36_liberal_victory } }
+option = { name = sof_lil36.3.1 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_3_settled } } set_country_flag = sof_lil36_event_3_settled sof_kr_set_party_sfio = yes add_ideas = sof_lil36_labor complete_national_focus = SOF_LIL36_socialist_victory } }
+}
+country_event = { id = sof_lil36.4 title = sof_lil36.4.t desc = sof_lil36.4.d is_triggered_only = yes
+option = { name = sof_lil36.4.0 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_4_settled } } set_country_flag = sof_lil36_event_4_settled add_stability = 0.025 add_political_power = -15  } }
+option = { name = sof_lil36.4.1 ai_chance = { factor = 50 } if = { limit = { NOT = { has_country_flag = sof_lil36_event_4_settled } } set_country_flag = sof_lil36_event_4_settled add_political_power = 25 add_stability = -0.01  } }
+}

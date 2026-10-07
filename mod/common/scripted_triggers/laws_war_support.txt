@@ -45,8 +45,8 @@ has_unsupported_manpower_law = {
 		}
 			has_idea = extensive_conscription
 			has_war_support < 0.2
-			NOT = { has_government = communism }
-			NOT = { has_government = fascism }
+			NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
+			NOT = { OR = { has_government = national_populist } }
 	}
 	else_if = {
 		limit = {
@@ -54,8 +54,8 @@ has_unsupported_manpower_law = {
 		}
 			has_idea = service_by_requirement
 			has_war_support < 0.6
-			NOT = { has_government = communism }
-			NOT = { has_government = fascism }
+			NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
+			NOT = { OR = { has_government = national_populist } }
 	}
 	else_if = {
 		limit = {
@@ -80,7 +80,7 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			has_army_manpower = { size = 250000 }
 			has_manpower < 1
 			NOT = {
-				has_government = communism
+				OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			}
 		}
 		AND = {
@@ -88,7 +88,7 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			has_army_manpower = { size = 500000 }
 			has_manpower < 1
 			NOT = {
-				has_government = communism
+				OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			}
 		}
 		AND = {
@@ -96,7 +96,7 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			has_army_manpower = { size = 750000 }
 			has_manpower < 1
 			NOT = {
-				has_government = communism
+				OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			}
 		}
 		AND = {
@@ -104,18 +104,18 @@ has_excessive_army_size = { #not currently used due to AI concerns
 			has_army_manpower = { size = 1000000 }
 			has_manpower < 1
 			NOT = {
-				has_government = communism
+				OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			}
 		}
 		AND = {
 			has_army_manpower = { size = 2500000 }
 			has_manpower < 1
-			has_government = democratic
+			OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
 		}
 		AND = {
 			has_army_manpower = { size = 3000000 }
 			has_manpower < 1
-			has_government = fascism
+			OR = { has_government = national_populist }
 		}
 	}
 }

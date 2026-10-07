@@ -242,30 +242,30 @@ types = {
 						}
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs/var:actor_country
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs/var:actor_country
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs/var:actor_country
+								ideology = radical_socialist #these do not take FROM/ROOTs/var:actor_country
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs/var:actor_country
+								ideology = social_liberal #these do not take FROM/ROOTs/var:actor_country
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs/var:actor_country
+								ideology = national_populist #these do not take FROM/ROOTs/var:actor_country
 								popularity = 0.1
 							}
 						}
@@ -525,30 +525,30 @@ types = {
 						}
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
@@ -558,30 +558,30 @@ types = {
 						add_war_support = -0.05
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
@@ -641,7 +641,7 @@ types = {
 				is_fully_controlled_by = GER
 			}
 			FRA = {
-				has_government = democratic
+				OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
 				is_in_faction_with = ENG
 			}
 		}
@@ -1060,30 +1060,30 @@ types = {
 							set_country_flag = has_successfully_bombed_a_landmark_flag
 						}
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
@@ -1093,30 +1093,30 @@ types = {
 						add_war_support = -0.05
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
@@ -1383,30 +1383,30 @@ types = {
 							set_country_flag = has_successfully_bombed_a_landmark_flag
 						}
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
@@ -1416,30 +1416,30 @@ types = {
 						add_war_support = -0.05
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
@@ -1683,30 +1683,30 @@ types = {
 							set_country_flag = has_successfully_bombed_a_landmark_flag
 						}
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
@@ -1716,30 +1716,30 @@ types = {
 						add_war_support = -0.05
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
@@ -2221,30 +2221,30 @@ types = {
 							set_country_flag = has_successfully_bombed_a_landmark_flag
 						}
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
@@ -2254,30 +2254,30 @@ types = {
 						add_war_support = -0.05
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
@@ -2514,30 +2514,30 @@ types = {
 							set_country_flag = has_successfully_bombed_a_landmark_flag
 						}
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
@@ -2547,30 +2547,30 @@ types = {
 						add_war_support = -0.05
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
@@ -2807,30 +2807,30 @@ types = {
 							set_country_flag = has_successfully_bombed_a_landmark_flag
 						}
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = 0.1
 							}
 						}
@@ -2840,30 +2840,30 @@ types = {
 						add_war_support = -0.05
 
 						IF = {
-							limit = { has_government = neutrality }
+							limit = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 							add_popularity = {
-								ideology = neutrality #these do not take FROM/ROOTs
+								ideology = authoritarian_democrat #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = communism }
+							limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 							add_popularity = {
-								ideology = communism #these do not take FROM/ROOTs
+								ideology = radical_socialist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = democratic }
+							limit = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 							add_popularity = {
-								ideology = democratic #these do not take FROM/ROOTs
+								ideology = social_liberal #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}
 						ELSE_IF = {
-							limit = { has_government = fascism }
+							limit = { OR = { has_government = national_populist } }
 							add_popularity = {
-								ideology = fascism #these do not take FROM/ROOTs
+								ideology = national_populist #these do not take FROM/ROOTs
 								popularity = -0.05
 							}
 						}

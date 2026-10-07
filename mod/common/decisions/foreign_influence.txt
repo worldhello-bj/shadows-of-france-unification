@@ -15,7 +15,7 @@ foreign_influence = {
 				is_puppet_of = ROOT
 			}
 			FROM = {
-				democratic < 0.9
+				sof_kr_support_democratic_lt = { VALUE = 0.9 }
 			}
 			OR = {
 				political_power_daily > 0.5
@@ -24,10 +24,10 @@ foreign_influence = {
 		}
 
 		visible = {
-			has_government = democratic
+			OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
 			FROM = {
 				is_puppet_of = ROOT
-				democratic < 0.99
+				sof_kr_support_democratic_lt = { VALUE = 0.99 }
 			}
 		}
 
@@ -63,7 +63,7 @@ foreign_influence = {
 				is_puppet_of = ROOT
 			}
 			FROM = {
-				communism < 0.9
+				sof_kr_support_communism_lt = { VALUE = 0.9 }
 			}
 			OR = {
 				political_power_daily > 0.5
@@ -72,10 +72,10 @@ foreign_influence = {
 		}
 
 		visible = {
-			has_government = communism
+			OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			FROM = {
 				is_puppet_of = ROOT
-				communism < 0.99
+				sof_kr_support_communism_lt = { VALUE = 0.99 }
 			}
 		}
 
@@ -112,7 +112,7 @@ foreign_influence = {
 				is_puppet_of = ROOT
 			}
 			FROM = {
-				fascism < 0.9
+				sof_kr_support_fascism_lt = { VALUE = 0.9 }
 			}
 			OR = {
 				political_power_daily > 0.5
@@ -121,10 +121,10 @@ foreign_influence = {
 		}
 
 		visible = {
-			has_government = fascism
+			OR = { has_government = national_populist }
 			FROM = {
 				is_puppet_of = ROOT
-				fascism < 0.99
+				sof_kr_support_fascism_lt = { VALUE = 0.99 }
 			}
 		}
 
@@ -160,7 +160,7 @@ foreign_influence = {
 		available = {
 			FROM = {
 				is_puppet_of = ROOT
-				neutrality < 0.9
+				sof_kr_support_neutrality_lt = { VALUE = 0.9 }
 			}
 			OR = {
 				political_power_daily > 0.5
@@ -169,10 +169,10 @@ foreign_influence = {
 		}
 
 		visible = {
-			has_government = neutrality
+			OR = { has_government = authoritarian_democrat has_government = paternal_autocrat }
 			FROM = {
 				is_puppet_of = ROOT
-				neutrality < 0.99
+				sof_kr_support_neutrality_lt = { VALUE = 0.99 }
 			}
 		}
 
@@ -210,18 +210,18 @@ foreign_influence = {
 				is_puppet_of = ROOT
 			}
 			FROM = {
-				democratic > 0.6
+				sof_kr_support_democratic_gt = { VALUE = 0.6 }
 			}
 			FROM = {
-				NOT = { has_government = democratic }
+				NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 			}
 		}
 
 		visible = {
-			has_government = democratic
+			OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
 			FROM = {
 				is_puppet_of = ROOT
-				NOT = { has_government = democratic }
+				NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 			}
 		}
 
@@ -243,7 +243,7 @@ foreign_influence = {
 			}
 			FROM = {
 				set_politics = {
-					ruling_party = democratic
+					ruling_party = social_liberal
 					elections_allowed = yes
 				}
 			}
@@ -265,18 +265,18 @@ foreign_influence = {
 				is_puppet_of = ROOT
 			}
 			FROM = {
-				communism > 0.6
+				sof_kr_support_communism_gt = { VALUE = 0.6 }
 			}
 			FROM = {
-				NOT = { has_government = communism }
+				NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 			}
 		}
 
 		visible = {
-			has_government = communism
+			OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 			FROM = {
 				is_puppet_of = ROOT
-				NOT = { has_government = communism }
+				NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 			}
 		}
 
@@ -298,7 +298,7 @@ foreign_influence = {
 			}
 			FROM = {
 				set_politics = {
-					ruling_party = communism
+					ruling_party = radical_socialist
 					elections_allowed = no
 				}
 			}
@@ -320,18 +320,18 @@ foreign_influence = {
 				is_puppet_of = ROOT
 			}
 			FROM = {
-				fascism > 0.6
+				sof_kr_support_fascism_gt = { VALUE = 0.6 }
 			}
 			FROM = {
-				NOT = { has_government = fascism }
+				NOT = { OR = { has_government = national_populist } }
 			}
 		}
 
 		visible = {
-			has_government = fascism
+			OR = { has_government = national_populist }
 			FROM = {
 				is_puppet_of = ROOT
-				NOT = { has_government = fascism }
+				NOT = { OR = { has_government = national_populist } }
 			}
 		}
 
@@ -353,7 +353,7 @@ foreign_influence = {
 			}
 			FROM = {
 				set_politics = {
-					ruling_party = fascism
+					ruling_party = national_populist
 					elections_allowed = no
 				}
 			}
@@ -375,18 +375,18 @@ foreign_influence = {
 				is_puppet_of = ROOT
 			}
 			FROM = {
-				neutrality > 0.6
+				sof_kr_support_neutrality_gt = { VALUE = 0.6 }
 			}
 			FROM = {
-				NOT = { has_government = neutrality }
+				NOT = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 			}
 		}
 
 		visible = {
-			has_government = neutrality
+			OR = { has_government = authoritarian_democrat has_government = paternal_autocrat }
 			FROM = {
 				is_puppet_of = ROOT
-				NOT = { has_government = neutrality }
+				NOT = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
 			}
 		}
 
@@ -408,7 +408,7 @@ foreign_influence = {
 			}
 			FROM = {
 				set_politics = {
-					ruling_party = neutrality
+					ruling_party = authoritarian_democrat
 					elections_allowed = no
 				}
 			}
@@ -455,7 +455,7 @@ foreign_influence = {
 			modifier = {
 				# neutrals won't do collaboration until 1944 and they are at peace
 
-				has_government = neutrality
+				OR = { has_government = authoritarian_democrat has_government = paternal_autocrat }
 
 				OR = {
 					has_war = yes

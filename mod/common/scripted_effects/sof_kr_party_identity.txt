@@ -1,0 +1,248 @@
+# Generated explicit identities. A KR ideology cannot identify a historical party.
+sof_kr_clear_party_identity = {
+ if = { limit = { OR = { check_variable = { var = sof_kr_ruling_party_id value = 0 compare = greater_than } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_variable = { sof_kr_ruling_party_id = 0 }
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_pcf = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_pcf_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 1 compare = equals } } NOT = { has_government = totalist } has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_pcf_in_power
+  set_variable = { sof_kr_ruling_party_id = 1 }
+  set_politics = { ruling_party = totalist }
+  sof_kr_sync_party_presentation_pcf = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_sfio = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_sfio_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 2 compare = equals } } NOT = { has_government = social_democrat } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_sfio_in_power
+  set_variable = { sof_kr_ruling_party_id = 2 }
+  set_politics = { ruling_party = social_democrat }
+  sof_kr_sync_party_presentation_sfio = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_prrrs = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_prrrs_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 3 compare = equals } } NOT = { has_government = social_liberal } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_prrrs_in_power
+  set_variable = { sof_kr_ruling_party_id = 3 }
+  set_politics = { ruling_party = social_liberal }
+  sof_kr_sync_party_presentation_prrrs = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_usr = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_usr_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 4 compare = equals } } NOT = { has_government = social_democrat } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_usr_in_power
+  set_variable = { sof_kr_ruling_party_id = 4 }
+  set_politics = { ruling_party = social_democrat }
+  sof_kr_sync_party_presentation_usr = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_pup = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_pup_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 5 compare = equals } } NOT = { has_government = radical_socialist } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_pup_in_power
+  set_variable = { sof_kr_ruling_party_id = 5 }
+  set_politics = { ruling_party = radical_socialist }
+  sof_kr_sync_party_presentation_pup = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_rg_ad = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_rg_ad_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 6 compare = equals } } NOT = { has_government = market_liberal } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_rg_ad_in_power
+  set_variable = { sof_kr_ruling_party_id = 6 }
+  set_politics = { ruling_party = market_liberal }
+  sof_kr_sync_party_presentation_rg_ad = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_fr_urd = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_fr_urd_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 7 compare = equals } } NOT = { has_government = social_conservative } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_fr_urd_in_power
+  set_variable = { sof_kr_ruling_party_id = 7 }
+  set_politics = { ruling_party = social_conservative }
+  sof_kr_sync_party_presentation_fr_urd = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_pdp = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_pdp_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 8 compare = equals } } NOT = { has_government = social_conservative } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_upr_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_pdp_in_power
+  set_variable = { sof_kr_ruling_party_id = 8 }
+  set_politics = { ruling_party = social_conservative }
+  sof_kr_sync_party_presentation_pdp = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_upr = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_upr_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 9 compare = equals } } NOT = { has_government = social_conservative } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_doriot_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_upr_in_power
+  set_variable = { sof_kr_ruling_party_id = 9 }
+  set_politics = { ruling_party = social_conservative }
+  sof_kr_sync_party_presentation_upr = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_set_party_doriot = {
+ if = { limit = { OR = { NOT = { has_country_flag = sof_kr_party_doriot_in_power } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 10 compare = equals } } NOT = { has_government = authoritarian_democrat } has_country_flag = sof_kr_party_pcf_in_power has_country_flag = sof_kr_party_sfio_in_power has_country_flag = sof_kr_party_prrrs_in_power has_country_flag = sof_kr_party_usr_in_power has_country_flag = sof_kr_party_pup_in_power has_country_flag = sof_kr_party_rg_ad_in_power has_country_flag = sof_kr_party_fr_urd_in_power has_country_flag = sof_kr_party_pdp_in_power has_country_flag = sof_kr_party_upr_in_power } }
+  set_temp_variable = { sof_kr_previous_party_id = sof_kr_ruling_party_id }
+  clr_country_flag = sof_kr_party_pcf_in_power
+  clr_country_flag = sof_kr_party_sfio_in_power
+  clr_country_flag = sof_kr_party_prrrs_in_power
+  clr_country_flag = sof_kr_party_usr_in_power
+  clr_country_flag = sof_kr_party_pup_in_power
+  clr_country_flag = sof_kr_party_rg_ad_in_power
+  clr_country_flag = sof_kr_party_fr_urd_in_power
+  clr_country_flag = sof_kr_party_pdp_in_power
+  clr_country_flag = sof_kr_party_upr_in_power
+  clr_country_flag = sof_kr_party_doriot_in_power
+  set_country_flag = sof_kr_party_doriot_in_power
+  set_variable = { sof_kr_ruling_party_id = 10 }
+  set_politics = { ruling_party = authoritarian_democrat }
+  sof_kr_sync_party_presentation_doriot = yes
+  sof_kr_on_party_identity_changed = yes
+ }
+}
+sof_kr_validate_party_identity = {
+ set_temp_variable = { sof_kr_identity_flag_count = 0 }
+ if = { limit = { has_country_flag = sof_kr_party_pcf_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_sfio_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_usr_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_pup_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_pdp_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_upr_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { has_country_flag = sof_kr_party_doriot_in_power } add_to_temp_variable = { sof_kr_identity_flag_count = 1 } }
+ if = { limit = { OR = {
+ check_variable = { var = sof_kr_identity_flag_count value = 1 compare = greater_than }
+ AND = { check_variable = { var = sof_kr_ruling_party_id value = 0 compare = greater_than } check_variable = { var = sof_kr_identity_flag_count value = 0 compare = equals } }
+  AND = { has_country_flag = sof_kr_party_pcf_in_power OR = { NOT = { has_government = totalist } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 1 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_sfio_in_power OR = { NOT = { has_government = social_democrat } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 2 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_prrrs_in_power OR = { NOT = { has_government = social_liberal } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 3 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_usr_in_power OR = { NOT = { has_government = social_democrat } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 4 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_pup_in_power OR = { NOT = { has_government = radical_socialist } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 5 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_rg_ad_in_power OR = { NOT = { has_government = market_liberal } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 6 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_fr_urd_in_power OR = { NOT = { has_government = social_conservative } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 7 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_pdp_in_power OR = { NOT = { has_government = social_conservative } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 8 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_upr_in_power OR = { NOT = { has_government = social_conservative } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 9 compare = equals } } } }
+  AND = { has_country_flag = sof_kr_party_doriot_in_power OR = { NOT = { has_government = authoritarian_democrat } NOT = { check_variable = { var = sof_kr_ruling_party_id value = 10 compare = equals } } } }
+ } } sof_kr_clear_party_identity = yes }
+}
+# Future party-focus modules use persistent focus IDs/reward receipts.
+# This hook never loads a replacement tree or grants a reward.
+sof_kr_on_party_identity_changed = { sof_party_sync_policies = yes mark_focus_tree_layout_dirty = yes }

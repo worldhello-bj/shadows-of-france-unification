@@ -1,0 +1,5 @@
+on_actions = {
+ on_new_term_election = { effect = { clr_country_flag = sof_party_cabinet_deferred sof_party_queue_cabinet_consultation = yes } }
+ on_ruling_party_change = { effect = { sof_kr_validate_party_identity = yes if = { limit = { check_variable = { var = sof_kr_ruling_party_id value = 0 compare = equals } } sof_party_queue_cabinet_consultation = yes } } }
+ on_weekly = { effect = { if = { limit = { sof_party_cabinet_region = yes check_variable = { var = sof_kr_ruling_party_id value = 0 compare = equals } } sof_party_queue_cabinet_consultation = yes } } }
+}

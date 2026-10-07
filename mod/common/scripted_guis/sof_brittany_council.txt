@@ -1,0 +1,135 @@
+scripted_gui = { sof_brt_council_gui = { context_type = decision_category window_name = "sof_brt_council_window" ai_enabled = { always = no }
+effects = { sof_brt_tab_members_click = { set_variable = { sof_brt_ui_tab = 0 } }
+sof_brt_tab_bills_click = { set_variable = { sof_brt_ui_tab = 1 } }
+sof_brt_tab_forces_click = { set_variable = { sof_brt_ui_tab = 2 } }
+sof_brt_tab_funds_click = { set_variable = { sof_brt_ui_tab = 3 } }
+sof_brt_lobby_chateau_click = { sof_brt_gui_lobby_chateau = yes }
+sof_brt_lobby_lemaistre_click = { sof_brt_gui_lobby_lemaistre = yes }
+sof_brt_lobby_bahon_click = { sof_brt_gui_lobby_bahon = yes }
+sof_brt_lobby_legorgeu_click = { sof_brt_gui_lobby_legorgeu = yes }
+sof_brt_lobby_tremintin_click = { sof_brt_gui_lobby_tremintin = yes }
+sof_brt_lobby_prigent_click = { sof_brt_gui_lobby_prigent = yes } }
+triggers = { sof_brt_page_members_visible = { NOT = { OR = { check_variable = { sof_brt_ui_tab = 1 } check_variable = { sof_brt_ui_tab = 2 } check_variable = { sof_brt_ui_tab = 3 } } } }
+sof_brt_active_tab_members_visible = { NOT = { OR = { check_variable = { sof_brt_ui_tab = 1 } check_variable = { sof_brt_ui_tab = 2 } check_variable = { sof_brt_ui_tab = 3 } } } }
+sof_brt_active_label_members_visible = { NOT = { OR = { check_variable = { sof_brt_ui_tab = 1 } check_variable = { sof_brt_ui_tab = 2 } check_variable = { sof_brt_ui_tab = 3 } } } }
+sof_brt_page_bills_visible = { check_variable = { sof_brt_ui_tab = 1 } }
+sof_brt_active_tab_bills_visible = { check_variable = { sof_brt_ui_tab = 1 } }
+sof_brt_active_label_bills_visible = { check_variable = { sof_brt_ui_tab = 1 } }
+sof_brt_page_forces_visible = { check_variable = { sof_brt_ui_tab = 2 } }
+sof_brt_active_tab_forces_visible = { check_variable = { sof_brt_ui_tab = 2 } }
+sof_brt_active_label_forces_visible = { check_variable = { sof_brt_ui_tab = 2 } }
+sof_brt_page_funds_visible = { check_variable = { sof_brt_ui_tab = 3 } }
+sof_brt_active_tab_funds_visible = { check_variable = { sof_brt_ui_tab = 3 } }
+sof_brt_active_label_funds_visible = { check_variable = { sof_brt_ui_tab = 3 } }
+sof_brt_lobby_chateau_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P3 NOT = { has_country_flag = sof_brt_pledge_chateau } NOT = { has_country_flag = sof_brt_suspended_chateau } NOT = { has_political_power < 25 } }
+sof_brt_lobby_lemaistre_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P4 NOT = { has_country_flag = sof_brt_pledge_lemaistre } NOT = { has_country_flag = sof_brt_suspended_lemaistre } NOT = { has_political_power < 25 } }
+sof_brt_lobby_bahon_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P5 NOT = { has_country_flag = sof_brt_pledge_bahon } NOT = { has_country_flag = sof_brt_suspended_bahon } NOT = { has_political_power < 30 } }
+sof_brt_lobby_legorgeu_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P6 NOT = { has_country_flag = sof_brt_pledge_legorgeu } NOT = { has_country_flag = sof_brt_suspended_legorgeu } NOT = { has_political_power < 35 } }
+sof_brt_lobby_tremintin_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P7 NOT = { has_country_flag = sof_brt_pledge_tremintin } NOT = { has_country_flag = sof_brt_suspended_tremintin } NOT = { has_political_power < 25 } }
+sof_brt_lobby_prigent_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P8 NOT = { has_country_flag = sof_brt_pledge_prigent } NOT = { has_country_flag = sof_brt_suspended_prigent } NOT = { has_political_power < 30 } } }
+properties = { sof_brt_badge_chateau = { frame = sof_brt_ui_chateau }
+sof_brt_badge_lemaistre = { frame = sof_brt_ui_lemaistre }
+sof_brt_badge_bahon = { frame = sof_brt_ui_bahon }
+sof_brt_badge_legorgeu = { frame = sof_brt_ui_legorgeu }
+sof_brt_badge_tremintin = { frame = sof_brt_ui_tremintin }
+sof_brt_badge_prigent = { frame = sof_brt_ui_prigent }
+sof_brt_seat_0 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_1 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_2 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_3 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_4 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_5 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_6 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_7 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_8 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_9 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_10 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_11 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_12 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_13 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_14 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_15 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_16 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_17 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_18 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_19 = { frame = sof_brt_ui_chateau }
+sof_brt_seat_20 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_21 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_22 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_23 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_24 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_25 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_26 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_27 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_28 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_29 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_30 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_31 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_32 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_33 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_34 = { frame = sof_brt_ui_lemaistre }
+sof_brt_seat_35 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_36 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_37 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_38 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_39 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_40 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_41 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_42 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_43 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_44 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_45 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_46 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_47 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_48 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_49 = { frame = sof_brt_ui_bahon }
+sof_brt_seat_50 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_51 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_52 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_53 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_54 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_55 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_56 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_57 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_58 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_59 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_60 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_61 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_62 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_63 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_64 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_65 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_66 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_67 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_68 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_69 = { frame = sof_brt_ui_legorgeu }
+sof_brt_seat_70 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_71 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_72 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_73 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_74 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_75 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_76 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_77 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_78 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_79 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_80 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_81 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_82 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_83 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_84 = { frame = sof_brt_ui_tremintin }
+sof_brt_seat_85 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_86 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_87 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_88 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_89 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_90 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_91 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_92 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_93 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_94 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_95 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_96 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_97 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_98 = { frame = sof_brt_ui_prigent }
+sof_brt_seat_99 = { frame = sof_brt_ui_prigent } } } }

@@ -1,0 +1,42 @@
+sof_lil36_diplomacy = {
+sof_lil36_trade_AMI = { icon = sof_cw_pact cost = 30 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_our_southern_neighbour country_exists = AMI }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = AMI NOT = { has_country_flag = sof_lil36_pending_AMI } NOT = { has_war_with = AMI } AMI = { has_war = no is_subject = no has_capitulated = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = AMI NOT = { has_country_flag = sof_lil36_pending_AMI } NOT = { has_war_with = AMI } AMI = { has_war = no is_subject = no has_capitulated = no } } set_country_flag = { flag = sof_lil36_pending_AMI days = 30 } AMI = { country_event = { id = sof_lil36_dip.1 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+sof_lil36_defense_AMI = { icon = sof_cw_pact cost = 50 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_diplomatic_rapprochment country_exists = AMI }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = AMI NOT = { has_country_flag = sof_lil36_pending_AMI } NOT = { has_war_with = AMI } AMI = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } AMI = { is_in_faction = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = AMI NOT = { has_country_flag = sof_lil36_pending_AMI } NOT = { has_war_with = AMI } AMI = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } AMI = { is_in_faction = no } } set_country_flag = { flag = sof_lil36_pending_AMI days = 30 } AMI = { country_event = { id = sof_lil36_dip.3 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+sof_lil36_trade_MET = { icon = sof_cw_pact cost = 30 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_our_southern_neighbour country_exists = MET }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = MET NOT = { has_country_flag = sof_lil36_pending_MET } NOT = { has_war_with = MET } MET = { has_war = no is_subject = no has_capitulated = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = MET NOT = { has_country_flag = sof_lil36_pending_MET } NOT = { has_war_with = MET } MET = { has_war = no is_subject = no has_capitulated = no } } set_country_flag = { flag = sof_lil36_pending_MET days = 30 } MET = { country_event = { id = sof_lil36_dip.1 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+sof_lil36_defense_MET = { icon = sof_cw_pact cost = 50 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_diplomatic_rapprochment country_exists = MET }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = MET NOT = { has_country_flag = sof_lil36_pending_MET } NOT = { has_war_with = MET } MET = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } MET = { is_in_faction = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = MET NOT = { has_country_flag = sof_lil36_pending_MET } NOT = { has_war_with = MET } MET = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } MET = { is_in_faction = no } } set_country_flag = { flag = sof_lil36_pending_MET days = 30 } MET = { country_event = { id = sof_lil36_dip.3 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+sof_lil36_trade_ROU = { icon = sof_cw_pact cost = 30 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_our_southern_neighbour country_exists = ROU }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = ROU NOT = { has_country_flag = sof_lil36_pending_ROU } NOT = { has_war_with = ROU } ROU = { has_war = no is_subject = no has_capitulated = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = ROU NOT = { has_country_flag = sof_lil36_pending_ROU } NOT = { has_war_with = ROU } ROU = { has_war = no is_subject = no has_capitulated = no } } set_country_flag = { flag = sof_lil36_pending_ROU days = 30 } ROU = { country_event = { id = sof_lil36_dip.1 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+sof_lil36_defense_ROU = { icon = sof_cw_pact cost = 50 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_diplomatic_rapprochment country_exists = ROU }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = ROU NOT = { has_country_flag = sof_lil36_pending_ROU } NOT = { has_war_with = ROU } ROU = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } ROU = { is_in_faction = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = ROU NOT = { has_country_flag = sof_lil36_pending_ROU } NOT = { has_war_with = ROU } ROU = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } ROU = { is_in_faction = no } } set_country_flag = { flag = sof_lil36_pending_ROU days = 30 } ROU = { country_event = { id = sof_lil36_dip.3 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+sof_lil36_trade_PRS = { icon = sof_cw_pact cost = 30 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_our_southern_neighbour country_exists = PRS }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = PRS NOT = { has_country_flag = sof_lil36_pending_PRS } NOT = { has_war_with = PRS } PRS = { has_war = no is_subject = no has_capitulated = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = PRS NOT = { has_country_flag = sof_lil36_pending_PRS } NOT = { has_war_with = PRS } PRS = { has_war = no is_subject = no has_capitulated = no } } set_country_flag = { flag = sof_lil36_pending_PRS days = 30 } PRS = { country_event = { id = sof_lil36_dip.1 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+sof_lil36_defense_PRS = { icon = sof_cw_pact cost = 50 days_re_enable = 180
+visible = { original_tag = LIL has_completed_focus = SOF_LIL36_diplomatic_rapprochment country_exists = PRS }
+available = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = PRS NOT = { has_country_flag = sof_lil36_pending_PRS } NOT = { has_war_with = PRS } PRS = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } PRS = { is_in_faction = no } }
+complete_effect = { if = { limit = { original_tag = LIL has_war = no is_subject = no has_capitulated = no country_exists = PRS NOT = { has_country_flag = sof_lil36_pending_PRS } NOT = { has_war_with = PRS } PRS = { has_war = no is_subject = no has_capitulated = no } OR = { is_in_faction = no is_faction_leader = yes } PRS = { is_in_faction = no } } set_country_flag = { flag = sof_lil36_pending_PRS days = 30 } PRS = { country_event = { id = sof_lil36_dip.3 days = 1 } } } }
+ai_will_do = { factor = 1 modifier = { factor = 0 has_war = yes } } }
+}

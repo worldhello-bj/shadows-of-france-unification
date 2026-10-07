@@ -1,0 +1,49 @@
+add_namespace = sof_nr
+country_event = { id = sof_nr.1 title = sof_nr.1.t desc = sof_nr.1.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+ option = { name = sof_nr.1.a trigger = { sof_nr_accept_offer = yes } ai_chance = { factor = 30 modifier = { factor = 0 is_ai = no } modifier = { factor = 0 has_stability > 0.8 } } FROM = { sof_nr_count_states = yes } if = { limit = { sof_nr_accept_offer = yes } clr_country_flag = sof_nr_offer@FROM FROM = { clr_country_flag = sof_nr_offer_pending clr_country_flag = sof_nr_offer_to@ROOT add_stability = -0.03 annex_country = { target = ROOT transfer_troops = yes } sof_nr_count_states = yes country_event = { id = sof_nr.2 days = 1 } } } }
+ option = { name = sof_nr.1.b ai_chance = { factor = 70 } clr_country_flag = sof_nr_offer@FROM set_country_flag = { flag = sof_nr_offer_cooldown days = 365 } FROM = { if = { limit = { has_country_flag = sof_nr_offer_to@ROOT } clr_country_flag = sof_nr_offer_pending clr_country_flag = sof_nr_offer_to@ROOT country_event = { id = sof_nr.3 days = 1 } } } }
+}
+country_event = { id = sof_nr.2 title = sof_nr.2.t desc = sof_nr.2.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.2.a } }
+country_event = { id = sof_nr.3 title = sof_nr.3.t desc = sof_nr.3.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.3.a } }
+news_event = { id = sof_nr.10 title = sof_nr.10.t desc = sof_nr.10.d picture = GFX_report_event_generic_read_write is_triggered_only = yes major = yes option = { name = sof_nr.10.a } }
+country_event = { id = sof_nr.11 title = sof_nr.11.t desc = sof_nr.11.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.11.a } }
+
+country_event = { id = sof_nr.100 title = sof_nr.100.t desc = sof_nr.100.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.100.a } }
+
+country_event = { id = sof_nr.101 title = sof_nr.101.t desc = sof_nr.101.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.101.a } }
+
+country_event = { id = sof_nr.102 title = sof_nr.102.t desc = sof_nr.102.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.102.a } }
+
+country_event = { id = sof_nr.103 title = sof_nr.103.t desc = sof_nr.103.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.103.a } }
+
+country_event = { id = sof_nr.104 title = sof_nr.104.t desc = sof_nr.104.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.104.a } }
+
+country_event = { id = sof_nr.105 title = sof_nr.105.t desc = sof_nr.105.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.105.a } }
+
+country_event = { id = sof_nr.106 title = sof_nr.106.t desc = sof_nr.106.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.106.a } }
+
+country_event = { id = sof_nr.107 title = sof_nr.107.t desc = sof_nr.107.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.107.a } }
+
+country_event = { id = sof_nr.108 title = sof_nr.108.t desc = sof_nr.108.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.108.a } }
+
+country_event = { id = sof_nr.109 title = sof_nr.109.t desc = sof_nr.109.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.109.a } }
+
+country_event = { id = sof_nr.110 title = sof_nr.110.t desc = sof_nr.110.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.110.a } }
+
+country_event = { id = sof_nr.111 title = sof_nr.111.t desc = sof_nr.111.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.111.a } }
+
+country_event = { id = sof_nr.112 title = sof_nr.112.t desc = sof_nr.112.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.112.a } }
+
+country_event = { id = sof_nr.113 title = sof_nr.113.t desc = sof_nr.113.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.113.a } }
+
+country_event = { id = sof_nr.114 title = sof_nr.114.t desc = sof_nr.114.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.114.a } }
+
+country_event = { id = sof_nr.115 title = sof_nr.115.t desc = sof_nr.115.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.115.a } }
+
+country_event = { id = sof_nr.116 title = sof_nr.116.t desc = sof_nr.116.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.116.a } }
+
+country_event = { id = sof_nr.117 title = sof_nr.117.t desc = sof_nr.117.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.117.a } }
+
+country_event = { id = sof_nr.118 title = sof_nr.118.t desc = sof_nr.118.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.118.a } }
+
+country_event = { id = sof_nr.119 title = sof_nr.119.t desc = sof_nr.119.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_nr.119.a } }

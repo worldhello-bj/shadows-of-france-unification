@@ -3,7 +3,7 @@ sof_mrs_red_candidate = {
  original_tag = MRS is_subject = no has_capitulated = no
  capital_scope = { is_owned_by = PREV is_fully_controlled_by = PREV }
 }
-sof_mrs_red_active = { sof_mrs_red_candidate = yes has_government = communism has_country_flag = sof_mrs_red_government }
+sof_mrs_red_active = { sof_mrs_red_candidate = yes OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } has_country_flag = sof_mrs_red_government }
 sof_mrs_red_public_allowed = { NOT = { sof_mrs_red_active = yes } }
 sof_mrs_red_partner_target = {
  sofzh_unification_candidate = yes is_subject = no has_capitulated = no has_war = no
@@ -12,7 +12,7 @@ sof_mrs_red_partner_target = {
  OR = { is_neighbor_of = ROOT AND = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } ROOT = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } } } }
 }
 sof_mrs_red_federation_target = {
- sof_mrs_red_partner_target = yes has_government = communism is_in_faction_with = ROOT
+ sof_mrs_red_partner_target = yes OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } is_in_faction_with = ROOT
  has_opinion = { target = ROOT value > 74 }
 }
 sof_mrs_red_campaign_target = {
@@ -35,11 +35,11 @@ sof_mrs_red_offer_sender_valid = {
  has_country_flag = sof_mrs_red_offer_target
 }
 sof_mrs_red_invitation_valid = {
- sof_mrs_red_offer_sender_valid = yes has_government = communism is_in_faction = no
+ sof_mrs_red_offer_sender_valid = yes OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } is_in_faction = no
  FROM = { is_faction_leader = yes has_country_flag = sof_mrs_red_league_created }
 }
 sof_mrs_red_federation_valid = {
- sof_mrs_red_offer_sender_valid = yes has_government = communism
+ sof_mrs_red_offer_sender_valid = yes OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
  is_in_faction_with = FROM has_opinion = { target = FROM value > 74 }
  OR = { is_neighbor_of = FROM AND = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } FROM = { any_owned_state = { is_coastal = yes is_fully_controlled_by = PREV } } } }
 }

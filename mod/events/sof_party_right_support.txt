@@ -1,0 +1,30 @@
+add_namespace = sof_party_right
+country_event = {
+ id = sof_party_right.1
+ title = sof_party_right.1.t
+ desc = sof_party_right.1.d
+ picture = GFX_report_event_generic_parliament
+ is_triggered_only = yes
+ option = {
+  name = sof_party_right.1.a
+  trigger = { original_tag = PRS date > 1936.6.27 has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat NOT = { has_country_flag = sof_right_doriot_local_route } NOT = { has_country_flag = sof_right_doriot_ppf_route } }
+  ai_chance = { factor = 60 }
+  if = { limit = { original_tag = PRS date > 1936.6.27 has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat NOT = { has_country_flag = sof_right_doriot_local_route } NOT = { has_country_flag = sof_right_doriot_ppf_route } }
+  set_country_flag = sof_right_doriot_ppf_route
+  set_party_name = { ideology = authoritarian_democrat name = sof_right_ppf_party long_name = sof_right_ppf_party_long }
+  add_political_power = 40
+  add_stability = -0.03
+  sof_party_sync_policies = yes
+  }
+ }
+ option = {
+  name = sof_party_right.1.b
+  ai_chance = { factor = 40 }
+  if = {
+   limit = { original_tag = PRS has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat NOT = { has_country_flag = sof_right_doriot_local_route } NOT = { has_country_flag = sof_right_doriot_ppf_route } }
+   set_country_flag = sof_right_doriot_local_route
+   add_stability = 0.02
+   sof_party_sync_policies = yes
+  }
+ }
+}

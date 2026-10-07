@@ -1,0 +1,34 @@
+# State changes accelerate reconciliation; province-only changes require the weekly fallback.
+# ROOT=new controller, FROM=old controller, FROM.FROM=state (vanilla/QIUQI contract).
+on_actions = {
+ on_startup = { effect = {  sof_vp_scan_nodes = yes } }
+ on_state_control_changed = { effect = {  if = { limit = { FROM.FROM = { state = 51 } } FROM.FROM = { sof_vp_roubaix_textiles_check = yes } }
+ if = { limit = { FROM.FROM = { state = 63 } } FROM.FROM = { sof_vp_wingles_mine_rail_check = yes } }
+ if = { limit = { FROM.FROM = { state = 84 } } FROM.FROM = { sof_vp_rouen_transshipment_check = yes } }
+ if = { limit = { FROM.FROM = { state = 237 } } FROM.FROM = { sof_vp_saint_nazaire_yards_check = yes } }
+ if = { limit = { FROM.FROM = { state = 266 } } FROM.FROM = { sof_vp_le_creusot_heavy_check = yes } }
+ if = { limit = { FROM.FROM = { state = 226 } } FROM.FROM = { sof_vp_dijon_rail_check = yes } }
+ if = { limit = { FROM.FROM = { state = 94 } } FROM.FROM = { sof_vp_joeuf_forges_check = yes } }
+ if = { limit = { FROM.FROM = { state = 217 } } FROM.FROM = { sof_vp_mulhouse_machinery_check = yes } }
+ if = { limit = { FROM.FROM = { state = 360 } } FROM.FROM = { sof_vp_saint_etienne_arms_check = yes } }
+ if = { limit = { FROM.FROM = { state = 389 } } FROM.FROM = { sof_vp_bordeaux_saso_check = yes } }
+ if = { limit = { FROM.FROM = { state = 439 } } FROM.FROM = { sof_vp_toulouse_dewoitine_check = yes } }
+ if = { limit = { FROM.FROM = { state = 345 } } FROM.FROM = { sof_vp_clermont_michelin_check = yes } }
+ if = { limit = { FROM.FROM = { state = 243 } } FROM.FROM = { sof_vp_besancon_precision_check = yes } }
+ if = { limit = { FROM.FROM = { state = 225 } } FROM.FROM = { sof_vp_tours_rail_check = yes } }
+ if = { limit = { FROM.FROM = { state = 70 } } FROM.FROM = { sof_vp_amiens_cosserat_check = yes } }
+ if = { limit = { FROM.FROM = { state = 81 } } FROM.FROM = { sof_vp_sedan_meuse_check = yes } }
+ if = { limit = { FROM.FROM = { state = 414 } } FROM.FROM = { sof_vp_grand_combe_ricard_check = yes } }
+ if = { limit = { FROM.FROM = { state = 263 } } FROM.FROM = { sof_vp_chatellerault_mac_check = yes } }
+ if = { limit = { FROM.FROM = { state = 463 } } FROM.FROM = { sof_vp_marseille_docks_check = yes } }
+ if = { limit = { FROM.FROM = { state = 168 } } FROM.FROM = { sof_vp_brest_arsenal_check = yes } }
+ if = { limit = { FROM.FROM = { state = 143 } } FROM.FROM = { sof_vp_paris_prefecture_check = yes } }
+ if = { limit = { FROM.FROM = { state = 499 } } FROM.FROM = { sof_vp_corte_mountain_rail_check = yes } } } }
+ on_weekly = { effect = {
+  if = { limit = { NOT = { has_global_flag = sof_vp_weekly_lock } }
+   set_global_flag = { flag = sof_vp_weekly_lock days = 6 }
+
+   sof_vp_scan_nodes = yes
+  }
+ } }
+}

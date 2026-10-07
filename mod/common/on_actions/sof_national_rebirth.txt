@@ -1,0 +1,6 @@
+on_actions = {
+ on_startup = { effect = { every_country = { limit = { sof_nr_candidate = yes } sof_nr_count_states = yes } } }
+ on_state_control_changed = { effect = { every_country = { limit = { sof_nr_candidate = yes } sof_nr_count_states = yes } } }
+ on_annex = { effect = { every_country = { limit = { sof_nr_candidate = yes } sof_nr_count_states = yes } } }
+ on_weekly = { effect = { if = { limit = { sof_nr_candidate = yes } sof_nr_count_states = yes sof_nr_sync = yes sof_nr_reconcile_focuses = yes } } }
+}

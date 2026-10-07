@@ -26,10 +26,10 @@ ai_will_do = { factor = 2 modifier = { factor = 8 NOT = { check_variable = { sof
 sof_mrs_red_communist_campaign = { 
 icon = sof_cw_civil cost = 25 days_remove = 35 days_re_enable = 60
 visible = { has_country_flag = sof_mrs_red_chosen NOT = { has_country_flag = sof_mrs_red_government } }
-available = { sof_mrs_red_candidate = yes communism < 0.6 }
-remove_effect = { if = { limit = { sof_mrs_red_candidate = yes } add_popularity = { ideology = communism popularity = 0.05 } } }
+available = { sof_mrs_red_candidate = yes sof_kr_support_communism_lt = { VALUE = 0.6 } }
+remove_effect = { if = { limit = { sof_mrs_red_candidate = yes } add_popularity = { ideology = radical_socialist popularity = 0.05 } } }
 cancel_trigger = { sof_mrs_red_candidate = no }
-ai_will_do = { factor = 10 modifier = { factor = 0 communism > 0.499 } } }
+ai_will_do = { factor = 10 modifier = { factor = 0 sof_kr_support_communism_gt = { VALUE = 0.499 } } } }
 sof_mrs_red_engineering_slot = { 
 icon = sof_cw_specialty cost = 75 fire_only_once = yes
 visible = { has_completed_focus = SOF_MRS_RED_E7 NOT = { has_country_flag = sof_mrs_red_research_paid } }
@@ -84,8 +84,8 @@ ai_will_do = { factor = 1 } }
 sof_mrs_red_diplomacy = {
 sof_mrs_red_invite = { 
 icon = sof_cw_offer targets = { ABB ABR ABU ACC ACH AGL AGN AGZ AIX AJC ALB ALE ALS ALT AMB AMI ANC AND ANG ANN ANT ANY APT ARE ARG ARL ARR AUR AUS AUT AVA AVE AVG AVR AXR BAR BAY BBL BCL BEA BEB BEL BER BES BET BEY BEZ BGB BGC BGN BLA BLC BLD BLF BLO BLY BOB BON BOU BRC BRD BRE BRG BRU BRY BSM BSS BST BVA BVG BYN CAE CAH CAL CAM CAO CBR CCL CCS CDM CER CFL CFR CGC CHA CHB CHC CHD CHE CHG CHI CHL CHM CHO CHR CHS CHT CHU CLA CLM CLV CMP COL COM COR COU CRL CRP CRR CRT CSL CST CTE CTH D01 D02 D03 D04 D05 D06 D07 D08 D09 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19 D20 D21 D22 D23 D24 D25 D26 D27 D28 D29 D30 D31 D32 D33 D34 D35 D36 D37 D38 D39 D40 D41 D42 D43 D44 D45 D46 D47 D48 D49 D50 D51 D52 D53 D54 D55 D56 D57 D58 D59 D60 D61 D62 D63 D64 D65 D66 D67 D68 D69 D70 D71 D72 D73 D74 D75 DAX DGG DIE DIJ DIN DIP DKQ DLB DOL DOU DRE ENG EPE EPI ETP EVR EVY FAC FGC FLQ FON FOR FOU FOX FTB GAP GBW GER GEX GRD GRN GSS GUE GUI HAG HAV HLR HOL ISO ISS IST ITA JZC LAG LAN LAO LAR LAV LCH LDV LEN LFL LIB LIL LIS LMA LMC LMG LMX LNG LOC LON LOR LOU LRA LRO LRY LUN LUR LUX LYO MAC MAM MAY MBE MBR MBS MEA MEN MET MLC MLJ MLL MLU MMS MOL MON MOP MOR MOU MRC MRD MRE MRL MRM MTB MTD MTM MTR MUL NAN NCH NEV NIC NIM NNC NNT NOG NON NRB NRC NRT NSM NSS NTR NYO OLO ORL OSM PAU PER PEV PGX PIT PLS PMS PNT POI PON PPG PRD PRH PRI PRS PRV PTN QUI RBL RCF RCH RDZ RED REI REN RET RIB RIO RML ROA ROU SAM SAR SAU SAV SBR SCL SDI SDZ SED SEG SEL SEN SET SFR SGI SGL SGU SIN SJA SJG SJM SLC SLO SMA SME SNA SNL SOS SPR SRC SRG SRT STD STO STQ STR SWI TDP THA THE THO THR TLB TLN TOL TOU TRB TRC TRO TRS TSR TUL USS VAL VAN VCH VEN VER VES VIE VIG VIN VIR VIT VLC VLF VNV VOU VRS VRV VSS WIS YSS } cost = 40 days_re_enable = 180 
-target_root_trigger = { original_tag = MRS } target_trigger = { FROM = { sof_mrs_red_partner_target = yes has_government = communism is_in_faction = no } }
-visible = { has_completed_focus = SOF_MRS_RED_D3 } available = { sof_mrs_red_active = yes has_war = no NOT = { has_country_flag = sof_mrs_red_diplomatic_pending } NOT = { has_country_flag = sof_mrs_red_federal_pending } is_faction_leader = yes FROM = { sof_mrs_red_partner_target = yes has_government = communism is_in_faction = no } }
+target_root_trigger = { original_tag = MRS } target_trigger = { FROM = { sof_mrs_red_partner_target = yes OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } is_in_faction = no } }
+visible = { has_completed_focus = SOF_MRS_RED_D3 } available = { sof_mrs_red_active = yes has_war = no NOT = { has_country_flag = sof_mrs_red_diplomatic_pending } NOT = { has_country_flag = sof_mrs_red_federal_pending } is_faction_leader = yes FROM = { sof_mrs_red_partner_target = yes OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } is_in_faction = no } }
 complete_effect = { FROM = { set_country_flag = { flag = sof_mrs_red_offer_target days = 30 } country_event = { id = sof_mrs_red.6 days = 1 } } set_country_flag = { flag = sof_mrs_red_diplomatic_pending days = 30 } } 
 ai_will_do = { factor = 2 modifier = { factor = 0 has_stability < 0.45 } } }
 sof_mrs_red_outreach = { 

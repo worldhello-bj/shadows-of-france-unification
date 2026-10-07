@@ -1,0 +1,163 @@
+# Real-time trigger arithmetic follows Kaiserreich official scripted-trigger syntax.
+# Each comparison is isolated so arithmetic cannot become an OR/NOT operand.
+# https://github.com/Kaiserreich/Kaiserreich-HOI4/blob/c5ca9aadf4abebf3741d05f8ce93f650d0c6d65c/common/scripted_triggers/_government_scripted_triggers.txt
+sof_kr_family_communism = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
+sof_kr_support_communism_gt = {
+set_temp_variable = { sof_kr_tmp_communism_gt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_communism_gt = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_tmp_communism_gt = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_tmp_communism_gt = party_popularity@radical_socialist }
+check_variable = { var = sof_kr_tmp_communism_gt value = sof_kr_tmp_communism_gt_threshold compare = greater_than }
+}
+sof_kr_support_communism_lt = {
+set_temp_variable = { sof_kr_tmp_communism_lt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_communism_lt = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_tmp_communism_lt = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_tmp_communism_lt = party_popularity@radical_socialist }
+check_variable = { var = sof_kr_tmp_communism_lt value = sof_kr_tmp_communism_lt_threshold compare = less_than }
+}
+sof_kr_support_communism_ge = {
+set_temp_variable = { sof_kr_tmp_communism_ge_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_communism_ge = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_tmp_communism_ge = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_tmp_communism_ge = party_popularity@radical_socialist }
+NOT = { check_variable = { var = sof_kr_tmp_communism_ge value = sof_kr_tmp_communism_ge_threshold compare = less_than } }
+}
+sof_kr_support_communism_le = {
+set_temp_variable = { sof_kr_tmp_communism_le_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_communism_le = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_tmp_communism_le = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_tmp_communism_le = party_popularity@radical_socialist }
+NOT = { check_variable = { var = sof_kr_tmp_communism_le value = sof_kr_tmp_communism_le_threshold compare = greater_than } }
+}
+sof_kr_support_communism_eq = {
+set_temp_variable = { sof_kr_tmp_communism_eq_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_communism_eq = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_tmp_communism_eq = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_tmp_communism_eq = party_popularity@radical_socialist }
+check_variable = { var = sof_kr_tmp_communism_eq value = sof_kr_tmp_communism_eq_threshold compare = equals }
+}
+sof_kr_support_communism_ne = {
+set_temp_variable = { sof_kr_tmp_communism_ne_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_communism_ne = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_tmp_communism_ne = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_tmp_communism_ne = party_popularity@radical_socialist }
+NOT = { check_variable = { var = sof_kr_tmp_communism_ne value = sof_kr_tmp_communism_ne_threshold compare = equals } }
+}
+sof_kr_family_democratic = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
+sof_kr_support_democratic_gt = {
+set_temp_variable = { sof_kr_tmp_democratic_gt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_democratic_gt = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_tmp_democratic_gt = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_gt = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_gt = party_popularity@social_conservative }
+check_variable = { var = sof_kr_tmp_democratic_gt value = sof_kr_tmp_democratic_gt_threshold compare = greater_than }
+}
+sof_kr_support_democratic_lt = {
+set_temp_variable = { sof_kr_tmp_democratic_lt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_democratic_lt = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_tmp_democratic_lt = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_lt = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_lt = party_popularity@social_conservative }
+check_variable = { var = sof_kr_tmp_democratic_lt value = sof_kr_tmp_democratic_lt_threshold compare = less_than }
+}
+sof_kr_support_democratic_ge = {
+set_temp_variable = { sof_kr_tmp_democratic_ge_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_democratic_ge = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_tmp_democratic_ge = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_ge = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_ge = party_popularity@social_conservative }
+NOT = { check_variable = { var = sof_kr_tmp_democratic_ge value = sof_kr_tmp_democratic_ge_threshold compare = less_than } }
+}
+sof_kr_support_democratic_le = {
+set_temp_variable = { sof_kr_tmp_democratic_le_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_democratic_le = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_tmp_democratic_le = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_le = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_le = party_popularity@social_conservative }
+NOT = { check_variable = { var = sof_kr_tmp_democratic_le value = sof_kr_tmp_democratic_le_threshold compare = greater_than } }
+}
+sof_kr_support_democratic_eq = {
+set_temp_variable = { sof_kr_tmp_democratic_eq_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_democratic_eq = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_tmp_democratic_eq = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_eq = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_eq = party_popularity@social_conservative }
+check_variable = { var = sof_kr_tmp_democratic_eq value = sof_kr_tmp_democratic_eq_threshold compare = equals }
+}
+sof_kr_support_democratic_ne = {
+set_temp_variable = { sof_kr_tmp_democratic_ne_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_democratic_ne = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_tmp_democratic_ne = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_ne = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_tmp_democratic_ne = party_popularity@social_conservative }
+NOT = { check_variable = { var = sof_kr_tmp_democratic_ne value = sof_kr_tmp_democratic_ne_threshold compare = equals } }
+}
+sof_kr_family_neutrality = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }
+sof_kr_support_neutrality_gt = {
+set_temp_variable = { sof_kr_tmp_neutrality_gt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_neutrality_gt = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_tmp_neutrality_gt = party_popularity@paternal_autocrat }
+check_variable = { var = sof_kr_tmp_neutrality_gt value = sof_kr_tmp_neutrality_gt_threshold compare = greater_than }
+}
+sof_kr_support_neutrality_lt = {
+set_temp_variable = { sof_kr_tmp_neutrality_lt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_neutrality_lt = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_tmp_neutrality_lt = party_popularity@paternal_autocrat }
+check_variable = { var = sof_kr_tmp_neutrality_lt value = sof_kr_tmp_neutrality_lt_threshold compare = less_than }
+}
+sof_kr_support_neutrality_ge = {
+set_temp_variable = { sof_kr_tmp_neutrality_ge_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_neutrality_ge = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_tmp_neutrality_ge = party_popularity@paternal_autocrat }
+NOT = { check_variable = { var = sof_kr_tmp_neutrality_ge value = sof_kr_tmp_neutrality_ge_threshold compare = less_than } }
+}
+sof_kr_support_neutrality_le = {
+set_temp_variable = { sof_kr_tmp_neutrality_le_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_neutrality_le = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_tmp_neutrality_le = party_popularity@paternal_autocrat }
+NOT = { check_variable = { var = sof_kr_tmp_neutrality_le value = sof_kr_tmp_neutrality_le_threshold compare = greater_than } }
+}
+sof_kr_support_neutrality_eq = {
+set_temp_variable = { sof_kr_tmp_neutrality_eq_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_neutrality_eq = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_tmp_neutrality_eq = party_popularity@paternal_autocrat }
+check_variable = { var = sof_kr_tmp_neutrality_eq value = sof_kr_tmp_neutrality_eq_threshold compare = equals }
+}
+sof_kr_support_neutrality_ne = {
+set_temp_variable = { sof_kr_tmp_neutrality_ne_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_neutrality_ne = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_tmp_neutrality_ne = party_popularity@paternal_autocrat }
+NOT = { check_variable = { var = sof_kr_tmp_neutrality_ne value = sof_kr_tmp_neutrality_ne_threshold compare = equals } }
+}
+sof_kr_family_fascism = { OR = { has_government = national_populist } }
+sof_kr_support_fascism_gt = {
+set_temp_variable = { sof_kr_tmp_fascism_gt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_fascism_gt = party_popularity@national_populist }
+check_variable = { var = sof_kr_tmp_fascism_gt value = sof_kr_tmp_fascism_gt_threshold compare = greater_than }
+}
+sof_kr_support_fascism_lt = {
+set_temp_variable = { sof_kr_tmp_fascism_lt_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_fascism_lt = party_popularity@national_populist }
+check_variable = { var = sof_kr_tmp_fascism_lt value = sof_kr_tmp_fascism_lt_threshold compare = less_than }
+}
+sof_kr_support_fascism_ge = {
+set_temp_variable = { sof_kr_tmp_fascism_ge_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_fascism_ge = party_popularity@national_populist }
+NOT = { check_variable = { var = sof_kr_tmp_fascism_ge value = sof_kr_tmp_fascism_ge_threshold compare = less_than } }
+}
+sof_kr_support_fascism_le = {
+set_temp_variable = { sof_kr_tmp_fascism_le_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_fascism_le = party_popularity@national_populist }
+NOT = { check_variable = { var = sof_kr_tmp_fascism_le value = sof_kr_tmp_fascism_le_threshold compare = greater_than } }
+}
+sof_kr_support_fascism_eq = {
+set_temp_variable = { sof_kr_tmp_fascism_eq_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_fascism_eq = party_popularity@national_populist }
+check_variable = { var = sof_kr_tmp_fascism_eq value = sof_kr_tmp_fascism_eq_threshold compare = equals }
+}
+sof_kr_support_fascism_ne = {
+set_temp_variable = { sof_kr_tmp_fascism_ne_threshold = $VALUE$ }
+set_temp_variable = { sof_kr_tmp_fascism_ne = party_popularity@national_populist }
+NOT = { check_variable = { var = sof_kr_tmp_fascism_ne value = sof_kr_tmp_fascism_ne_threshold compare = equals } }
+}
