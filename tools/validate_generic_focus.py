@@ -42,6 +42,7 @@ class Runner:
    elif k=='else':
     if not matched:self.execute(v,c)
     matched=True
+   elif k=='hidden_effect':self.execute(v,c)
    elif k=='add_ideas':c['ideas'].add(v)
    elif k=='remove_ideas':c['ideas'].discard(v)
    elif k=='swap_ideas':c['ideas'].discard(scalar(v,'remove_idea'));c['ideas'].add(scalar(v,'add_idea'))

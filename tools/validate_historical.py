@@ -12,9 +12,15 @@ from hoi4_script import parse,one,scalar,entries,walk
 ROOT=Path(__file__).resolve().parent.parent;MOD=ROOT/'mod'
 def read(p):return p.read_text(encoding='utf-8-sig')
 
+CHARACTER_ROLES = {
+    r.key: {scalar(role.value, 'ideology') for role in entries(r.value, 'country_leader')}
+    for r in one(parse(read(MOD/'common/characters/sof_vanilla_historical.txt')), 'characters').value
+}
+
 class State:
-    def __init__(self,tree='sofzh_paris',gov='democratic',faction=None):
+    def __init__(self,tree='sofzh_paris',gov='democratic',faction=None,tag=None):
         self.tree=tree;self.gov=gov;self.faction=faction;self.focus=set();self.ideas=set();self.flags=set();self.pp=500
+        self.tag=tag or ('AJC' if tree=='sofzh_corsica' else 'PRS')
         self.war=False;self.subjects=0;self.groups=set();self.characters=set();self.roles={};self.leader=None
         self.variables={'SFC_army_org_factor':.27};self.dynamic={'SFC_regio_esercito_dynamic_modifier'}
 
@@ -34,6 +40,7 @@ class Runner:
             elif k=='has_focus_tree':value=c.tree==v
             elif k=='has_completed_focus':value=v in c.focus
             elif k=='has_government':value=c.gov==v
+            elif k=='original_tag':value=c.tag==v
             elif k=='has_idea':value=v in c.ideas
             elif k=='has_country_flag':value=v in c.flags
             elif k=='has_character':value=v in c.characters
@@ -47,6 +54,7 @@ class Runner:
                 target=root if v=='ROOT' else prev;assert target is not None
                 value=c.faction is not None and c.faction==target.faction
             elif k.startswith('sof_hist_character_'):
+                assert k in c.characters, 'Character scope used before recruitment: '+k
                 value=scalar(v,'has_ideology') in c.roles.get(k,set())
             else:raise AssertionError('Unsupported test guard '+str(k))
             values.append(value)
@@ -71,7 +79,10 @@ class Runner:
             elif k=='remove_ideas':c.ideas.discard(v)
             elif k=='set_country_flag':c.flags.add(v if isinstance(v,str) else scalar(v,'flag'))
             elif k=='clr_country_flag':c.flags.discard(v)
-            elif k=='recruit_character':c.characters.add(v)
+            elif k=='recruit_character':
+                if not any(v in other.characters for other in self.world if other is not c):
+                    c.characters.add(v)
+                    c.roles.setdefault(v,set()).update(CHARACTER_ROLES.get(v,set()))
             elif k=='set_politics':c.gov=scalar(v,'ruling_party')
             elif k=='add_country_leader_role':
                 ch=scalar(v,'character');assert ch in c.characters,ch
@@ -82,7 +93,8 @@ class Runner:
             elif k=='retire_character':c.characters.discard(v);c.roles.pop(v,None)
             elif k=='add_to_tech_sharing_group':c.groups.add(v)
             elif k=='remove_from_tech_sharing_group':c.groups.discard(v)
-            elif k=='custom_effect_tooltip':pass
+            elif k=='hidden_effect':self.execute(v,c)
+            elif k in {'custom_effect_tooltip','show_ideas_tooltip'}:pass
             else:raise AssertionError('Unsupported test effect '+str(k))
 
 def audit(check,gfx):
@@ -130,20 +142,23 @@ def audit(check,gfx):
             check(any(r.key=='custom_effect_tooltip' and r.value==pid+'_unlock_tt' for r in reward),'Focus displays historical unlock: '+pre+f+' '+pid)
     # Actual native leader nodes, one-time upgrade of a 4.0 save, repeat pulse.
     from vanilla_historical import LEADERS,char_id,idea_id
+    integrated=(ROOT/'design/focus-integration-4.6.json').is_file()
+    from build_focus_integration import owned_character
     for old,(source,ideology,gov) in LEADERS.items():
         fid=('SFP_' if old.startswith('FRA_') else 'SFC_')+old[4:];effect='sof_hist_complete_'+old.lower()
         check(char_id(source) in characters,'Migrated leader defined: '+old)
         check(effect in effects and any(r.key==effect for r in one(nodes[fid],'completion_reward').value),'Leader effect wired to real focus: '+old)
         c=State('sofzh_paris' if old.startswith('FRA_') else 'sofzh_corsica');c.focus.add(fid);c.ideas={'sof_van_prs_fra_political_violence','sof20_terrain_mountain'}
         before=copy.deepcopy((c.variables,c.dynamic));run=Runner(ideas,triggers,effects,[c]);run.execute(effects['sof_hist_setup'],c)
-        check(c.leader==char_id(source) and c.gov==gov,'Old completed focus receives historical leader: '+old)
+        expected=owned_character(source,c.tag) if integrated else char_id(source)
+        check(c.leader==expected and c.gov==gov,'Old completed focus receives historical leader: '+old)
         if idea_id(source) in ideas:
             check(idea_id(source) in c.ideas and c.pp==500,'Leader focus appoints chief without charging PP: '+old)
             check(not run.matches(one(ideas[idea_id(source)],'cancel').value,c),'Automatically appointed chief satisfies the completed route: '+old)
         check(before==(c.variables,c.dynamic) and 'sof20_terrain_mountain' in c.ideas,'Upgrade preserves earned variables and terrain: '+old)
         check('sof_van_prs_fra_political_violence' not in c.ideas,'Upgrade removes empty donor event marker: '+old)
         snapshot=copy.deepcopy(c.__dict__);run.execute(effects['sof_hist_setup'],c);check(snapshot==c.__dict__,'Historical upgrade runs once: '+old)
-        run.execute(effects[effect],c);check(c.leader==char_id(source),'Explicit repeat appointment has no duplicate role: '+old)
+        run.execute(effects[effect],c);check(c.leader==expected,'Explicit repeat appointment has no duplicate role: '+old)
     for pid in meta['repaired_empty_spirits']:check(any(float(r.value)!=0 for r in one(ideas[pid],'modifier').value),'Previously empty spirit now changes combat: '+pid)
     for old in meta['campaign_spirits']:
         pid='sof_van_cor_'+old.lower();body=ideas[pid];c=State('sofzh_corsica');run=Runner(ideas,triggers,effects,[c]);run.add(pid,c)

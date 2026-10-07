@@ -1,8 +1,7 @@
 """Build the native politics-tab sub-ideology chart from existing party data.
 
-The segmented sprite technique follows Yard1's Scripted GUI Pie Chart example:
-https://github.com/Yard1/HoI4-Scripted-GUI-Pie-Chart
-No party popularity, leader, government, idea or political decision is changed.
+Use the game's native political pie renderer and four active representative rows.
+The twelve subtypes remain in the read-only data adapter and route tooltips.
 """
 from pathlib import Path
 import hashlib
@@ -40,9 +39,8 @@ NEW_RELS = [
     'common/scripted_guis/sofzh_ideology_panel.txt',
     'common/on_actions/sofzh_ideology_panel.txt',
     'localisation/simp_chinese/replace/sofzh_ideology_panel_l_simp_chinese.yml',
-    'gfx/interface/sofzh_ideology_panel/segments.dds',
     'gfx/interface/sofzh_ideology_panel/swatches.dds',
-    'gfx/interface/sofzh_ideology_panel/disc.dds',
+    'gfx/interface/sofzh_ideology_panel/refresh.dds',
 ]
 
 
@@ -91,7 +89,7 @@ def build_triggers(leaders):
 
 
 def build_effect():
-    lines = ['# Segmented chart technique: Yard1, HoI4-Scripted-GUI-Pie-Chart.',
+    lines = ['# Native pie renderer; only four active party representatives are shown.',
              '# Only sofzh_chart_* display caches and temporary variables are written.',
              'sofzh_refresh_ideology_chart = {', ' if = { limit = { is_ai = no }']
     for ident, *_ in PROFILES:
@@ -107,25 +105,15 @@ def build_effect():
                   f'  clamp_variable = {{ var = sofzh_chart_{group}_pop min = 0 max = 100 }}',
                   f'  add_to_variable = {{ sofzh_chart_total = sofzh_chart_{group}_pop }}',
                   f'  if = {{ limit = {{ has_government = {group} }} set_variable = {{ sofzh_chart_ruling = sofzh_chart_{group}_frame }} }}']
-    lines += ['  clear_array = sofzh_chart_pie',
-              '  resize_array = { array = sofzh_chart_pie size = 100 value = 13 }',
+    lines += ['  clear_array = sofzh_chart_pie # discard old display-only segment cache',
               '  if = { limit = { check_variable = { var = sofzh_chart_total value = 0 compare = greater_than } }',
-              '   set_temp_variable = { sofzh_chart_sum = 0 }',
-              '   set_temp_variable = { sofzh_chart_start = 0 }']
+              ]
     for gi, group in enumerate(DEFAULTS):
         lines += [f'   divide_variable = {{ sofzh_chart_{group}_pop = sofzh_chart_total }}',
                   f'   multiply_variable = {{ sofzh_chart_{group}_pop = 100 }}']
         for i, p in enumerate(PROFILES, 1):
             if p[1] == group:
                 lines.append(f'   if = {{ limit = {{ check_variable = {{ var = sofzh_chart_{group}_frame value = {i} compare = equals }} }} set_variable = {{ sofzh_chart_{p[0]} = sofzh_chart_{group}_pop }} }}')
-        lines += [f'   add_to_temp_variable = {{ sofzh_chart_sum = sofzh_chart_{group}_pop }}',
-                  '   set_temp_variable = { sofzh_chart_end = sofzh_chart_sum }',
-                  '   round_temp_variable = sofzh_chart_end',
-                  '   clamp_temp_variable = { var = sofzh_chart_end min = 0 max = 100 }']
-        if gi == 3:
-            lines.append('   set_temp_variable = { sofzh_chart_end = 100 } # close the circle despite rounding')
-        lines += [f'   for_loop_effect = {{ start = sofzh_chart_start end = sofzh_chart_end value = sofzh_chart_index set_variable = {{ sofzh_chart_pie^sofzh_chart_index = sofzh_chart_{group}_frame }} }}',
-                  '   set_temp_variable = { sofzh_chart_start = sofzh_chart_end }']
     lines += ['  }', '  add_to_variable = { sofzh_chart_dirty = 1 }', ' }', '}', '']
     write(NEW_RELS[3], '\n'.join(lines))
     write(NEW_RELS[5], '''on_actions = {
@@ -136,69 +124,56 @@ def build_effect():
 
 
 def build_gui():
-    lines = ['# Segmented chart technique credited to Yard1; original textures generated locally.',
-             'guiTypes = { containerWindowType = {',
+    return build_compact_gui()
+
+
+def build_compact_gui():
+    lines = ['guiTypes = { containerWindowType = {',
              ' name = "sofzh_ideology_panel" position = { x = 175 y = 140 }',
-             ' size = { width = 360 height = 160 } clipping = no',
-             ' instantTextboxType = { name = "sofzh_chart_title" position = { x = 5 y = 0 } font = "hoi_16mbs" text = "sofzh_chart_title" maxWidth = 85 maxHeight = 18 fixedsize = yes pdx_tooltip = "sofzh_chart_summary_tt" }',
-             ' iconType = { name = "sofzh_chart_disc" spriteType = "GFX_sofzh_chart_disc" position = { x = 51 y = 62 } centerPosition = yes scale = 0.703125 pdx_tooltip = "sofzh_chart_summary_tt" }']
-    for i in range(100):
-        lines.append(f' iconType = {{ name = "sofzh_chart_piece_{i}" spriteType = "GFX_sofzh_chart_segment" position = {{ x = 51 y = 62 }} centerPosition = yes scale = 0.17578125 rotation = {i * math.tau / 100:.10f} alwaystransparent = yes }}')
-    lines.append(' instantTextboxType = { name = "sofzh_chart_no_data" position = { x = 5 y = 52 } font = "hoi_16mbs" text = "sofzh_chart_no_data" maxWidth = 92 maxHeight = 20 fixedsize = yes format = centre }')
-    lines.append(' containerWindowType = { name = "sofzh_chart_legend" position = { x = 116 y = -1 } size = { width = 298 height = 198 } scale = 0.8125 clipping = no')
-    for i, (ident, _, _, _, _) in enumerate(PROFILES):
-        y = 4 + i * 16
+             ' size = { width = 365 height = 144 } clipping = yes',
+             ' instantTextboxType = { name = "sofzh_chart_title" position = { x = 5 y = 0 } font = "hoi_16mbs" text = "sofzh_chart_title" maxWidth = 310 maxHeight = 18 fixedsize = yes pdx_tooltip = "sofzh_chart_summary_tt" }',
+             ' buttonType = { name = "sofzh_chart_refresh" position = { x = 342 y = 0 } quadTextureSprite = "GFX_sofzh_chart_refresh" buttonFont = "Main_14" buttonText = "" pdx_tooltip = "sofzh_chart_refresh_tt" }',
+             ' instantTextboxType = { name = "sofzh_chart_no_data" position = { x = 5 y = 100 } font = "hoi_16mbs" text = "sofzh_chart_no_data" maxWidth = 110 maxHeight = 18 fixedsize = yes }',
+             ' containerWindowType = { name = "sofzh_chart_legend" position = { x = 122 y = 20 } size = { width = 242 height = 96 } scale = 1 clipping = yes']
+    visible = []
+    for i, (ident, group, _, _, _) in enumerate(PROFILES, 1):
+        gi = list(DEFAULTS).index(group)
+        y = 4 + gi * 22
         tip = f'sofzh_chart_{ident}_tt'
-        lines += [f' iconType = {{ name = "sofzh_chart_swatch_{ident}" spriteType = "GFX_sofzh_chart_swatch" position = {{ x = 2 y = {y + 2} }} frame = {i + 1} pdx_tooltip = "{tip}" }}',
-                  f' instantTextboxType = {{ name = "sofzh_chart_name_{ident}" position = {{ x = 20 y = {y} }} font = "hoi_16mbs" text = "sofzh_chart_name_{ident}" maxWidth = 186 maxHeight = 18 fixedsize = yes pdx_tooltip = "{tip}" }}',
-                  f' instantTextboxType = {{ name = "sofzh_chart_value_{ident}" position = {{ x = 207 y = {y} }} font = "hoi_16mbs" text = "sofzh_chart_value_{ident}" maxWidth = 63 maxHeight = 18 fixedsize = yes format = right pdx_tooltip = "{tip}" }}',
-                  f' instantTextboxType = {{ name = "sofzh_chart_ruling_{ident}" position = {{ x = 279 y = {y} }} font = "hoi_16mbs" text = "sofzh_chart_ruling_marker" maxWidth = 18 maxHeight = 18 fixedsize = yes pdx_tooltip = "sofzh_chart_ruling_tt" }}']
+        lines += [f' iconType = {{ name = "sofzh_chart_swatch_{ident}" spriteType = "GFX_sofzh_chart_swatch" position = {{ x = 0 y = {y + 3} }} frame = {gi + 1} pdx_tooltip = "{tip}" }}',
+                  f' instantTextboxType = {{ name = "sofzh_chart_name_{ident}" position = {{ x = 17 y = {y} }} font = "hoi_16mbs" text = "sofzh_chart_name_{ident}" maxWidth = 155 maxHeight = 18 fixedsize = yes pdx_tooltip = "{tip}" }}',
+                  f' instantTextboxType = {{ name = "sofzh_chart_value_{ident}" position = {{ x = 179 y = {y} }} font = "hoi_16mbs" text = "sofzh_chart_value_{ident}" maxWidth = 48 maxHeight = 18 fixedsize = yes format = right pdx_tooltip = "{tip}" }}',
+                  f' instantTextboxType = {{ name = "sofzh_chart_ruling_{ident}" position = {{ x = 229 y = {y} }} font = "hoi_16mbs" text = "sofzh_chart_ruling_marker" maxWidth = 12 maxHeight = 18 fixedsize = yes pdx_tooltip = "sofzh_chart_ruling_tt" }}']
+        condition = f'check_variable = {{ var = sofzh_chart_{group}_frame value = {i} compare = equals }}'
+        for kind in ['swatch', 'name', 'value']:
+            visible.append(f'   sofzh_chart_{kind}_{ident}_visible = {{ {condition} }}')
+        visible.append(f'   sofzh_chart_ruling_{ident}_visible = {{ {condition} check_variable = {{ var = sofzh_chart_ruling value = {i} compare = equals }} }}')
     lines += [' }', '} }', '']
     write(NEW_RELS[0], '\n'.join(lines))
-    props = '\n'.join(f'   sofzh_chart_piece_{i} = {{ frame = sofzh_chart_pie^{i} }}' for i in range(100))
-    triggers = '\n'.join(f'   sofzh_chart_ruling_{p[0]}_visible = {{ check_variable = {{ var = sofzh_chart_ruling value = {i} compare = equals }} }}' for i, p in enumerate(PROFILES, 1))
-    write(NEW_RELS[4], f'''# Segmented frame bindings follow Yard1's Scripted GUI Pie Chart example.
-scripted_gui = {{ sofzh_ideology_panel_gui = {{
+    write(NEW_RELS[4], '''scripted_gui = { sofzh_ideology_panel_gui = {
  context_type = player_context window_name = "sofzh_ideology_panel"
  parent_window_token = politics_tab
- visible = {{ always = yes }} ai_enabled = {{ always = no }}
+ visible = { always = yes } ai_enabled = { always = no }
  dirty = sofzh_chart_dirty
- effects = {{ sofzh_chart_title_click = {{ sofzh_refresh_ideology_chart = yes }} }}
- properties = {{
-{props}
- }}
- triggers = {{
-   sofzh_chart_no_data_visible = {{ check_variable = {{ var = sofzh_chart_total value = 0 compare = equals }} }}
-{triggers}
- }}
-}} }}
-''')
-    # A real button is required for a paused old save's explicit refresh.
-    text = (MOD / NEW_RELS[0]).read_text(encoding='utf-8')
-    text = text.replace(' instantTextboxType = { name = "sofzh_chart_title"',
-                        ' buttonType = { name = "sofzh_chart_refresh" position = { x = 91 y = 1 } quadTextureSprite = "GFX_sofzh_chart_refresh" buttonFont = "Main_14" buttonText = "" pdx_tooltip = "sofzh_chart_refresh_tt" }\n instantTextboxType = { name = "sofzh_chart_title"')
-    write(NEW_RELS[0], text)
-    scripted = (MOD / NEW_RELS[4]).read_text(encoding='utf-8').replace('sofzh_chart_title_click', 'sofzh_chart_refresh_click')
-    write(NEW_RELS[4], scripted)
+ effects = { sofzh_chart_refresh_click = { sofzh_refresh_ideology_chart = yes } }
+ properties = { }
+ triggers = {
+   sofzh_chart_no_data_visible = { check_variable = { var = sofzh_chart_total value = 0 compare = equals } }
+'''+'\n'.join(visible)+'\n }\n} }\n')
+
+
 
 
 def build_textures():
     folder = MOD / 'gfx/interface/sofzh_ideology_panel'
     folder.mkdir(parents=True, exist_ok=True)
-    colors = [p[4] for p in PROFILES]
-    atlas = Image.new('RGBA', (512 * 13, 512))
-    swatches = Image.new('RGBA', (12 * 12, 12))
+    groups = one(parse((MOD/'common/ideologies/00_ideologies.txt').read_text(encoding='utf-8-sig')), 'ideologies').value
+    colors = [tuple(int(n.value) for n in one(one(groups, group).value, 'color').value) for group in DEFAULTS]
+    swatches = Image.new('RGBA', (12 * 4, 12))
     for i, color in enumerate(colors):
-        wedge = Image.new('RGBA', (1024, 1024))
-        ImageDraw.Draw(wedge).pieslice((8, 8, 1016, 1016), -90.20, -86.20, fill=color)
-        atlas.paste(wedge.resize((512, 512), Image.Resampling.LANCZOS), (512 * i, 0))
         d = ImageDraw.Draw(swatches)
         d.rounded_rectangle((i * 12 + 1, 1, i * 12 + 10, 10), radius=1, fill=color, outline='#E1DACA')
-    disc = Image.new('RGBA', (512, 512))
-    ImageDraw.Draw(disc).ellipse((4, 4, 508, 508), fill='#303840', outline='#A49E85', width=8)
-    atlas.save(folder / 'segments.dds')
     swatches.save(folder / 'swatches.dds')
-    disc.resize((128, 128), Image.Resampling.LANCZOS).save(folder / 'disc.dds')
     refresh = Image.new('RGBA', (18 * 3, 18))
     d = ImageDraw.Draw(refresh)
     for i, color in enumerate(('#343B40', '#48545B', '#23292D')):
@@ -210,7 +185,7 @@ def build_textures():
     if 'gfx/interface/sofzh_ideology_panel/refresh.dds' not in NEW_RELS:
         NEW_RELS.append('gfx/interface/sofzh_ideology_panel/refresh.dds')
     lines = ['spriteTypes = {']
-    for name, file, frames in [('segment', 'segments', 13), ('swatch', 'swatches', 12), ('disc', 'disc', 1), ('refresh', 'refresh', 3)]:
+    for name, file, frames in [('swatch', 'swatches', 4), ('refresh', 'refresh', 3)]:
         lines.append(f' spriteType = {{ name = "GFX_sofzh_chart_{name}" texturefile = "gfx/interface/sofzh_ideology_panel/{file}.dds" noOfFrames = {frames} }}')
     lines += ['}', '']
     write(NEW_RELS[1], '\n'.join(lines))
@@ -224,13 +199,12 @@ def build_loc():
             ('sofzh_chart_ruling_marker', '§Y◆§!'),
             ('sofzh_chart_ruling_tt', '§Y当前执政路线§!')]
     groups = {'democratic': '共和主义', 'communism': '社会主义', 'fascism': '法西斯主义', 'neutrality': '非同盟'}
-    summary = '§Y十二种细分意识形态§!\\n'
+    summary = '§Y政治路线与政党支持率§!\\n'
     for ident, group, title, aliases, _ in PROFILES:
         rows += [(f'sofzh_chart_name_{ident}', title),
                  (f'sofzh_chart_value_{ident}', f'[?sofzh_chart_{ident}|1]%'),
                  (f'sofzh_chart_{ident}_tt', f'§Y{title}§!\\n所属大类：{groups[group]}\\n党派支持率：§Y[?sofzh_chart_{ident}|1]%§!\\n\\n${aliases.split()[0]}_desc$\\n通用路线效果：\\n{bonuses(MOD, ident)}\\n\\n红色马赛采用专属政治机制，不叠加通用路线加成。此数值来自采用本路线的党派；没有采用本路线的党派时为0%。')]
-        summary += f'{title}：[?sofzh_chart_{ident}|1]%\\n'
-    summary += '\\n按各党当前领袖的细分路线显示原有党派支持率。无可识别领袖时采用该大类默认路线。未采用的路线为0%，不平均分摊票数。\\n◆ 表示执政路线。扇区精度为1%，图例保留一位小数。'
+    summary += '图表使用原版四类政党的真实支持率。右侧显示各党当前代表采用的细分路线，悬停可查看路线效果。\\n未采用的细分路线保留为0%，不平均分摊票数。\\n◆ 表示执政路线；暂停时可手动刷新。'
     rows.append(('sofzh_chart_summary_tt', summary))
     write(NEW_RELS[6], 'l_simp_chinese:\n' + ''.join(f' {k}:0 "{v}"\n' for k, v in rows), bom=True)
 
@@ -243,8 +217,9 @@ def patch_native():
     for name in ('chart_explanation', 'political_pie_chart', 'pol_faction_icon'):
         node = next(r for r in root.value if isinstance(r.value, list) and scalar(r.value, 'name') == f'"{name}"')
         pos = one(node.value, 'position')
-        if scalar(pos.value,'x') != '-10000' or scalar(pos.value,'y') != '-10000':
-            changes.append((pos.start, pos.end, 'position = { x = -10000 y = -10000 } # replaced by twelve-route chart'))
+        desired = ('185', '167') if name == 'political_pie_chart' else ('-10000', '-10000')
+        if (scalar(pos.value,'x'), scalar(pos.value,'y')) != desired:
+            changes.append((pos.start, pos.end, f'position = {{ x = {desired[0]} y = {desired[1]} }}'))
     info = next(r for r in root.value if isinstance(r.value, list) and scalar(r.value, 'name') == '"ruling_party_info"')
     for name, y, height in [('ideology', 39, 18), ('elections', 60, 28)]:
         node = next(r for r in info.value if isinstance(r.value, list) and scalar(r.value, 'name') == f'"{name}"')
@@ -266,6 +241,10 @@ def patch_native():
 
 
 def main():
+    for name in ('segments.dds', 'disc.dds'):
+        obsolete = MOD/'gfx/interface/sofzh_ideology_panel'/name
+        assert obsolete.resolve().is_relative_to(MOD.resolve())
+        obsolete.unlink(missing_ok=True)
     PASS.mkdir(parents=True, exist_ok=True)
     baseline = PASS / 'before'
     baseline.mkdir(exist_ok=True)
@@ -287,7 +266,7 @@ def main():
     build_textures()
     build_loc()
     patch_native()
-    data = dict(format=1,profiles=[dict(id=p[0],group=p[1],name=p[2],aliases=p[3].split(),color=p[4],frame=i) for i,p in enumerate(PROFILES,1)],
+    data = dict(format=2,renderer='native political pie and four active profile rows',profiles=[dict(id=p[0],group=p[1],name=p[2],aliases=p[3].split(),color=p[4],frame=i) for i,p in enumerate(PROFILES,1)],
                 defaults=DEFAULTS,known_party_leaders=leaders,files=NEW_RELS+[GUI_REL,SYNC_REL],
                 source_before=before,display_only=True,game_engine_verified=False,
                 support_basis='Each existing party contributes its actual support to its active representative\'s profile. Other profiles stay at zero; no fabricated split.')

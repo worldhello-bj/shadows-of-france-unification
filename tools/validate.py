@@ -140,6 +140,12 @@ def validate():
     if (ROOT/'design/economy-map-4.5.json').is_file():
         from validate_economy_map import audit as audit_economy_map
         audit_economy_map(check)
+    if (ROOT/'design/script-repairs-4.5.1.json').is_file():
+        from validate_script_repairs import audit as audit_script_repairs
+        audit_script_repairs(check)
+    if (ROOT/'design/focus-integration-4.6.json').is_file():
+        from validate_focus_integration import audit as audit_focus_integration
+        audit_focus_integration(check,gfx)
     report=dict(ok=not errors,version=version,checks=checks,errors=errors,countries=focus_counts,focus_total=sum(focus_counts.values()),marseille_new_focuses=52 if (MOD/'common/national_focus/sof_mrs_red.txt').is_file() else 0,
         decisions=decisions,categories=categories,game_engine_verified=False,scope='Portable source and art audits; no game, browser or savegame execution')
     return report

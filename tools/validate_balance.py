@@ -117,6 +117,8 @@ def audit(check, gfx):
             if row.key == 'add_doctrine_cost_reduction':
                 check(float(scalar(row.value, 'cost_reduction', '0')) <= .4, 'Doctrine discount cap: ' + fid)
     for rel, hashes in data['changed_files'].items():
-        check(hashlib.sha256((ROOT / rel).read_bytes()).hexdigest() == hashes['after_sha256'], 'Approved gameplay artifact has not drifted: ' + rel)
+        from validate_script_repairs import before_documented_api_fix
+        reviewed = before_documented_api_fix(rel, (ROOT / rel).read_bytes())
+        check(hashlib.sha256(reviewed).hexdigest() == hashes['after_sha256'], 'Approved gameplay artifact has not drifted: ' + rel)
     on = parse((MOD / 'common/on_actions/sof_balance_430.txt').read_text(encoding='utf-8'))
     check(sum(r.key == 'sof_balance_setup_430' for r in walk(on)) == 2, 'Migration is wired to real startup and weekly actions')

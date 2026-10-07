@@ -4,7 +4,7 @@ Cabinet members are ordinary ideas in the existing eight political law slots.
 Native characters are copied only for head-of-government changes: no dependency
 on FRA/ITA character ownership, balance of power, or donor events remains.
 """
-import json,re
+import json,re,copy
 from collections import defaultdict
 from PIL import Image,ImageOps
 from hoi4_script import parse,one,scalar,entries,walk,replace
@@ -114,7 +114,7 @@ class Historical:
             govnames={'democratic':'民主','neutrality':'中立','fascism':'法西斯','communism':'共产主义'}
             req=('；执政方向：'+'、'.join(govnames[g] for g in p['governments'])) if p['governments'] else ''
             stop=('；完成“'+'、'.join(b.title(prefix(source)+x,donor(source)) for x in p['retired'])+'”后退出内阁') if p['retired'] else ''
-            b.loc[p['id']+'_desc']=f'历史内阁 · {SLOTS[slot]}\\n解锁国策：{names}{req}{stop}。\\n任命消耗125政治点数；替换本栏现任成员，任期调整冷却90天。'
+            b.loc[p['id']+'_desc']=f'历史内阁 · {SLOTS[slot]}\\n任命：125政治点数；替换同职务现任，调整冷却90天。'
             b.loc[p['id']+'_unlock_tt']=f'解锁历史{SLOTS[slot]}：§Y{p["name"]}§!。执政条件与任命费用见政治界面内阁列表。'
             b.loc[p['id']+'_requirements_tt']='已完成以下国策之一：'+names+req+stop+'。'
         self.by_id={p['id']:p for p in self.members}
@@ -131,18 +131,18 @@ class Historical:
         # Characters have no advisor role: hiring remains in the eight cabinet
         # slots, with one bonus payload; government portraits carry no extra buff.
         code=f'if = {{ limit = {{ NOT = {{ has_character = {cid} }} }} recruit_character = {cid} }} '
-        code+=f'set_politics = {{ ruling_party = {gov} elections_allowed = '+('yes' if gov=='democratic' else 'no')+' } '
+        code+=f'if = {{ limit = {{ has_character = {cid} }} set_politics = {{ ruling_party = {gov} elections_allowed = '+('yes' if gov=='democratic' else 'no')+' } '
         code+=f'if = {{ limit = {{ {cid} = {{ has_ideology = {ideology} }} }} remove_country_leader_role = {{ character = {cid} ideology = {ideology} }} }} '
         code+=f'add_country_leader_role = {{ character = {cid} promote_leader = yes country_leader = {{ ideology = {ideology} expire = "1965.1.1.1" }} }} '
         pid=idea_id(source)
         if pid in self.by_id:code+='add_ideas = '+pid+' '
         if old=='ITA_the_italian_republic':code+=f'if = {{ limit = {{ has_character = {char_id("ITA_vittorio_emanuele_iii")} }} retire_character = {char_id("ITA_vittorio_emanuele_iii")} }} remove_ideas = {idea_id("ITA_vittorio_emanuele_iii")} '
-        return code
+        return code+' }'
 
     def actions(self,old):
         result=['custom_effect_tooltip = '+p['id']+'_unlock_tt' for p in self.by_focus[old]]
         if old in LEADERS:
-            effect='sof_hist_complete_'+old.lower();self.b.effects.append(effect+' = { '+self.leader_action(old)+' set_country_flag = '+effect+'_done }');result.append(effect+' = yes')
+            effect='sof_hist_complete_'+old.lower();cid=char_id(LEADERS[old][0]);self.b.effects.append(effect+' = { '+self.leader_action(old)+' if = { limit = { has_character = '+cid+' } set_country_flag = '+effect+'_done } }');result.append(effect+' = yes')
         if old=='ITA_scientific_cooperation':result+=['set_country_flag = sof_van_science_host','sof_van_reward_sync = yes']
         if old in ['ITA_disband_the_blackshirts','ITA_pact_of_steel','ITA_the_italian_republic']:
             result += ['remove_ideas = '+p['id'] for p in self.members if old[4:] in p['retired']]
@@ -168,7 +168,8 @@ class Historical:
             for n in cat.value:
                 if n.key not in generic:continue
                 onadd=one(n.value,'on_add');clean=' '.join('remove_ideas = '+x for x in ids if x!=n.key)
-                edits.append((onadd.end-1,onadd.end-1,' '+clean+' '))
+                contents=emit(onadd.value)+' '+clean
+                edits.append((onadd.start,onadd.end,'on_add = { hidden_effect = { '+contents+' } }'))
                 ai=one(n.value,'ai_will_do');gate=one(one(ai.value,'modifier').value,'OR')
                 edits.append((gate.end-1,gate.end-1,' '+' '.join('has_idea = '+p['id'] for p in members)+' '))
             code=[]
@@ -178,7 +179,7 @@ class Historical:
                 mods={k:v for k,v in p['modifiers'].items() if not k.endswith('_research_speed_factor')}
                 research={k.removesuffix('_research_speed_factor').replace('industrial','industry'):v for k,v in p['modifiers'].items() if k.endswith('_research_speed_factor')}
                 bonus=(' research_bonus = { '+' '.join(k+' = '+str(v) for k,v in research.items())+' }') if research else ''
-                code.append(f'{pid} = {{ allowed = {{ always = yes }} visible = {{ sofzh_cabinet_country = yes has_focus_tree = '+('sofzh_paris' if donor(p['source'])=='france' else 'sofzh_corsica')+f' }} available = {{ {available} }} cost = 125 removal_cost = -1 picture = {pid} cancel_if_invalid = no cancel = {{ NOT = {{ '+self.ready(p)+' } } on_add = { '+clean+f' set_country_flag = {{ flag = sofzh_cabinet_{slot}_cooldown days = 90 }} }} ai_will_do = {{ factor = 6 modifier = {{ OR = {{ '+' '.join('has_idea = '+x['id'] for x in members)+f' }} factor = 0 }} }} modifier = {{ '+' '.join(k+' = '+str(v) for k,v in mods.items())+' }'+bonus+' }')
+                code.append(f'{pid} = {{ allowed = {{ always = yes }} visible = {{ sofzh_cabinet_country = yes OR = {{ has_idea = '+pid+' AND = { '+self.ready(p)+f' }} }} }} available = {{ {available} }} cost = 125 removal_cost = -1 picture = {pid} cancel_if_invalid = no cancel = {{ NOT = {{ '+self.ready(p)+' } } on_add = { hidden_effect = { '+clean+f' set_country_flag = {{ flag = sofzh_cabinet_{slot}_cooldown days = 90 }} }} }} ai_will_do = {{ factor = 6 modifier = {{ OR = {{ '+' '.join('has_idea = '+x['id'] for x in members)+f' }} factor = 0 }} }} modifier = {{ '+' '.join(k+' = '+str(v) for k,v in mods.items())+' }'+bonus+' }')
             edits.append((cat.end-1,cat.end-1,'\n'+'\n'.join(code)+'\n'))
         save('mod/common/ideas/sofzh_cabinet.txt',replace(text,edits))
         triggers=baseline('mod/common/scripted_triggers/sofzh_cabinet.txt')
@@ -198,11 +199,12 @@ class Historical:
         save('mod/common/scripted_triggers/sofzh_cabinet.txt',triggers)
         chars=[]
         for source in sorted({x[0] for x in LEADERS.values()}):
-            pics=one(self.native[source],'portraits');pict=emit([pics])
+            pics=copy.deepcopy(one(self.native[source],'portraits'))
             for r in walk(pics.value):
                 if r.key in ['small','large']:
-                    original=r.value.strip('"');pict=pict.replace(r.value,'"'+b.art_copy(original)+'"')
-            cid=char_id(source);chars.append(f'{cid} = {{ name = {cid} can_be_captured = no '+pict+' }');b.loc[cid]=person_name(b,source)
+                    original=r.value.strip('"');r.value='"'+b.art_copy(original)+'"'
+            pict=emit([pics]);default=next(v[1] for v in LEADERS.values() if v[0]==source)
+            cid=char_id(source);chars.append(f'{cid} = {{ name = {cid} '+pict+f' country_leader = {{ ideology = {default} expire = "1965.1.1.1" }} }}');b.loc[cid]=person_name(b,source)
         save('mod/common/characters/sof_vanilla_historical.txt','characters = {\n'+'\n'.join(chars)+'\n}')
         # Completed foci in 4.0 saves get their missing appointments exactly once.
         # Process in native branch order, so the final political choice wins.

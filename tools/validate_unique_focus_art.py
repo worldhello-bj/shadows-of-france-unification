@@ -44,6 +44,8 @@ def audit(check,gfx):
                 recorded=balance['changed_files'][file]
                 check(recorded['before_semantic_sha256']==expected,'Balance overlay starts from the original reviewed gameplay: '+file)
                 expected=recorded['after_semantic_sha256']
-        current=shape(parse((ROOT/file).read_text(encoding='utf-8-sig')))
+        from validate_script_repairs import before_documented_api_fix
+        reviewed=before_documented_api_fix(file,(ROOT/file).read_bytes())
+        current=shape(parse(reviewed.decode('utf-8-sig')))
         actual=hashlib.sha256(json.dumps(current,ensure_ascii=False).encode('utf-8')).hexdigest()
         check(actual==expected,'Exclusive art and explicitly reviewed gameplay changes match: '+file)
