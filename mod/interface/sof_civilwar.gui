@@ -1,122 +1,117 @@
 guiTypes = {
-containerWindowType = { name = "sof_cw_decision_window" position = { x = 0 y = 0 } size = { width = 510 height = 500 }
-iconType = { name = "sof_cw_background" position = { x = 0 y = 0 }
-        spriteType = "GFX_sof_cw_panel" alwaystransparent = yes }
-iconType = { name = "sof_cw_chrome" position = { x = 0 y = 0 }
-        spriteType = "GFX_sof_cw_chrome" alwaystransparent = yes }
+containerWindowType = { name = "sof_cw_decision_window" orientation = CENTER position = { x = -590 y = -290 } size = { width = 1180 height = 650 } moveable = yes click_to_front = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" }
 
-instantTextBoxType = { name = "sof_cw_title" position = { x = 18 y = 17 }
-        font = "hoi4_typewriter22" text = "sof_cw_heading" maxWidth = 325 maxHeight = 30
+containerWindowType = { name = "sof_cw_status_panel" position = { x = 20 y = 90 } size = { width = 510 height = 250 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
+containerWindowType = { name = "sof_cw_terrain_panel" position = { x = 20 y = 355 } size = { width = 510 height = 250 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
+containerWindowType = { name = "sof_cw_neighbours_panel" position = { x = 550 y = 90 } size = { width = 610 height = 515 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
+instantTextBoxType = { name = "sof_cw_title" position = { x = 24 y = 18 }
+        font = "hoi4_typewriter22" text = "sof_cw_heading" maxWidth = 1000 maxHeight = 30
         format = left }
-instantTextBoxType = { name = "sof_cw_stage" position = { x = 18 y = 53 }
-        font = "hoi_16mbs" text = "sof_cw_stage" maxWidth = 465 maxHeight = 22
+instantTextBoxType = { name = "sof_cw_stage" position = { x = 24 y = 53 }
+        font = "hoi_16mbs" text = "sof_cw_stage" maxWidth = 1060 maxHeight = 22
         format = left }
-instantTextBoxType = { name = "sof_cw_order_label" position = { x = 18 y = 163 }
+instantTextBoxType = { name = "sof_cw_order_label" position = { x = 30 y = 123 }
         font = "hoi_16mbs" text = "sof_cw_order" maxWidth = 112 maxHeight = 22
         format = left pdx_tooltip = "sof_cw_order_tt" }
-iconType = { name = "sof_cw_order_meter" position = { x = 140 y = 168 }
+iconType = { name = "sof_cw_order_meter" position = { x = 152 y = 128 }
         spriteType = "GFX_sof_cw_order_meter" pdx_tooltip = "sof_cw_order_tt" }
-instantTextBoxType = { name = "sof_cw_order_value" position = { x = 410 y = 162 }
+instantTextBoxType = { name = "sof_cw_order_value" position = { x = 422 y = 122 }
         font = "hoi_16mbs" text = "sof_cw_order_value" maxWidth = 82 maxHeight = 22
         format = right pdx_tooltip = "sof_cw_order_tt" }
-instantTextBoxType = { name = "sof_cw_control_label" position = { x = 18 y = 192 }
+instantTextBoxType = { name = "sof_cw_control_label" position = { x = 30 y = 172 }
         font = "hoi_16mbs" text = "sof_cw_control" maxWidth = 112 maxHeight = 22
         format = left pdx_tooltip = "sof_cw_control_tt" }
-iconType = { name = "sof_cw_control_meter" position = { x = 140 y = 197 }
+iconType = { name = "sof_cw_control_meter" position = { x = 152 y = 177 }
         spriteType = "GFX_sof_cw_control_meter" pdx_tooltip = "sof_cw_control_tt" }
-instantTextBoxType = { name = "sof_cw_control_value" position = { x = 410 y = 191 }
+instantTextBoxType = { name = "sof_cw_control_value" position = { x = 422 y = 171 }
         font = "hoi_16mbs" text = "sof_cw_control_value" maxWidth = 82 maxHeight = 22
         format = right pdx_tooltip = "sof_cw_control_tt" }
-instantTextBoxType = { name = "sof_cw_owned_value" position = { x = 24 y = 228 }
-        font = "hoi_16mbs" text = "sof_cw_owned_value" maxWidth = 225 maxHeight = 22
+instantTextBoxType = { name = "sof_cw_owned_value" position = { x = 36 y = 263 }
+        font = "hoi_16mbs" text = "sof_cw_owned_value" maxWidth = 470 maxHeight = 22
         format = left pdx_tooltip = "sof_cw_owned_tt" }
-instantTextBoxType = { name = "sof_cw_stock_value" position = { x = 264 y = 228 }
-        font = "hoi_16mbs" text = "sof_cw_stock_value" maxWidth = 225 maxHeight = 22
+instantTextBoxType = { name = "sof_cw_stock_value" position = { x = 36 y = 300 }
+        font = "hoi_16mbs" text = "sof_cw_stock_value" maxWidth = 470 maxHeight = 22
         format = left pdx_tooltip = "sof_cw_stock_tt" }
-instantTextBoxType = { name = "sof_cw_neighbours" position = { x = 18 y = 267 }
-        font = "hoi_16mbs" text = "sof_cw_neighbours" maxWidth = 300 maxHeight = 22
+instantTextBoxType = { name = "sof_cw_neighbours" position = { x = 570 y = 110 }
+        font = "hoi_16mbs" text = "sof_cw_neighbours" maxWidth = 410 maxHeight = 22
         format = left }
-buttonType = { name = "sof_cw_refresh" position = { x = 375 y = 262 }
+buttonType = { name = "sof_cw_refresh" position = { x = 1030 y = 104 }
         quadTextureSprite = "GFX_sof_cw_refresh_button" buttonText = "sof_cw_refresh"
         buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_cw_refresh_tt" }
-    containerWindowType = { name = "sof_cw_neighbour_scroll" position = { x = 18 y = 296 }
-        size = { width = 474 height = 74 } clipping = yes horizontalScrollbar = "sof_cw_horizontal_scrollbar"
-        margin = { top = 0 left = 0 bottom = 0 right = 0 }
-        gridBoxType = { name = "sof_cw_neighbour_list" position = { x = 0 y = 0 }
-            size = { width = 474 height = 61 } slotsize = { width = 119 height = 61 } max_slots_vertical = 1 }
-    }
-    instantTextBoxType = { name = "sof_cw_empty" position = { x = 32 y = 320 }
-        font = "hoi_16mbs" text = "sof_cw_no_neighbours" maxWidth = 435 maxHeight = 22
+instantTextBoxType = { name = "sof_cw_empty" position = { x = 580 y = 190 }
+        font = "hoi_16mbs" text = "sof_cw_no_neighbours" maxWidth = 550 maxHeight = 65
         format = center }
-instantTextBoxType = { name = "sof_cw_terrain_heading" position = { x = 18 y = 387 }
+instantTextBoxType = { name = "sof_cw_terrain_heading" position = { x = 36 y = 372 }
         font = "hoi_16mbs" text = "sof_cw_terrain_title" maxWidth = 280 maxHeight = 22
         format = left }
-instantTextBoxType = { name = "sof_cw_terrain_permanent" position = { x = 374 y = 387 }
+instantTextBoxType = { name = "sof_cw_terrain_permanent" position = { x = 390 y = 372 }
         font = "hoi_16mbs" text = "sof_cw_terrain_permanent" maxWidth = 118 maxHeight = 22
         format = right }
-iconType = { name = "sof_cw_terrain_mountain_badge" position = { x = 18 y = 410 }
+iconType = { name = "sof_cw_terrain_mountain_badge" position = { x = 65 y = 418 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 1 pdx_tooltip = "sof_cw_mountain_tt" }
-iconType = { name = "sof_cw_terrain_mountain_known_badge" position = { x = 18 y = 410 }
+iconType = { name = "sof_cw_terrain_mountain_known_badge" position = { x = 65 y = 418 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 2 pdx_tooltip = "sof_cw_mountain_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_mountain_name" position = { x = 23 y = 413 }
+instantTextBoxType = { name = "sof_cw_terrain_mountain_name" position = { x = 70 y = 421 }
         font = "hoi_16mbs" text = "sof_cw_terrain_mountain" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_mountain_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_mountain_state" position = { x = 23 y = 435 }
+instantTextBoxType = { name = "sof_cw_terrain_mountain_state" position = { x = 70 y = 443 }
         font = "hoi_16mbs" text = "sof_cw_terrain_mountain_state" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_mountain_tt" }
-iconType = { name = "sof_cw_terrain_river_badge" position = { x = 97 y = 410 }
+iconType = { name = "sof_cw_terrain_river_badge" position = { x = 220 y = 418 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 1 pdx_tooltip = "sof_cw_river_tt" }
-iconType = { name = "sof_cw_terrain_river_known_badge" position = { x = 97 y = 410 }
+iconType = { name = "sof_cw_terrain_river_known_badge" position = { x = 220 y = 418 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 2 pdx_tooltip = "sof_cw_river_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_river_name" position = { x = 102 y = 413 }
+instantTextBoxType = { name = "sof_cw_terrain_river_name" position = { x = 225 y = 421 }
         font = "hoi_16mbs" text = "sof_cw_terrain_river" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_river_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_river_state" position = { x = 102 y = 435 }
+instantTextBoxType = { name = "sof_cw_terrain_river_state" position = { x = 225 y = 443 }
         font = "hoi_16mbs" text = "sof_cw_terrain_river_state" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_river_tt" }
-iconType = { name = "sof_cw_terrain_urban_badge" position = { x = 176 y = 410 }
+iconType = { name = "sof_cw_terrain_urban_badge" position = { x = 375 y = 418 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 1 pdx_tooltip = "sof_cw_urban_tt" }
-iconType = { name = "sof_cw_terrain_urban_known_badge" position = { x = 176 y = 410 }
+iconType = { name = "sof_cw_terrain_urban_known_badge" position = { x = 375 y = 418 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 2 pdx_tooltip = "sof_cw_urban_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_urban_name" position = { x = 181 y = 413 }
+instantTextBoxType = { name = "sof_cw_terrain_urban_name" position = { x = 380 y = 421 }
         font = "hoi_16mbs" text = "sof_cw_terrain_urban" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_urban_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_urban_state" position = { x = 181 y = 435 }
+instantTextBoxType = { name = "sof_cw_terrain_urban_state" position = { x = 380 y = 443 }
         font = "hoi_16mbs" text = "sof_cw_terrain_urban_state" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_urban_tt" }
-iconType = { name = "sof_cw_terrain_coast_badge" position = { x = 255 y = 410 }
+iconType = { name = "sof_cw_terrain_coast_badge" position = { x = 65 y = 501 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 1 pdx_tooltip = "sof_cw_coast_tt" }
-iconType = { name = "sof_cw_terrain_coast_known_badge" position = { x = 255 y = 410 }
+iconType = { name = "sof_cw_terrain_coast_known_badge" position = { x = 65 y = 501 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 2 pdx_tooltip = "sof_cw_coast_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_coast_name" position = { x = 260 y = 413 }
+instantTextBoxType = { name = "sof_cw_terrain_coast_name" position = { x = 70 y = 504 }
         font = "hoi_16mbs" text = "sof_cw_terrain_coast" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_coast_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_coast_state" position = { x = 260 y = 435 }
+instantTextBoxType = { name = "sof_cw_terrain_coast_state" position = { x = 70 y = 526 }
         font = "hoi_16mbs" text = "sof_cw_terrain_coast_state" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_coast_tt" }
-iconType = { name = "sof_cw_terrain_forest_badge" position = { x = 334 y = 410 }
+iconType = { name = "sof_cw_terrain_forest_badge" position = { x = 220 y = 501 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 1 pdx_tooltip = "sof_cw_forest_tt" }
-iconType = { name = "sof_cw_terrain_forest_known_badge" position = { x = 334 y = 410 }
+iconType = { name = "sof_cw_terrain_forest_known_badge" position = { x = 220 y = 501 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 2 pdx_tooltip = "sof_cw_forest_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_forest_name" position = { x = 339 y = 413 }
+instantTextBoxType = { name = "sof_cw_terrain_forest_name" position = { x = 225 y = 504 }
         font = "hoi_16mbs" text = "sof_cw_terrain_forest" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_forest_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_forest_state" position = { x = 339 y = 435 }
+instantTextBoxType = { name = "sof_cw_terrain_forest_state" position = { x = 225 y = 526 }
         font = "hoi_16mbs" text = "sof_cw_terrain_forest_state" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_forest_tt" }
-iconType = { name = "sof_cw_terrain_plain_badge" position = { x = 413 y = 410 }
+iconType = { name = "sof_cw_terrain_plain_badge" position = { x = 375 y = 501 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 1 pdx_tooltip = "sof_cw_plain_tt" }
-iconType = { name = "sof_cw_terrain_plain_known_badge" position = { x = 413 y = 410 }
+iconType = { name = "sof_cw_terrain_plain_known_badge" position = { x = 375 y = 501 }
         spriteType = "GFX_sof_cw_terrain_badge" frame = 2 pdx_tooltip = "sof_cw_plain_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_plain_name" position = { x = 418 y = 413 }
+instantTextBoxType = { name = "sof_cw_terrain_plain_name" position = { x = 380 y = 504 }
         font = "hoi_16mbs" text = "sof_cw_terrain_plain" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_plain_tt" }
-instantTextBoxType = { name = "sof_cw_terrain_plain_state" position = { x = 418 y = 435 }
+instantTextBoxType = { name = "sof_cw_terrain_plain_state" position = { x = 380 y = 526 }
         font = "hoi_16mbs" text = "sof_cw_terrain_plain_state" maxWidth = 64 maxHeight = 22
         format = center pdx_tooltip = "sof_cw_plain_tt" }
-instantTextBoxType = { name = "sof_cw_footer" position = { x = 18 y = 478 }
-        font = "hoi_16mbs" text = "sof_cw_footer" maxWidth = 475 maxHeight = 22
+instantTextBoxType = { name = "sof_cw_footer" position = { x = 24 y = 618 }
+        font = "hoi_16mbs" text = "sof_large_campaign_footer" maxWidth = 1110 maxHeight = 22
         format = left }
+containerWindowType = { name = "sof_cw_neighbour_scroll" position = { x = 568 y = 155 } size = { width = 570 height = 420 } clipping = yes horizontalScrollbar = "sof_cw_horizontal_scrollbar" margin = { top = 0 left = 0 bottom = 0 right = 0 } gridBoxType = { name = "sof_cw_neighbour_list" position = { x = 0 y = 0 } size = { width = 550 height = 420 } slotsize = { width = 137 height = 84 } max_slots_vertical = 5 } }
+buttonType = { name = "sof_cw_close" position = { x = 1143 y = 16 } quadTextureSprite = "GFX_closebutton" shortcut = "ESCAPE" clicksound = click_close }
 }
 containerWindowType = { name = "sof_cw_neighbour_entry" size = { width = 116 height = 61 }
 iconType = { name = "sof_cw_neighbour_background" position = { x = 0 y = 0 }
