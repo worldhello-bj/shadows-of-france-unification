@@ -1,7 +1,7 @@
-# State changes accelerate reconciliation; province-only changes require the weekly fallback.
+﻿# State changes accelerate reconciliation; province-only changes require the weekly fallback.
 # ROOT=new controller, FROM=old controller, FROM.FROM=state (vanilla/QIUQI contract).
 on_actions = {
- on_startup = { effect = {  sof_vp_scan_nodes = yes } }
+ on_startup = { effect = {  PRS = { sof_vp_scan_nodes = yes } } }
  on_state_control_changed = { effect = {  if = { limit = { FROM.FROM = { state = 51 } } FROM.FROM = { sof_vp_roubaix_textiles_check = yes } }
  if = { limit = { FROM.FROM = { state = 63 } } FROM.FROM = { sof_vp_wingles_mine_rail_check = yes } }
  if = { limit = { FROM.FROM = { state = 84 } } FROM.FROM = { sof_vp_rouen_transshipment_check = yes } }

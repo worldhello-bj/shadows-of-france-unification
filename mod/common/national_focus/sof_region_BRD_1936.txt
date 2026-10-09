@@ -1,412 +1,412 @@
-focus_tree = { id = sof_region_BRD_1936 country = { factor = 0 modifier = { add = 300 original_tag = BRD } } default = no reset_on_civilwar = no
+﻿focus_tree = { id = sof_region_BRD_1936 country = { factor = 0 modifier = { add = 300 original_tag = BRD } } default = no reset_on_civilwar = no
  initial_show_position = { focus = sof_region_BRD_1936_assembly } continuous_focus_position = { x = 50 y = 3800 }
-focus = { id = sof_region_BRD_1936_assembly icon = GFX_sof_brt_goal_generic_neutrality_focus x = 14 y = 0 cost = 3
+focus = { id = sof_region_BRD_1936_assembly icon = GFX_sof_project_sof_region_brd_1936_assembly x = 9 y = 0 cost = 3
 
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_assembly_paid } } add_political_power = 15 set_country_flag = sof_region_BRD_1936_assembly_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_assembly_paid } } add_political_power = 15 set_country_flag = sof_region_BRD_1936_assembly_paid }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_port_accounts icon = GFX_sof_brt_goal_generic_neutrality_focus x = 12 y = 1 cost = 5
+focus = { id = sof_region_BRD_1936_port_accounts icon = GFX_sof_project_sof_region_brd_1936_port_accounts x = 6 y = 1 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_assembly }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_port_accounts_paid } } add_stability = 0.01 set_country_flag = sof_region_BRD_1936_port_accounts_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_port_accounts_paid } } add_stability = 0.03 set_country_flag = sof_region_BRD_1936_port_accounts_paid add_political_power = 50   } }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_communes icon = GFX_sof_brt_goal_generic_neutrality_focus x = 16 y = 1 cost = 5
+focus = { id = sof_region_BRD_1936_communes icon = GFX_sof_project_sof_region_brd_1936_communes x = 9 y = 1 cost = 3
  prerequisite = { focus = sof_region_BRD_1936_assembly }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_communes_paid } } add_political_power = 20 set_country_flag = sof_region_BRD_1936_communes_paid } }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_chamber icon = GFX_sof_brt_goal_generic_neutrality_focus x = 10 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_chamber icon = GFX_sof_project_sof_region_brd_1936_chamber x = 6 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_port_accounts }
  mutually_exclusive = { focus = sof_region_BRD_1936_public_credit }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_chamber_paid } } add_political_power = 30 add_stability = -0.01 add_dynamic_modifier = { modifier = sof_region_BRD_1936_chamber_network } set_country_flag = sof_region_BRD_1936_chamber_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_chamber_paid } } add_political_power = 30 add_stability = -0.01 sof604_register_region_brd_1936_chamber_network = yes set_country_flag = sof_region_BRD_1936_chamber_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_public_credit icon = GFX_sof_brt_goal_generic_neutrality_focus x = 14 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_public_credit icon = GFX_sof_project_sof_region_brd_1936_public_credit x = 9 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_port_accounts } prerequisite = { focus = sof_region_BRD_1936_communes }
  mutually_exclusive = { focus = sof_region_BRD_1936_chamber }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_public_credit_paid } } add_political_power = -20 add_stability = 0.025 add_dynamic_modifier = { modifier = sof_region_BRD_1936_public_credit_network } set_country_flag = sof_region_BRD_1936_public_credit_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_public_credit_paid } } add_political_power = -20 add_stability = 0.025 sof604_register_region_brd_1936_public_credit_network = yes set_country_flag = sof_region_BRD_1936_public_credit_paid }  custom_effect_tooltip = sof_tp_focus_BRD_unlock_tt sof_tp_focus_BRD_unlock_effect = yes }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_labor_board icon = GFX_sof_brt_goal_generic_neutrality_focus x = 18 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_labor_board icon = GFX_sof_project_sof_region_brd_1936_labor_board x = 12 y = 2 cost = 3
  prerequisite = { focus = sof_region_BRD_1936_communes }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 date > 1936.6.1 } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 date > 1936.6.1 NOT = { has_country_flag = sof_region_BRD_1936_labor_board_paid } } add_stability = 0.02 set_country_flag = sof_region_BRD_1936_labor_board_paid } }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_merchant_charter icon = GFX_sof_brt_goal_generic_neutrality_focus x = 10 y = 3 cost = 5
+focus = { id = sof_region_BRD_1936_merchant_charter icon = GFX_sof_project_sof_region_brd_1936_merchant_charter x = 6 y = 3 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_chamber }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_merchant_charter_paid } } add_political_power = 15 set_country_flag = sof_region_BRD_1936_merchant_charter_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_merchant_charter_paid } } add_political_power = 50 set_country_flag = sof_region_BRD_1936_merchant_charter_paid add_stability = 0.03  } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_municipal_bonds icon = GFX_sof_brt_goal_generic_neutrality_focus x = 14 y = 3 cost = 5
+focus = { id = sof_region_BRD_1936_municipal_bonds icon = GFX_sof_project_sof_region_brd_1936_municipal_bonds x = 9 y = 3 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_public_credit }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_municipal_bonds_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_municipal_bonds_local } } set_country_flag = sof_region_BRD_1936_municipal_bonds_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_port_statute icon = GFX_sof_brt_goal_generic_neutrality_focus x = 12 y = 4 cost = 5
+focus = { id = sof_region_BRD_1936_port_statute icon = GFX_sof_project_sof_region_brd_1936_port_statute x = 6 y = 4 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_merchant_charter focus = sof_region_BRD_1936_municipal_bonds } prerequisite = { focus = sof_region_BRD_1936_labor_board }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_port_statute_paid } } add_stability = 0.015 set_country_flag = sof20_BRD_integration_diplomacy set_country_flag = sof_region_BRD_1936_port_statute_paid } }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_river_records icon = GFX_sof_van_goal_generic_construct_civ_factory x = 4 y = 1 cost = 5
+focus = { id = sof_region_BRD_1936_river_records icon = GFX_sof_project_sof_region_brd_1936_river_records x = 3 y = 1 cost = 3
  prerequisite = { focus = sof_region_BRD_1936_assembly }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_river_records_paid } } navy_experience = 3 set_country_flag = sof_region_BRD_1936_river_records_paid } }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_dredging icon = GFX_sof_van_goal_generic_construct_civ_factory x = 2 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_dredging icon = GFX_sof_project_sof_region_brd_1936_dredging x = 0 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_river_records }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_survey_done } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_survey_done NOT = { has_country_flag = sof_region_BRD_1936_dredging_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_dredging_local } } set_country_flag = sof_region_BRD_1936_dredging_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_survey_done NOT = { has_country_flag = sof_region_BRD_1936_dredging_paid } }  389 = { set_state_flag = sof604_sof_region_BRD_1936_dredging_local_survey_earned add_dynamic_modifier = { modifier = sof_region_BRD_1936_dredging_local } } set_country_flag = sof_region_BRD_1936_dredging_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_warehouses icon = GFX_sof_van_goal_generic_construct_civ_factory x = 6 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_warehouses icon = GFX_sof_project_sof_region_brd_1936_warehouses x = 3 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_river_records }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_warehouses_paid } } add_political_power = 18 set_country_flag = sof_region_BRD_1936_warehouses_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_warehouses_paid } } add_political_power = 18 set_country_flag = sof_region_BRD_1936_warehouses_paid  sof605_register_new_brd_warehouses = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_blaye icon = GFX_sof_van_goal_generic_construct_civ_factory x = 0 y = 3 cost = 5
+focus = { id = sof_region_BRD_1936_blaye icon = GFX_sof_project_sof_region_brd_1936_blaye x = 0 y = 3 cost = 3
  prerequisite = { focus = sof_region_BRD_1936_dredging }
 
  available = { original_tag = BRD has_capitulated = no 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5773  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5773  NOT = { has_country_flag = sof_region_BRD_1936_blaye_paid } } navy_experience = 6 set_country_flag = sof_region_BRD_1936_blaye_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_lesparre icon = GFX_sof_van_goal_generic_construct_civ_factory x = 4 y = 3 cost = 5
+focus = { id = sof_region_BRD_1936_lesparre icon = GFX_sof_project_sof_region_brd_1936_lesparre x = 3 y = 3 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_dredging }
 
  available = { original_tag = BRD has_capitulated = no 362 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5795  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 362 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5795  NOT = { has_country_flag = sof_region_BRD_1936_lesparre_paid } }  362 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_lesparre_local } } set_country_flag = sof_region_BRD_1936_lesparre_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_river_link icon = GFX_sof_van_goal_generic_construct_civ_factory x = 2 y = 5 cost = 5
+focus = { id = sof_region_BRD_1936_river_link icon = GFX_sof_project_sof_region_brd_1936_river_link x = 3 y = 5 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_blaye } prerequisite = { focus = sof_region_BRD_1936_lesparre } prerequisite = { focus = sof_region_BRD_1936_port_statute }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 362 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 362 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_BRD_1936_river_link_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_river_link_local } } set_country_flag = sof_region_BRD_1936_river_link_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_quay_repair icon = GFX_sof_van_goal_generic_construct_civ_factory x = 4 y = 6 cost = 10
+focus = { id = sof_region_BRD_1936_quay_repair icon = GFX_sof_project_sof_region_brd_1936_quay_repair x = 0 y = 6 cost = 10
  prerequisite = { focus = sof_region_BRD_1936_river_link } prerequisite = { focus = sof_region_BRD_1936_warehouses }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_quay_repair_paid } }  389 = { if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_quay_repair_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_quay_repair_paid } }  389 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_quay_repair_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_wine_register icon = GFX_sof_van_goal_generic_construct_civ_factory x = 22 y = 1 cost = 5
+focus = { id = sof_region_BRD_1936_wine_register icon = GFX_sof_project_sof_region_brd_1936_wine_register x = 12 y = 1 cost = 4
  prerequisite = { focus = sof_region_BRD_1936_assembly }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_wine_register_paid } } add_political_power = 12 set_country_flag = sof_region_BRD_1936_wine_register_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_wine_register_paid } } add_political_power = 50 set_country_flag = sof_region_BRD_1936_wine_register_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_quality icon = GFX_sof_van_goal_generic_construct_civ_factory x = 20 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_quality icon = GFX_sof_project_sof_region_brd_1936_quality x = 15 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_wine_register }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_quality_paid } } add_stability = 0.01 set_country_flag = sof_region_BRD_1936_quality_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_quality_paid } } add_stability = 0.01 set_country_flag = sof_region_BRD_1936_quality_paid  sof605_register_new_brd_quality = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_barrel_credit icon = GFX_sof_van_goal_generic_construct_civ_factory x = 24 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_barrel_credit icon = GFX_sof_project_sof_region_brd_1936_barrel_credit x = 18 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_wine_register }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_barrel_credit_paid } } add_political_power = -15 389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_barrel_credit_local } } set_country_flag = sof_region_BRD_1936_barrel_credit_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_export_credit icon = GFX_sof_van_goal_generic_construct_civ_factory x = 21 y = 3 cost = 7
+focus = { id = sof_region_BRD_1936_export_credit icon = GFX_sof_project_sof_region_brd_1936_export_credit x = 12 y = 3 cost = 7
  prerequisite = { focus = sof_region_BRD_1936_quality } prerequisite = { focus = sof_region_BRD_1936_barrel_credit }
  mutually_exclusive = { focus = sof_region_BRD_1936_aircraft_advance }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_export_credit_paid } } add_equipment_to_stockpile = { type = convoy amount = 20 producer = ROOT } add_political_power = 15 set_country_flag = sof_region_BRD_1936_export_credit_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_export_credit_paid } } add_equipment_to_stockpile = { type = convoy amount = 20 producer = ROOT } add_political_power = 15 set_country_flag = sof_region_BRD_1936_export_credit_paid  hidden_effect = { set_country_flag = sof605_milestone_brd_1936_export_credit sof605_refresh_BRD = yes } } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_aircraft_advance icon = GFX_sof_van_goal_generic_construct_civ_factory x = 25 y = 3 cost = 5
+focus = { id = sof_region_BRD_1936_aircraft_advance icon = GFX_sof_project_sof_region_brd_1936_aircraft_advance x = 15 y = 3 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_quality } prerequisite = { focus = sof_region_BRD_1936_barrel_credit }
  mutually_exclusive = { focus = sof_region_BRD_1936_export_credit }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_aircraft_advance_paid } } add_political_power = -25 air_experience = 10 set_country_flag = sof_region_BRD_1936_aircraft_advance_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_export_houses icon = GFX_sof_van_goal_generic_construct_civ_factory x = 21 y = 4 cost = 5
+focus = { id = sof_region_BRD_1936_export_houses icon = GFX_sof_project_sof_region_brd_1936_export_houses x = 12 y = 4 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_export_credit }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_export_houses_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_export_houses_local } } set_country_flag = sof_region_BRD_1936_export_houses_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_export_houses_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_export_houses_local } } set_country_flag = sof_region_BRD_1936_export_houses_paid 389 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } }   sof605_register_new_brd_export_houses = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_landes icon = GFX_sof_van_goal_generic_construct_civ_factory x = 26 y = 4 cost = 5
+focus = { id = sof_region_BRD_1936_landes icon = GFX_sof_project_sof_region_brd_1936_landes x = 18 y = 3 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_barrel_credit }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_landes_paid } } add_tech_bonus = { name = sof_region_BRD_1936_land_bonus bonus = 0.25 uses = 1 category = industry } set_country_flag = sof_region_BRD_1936_landes_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_saso icon = GFX_sof_van_goal_generic_air_fighter x = 30 y = 1 cost = 5
+focus = { id = sof_region_BRD_1936_saso icon = GFX_sof_project_sof_region_brd_1936_saso x = 15 y = 1 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_assembly }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_saso_paid } } air_experience = 6 set_country_flag = sof_region_BRD_1936_saso_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_saso_paid } } air_experience = 15 set_country_flag = sof_region_BRD_1936_saso_paid 389 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } }  } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_tooling icon = GFX_sof_van_goal_generic_air_fighter x = 30 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_tooling icon = GFX_sof_project_sof_region_brd_1936_tooling x = 21 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_saso }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_tooling_paid } } add_tech_bonus = { name = sof_region_BRD_1936_twin_bonus bonus = 0.3 uses = 1 category = cas_bomber } set_country_flag = sof_region_BRD_1936_tooling_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_tooling_paid } } add_tech_bonus = { name = sof_region_BRD_1936_twin_bonus bonus = 0.3 uses = 1 category = cas_bomber } set_country_flag = sof_region_BRD_1936_tooling_paid  sof605_register_new_brd_tooling = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_public_orders icon = GFX_sof_van_goal_generic_air_fighter x = 29 y = 4 cost = 5
+focus = { id = sof_region_BRD_1936_public_orders icon = GFX_sof_project_sof_region_brd_1936_public_orders x = 18 y = 4 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_tooling } prerequisite = { focus = sof_region_BRD_1936_aircraft_advance }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_public_orders_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_public_orders_local } } set_country_flag = sof_region_BRD_1936_public_orders_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_civil_orders icon = GFX_sof_van_goal_generic_air_fighter x = 33 y = 3 cost = 7
+focus = { id = sof_region_BRD_1936_civil_orders icon = GFX_sof_project_sof_region_brd_1936_civil_orders x = 21 y = 3 cost = 7
  prerequisite = { focus = sof_region_BRD_1936_tooling }
  mutually_exclusive = { focus = sof_region_BRD_1936_bomber_orders }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_civil_orders_paid } } add_stability = 0.025 389 = { if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_civil_orders_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_civil_orders_paid } } add_stability = 0.025 389 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_civil_orders_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_bomber_orders icon = GFX_sof_van_goal_generic_air_fighter x = 29 y = 5 cost = 10
+focus = { id = sof_region_BRD_1936_bomber_orders icon = GFX_sof_project_sof_region_brd_1936_bomber_orders x = 15 y = 5 cost = 10
  prerequisite = { focus = sof_region_BRD_1936_public_orders }
  mutually_exclusive = { focus = sof_region_BRD_1936_civil_orders }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_bomber_orders_paid } } air_experience = 15 if = { limit = { has_dlc = "By Blood Alone" } add_equipment_to_stockpile = { type = medium_plane_airframe_0 amount = 18 producer = ROOT } } else = { add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 18 producer = ROOT } } 389 = { if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } 389 = { if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_bomber_orders_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_bomber_orders_paid } } air_experience = 15 if = { limit = { has_dlc = "By Blood Alone" } add_equipment_to_stockpile = { type = medium_plane_airframe_0 amount = 18 producer = ROOT } } else = { add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 18 producer = ROOT } } 389 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } 389 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_bomber_orders_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_inspectors icon = GFX_sof_van_goal_generic_air_fighter x = 33 y = 6 cost = 5
+focus = { id = sof_region_BRD_1936_inspectors icon = GFX_sof_project_sof_region_brd_1936_inspectors x = 15 y = 6 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_civil_orders focus = sof_region_BRD_1936_bomber_orders }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_inspectors_paid } } add_tech_bonus = { name = sof_region_BRD_1936_air_bonus bonus = 0.3 uses = 1 category = air_equipment } set_country_flag = sof_region_BRD_1936_inspectors_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_inspectors_paid } } add_tech_bonus = { name = sof_region_BRD_1936_air_bonus bonus = 0.3 uses = 1 category = air_equipment } set_country_flag = sof_region_BRD_1936_inspectors_paid  sof605_register_new_brd_inspectors = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_air_watch icon = GFX_sof_van_goal_generic_air_fighter x = 31 y = 7 cost = 5
+focus = { id = sof_region_BRD_1936_air_watch icon = GFX_sof_project_sof_region_brd_1936_air_watch x = 12 y = 7 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_inspectors } prerequisite = { focus = sof_region_BRD_1936_river_link }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_air_watch_paid } } air_experience = 8 set_country_flag = sof_region_BRD_1936_air_watch_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_air_watch_paid } } air_experience = 8 set_country_flag = sof_region_BRD_1936_air_watch_paid  sof605_register_new_brd_air_watch = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_shipping icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 8 y = 6 cost = 5
+focus = { id = sof_region_BRD_1936_shipping icon = GFX_sof_project_sof_region_brd_1936_shipping x = 3 y = 6 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_port_statute } prerequisite = { focus = sof_region_BRD_1936_river_link }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_shipping_paid } } navy_experience = 8 set_country_flag = sof_region_BRD_1936_shipping_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_shipping_paid } } navy_experience = 8 set_country_flag = sof_region_BRD_1936_shipping_paid  sof605_register_new_brd_shipping = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_repair_yards icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 6 y = 7 cost = 5
+focus = { id = sof_region_BRD_1936_repair_yards icon = GFX_sof_project_sof_region_brd_1936_repair_yards x = 3 y = 7 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_shipping }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_repair_yards_paid } } add_tech_bonus = { name = sof_region_BRD_1936_repair_bonus bonus = 0.25 uses = 1 category = naval_equipment } set_country_flag = sof_region_BRD_1936_repair_yards_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_repair_yards_paid } } add_tech_bonus = { name = sof_region_BRD_1936_repair_bonus bonus = 0.25 uses = 1 category = naval_equipment } set_country_flag = sof_region_BRD_1936_repair_yards_paid  sof605_register_new_brd_repair_yards = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_merchant_slips icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 4 y = 8 cost = 7
+focus = { id = sof_region_BRD_1936_merchant_slips icon = GFX_sof_project_sof_region_brd_1936_merchant_slips x = 0 y = 8 cost = 7
  prerequisite = { focus = sof_region_BRD_1936_repair_yards }
  mutually_exclusive = { focus = sof_region_BRD_1936_escort_slips }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_merchant_slips_paid } } add_equipment_to_stockpile = { type = convoy amount = 24 producer = ROOT } 389 = { if = { limit = { free_building_slots = { building = dockyard size = 1 include_locked = no } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_merchant_slips_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_merchant_slips_paid } } add_equipment_to_stockpile = { type = convoy amount = 30 producer = ROOT } 389 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size = 1 include_locked = no } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_merchant_slips_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_escort_slips icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 8 y = 8 cost = 10
+focus = { id = sof_region_BRD_1936_escort_slips icon = GFX_sof_project_sof_region_brd_1936_escort_slips x = 3 y = 8 cost = 10
  prerequisite = { focus = sof_region_BRD_1936_repair_yards }
  mutually_exclusive = { focus = sof_region_BRD_1936_merchant_slips }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_escort_slips_paid } } navy_experience = 20 389 = { if = { limit = { free_building_slots = { building = dockyard size = 1 include_locked = no } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } } 389 = { if = { limit = { free_building_slots = { building = dockyard size = 1 include_locked = no } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_escort_slips_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_escort_slips_paid } } navy_experience = 20 389 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size = 1 include_locked = no } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } } 389 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size = 1 include_locked = no } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } } set_country_flag = sof_region_BRD_1936_escort_slips_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_crew_school icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 4 y = 9 cost = 5
+focus = { id = sof_region_BRD_1936_crew_school icon = GFX_sof_project_sof_region_brd_1936_crew_school x = 0 y = 9 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_merchant_slips }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_crew_school_paid } } navy_experience = 12 set_country_flag = sof_region_BRD_1936_crew_school_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_crew_school_paid } } navy_experience = 25 set_country_flag = sof_region_BRD_1936_crew_school_paid add_doctrine_cost_reduction = { name = sof603_south_brd_crew_naval_doctrine cost_reduction = 0.5 uses = 1 category = naval_doctrine }   sof605_register_new_brd_crew_school = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_coastal_escorts icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 8 y = 9 cost = 5
+focus = { id = sof_region_BRD_1936_coastal_escorts icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 3 y = 9 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_escort_slips }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_coastal_escorts_paid } } add_tech_bonus = { name = sof_region_BRD_1936_escort_bonus bonus = 0.35 uses = 1 category = dd_tech } set_country_flag = sof_region_BRD_1936_coastal_escorts_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_coastal_escorts_paid } } add_tech_bonus = { name = sof_region_BRD_1936_escort_bonus bonus = 1 uses = 1 category = dd_tech } set_country_flag = sof_region_BRD_1936_coastal_escorts_paid navy_experience = 25 add_doctrine_cost_reduction = { name = sof603_south_brd_coastal_naval_doctrine cost_reduction = 0.5 uses = 1 category = naval_doctrine }   sof605_register_new_brd_coastal_escorts = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_maritime_staff icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 6 y = 10 cost = 5
+focus = { id = sof_region_BRD_1936_maritime_staff icon = GFX_sof_project_sof_region_brd_1936_maritime_staff x = 1 y = 10 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_crew_school focus = sof_region_BRD_1936_coastal_escorts } prerequisite = { focus = sof_region_BRD_1936_air_watch }
 
- available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_maritime_staff_paid } } navy_experience = 15 add_dynamic_modifier = { modifier = sof_region_BRD_1936_maritime_staff_network } set_country_flag = sof_region_BRD_1936_maritime_staff_paid } }
+ available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887   OR = { amount_research_slots > 2 AND = { amount_research_slots < 3 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 dockyard > 1 } } AND = { amount_research_slots > 2 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 dockyard > 2 } } } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_maritime_staff_paid } } navy_experience = 15 sof604_register_region_brd_1936_maritime_staff_network = yes set_country_flag = sof_region_BRD_1936_maritime_staff_paid if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_brd_1936_maritime_staff_electronics bonus = 1 uses = 1 category = electronics } }  } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_port_guard icon = GFX_sof_van_goal_generic_army_doctrines x = 36 y = 1 cost = 5
+focus = { id = sof_region_BRD_1936_port_guard icon = GFX_sof_project_sof_region_brd_1936_port_guard x = 18 y = 1 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_assembly }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_port_guard_paid } } army_experience = 6 set_country_flag = sof_region_BRD_1936_port_guard_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_port_guard_paid } } army_experience = 15 set_country_flag = sof_region_BRD_1936_port_guard_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT }  } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_territorials icon = GFX_sof_van_goal_generic_army_doctrines x = 36 y = 2 cost = 5
+focus = { id = sof_region_BRD_1936_territorials icon = GFX_sof_project_sof_region_brd_1936_territorials x = 24 y = 2 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_port_guard }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_territorials_paid } } army_experience = 8 set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready set_country_flag = sof_region_BRD_1936_territorials_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_territorials_paid } } army_experience = 8 set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready set_country_flag = sof_region_BRD_1936_territorials_paid  sof605_register_new_brd_territorials = yes } }
  ai_will_do = { factor = 20 }
  }
-focus = { id = sof_region_BRD_1936_coast_watch icon = GFX_sof_van_goal_generic_army_doctrines x = 35 y = 4 cost = 5
+focus = { id = sof_region_BRD_1936_coast_watch icon = GFX_sof_project_sof_region_brd_1936_coast_watch x = 15 y = 4 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_territorials } prerequisite = { focus = sof_region_BRD_1936_blaye }
 
  available = { original_tag = BRD has_capitulated = no 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5773  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5773  NOT = { has_country_flag = sof_region_BRD_1936_coast_watch_paid } }  376 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_coast_watch_local } } set_country_flag = sof_region_BRD_1936_coast_watch_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5773  NOT = { has_country_flag = sof_region_BRD_1936_coast_watch_paid } }  376 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_coast_watch_local } } set_country_flag = sof_region_BRD_1936_coast_watch_paid  sof605_register_new_brd_coast_watch = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_mobile_reserve icon = GFX_sof_van_goal_generic_army_doctrines x = 39 y = 3 cost = 5
+focus = { id = sof_region_BRD_1936_mobile_reserve icon = GFX_sof_project_sof_region_brd_1936_mobile_reserve x = 24 y = 3 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_territorials }
  mutually_exclusive = { focus = sof_region_BRD_1936_static_depots }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_mobile_reserve_paid } } army_experience = 15 add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 70 producer = ROOT } set_country_flag = sof_region_BRD_1936_mobile_reserve_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_mobile_reserve_paid } } army_experience = 15 add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } set_country_flag = sof_region_BRD_1936_mobile_reserve_paid  sof605_register_new_brd_mobile_reserve = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_static_depots icon = GFX_sof_van_goal_generic_army_doctrines x = 37 y = 5 cost = 5
+focus = { id = sof_region_BRD_1936_static_depots icon = GFX_sof_project_sof_region_brd_1936_static_depots x = 18 y = 5 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_coast_watch }
  mutually_exclusive = { focus = sof_region_BRD_1936_mobile_reserve }
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_static_depots_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_static_depots_local } } set_country_flag = sof_region_BRD_1936_static_depots_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_static_depots_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_static_depots_local } } set_country_flag = sof_region_BRD_1936_static_depots_paid  sof605_register_new_brd_static_depots = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_medical icon = GFX_sof_van_goal_generic_army_doctrines x = 39 y = 6 cost = 5
+focus = { id = sof_region_BRD_1936_medical icon = GFX_sof_project_sof_region_brd_1936_medical x = 18 y = 6 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_mobile_reserve focus = sof_region_BRD_1936_static_depots }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_medical_paid } } add_tech_bonus = { name = sof_region_BRD_1936_medical_bonus bonus = 0.3 uses = 1 category = hospital_tech } set_country_flag = sof_region_BRD_1936_medical_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_staff_exercise icon = GFX_sof_van_goal_generic_army_doctrines x = 36 y = 7 cost = 5
+focus = { id = sof_region_BRD_1936_staff_exercise icon = GFX_sof_project_sof_region_brd_1936_staff_exercise x = 18 y = 7 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_medical } prerequisite = { focus = sof_region_BRD_1936_coast_watch }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_staff_exercise_paid } } army_experience = 16 set_country_flag = sof_region_BRD_1936_staff_exercise_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_staff_exercise_paid } } army_experience = 16 set_country_flag = sof_region_BRD_1936_staff_exercise_paid  sof605_register_new_brd_staff_exercise = yes  if = { limit = { has_completed_focus = sof_region_BRD_1936_mobile_reserve } sof605_register_new_brd_mobile_staff = yes } } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_western_letters icon = GFX_sof_brt_goal_generic_neutrality_focus x = 14 y = 6 cost = 5
+focus = { id = sof_region_BRD_1936_western_letters icon = GFX_sof_project_sof_region_brd_1936_western_letters x = 6 y = 5 cost = 3
  prerequisite = { focus = sof_region_BRD_1936_port_statute }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_western_letters_paid } } add_political_power = 12 set_country_flag = sof_region_BRD_1936_western_letters_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_poitou_offer icon = GFX_sof_brt_goal_generic_neutrality_focus x = 12 y = 7 cost = 4
+focus = { id = sof_region_BRD_1936_poitou_offer icon = GFX_sof_project_sof_region_brd_1936_poitou_offer x = 6 y = 6 cost = 4
  prerequisite = { focus = sof_region_BRD_1936_western_letters }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  POI = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = POI } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  POI = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = POI } NOT = { has_country_flag = sof_region_BRD_1936_poitou_offer_paid } }  set_country_flag = sof_region_BRD_1936_poitou_offer_pending POI = { country_event = { id = sof_region_BRD_1936.46 days = 1 } } set_country_flag = sof_region_BRD_1936_poitou_offer_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_nantes_offer icon = GFX_sof_brt_goal_generic_neutrality_focus x = 16 y = 7 cost = 4
+focus = { id = sof_region_BRD_1936_nantes_offer icon = GFX_sof_project_sof_region_brd_1936_nantes_offer x = 9 y = 6 cost = 4
  prerequisite = { focus = sof_region_BRD_1936_western_letters }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NAN = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = NAN } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NAN = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = NAN } NOT = { has_country_flag = sof_region_BRD_1936_nantes_offer_paid } }  set_country_flag = sof_region_BRD_1936_nantes_offer_pending NAN = { country_event = { id = sof_region_BRD_1936.47 days = 1 } } set_country_flag = sof_region_BRD_1936_nantes_offer_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_poitou_contract icon = GFX_sof_van_goal_generic_construct_civ_factory x = 12 y = 8 cost = 5
+focus = { id = sof_region_BRD_1936_poitou_contract icon = GFX_sof_project_sof_region_brd_1936_poitou_contract x = 6 y = 7 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_poitou_offer } prerequisite = { focus = sof_region_BRD_1936_river_link }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_poitou_offer_accepted POI = { exists = yes NOT = { has_war_with = BRD } } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_poitou_offer_accepted POI = { exists = yes NOT = { has_war_with = BRD } } NOT = { has_country_flag = sof_region_BRD_1936_poitou_contract_paid } } add_equipment_to_stockpile = { type = convoy amount = 5 producer = ROOT } set_country_flag = sof_region_BRD_1936_poitou_contract_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_poitou_offer_accepted POI = { exists = yes NOT = { has_war_with = BRD } } NOT = { has_country_flag = sof_region_BRD_1936_poitou_contract_paid } } add_equipment_to_stockpile = { type = convoy amount = 20 producer = ROOT } set_country_flag = sof_region_BRD_1936_poitou_contract_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_naval_exchange icon = GFX_sof_van_goal_generic_navy_doctrines_tactics x = 16 y = 9 cost = 5
+focus = { id = sof_region_BRD_1936_naval_exchange icon = GFX_sof_project_sof_region_brd_1936_naval_exchange x = 7 y = 8 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_nantes_offer } prerequisite = { focus = sof_region_BRD_1936_repair_yards }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_nantes_offer_accepted NAN = { exists = yes NOT = { has_war_with = BRD } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_nantes_offer_accepted NAN = { exists = yes NOT = { has_war_with = BRD } } NOT = { has_country_flag = sof_region_BRD_1936_naval_exchange_paid } } navy_experience = 10 set_country_flag = sof_region_BRD_1936_naval_exchange_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_colonial_ledgers icon = GFX_sof_van_goal_generic_construct_civ_factory x = 20 y = 7 cost = 5
+focus = { id = sof_region_BRD_1936_colonial_ledgers icon = GFX_sof_project_sof_region_brd_1936_colonial_ledgers x = 12 y = 6 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_export_houses } prerequisite = { focus = sof_region_BRD_1936_river_link }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_colonial_ledgers_paid } } add_political_power = 20 set_country_flag = sof_region_BRD_1936_colonial_ledgers_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_colonial_ledgers_paid } } add_political_power = 20 set_country_flag = sof_region_BRD_1936_colonial_ledgers_paid  sof605_register_new_brd_colonial_ledgers = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_insurance icon = GFX_sof_van_goal_generic_construct_civ_factory x = 20 y = 8 cost = 5
+focus = { id = sof_region_BRD_1936_insurance icon = GFX_sof_project_sof_region_brd_1936_insurance x = 9 y = 7 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_colonial_ledgers }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_war = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_war = no NOT = { has_country_flag = sof_region_BRD_1936_insurance_paid } } add_political_power = -10 add_stability = 0.02 set_country_flag = sof_region_BRD_1936_insurance_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_war = no NOT = { has_country_flag = sof_region_BRD_1936_insurance_paid } } add_political_power = -10 add_stability = 0.02 set_country_flag = sof_region_BRD_1936_insurance_paid  if = { limit = { has_completed_focus = sof_region_BRD_1936_chamber has_completed_focus = sof_region_BRD_1936_export_credit NOT = { has_completed_focus = sof_region_BRD_1936_maritime_staff } } sof604_register_mature_brd_export_port_finance = yes }  if = { limit = { has_completed_focus = sof_region_BRD_1936_public_credit has_completed_focus = sof_region_BRD_1936_export_credit } sof604_register_mature_brd_export_public_finance = yes } } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_southern_offer icon = GFX_sof_brt_goal_generic_neutrality_focus x = 24 y = 7 cost = 4
+focus = { id = sof_region_BRD_1936_southern_offer icon = GFX_sof_project_sof_region_brd_1936_southern_offer x = 15 y = 7 cost = 4
  prerequisite = { focus = sof_region_BRD_1936_inspectors } prerequisite = { focus = sof_region_BRD_1936_port_statute }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  TOU = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TOU } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  TOU = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TOU } NOT = { has_country_flag = sof_region_BRD_1936_southern_offer_paid } }  set_country_flag = sof_region_BRD_1936_southern_offer_pending TOU = { country_event = { id = sof_region_BRD_1936.52 days = 1 } } set_country_flag = sof_region_BRD_1936_southern_offer_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_air_exchange icon = GFX_sof_van_goal_generic_air_fighter x = 24 y = 9 cost = 5
+focus = { id = sof_region_BRD_1936_air_exchange icon = GFX_sof_project_sof_region_brd_1936_air_exchange x = 15 y = 8 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_southern_offer } prerequisite = { focus = sof_region_BRD_1936_inspectors }
 
- available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_southern_offer_accepted TOU = { exists = yes NOT = { has_war_with = BRD } } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_southern_offer_accepted TOU = { exists = yes NOT = { has_war_with = BRD } } NOT = { has_country_flag = sof_region_BRD_1936_air_exchange_paid } } air_experience = 12 set_country_flag = sof_region_BRD_1936_air_exchange_paid } }
+ available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_southern_offer_accepted TOU = { exists = yes NOT = { has_war_with = BRD } }  OR = { amount_research_slots > 3 AND = { amount_research_slots < 3 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } }  has_completed_focus = sof_region_BRD_1936_maritime_staff } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sof_region_BRD_1936_southern_offer_accepted TOU = { exists = yes NOT = { has_war_with = BRD } } NOT = { has_country_flag = sof_region_BRD_1936_air_exchange_paid } } air_experience = 25 set_country_flag = sof_region_BRD_1936_air_exchange_paid if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_brd_1936_air_exchange_electronics bonus = 1 uses = 1 category = electronics } }  } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_congress icon = GFX_sof_van_goal_generic_construct_infrastructure x = 14 y = 11 cost = 5
+focus = { id = sof_region_BRD_1936_congress icon = GFX_sof_project_sof_region_brd_1936_congress x = 7 y = 9 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_poitou_contract focus = sof_region_BRD_1936_naval_exchange focus = sof_region_BRD_1936_staff_exercise } prerequisite = { focus = sof_region_BRD_1936_port_statute }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  NOT = { has_country_flag = sof_region_BRD_1936_congress_paid } } set_country_flag = sofzh_unification_started add_political_power = 20 set_country_flag = sof_region_BRD_1936_congress_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_customs icon = GFX_sof_van_goal_generic_construct_infrastructure x = 10 y = 12 cost = 5
+focus = { id = sof_region_BRD_1936_customs icon = GFX_sof_project_sof_region_brd_1936_customs x = 4 y = 10 cost = 3
  prerequisite = { focus = sof_region_BRD_1936_congress }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 99 } 310 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 99 } 310 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_BRD_1936_customs_paid } } add_stability = 0.025 set_country_flag = sof_region_BRD_1936_customs_paid } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_contracts icon = GFX_sof_van_goal_generic_construct_infrastructure x = 14 y = 12 cost = 5
+focus = { id = sof_region_BRD_1936_contracts icon = GFX_sof_project_sof_region_brd_1936_contracts x = 7 y = 10 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_congress }
 
- available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 99 } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 99 } NOT = { has_country_flag = sof_region_BRD_1936_contracts_paid } } add_political_power = 25 set_country_flag = sof_region_BRD_1936_contracts_paid } }
+ available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 OR = { check_variable = { num_owned_states > 99 } has_country_flag = sof_tp_aid_delivered } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 OR = { check_variable = { num_owned_states > 99 } has_country_flag = sof_tp_aid_delivered } NOT = { has_country_flag = sof_region_BRD_1936_contracts_paid } } add_political_power = 25 set_country_flag = sof_region_BRD_1936_contracts_paid }  custom_effect_tooltip = sof_tp_focus_BRD_result_tt sof_tp_focus_BRD_result_effect = yes }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_national_shipping icon = GFX_sof_van_goal_generic_construct_infrastructure x = 12 y = 13 cost = 10
+focus = { id = sof_region_BRD_1936_national_shipping icon = GFX_sof_project_sof_region_brd_1936_national_shipping x = 5 y = 11 cost = 10
  prerequisite = { focus = sof_region_BRD_1936_customs } prerequisite = { focus = sof_region_BRD_1936_contracts } prerequisite = { focus = sof_region_BRD_1936_maritime_staff }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 149 } 310 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 149 } 310 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_BRD_1936_national_shipping_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_national_shipping_local } } set_country_flag = sof_region_BRD_1936_national_shipping_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 149 } 310 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_BRD_1936_national_shipping_paid } }  389 = { add_dynamic_modifier = { modifier = sof_region_BRD_1936_national_shipping_local } } set_country_flag = sof_region_BRD_1936_national_shipping_paid sof_refined_sof_region_brd_1936_national_shipping_effect = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_civil_reconversion icon = GFX_sof_van_goal_generic_construct_infrastructure x = 20 y = 12 cost = 5
+focus = { id = sof_region_BRD_1936_civil_reconversion icon = GFX_sof_project_sof_region_brd_1936_civil_reconversion x = 10 y = 10 cost = 5
  prerequisite = { focus = sof_region_BRD_1936_congress } prerequisite = { focus = sof_region_BRD_1936_inspectors }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 99 } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 99 } NOT = { has_country_flag = sof_region_BRD_1936_civil_reconversion_paid } } add_stability = 0.02 set_country_flag = sof_region_BRD_1936_civil_reconversion_paid } }
+ completion_reward = { if = { limit = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 check_variable = { num_owned_states > 99 } NOT = { has_country_flag = sof_region_BRD_1936_civil_reconversion_paid } } add_stability = 0.02 set_country_flag = sof_region_BRD_1936_civil_reconversion_paid  sof605_register_new_brd_civil_reconversion = yes } }
  ai_will_do = { factor = 8 }
  }
-focus = { id = sof_region_BRD_1936_regional_guarantees icon = GFX_sof_van_goal_generic_construct_infrastructure x = 16 y = 14 cost = 10
+focus = { id = sof_region_BRD_1936_regional_guarantees icon = GFX_sof_project_sof_region_brd_1936_regional_guarantees x = 7 y = 12 cost = 10
  prerequisite = { focus = sof_region_BRD_1936_national_shipping } prerequisite = { focus = sof_region_BRD_1936_civil_reconversion }
 
  available = { original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } } cancel_if_invalid = yes continue_if_invalid = no

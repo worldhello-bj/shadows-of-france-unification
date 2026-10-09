@@ -1,4 +1,4 @@
-###########################
+﻿###########################
 # Political Events
 ###########################
 
@@ -13,8 +13,8 @@ country_event = {
 
 	trigger = {
 		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
-		sof_kr_support_communism_gt = { VALUE = 0.6 }
-		NOT = { sof_kr_support_communism_gt = { VALUE = 0.7 } }
+		sof606_kr_support_communism_gt_622b7328fc = yes
+		NOT = { sof606_kr_support_communism_gt_0f442666cc = yes }
 	}
 
 	fire_only_once = yes
@@ -153,8 +153,8 @@ country_event = {
 	trigger = {
 		has_idea_with_trait = communist_revolutionary
 		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
-		sof_kr_support_communism_gt = { VALUE = 0.2 }
-		NOT = { sof_kr_support_communism_gt = { VALUE = 0.59 } }
+		sof606_kr_support_communism_gt_c09c366c9b = yes
+		NOT = { sof606_kr_support_communism_gt_1c14f45674 = yes }
 	}
 
 	mean_time_to_happen = {
@@ -185,8 +185,8 @@ country_event = {
 	trigger = {
 		has_idea_with_trait = communist_revolutionary
 		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
-		sof_kr_support_communism_gt = { VALUE = 0.3 }
-		NOT = { sof_kr_support_communism_gt = { VALUE = 0.59 } }
+		sof606_kr_support_communism_gt_abdef3af1d = yes
+		NOT = { sof606_kr_support_communism_gt_1c14f45674 = yes }
 		NOT = { has_idea = communist_partisans_recruiting }
 	}
 
@@ -297,8 +297,8 @@ country_event = {
 
 	trigger = {
 		NOT = { OR = { has_government = national_populist } }
-		sof_kr_support_fascism_gt = { VALUE = 0.6 }
-		NOT = { sof_kr_support_fascism_gt = { VALUE = 0.7 } }
+		sof606_kr_support_fascism_gt_1d0f502f50 = yes
+		NOT = { sof606_kr_support_fascism_gt_a919d75021 = yes }
 	}
 
 	fire_only_once = yes
@@ -527,8 +527,8 @@ country_event = {
 	trigger = {
 		has_idea_with_trait = fascist_demagogue
 		NOT = { OR = { has_government = national_populist } }
-		sof_kr_support_fascism_gt = { VALUE = 0.3 }
-		NOT = { sof_kr_support_fascism_gt = { VALUE = 0.59 } }
+		sof606_kr_support_fascism_gt_97c9e2cc45 = yes
+		NOT = { sof606_kr_support_fascism_gt_0416d0b27f = yes }
 		NOT = { has_idea = fascist_assault_divisions }
 	}
 
@@ -560,8 +560,8 @@ country_event = {
 	trigger = {
 		has_idea_with_trait = fascist_demagogue
 		NOT = { OR = { has_government = national_populist } }
-		sof_kr_support_fascism_gt = { VALUE = 0.25 }
-		NOT = { sof_kr_support_fascism_gt = { VALUE = 0.59 } }
+		sof606_kr_support_fascism_gt_4e3d97e091 = yes
+		NOT = { sof606_kr_support_fascism_gt_0416d0b27f = yes }
 		any_neighbor_country = {
 			OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
 		}
@@ -625,8 +625,8 @@ country_event = {
 	
 	trigger = {
 		NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-		sof_kr_support_democratic_gt = { VALUE = 0.6 }
-		NOT = { sof_kr_support_democratic_gt = { VALUE = 0.7 } }
+		sof606_kr_support_democratic_gt_bf4f9999a6 = yes
+		NOT = { sof606_kr_support_democratic_gt_41b79ead01 = yes }
 	}
 
 	fire_only_once = yes
@@ -674,7 +674,7 @@ country_event = {
 		NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
 		NOT = { has_country_flag = democracy_opposition_formed }
 		is_puppet = no
-		NOT = { sof_kr_support_democratic_gt = { VALUE = 0.59 } }
+		NOT = { sof606_kr_support_democratic_gt_59301111a5 = yes }
 	}
 	
 	mean_time_to_happen = {
@@ -937,7 +937,7 @@ country_event = {
 	picture = GFX_report_event_fascist_militia
 
 	trigger = {
-		sof_kr_support_fascism_gt = { VALUE = 0.7 }
+		sof606_kr_support_fascism_gt_a919d75021 = yes
 		#has_idea = fascist_revolutionaries
 		NOT = { OR = { has_government = national_populist } }
 		has_civil_war = no
@@ -1020,7 +1020,7 @@ country_event = {
 	picture = GFX_report_event_worker_protests
 
 	trigger = {
-		sof_kr_support_communism_gt = { VALUE = 0.7 }
+		sof606_kr_support_communism_gt_0f442666cc = yes
 		#has_idea = communist_revolutionaries
 		NOT = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
 		#Special case CHI PRC
@@ -1104,7 +1104,7 @@ country_event = {
 	picture = GFX_report_event_gathering_protest
 
 	trigger = {
-		sof_kr_support_democratic_gt = { VALUE = 0.7 }
+		sof606_kr_support_democratic_gt_41b79ead01 = yes
 		#has_idea = democratic_revolutionaries
 		#Special case CHI PRC
 		NOT = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
@@ -1192,7 +1192,7 @@ country_event = {
 	picture = GFX_report_event_fascists_posing
 
 	trigger = {
-		sof_kr_support_fascism_lt = { VALUE = 0.3 }
+		sof606_kr_support_fascism_lt_0e97df88ea = yes
 		has_idea = fascist_revolutionaries
 	}
 
@@ -1213,7 +1213,7 @@ country_event = {
 	picture = GFX_report_event_stalin_propaganda
 
 	trigger = {
-		sof_kr_support_communism_lt = { VALUE = 0.3 }
+		sof606_kr_support_communism_lt_4dadc33fdf = yes
 		has_idea = communist_revolutionaries
 	}
 
@@ -1234,7 +1234,7 @@ country_event = {
 	picture = GFX_report_event_europe_funeral
 
 	trigger = {
-		sof_kr_support_democratic_lt = { VALUE = 0.3 }
+		sof606_kr_support_democratic_lt_d57ebc30af = yes
 		has_idea = democratic_revolutionaries
 	}
 

@@ -1,0 +1,684 @@
+﻿# Popup target state is country-local. No saved/global event targets are used.
+sof_tp_clear_selection = { clr_country_flag = sof_tp_has_selected clr_country_flag = sof_tp_selected_unaligned clear_variable = sof_tp_selected_country clear_variable = sof_tp_selected_leader clear_variable = sof_tp_selected_index clear_array = sof_tp_selected_country_list }
+sof_tp_refresh_selection = { if = { limit = { has_country_flag = sof_tp_has_selected NOT = { sof_tp_has_valid_selection = yes } } sof_tp_clear_selection = yes } }
+sof_tp_select_PRS_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { PRS = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = PRS } set_variable = { sof_tp_selected_index = 1 } add_to_array = { array = sof_tp_selected_country_list value = PRS }
+  if = { limit = { PRS = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = PRS } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_AJC_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { AJC = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = AJC } set_variable = { sof_tp_selected_index = 2 } add_to_array = { array = sof_tp_selected_country_list value = AJC }
+  if = { limit = { AJC = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = AJC } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_REN_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { REN = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = REN } set_variable = { sof_tp_selected_index = 3 } add_to_array = { array = sof_tp_selected_country_list value = REN }
+  if = { limit = { REN = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = REN } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_MRS_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { MRS = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = MRS } set_variable = { sof_tp_selected_index = 4 } add_to_array = { array = sof_tp_selected_country_list value = MRS }
+  if = { limit = { MRS = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = MRS } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_LIL_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { LIL = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = LIL } set_variable = { sof_tp_selected_index = 5 } add_to_array = { array = sof_tp_selected_country_list value = LIL }
+  if = { limit = { LIL = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = LIL } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_MET_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { MET = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = MET } set_variable = { sof_tp_selected_index = 6 } add_to_array = { array = sof_tp_selected_country_list value = MET }
+  if = { limit = { MET = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = MET } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_STR_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { STR = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = STR } set_variable = { sof_tp_selected_index = 7 } add_to_array = { array = sof_tp_selected_country_list value = STR }
+  if = { limit = { STR = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = STR } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_ROU_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { ROU = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = ROU } set_variable = { sof_tp_selected_index = 8 } add_to_array = { array = sof_tp_selected_country_list value = ROU }
+  if = { limit = { ROU = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = ROU } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_LYO_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { LYO = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = LYO } set_variable = { sof_tp_selected_index = 9 } add_to_array = { array = sof_tp_selected_country_list value = LYO }
+  if = { limit = { LYO = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = LYO } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_BRD_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { BRD = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = BRD } set_variable = { sof_tp_selected_index = 10 } add_to_array = { array = sof_tp_selected_country_list value = BRD }
+  if = { limit = { BRD = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = BRD } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_TOU_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { TOU = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = TOU } set_variable = { sof_tp_selected_index = 11 } add_to_array = { array = sof_tp_selected_country_list value = TOU }
+  if = { limit = { TOU = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = TOU } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_NAN_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { NAN = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = NAN } set_variable = { sof_tp_selected_index = 12 } add_to_array = { array = sof_tp_selected_country_list value = NAN }
+  if = { limit = { NAN = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = NAN } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_CFR_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { CFR = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = CFR } set_variable = { sof_tp_selected_index = 13 } add_to_array = { array = sof_tp_selected_country_list value = CFR }
+  if = { limit = { CFR = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = CFR } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_DIJ_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { DIJ = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = DIJ } set_variable = { sof_tp_selected_index = 14 } add_to_array = { array = sof_tp_selected_country_list value = DIJ }
+  if = { limit = { DIJ = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = DIJ } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_BES_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { BES = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = BES } set_variable = { sof_tp_selected_index = 15 } add_to_array = { array = sof_tp_selected_country_list value = BES }
+  if = { limit = { BES = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = BES } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_TRS_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { TRS = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = TRS } set_variable = { sof_tp_selected_index = 16 } add_to_array = { array = sof_tp_selected_country_list value = TRS }
+  if = { limit = { TRS = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = TRS } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_AMI_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { AMI = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = AMI } set_variable = { sof_tp_selected_index = 17 } add_to_array = { array = sof_tp_selected_country_list value = AMI }
+  if = { limit = { AMI = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = AMI } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_CHL_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { CHL = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = CHL } set_variable = { sof_tp_selected_index = 18 } add_to_array = { array = sof_tp_selected_country_list value = CHL }
+  if = { limit = { CHL = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = CHL } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_MOP_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { MOP = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = MOP } set_variable = { sof_tp_selected_index = 19 } add_to_array = { array = sof_tp_selected_country_list value = MOP }
+  if = { limit = { MOP = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = MOP } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_select_POI_effect = {
+ sof_tp_clear_selection = yes
+ if = { limit = { POI = { sof_tp_country = yes } }
+  set_country_flag = sof_tp_has_selected set_variable = { sof_tp_selected_country = POI } set_variable = { sof_tp_selected_index = 20 } add_to_array = { array = sof_tp_selected_country_list value = POI }
+  if = { limit = { POI = { is_in_faction = no } } set_country_flag = sof_tp_selected_unaligned }
+  else = { every_country = { limit = { is_faction_leader = yes is_in_faction_with = POI } ROOT = { set_variable = { sof_tp_selected_leader = PREV } } } }
+ }
+}
+sof_tp_selected_membership_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_membership = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_membership_request_target_effect_c16bafe751 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_membership_request_target_effect_7faec6dad0 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_membership_request_target_effect_cceb7b08ba = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_membership_request_target_effect_5ce8926b65 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_membership_request_target_effect_f583f500f9 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_membership_request_target_effect_f4008720b8 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_membership_request_target_effect_9c04f5d3b1 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_membership_request_target_effect_6c53d11a81 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_membership_request_target_effect_0f2082c8dd = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_membership_request_target_effect_240f85052b = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_membership_request_target_effect_c014caeda6 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_membership_request_target_effect_1a2be72240 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_membership_request_target_effect_3efeefb795 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_membership_request_target_effect_8bc1718694 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_membership_request_target_effect_7ed1469461 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_membership_request_target_effect_ab20149860 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_membership_request_target_effect_5f1b3906c6 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_membership_request_target_effect_aa7d1e60f3 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_membership_request_target_effect_633c6d6dc7 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_membership_request_target_effect_007da9b97b = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_selected_congress_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_congress = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_invite_congress_target_effect_230d33b290 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_invite_congress_target_effect_39d7e512e1 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_invite_congress_target_effect_ac797af8b9 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_invite_congress_target_effect_d36abaf2ce = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_invite_congress_target_effect_f5116eb7eb = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_invite_congress_target_effect_f576dfdd6f = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_invite_congress_target_effect_271673340f = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_invite_congress_target_effect_97127d3575 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_invite_congress_target_effect_5eb2b63aa2 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_invite_congress_target_effect_f551c0193f = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_invite_congress_target_effect_19a4780367 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_invite_congress_target_effect_818a712298 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_invite_congress_target_effect_6058f28900 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_invite_congress_target_effect_158d63706a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_invite_congress_target_effect_22be348ef0 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_invite_congress_target_effect_ae95dfece7 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_invite_congress_target_effect_f446831b3a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_invite_congress_target_effect_3010b42d48 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_invite_congress_target_effect_95f4fef032 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_invite_congress_target_effect_52077fd633 = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_selected_union_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_union = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_offer_union_target_effect_e8a1b39cd4 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_offer_union_target_effect_b0c5e7f0d5 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_offer_union_target_effect_59a8c0375f = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_offer_union_target_effect_6a98feeb2c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_offer_union_target_effect_49d47a510c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_offer_union_target_effect_fd0e7f200a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_offer_union_target_effect_44629a1eb1 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_offer_union_target_effect_fb8a2048c9 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_offer_union_target_effect_f8b3b2fd26 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_offer_union_target_effect_0d25f11529 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_offer_union_target_effect_f44aff6a21 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_offer_union_target_effect_5aa9ab463c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_offer_union_target_effect_f1bc228431 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_offer_union_target_effect_9f59bcdea3 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_offer_union_target_effect_19616b20e3 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_offer_union_target_effect_1dd96b8594 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_offer_union_target_effect_f77f433052 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_offer_union_target_effect_8981eb7e1d = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_offer_union_target_effect_9a4f728328 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_offer_union_target_effect_de184aecd1 = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_selected_claim_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_claim = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_press_claim_target_effect_e38608b682 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_press_claim_target_effect_c9c59b2b8b = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_press_claim_target_effect_f328221083 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_press_claim_target_effect_40d811770e = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_press_claim_target_effect_2e665b9c7c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_press_claim_target_effect_4a211fe8a7 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_press_claim_target_effect_934718a838 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_press_claim_target_effect_f27c9a1189 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_press_claim_target_effect_66076635c8 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_press_claim_target_effect_6d1c310ff8 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_press_claim_target_effect_b1e754218c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_press_claim_target_effect_44bf02d25d = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_press_claim_target_effect_b0a43f2f7c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_press_claim_target_effect_6d771ffb67 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_press_claim_target_effect_eb4933a8b9 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_press_claim_target_effect_a462fccd52 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_press_claim_target_effect_424e474ff9 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_press_claim_target_effect_10363f05e6 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_press_claim_target_effect_8722261d41 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_press_claim_target_effect_8053695bae = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_selected_settlement_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_settlement = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_seek_settlement_target_effect_e76f0a08d1 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_seek_settlement_target_effect_f5ada95b61 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_seek_settlement_target_effect_5bb324125a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_seek_settlement_target_effect_10965aaa46 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_seek_settlement_target_effect_91971fca62 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_seek_settlement_target_effect_f429b17fa5 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_seek_settlement_target_effect_9803d51f0c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_seek_settlement_target_effect_140f5795cd = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_seek_settlement_target_effect_21be94c4cc = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_seek_settlement_target_effect_6f749dca33 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_seek_settlement_target_effect_6a0620a1fc = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_seek_settlement_target_effect_d4614e5d15 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_seek_settlement_target_effect_0678f4f8af = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_seek_settlement_target_effect_d8c8d9ac6b = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_seek_settlement_target_effect_438e3e52b0 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_seek_settlement_target_effect_35aa428dad = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_seek_settlement_target_effect_b16ee7f5be = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_seek_settlement_target_effect_8255848232 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_seek_settlement_target_effect_7993206d05 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_seek_settlement_target_effect_231e4a631d = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_selected_aid_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_aid = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_fulfil_aid_target_effect_6b128f6e7a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_fulfil_aid_target_effect_abe596edcd = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_fulfil_aid_target_effect_10177460ec = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_fulfil_aid_target_effect_9f1e74840a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_fulfil_aid_target_effect_2a4e4b6732 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_fulfil_aid_target_effect_dd73137d88 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_fulfil_aid_target_effect_8c2cfc46fb = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_fulfil_aid_target_effect_28fdb1234a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_fulfil_aid_target_effect_4097b655e9 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_fulfil_aid_target_effect_8cd8e9d38b = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_fulfil_aid_target_effect_2aab9bbff4 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_fulfil_aid_target_effect_d6c03af9d7 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_fulfil_aid_target_effect_3a049e1d94 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_fulfil_aid_target_effect_21d557d797 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_fulfil_aid_target_effect_d191acd947 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_fulfil_aid_target_effect_c88187c1aa = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_fulfil_aid_target_effect_22f630c552 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_fulfil_aid_target_effect_61415d493d = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_fulfil_aid_target_effect_ce8a69f167 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_fulfil_aid_target_effect_b07e63ec40 = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_selected_challenge_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_challenge = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_challenge_rival_target_effect_82ce53914f = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_challenge_rival_target_effect_5aa5e2e877 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_challenge_rival_target_effect_824c5ccde5 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_challenge_rival_target_effect_3562338e50 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_challenge_rival_target_effect_40560573c1 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_challenge_rival_target_effect_c2ad3976c4 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_challenge_rival_target_effect_d84ca97826 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_challenge_rival_target_effect_6b63881fe7 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_challenge_rival_target_effect_a8bfb7fa65 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_challenge_rival_target_effect_4aa2b085da = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_challenge_rival_target_effect_990ba7ede4 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_challenge_rival_target_effect_9aecfd40b6 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_challenge_rival_target_effect_08d547586d = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_challenge_rival_target_effect_d6f3d14dcb = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_challenge_rival_target_effect_e29ac32fef = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_challenge_rival_target_effect_64a778c307 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_challenge_rival_target_effect_91771f7ccd = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_challenge_rival_target_effect_1bae144db3 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_challenge_rival_target_effect_b6049c580e = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_challenge_rival_target_effect_8c711e9f39 = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_selected_enforce_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_selected_enforce = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 1 } } sof606_tp_enforce_claim_target_effect_6119891db0 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 2 } } sof606_tp_enforce_claim_target_effect_ef9b5d87f9 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 3 } } sof606_tp_enforce_claim_target_effect_4b18883489 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 4 } } sof606_tp_enforce_claim_target_effect_d0e5cf4b48 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 5 } } sof606_tp_enforce_claim_target_effect_dc73f08d0a = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 6 } } sof606_tp_enforce_claim_target_effect_b1073a0de2 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 7 } } sof606_tp_enforce_claim_target_effect_9acef29c94 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 8 } } sof606_tp_enforce_claim_target_effect_4869622194 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 9 } } sof606_tp_enforce_claim_target_effect_de5c315e35 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 10 } } sof606_tp_enforce_claim_target_effect_7c14cbbacf = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 11 } } sof606_tp_enforce_claim_target_effect_ba355b2504 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 12 } } sof606_tp_enforce_claim_target_effect_b80dd79a21 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 13 } } sof606_tp_enforce_claim_target_effect_5ab2a76360 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 14 } } sof606_tp_enforce_claim_target_effect_53723a7932 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 15 } } sof606_tp_enforce_claim_target_effect_857d4ea029 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 16 } } sof606_tp_enforce_claim_target_effect_949dcf279d = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 17 } } sof606_tp_enforce_claim_target_effect_a39f0c6ceb = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 18 } } sof606_tp_enforce_claim_target_effect_081493853c = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 19 } } sof606_tp_enforce_claim_target_effect_87ffd57fd5 = yes }
+ if = { limit = { check_variable = { sof_tp_selected_index = 20 } } sof606_tp_enforce_claim_target_effect_17a0c5ec44 = yes }
+ } sof_tp_refresh_selection = yes }
+sof_tp_refresh_map = {
+ set_variable = { sof_tp_map_PRS_frame = 1 }
+ if = { limit = { PRS = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_PRS_frame = PRS.sof_tp_bloc } add_to_variable = { sof_tp_map_PRS_frame = 1 } }
+  else = {
+   if = { limit = { PRS = { tag = ROOT } } set_variable = { sof_tp_map_PRS_frame = 6 } }
+   else_if = { limit = { PRS = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_PRS_frame = 3 } }
+   else_if = { limit = { PRS = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_PRS_frame = 5 } }
+   else_if = { limit = { PRS = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_PRS_frame = 4 } }
+   else_if = { limit = { PRS = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_PRS_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 115 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 119 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 121 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 123 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 130 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 131 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 132 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 135 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 137 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 138 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 140 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 141 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 143 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 144 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 147 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 149 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 150 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 152 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 153 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 155 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 157 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 158 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 161 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 175 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 182 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_PRS_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { PRS = { exists = yes } } }
+  143 = { owner = { ROOT = { set_variable = { sof_tp_map_PRS_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_PRS_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_PRS_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_AJC_frame = 1 }
+ if = { limit = { AJC = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_AJC_frame = AJC.sof_tp_bloc } add_to_variable = { sof_tp_map_AJC_frame = 1 } }
+  else = {
+   if = { limit = { AJC = { tag = ROOT } } set_variable = { sof_tp_map_AJC_frame = 6 } }
+   else_if = { limit = { AJC = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_AJC_frame = 3 } }
+   else_if = { limit = { AJC = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_AJC_frame = 5 } }
+   else_if = { limit = { AJC = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_AJC_frame = 4 } }
+   else_if = { limit = { AJC = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_AJC_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 485 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 491 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 499 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 504 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 509 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_AJC_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { AJC = { exists = yes } } }
+  504 = { owner = { ROOT = { set_variable = { sof_tp_map_AJC_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_AJC_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_AJC_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_REN_frame = 1 }
+ if = { limit = { REN = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_REN_frame = REN.sof_tp_bloc } add_to_variable = { sof_tp_map_REN_frame = 1 } }
+  else = {
+   if = { limit = { REN = { tag = ROOT } } set_variable = { sof_tp_map_REN_frame = 6 } }
+   else_if = { limit = { REN = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_REN_frame = 3 } }
+   else_if = { limit = { REN = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_REN_frame = 5 } }
+   else_if = { limit = { REN = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_REN_frame = 4 } }
+   else_if = { limit = { REN = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_REN_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 146 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 154 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 160 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 162 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 165 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 167 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 168 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 179 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 184 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 186 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 188 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 195 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 198 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 200 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 207 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 208 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 250 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_REN_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { REN = { exists = yes } } }
+  188 = { owner = { ROOT = { set_variable = { sof_tp_map_REN_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_REN_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_REN_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_MRS_frame = 1 }
+ if = { limit = { MRS = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_MRS_frame = MRS.sof_tp_bloc } add_to_variable = { sof_tp_map_MRS_frame = 1 } }
+  else = {
+   if = { limit = { MRS = { tag = ROOT } } set_variable = { sof_tp_map_MRS_frame = 6 } }
+   else_if = { limit = { MRS = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_MRS_frame = 3 } }
+   else_if = { limit = { MRS = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_MRS_frame = 5 } }
+   else_if = { limit = { MRS = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_MRS_frame = 4 } }
+   else_if = { limit = { MRS = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_MRS_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 383 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 398 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 408 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 413 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 418 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 422 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 425 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 426 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 427 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 436 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 438 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 440 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 444 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 446 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 448 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 452 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 463 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 469 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 483 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 484 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_MRS_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { MRS = { exists = yes } } }
+  463 = { owner = { ROOT = { set_variable = { sof_tp_map_MRS_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_MRS_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_MRS_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_LIL_frame = 1 }
+ if = { limit = { LIL = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_LIL_frame = LIL.sof_tp_bloc } add_to_variable = { sof_tp_map_LIL_frame = 1 } }
+  else = {
+   if = { limit = { LIL = { tag = ROOT } } set_variable = { sof_tp_map_LIL_frame = 6 } }
+   else_if = { limit = { LIL = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_LIL_frame = 3 } }
+   else_if = { limit = { LIL = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_LIL_frame = 5 } }
+   else_if = { limit = { LIL = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_LIL_frame = 4 } }
+   else_if = { limit = { LIL = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_LIL_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 36 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 39 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 40 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 45 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 55 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 56 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 60 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 61 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 68 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 69 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_LIL_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { LIL = { exists = yes } } }
+  51 = { owner = { ROOT = { set_variable = { sof_tp_map_LIL_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_LIL_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_LIL_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_MET_frame = 1 }
+ if = { limit = { MET = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_MET_frame = MET.sof_tp_bloc } add_to_variable = { sof_tp_map_MET_frame = 1 } }
+  else = {
+   if = { limit = { MET = { tag = ROOT } } set_variable = { sof_tp_map_MET_frame = 6 } }
+   else_if = { limit = { MET = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_MET_frame = 3 } }
+   else_if = { limit = { MET = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_MET_frame = 5 } }
+   else_if = { limit = { MET = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_MET_frame = 4 } }
+   else_if = { limit = { MET = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_MET_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 92 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 94 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 96 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 98 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 106 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 116 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 118 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 124 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 125 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 129 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 133 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 134 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 145 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 159 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 180 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 181 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 187 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_MET_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { MET = { exists = yes } } }
+  112 = { owner = { ROOT = { set_variable = { sof_tp_map_MET_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_MET_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_MET_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_STR_frame = 1 }
+ if = { limit = { STR = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_STR_frame = STR.sof_tp_bloc } add_to_variable = { sof_tp_map_STR_frame = 1 } }
+  else = {
+   if = { limit = { STR = { tag = ROOT } } set_variable = { sof_tp_map_STR_frame = 6 } }
+   else_if = { limit = { STR = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_STR_frame = 3 } }
+   else_if = { limit = { STR = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_STR_frame = 5 } }
+   else_if = { limit = { STR = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_STR_frame = 4 } }
+   else_if = { limit = { STR = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_STR_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 126 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 127 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 128 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 170 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 173 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 183 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 193 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 197 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 210 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 214 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 217 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 223 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_STR_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { STR = { exists = yes } } }
+  173 = { owner = { ROOT = { set_variable = { sof_tp_map_STR_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_STR_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_STR_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_ROU_frame = 1 }
+ if = { limit = { ROU = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_ROU_frame = ROU.sof_tp_bloc } add_to_variable = { sof_tp_map_ROU_frame = 1 } }
+  else = {
+   if = { limit = { ROU = { tag = ROOT } } set_variable = { sof_tp_map_ROU_frame = 6 } }
+   else_if = { limit = { ROU = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_ROU_frame = 3 } }
+   else_if = { limit = { ROU = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_ROU_frame = 5 } }
+   else_if = { limit = { ROU = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_ROU_frame = 4 } }
+   else_if = { limit = { ROU = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_ROU_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 74 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 80 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 88 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 99 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 100 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 101 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 104 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 105 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 107 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 109 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 117 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 122 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 136 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 148 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 156 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 164 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_ROU_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { ROU = { exists = yes } } }
+  84 = { owner = { ROOT = { set_variable = { sof_tp_map_ROU_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_ROU_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_ROU_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_LYO_frame = 1 }
+ if = { limit = { LYO = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_LYO_frame = LYO.sof_tp_bloc } add_to_variable = { sof_tp_map_LYO_frame = 1 } }
+  else = {
+   if = { limit = { LYO = { tag = ROOT } } set_variable = { sof_tp_map_LYO_frame = 6 } }
+   else_if = { limit = { LYO = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_LYO_frame = 3 } }
+   else_if = { limit = { LYO = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_LYO_frame = 5 } }
+   else_if = { limit = { LYO = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_LYO_frame = 4 } }
+   else_if = { limit = { LYO = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_LYO_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 301 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 307 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 308 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 313 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 314 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 315 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 316 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 319 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 329 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 330 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 337 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 339 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 341 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 342 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 355 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 361 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 375 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 385 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 396 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 397 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 406 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_LYO_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { LYO = { exists = yes } } }
+  336 = { owner = { ROOT = { set_variable = { sof_tp_map_LYO_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_LYO_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_LYO_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_BRD_frame = 1 }
+ if = { limit = { BRD = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_BRD_frame = BRD.sof_tp_bloc } add_to_variable = { sof_tp_map_BRD_frame = 1 } }
+  else = {
+   if = { limit = { BRD = { tag = ROOT } } set_variable = { sof_tp_map_BRD_frame = 6 } }
+   else_if = { limit = { BRD = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_BRD_frame = 3 } }
+   else_if = { limit = { BRD = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_BRD_frame = 5 } }
+   else_if = { limit = { BRD = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_BRD_frame = 4 } }
+   else_if = { limit = { BRD = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_BRD_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 353 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 362 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 368 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 378 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 380 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 386 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 400 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 401 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 402 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 403 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 410 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 420 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 421 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 434 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 454 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 456 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 461 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_BRD_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { BRD = { exists = yes } } }
+  389 = { owner = { ROOT = { set_variable = { sof_tp_map_BRD_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_BRD_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_BRD_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_TOU_frame = 1 }
+ if = { limit = { TOU = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_TOU_frame = TOU.sof_tp_bloc } add_to_variable = { sof_tp_map_TOU_frame = 1 } }
+  else = {
+   if = { limit = { TOU = { tag = ROOT } } set_variable = { sof_tp_map_TOU_frame = 6 } }
+   else_if = { limit = { TOU = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_TOU_frame = 3 } }
+   else_if = { limit = { TOU = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_TOU_frame = 5 } }
+   else_if = { limit = { TOU = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_TOU_frame = 4 } }
+   else_if = { limit = { TOU = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_TOU_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 387 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 391 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 393 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 404 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 407 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 412 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 419 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 424 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 430 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 435 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 442 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 445 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 447 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 453 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 455 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 464 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 471 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 475 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 478 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 479 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 481 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_TOU_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { TOU = { exists = yes } } }
+  439 = { owner = { ROOT = { set_variable = { sof_tp_map_TOU_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_TOU_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_TOU_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_NAN_frame = 1 }
+ if = { limit = { NAN = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_NAN_frame = NAN.sof_tp_bloc } add_to_variable = { sof_tp_map_NAN_frame = 1 } }
+  else = {
+   if = { limit = { NAN = { tag = ROOT } } set_variable = { sof_tp_map_NAN_frame = 6 } }
+   else_if = { limit = { NAN = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_NAN_frame = 3 } }
+   else_if = { limit = { NAN = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_NAN_frame = 5 } }
+   else_if = { limit = { NAN = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_NAN_frame = 4 } }
+   else_if = { limit = { NAN = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_NAN_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 176 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 185 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 192 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 196 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 205 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 216 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 218 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 220 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 222 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 229 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 231 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 248 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 268 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 271 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 272 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 281 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 286 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 293 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_NAN_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { NAN = { exists = yes } } }
+  249 = { owner = { ROOT = { set_variable = { sof_tp_map_NAN_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_NAN_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_NAN_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_CFR_frame = 1 }
+ if = { limit = { CFR = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_CFR_frame = CFR.sof_tp_bloc } add_to_variable = { sof_tp_map_CFR_frame = 1 } }
+  else = {
+   if = { limit = { CFR = { tag = ROOT } } set_variable = { sof_tp_map_CFR_frame = 6 } }
+   else_if = { limit = { CFR = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_CFR_frame = 3 } }
+   else_if = { limit = { CFR = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_CFR_frame = 5 } }
+   else_if = { limit = { CFR = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_CFR_frame = 4 } }
+   else_if = { limit = { CFR = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_CFR_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 289 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 292 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 303 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 318 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 351 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 366 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 369 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 372 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 373 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 374 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 384 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_CFR_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { CFR = { exists = yes } } }
+  345 = { owner = { ROOT = { set_variable = { sof_tp_map_CFR_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_CFR_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_CFR_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_DIJ_frame = 1 }
+ if = { limit = { DIJ = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_DIJ_frame = DIJ.sof_tp_bloc } add_to_variable = { sof_tp_map_DIJ_frame = 1 } }
+  else = {
+   if = { limit = { DIJ = { tag = ROOT } } set_variable = { sof_tp_map_DIJ_frame = 6 } }
+   else_if = { limit = { DIJ = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_DIJ_frame = 3 } }
+   else_if = { limit = { DIJ = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_DIJ_frame = 5 } }
+   else_if = { limit = { DIJ = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_DIJ_frame = 4 } }
+   else_if = { limit = { DIJ = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_DIJ_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 189 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 209 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 215 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 234 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 240 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 251 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 262 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 276 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 291 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 297 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_DIJ_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { DIJ = { exists = yes } } }
+  226 = { owner = { ROOT = { set_variable = { sof_tp_map_DIJ_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_DIJ_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_DIJ_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_BES_frame = 1 }
+ if = { limit = { BES = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_BES_frame = BES.sof_tp_bloc } add_to_variable = { sof_tp_map_BES_frame = 1 } }
+  else = {
+   if = { limit = { BES = { tag = ROOT } } set_variable = { sof_tp_map_BES_frame = 6 } }
+   else_if = { limit = { BES = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_BES_frame = 3 } }
+   else_if = { limit = { BES = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_BES_frame = 5 } }
+   else_if = { limit = { BES = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_BES_frame = 4 } }
+   else_if = { limit = { BES = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_BES_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 211 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 212 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 219 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 254 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 256 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 273 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 296 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_BES_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { BES = { exists = yes } } }
+  243 = { owner = { ROOT = { set_variable = { sof_tp_map_BES_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_BES_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_BES_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_TRS_frame = 1 }
+ if = { limit = { TRS = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_TRS_frame = TRS.sof_tp_bloc } add_to_variable = { sof_tp_map_TRS_frame = 1 } }
+  else = {
+   if = { limit = { TRS = { tag = ROOT } } set_variable = { sof_tp_map_TRS_frame = 6 } }
+   else_if = { limit = { TRS = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_TRS_frame = 3 } }
+   else_if = { limit = { TRS = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_TRS_frame = 5 } }
+   else_if = { limit = { TRS = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_TRS_frame = 4 } }
+   else_if = { limit = { TRS = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_TRS_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 139 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 174 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 177 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 191 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 194 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 199 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 203 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 213 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 224 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 230 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 245 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 258 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 259 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 260 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 269 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 282 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 290 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 526 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_TRS_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { TRS = { exists = yes } } }
+  225 = { owner = { ROOT = { set_variable = { sof_tp_map_TRS_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_TRS_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_TRS_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_AMI_frame = 1 }
+ if = { limit = { AMI = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_AMI_frame = AMI.sof_tp_bloc } add_to_variable = { sof_tp_map_AMI_frame = 1 } }
+  else = {
+   if = { limit = { AMI = { tag = ROOT } } set_variable = { sof_tp_map_AMI_frame = 6 } }
+   else_if = { limit = { AMI = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_AMI_frame = 3 } }
+   else_if = { limit = { AMI = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_AMI_frame = 5 } }
+   else_if = { limit = { AMI = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_AMI_frame = 4 } }
+   else_if = { limit = { AMI = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_AMI_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 67 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 75 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 76 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 77 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 83 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 85 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 89 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 90 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 97 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 108 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 114 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_AMI_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { AMI = { exists = yes } } }
+  70 = { owner = { ROOT = { set_variable = { sof_tp_map_AMI_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_AMI_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_AMI_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_CHL_frame = 1 }
+ if = { limit = { CHL = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_CHL_frame = CHL.sof_tp_bloc } add_to_variable = { sof_tp_map_CHL_frame = 1 } }
+  else = {
+   if = { limit = { CHL = { tag = ROOT } } set_variable = { sof_tp_map_CHL_frame = 6 } }
+   else_if = { limit = { CHL = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_CHL_frame = 3 } }
+   else_if = { limit = { CHL = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_CHL_frame = 5 } }
+   else_if = { limit = { CHL = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_CHL_frame = 4 } }
+   else_if = { limit = { CHL = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_CHL_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 72 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 86 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 93 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 110 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 142 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 166 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 169 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 178 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 190 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 206 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_CHL_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { CHL = { exists = yes } } }
+  111 = { owner = { ROOT = { set_variable = { sof_tp_map_CHL_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_CHL_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_CHL_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_MOP_frame = 1 }
+ if = { limit = { MOP = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_MOP_frame = MOP.sof_tp_bloc } add_to_variable = { sof_tp_map_MOP_frame = 1 } }
+  else = {
+   if = { limit = { MOP = { tag = ROOT } } set_variable = { sof_tp_map_MOP_frame = 6 } }
+   else_if = { limit = { MOP = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_MOP_frame = 3 } }
+   else_if = { limit = { MOP = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_MOP_frame = 5 } }
+   else_if = { limit = { MOP = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_MOP_frame = 4 } }
+   else_if = { limit = { MOP = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_MOP_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 392 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 415 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 423 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 431 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 437 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 462 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 468 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 476 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 487 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 490 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 497 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_MOP_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { MOP = { exists = yes } } }
+  441 = { owner = { ROOT = { set_variable = { sof_tp_map_MOP_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_MOP_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_MOP_frame min = 1 max = 6 }
+ set_variable = { sof_tp_map_POI_frame = 1 }
+ if = { limit = { POI = { exists = yes } }
+  if = { limit = { sof_tp_phase_one = yes } set_variable = { sof_tp_map_POI_frame = POI.sof_tp_bloc } add_to_variable = { sof_tp_map_POI_frame = 1 } }
+  else = {
+   if = { limit = { POI = { tag = ROOT } } set_variable = { sof_tp_map_POI_frame = 6 } }
+   else_if = { limit = { POI = { has_country_flag = sof_tp_aid_received@ROOT } } set_variable = { sof_tp_map_POI_frame = 3 } }
+   else_if = { limit = { POI = { has_country_flag = sof_tp_aid_due@ROOT } } set_variable = { sof_tp_map_POI_frame = 5 } }
+   else_if = { limit = { POI = { has_country_flag = sof_tp_congress@ROOT } } set_variable = { sof_tp_map_POI_frame = 4 } }
+   else_if = { limit = { POI = { is_in_faction_with = ROOT } } set_variable = { sof_tp_map_POI_frame = 2 } }
+  }
+ }
+ # Region geometry is historical; after annexation use actual territorial ownership.
+ if = { limit = { sof_tp_phase_two = yes 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 267 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 284 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 294 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 310 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 317 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 321 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 322 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 324 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 325 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 331 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 338 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 340 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 343 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 348 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 358 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 525 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 527 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } set_variable = { sof_tp_map_POI_frame = 6 } }
+ if = { limit = { sof_tp_phase_one = yes NOT = { POI = { exists = yes } } }
+  288 = { owner = { ROOT = { set_variable = { sof_tp_map_POI_frame = PREV.sof_tp_bloc } add_to_variable = { sof_tp_map_POI_frame = 1 } } } }
+ }
+ clamp_variable = { var = sof_tp_map_POI_frame min = 1 max = 6 }
+}
+
+# Only call from player-root GUI actions, not from arbitrary every_country loops.
+sof_tp_popup_refresh_effect = { sof_tp_refresh = yes sof_tp_refresh_selection = yes sof_tp_refresh_map = yes sof_tp_refresh_contract_ui = yes }

@@ -1,5 +1,122 @@
 scripted_gui = {
-sof_large_launcher_gui = { context_type = player_context window_name = "sof_large_launcher_window" visible = { NOT = { OR = { AND = { check_variable = { sof_ui_window = 1 } sofzh_unification_candidate = yes } AND = { check_variable = { sof_ui_window = 2 } sof_brt_active = yes } check_variable = { sof_ui_window = 3 } } } } ai_enabled = { always = no } effects = { sof_open_campaign_click = { sof_cw_refresh = yes set_variable = { sof_ui_window = 1 } } sof_open_council_click = { set_variable = { sof_ui_window = 2 } } sof_open_politics_click = { set_variable = { sof_ui_window = 3 } } } triggers = { sof_open_campaign_visible = { sofzh_unification_candidate = yes } sof_open_council_visible = { sof_brt_active = yes } } }
-sof_cw_launcher_gui = { context_type = decision_category window_name = "sof_cw_launcher_window" ai_enabled = { always = no } effects = { sof_open_campaign_click = { sof_cw_refresh = yes set_variable = { sof_ui_window = 1 } } } }
-sof_brt_launcher_gui = { context_type = decision_category window_name = "sof_brt_launcher_window" ai_enabled = { always = no } effects = { sof_open_council_click = { set_variable = { sof_ui_window = 2 } } } }
+ sof_large_launcher_gui = {
+  context_type = player_context
+  window_name = "sof_large_launcher_window"
+  visible = {
+   NOT = {
+    OR = {
+     AND = {
+      check_variable = {
+       sof_ui_window = 1
+      }
+      sofzh_unification_candidate = yes
+     }
+     AND = {
+      check_variable = {
+       sof_ui_window = 2
+      }
+      sof_brt_active = yes
+     }
+     check_variable = {
+      sof_ui_window = 3
+     }
+     AND = {
+      check_variable = {
+       sof_ui_window = 4
+      }
+      sof_tp_country = yes
+     }
+    }
+   }
+  }
+  ai_enabled = {
+   always = no
+  }
+  effects = {
+   sof_open_campaign_click = {
+    sof_cw_refresh = yes
+    set_variable = {
+     sof_ui_window = 1
+    }
+    clr_country_flag = sof_tp_popup_open
+   }
+   sof_open_council_click = {
+    set_variable = {
+     sof_ui_window = 2
+    }
+    clr_country_flag = sof_tp_popup_open
+   }
+   sof_open_politics_click = {
+    set_variable = {
+     sof_ui_window = 3
+    }
+    clr_country_flag = sof_tp_popup_open
+   }
+   sof_open_national_council_click = {
+    set_variable = {
+     sof_ui_window = 4
+    }
+    set_country_flag = sof_tp_popup_open
+    sof_tp_popup_refresh_effect = yes
+   }
+  }
+  triggers = {
+   sof_open_campaign_visible = {
+    sofzh_unification_candidate = yes
+   }
+   sof_open_council_visible = {
+    sof_brt_active = yes
+   }
+   sof_open_national_council_visible = {
+    sof_tp_country = yes
+   }
+  }
+ }
+ sof_cw_launcher_gui = {
+  context_type = decision_category
+  window_name = "sof_cw_launcher_window"
+  ai_enabled = {
+   always = no
+  }
+  effects = {
+   sof_open_campaign_click = {
+    sof_cw_refresh = yes
+    set_variable = {
+     sof_ui_window = 1
+    }
+    clr_country_flag = sof_tp_popup_open
+   }
+  }
+ }
+ sof_brt_launcher_gui = {
+  context_type = decision_category
+  window_name = "sof_brt_launcher_window"
+  ai_enabled = {
+   always = no
+  }
+  effects = {
+   sof_open_council_click = {
+    set_variable = {
+     sof_ui_window = 2
+    }
+    clr_country_flag = sof_tp_popup_open
+   }
+  }
+ }
+ sof_tp_category_launcher_gui = {
+  context_type = decision_category
+  window_name = "sof_tp_category_launcher_window"
+  ai_enabled = {
+   always = no
+  }
+  effects = {
+   sof_tp_category_open_click = {
+    set_variable = {
+     sof_ui_window = 4
+    }
+    set_country_flag = sof_tp_popup_open
+    sof_tp_popup_refresh_effect = yes
+   }
+  }
+ }
 }

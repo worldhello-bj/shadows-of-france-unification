@@ -1,0 +1,1103 @@
+scripted_gui = {
+ sof_tp_launcher_gui = {
+  context_type = player_context
+  parent_window_token = top_bar
+  window_name = "sof_tp_launcher_window"
+  ai_enabled = {
+   always = no
+  }
+  visible = {
+   sof_tp_country = yes
+   NOT = {
+    OR = {
+     AND = {
+      check_variable = {
+       sof_ui_window = 1
+      }
+      sofzh_unification_candidate = yes
+     }
+     AND = {
+      check_variable = {
+       sof_ui_window = 2
+      }
+      sof_brt_active = yes
+     }
+     check_variable = {
+      sof_ui_window = 3
+     }
+     AND = {
+      check_variable = {
+       sof_ui_window = 4
+      }
+      sof_tp_country = yes
+     }
+    }
+   }
+  }
+  effects = {
+   sof_tp_popup_open_click = {
+    set_variable = {
+     sof_ui_window = 4
+    }
+    set_country_flag = sof_tp_popup_open
+    sof_tp_popup_refresh_effect = yes
+   }
+  }
+ }
+ sof_tp_gui = {
+  context_type = player_context
+  window_name = "sof_tp_popup_window"
+  ai_enabled = {
+   always = no
+  }
+  visible = {
+   sof_tp_country = yes
+   check_variable = {
+    sof_ui_window = 4
+   }
+  }
+  dynamic_lists = {
+   sof_tp_selected_detail = {
+    array = sof_tp_selected_country_list
+    index = sof_tp_selected_i
+    change_scope = yes
+    entry_container = "sof_tp_selected_entry"
+   }
+   sof_tp_a3_partner_list = {
+    array = sof_tp_selected_contract_partner_list
+    index = sof_tp_partner_i
+    change_scope = yes
+    entry_container = "sof_tp_a3_partner_entry"
+   }
+   sof_tp_a3_project_state_list = {
+    array = sof_tp_project_state_list
+    index = sof_tp_project_state_i
+    change_scope = yes
+    entry_container = "sof_tp_a3_project_state_entry"
+   }
+  }
+  effects = {
+   sof_tp_popup_close_click = {
+    set_variable = {
+     sof_ui_window = 0
+    }
+    clr_country_flag = sof_tp_popup_open
+   }
+   sof_tp_popup_refresh_click = {
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_form_bloc_click = {
+    if = {
+     limit = {
+      sof_tp_can_form_bloc = yes
+     }
+     sof_tp_form_bloc_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_leave_bloc_click = {
+    if = {
+     limit = {
+      sof_tp_can_leave_bloc = yes
+     }
+     sof_tp_leave_bloc_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_claim_victory_click = {
+    if = {
+     limit = {
+      sof_tp_can_claim_victory = yes
+     }
+     sof_tp_claim_victory_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_open_congress_click = {
+    if = {
+     limit = {
+      sof_tp_can_open_congress = yes
+     }
+     sof_tp_open_congress_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_adopt_federal_click = {
+    if = {
+     limit = {
+      sof_tp_can_adopt_federal = yes
+     }
+     sof_tp_adopt_federal_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_adopt_central_click = {
+    if = {
+     limit = {
+      sof_tp_can_adopt_central = yes
+     }
+     sof_tp_adopt_central_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_fund_reconstruction_click = {
+    if = {
+     limit = {
+      sof_tp_can_fund_reconstruction = yes
+     }
+     sof_tp_fund_reconstruction_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_keep_promises_click = {
+    if = {
+     limit = {
+      sof_tp_can_keep_promises = yes
+     }
+     sof_tp_keep_promises_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_break_promises_click = {
+    if = {
+     limit = {
+      sof_tp_can_break_promises = yes
+     }
+     sof_tp_break_promises_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_complete_reconstruction_click = {
+    if = {
+     limit = {
+      sof_tp_can_complete_reconstruction = yes
+     }
+     sof_tp_complete_reconstruction_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_membership_click = {
+    sof_tp_selected_membership_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_congress_click = {
+    sof_tp_selected_congress_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_union_click = {
+    sof_tp_selected_union_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_claim_click = {
+    sof_tp_selected_claim_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_settlement_click = {
+    sof_tp_selected_settlement_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_aid_click = {
+    sof_tp_selected_aid_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_challenge_click = {
+    sof_tp_selected_challenge_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_selected_enforce_click = {
+    sof_tp_selected_enforce_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_PRS_click = {
+    sof_tp_select_PRS_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_AJC_click = {
+    sof_tp_select_AJC_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_REN_click = {
+    sof_tp_select_REN_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_MRS_click = {
+    sof_tp_select_MRS_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_LIL_click = {
+    sof_tp_select_LIL_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_MET_click = {
+    sof_tp_select_MET_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_STR_click = {
+    sof_tp_select_STR_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_ROU_click = {
+    sof_tp_select_ROU_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_LYO_click = {
+    sof_tp_select_LYO_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_BRD_click = {
+    sof_tp_select_BRD_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_TOU_click = {
+    sof_tp_select_TOU_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_NAN_click = {
+    sof_tp_select_NAN_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_CFR_click = {
+    sof_tp_select_CFR_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_DIJ_click = {
+    sof_tp_select_DIJ_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_BES_click = {
+    sof_tp_select_BES_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_TRS_click = {
+    sof_tp_select_TRS_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_AMI_click = {
+    sof_tp_select_AMI_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_CHL_click = {
+    sof_tp_select_CHL_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_MOP_click = {
+    sof_tp_select_MOP_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_map_POI_click = {
+    sof_tp_select_POI_effect = yes
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_a3_tab_talks_click = {
+    set_variable = {
+     sof_tp_ui_target_tab = 0
+    }
+   }
+   sof_tp_a3_tab_terms_click = {
+    set_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+   }
+   sof_tp_a3_tab_work_click = {
+    set_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+   }
+   sof_tp_a3_tab_force_click = {
+    set_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+   }
+   sof_tp_a3_bottom_agenda_click = {
+    set_variable = {
+     sof_tp_ui_footer_tab = 0
+    }
+   }
+   sof_tp_a3_bottom_projects_click = {
+    set_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+   }
+   sof_tp_choose_industry_terms_click = {
+    if = {
+     limit = {
+      sof_tp_can_choose_industry_terms = yes
+     }
+     sof_tp_choose_industry_terms_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_choose_transition_terms_click = {
+    if = {
+     limit = {
+      sof_tp_can_choose_transition_terms = yes
+     }
+     sof_tp_choose_transition_terms_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_choose_army_terms_click = {
+    if = {
+     limit = {
+      sof_tp_can_choose_army_terms = yes
+     }
+     sof_tp_choose_army_terms_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_a3_send_offer_click = {
+    sof_tp_popup_refresh_effect = yes
+    if = {
+     limit = {
+      NOT = {
+       check_variable = {
+        sof_tp_selected_contract_status = 3
+       }
+      }
+      sof_tp_can_selected_union = yes
+     }
+     sof_tp_selected_union_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_a3_final_approval_click = {
+    sof_tp_popup_refresh_effect = yes
+    if = {
+     limit = {
+      check_variable = {
+       sof_tp_selected_contract_status = 3
+      }
+      check_variable = {
+       sof_tp_selected_contract_is_ours = 1
+      }
+      sof_tp_can_selected_union = yes
+     }
+     sof_tp_selected_union_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_end_selected_contract_click = {
+    if = {
+     limit = {
+      sof_tp_can_end_selected_contract = yes
+     }
+     sof_tp_end_selected_contract_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_start_transport_project_click = {
+    if = {
+     limit = {
+      sof_tp_can_start_transport_project = yes
+     }
+     sof_tp_start_transport_project_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_start_industry_project_click = {
+    if = {
+     limit = {
+      sof_tp_can_start_industry_project = yes
+     }
+     sof_tp_start_industry_project_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_start_demobilisation_project_click = {
+    if = {
+     limit = {
+      sof_tp_can_start_demobilisation_project = yes
+     }
+     sof_tp_start_demobilisation_project_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+   sof_tp_cancel_project_click = {
+    if = {
+     limit = {
+      sof_tp_can_cancel_project = yes
+     }
+     sof_tp_cancel_project_effect = yes
+    }
+    sof_tp_popup_refresh_effect = yes
+   }
+  }
+  triggers = {
+   sof_tp_ui_war_phase_visible = {
+    NOT = {
+     has_global_flag = sof_tp_reconstruction
+    }
+   }
+   sof_tp_ui_peace_phase_visible = {
+    has_global_flag = sof_tp_reconstruction
+   }
+   sof_tp_selected_panel_visible = {
+    sof_tp_has_valid_selection = yes
+   }
+   sof_tp_popup_no_target_visible = {
+    NOT = {
+     sof_tp_has_valid_selection = yes
+    }
+   }
+   sof_tp_form_bloc_click_enabled = {
+    sof_tp_can_form_bloc = yes
+   }
+   sof_tp_leave_bloc_click_enabled = {
+    sof_tp_can_leave_bloc = yes
+   }
+   sof_tp_claim_victory_click_enabled = {
+    sof_tp_can_claim_victory = yes
+   }
+   sof_tp_open_congress_click_enabled = {
+    sof_tp_can_open_congress = yes
+   }
+   sof_tp_adopt_federal_click_enabled = {
+    sof_tp_can_adopt_federal = yes
+   }
+   sof_tp_adopt_central_click_enabled = {
+    sof_tp_can_adopt_central = yes
+   }
+   sof_tp_fund_reconstruction_click_enabled = {
+    sof_tp_can_fund_reconstruction = yes
+   }
+   sof_tp_keep_promises_click_enabled = {
+    sof_tp_can_keep_promises = yes
+   }
+   sof_tp_break_promises_click_enabled = {
+    sof_tp_can_break_promises = yes
+   }
+   sof_tp_complete_reconstruction_click_enabled = {
+    sof_tp_can_complete_reconstruction = yes
+   }
+   sof_tp_selected_membership_click_enabled = {
+    sof_tp_can_selected_membership = yes
+   }
+   sof_tp_selected_congress_click_enabled = {
+    sof_tp_can_selected_congress = yes
+   }
+   sof_tp_selected_union_click_enabled = {
+    sof_tp_can_selected_union = yes
+   }
+   sof_tp_selected_claim_click_enabled = {
+    sof_tp_can_selected_claim = yes
+   }
+   sof_tp_selected_settlement_click_enabled = {
+    sof_tp_can_selected_settlement = yes
+   }
+   sof_tp_selected_aid_click_enabled = {
+    sof_tp_can_selected_aid = yes
+   }
+   sof_tp_selected_challenge_click_enabled = {
+    sof_tp_can_selected_challenge = yes
+   }
+   sof_tp_selected_enforce_click_enabled = {
+    sof_tp_can_selected_enforce = yes
+   }
+   sof_tp_map_PRS_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = PRS
+    }
+   }
+   sof_tp_map_AJC_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = AJC
+    }
+   }
+   sof_tp_map_REN_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = REN
+    }
+   }
+   sof_tp_map_MRS_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = MRS
+    }
+   }
+   sof_tp_map_LIL_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = LIL
+    }
+   }
+   sof_tp_map_MET_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = MET
+    }
+   }
+   sof_tp_map_STR_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = STR
+    }
+   }
+   sof_tp_map_ROU_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = ROU
+    }
+   }
+   sof_tp_map_LYO_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = LYO
+    }
+   }
+   sof_tp_map_BRD_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = BRD
+    }
+   }
+   sof_tp_map_TOU_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = TOU
+    }
+   }
+   sof_tp_map_NAN_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = NAN
+    }
+   }
+   sof_tp_map_CFR_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = CFR
+    }
+   }
+   sof_tp_map_DIJ_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = DIJ
+    }
+   }
+   sof_tp_map_BES_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = BES
+    }
+   }
+   sof_tp_map_TRS_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = TRS
+    }
+   }
+   sof_tp_map_AMI_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = AMI
+    }
+   }
+   sof_tp_map_CHL_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = CHL
+    }
+   }
+   sof_tp_map_MOP_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = MOP
+    }
+   }
+   sof_tp_map_POI_selected_visible = {
+    sof_tp_has_valid_selection = yes
+    var:sof_tp_selected_country = {
+     tag = POI
+    }
+   }
+   sof_tp_a3_page_talks_visible = {
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+   }
+   sof_tp_a3_active_talks_visible = {
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+   }
+   sof_tp_a3_page_terms_visible = {
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+   }
+   sof_tp_a3_active_terms_visible = {
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+   }
+   sof_tp_a3_page_work_visible = {
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+   }
+   sof_tp_a3_active_work_visible = {
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+   }
+   sof_tp_a3_page_force_visible = {
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+   }
+   sof_tp_a3_active_force_visible = {
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+   }
+   sof_tp_a3_page_agenda_visible = {
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+   }
+   sof_tp_a3_active_agenda_visible = {
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+   }
+   sof_tp_a3_page_projects_visible = {
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+   }
+   sof_tp_a3_active_projects_visible = {
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+   }
+   sof_tp_choose_industry_terms_click_enabled = {
+    sof_tp_can_choose_industry_terms = yes
+   }
+   sof_tp_choose_transition_terms_click_enabled = {
+    sof_tp_can_choose_transition_terms = yes
+   }
+   sof_tp_choose_army_terms_click_enabled = {
+    sof_tp_can_choose_army_terms = yes
+   }
+   sof_tp_a3_send_offer_click_enabled = {
+    NOT = {
+     check_variable = {
+      sof_tp_selected_contract_status = 3
+     }
+    }
+    sof_tp_can_selected_union = yes
+   }
+   sof_tp_a3_final_approval_click_enabled = {
+    check_variable = {
+     sof_tp_selected_contract_status = 3
+    }
+    check_variable = {
+     sof_tp_selected_contract_is_ours = 1
+    }
+    sof_tp_can_selected_union = yes
+   }
+   sof_tp_a3_partner_panel_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+   
+    sof_tp_has_valid_selection = yes
+    }
+   sof_tp_end_selected_contract_click_enabled = {
+    sof_tp_can_end_selected_contract = yes
+   }
+   sof_tp_start_transport_project_click_enabled = {
+    sof_tp_can_start_transport_project = yes
+   }
+   sof_tp_start_industry_project_click_enabled = {
+    sof_tp_can_start_industry_project = yes
+   }
+   sof_tp_start_demobilisation_project_click_enabled = {
+    sof_tp_can_start_demobilisation_project = yes
+   }
+   sof_tp_cancel_project_click_enabled = {
+    sof_tp_can_cancel_project = yes
+   }
+  
+   # Keep each page child explicitly tied to its presentation tab.
+   sof_tp_a3_talks_status_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_selected_membership_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_a3_cost_membership_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_selected_congress_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_a3_cost_congress_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_selected_settlement_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_a3_cost_settlement_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_selected_union_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_a3_cost_union_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_a3_next_action_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_target_tab > 0
+     }
+    }
+    }
+   sof_tp_a3_offer_summary_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+    }
+   sof_tp_choose_industry_terms_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+    }
+   sof_tp_choose_transition_terms_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+    }
+   sof_tp_choose_army_terms_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+    }
+   sof_tp_a3_send_offer_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+    }
+   sof_tp_a3_terms_hint_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 1
+    }
+    }
+   sof_tp_a3_contract_heading_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   # Dynamic-list entries inherit page visibility; no tab read in a changed country/state scope.
+   sof_tp_a3_contract_status_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   sof_tp_selected_aid_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   sof_tp_a3_final_approval_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   sof_tp_a3_cost_aid_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   sof_tp_a3_cost_final_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   sof_tp_end_selected_contract_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   sof_tp_a3_work_next_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 2
+    }
+    }
+   sof_tp_a3_force_warning_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_selected_claim_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_a3_cost_claim_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_selected_challenge_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_a3_cost_challenge_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_selected_enforce_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_a3_cost_enforce_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_a3_force_next_visible = { 
+    check_variable = {
+     sof_tp_ui_target_tab = 3
+    }
+    }
+   sof_tp_form_bloc_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_leave_bloc_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_claim_victory_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_open_congress_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_adopt_federal_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_adopt_central_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_fund_reconstruction_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_keep_promises_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_break_promises_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   sof_tp_complete_reconstruction_visible = { 
+    NOT = {
+     check_variable = {
+      sof_tp_ui_footer_tab > 0
+     }
+    }
+    }
+   # Dynamic-list entries inherit page visibility; no tab read in a changed country/state scope.
+   sof_tp_a3_project_transport_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_a3_project_transport_status_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_start_transport_project_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_a3_project_industry_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_a3_project_industry_status_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_start_industry_project_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_a3_project_demobilisation_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_a3_project_demobilisation_status_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_start_demobilisation_project_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+   sof_tp_cancel_project_visible = { 
+    check_variable = {
+     sof_tp_ui_footer_tab = 1
+    }
+    }
+  }
+  properties = {
+   sof_tp_selected_flag = {
+    image = "[This.GetFlag]"
+   }
+   sof_tp_map_PRS_colour = {
+    frame = sof_tp_map_PRS_frame
+   }
+   sof_tp_map_AJC_colour = {
+    frame = sof_tp_map_AJC_frame
+   }
+   sof_tp_map_REN_colour = {
+    frame = sof_tp_map_REN_frame
+   }
+   sof_tp_map_MRS_colour = {
+    frame = sof_tp_map_MRS_frame
+   }
+   sof_tp_map_LIL_colour = {
+    frame = sof_tp_map_LIL_frame
+   }
+   sof_tp_map_MET_colour = {
+    frame = sof_tp_map_MET_frame
+   }
+   sof_tp_map_STR_colour = {
+    frame = sof_tp_map_STR_frame
+   }
+   sof_tp_map_ROU_colour = {
+    frame = sof_tp_map_ROU_frame
+   }
+   sof_tp_map_LYO_colour = {
+    frame = sof_tp_map_LYO_frame
+   }
+   sof_tp_map_BRD_colour = {
+    frame = sof_tp_map_BRD_frame
+   }
+   sof_tp_map_TOU_colour = {
+    frame = sof_tp_map_TOU_frame
+   }
+   sof_tp_map_NAN_colour = {
+    frame = sof_tp_map_NAN_frame
+   }
+   sof_tp_map_CFR_colour = {
+    frame = sof_tp_map_CFR_frame
+   }
+   sof_tp_map_DIJ_colour = {
+    frame = sof_tp_map_DIJ_frame
+   }
+   sof_tp_map_BES_colour = {
+    frame = sof_tp_map_BES_frame
+   }
+   sof_tp_map_TRS_colour = {
+    frame = sof_tp_map_TRS_frame
+   }
+   sof_tp_map_AMI_colour = {
+    frame = sof_tp_map_AMI_frame
+   }
+   sof_tp_map_CHL_colour = {
+    frame = sof_tp_map_CHL_frame
+   }
+   sof_tp_map_MOP_colour = {
+    frame = sof_tp_map_MOP_frame
+   }
+   sof_tp_map_POI_colour = {
+    frame = sof_tp_map_POI_frame
+   }
+  }
+ }
+}

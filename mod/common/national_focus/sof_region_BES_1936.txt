@@ -1,13 +1,13 @@
-focus_tree = {
+﻿focus_tree = {
  id = sof_region_BES_1936
  country = { factor = 0 modifier = { add = 300 original_tag = BES } }
  default = no
- initial_show_position = { x = 17 y = 0 }
+ initial_show_position = { x = 7 y = 0 }
  continuous_focus_position = { x = 120 y = 3750 }
 focus = {
  id = sof_region_BES_1936_compact
- icon = GFX_goal_generic_political_pressure
- x = 17 y = 0
+ icon = GFX_sof_project_sof_region_bes_1936_compact
+ x = 7 y = 0
  cost = 5
 
 
@@ -15,13 +15,13 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_compact_paid } } set_country_flag = sof_region_BES_1936_compact_paid add_political_power = 30 set_country_flag = sofzh_unification_started } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_compact_paid } } set_country_flag = sof_region_BES_1936_compact_paid add_political_power = 30 set_country_flag = sofzh_unification_started }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
 }
 focus = {
  id = sof_region_BES_1936_towns
- icon = GFX_goal_generic_political_pressure
- x = 14 y = 1
- cost = 5
+ icon = GFX_sof_project_sof_region_bes_1936_towns
+ x = 7 y = 1
+ cost = 3
  prerequisite = { focus = sof_region_BES_1936_compact }
 
  available = { original_tag = BES is_subject = no has_capitulated = no 256 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 273 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
@@ -32,9 +32,9 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_workers
- icon = GFX_goal_generic_political_pressure
- x = 20 y = 1
- cost = 5
+ icon = GFX_sof_project_sof_region_bes_1936_workers
+ x = 12 y = 1
+ cost = 3
  prerequisite = { focus = sof_region_BES_1936_compact }
 
  available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
@@ -45,21 +45,21 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_municipal
- icon = GFX_goal_generic_political_pressure
- x = 12 y = 3
+ icon = GFX_sof_project_sof_region_bes_1936_municipal
+ x = 9 y = 2
  cost = 7
- prerequisite = { focus = sof_region_BES_1936_towns }
+ prerequisite = { focus = sof_region_BES_1936_towns focus = sof_region_BES_1936_compact }
  mutually_exclusive = { focus = sof_region_BES_1936_regional }
- available = { original_tag = BES is_subject = no has_capitulated = no   }
+ available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_municipal_paid } } set_country_flag = sof_region_BES_1936_municipal_paid add_ideas = sof_region_BES_1936_municipal_policy } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_municipal_paid } } set_country_flag = sof_region_BES_1936_municipal_paid sof604_register_region_bes_1936_municipal_policy = yes } }
 }
 focus = {
  id = sof_region_BES_1936_regional
- icon = GFX_goal_generic_political_pressure
- x = 21 y = 3
+ icon = GFX_sof_project_sof_region_bes_1936_regional
+ x = 12 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_workers }
  mutually_exclusive = { focus = sof_region_BES_1936_municipal }
@@ -67,12 +67,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_regional_paid } } set_country_flag = sof_region_BES_1936_regional_paid add_ideas = sof_region_BES_1936_regional_policy } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_regional_paid } } set_country_flag = sof_region_BES_1936_regional_paid sof604_register_region_bes_1936_regional_policy = yes } }
 }
 focus = {
  id = sof_region_BES_1936_charter
- icon = GFX_goal_generic_political_pressure
- x = 17 y = 5
+ icon = GFX_sof_project_sof_region_bes_1936_charter
+ x = 9 y = 3
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_municipal focus = sof_region_BES_1936_regional }
 
@@ -84,8 +84,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_training_wages
- icon = GFX_goal_generic_political_pressure
- x = 24 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_training_wages
+ x = 15 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_workers }
 
@@ -93,12 +93,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_training_wages_paid } } set_country_flag = sof_region_BES_1936_training_wages_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_training_wages_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_training_wages_paid } } set_country_flag = sof_region_BES_1936_training_wages_paid sof604_register_region_bes_1936_training_wages_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_inspection
- icon = GFX_goal_generic_political_pressure
- x = 10 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_inspection
+ x = 6 y = 2
  cost = 5
  prerequisite = { focus = sof_region_BES_1936_towns }
 
@@ -106,12 +106,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_inspection_paid } } set_country_flag = sof_region_BES_1936_inspection_paid add_political_power = 25 } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_inspection_paid } } set_country_flag = sof_region_BES_1936_inspection_paid add_stability = 0.03  add_political_power = 50 } }
 }
 focus = {
  id = sof_region_BES_1936_mediation
- icon = GFX_goal_generic_political_pressure
- x = 22 y = 7
+ icon = GFX_sof_project_sof_region_bes_1936_mediation
+ x = 12 y = 4
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_training_wages } prerequisite = { focus = sof_region_BES_1936_charter }
 
@@ -119,13 +119,13 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_mediation_paid } } set_country_flag = sof_region_BES_1936_mediation_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_mediation_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_mediation_paid } } set_country_flag = sof_region_BES_1936_mediation_paid sof604_register_region_bes_1936_mediation_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_county_budget
- icon = GFX_goal_generic_political_pressure
- x = 13 y = 7
- cost = 5
+ icon = GFX_sof_project_sof_region_bes_1936_county_budget
+ x = 6 y = 4
+ cost = 3
  prerequisite = { focus = sof_region_BES_1936_charter }
 
  available = { original_tag = BES is_subject = no has_capitulated = no 273 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 296 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
@@ -136,8 +136,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_watchmakers
- icon = GFX_goal_generic_construct_civ_factory
- x = 3 y = 0
+ icon = GFX_sof_project_sof_region_bes_1936_watchmakers
+ x = 1 y = 0
  cost = 5
 
 
@@ -145,12 +145,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_watchmakers_paid } } set_country_flag = sof_region_BES_1936_watchmakers_paid add_tech_bonus = { name = sof_region_BES_1936_watchmakers_a0_bonus bonus = 0.2 uses = 1 category = electronics } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_watchmakers_paid } } set_country_flag = sof_region_BES_1936_watchmakers_paid add_tech_bonus = { name = sof_region_BES_1936_watchmakers_a0_bonus bonus = 0.5 uses = 1 category = electronics } } }
 }
 focus = {
  id = sof_region_BES_1936_gauges
- icon = GFX_goal_generic_construct_civ_factory
- x = 1 y = 2
+ icon = GFX_sof_project_sof_region_bes_1936_gauges
+ x = 0 y = 1
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_watchmakers }
 
@@ -158,12 +158,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_gauges_paid } } set_country_flag = sof_region_BES_1936_gauges_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_gauges_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_gauges_paid } } set_country_flag = sof_region_BES_1936_gauges_paid sof_refined_sof_region_bes_1936_gauges_effect = yes sof604_register_region_bes_1936_gauges_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_jewels
- icon = GFX_goal_generic_construct_civ_factory
- x = 5 y = 2
+ icon = GFX_sof_project_sof_region_bes_1936_jewels
+ x = 3 y = 1
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_watchmakers }
 
@@ -175,8 +175,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_export_craft
- icon = GFX_goal_generic_construct_civ_factory
- x = 0 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_export_craft
+ x = 0 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_gauges }
  mutually_exclusive = { focus = sof_region_BES_1936_war_precision }
@@ -184,12 +184,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_export_craft_paid } } set_country_flag = sof_region_BES_1936_export_craft_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_export_craft_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_export_craft_paid } } set_country_flag = sof_region_BES_1936_export_craft_paid sof604_register_region_bes_1936_export_craft_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_war_precision
- icon = GFX_goal_generic_construct_civ_factory
- x = 3 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_war_precision
+ x = 3 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_gauges }
  mutually_exclusive = { focus = sof_region_BES_1936_export_craft }
@@ -197,12 +197,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_war_precision_paid } } set_country_flag = sof_region_BES_1936_war_precision_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_war_precision_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_war_precision_paid } } set_country_flag = sof_region_BES_1936_war_precision_paid sof604_register_region_bes_1936_war_precision_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_standards
- icon = GFX_goal_generic_construct_civ_factory
- x = 3 y = 6
+ icon = GFX_sof_project_sof_region_bes_1936_standards
+ x = 3 y = 3
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_export_craft focus = sof_region_BES_1936_war_precision } prerequisite = { focus = sof_region_BES_1936_jewels }
 
@@ -214,34 +214,48 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_small_machines
- icon = GFX_goal_generic_construct_civ_factory
- x = 5 y = 8
+ icon = GFX_sof_project_sof_region_bes_1936_small_machines
+ x = 3 y = 4
  cost = 10
- prerequisite = { focus = sof_region_BES_1936_standards } prerequisite = { focus = sof_region_BES_1936_training_wages }
+ prerequisite = { focus = sof_region_BES_1936_standards } prerequisite = { focus = sof_region_BES_1936_training_wages focus = sof_region_BES_1936_charter } 
 
  available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_small_machines_paid } } set_country_flag = sof_region_BES_1936_small_machines_paid if = { limit = { 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 243 = { industrial_complex < 20 } } 243 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_BES_1936_small_machines_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ completion_reward = { if = {
+ limit = { NOT = { has_country_flag = sof_region_BES_1936_small_machines_paid } 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+ set_country_flag = sof_region_BES_1936_small_machines_paid
+ 243 = {
+  add_extra_state_shared_building_slots = 2
+  if = { limit = { industrial_complex < 19 free_building_slots = { building = industrial_complex size > 1 include_locked = no } }
+   add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+  }
+  else_if = { limit = { industrial_complex < 20 free_building_slots = { building = industrial_complex size > 0 include_locked = no } }
+   add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+   ROOT = { add_tech_bonus = { name = sof604_bes_machine_tool_innovation bonus = 1 uses = 1 category = industry } }
+  }
+  else = { ROOT = { add_tech_bonus = { name = sof604_bes_machine_tool_innovation bonus = 1 uses = 2 category = industry } } }
+ }
+} }
 }
 focus = {
  id = sof_region_BES_1936_precision_school
- icon = GFX_goal_generic_construct_civ_factory
- x = 5 y = 10
+ icon = GFX_sof_project_sof_region_bes_1936_precision_school
+ x = 0 y = 5
  cost = 10
  prerequisite = { focus = sof_region_BES_1936_small_machines } prerequisite = { focus = sof_region_BES_1936_charter }
 
- available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
+ available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 2 AND = { amount_research_slots < 3 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } } }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_precision_school_paid } } set_country_flag = sof_region_BES_1936_precision_school_paid add_research_slot = 1 } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_precision_school_paid } } set_country_flag = sof_region_BES_1936_precision_school_paid if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_bes_1936_precision_school_electronics bonus = 1 uses = 1 category = electronics } }   } }
 }
 focus = {
  id = sof_region_BES_1936_sochaux
- icon = GFX_goal_generic_construct_civ_factory
- x = 33 y = 0
+ icon = GFX_sof_project_sof_region_bes_1936_sochaux
+ x = 15 y = 0
  cost = 5
 
 
@@ -253,8 +267,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_presses
- icon = GFX_goal_generic_construct_civ_factory
- x = 30 y = 2
+ icon = GFX_sof_project_sof_region_bes_1936_presses
+ x = 15 y = 1
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_sochaux }
 
@@ -266,8 +280,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_lineflow
- icon = GFX_goal_generic_construct_civ_factory
- x = 36 y = 2
+ icon = GFX_sof_project_sof_region_bes_1936_lineflow
+ x = 18 y = 1
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_sochaux }
 
@@ -275,12 +289,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_lineflow_paid } } set_country_flag = sof_region_BES_1936_lineflow_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_lineflow_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_lineflow_paid } } set_country_flag = sof_region_BES_1936_lineflow_paid sof604_register_region_bes_1936_lineflow_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_commercial
- icon = GFX_goal_generic_construct_civ_factory
- x = 30 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_commercial
+ x = 18 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_presses } prerequisite = { focus = sof_region_BES_1936_lineflow }
  mutually_exclusive = { focus = sof_region_BES_1936_motorization }
@@ -288,12 +302,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_commercial_paid } } set_country_flag = sof_region_BES_1936_commercial_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_commercial_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_commercial_paid } } set_country_flag = sof_region_BES_1936_commercial_paid sof604_register_region_bes_1936_commercial_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_motorization
- icon = GFX_goal_generic_construct_civ_factory
- x = 36 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_motorization
+ x = 21 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_presses } prerequisite = { focus = sof_region_BES_1936_lineflow }
  mutually_exclusive = { focus = sof_region_BES_1936_commercial }
@@ -301,12 +315,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_motorization_paid } } set_country_flag = sof_region_BES_1936_motorization_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_motorization_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_motorization_paid } } set_country_flag = sof_region_BES_1936_motorization_paid sof604_register_region_bes_1936_motorization_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_components
- icon = GFX_goal_generic_construct_civ_factory
- x = 33 y = 8
+ icon = GFX_sof_project_sof_region_bes_1936_components
+ x = 18 y = 5
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_commercial focus = sof_region_BES_1936_motorization } prerequisite = { focus = sof_region_BES_1936_mediation }
 
@@ -318,8 +332,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_assembly_line
- icon = GFX_goal_generic_construct_civ_factory
- x = 34 y = 10
+ icon = GFX_sof_project_sof_region_bes_1936_assembly_line
+ x = 12 y = 6
  cost = 10
  prerequisite = { focus = sof_region_BES_1936_components }
 
@@ -327,12 +341,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_assembly_line_paid } } set_country_flag = sof_region_BES_1936_assembly_line_paid if = { limit = { 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 239 = { arms_factory < 20 } } 239 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_BES_1936_assembly_line_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_assembly_line_paid } } set_country_flag = sof_region_BES_1936_assembly_line_paid 239 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } } add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT }  if = { limit = { 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 239 = { arms_factory < 20 } } 239 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_BES_1936_assembly_line_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
 }
 focus = {
  id = sof_region_BES_1936_precision_vehicle
- icon = GFX_goal_generic_construct_civ_factory
- x = 25 y = 12
+ icon = GFX_sof_project_sof_region_bes_1936_precision_vehicle
+ x = 12 y = 7
  cost = 10
  prerequisite = { focus = sof_region_BES_1936_assembly_line } prerequisite = { focus = sof_region_BES_1936_standards }
 
@@ -340,12 +354,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_precision_vehicle_paid } } set_country_flag = sof_region_BES_1936_precision_vehicle_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_precision_vehicle_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_precision_vehicle_paid } } set_country_flag = sof_region_BES_1936_precision_vehicle_paid sof604_register_region_bes_1936_precision_vehicle_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_vesoul
- icon = GFX_goal_generic_construct_civ_factory
- x = 40 y = 10
+ icon = GFX_sof_project_sof_region_bes_1936_vesoul
+ x = 18 y = 6
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_components }
 
@@ -357,8 +371,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_jura_wood
- icon = GFX_goal_generic_construct_civ_factory
- x = 11 y = 9
+ icon = GFX_sof_project_sof_region_bes_1936_jura_wood
+ x = 6 y = 5
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_county_budget }
 
@@ -370,8 +384,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_dole
- icon = GFX_goal_generic_construct_civ_factory
- x = 9 y = 11
+ icon = GFX_sof_project_sof_region_bes_1936_dole
+ x = 3 y = 5
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_small_machines }
 
@@ -383,8 +397,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_border
- icon = GFX_goal_generic_army_doctrines
- x = 46 y = 0
+ icon = GFX_sof_project_sof_region_bes_1936_border
+ x = 24 y = 0
  cost = 5
 
 
@@ -392,12 +406,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_border_paid } } set_country_flag = sof_region_BES_1936_border_paid army_experience = 12 } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_border_paid } } set_country_flag = sof_region_BES_1936_border_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT }  army_experience = 20 } }
 }
 focus = {
  id = sof_region_BES_1936_belfort
- icon = GFX_goal_generic_army_doctrines
- x = 44 y = 2
+ icon = GFX_sof_project_sof_region_bes_1936_belfort
+ x = 21 y = 1
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_border }
 
@@ -409,8 +423,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_pontarlier
- icon = GFX_goal_generic_army_doctrines
- x = 48 y = 2
+ icon = GFX_sof_project_sof_region_bes_1936_pontarlier
+ x = 24 y = 1
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_border }
 
@@ -418,12 +432,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_pontarlier_paid } } set_country_flag = sof_region_BES_1936_pontarlier_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_pontarlier_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_pontarlier_paid } } set_country_flag = sof_region_BES_1936_pontarlier_paid sof604_register_region_bes_1936_pontarlier_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_engineers
- icon = GFX_goal_generic_army_doctrines
- x = 49 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_engineers
+ x = 30 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_pontarlier }
 
@@ -435,8 +449,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_cover
- icon = GFX_goal_generic_army_doctrines
- x = 44 y = 4
+ icon = GFX_sof_project_sof_region_bes_1936_cover
+ x = 27 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_belfort }
 
@@ -444,12 +458,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_cover_paid } } set_country_flag = sof_region_BES_1936_cover_paid add_ideas = sof_region_BES_1936_cover_policy } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_cover_paid } } set_country_flag = sof_region_BES_1936_cover_paid sof604_register_region_bes_1936_cover_policy = yes } }
 }
 focus = {
  id = sof_region_BES_1936_repair_columns
- icon = GFX_goal_generic_army_doctrines
- x = 40 y = 12
+ icon = GFX_sof_project_sof_region_bes_1936_repair_columns
+ x = 18 y = 7
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_components } prerequisite = { focus = sof_region_BES_1936_vesoul }
 
@@ -457,12 +471,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_repair_columns_paid } } set_country_flag = sof_region_BES_1936_repair_columns_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_repair_columns_network } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_repair_columns_paid } } set_country_flag = sof_region_BES_1936_repair_columns_paid add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT } add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT }  sof604_register_region_bes_1936_repair_columns_network = yes } }
 }
 focus = {
  id = sof_region_BES_1936_motor_brigade
- icon = GFX_goal_generic_army_doctrines
- x = 35 y = 12
+ icon = GFX_sof_project_sof_region_bes_1936_motor_brigade
+ x = 15 y = 7
  cost = 10
  prerequisite = { focus = sof_region_BES_1936_motorization } prerequisite = { focus = sof_region_BES_1936_assembly_line }
 
@@ -470,12 +484,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_motor_brigade_paid } } set_country_flag = sof_region_BES_1936_motor_brigade_paid add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 300 producer = ROOT } army_experience = 25 } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_motor_brigade_paid } } set_country_flag = sof_region_BES_1936_motor_brigade_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT } add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT }  add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 300 producer = ROOT } army_experience = 25 } }
 }
 focus = {
  id = sof_region_BES_1936_field_workshops
- icon = GFX_goal_generic_army_doctrines
- x = 41 y = 7
+ icon = GFX_sof_project_sof_region_bes_1936_field_workshops
+ x = 18 y = 4
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_standards } prerequisite = { focus = sof_region_BES_1936_cover }
 
@@ -483,12 +497,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_field_workshops_paid } } set_country_flag = sof_region_BES_1936_field_workshops_paid add_tech_bonus = { name = sof_region_BES_1936_field_workshops_a0_bonus bonus = 0.4 uses = 1 category = support_tech } army_experience = 15 } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_field_workshops_paid } } set_country_flag = sof_region_BES_1936_field_workshops_paid add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT }  add_tech_bonus = { name = sof_region_BES_1936_field_workshops_a0_bonus bonus = 1 uses = 1 category = support_tech } army_experience = 15 } }
 }
 focus = {
  id = sof_region_BES_1936_signal
- icon = GFX_goal_generic_army_doctrines
- x = 47 y = 7
+ icon = GFX_sof_project_sof_region_bes_1936_signal
+ x = 15 y = 3
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_engineers } prerequisite = { focus = sof_region_BES_1936_jewels }
 
@@ -500,8 +514,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_recon
- icon = GFX_goal_generic_army_doctrines
- x = 52 y = 3
+ icon = GFX_sof_project_sof_region_bes_1936_recon
+ x = 27 y = 1
  cost = 5
  prerequisite = { focus = sof_region_BES_1936_border }
 
@@ -513,8 +527,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_mechanics
- icon = GFX_goal_generic_army_doctrines
- x = 52 y = 12
+ icon = GFX_sof_project_sof_region_bes_1936_mechanics
+ x = 15 y = 6
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_recon } prerequisite = { focus = sof_region_BES_1936_precision_school }
 
@@ -526,8 +540,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_combined
- icon = GFX_goal_generic_army_doctrines
- x = 43 y = 14
+ icon = GFX_sof_project_sof_region_bes_1936_combined
+ x = 15 y = 8
  cost = 10
  prerequisite = { focus = sof_region_BES_1936_repair_columns } prerequisite = { focus = sof_region_BES_1936_field_workshops } prerequisite = { focus = sof_region_BES_1936_signal }
 
@@ -535,13 +549,13 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_combined_paid } } set_country_flag = sof_region_BES_1936_combined_paid add_ideas = sof_region_BES_1936_combined_policy } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_combined_paid } } set_country_flag = sof_region_BES_1936_combined_paid sof604_register_region_bes_1936_combined_policy = yes } }
 }
 focus = {
  id = sof_region_BES_1936_customs
- icon = GFX_goal_generic_alliance
- x = 14 y = 6
- cost = 5
+ icon = GFX_sof_project_sof_region_bes_1936_customs
+ x = 6 y = 3
+ cost = 3
  prerequisite = { focus = sof_region_BES_1936_inspection }
 
  available = { original_tag = BES is_subject = no has_capitulated = no 256 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
@@ -552,8 +566,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_swiss_offer
- icon = GFX_goal_generic_alliance
- x = 15 y = 8
+ icon = GFX_sof_project_sof_region_bes_1936_swiss_offer
+ x = 9 y = 4
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_customs } prerequisite = { focus = sof_region_BES_1936_charter }
 
@@ -565,8 +579,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_measures
- icon = GFX_goal_generic_alliance
- x = 15 y = 11
+ icon = GFX_sof_project_sof_region_bes_1936_measures
+ x = 9 y = 5
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_swiss_offer } prerequisite = { focus = sof_region_BES_1936_standards }
 
@@ -574,12 +588,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_measures_paid } } set_country_flag = sof_region_BES_1936_measures_paid add_tech_bonus = { name = sof_region_BES_1936_measures_a0_bonus bonus = 0.65 uses = 1 category = electronics } add_tech_bonus = { name = sof_region_BES_1936_measures_a1_bonus bonus = 0.4 uses = 1 category = industry } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_measures_paid } } set_country_flag = sof_region_BES_1936_measures_paid add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT }  add_tech_bonus = { name = sof_region_BES_1936_measures_a0_bonus bonus = 1 uses = 1 category = electronics } add_tech_bonus = { name = sof_region_BES_1936_measures_a1_bonus bonus = 0.5 uses = 1 category = industry } } }
 }
 focus = {
  id = sof_region_BES_1936_neutral_routes
- icon = GFX_goal_generic_alliance
- x = 19 y = 10
+ icon = GFX_sof_project_sof_region_bes_1936_neutral_routes
+ x = 21 y = 4
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_customs } prerequisite = { focus = sof_region_BES_1936_pontarlier }
 
@@ -591,8 +605,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_local_measure
- icon = GFX_goal_generic_alliance
- x = 10 y = 13
+ icon = GFX_sof_project_sof_region_bes_1936_local_measure
+ x = 6 y = 6
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_precision_school }
 
@@ -604,9 +618,9 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_trade_arbitration
- icon = GFX_goal_generic_alliance
- x = 15 y = 15
- cost = 7
+ icon = GFX_sof_project_sof_region_bes_1936_trade_arbitration
+ x = 9 y = 7
+ cost = 3
  prerequisite = { focus = sof_region_BES_1936_measures focus = sof_region_BES_1936_local_measure } prerequisite = { focus = sof_region_BES_1936_charter }
 
  available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 256 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
@@ -617,8 +631,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_authority
- icon = GFX_goal_generic_national_unity
- x = 34 y = 16
+ icon = GFX_sof_project_sof_region_bes_1936_authority
+ x = 12 y = 9
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_combined } prerequisite = { focus = sof_region_BES_1936_charter }
 
@@ -630,8 +644,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_retool
- icon = GFX_goal_generic_national_unity
- x = 29 y = 18
+ icon = GFX_sof_project_sof_region_bes_1936_retool
+ x = 12 y = 10
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_authority } prerequisite = { focus = sof_region_BES_1936_precision_vehicle }
 
@@ -643,8 +657,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_routes
- icon = GFX_goal_generic_national_unity
- x = 38 y = 18
+ icon = GFX_sof_project_sof_region_bes_1936_routes
+ x = 15 y = 10
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_authority } prerequisite = { focus = sof_region_BES_1936_neutral_routes }
 
@@ -656,8 +670,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_rights
- icon = GFX_goal_generic_national_unity
- x = 21 y = 18
+ icon = GFX_sof_project_sof_region_bes_1936_rights
+ x = 9 y = 10
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_authority } prerequisite = { focus = sof_region_BES_1936_trade_arbitration }
 
@@ -669,8 +683,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_congress
- icon = GFX_goal_generic_national_unity
- x = 30 y = 20
+ icon = GFX_sof_project_sof_region_bes_1936_congress
+ x = 13 y = 11
  cost = 10
  prerequisite = { focus = sof_region_BES_1936_retool } prerequisite = { focus = sof_region_BES_1936_routes } prerequisite = { focus = sof_region_BES_1936_rights }
 
@@ -682,8 +696,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_settlement
- icon = GFX_goal_generic_national_unity
- x = 30 y = 22
+ icon = GFX_sof_project_sof_region_bes_1936_settlement
+ x = 13 y = 12
  cost = 10
  prerequisite = { focus = sof_region_BES_1936_congress }
 
@@ -691,12 +705,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_settlement_paid } } set_country_flag = sof_region_BES_1936_settlement_paid add_dynamic_modifier = { modifier = sof_region_BES_1936_settlement_network } add_stability = 0.03 } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_settlement_paid } } set_country_flag = sof_region_BES_1936_settlement_paid sof604_register_region_bes_1936_settlement_network = yes add_stability = 0.03 } }
 }
 focus = {
  id = sof_region_BES_1936_test_track
- icon = GFX_goal_generic_scientific_exchange
- x = 37 y = 6
+ icon = GFX_sof_project_sof_region_bes_1936_test_track
+ x = 24 y = 2
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_lineflow } prerequisite = { focus = sof_region_BES_1936_pontarlier }
 
@@ -708,8 +722,8 @@ focus = {
 }
 focus = {
  id = sof_region_BES_1936_optics
- icon = GFX_goal_generic_scientific_exchange
- x = 46 y = 10
+ icon = GFX_sof_project_sof_region_bes_1936_optics
+ x = 15 y = 4
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_standards } prerequisite = { focus = sof_region_BES_1936_signal }
 
@@ -717,25 +731,25 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_optics_paid } } set_country_flag = sof_region_BES_1936_optics_paid add_tech_bonus = { name = sof_region_BES_1936_optics_a0_bonus bonus = 0.4 uses = 1 category = artillery } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_optics_paid } } set_country_flag = sof_region_BES_1936_optics_paid add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 120 producer = ROOT }  add_tech_bonus = { name = sof_region_BES_1936_optics_a0_bonus bonus = 1 uses = 1 category = artillery } } }
 }
 focus = {
  id = sof_region_BES_1936_certificates
- icon = GFX_goal_generic_scientific_exchange
- x = 7 y = 14
+ icon = GFX_sof_project_sof_region_bes_1936_certificates
+ x = 3 y = 6
  cost = 5
  prerequisite = { focus = sof_region_BES_1936_training_wages } prerequisite = { focus = sof_region_BES_1936_precision_school }
 
- available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
+ available = { original_tag = BES is_subject = no has_capitulated = no 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 3 AND = { amount_research_slots < 3 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } }  has_completed_focus = sof_region_BES_1936_precision_school }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_certificates_paid } } set_country_flag = sof_region_BES_1936_certificates_paid add_political_power = 25 add_tech_bonus = { name = sof_region_BES_1936_certificates_a1_bonus bonus = 0.3 uses = 1 category = industry } } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_certificates_paid } } set_country_flag = sof_region_BES_1936_certificates_paid if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_bes_1936_certificates_electronics bonus = 1 uses = 1 category = electronics } }  add_political_power = 25  } }
 }
 focus = {
  id = sof_region_BES_1936_retention
- icon = GFX_goal_generic_scientific_exchange
- x = 10 y = 16
+ icon = GFX_sof_project_sof_region_bes_1936_retention
+ x = 9 y = 9
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_certificates } prerequisite = { focus = sof_region_BES_1936_combined }
 
@@ -743,12 +757,12 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_retention_paid } } set_country_flag = sof_region_BES_1936_retention_paid add_ideas = sof_region_BES_1936_retention_policy } }
+ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_BES_1936_retention_paid } } set_country_flag = sof_region_BES_1936_retention_paid sof604_register_region_bes_1936_retention_policy = yes } }
 }
 focus = {
  id = sof_region_BES_1936_prototype
- icon = GFX_goal_generic_scientific_exchange
- x = 42 y = 12
+ icon = GFX_sof_project_sof_region_bes_1936_prototype
+ x = 21 y = 5
  cost = 7
  prerequisite = { focus = sof_region_BES_1936_optics } prerequisite = { focus = sof_region_BES_1936_test_track }
 

@@ -1,213 +1,213 @@
-focus_tree = { id = sof_region_CHL_1936 country = { factor = 0 modifier = { add = 300 original_tag = CHL } } default = no reset_on_civilwar = no
+﻿focus_tree = { id = sof_region_CHL_1936 country = { factor = 0 modifier = { add = 300 original_tag = CHL } } default = no reset_on_civilwar = no
 initial_show_position = { focus = sof_ne_CHL_commission } continuous_focus_position = { x = 0 y = 3100 }
-focus = { id = sof_ne_CHL_commission icon = GFX_sof_van_goal_generic_political_pressure x = 18 y = 0 cost = 3
+focus = { id = sof_ne_CHL_commission icon = GFX_sof_project_sof_ne_chl_commission x = 7 y = 0 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_commission_paid } } add_ideas = sof_ne_CHL_commission set_country_flag = sof_ne_CHL_commission_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_commission_paid } } sof604_register_ne_chl_commission = yes set_country_flag = sof_ne_CHL_commission_paid }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_cellar_contract icon = GFX_sof_van_goal_generic_construct_civ_factory x = 6 y = 1 cost = 5
+focus = { id = sof_ne_CHL_cellar_contract icon = GFX_sof_project_sof_ne_chl_cellar_contract x = 3 y = 1 cost = 5
 prerequisite = { focus = sof_ne_CHL_commission }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_cellar_contract_paid } } custom_effect_tooltip = sof_ne_CHL_cellars_unlock_tt set_country_flag = sof_ne_CHL_cellar_contract_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_camp_survey icon = GFX_sof_van_goal_generic_army_doctrines x = 18 y = 1 cost = 5
+focus = { id = sof_ne_CHL_camp_survey icon = GFX_sof_project_sof_ne_chl_camp_survey x = 7 y = 1 cost = 5
 prerequisite = { focus = sof_ne_CHL_commission }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_camp_survey_paid } } army_experience = 7 set_country_flag = sof_ne_CHL_camp_survey_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_camp_survey_paid } } army_experience = 15 set_country_flag = sof_ne_CHL_camp_survey_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_junction icon = GFX_sof_van_goal_generic_construct_civ_factory x = 30 y = 1 cost = 5
+focus = { id = sof_ne_CHL_junction icon = GFX_sof_project_sof_ne_chl_junction x = 15 y = 1 cost = 5
 prerequisite = { focus = sof_ne_CHL_commission }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620  NOT = { has_country_flag = sof_ne_CHL_junction_paid } } 111 = { add_dynamic_modifier = { modifier = sof_ne_CHL_chalon_rail_local } } set_country_flag = sof_ne_CHL_junction_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_quality icon = GFX_sof_van_goal_generic_construct_civ_factory x = 3 y = 2 cost = 5
+focus = { id = sof_ne_CHL_quality icon = GFX_sof_project_sof_ne_chl_quality x = 0 y = 2 cost = 5
 prerequisite = { focus = sof_ne_CHL_cellar_contract }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_quality_paid } } add_ideas = sof_ne_CHL_quality set_country_flag = sof_ne_CHL_quality_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_quality_paid } } sof604_register_ne_chl_quality = yes set_country_flag = sof_ne_CHL_quality_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_stock_audit icon = GFX_sof_van_goal_generic_construct_civ_factory x = 8 y = 2 cost = 5
+focus = { id = sof_ne_CHL_stock_audit icon = GFX_sof_project_sof_ne_chl_stock_audit x = 3 y = 2 cost = 4
 prerequisite = { focus = sof_ne_CHL_cellar_contract }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_stock_audit_paid } } add_political_power = 20 set_country_flag = sof_ne_CHL_stock_audit_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_stock_audit_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_stock_audit_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_compensation icon = GFX_sof_van_goal_generic_political_pressure x = 16 y = 2 cost = 5
+focus = { id = sof_ne_CHL_compensation icon = GFX_sof_project_sof_ne_chl_compensation x = 7 y = 2 cost = 5
 prerequisite = { focus = sof_ne_CHL_camp_survey }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_compensation_paid } } add_ideas = sof_ne_CHL_camp_rules set_country_flag = sof_ne_CHL_compensation_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_compensation_paid } } sof604_register_ne_chl_camp_rules = yes set_country_flag = sof_ne_CHL_compensation_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_sedan_survey icon = GFX_sof_van_goal_generic_army_doctrines x = 22 y = 2 cost = 5
+focus = { id = sof_ne_CHL_sedan_survey icon = GFX_sof_project_sof_ne_chl_sedan_survey x = 12 y = 2 cost = 5
 prerequisite = { focus = sof_ne_CHL_camp_survey }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  NOT = { has_country_flag = sof_ne_CHL_sedan_survey_paid } } custom_effect_tooltip = sof_ne_CHL_sedan_unlock_tt set_country_flag = sof_ne_CHL_sedan_survey_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_vitry icon = GFX_sof_van_goal_generic_construct_civ_factory x = 29 y = 2 cost = 5
+focus = { id = sof_ne_CHL_vitry icon = GFX_sof_project_sof_ne_chl_vitry x = 15 y = 2 cost = 5
 prerequisite = { focus = sof_ne_CHL_junction }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 142 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3922  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 142 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3922  NOT = { has_country_flag = sof_ne_CHL_vitry_paid } } 142 = { add_dynamic_modifier = { modifier = sof_ne_CHL_vitry_local } } set_country_flag = sof_ne_CHL_vitry_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_civil_timetable icon = GFX_sof_van_goal_generic_construct_civ_factory x = 35 y = 2 cost = 5
+focus = { id = sof_ne_CHL_civil_timetable icon = GFX_sof_project_sof_ne_chl_civil_timetable x = 21 y = 2 cost = 5
 prerequisite = { focus = sof_ne_CHL_junction }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_civil_timetable_paid } } add_tech_bonus = { name = sof_ne_CHL_civil_timetable_bonus bonus = 0.25 uses = 1 category = logistics_tech } set_country_flag = sof_ne_CHL_civil_timetable_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_civil_timetable_paid } } add_tech_bonus = { name = sof_ne_CHL_civil_timetable_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_CHL_civil_timetable_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_growers icon = GFX_sof_van_goal_generic_construct_civ_factory x = 2 y = 3 cost = 5
+focus = { id = sof_ne_CHL_growers icon = GFX_sof_project_sof_ne_chl_growers x = 0 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_quality }
 mutually_exclusive = { focus = sof_ne_CHL_houses }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_growers_paid } } add_ideas = sof_ne_CHL_growers set_country_flag = sof_ne_CHL_growers_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_growers_paid } } sof604_register_ne_chl_growers = yes set_country_flag = sof_ne_CHL_growers_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_houses icon = GFX_sof_van_goal_generic_construct_civ_factory x = 6 y = 3 cost = 5
+focus = { id = sof_ne_CHL_houses icon = GFX_sof_project_sof_ne_chl_houses x = 3 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_stock_audit }
 mutually_exclusive = { focus = sof_ne_CHL_growers }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_houses_paid } } add_ideas = sof_ne_CHL_houses set_country_flag = sof_ne_CHL_houses_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_houses_paid } } sof604_register_ne_chl_houses = yes set_country_flag = sof_ne_CHL_houses_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_bottles icon = GFX_sof_van_goal_generic_construct_civ_factory x = 10 y = 3 cost = 5
+focus = { id = sof_ne_CHL_bottles icon = GFX_sof_project_sof_ne_chl_bottles x = 6 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_stock_audit }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  NOT = { has_country_flag = sof_ne_CHL_bottles_paid } } 103 = { add_dynamic_modifier = { modifier = sof_ne_CHL_reims_local } } set_country_flag = sof_ne_CHL_bottles_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_training_seasons icon = GFX_sof_van_goal_generic_political_pressure x = 15 y = 3 cost = 5
+focus = { id = sof_ne_CHL_training_seasons icon = GFX_sof_project_sof_ne_chl_training_seasons x = 9 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_compensation }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_training_seasons_paid } } add_stability = 0.02 set_country_flag = sof_ne_CHL_training_seasons_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_training_seasons_paid } } add_stability = 0.04 set_country_flag = sof_ne_CHL_training_seasons_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_bridges icon = GFX_sof_van_goal_generic_army_doctrines x = 21 y = 3 cost = 5
+focus = { id = sof_ne_CHL_bridges icon = GFX_sof_project_sof_ne_chl_bridges x = 12 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_sedan_survey }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  NOT = { has_country_flag = sof_ne_CHL_bridges_paid } } add_tech_bonus = { name = sof_ne_CHL_bridges_bonus bonus = 0.35 uses = 1 category = engineers_tech } set_country_flag = sof_ne_CHL_bridges_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  NOT = { has_country_flag = sof_ne_CHL_bridges_paid } } add_tech_bonus = { name = sof_ne_CHL_bridges_bonus bonus = 1 uses = 1 category = engineers_tech } set_country_flag = sof_ne_CHL_bridges_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_retreat_routes icon = GFX_sof_van_goal_generic_army_doctrines x = 26 y = 3 cost = 5
+focus = { id = sof_ne_CHL_retreat_routes icon = GFX_sof_project_sof_ne_chl_retreat_routes x = 15 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_sedan_survey }
 prerequisite = { focus = sof_ne_CHL_vitry }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = CHL 93 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5811  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 93 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5811  NOT = { has_country_flag = sof_ne_CHL_retreat_routes_paid } } add_tech_bonus = { name = sof_ne_CHL_retreat_routes_bonus bonus = 0.35 uses = 1 category = recon_tech } set_country_flag = sof_ne_CHL_retreat_routes_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 93 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5811  NOT = { has_country_flag = sof_ne_CHL_retreat_routes_paid } } add_tech_bonus = { name = sof_ne_CHL_retreat_routes_bonus bonus = 1 uses = 1 category = recon_tech } set_country_flag = sof_ne_CHL_retreat_routes_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_picardy_offer icon = GFX_sof_van_goal_generic_alliance x = 35 y = 3 cost = 5
+focus = { id = sof_ne_CHL_picardy_offer icon = GFX_sof_project_sof_ne_chl_picardy_offer x = 24 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_civil_timetable }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   has_war = no AMI = { exists = yes is_subject = no has_capitulated = no has_war = no 70 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 8318 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   has_war = no AMI = { exists = yes is_subject = no has_capitulated = no has_war = no 70 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 8318 } NOT = { has_country_flag = sof_ne_CHL_picardy_offer_paid } } set_country_flag = sof_ne_CHL_picardy_pending AMI = { country_event = { id = sof_ne_CHL_diplomacy.2 days = 1 } } set_country_flag = sof_ne_CHL_picardy_offer_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_price_board icon = GFX_sof_van_goal_generic_construct_civ_factory x = 5 y = 4 cost = 5
+focus = { id = sof_ne_CHL_price_board icon = GFX_sof_project_sof_ne_chl_price_board x = 1 y = 4 cost = 5
 prerequisite = { focus = sof_ne_CHL_growers focus = sof_ne_CHL_houses }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_price_board_paid } } add_stability = 0.025 set_country_flag = sof_ne_CHL_price_board_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_price_board_paid } } add_stability = 0.04 set_country_flag = sof_ne_CHL_price_board_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_grain icon = GFX_sof_van_goal_generic_construct_civ_factory x = 11 y = 4 cost = 5
+focus = { id = sof_ne_CHL_grain icon = GFX_sof_project_sof_ne_chl_grain x = 6 y = 4 cost = 5
 prerequisite = { focus = sof_ne_CHL_training_seasons }
 prerequisite = { focus = sof_ne_CHL_bottles }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_grain_paid } } add_tech_bonus = { name = sof_ne_CHL_grain_bonus bonus = 0.3 uses = 1 category = industry } set_country_flag = sof_ne_CHL_grain_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_grain_paid } } add_tech_bonus = { name = sof_ne_CHL_grain_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_ne_CHL_grain_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_civic_charter icon = GFX_sof_van_goal_generic_political_pressure x = 16 y = 4 cost = 5
+focus = { id = sof_ne_CHL_civic_charter icon = GFX_sof_project_sof_ne_chl_civic_charter x = 9 y = 4 cost = 4
 prerequisite = { focus = sof_ne_CHL_training_seasons }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_civic_charter_paid } } add_political_power = 35 set_country_flag = sof_ne_CHL_civic_charter_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_civic_charter_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_civic_charter_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_sedan_fort icon = GFX_sof_van_goal_generic_army_doctrines x = 21 y = 4 cost = 7
+focus = { id = sof_ne_CHL_sedan_fort icon = GFX_sof_project_sof_ne_chl_sedan_fort x = 12 y = 4 cost = 7
 prerequisite = { focus = sof_ne_CHL_bridges }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  NOT = { has_country_flag = sof_ne_CHL_sedan_fort_paid } } 81 = {  add_building_construction = { type = bunker level = 1 province = 237 instant_build = yes } } set_country_flag = sof_ne_CHL_sedan_fort_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 81 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 237  NOT = { has_country_flag = sof_ne_CHL_sedan_fort_paid } } 81 = {  add_building_construction = { type = bunker level = 3 province = 237 instant_build = yes } } add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = ROOT } set_country_flag = sof_ne_CHL_sedan_fort_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_charleville icon = GFX_sof_van_goal_generic_army_doctrines x = 27 y = 4 cost = 7
+focus = { id = sof_ne_CHL_charleville icon = GFX_sof_project_sof_ne_chl_charleville x = 15 y = 4 cost = 7
 prerequisite = { focus = sof_ne_CHL_retreat_routes }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = CHL 72 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9709  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 72 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9709  NOT = { has_country_flag = sof_ne_CHL_charleville_paid } } 72 = {  add_building_construction = { type = infrastructure level = 1  instant_build = yes } } set_country_flag = sof_ne_CHL_charleville_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_lorraine_offer icon = GFX_sof_van_goal_generic_alliance x = 32 y = 4 cost = 5
+focus = { id = sof_ne_CHL_lorraine_offer icon = GFX_sof_project_sof_ne_chl_lorraine_offer x = 18 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_vitry }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   has_war = no MET = { exists = yes is_subject = no has_capitulated = no has_war = no 112 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 5300 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   has_war = no MET = { exists = yes is_subject = no has_capitulated = no has_war = no 112 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 5300 } NOT = { has_country_flag = sof_ne_CHL_lorraine_offer_paid } } set_country_flag = sof_ne_CHL_lorraine_pending MET = { country_event = { id = sof_ne_CHL_diplomacy.1 days = 1 } } set_country_flag = sof_ne_CHL_lorraine_offer_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_aoc icon = GFX_sof_van_goal_generic_construct_civ_factory x = 3 y = 5 cost = 5
+focus = { id = sof_ne_CHL_aoc icon = GFX_sof_project_sof_ne_chl_aoc x = 0 y = 5 cost = 4
 prerequisite = { focus = sof_ne_CHL_price_board }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892 date > 1936.6.28 } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892 date > 1936.6.28 NOT = { has_country_flag = sof_ne_CHL_aoc_paid } } add_political_power = 25 set_country_flag = sof_ne_CHL_aoc_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892 date > 1936.6.28 NOT = { has_country_flag = sof_ne_CHL_aoc_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_aoc_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_exports icon = GFX_sof_van_goal_generic_construct_civ_factory x = 8 y = 5 cost = 5
+focus = { id = sof_ne_CHL_exports icon = GFX_sof_project_sof_ne_chl_exports x = 3 y = 5 cost = 5
 prerequisite = { focus = sof_ne_CHL_price_board }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_exports_paid } } add_tech_bonus = { name = sof_ne_CHL_exports_bonus bonus = 0.35 uses = 1 category = industry } set_country_flag = sof_ne_CHL_exports_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_exports_paid } } add_tech_bonus = { name = sof_ne_CHL_exports_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_ne_CHL_exports_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_troyes icon = GFX_sof_van_goal_generic_construct_civ_factory x = 13 y = 5 cost = 5
+focus = { id = sof_ne_CHL_troyes icon = GFX_sof_project_sof_ne_chl_troyes x = 6 y = 5 cost = 5
 prerequisite = { focus = sof_ne_CHL_grain }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = CHL 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11639  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11639  NOT = { has_country_flag = sof_ne_CHL_troyes_paid } } add_ideas = sof_ne_CHL_cloth set_country_flag = sof_ne_CHL_troyes_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11639  NOT = { has_country_flag = sof_ne_CHL_troyes_paid } } sof604_register_ne_chl_cloth = yes set_country_flag = sof_ne_CHL_troyes_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_public_accounts icon = GFX_sof_van_goal_generic_political_pressure x = 18 y = 5 cost = 5
+focus = { id = sof_ne_CHL_public_accounts icon = GFX_sof_project_sof_ne_chl_public_accounts x = 9 y = 5 cost = 5
 prerequisite = { focus = sof_ne_CHL_civic_charter }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_public_accounts_paid } } add_stability = 0.025 set_country_flag = sof_ne_CHL_public_accounts_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_public_accounts_paid } } add_stability = 0.04 set_country_flag = sof_ne_CHL_public_accounts_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_signals icon = GFX_sof_van_goal_generic_army_doctrines x = 24 y = 5 cost = 5
+focus = { id = sof_ne_CHL_signals icon = GFX_sof_project_sof_ne_chl_signals x = 12 y = 5 cost = 5
 prerequisite = { focus = sof_ne_CHL_sedan_fort }
 prerequisite = { focus = sof_ne_CHL_charleville }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_signals_paid } } add_tech_bonus = { name = sof_ne_CHL_signals_bonus bonus = 0.3 uses = 1 category = electronics } set_country_flag = sof_ne_CHL_signals_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_signals_paid } } add_tech_bonus = { name = sof_ne_CHL_signals_bonus bonus = 1 uses = 1 category = electronics } set_country_flag = sof_ne_CHL_signals_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_own_stock icon = GFX_sof_van_goal_generic_construct_civ_factory x = 34 y = 5 cost = 5
+focus = { id = sof_ne_CHL_own_stock icon = GFX_sof_project_sof_ne_chl_own_stock x = 21 y = 3 cost = 5
 prerequisite = { focus = sof_ne_CHL_civil_timetable }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_own_stock_paid } } add_tech_bonus = { name = sof_ne_CHL_own_stock_bonus bonus = 0.3 uses = 1 category = logistics_tech } set_country_flag = sof_ne_CHL_own_stock_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_own_stock_paid } } add_tech_bonus = { name = sof_ne_CHL_own_stock_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_CHL_own_stock_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_farm_roads icon = GFX_sof_van_goal_generic_construct_civ_factory x = 4 y = 6 cost = 7
+focus = { id = sof_ne_CHL_farm_roads icon = GFX_sof_project_sof_ne_chl_farm_roads x = 1 y = 6 cost = 7
 prerequisite = { focus = sof_ne_CHL_aoc }
 prerequisite = { focus = sof_ne_CHL_exports }
 search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -215,193 +215,193 @@ available = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_
 completion_reward = { if = { limit = { original_tag = CHL 120 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6892  NOT = { has_country_flag = sof_ne_CHL_farm_roads_paid } } 120 = {  add_building_construction = { type = infrastructure level = 1  instant_build = yes } } set_country_flag = sof_ne_CHL_farm_roads_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_civil_workshops icon = GFX_sof_van_goal_generic_construct_civ_factory x = 12 y = 6 cost = 10
+focus = { id = sof_ne_CHL_civil_workshops icon = GFX_sof_project_sof_ne_chl_civil_workshops x = 4 y = 6 cost = 10
 prerequisite = { focus = sof_ne_CHL_troyes }
 search_filters = { FOCUS_FILTER_INDUSTRY }
-available = { original_tag = CHL 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11639  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11639  NOT = { has_country_flag = sof_ne_CHL_civil_workshops_paid } } 163 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1  instant_build = yes } } set_country_flag = sof_ne_CHL_civil_workshops_paid } }
+available = { original_tag = CHL 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11639   163 = { industrial_complex < 19 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { 163 = { industrial_complex < 19 }  original_tag = CHL 163 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11639  NOT = { has_country_flag = sof_ne_CHL_civil_workshops_paid } } 163 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 2  instant_build = yes } } set_country_flag = sof_ne_CHL_civil_workshops_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_arbitration icon = GFX_sof_van_goal_generic_political_pressure x = 18 y = 6 cost = 5
+focus = { id = sof_ne_CHL_arbitration icon = GFX_sof_project_sof_ne_chl_arbitration x = 7 y = 6 cost = 4
 prerequisite = { focus = sof_ne_CHL_public_accounts }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_arbitration_paid } } add_political_power = 30 set_country_flag = sof_ne_CHL_arbitration_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_arbitration_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_arbitration_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_mobile icon = GFX_sof_van_goal_generic_army_doctrines x = 23 y = 6 cost = 5
+focus = { id = sof_ne_CHL_mobile icon = GFX_sof_project_sof_ne_chl_mobile x = 10 y = 6 cost = 5
 prerequisite = { focus = sof_ne_CHL_signals }
 mutually_exclusive = { focus = sof_ne_CHL_layered }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_mobile_paid } } army_experience = 18 set_country_flag = sof_ne_CHL_mobile_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_mobile_paid } } army_experience = 25 add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } set_country_flag = sof_ne_CHL_mobile_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_layered icon = GFX_sof_van_goal_generic_army_doctrines x = 28 y = 6 cost = 5
+focus = { id = sof_ne_CHL_layered icon = GFX_sof_project_sof_ne_chl_layered x = 13 y = 6 cost = 5
 prerequisite = { focus = sof_ne_CHL_signals }
 mutually_exclusive = { focus = sof_ne_CHL_mobile }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_layered_paid } } add_tech_bonus = { name = sof_ne_CHL_layered_bonus bonus = 0.4 uses = 1 category = cat_fortification } set_country_flag = sof_ne_CHL_layered_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_layered_paid } } add_tech_bonus = { name = sof_ne_CHL_layered_bonus bonus = 1 uses = 1 category = cat_fortification } add_equipment_to_stockpile = { type = artillery_equipment amount = 120 producer = ROOT } set_country_flag = sof_ne_CHL_layered_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_signed_orders icon = GFX_sof_van_goal_generic_alliance x = 35 y = 6 cost = 5
+focus = { id = sof_ne_CHL_signed_orders icon = GFX_sof_project_sof_ne_chl_signed_orders x = 18 y = 4 cost = 5
 prerequisite = { focus = sof_ne_CHL_picardy_offer focus = sof_ne_CHL_lorraine_offer }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {  OR = { has_country_flag = sof_ne_CHL_picardy_accepted has_country_flag = sof_ne_CHL_lorraine_accepted } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {  OR = { has_country_flag = sof_ne_CHL_picardy_accepted has_country_flag = sof_ne_CHL_lorraine_accepted } NOT = { has_country_flag = sof_ne_CHL_signed_orders_paid } } add_tech_bonus = { name = sof_ne_CHL_signed_orders_bonus bonus = 0.3 uses = 1 category = logistics_tech } set_country_flag = sof_ne_CHL_signed_orders_paid } }
+completion_reward = { if = { limit = {  OR = { has_country_flag = sof_ne_CHL_picardy_accepted has_country_flag = sof_ne_CHL_lorraine_accepted } NOT = { has_country_flag = sof_ne_CHL_signed_orders_paid } } add_tech_bonus = { name = sof_ne_CHL_signed_orders_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_CHL_signed_orders_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_harvest icon = GFX_sof_van_goal_generic_construct_civ_factory x = 7 y = 7 cost = 5
+focus = { id = sof_ne_CHL_harvest icon = GFX_sof_project_sof_ne_chl_harvest x = 3 y = 7 cost = 5
 prerequisite = { focus = sof_ne_CHL_farm_roads }
 prerequisite = { focus = sof_ne_CHL_civil_workshops }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_harvest_paid } } add_stability = 0.025 set_country_flag = sof_ne_CHL_harvest_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_harvest_paid } } add_stability = 0.04 set_country_flag = sof_ne_CHL_harvest_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_district_charter icon = GFX_sof_van_goal_generic_political_pressure x = 17 y = 7 cost = 7
+focus = { id = sof_ne_CHL_district_charter icon = GFX_sof_project_sof_ne_chl_district_charter x = 7 y = 7 cost = 7
 prerequisite = { focus = sof_ne_CHL_arbitration }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_district_charter_paid } } add_stability = 0.03 set_country_flag = sof_ne_CHL_district_charter_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_district_charter_paid } } add_stability = 0.04 set_country_flag = sof_ne_CHL_district_charter_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_reserve icon = GFX_sof_van_goal_generic_army_doctrines x = 25 y = 7 cost = 5
+focus = { id = sof_ne_CHL_reserve icon = GFX_sof_project_sof_ne_chl_reserve x = 11 y = 7 cost = 5
 prerequisite = { focus = sof_ne_CHL_mobile focus = sof_ne_CHL_layered }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_reserve_paid } } add_ideas = sof_ne_CHL_reserve set_country_flag = sof_ne_CHL_reserve_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_reserve_paid } } sof604_register_ne_chl_reserve = yes set_country_flag = sof_ne_CHL_reserve_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_clearing icon = GFX_sof_van_goal_generic_alliance x = 34 y = 7 cost = 5
+focus = { id = sof_ne_CHL_clearing icon = GFX_sof_project_sof_ne_chl_clearing x = 18 y = 5 cost = 4
 prerequisite = { focus = sof_ne_CHL_signed_orders focus = sof_ne_CHL_own_stock }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_clearing_paid } } add_political_power = 25 set_country_flag = sof_ne_CHL_clearing_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_clearing_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_clearing_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_reims_repair icon = GFX_sof_van_goal_generic_construct_civ_factory x = 10 y = 8 cost = 5
+focus = { id = sof_ne_CHL_reims_repair icon = GFX_sof_project_sof_ne_chl_reims_repair x = 3 y = 8 cost = 5
 prerequisite = { focus = sof_ne_CHL_harvest }
 search_filters = { FOCUS_FILTER_INDUSTRY }
-available = { original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  NOT = { has_country_flag = sof_ne_CHL_reims_repair_paid } } add_tech_bonus = { name = sof_ne_CHL_reims_repair_bonus bonus = 0.4 uses = 1 category = industry } set_country_flag = sof_ne_CHL_reims_repair_paid } }
+available = { original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892   num_of_factories > 5 amount_research_slots > 1 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892 } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { num_of_factories > 5 amount_research_slots > 1 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  NOT = { has_country_flag = sof_ne_CHL_reims_repair_paid } } add_tech_bonus = { name = sof_ne_CHL_reims_repair_bonus bonus = 1 uses = 1 category = industry } if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof_ne_CHL_reims_repair bonus = 1 uses = 1 category = electronics } } set_country_flag = sof_ne_CHL_reims_repair_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_camp_workshop icon = GFX_sof_van_goal_generic_army_doctrines x = 21 y = 8 cost = 10
+focus = { id = sof_ne_CHL_camp_workshop icon = GFX_sof_project_sof_ne_chl_camp_workshop x = 8 y = 8 cost = 10
 prerequisite = { focus = sof_ne_CHL_reserve }
 prerequisite = { focus = sof_ne_CHL_troyes }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
-available = { original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620  NOT = { has_country_flag = sof_ne_CHL_camp_workshop_paid } } 111 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1  instant_build = yes } } set_country_flag = sof_ne_CHL_camp_workshop_paid } }
+available = { original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620   111 = { arms_factory < 19 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { 111 = { arms_factory < 19 }  original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620  NOT = { has_country_flag = sof_ne_CHL_camp_workshop_paid } } 111 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = arms_factory level = 2  instant_build = yes } } set_country_flag = sof_ne_CHL_camp_workshop_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_medical icon = GFX_sof_van_goal_generic_army_doctrines x = 27 y = 8 cost = 5
+focus = { id = sof_ne_CHL_medical icon = GFX_sof_project_sof_ne_chl_medical x = 11 y = 8 cost = 5
 prerequisite = { focus = sof_ne_CHL_reserve }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = CHL 206 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 12385  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = { original_tag = CHL 206 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 12385  NOT = { has_country_flag = sof_ne_CHL_medical_paid } } add_tech_bonus = { name = sof_ne_CHL_medical_bonus bonus = 0.35 uses = 1 category = support_tech } set_country_flag = sof_ne_CHL_medical_paid } }
+completion_reward = { if = { limit = { original_tag = CHL 206 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 12385  NOT = { has_country_flag = sof_ne_CHL_medical_paid } } add_tech_bonus = { name = sof_ne_CHL_medical_bonus bonus = 1 uses = 1 category = support_tech } set_country_flag = sof_ne_CHL_medical_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_liaison icon = GFX_sof_van_goal_generic_alliance x = 34 y = 8 cost = 5
+focus = { id = sof_ne_CHL_liaison icon = GFX_sof_project_sof_ne_chl_liaison x = 14 y = 8 cost = 4
 prerequisite = { focus = sof_ne_CHL_clearing }
 prerequisite = { focus = sof_ne_CHL_district_charter }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_liaison_paid } } add_political_power = 20 set_country_flag = sof_ne_CHL_liaison_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_liaison_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_liaison_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_camp_air icon = GFX_sof_van_goal_generic_air_fighter x = 21 y = 9 cost = 7
+focus = { id = sof_ne_CHL_camp_air icon = GFX_sof_project_sof_ne_chl_camp_air x = 8 y = 9 cost = 7
 prerequisite = { focus = sof_ne_CHL_camp_workshop }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 111 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10620  NOT = { has_country_flag = sof_ne_CHL_camp_air_paid } } 111 = {  add_building_construction = { type = air_base level = 1  instant_build = yes } } set_country_flag = sof_ne_CHL_camp_air_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_reserve_drill icon = GFX_sof_van_goal_generic_army_doctrines x = 27 y = 9 cost = 5
+focus = { id = sof_ne_CHL_reserve_drill icon = GFX_sof_project_sof_ne_chl_reserve_drill x = 11 y = 9 cost = 5
 prerequisite = { focus = sof_ne_CHL_camp_workshop }
 prerequisite = { focus = sof_ne_CHL_medical }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_reserve_drill_paid } } army_experience = 16 set_country_flag = sof_ne_CHL_reserve_drill_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_reserve_drill_paid } } army_experience = 25 add_equipment_to_stockpile = { type = infantry_equipment amount = 1200 producer = ROOT } add_doctrine_cost_reduction = { name = sof_ne_CHL_reserve_drill cost_reduction = 0.5 uses = 1 category = land_doctrine } set_country_flag = sof_ne_CHL_reserve_drill_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_grain_account icon = GFX_sof_van_goal_generic_national_unity x = 8 y = 9 cost = 5
+focus = { id = sof_ne_CHL_grain_account icon = GFX_sof_project_sof_ne_chl_grain_account x = 5 y = 9 cost = 4
 prerequisite = { focus = sof_ne_CHL_reims_repair }
 prerequisite = { focus = sof_ne_CHL_liaison }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_grain_account_paid } } add_political_power = 30 set_country_flag = sof_ne_CHL_grain_account_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_grain_account_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_grain_account_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_air_observers icon = GFX_sof_van_goal_generic_air_fighter x = 22 y = 10 cost = 5
+focus = { id = sof_ne_CHL_air_observers icon = GFX_sof_project_sof_ne_chl_air_observers x = 8 y = 10 cost = 5
 prerequisite = { focus = sof_ne_CHL_camp_air }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_air_observers_paid } } air_experience = 14 set_country_flag = sof_ne_CHL_air_observers_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_air_observers_paid } } air_experience = 15 set_country_flag = sof_ne_CHL_air_observers_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_reims_air_defense icon = GFX_sof_van_goal_generic_army_doctrines x = 28 y = 10 cost = 7
+focus = { id = sof_ne_CHL_reims_air_defense icon = GFX_sof_project_sof_ne_chl_reims_air_defense x = 11 y = 10 cost = 7
 prerequisite = { focus = sof_ne_CHL_reserve_drill }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = CHL 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892  NOT = { has_country_flag = sof_ne_CHL_reims_air_defense_paid } } 103 = {  add_building_construction = { type = anti_air_building level = 1  instant_build = yes } } set_country_flag = sof_ne_CHL_reims_air_defense_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_depth_manual icon = GFX_sof_van_goal_generic_army_doctrines x = 25 y = 11 cost = 5
+focus = { id = sof_ne_CHL_depth_manual icon = GFX_sof_project_sof_ne_chl_depth_manual x = 8 y = 11 cost = 5
 prerequisite = { focus = sof_ne_CHL_air_observers }
 prerequisite = { focus = sof_ne_CHL_reims_air_defense }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_depth_manual_paid } } army_experience = 14 set_country_flag = sof_ne_CHL_depth_manual_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_depth_manual_paid } } army_experience = 15 set_country_flag = sof_ne_CHL_depth_manual_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_transition icon = GFX_sof_van_goal_generic_national_unity x = 13 y = 11 cost = 5
+focus = { id = sof_ne_CHL_transition icon = GFX_sof_project_sof_ne_chl_transition x = 5 y = 10 cost = 4
 prerequisite = { focus = sof_ne_CHL_grain_account }
 prerequisite = { focus = sof_ne_CHL_district_charter }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_transition_paid } } add_political_power = 30 set_country_flag = sof_ne_CHL_transition_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_transition_paid } } add_political_power = 50 set_country_flag = sof_ne_CHL_transition_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_national_board icon = GFX_sof_van_goal_generic_national_unity x = 13 y = 12 cost = 5
+focus = { id = sof_ne_CHL_national_board icon = GFX_sof_project_sof_ne_chl_national_board x = 5 y = 11 cost = 5
 prerequisite = { focus = sof_ne_CHL_transition }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {  has_country_flag = sofzh_unification_complete } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {  has_country_flag = sofzh_unification_complete NOT = { has_country_flag = sof_ne_CHL_national_board_paid } } add_ideas = sof_ne_CHL_integration set_country_flag = sof_ne_CHL_national_board_paid } }
+completion_reward = { if = { limit = {  has_country_flag = sofzh_unification_complete NOT = { has_country_flag = sof_ne_CHL_national_board_paid } } sof604_register_ne_chl_integration = yes set_country_flag = sof_ne_CHL_national_board_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_quality_transfer icon = GFX_sof_van_goal_generic_national_unity x = 7 y = 13 cost = 5
+focus = { id = sof_ne_CHL_quality_transfer icon = GFX_sof_project_sof_ne_chl_quality_transfer x = 2 y = 12 cost = 5
 prerequisite = { focus = sof_ne_CHL_national_board }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_quality_transfer_paid } } add_stability = 0.025 set_country_flag = sof_ne_CHL_quality_transfer_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_quality_transfer_paid } } add_stability = 0.04 set_country_flag = sof_ne_CHL_quality_transfer_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_camp_transfer icon = GFX_sof_van_goal_generic_national_unity x = 14 y = 13 cost = 5
+focus = { id = sof_ne_CHL_camp_transfer icon = GFX_sof_project_sof_ne_chl_camp_transfer x = 5 y = 12 cost = 5
 prerequisite = { focus = sof_ne_CHL_national_board }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_camp_transfer_paid } } add_tech_bonus = { name = sof_ne_CHL_camp_transfer_bonus bonus = 0.4 uses = 1 category = infantry_weapons } set_country_flag = sof_ne_CHL_camp_transfer_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_camp_transfer_paid } } add_tech_bonus = { name = sof_ne_CHL_camp_transfer_bonus bonus = 1 uses = 1 category = infantry_weapons } set_country_flag = sof_ne_CHL_camp_transfer_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_meuse_transfer icon = GFX_sof_van_goal_generic_national_unity x = 24 y = 13 cost = 5
+focus = { id = sof_ne_CHL_meuse_transfer icon = GFX_sof_project_sof_ne_chl_meuse_transfer x = 8 y = 12 cost = 5
 prerequisite = { focus = sof_ne_CHL_national_board }
 prerequisite = { focus = sof_ne_CHL_depth_manual }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_meuse_transfer_paid } } add_tech_bonus = { name = sof_ne_CHL_meuse_transfer_bonus bonus = 0.4 uses = 1 category = recon_tech } set_country_flag = sof_ne_CHL_meuse_transfer_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_meuse_transfer_paid } } add_tech_bonus = { name = sof_ne_CHL_meuse_transfer_bonus bonus = 1 uses = 1 category = recon_tech } set_country_flag = sof_ne_CHL_meuse_transfer_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_compensation_merge icon = GFX_sof_van_goal_generic_national_unity x = 10 y = 14 cost = 5
+focus = { id = sof_ne_CHL_compensation_merge icon = GFX_sof_project_sof_ne_chl_compensation_merge x = 3 y = 13 cost = 5
 prerequisite = { focus = sof_ne_CHL_quality_transfer }
 prerequisite = { focus = sof_ne_CHL_camp_transfer }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_compensation_merge_paid } } add_stability = 0.025 set_country_flag = sof_ne_CHL_compensation_merge_paid } }
+completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_compensation_merge_paid } } add_stability = 0.04 set_country_flag = sof_ne_CHL_compensation_merge_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_depth_merge icon = GFX_sof_van_goal_generic_national_unity x = 22 y = 14 cost = 5
+focus = { id = sof_ne_CHL_depth_merge icon = GFX_sof_project_sof_ne_chl_depth_merge x = 6 y = 13 cost = 5
 prerequisite = { focus = sof_ne_CHL_camp_transfer }
 prerequisite = { focus = sof_ne_CHL_meuse_transfer }
 search_filters = { FOCUS_FILTER_STABILITY }
@@ -409,7 +409,7 @@ available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_depth_merge_paid } } army_experience = 18 set_country_flag = sof_ne_CHL_depth_merge_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_unification_mandate icon = GFX_sof_van_goal_generic_army_doctrines x = 40 y = 9 cost = 7
+focus = { id = sof_ne_CHL_unification_mandate icon = GFX_sof_project_sof_ne_chl_unification_mandate x = 17 y = 8 cost = 7
 prerequisite = { focus = sof_ne_CHL_district_charter }
 prerequisite = { focus = sof_ne_CHL_reserve }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
@@ -417,12 +417,12 @@ available = {  is_subject = no NOT = { has_country_flag = sofzh_unification_comp
 completion_reward = { if = { limit = {  is_subject = no NOT = { has_country_flag = sofzh_unification_complete } NOT = { has_country_flag = sof_ne_CHL_unification_mandate_paid } } set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready sofzh_unification_grant_border_goals = yes add_war_support = 0.05 set_country_flag = sof_ne_CHL_unification_mandate_paid } }
 ai_will_do = { factor = 10 }
 }
-focus = { id = sof_ne_CHL_champagne_in_france icon = GFX_sof_van_goal_generic_national_unity x = 16 y = 15 cost = 7
+focus = { id = sof_ne_CHL_champagne_in_france icon = GFX_sof_project_sof_ne_chl_champagne_in_france x = 6 y = 14 cost = 7
 prerequisite = { focus = sof_ne_CHL_compensation_merge }
 prerequisite = { focus = sof_ne_CHL_depth_merge }
 search_filters = { FOCUS_FILTER_STABILITY }
-available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
-completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_CHL_champagne_in_france_paid } } add_research_slot = 1 set_country_flag = sof_ne_CHL_champagne_in_france_paid } }
+available = {    num_of_factories > 11 amount_research_slots > 2 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892 } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+completion_reward = { if = { limit = { num_of_factories > 11 amount_research_slots > 2 103 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 892    NOT = { has_country_flag = sof_ne_CHL_champagne_in_france_paid } } if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof_ne_CHL_champagne_in_france bonus = 1 uses = 1 category = electronics } } set_country_flag = sof_ne_CHL_champagne_in_france_paid } }
 ai_will_do = { factor = 10 }
 }
 

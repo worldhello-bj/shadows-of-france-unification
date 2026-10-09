@@ -1,0 +1,2396 @@
+guiTypes = {
+ containerWindowType = {
+  name = "sof_tp_launcher_window"
+  position = {
+   x = -190
+   y = 82
+  }
+  orientation = upper_right
+  size = {
+   width = 170
+   height = 32
+  }
+  buttonType = {
+   name = "sof_tp_popup_open"
+   position = {
+    x = 0
+    y = 0
+   }
+   quadTextureSprite = "GFX_sof_tp_popup_launcher"
+   buttonText = "sof_tp_popup_open"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_popup_open_tt"
+  }
+ }
+ containerWindowType = {
+  name = "sof_tp_popup_window"
+  orientation = UPPER_LEFT
+  position = { x = 2% y = 80 }
+  size = { width = 96% height = 100%% max = { width = 1220 height = 840 } }
+  clipping = yes
+  click_to_front = yes
+  background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg"  alwaystransparent = no }
+  instantTextBoxType = {
+   name = "sof_tp_popup_window_scroll_hint"
+   position = { x = 16 y = 9 }
+   font = "hoi_16mbs"
+   text = "sof_refined_gui_scroll_hint"
+   maxWidth = 600 maxHeight = 22 fixedsize = yes
+   alwaystransparent = yes
+  }
+  containerWindowType = {
+   name = "sof_tp_popup_window_viewport"
+   position = { x = 0 y = 38 }
+   size = { width = 100%% height = 100%% }
+   margin = { left = 8 right = 22 top = 0 bottom = 22 }
+   clipping = yes
+   verticalScrollbar = "right_vertical_slider"
+   horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+   smooth_scrolling = yes
+   containerWindowType = {
+    name = "sof_tp_popup_window_canvas"
+    position = { x = 0 y = 0 }
+    size = { width = 1180 height = 780 }
+    clipping = yes
+    iconType = {
+   name = "sof_tp_popup_background"
+   position = {
+    x = 0
+    y = 0
+   }
+   spriteType = "GFX_sof_polish_panel_unification"
+   alwaystransparent = no
+  }
+
+containerWindowType = { name = "sof_polish_treaty_clip" position = { x = 726 y = 8 } size = { width = 235 height = 32 } clipping = yes
+ iconType = { name = "sof_polish_treaty_art" position = { x = 0 y = -41 } spriteType = "GFX_sof_polish_treaty_art" scale = 0.12387981 alwaystransparent = yes }
+}
+instantTextBoxType = {
+   name = "sof_tp_popup_title"
+   position = {
+    x = 66
+    y = 16
+   }
+   font = "hoi_24header"
+   text = "sof_tp_popup_title"
+   maxWidth = 650
+   maxHeight = 31
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_ui_war_phase"
+   position = {
+    x = 68
+    y = 49
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_ui_war_phase"
+   maxWidth = 490
+   maxHeight = 24
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_ui_peace_phase"
+   position = {
+    x = 68
+    y = 49
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_ui_peace_phase"
+   maxWidth = 490
+   maxHeight = 24
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_ui_next_step"
+   position = {
+    x = 578
+    y = 48
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_ui_next_step"
+   maxWidth = 527
+   maxHeight = 24
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+buttonType = {
+   name = "sof_tp_popup_refresh"
+   position = {
+    x = 975
+    y = 20
+   }
+   quadTextureSprite = "GFX_sof_tp_popup_target_action"
+   buttonText = "sof_tp_popup_refresh"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_popup_refresh_tt"
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_coalition"
+   position = {
+    x = 28
+    y = 108
+   }
+   font = "hoi_18mbs"
+   text = "sof_tp_popup_coalition"
+   maxWidth = 225
+   maxHeight = 26
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_bloc"
+   position = {
+    x = 28
+    y = 145
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_bloc"
+   maxWidth = 223
+   maxHeight = 42
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_statistics"
+   position = {
+    x = 28
+    y = 193
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_statistics"
+   maxWidth = 223
+   maxHeight = 104
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_focus_heading"
+   position = {
+    x = 28
+    y = 304
+   }
+   font = "hoi_18mbs"
+   text = "sof_tp_popup_focus_heading"
+   maxWidth = 225
+   maxHeight = 28
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_focus_state"
+   pdx_tooltip = "sof_tp_popup_focus_state_tt"
+   position = {
+    x = 28
+    y = 340
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_focus_state"
+   maxWidth = 222
+   maxHeight = 157
+   format = left
+   alwaystransparent = no
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_map_heading"
+   position = {
+    x = 294
+    y = 80
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_map_heading"
+   maxWidth = 543
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_target_heading"
+   position = {
+    x = 892
+    y = 108
+   }
+   font = "hoi_18mbs"
+   text = "sof_tp_popup_target_heading"
+   maxWidth = 254
+   maxHeight = 25
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_base"
+   position = {
+    x = 280
+    y = 165
+   }
+   spriteType = "GFX_sof_tp_map_base"
+   alwaystransparent = yes
+  }
+iconType = {
+   name = "sof_tp_map_PRS_colour"
+   position = {
+    x = 550
+    y = 252
+   }
+   spriteType = "GFX_sof_tp_map_PRS_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_PRS"
+   position = {
+    x = 550
+    y = 252
+   }
+   quadTextureSprite = "GFX_sof_tp_map_PRS_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_PRS_tt"
+  }
+iconType = {
+   name = "sof_tp_map_PRS_selected"
+   position = {
+    x = 550
+    y = 252
+   }
+   spriteType = "GFX_sof_tp_map_PRS_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_PRS_label"
+   position = {
+    x = 561
+    y = 263
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_PRS_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_AJC_colour"
+   position = {
+    x = 734
+    y = 486
+   }
+   spriteType = "GFX_sof_tp_map_AJC_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_AJC"
+   position = {
+    x = 734
+    y = 486
+   }
+   quadTextureSprite = "GFX_sof_tp_map_AJC_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_AJC_tt"
+  }
+iconType = {
+   name = "sof_tp_map_AJC_selected"
+   position = {
+    x = 734
+    y = 486
+   }
+   spriteType = "GFX_sof_tp_map_AJC_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_AJC_label"
+   position = {
+    x = 731
+    y = 505
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_AJC_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_REN_colour"
+   position = {
+    x = 380
+    y = 267
+   }
+   spriteType = "GFX_sof_tp_map_REN_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_REN"
+   position = {
+    x = 380
+    y = 267
+   }
+   quadTextureSprite = "GFX_sof_tp_map_REN_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_REN_tt"
+  }
+iconType = {
+   name = "sof_tp_map_REN_selected"
+   position = {
+    x = 380
+    y = 267
+   }
+   spriteType = "GFX_sof_tp_map_REN_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_REN_label"
+   position = {
+    x = 431
+    y = 287
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_REN_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_MRS_colour"
+   position = {
+    x = 624
+    y = 409
+   }
+   spriteType = "GFX_sof_tp_map_MRS_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_MRS"
+   position = {
+    x = 624
+    y = 409
+   }
+   quadTextureSprite = "GFX_sof_tp_map_MRS_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_MRS_tt"
+  }
+iconType = {
+   name = "sof_tp_map_MRS_selected"
+   position = {
+    x = 624
+    y = 409
+   }
+   spriteType = "GFX_sof_tp_map_MRS_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_MRS_label"
+   position = {
+    x = 659
+    y = 442
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_MRS_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_LIL_colour"
+   position = {
+    x = 553
+    y = 177
+   }
+   spriteType = "GFX_sof_tp_map_LIL_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_LIL"
+   position = {
+    x = 553
+    y = 177
+   }
+   quadTextureSprite = "GFX_sof_tp_map_LIL_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_LIL_tt"
+  }
+iconType = {
+   name = "sof_tp_map_LIL_selected"
+   position = {
+    x = 553
+    y = 177
+   }
+   spriteType = "GFX_sof_tp_map_LIL_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_LIL_label"
+   position = {
+    x = 552
+    y = 186
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_LIL_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_MET_colour"
+   position = {
+    x = 639
+    y = 237
+   }
+   spriteType = "GFX_sof_tp_map_MET_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_MET"
+   position = {
+    x = 639
+    y = 237
+   }
+   quadTextureSprite = "GFX_sof_tp_map_MET_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_MET_tt"
+  }
+iconType = {
+   name = "sof_tp_map_MET_selected"
+   position = {
+    x = 639
+    y = 237
+   }
+   spriteType = "GFX_sof_tp_map_MET_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_MET_label"
+   position = {
+    x = 648
+    y = 253
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_MET_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_STR_colour"
+   position = {
+    x = 690
+    y = 259
+   }
+   spriteType = "GFX_sof_tp_map_STR_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_STR"
+   position = {
+    x = 690
+    y = 259
+   }
+   quadTextureSprite = "GFX_sof_tp_map_STR_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_STR_tt"
+  }
+iconType = {
+   name = "sof_tp_map_STR_selected"
+   position = {
+    x = 690
+    y = 259
+   }
+   spriteType = "GFX_sof_tp_map_STR_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_STR_label"
+   position = {
+    x = 692
+    y = 265
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_STR_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_ROU_colour"
+   position = {
+    x = 462
+    y = 218
+   }
+   spriteType = "GFX_sof_tp_map_ROU_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_ROU"
+   position = {
+    x = 462
+    y = 218
+   }
+   quadTextureSprite = "GFX_sof_tp_map_ROU_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_ROU_tt"
+  }
+iconType = {
+   name = "sof_tp_map_ROU_selected"
+   position = {
+    x = 462
+    y = 218
+   }
+   spriteType = "GFX_sof_tp_map_ROU_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_ROU_label"
+   position = {
+    x = 475
+    y = 255
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_ROU_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_LYO_colour"
+   position = {
+    x = 608
+    y = 358
+   }
+   spriteType = "GFX_sof_tp_map_LYO_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_LYO"
+   position = {
+    x = 608
+    y = 358
+   }
+   quadTextureSprite = "GFX_sof_tp_map_LYO_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_LYO_tt"
+  }
+iconType = {
+   name = "sof_tp_map_LYO_selected"
+   position = {
+    x = 608
+    y = 358
+   }
+   spriteType = "GFX_sof_tp_map_LYO_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_LYO_label"
+   position = {
+    x = 634
+    y = 388
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_LYO_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_BRD_colour"
+   position = {
+    x = 466
+    y = 388
+   }
+   spriteType = "GFX_sof_tp_map_BRD_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_BRD"
+   position = {
+    x = 466
+    y = 388
+   }
+   quadTextureSprite = "GFX_sof_tp_map_BRD_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_BRD_tt"
+  }
+iconType = {
+   name = "sof_tp_map_BRD_selected"
+   position = {
+    x = 466
+    y = 388
+   }
+   spriteType = "GFX_sof_tp_map_BRD_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_BRD_label"
+   position = {
+    x = 499
+    y = 422
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_BRD_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_TOU_colour"
+   position = {
+    x = 504
+    y = 412
+   }
+   spriteType = "GFX_sof_tp_map_TOU_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_TOU"
+   position = {
+    x = 504
+    y = 412
+   }
+   quadTextureSprite = "GFX_sof_tp_map_TOU_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_TOU_tt"
+  }
+iconType = {
+   name = "sof_tp_map_TOU_selected"
+   position = {
+    x = 504
+    y = 412
+   }
+   spriteType = "GFX_sof_tp_map_TOU_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_TOU_label"
+   position = {
+    x = 543
+    y = 441
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_TOU_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_NAN_colour"
+   position = {
+    x = 447
+    y = 279
+   }
+   spriteType = "GFX_sof_tp_map_NAN_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_NAN"
+   position = {
+    x = 447
+    y = 279
+   }
+   quadTextureSprite = "GFX_sof_tp_map_NAN_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_NAN_tt"
+  }
+iconType = {
+   name = "sof_tp_map_NAN_selected"
+   position = {
+    x = 447
+    y = 279
+   }
+   spriteType = "GFX_sof_tp_map_NAN_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_NAN_label"
+   position = {
+    x = 481
+    y = 308
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_NAN_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_CFR_colour"
+   position = {
+    x = 566
+    y = 347
+   }
+   spriteType = "GFX_sof_tp_map_CFR_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_CFR"
+   position = {
+    x = 566
+    y = 347
+   }
+   quadTextureSprite = "GFX_sof_tp_map_CFR_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_CFR_tt"
+  }
+iconType = {
+   name = "sof_tp_map_CFR_selected"
+   position = {
+    x = 566
+    y = 347
+   }
+   spriteType = "GFX_sof_tp_map_CFR_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_CFR_label"
+   position = {
+    x = 577
+    y = 383
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_CFR_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_DIJ_colour"
+   position = {
+    x = 586
+    y = 285
+   }
+   spriteType = "GFX_sof_tp_map_DIJ_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_DIJ"
+   position = {
+    x = 586
+    y = 285
+   }
+   quadTextureSprite = "GFX_sof_tp_map_DIJ_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_DIJ_tt"
+  }
+iconType = {
+   name = "sof_tp_map_DIJ_selected"
+   position = {
+    x = 586
+    y = 285
+   }
+   spriteType = "GFX_sof_tp_map_DIJ_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_DIJ_label"
+   position = {
+    x = 602
+    y = 317
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_DIJ_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_BES_colour"
+   position = {
+    x = 649
+    y = 300
+   }
+   spriteType = "GFX_sof_tp_map_BES_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_BES"
+   position = {
+    x = 649
+    y = 300
+   }
+   quadTextureSprite = "GFX_sof_tp_map_BES_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_BES_tt"
+  }
+iconType = {
+   name = "sof_tp_map_BES_selected"
+   position = {
+    x = 649
+    y = 300
+   }
+   spriteType = "GFX_sof_tp_map_BES_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_BES_label"
+   position = {
+    x = 653
+    y = 317
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_BES_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_TRS_colour"
+   position = {
+    x = 514
+    y = 264
+   }
+   spriteType = "GFX_sof_tp_map_TRS_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_TRS"
+   position = {
+    x = 514
+    y = 264
+   }
+   quadTextureSprite = "GFX_sof_tp_map_TRS_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_TRS_tt"
+  }
+iconType = {
+   name = "sof_tp_map_TRS_selected"
+   position = {
+    x = 514
+    y = 264
+   }
+   spriteType = "GFX_sof_tp_map_TRS_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_TRS_label"
+   position = {
+    x = 543
+    y = 312
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_TRS_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_AMI_colour"
+   position = {
+    x = 549
+    y = 207
+   }
+   spriteType = "GFX_sof_tp_map_AMI_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_AMI"
+   position = {
+    x = 549
+    y = 207
+   }
+   quadTextureSprite = "GFX_sof_tp_map_AMI_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_AMI_tt"
+  }
+iconType = {
+   name = "sof_tp_map_AMI_selected"
+   position = {
+    x = 549
+    y = 207
+   }
+   spriteType = "GFX_sof_tp_map_AMI_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_AMI_label"
+   position = {
+    x = 569
+    y = 228
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_AMI_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_CHL_colour"
+   position = {
+    x = 600
+    y = 215
+   }
+   spriteType = "GFX_sof_tp_map_CHL_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_CHL"
+   position = {
+    x = 600
+    y = 215
+   }
+   quadTextureSprite = "GFX_sof_tp_map_CHL_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_CHL_tt"
+  }
+iconType = {
+   name = "sof_tp_map_CHL_selected"
+   position = {
+    x = 600
+    y = 215
+   }
+   spriteType = "GFX_sof_tp_map_CHL_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_CHL_label"
+   position = {
+    x = 607
+    y = 262
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_CHL_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_MOP_colour"
+   position = {
+    x = 556
+    y = 415
+   }
+   spriteType = "GFX_sof_tp_map_MOP_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_MOP"
+   position = {
+    x = 556
+    y = 415
+   }
+   quadTextureSprite = "GFX_sof_tp_map_MOP_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_MOP_tt"
+  }
+iconType = {
+   name = "sof_tp_map_MOP_selected"
+   position = {
+    x = 556
+    y = 415
+   }
+   spriteType = "GFX_sof_tp_map_MOP_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_MOP_label"
+   position = {
+    x = 598
+    y = 444
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_MOP_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_POI_colour"
+   position = {
+    x = 472
+    y = 333
+   }
+   spriteType = "GFX_sof_tp_map_POI_colors"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_map_POI"
+   position = {
+    x = 472
+    y = 333
+   }
+   quadTextureSprite = "GFX_sof_tp_map_POI_button"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_map_POI_tt"
+  }
+iconType = {
+   name = "sof_tp_map_POI_selected"
+   position = {
+    x = 472
+    y = 333
+   }
+   spriteType = "GFX_sof_tp_map_POI_selected"
+   alwaystransparent = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_map_POI_label"
+   position = {
+    x = 499
+    y = 357
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_map_POI_label"
+   maxWidth = 32
+   maxHeight = 18
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_map_LMG_info"
+   position = {
+    x = 529
+    y = 360
+   }
+   spriteType = "GFX_sof_tp_map_LMG_button"
+   frame = 1
+   pdx_tooltip = "sof_tp_map_LMG_tt"
+  }
+containerWindowType = {
+   name = "sof_tp_selected_panel"
+   position = {
+    x = 892
+    y = 143
+   }
+   size = {
+    width = 256
+    height = 64
+   }
+   gridBoxType = {
+    name = "sof_tp_selected_detail"
+    position = {
+     x = 0
+     y = 0
+    }
+    size = {
+     width = 256
+     height = 64
+    }
+    slotsize = {
+     width = 256
+     height = 64
+    }
+    max_slots_horizontal = 1
+    max_slots_vertical = 1
+   }
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_no_target"
+   position = {
+    x = 892
+    y = 157
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_no_target"
+   maxWidth = 250
+   format = left
+   alwaystransparent = yes
+   maxHeight = 42
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_legend_swatch_0"
+   position = {
+    x = 294
+    y = 630
+   }
+   spriteType = "GFX_sof_tp_legend_swatch_0"
+   pdx_tooltip = "sof_tp_popup_map_legend_tt"
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_legend_0"
+   position = {
+    x = 307
+    y = 624
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_legend_0"
+   maxWidth = 76
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_legend_swatch_1"
+   position = {
+    x = 387
+    y = 630
+   }
+   spriteType = "GFX_sof_tp_legend_swatch_1"
+   pdx_tooltip = "sof_tp_popup_map_legend_tt"
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_legend_1"
+   position = {
+    x = 400
+    y = 624
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_legend_1"
+   maxWidth = 76
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_legend_swatch_2"
+   position = {
+    x = 480
+    y = 630
+   }
+   spriteType = "GFX_sof_tp_legend_swatch_2"
+   pdx_tooltip = "sof_tp_popup_map_legend_tt"
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_legend_2"
+   position = {
+    x = 493
+    y = 624
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_legend_2"
+   maxWidth = 76
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_legend_swatch_3"
+   position = {
+    x = 573
+    y = 630
+   }
+   spriteType = "GFX_sof_tp_legend_swatch_3"
+   pdx_tooltip = "sof_tp_popup_map_legend_tt"
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_legend_3"
+   position = {
+    x = 586
+    y = 624
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_legend_3"
+   maxWidth = 76
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_legend_swatch_4"
+   position = {
+    x = 666
+    y = 630
+   }
+   spriteType = "GFX_sof_tp_legend_swatch_4"
+   pdx_tooltip = "sof_tp_popup_map_legend_tt"
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_legend_4"
+   position = {
+    x = 679
+    y = 624
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_legend_4"
+   maxWidth = 76
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+iconType = {
+   name = "sof_tp_legend_swatch_5"
+   position = {
+    x = 759
+    y = 630
+   }
+   spriteType = "GFX_sof_tp_legend_swatch_5"
+   pdx_tooltip = "sof_tp_popup_map_legend_tt"
+  }
+instantTextBoxType = {
+   name = "sof_tp_popup_legend_5"
+   position = {
+    x = 772
+    y = 624
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_popup_legend_5"
+   maxWidth = 76
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_tp_a3_relation"
+   position = {
+    x = 892
+    y = 206
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_a3_relation"
+   maxWidth = 258
+   maxHeight = 22
+   format = left
+   alwaystransparent = no
+   pdx_tooltip = "sof_tp_a3_relation_tt"
+  
+   fixedsize = yes
+  }
+buttonType = {
+   name = "sof_tp_a3_tab_talks"
+   position = {
+    x = 892
+    y = 236
+   }
+   quadTextureSprite = "GFX_sof_polish_tab"
+   buttonText = "sof_tp_a3_tab_talks"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_a3_tab_talks_tt"
+  }
+iconType = {
+   name = "sof_tp_a3_active_talks"
+   position = {
+    x = 892
+    y = 236
+   }
+   spriteType = "GFX_sof_polish_tab_selected"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_a3_tab_terms"
+   position = {
+    x = 958
+    y = 236
+   }
+   quadTextureSprite = "GFX_sof_polish_tab"
+   buttonText = "sof_tp_a3_tab_terms"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_a3_tab_terms_tt"
+  }
+iconType = {
+   name = "sof_tp_a3_active_terms"
+   position = {
+    x = 958
+    y = 236
+   }
+   spriteType = "GFX_sof_polish_tab_selected"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_a3_tab_work"
+   position = {
+    x = 1024
+    y = 236
+   }
+   quadTextureSprite = "GFX_sof_polish_tab"
+   buttonText = "sof_tp_a3_tab_work"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_a3_tab_work_tt"
+  }
+iconType = {
+   name = "sof_tp_a3_active_work"
+   position = {
+    x = 1024
+    y = 236
+   }
+   spriteType = "GFX_sof_polish_tab_selected"
+   alwaystransparent = yes
+  }
+buttonType = {
+   name = "sof_tp_a3_tab_force"
+   position = {
+    x = 1090
+    y = 236
+   }
+   quadTextureSprite = "GFX_sof_polish_tab"
+   buttonText = "sof_tp_a3_tab_force"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_a3_tab_force_tt"
+  }
+iconType = {
+   name = "sof_tp_a3_active_force"
+   position = {
+    x = 1090
+    y = 236
+   }
+   spriteType = "GFX_sof_polish_tab_selected"
+   alwaystransparent = yes
+  }
+containerWindowType = {
+   name = "sof_tp_a3_page_talks"
+   position = {
+    x = 0
+    y = 0
+   }
+   size = {
+    width = 1180
+    height = 780
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_talks_status"
+    position = {
+     x = 892
+     y = 274
+    }
+    font = "hoi_16mbs"
+    text = "sof_refined_gui_talks_hint"
+    maxWidth = 252
+    maxHeight = 122
+    format = left
+    alwaystransparent = no
+    pdx_tooltip = "sof_tp_a3_talks_status_tt"
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_selected_membership"
+    position = {
+     x = 892
+     y = 409
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_membership"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_membership_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_membership"
+    position = {
+     x = 894
+     y = 441
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_membership"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_selected_congress"
+    position = {
+     x = 1026
+     y = 409
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_congress"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_congress_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_congress"
+    position = {
+     x = 1028
+     y = 441
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_congress"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_selected_settlement"
+    position = {
+     x = 892
+     y = 461
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_settlement"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_settlement_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_settlement"
+    position = {
+     x = 894
+     y = 493
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_settlement"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_selected_union"
+    position = {
+     x = 1026
+     y = 461
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_union"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_union_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_union"
+    position = {
+     x = 1028
+     y = 493
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_union"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   instantTextBoxType = {
+    name = "sof_tp_a3_next_action"
+    position = {
+     x = 892
+     y = 520
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_next_action"
+    maxWidth = 252
+    maxHeight = 48
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+  }
+containerWindowType = {
+   name = "sof_tp_a3_page_terms"
+   position = {
+    x = 0
+    y = 0
+   }
+   size = {
+    width = 1180
+    height = 780
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_offer_summary"
+    position = {
+     x = 892
+     y = 274
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_offer_summary"
+    maxWidth = 252
+    maxHeight = 133
+    format = left
+    alwaystransparent = no
+    pdx_tooltip = "sof_tp_a3_offer_summary_tt"
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_choose_industry_terms"
+    position = {
+     x = 892
+     y = 417
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_choose_industry_terms"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_choose_industry_terms_tt"
+   }
+   buttonType = {
+    name = "sof_tp_choose_transition_terms"
+    position = {
+     x = 1026
+     y = 417
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_choose_transition_terms"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_choose_transition_terms_tt"
+   }
+   buttonType = {
+    name = "sof_tp_choose_army_terms"
+    position = {
+     x = 892
+     y = 459
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_choose_army_terms"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_choose_army_terms_tt"
+   }
+   buttonType = {
+    name = "sof_tp_a3_send_offer"
+    position = {
+     x = 1026
+     y = 459
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_a3_send_offer"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_a3_send_offer_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_terms_hint"
+    position = {
+     x = 892
+     y = 511
+    }
+    font = "hoi_16mbs"
+    text = "sof_refined_gui_terms_hint"
+    maxWidth = 252
+    maxHeight = 55
+    format = left
+    alwaystransparent = no
+   
+   fixedsize = yes
+  
+   pdx_tooltip = "sof_tp_a3_terms_hint"
+  }
+  }
+containerWindowType = {
+   name = "sof_tp_a3_page_work"
+   position = {
+    x = 0
+    y = 0
+   }
+   size = {
+    width = 1180
+    height = 780
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_contract_heading"
+    position = {
+     x = 892
+     y = 274
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_contract_heading"
+    maxWidth = 252
+    maxHeight = 22
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   containerWindowType = {
+    name = "sof_tp_a3_partner_panel"
+    position = {
+     x = 892
+     y = 296
+    }
+    size = {
+     width = 256
+     height = 22
+    }
+    gridBoxType = {
+     name = "sof_tp_a3_partner_list"
+     position = {
+      x = 0
+      y = 0
+     }
+     size = {
+      width = 256
+      height = 22
+     }
+     slotsize = {
+      width = 256
+      height = 22
+     }
+     max_slots_horizontal = 1
+     max_slots_vertical = 1
+    }
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_contract_status"
+    position = {
+     x = 892
+     y = 322
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_contract_status"
+    maxWidth = 252
+    maxHeight = 147
+    format = left
+    alwaystransparent = no
+    pdx_tooltip = "sof_tp_a3_contract_status_tt"
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_selected_aid"
+    position = {
+     x = 892
+     y = 473
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_aid"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_aid_tt"
+   }
+   buttonType = {
+    name = "sof_tp_a3_final_approval"
+    position = {
+     x = 1026
+     y = 473
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_a3_final_approval"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_a3_final_approval_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_aid"
+    position = {
+     x = 894
+     y = 505
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_aid"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_final"
+    position = {
+     x = 1028
+     y = 505
+    }
+    font = "hoi_16mbs"
+    text = "sof_refined_gui_cost_final"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_end_selected_contract"
+    position = {
+     x = 892
+     y = 531
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_end_selected_contract"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_end_selected_contract_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_work_next"
+    position = {
+     x = 1028
+     y = 524
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_work_next"
+    maxWidth = 126
+    maxHeight = 43
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+  }
+containerWindowType = {
+   name = "sof_tp_a3_page_force"
+   position = {
+    x = 0
+    y = 0
+   }
+   size = {
+    width = 1180
+    height = 780
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_force_warning"
+    position = {
+     x = 892
+     y = 274
+    }
+    font = "hoi_16mbs"
+    text = "sof_refined_gui_force_hint"
+    maxWidth = 252
+    maxHeight = 130
+    format = left
+    alwaystransparent = no
+   
+   fixedsize = yes
+  
+   pdx_tooltip = "sof_tp_a3_force_warning"
+  }
+   buttonType = {
+    name = "sof_tp_selected_claim"
+    position = {
+     x = 892
+     y = 419
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_claim"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_claim_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_claim"
+    position = {
+     x = 894
+     y = 451
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_claim"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_selected_challenge"
+    position = {
+     x = 1026
+     y = 419
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_challenge"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_challenge_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_challenge"
+    position = {
+     x = 1028
+     y = 451
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_challenge"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_selected_enforce"
+    position = {
+     x = 892
+     y = 471
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_selected_enforce"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_selected_enforce_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_cost_enforce"
+    position = {
+     x = 894
+     y = 503
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_cost_enforce"
+    maxWidth = 126
+    maxHeight = 18
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   instantTextBoxType = {
+    name = "sof_tp_a3_force_next"
+    position = {
+     x = 892
+     y = 527
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_force_next"
+    maxWidth = 252
+    maxHeight = 42
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+  }
+instantTextBoxType = {
+   name = "sof_tp_a3_footer_title"
+   position = {
+    x = 28
+    y = 659
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_a3_footer_title"
+   maxWidth = 355
+   maxHeight = 20
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+buttonType = {
+   name = "sof_tp_a3_bottom_agenda"
+   position = {
+    x = 890
+    y = 658
+   }
+   quadTextureSprite = "GFX_sof_polish_footer_tab"
+   buttonText = "sof_tp_a3_bottom_agenda"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_a3_bottom_agenda_tt"
+  }
+buttonType = {
+   name = "sof_tp_a3_bottom_projects"
+   position = {
+    x = 1024
+    y = 658
+   }
+   quadTextureSprite = "GFX_sof_polish_footer_tab"
+   buttonText = "sof_tp_a3_bottom_projects"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_a3_bottom_projects_tt"
+  }
+iconType = {
+   name = "sof_tp_a3_active_agenda"
+   position = {
+    x = 890
+    y = 658
+   }
+   spriteType = "GFX_sof_polish_footer_tab_selected"
+   alwaystransparent = yes
+  }
+iconType = {
+   name = "sof_tp_a3_active_projects"
+   position = {
+    x = 1024
+    y = 658
+   }
+   spriteType = "GFX_sof_polish_footer_tab_selected"
+   alwaystransparent = yes
+  }
+containerWindowType = {
+   name = "sof_tp_a3_page_agenda"
+   position = {
+    x = 0
+    y = 0
+   }
+   size = {
+    width = 1180
+    height = 780
+   }
+   buttonType = {
+    name = "sof_tp_form_bloc"
+    position = {
+     x = 28
+     y = 688
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_form_bloc"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_form_bloc_tt"
+   }
+   buttonType = {
+    name = "sof_tp_leave_bloc"
+    position = {
+     x = 256
+     y = 688
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_leave_bloc"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_leave_bloc_tt"
+   }
+   buttonType = {
+    name = "sof_tp_claim_victory"
+    position = {
+     x = 484
+     y = 688
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_claim_victory"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_claim_victory_tt"
+   }
+   buttonType = {
+    name = "sof_tp_open_congress"
+    position = {
+     x = 712
+     y = 688
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_open_congress"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_open_congress_tt"
+   }
+   buttonType = {
+    name = "sof_tp_adopt_federal"
+    position = {
+     x = 940
+     y = 688
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_adopt_federal"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_adopt_federal_tt"
+   }
+   buttonType = {
+    name = "sof_tp_adopt_central"
+    position = {
+     x = 28
+     y = 724
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_adopt_central"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_adopt_central_tt"
+   }
+   buttonType = {
+    name = "sof_tp_fund_reconstruction"
+    position = {
+     x = 256
+     y = 724
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_fund_reconstruction"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_fund_reconstruction_tt"
+   }
+   buttonType = {
+    name = "sof_tp_keep_promises"
+    position = {
+     x = 484
+     y = 724
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_keep_promises"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_keep_promises_tt"
+   }
+   buttonType = {
+    name = "sof_tp_break_promises"
+    position = {
+     x = 712
+     y = 724
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_break_promises"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_break_promises_tt"
+   }
+   buttonType = {
+    name = "sof_tp_complete_reconstruction"
+    position = {
+     x = 940
+     y = 724
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_action"
+    buttonText = "sof_tp_complete_reconstruction"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_complete_reconstruction_tt"
+   }
+  }
+containerWindowType = {
+   name = "sof_tp_a3_page_projects"
+   position = {
+    x = 0
+    y = 0
+   }
+   size = {
+    width = 1180
+    height = 780
+   }
+   gridBoxType = {
+    name = "sof_tp_a3_project_state_list"
+    position = {
+     x = 395
+     y = 659
+    }
+    size = {
+     width = 480
+     height = 22
+    }
+    slotsize = {
+     width = 480
+     height = 22
+    }
+    max_slots_horizontal = 1
+    max_slots_vertical = 1
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_project_transport"
+    position = {
+     x = 28
+     y = 686
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_project_transport"
+    maxWidth = 357
+    maxHeight = 21
+    format = left
+    alwaystransparent = no
+    pdx_tooltip = "sof_tp_a3_project_transport_tt"
+   
+   fixedsize = yes
+  }
+   instantTextBoxType = {
+    name = "sof_tp_a3_project_transport_status"
+    position = {
+     x = 28
+     y = 709
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_project_transport_status"
+    maxWidth = 357
+    maxHeight = 22
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_start_transport_project"
+    position = {
+     x = 28
+     y = 734
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_start_transport_project"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_start_transport_project_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_project_industry"
+    position = {
+     x = 408
+     y = 686
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_project_industry"
+    maxWidth = 357
+    maxHeight = 21
+    format = left
+    alwaystransparent = no
+    pdx_tooltip = "sof_tp_a3_project_industry_tt"
+   
+   fixedsize = yes
+  }
+   instantTextBoxType = {
+    name = "sof_tp_a3_project_industry_status"
+    position = {
+     x = 408
+     y = 709
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_project_industry_status"
+    maxWidth = 357
+    maxHeight = 22
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_start_industry_project"
+    position = {
+     x = 408
+     y = 734
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_start_industry_project"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_start_industry_project_tt"
+   }
+   instantTextBoxType = {
+    name = "sof_tp_a3_project_demobilisation"
+    position = {
+     x = 788
+     y = 686
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_project_demobilisation"
+    maxWidth = 357
+    maxHeight = 21
+    format = left
+    alwaystransparent = no
+    pdx_tooltip = "sof_tp_a3_project_demobilisation_tt"
+   
+   fixedsize = yes
+  }
+   instantTextBoxType = {
+    name = "sof_tp_a3_project_demobilisation_status"
+    position = {
+     x = 788
+     y = 709
+    }
+    font = "hoi_16mbs"
+    text = "sof_tp_a3_project_demobilisation_status"
+    maxWidth = 357
+    maxHeight = 22
+    format = left
+    alwaystransparent = yes
+   
+   fixedsize = yes
+  }
+   buttonType = {
+    name = "sof_tp_start_demobilisation_project"
+    position = {
+     x = 788
+     y = 734
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_start_demobilisation_project"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_start_demobilisation_project_tt"
+   }
+   buttonType = {
+    name = "sof_tp_cancel_project"
+    position = {
+     x = 1000
+     y = 734
+    }
+    quadTextureSprite = "GFX_sof_tp_popup_target_action"
+    buttonText = "sof_tp_cancel_project"
+    buttonFont = "hoi_16mbs"
+    clicksound = decisions_ui_button
+    pdx_tooltip = "sof_tp_cancel_project_tt"
+   }
+  }
+   }
+  
+ background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+}
+  buttonType = {
+   name = "sof_tp_popup_close"
+   position = { x = -54 y = 7 }
+   quadTextureSprite = "GFX_sof_tp_popup_close"
+   buttonText = "sof_tp_popup_close"
+   buttonFont = "hoi_16mbs"
+   clicksound = decisions_ui_button
+   pdx_tooltip = "sof_tp_popup_close_tt"
+   shortcut = "ESCAPE"
+  
+   orientation = UPPER_RIGHT
+  }
+ }
+ containerWindowType = {
+  name = "sof_tp_selected_entry"
+  iconType = {
+   name = "sof_tp_selected_flag"
+   position = {
+    x = 0
+    y = 3
+   }
+   spriteType = "GFX_flag_small"
+   scale = 1
+  }
+  instantTextBoxType = {
+   name = "sof_tp_popup_selected_name"
+   position = {
+    x = 32
+    y = 0
+   }
+   font = "hoi_18mbs"
+   text = "sof_tp_popup_selected_name"
+   maxWidth = 219
+   maxHeight = 26
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+  instantTextBoxType = {
+   name = "sof_tp_popup_selected_info"
+   position = {
+    x = 0
+    y = 33
+   }
+   font = "hoi_16mbs"
+   maxWidth = 252
+   format = left
+   alwaystransparent = no
+   text = "sof_refined_gui_target_summary"
+   maxHeight = 28
+  
+   fixedsize = yes
+  
+   pdx_tooltip = "sof_tp_a3_target_summary"
+  }
+  size = {
+   width = 256
+   height = 64
+  }
+ }
+ containerWindowType = {
+  name = "sof_tp_a3_partner_entry"
+  size = {
+   width = 256
+   height = 22
+  }
+  instantTextBoxType = {
+   name = "sof_tp_a3_partner_name"
+   position = {
+    x = 0
+    y = 0
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_a3_partner_name"
+   maxWidth = 256
+   maxHeight = 22
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+ }
+ containerWindowType = {
+  name = "sof_tp_a3_project_state_entry"
+  size = {
+   width = 480
+   height = 22
+  }
+  instantTextBoxType = {
+   name = "sof_tp_a3_project_state_name"
+   position = {
+    x = 0
+    y = 0
+   }
+   font = "hoi_16mbs"
+   text = "sof_tp_a3_project_state_name"
+   maxWidth = 480
+   maxHeight = 22
+   format = left
+   alwaystransparent = yes
+  
+   fixedsize = yes
+  }
+ }
+}

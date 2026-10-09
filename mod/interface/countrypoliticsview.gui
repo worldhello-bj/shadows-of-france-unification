@@ -1,4 +1,4 @@
-
+﻿
 guiTypes = {
 	containerWindowType = {
 		name = "countrypoliticsview"
@@ -28,11 +28,11 @@ guiTypes = {
 			name = "political_title"
 			position = { x = 45 y = 8 }
 			textureFile = ""
-			font = "hoi_36header"
+			font = "hoi_24header"
 			borderSize = {x = 0 y = 0}
 			text = "POLITICAL_POLITICAL"
 			maxWidth = 400
-			maxHeight = 20
+			maxHeight = 32
 			fixedsize = yes
 		}
 
@@ -60,8 +60,8 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "chart_explanation"
-			position = { x = 329 y = 141 }
-			size = { width = 216 height = 180 }
+			position = { x = 363 y = 141 }
+			size = { width = 187 height = 180 }
 			clipping = no
 
 #			background = {
@@ -77,9 +77,9 @@ guiTypes = {
 
 			gridBoxType = {
 				name = "parties_grid"
-				position = { x = -50 y = 3 }
+				position = { x = 0 y = 3 }
 				size = { width = 100%% height = 100%% }
-				slotsize = { width = 230 height = 16 }
+				slotsize = { width = 187 height = 16 }
 				format = "UPPER_LEFT"
 				max_slots_horizontal = 1
 			}
@@ -108,6 +108,8 @@ guiTypes = {
 			name = "ruling_party_info"
 			position = { x = 175 y = 213 }
 			size = { width = 255 height = 60 }
+ instantTextboxType = { name = "party" position = { x = 32 y = -108 } font = "hoi_18mbs" text = "party" maxWidth = 326 maxHeight = 24 fixedsize = yes }
+
 			clipping = no
 
 #			instantTextboxType = {
@@ -1153,24 +1155,24 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "political_party_info_entry"
-		size = { width = 266 height = 16 }
+		size = { width = 187 height = 16 }
 		clipping = no
 
 		iconType = {
 			name = "leading_pol_party_bg"
-			position = { x = 60 y = 0 }
+			position = { x = 0 y = 0 }
 			spriteType = "GFX_empty_paper" #KR: superseded by scripted GUI coalition_indicator
 		}
 
 		iconType = {
 			name = "color_block_bg"
-			position = { x = 60 y = 0 }
+			position = { x = 0 y = 0 }
 			spriteType = "GFX_pol_party_colour_bg"
 		}
 
 		iconType = {
 			name = "color_block"
-			position = { x = 64 y = 4 }
+			position = { x = 4 y = 4 }
 			spriteType = "GFX_pol_party_colour"
 		}
 
@@ -1185,25 +1187,18 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "name"
-			position = { x = 82 y = 0 }
+			position = { x = 22 y = 0 }
 			font = "hoi_16mbs"
-			text = "party name"
+			text = ""
 			fixedsize = yes
-			maxWidth = 124
+			maxWidth = 119
 			maxHeight = 16
 		}
 
-		instantTextboxType = {
-			name = "score"
-			position = { x = 208 y = 0 }
-			font = "Main_14"
-			text = "score"
-			maxWidth = 48
-			maxHeight = 16
-			format = right
-			fixedsize = yes
-		}
-	}
+		# No literal score field: popularity remains available through the native political chart.
+	
+ instantTextboxType = { name = "score" position = { x = 145 y = 0 } font = "hoi_16mbs" text = "score" maxWidth = 42 maxHeight = 16 format = right fixedsize = yes }
+}
 
 	containerWindowType = {
 		name = "manage_subjects_window"

@@ -1,0 +1,79 @@
+defined_text = { name = GetSofTpNextStep
+text = { trigger = { has_country_flag = sof_tp_reconstruction_complete } localization_key = sof_tp_ui_next_step_complete }
+text = { trigger = { NOT = { has_global_flag = sof_tp_reconstruction } } localization_key = sof_tp_ui_next_step_phase_one }
+text = { trigger = { NOT = { has_country_flag = sof_tp_congress_open } } localization_key = sof_tp_ui_next_step_open }
+text = { trigger = { NOT = { OR = { has_country_flag = sof_tp_charter_federal has_country_flag = sof_tp_charter_central } } } localization_key = sof_tp_ui_next_step_charter }
+text = { localization_key = sof_tp_ui_next_step_rebuild }
+}
+defined_text = { name = GetSofTpCharter
+text = { trigger = { has_country_flag = sof_tp_charter_federal } localization_key = sof_tp_ui_charter_federal }
+text = { trigger = { has_country_flag = sof_tp_charter_central } localization_key = sof_tp_ui_charter_central }
+text = { localization_key = sof_tp_ui_charter_none }
+}
+defined_text = { name = GetSofTpBloc
+text = { trigger = { check_variable = { sof_tp_bloc = 1 } } localization_key = sof_tp_ui_bloc_1 }
+text = { trigger = { check_variable = { sof_tp_bloc = 2 } } localization_key = sof_tp_ui_bloc_2 }
+text = { trigger = { check_variable = { sof_tp_bloc = 3 } } localization_key = sof_tp_ui_bloc_3 }
+text = { trigger = { check_variable = { sof_tp_bloc = 4 } } localization_key = sof_tp_ui_bloc_4 }
+text = { trigger = { check_variable = { sof_tp_bloc = 5 } } localization_key = sof_tp_ui_bloc_5 }
+text = { localization_key = sof_tp_ui_bloc_0 }
+}
+defined_text = { name = GetSofTpDemand
+text = { trigger = { original_tag = PRS } localization_key = sof_tp_ui_demand_prs }
+text = { trigger = { original_tag = LIL } localization_key = sof_tp_ui_demand_lil }
+text = { trigger = { original_tag = BRD } localization_key = sof_tp_ui_demand_brd }
+text = { trigger = { original_tag = REN } localization_key = sof_tp_ui_demand_ren }
+text = { localization_key = sof_tp_ui_demand_generic }
+}
+defined_text = { name = GetSofTpPromise
+text = { trigger = { has_country_flag = sof_tp_broke_promises } localization_key = sof_tp_ui_promise_broken }
+text = { trigger = { has_country_flag = sof_tp_autonomy_pledged } localization_key = sof_tp_ui_promise_autonomy }
+text = { localization_key = sof_tp_ui_promise_none }
+}
+
+defined_text = { name = GetSofTpMapLegend
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_map_legend_peace }
+ text = { localization_key = sof_tp_popup_map_legend_war }
+}
+
+defined_text = { name = GetSofTpMapLegendTooltip
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_map_legend_peace_tt }
+ text = { localization_key = sof_tp_popup_map_legend_war_tt }
+}
+
+defined_text = { name = GetSofTpNextInstitutionFocus
+ text = { trigger = { NOT = { has_country_flag = sof_tp_diplomatic_office } } localization_key = sof_tp_popup_next_focus_office }
+ text = { trigger = { NOT = { has_country_flag = sof_tp_congress_institution } } localization_key = sof_tp_popup_next_focus_congress }
+ text = { trigger = { NOT = { has_country_flag = sof_tp_constitution_institution } } localization_key = sof_tp_popup_next_focus_constitution }
+ text = { localization_key = sof_tp_popup_next_focus_complete }
+}
+
+defined_text = { name = GetSofTpLegend0
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_legend_peace_0 }
+ text = { localization_key = sof_tp_popup_legend_war_0 }
+}
+
+defined_text = { name = GetSofTpLegend1
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_legend_peace_1 }
+ text = { localization_key = sof_tp_popup_legend_war_1 }
+}
+
+defined_text = { name = GetSofTpLegend2
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_legend_peace_2 }
+ text = { localization_key = sof_tp_popup_legend_war_2 }
+}
+
+defined_text = { name = GetSofTpLegend3
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_legend_peace_3 }
+ text = { localization_key = sof_tp_popup_legend_war_3 }
+}
+
+defined_text = { name = GetSofTpLegend4
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_legend_peace_4 }
+ text = { localization_key = sof_tp_popup_legend_war_4 }
+}
+
+defined_text = { name = GetSofTpLegend5
+ text = { trigger = { has_global_flag = sof_tp_reconstruction } localization_key = sof_tp_popup_legend_peace_5 }
+ text = { localization_key = sof_tp_popup_legend_war_5 }
+}

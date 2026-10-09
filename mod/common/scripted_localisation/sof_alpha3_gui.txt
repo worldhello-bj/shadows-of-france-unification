@@ -1,0 +1,77 @@
+# Pure display functions. No game-state effects or variable writes occur here.
+defined_text = { name = GetSofTpA3Relation
+ text = { trigger = { NOT = { sof_tp_has_valid_selection = yes } } localization_key = sof_tp_a3_relation_none }
+ text = { trigger = { var:sof_tp_selected_country = { tag = ROOT } } localization_key = sof_tp_a3_relation_self }
+ text = { trigger = { var:sof_tp_selected_country = { has_war_with = ROOT } } localization_key = sof_tp_a3_relation_war }
+ text = { trigger = { var:sof_tp_selected_country = { is_in_faction_with = ROOT } } localization_key = sof_tp_a3_relation_ally }
+ text = { localization_key = sof_tp_a3_relation_independent }
+}
+defined_text = { name = GetSofTpA3Terms
+ text = { trigger = { check_variable = { sof_tp_offer_terms = 2 } } localization_key = sof_tp_a3_terms_transition }
+ text = { trigger = { check_variable = { sof_tp_offer_terms = 3 } } localization_key = sof_tp_a3_terms_army }
+ text = { localization_key = sof_tp_a3_terms_industry }
+}
+defined_text = { name = GetSofTpA3ContractStatus
+ text = { trigger = { NOT = { sof_tp_has_valid_selection = yes } } localization_key = sof_tp_a3_contract_none }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 5 } } localization_key = sof_tp_a3_contract_paused }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 4 } } localization_key = sof_tp_a3_contract_defaulted }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 3 } } localization_key = sof_tp_a3_contract_ready }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 2 } } localization_key = sof_tp_a3_contract_running }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 1 } } localization_key = sof_tp_a3_contract_waiting }
+ text = { localization_key = sof_tp_a3_contract_none }
+}
+defined_text = { name = GetSofTpA3ContractType
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 0 } } localization_key = sof_tp_a3_type_none }
+ text = { trigger = { NOT = { sof_tp_has_valid_selection = yes } } localization_key = sof_tp_a3_type_none }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_type = 1 } } localization_key = sof_tp_a3_terms_industry }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_type = 2 } } localization_key = sof_tp_a3_terms_transition }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_type = 3 } } localization_key = sof_tp_a3_terms_army }
+ text = { localization_key = sof_tp_a3_type_none }
+}
+defined_text = { name = GetSofTpA3ContractOwner
+ text = { trigger = { NOT = { sof_tp_has_valid_selection = yes } } localization_key = sof_tp_a3_owner_none }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 4 } } localization_key = sof_tp_a3_owner_closed }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 0 } } localization_key = sof_tp_a3_owner_none }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_is_ours = 1 } } localization_key = sof_tp_a3_owner_ours }
+ text = { localization_key = sof_tp_a3_owner_other }
+}
+defined_text = { name = GetSofTpA3NextAction
+ text = { trigger = { NOT = { sof_tp_has_valid_selection = yes } } localization_key = sof_tp_a3_next_select }
+ text = { trigger = { has_country_flag = sof_tp_diplomatic_pending } localization_key = sof_tp_a3_next_reply }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 4 } } localization_key = sof_tp_a3_next_cooldown }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status > 0 } NOT = { check_variable = { sof_tp_selected_contract_is_ours = 1 } } } localization_key = sof_tp_a3_next_other_partner }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 5 } } localization_key = sof_tp_a3_next_peace }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 3 } } localization_key = sof_tp_a3_next_approval }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 2 } } localization_key = sof_tp_a3_next_wait }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 1 } } localization_key = sof_tp_a3_next_fulfil }
+ text = { localization_key = sof_tp_a3_next_propose }
+}
+defined_text = { name = GetSofTpA3ProjectTransport
+ text = { trigger = { has_country_flag = sof_tp_project_active check_variable = { sof_tp_project_type = 1 } has_war = yes } localization_key = sof_tp_a3_project_paused }
+ text = { trigger = { has_country_flag = sof_tp_project_active check_variable = { sof_tp_project_type = 1 } } localization_key = sof_tp_a3_project_running }
+ text = { localization_key = sof_tp_a3_project_transport_idle }
+}
+defined_text = { name = GetSofTpA3ProjectIndustry
+ text = { trigger = { has_country_flag = sof_tp_project_active check_variable = { sof_tp_project_type = 2 } has_war = yes } localization_key = sof_tp_a3_project_paused }
+ text = { trigger = { has_country_flag = sof_tp_project_active check_variable = { sof_tp_project_type = 2 } } localization_key = sof_tp_a3_project_running }
+ text = { localization_key = sof_tp_a3_project_industry_idle }
+}
+defined_text = { name = GetSofTpA3ProjectDemobilisation
+ text = { trigger = { has_country_flag = sof_tp_project_active check_variable = { sof_tp_project_type = 3 } has_war = yes } localization_key = sof_tp_a3_project_paused }
+ text = { trigger = { has_country_flag = sof_tp_project_active check_variable = { sof_tp_project_type = 3 } } localization_key = sof_tp_a3_project_running }
+ text = { localization_key = sof_tp_a3_project_demobilisation_idle }
+}
+defined_text = { name = GetSofTpA3AidCost
+ text = { trigger = { check_variable = { sof_tp_selected_contract_type = 1 } } localization_key = sof_tp_a3_aid_cost_industry }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_type = 2 } } localization_key = sof_tp_a3_aid_cost_transition }
+ text = { trigger = { check_variable = { sof_tp_selected_contract_type = 3 } } localization_key = sof_tp_a3_aid_cost_army }
+ text = { localization_key = sof_tp_a3_type_none }
+}
+defined_text = { name = GetSofTpA3UnionCost
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 3 } check_variable = { sof_tp_selected_contract_is_ours = 1 } } localization_key = sof_tp_a3_cost_final }
+ text = { localization_key = sof_tp_a3_union_proposal_cost }
+}
+defined_text = { name = GetSofTpA3UnionLabel
+ text = { trigger = { check_variable = { sof_tp_selected_contract_status = 3 } check_variable = { sof_tp_selected_contract_is_ours = 1 } } localization_key = sof_tp_a3_final_approval }
+ text = { localization_key = sof_tp_a3_union_proposal_label }
+}

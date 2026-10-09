@@ -1,0 +1,18 @@
+﻿sof606_sync_policy_spirits = {
+ if = { limit = { original_tag = MET }
+  if = { limit = { has_country_flag = sof_ne_MET_municipal_paid NOT = { has_country_flag = sof_ne_MET_prefect_paid } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT } }
+   if = { limit = { NOT = { has_idea = sof606_met_municipal_finance } } add_ideas = sof606_met_municipal_finance }
+  } else = { remove_ideas = sof606_met_municipal_finance }
+  if = { limit = { has_country_flag = sof_ne_MET_prefect_paid NOT = { has_country_flag = sof_ne_MET_municipal_paid } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT } }
+   if = { limit = { NOT = { has_idea = sof606_met_prefect_budget } } add_ideas = sof606_met_prefect_budget }
+  } else = { remove_ideas = sof606_met_prefect_budget }
+ }
+ if = { limit = { original_tag = REN }
+  if = { limit = { has_country_flag = sof_brt_grant_f23 NOT = { has_country_flag = sof606_brt_patrol_training_paid } }
+   navy_experience = 10 set_country_flag = sof606_brt_patrol_training_paid
+  }
+  if = { limit = { has_country_flag = sof_brt_grant_f23 is_subject = no has_capitulated = no OR = { has_idea = sof_brt_isolation_2 has_idea = sof_brt_isolation_3 } any_owned_state = { is_coastal = yes is_fully_controlled_by = ROOT } }
+   if = { limit = { NOT = { has_idea = sof606_brt_neutral_patrols } } add_ideas = sof606_brt_neutral_patrols }
+  } else = { remove_ideas = sof606_brt_neutral_patrols }
+ }
+}

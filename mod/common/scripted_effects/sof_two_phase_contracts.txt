@@ -1,0 +1,82 @@
+﻿sof_tp_choose_industry_terms_effect = { if = { limit = { sof_tp_can_choose_industry_terms = yes } set_variable = { sof_tp_offer_terms = 1 } } }
+sof_tp_choose_transition_terms_effect = { if = { limit = { sof_tp_can_choose_transition_terms = yes } set_variable = { sof_tp_offer_terms = 2 } } }
+sof_tp_choose_army_terms_effect = { if = { limit = { sof_tp_can_choose_army_terms = yes } set_variable = { sof_tp_offer_terms = 3 } } }
+# Called in recipient scope; DONOR is concrete FROM/ROOT tag captured by the event chain.
+# sof_tp_begin_contract is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+sof_tp_clear_contract = {
+ if = { limit = { has_variable = sof_tp_contract_partner } var:sof_tp_contract_partner = { PREV = { clr_country_flag = sof_tp_aid_due@PREV clr_country_flag = sof_tp_final_from@PREV } if = { limit = { has_country_flag = sof_tp_final_to@PREV } clr_country_flag = sof_tp_final_to@PREV clr_country_flag = sof_tp_diplomatic_pending } } }
+ clr_country_flag = sof_tp_contract_active clr_country_flag = sof_tp_contract_started clr_country_flag = sof_tp_contract_ready clr_country_flag = sof_tp_final_pending
+ clear_variable = sof_tp_contract_partner set_variable = { sof_tp_contract_progress = 0 } set_variable = { sof_tp_contract_days_left = 0 } clear_variable = sof_tp_contract_work_left clear_variable = sof_tp_contract_duration
+ set_country_flag = { flag = sof_tp_contract_cooldown days = 60 }
+}
+sof_tp_end_contract_effect = { if = { limit = { sof_tp_can_end_contract = yes }
+ if = { limit = { has_variable = sof_tp_contract_partner } var:sof_tp_contract_partner = { if = { limit = { exists = yes } add_to_variable = { sof_tp_trust = -5 } country_event = { id = sof_tp_contract.5 days = 1 } } } }
+ add_to_variable = { sof_tp_trust = -5 } set_country_flag = sof_tp_contract_defaulted sof_tp_clear_contract = yes
+} }
+# sof_tp_execute_contract_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+# This effect is recipient-local and runs at most once for the accepted agreement.
+sof_tp_finish_contract = { if = { limit = { has_country_flag = sof_tp_contract_active has_country_flag = sof_tp_contract_started NOT = { has_country_flag = sof_tp_contract_ready } }
+ set_country_flag = sof_tp_contract_ready set_variable = { sof_tp_contract_progress = 100 } set_variable = { sof_tp_last_contract_type = sof_tp_contract_type }
+ if = { limit = { check_variable = { sof_tp_contract_type = 1 } }
+  if = { limit = { NOT = { has_country_flag = sof_tp_industrial_contract_paid } }
+   set_country_flag = sof_tp_industrial_contract_paid
+   if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = PREV free_building_slots = { building = industrial_complex size > 0 } } }
+    random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = PREV free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }
+   } else = { add_tech_bonus = { name = sof_tp_industrial_aid_bonus bonus = 0.25 uses = 1 category = industry } }
+  }
+  add_to_variable = { sof_tp_trust = 10 }
+  var:sof_tp_contract_partner = { set_country_flag = sof_tp_aid_delivered add_to_variable = { sof_tp_trust = 10 } add_to_variable = { sof_tp_legitimacy = 5 } if = { limit = { has_country_flag = sof_tp_lille_board } add_to_variable = { sof_tp_trust = 5 } } if = { limit = { has_country_flag = sof_tp_bordeaux_credit } add_to_variable = { sof_tp_reconstruction = 10 } } PREV = { clr_country_flag = sof_tp_aid_due@PREV set_country_flag = sof_tp_aid_received@PREV } }
+ }
+ else_if = { limit = { check_variable = { sof_tp_contract_type = 2 } }
+  add_to_variable = { sof_tp_trust = 8 } set_country_flag = sof_tp_transition_completed
+  var:sof_tp_contract_partner = { add_to_variable = { sof_tp_trust = 8 } set_country_flag = sof_tp_transition_delivered }
+ }
+ else_if = { limit = { check_variable = { sof_tp_contract_type = 3 } }
+  army_experience = 10 add_timed_idea = { idea = sof_tp_joint_staff days = 180 } set_country_flag = sof_tp_army_coordination_completed
+  var:sof_tp_contract_partner = { set_country_flag = sof_tp_army_coordination_delivered add_to_variable = { sof_tp_legitimacy = 5 } }
+ }
+ country_event = { id = sof_tp_contract.4 days = 1 }
+ var:sof_tp_contract_partner = { set_variable = { sof_tp_last_contract_type = PREV.sof_tp_contract_type } country_event = { id = sof_tp_contract.4 days = 1 } }
+} }
+sof_tp_contract_daily = {
+ if = { limit = { has_country_flag = sof_tp_contract_active }
+  if = { limit = { OR = { NOT = { sof_tp_country = yes } NOT = { has_variable = sof_tp_contract_partner } var:sof_tp_contract_partner = { NOT = { sof_tp_country = yes } } } } sof_tp_clear_contract = yes }
+  else_if = { limit = { is_in_faction = yes NOT = { is_in_faction_with = var:sof_tp_contract_partner } } country_event = { id = sof_tp_contract.5 days = 1 } sof_tp_end_contract_effect = yes }
+  else_if = { limit = { has_war = no var:sof_tp_contract_partner = { has_war = no } }
+   subtract_from_variable = { sof_tp_contract_days_left = 1 }
+   if = { limit = { has_country_flag = sof_tp_contract_started NOT = { has_country_flag = sof_tp_contract_ready } }
+    subtract_from_variable = { sof_tp_contract_work_left = 1 }
+    set_variable = { sof_tp_contract_progress = sof_tp_contract_duration } subtract_from_variable = { sof_tp_contract_progress = sof_tp_contract_work_left } multiply_variable = { sof_tp_contract_progress = 100 } divide_variable = { sof_tp_contract_progress = sof_tp_contract_duration }
+    if = { limit = { check_variable = { sof_tp_contract_work_left < 1 } } sof_tp_finish_contract = yes }
+   }
+   if = { limit = { check_variable = { sof_tp_contract_days_left < 1 } }
+    if = { limit = { NOT = { has_country_flag = sof_tp_contract_ready } } add_to_variable = { sof_tp_trust = -10 } var:sof_tp_contract_partner = { add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 } } }
+    set_country_flag = sof_tp_contract_defaulted country_event = { id = sof_tp_contract.5 days = 1 } var:sof_tp_contract_partner = { country_event = { id = sof_tp_contract.5 days = 1 } } sof_tp_clear_contract = yes
+   }
+  }
+ }
+}
+sof_tp_refresh_contract_ui = {
+ set_variable = { sof_tp_selected_contract_is_ours = 0 } set_variable = { sof_tp_selected_contract_type = 0 } set_variable = { sof_tp_selected_contract_progress = 0 } set_variable = { sof_tp_selected_contract_days_left = 0 } set_variable = { sof_tp_selected_contract_work_left = 0 } set_variable = { sof_tp_selected_contract_status = 0 } clear_array = sof_tp_selected_contract_partner_list clear_variable = sof_tp_selected_contract_partner
+ if = { limit = { sof_tp_has_valid_selection = yes }
+  var:sof_tp_selected_country = {
+   ROOT = { set_variable = { sof_tp_selected_contract_type = PREV.sof_tp_contract_type } set_variable = { sof_tp_selected_contract_progress = PREV.sof_tp_contract_progress } set_variable = { sof_tp_selected_contract_days_left = PREV.sof_tp_contract_days_left } set_variable = { sof_tp_selected_contract_work_left = PREV.sof_tp_contract_work_left } }
+   if = { limit = { has_country_flag = sof_tp_contract_defaulted } ROOT = { set_variable = { sof_tp_selected_contract_status = 4 } } }
+   if = { limit = { has_country_flag = sof_tp_contract_active }
+    ROOT = { set_variable = { sof_tp_selected_contract_status = 1 } }
+    if = { limit = { has_country_flag = sof_tp_contract_started } ROOT = { set_variable = { sof_tp_selected_contract_status = 2 } } }
+    if = { limit = { has_country_flag = sof_tp_contract_ready } ROOT = { set_variable = { sof_tp_selected_contract_status = 3 } } }
+    if = { limit = { OR = { has_war = yes var:sof_tp_contract_partner = { has_war = yes } } } ROOT = { set_variable = { sof_tp_selected_contract_status = 5 } } }
+    if = { limit = { var:sof_tp_contract_partner = { tag = ROOT } } ROOT = { set_variable = { sof_tp_selected_contract_is_ours = 1 } } }
+    var:sof_tp_contract_partner = { ROOT = { set_variable = { sof_tp_selected_contract_partner = PREV } add_to_array = { array = sof_tp_selected_contract_partner_list value = PREV } } }
+   }
+  }
+ }
+}
+
+sof_tp_end_selected_contract_effect = { sof_tp_refresh_selection = yes if = { limit = { sof_tp_can_end_selected_contract = yes }
+ if = { limit = { var:sof_tp_selected_country = { tag = ROOT } } sof_tp_end_contract_effect = yes }
+ else = { sof606_tp_cancel_outgoing_target_effect_99bb89d317 = yes }
+} }
+
+# sof_tp_cancel_outgoing_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.

@@ -1,4 +1,4 @@
-sof_mrs_red_politics = {
+﻿sof_mrs_red_politics = {
 sof_mrs_red_central_meeting = { 
 icon = sof_cw_accord cost = 35 days_remove = 45 days_re_enable = 90
 visible = { has_country_flag = sof_mrs_red_congress has_completed_focus = SOF_MRS_RED_P1 NOT = { has_country_flag = sof_mrs_red_emergency_ended } }
@@ -26,10 +26,10 @@ ai_will_do = { factor = 2 modifier = { factor = 8 NOT = { check_variable = { sof
 sof_mrs_red_communist_campaign = { 
 icon = sof_cw_civil cost = 25 days_remove = 35 days_re_enable = 60
 visible = { has_country_flag = sof_mrs_red_chosen NOT = { has_country_flag = sof_mrs_red_government } }
-available = { sof_mrs_red_candidate = yes sof_kr_support_communism_lt = { VALUE = 0.6 } }
+available = { sof_mrs_red_candidate = yes sof606_kr_support_communism_lt_a2668098d5 = yes }
 remove_effect = { if = { limit = { sof_mrs_red_candidate = yes } add_popularity = { ideology = radical_socialist popularity = 0.05 } } }
 cancel_trigger = { sof_mrs_red_candidate = no }
-ai_will_do = { factor = 10 modifier = { factor = 0 sof_kr_support_communism_gt = { VALUE = 0.499 } } } }
+ai_will_do = { factor = 10 modifier = { factor = 0 sof606_kr_support_communism_gt_2b05658ec2 = yes } } }
 sof_mrs_red_engineering_slot = { 
 icon = sof_cw_specialty cost = 75 fire_only_once = yes
 visible = { has_completed_focus = SOF_MRS_RED_E7 NOT = { has_country_flag = sof_mrs_red_research_paid } }
