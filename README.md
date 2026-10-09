@@ -1,83 +1,17 @@
-# 当前候选：6.0.6
-
-仓库 `mod/` 直接保存本地已安装 **6.0.6** 的完整游戏运行源码与资源。后续通过源码提交和 Pull Request 更新，不再以 ZIP 增量包交接。
-
-**游戏验收：实测尚未完成，未通过验收。** 现有静态检查与文件渲染不能替代游戏引擎测试。未包含未安装的 6.0.7 草稿。
-
-以下旧版本说明与参考记录保留供追溯。
-
-政治面板恢复原版饼图与四行党派，缩短内阁任命提示，修复历史人物与国策奖励融合；详见 [4.6.0说明](docs/FOCUS-INTEGRATION-4.6-ZH.md)。
-
-四项脚本检查问题已修复，详情见 [修复说明](docs/SCRIPT-REPAIRS-4.5.1-ZH.md)。27文件窄补丁只修改已审核的脚本，保留4.5.0资源工业配置和其他已安装内容。
-
-法国资源集中与80%初始工业见 [说明](docs/ECONOMY-4.5-ZH.md)、[互动地图](docs/previews/4.5.0/ECONOMY.html) 和 [逐州配置](docs/ECONOMY-4.5.csv)。355文件窄补丁保留现有美工、人物、国策与八层制造商；工厂配置用于新开局，旧档资源可单独迁移。
-
-本次通用国策优化见 [完整说明](docs/GENERIC-4.4-ZH.md) 与 [国策预览](docs/previews/4.4.0/GENERIC.html)。继承已安装4.3.3运行文件，14文件补丁保留人物、历史、制造商与另行进行的美工工作。
-
 # 法兰西之影：统一战争
 
-《钢铁雄心 IV》独立中文模组的协作源码。当前候选版本 **6.0.6**，适配游戏 **1.19.***。巴黎移植原版法国185项国策，科西嘉从原版意大利移植并删去无法迁移的分支后保留288项。4.3.0解除28对可以兼修的互斥，调整28个民族精神字段、科研与工业奖励，并为20个大区代表国家增加各有装备专长和代价的制造商。4.3.2将每家制造商扩展到8层、两条可兼修成长线和16项特质，主打性能满成长约38–40%，专项科研15%至20%。两棵树沿用原版坐标、前置与耗时，473幅独占插画继续使用4.2.0版本。40位历史内阁、12项实际领袖任命、其他国家153项通用国策、永久小幅地形经验及通用内战决议GUI继续保留。
+当前源码版本：**6.0.6**。适配《钢铁雄心 IV》**1.19.***。
 
-[查看两国布局预览](docs/previews/4.3.0/INDEX.html) · [20家制造商与成长](docs/previews/4.3.2/MANUFACTURERS.html) · [平衡数值与迁移](docs/BALANCE-4.3-ZH.md) · [473项独占图标](docs/previews/4.3.0/ICONS.html) · [历史内阁画像与数值](docs/previews/4.1.0/HISTORICAL.html)
+`mod/` 是完整游戏运行目录，直接使用这份源码，无需叠加历史补丁。后续更新通过源文件提交和 PR 审查；仓库不再保存发布 ZIP，也不设置自动校验门槛。
 
-![内战界面设计预览](docs/previews/GUI-READY-CONTEXT.png)
+## 安装
 
-## 开始开发
+保存并关闭游戏，下载或克隆本仓库后，在 PowerShell 中运行 `./install.ps1`。安装器直接复制 `mod/`，并备份现有目标目录；不要求校验清单，不计算文件哈希。
 
-需要Git与Python 3.12以上。检查与打包不需要游戏安装；实机验收需要本地HOI4。
+更新已有工坊目录时，使用 `./install.ps1 -TargetPath '你的工坊模组目录'`。原有工坊 ID 会保留。游戏存档不在安装范围内。
 
-```powershell
-git clone https://github.com/worldhello-bj/shadows-of-france-unification.git
-cd shadows-of-france-unification
-python -m pip install -r requirements.txt
-python tools/validate.py --output dist/validation.json
-python tools/package.py
-```
+## 开发
 
-`dist/shadows-of-france-4.3.2.zip` 是独立候选安装包。解压后运行其中的 `install.ps1`；安装器会先备份原有独立版文件，再核验安装哈希，并保留已有创意工坊ID和封面。更新安装前应保存并关闭游戏。启用“法兰西之影：统一战争（独立中文版）”即可。
+修改 `mod/` 中对应的国策、民族精神、决议、GUI、美术和本地化文件，推送分支并创建 PR。国策树渲染检查与游戏内实际效果检查由开发者执行，结果写入 PR；不以自动检查代替实机表现。
 
-已有4.3.0或4.3.1地区制造商时，使用 `python tools/package_manufacturers_patch.py` 生成的 `dist/shadows-of-france-manufacturers-4.3.2.zip`。解压后运行 `install-manufacturers.ps1`；补丁只覆盖制造商组织、传统设计商和中文本地化三份文件，并更新两个描述文件版本号。覆盖前核验并备份，保留人物、历史、国策与美术等其他修改。
-
-图标来源为118幅本轮生成稿、47幅已有独立生成稿及308幅逐项筛选的原版插画，共473幅；两国之间没有共用插画。完整来源、提示词、内容哈希和原尺寸视觉复核记录在 `design/unique-focus-art*.json`。
-
-## 编辑入口
-
-| 路径 | 用途 |
-|---|---|
-| `mod/` | 游戏实际加载的完整源码与纹理，是协作修改的主入口 |
-| `mod/common/national_focus/sofzh_paris.txt`、`sofzh_corsica.txt` | 两棵原版大国国策移植 |
-| `mod/common/national_focus/SoF_generic.txt` | 其他国家使用的原有通用树，文件内容未修改 |
-| `mod/common/national_focus/sof20_*.txt`、`*_legacy.txt` | 停用的历史树，仅保留脚本引用与旧档迁移兼容 |
-| `mod/common/decisions/` | 内战、占领治理和各国地方协作决议 |
-| `mod/interface/sof_civilwar.gui` | 通用内战面板的原生布局 |
-| `mod/common/scripted_guis/sof_civilwar_gui.txt` | 数据绑定、动态旗帜列表及刷新操作 |
-| `mod/gfx/interface/sof_civilwar/` | 背景、衬板、32像素决议图标及52×40分类徽章 |
-| `art/civilwar/` | 12张美术原稿、PNG尺寸导出及完整生成提示词 |
-| `art/focus/unique/` | 473项国策的独占原稿与96像素导出 |
-| `art/focus/source/` | 历史48幅原稿；仍供民族精神与决议导出使用 |
-| `design/focus-art-spec.json`、`focus-art-bindings.json` | 完整生成提示词、原稿哈希和逐项图标绑定 |
-| `design/unique-focus-art.json`、`native-focus-art-selection.json` | 独占图标来源、生成提示词、原版取材及视觉筛选记录 |
-| `design/vanilla-major-remake.json` | 两国原版节点对照、奖励适配、原文与来源哈希 |
-| `design/balance-4.3.json` | 逐对互斥调整、精神与变量数值、科研门槛及4.2基线哈希 |
-| `design/regional-manufacturers.json` | 20家企业的厂址、装备专长、四级成长、代价及原版图标来源 |
-| `design/country-design.json` | 3.x历史设计数据；已不决定4.0的国策选择 |
-| `references/vanilla/` | 本机1.19.3原版底稿，供对照与重建 |
-| `tools/` | 可移植的检查、纹理导出与打包脚本 |
-| `docs/` | GUI规范、协作约定、历史检查报告和预览 |
-
-## 当前版本行为
-
-- 六类地形经验为永久修正，同类只授予一次，统一后保留。数值见[GUI设计说明](docs/CIVILWAR-DESIGN-ZH.md)。
-- 内战面板适用于法国首都、独立且未投降的国家；显示当前阶段、稳定度、完整控制的法国地区数、邻接势力及经验状态。
-- 11种透明图标覆盖132条决议和21个分类。正文使用原版中文字体，内容区510×500像素。
-- 边境战役仍需25政治点数、45天冷却及扩张授权。美术更新不改变现有决议费用、条件、奖励或AI。
-- 新增第3、4、5个科研槽分别要求6、10、20家工厂，已有科研槽保留；科西嘉的九类国策专用累积变量设有上下限，旧档只调整一次奖励差额。
-- 地区制造商在完成工业国策并完全控制本地厂址后解锁。启用AAT时使用军工组织及八层双线成长，缺少AAT时使用传统设计商的起始工艺。
-
-## 协作与验证
-
-从 `main` 建立功能分支，提交后开Pull Request。按[CONTRIBUTING.md](CONTRIBUTING.md)记录修改、检查结果与实机范围。GitHub Actions在推送和PR时执行源码／美术检查并打包候选产物；流程依据[GitHub官方Python工作流文档](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)。
-
-4.3.0检查继续核验473项图标的独占性，并逐项对照原版布局、前置与耗时。玩法变更按明确白名单检查，覆盖旧档差额迁移及重复运行、科研门槛、制造商DLC双路径和厂址丢失情景。原有54组迁移模拟、历史内阁与领袖生命周期检查继续执行；报告在 `docs/reports/4.3.0/`。**游戏内加载、GUI显示、真实旧档迁移及长期平衡仍待验证。** 预览来自实际源码，不是游戏截图。
-
-4.3.2的原版参照、强化幅度与旧特质兼容说明见[八层成长说明](docs/MANUFACTURERS-4.3.2-ZH.md)，本轮检查与安装报告见 `docs/reports/4.3.2/`。
+当前 6.0.6 已完成源文件同步，游戏内效果验收尚未完成，奖励与界面修复继续推进。历史设计资料保留在 `docs/` 和 `design/`。

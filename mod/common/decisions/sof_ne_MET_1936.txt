@@ -1,4 +1,20 @@
-sof_ne_MET_local_investments = {
-sof_ne_MET_housing_decision = { icon = generic_industry cost = 35 visible = { original_tag = MET has_completed_focus = sof_ne_MET_housing NOT = { has_country_flag = sof_ne_MET_housing_decision_paid } } available = { original_tag = MET 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4913 NOT = { has_country_flag = sof_ne_MET_housing_decision_paid } } complete_effect = { if = { limit = { original_tag = MET 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4913 NOT = { has_country_flag = sof_ne_MET_housing_decision_paid } } 112 = { add_dynamic_modifier = { modifier = sof_ne_MET_housing_local } } set_country_flag = sof_ne_MET_housing_decision_paid } } ai_will_do = { factor = 1 } }
-sof_ne_MET_forges_decision = { icon = generic_industry cost = 40 visible = { original_tag = MET has_completed_focus = sof_ne_MET_fire NOT = { has_country_flag = sof_ne_MET_forges_decision_paid } } available = { original_tag = MET 94 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10318 NOT = { has_country_flag = sof_ne_MET_forges_decision_paid } } complete_effect = { if = { limit = { original_tag = MET 94 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10318 NOT = { has_country_flag = sof_ne_MET_forges_decision_paid } } 94 = { add_dynamic_modifier = { modifier = sof_ne_MET_forges_local } } set_country_flag = sof_ne_MET_forges_decision_paid } } ai_will_do = { factor = 1 } }
+﻿sof_ne_MET_local_investments = {
+sof_ne_MET_housing_decision = { icon = generic_industry cost = 45 days_remove = 30 fire_only_once = no
+ visible = { original_tag = MET has_completed_focus = sof_ne_MET_housing NOT = { has_country_flag = sof_ne_MET_housing_decision_paid } }
+ available = { original_tag = MET 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4913 NOT = { has_country_flag = sof_ne_MET_housing_decision_paid }  NOT = { has_country_flag = sof_ne_MET_housing_decision_running } }
+ complete_effect = { set_country_flag = sof_ne_MET_housing_decision_running }
+ remove_effect = { clr_country_flag = sof_ne_MET_housing_decision_running if = { limit = { original_tag = MET 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4913 NOT = { has_country_flag = sof_ne_MET_housing_decision_paid } } 112 = { add_extra_state_shared_building_slots = 2 } add_stability = 0.04  if = { limit = { original_tag = MET 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4913 NOT = { has_country_flag = sof_ne_MET_housing_decision_paid } } 112 = { add_dynamic_modifier = { modifier = sof_ne_MET_housing_local } } set_country_flag = sof_ne_MET_housing_decision_paid }  } }
+ cancel_trigger = { NOT = { controls_province = 4913 original_tag = MET 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } }
+ cancel_effect = { clr_country_flag = sof_ne_MET_housing_decision_running add_political_power = 22.5 }
+ ai_will_do = { factor = 4 modifier = { factor = 0.25 political_power < 125 } modifier = { factor = 1.5 has_war = no } }
+}
+sof_ne_MET_forges_decision = { icon = generic_industry cost = 75 days_remove = 60 fire_only_once = no
+ visible = { original_tag = MET has_completed_focus = sof_ne_MET_fire NOT = { has_country_flag = sof_ne_MET_forges_decision_paid } }
+ available = { original_tag = MET 94 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10318 NOT = { has_country_flag = sof_ne_MET_forges_decision_paid }  NOT = { has_country_flag = sof_ne_MET_forges_decision_running } }
+ complete_effect = { set_country_flag = sof_ne_MET_forges_decision_running }
+ remove_effect = { clr_country_flag = sof_ne_MET_forges_decision_running if = { limit = { original_tag = MET 94 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10318 NOT = { has_country_flag = sof_ne_MET_forges_decision_paid } } 94 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }  if = { limit = { original_tag = MET 94 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10318 NOT = { has_country_flag = sof_ne_MET_forges_decision_paid } } 94 = { add_dynamic_modifier = { modifier = sof_ne_MET_forges_local } } set_country_flag = sof_ne_MET_forges_decision_paid }  } }
+ cancel_trigger = { NOT = { controls_province = 10318 original_tag = MET 94 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } }
+ cancel_effect = { clr_country_flag = sof_ne_MET_forges_decision_running add_political_power = 37.5 }
+ ai_will_do = { factor = 4 modifier = { factor = 0.25 political_power < 125 } modifier = { factor = 1.5 has_war = no } }
+}
 }

@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_brittany country = { factor = 0 modifier = { add = 100 original_tag = REN } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_brittany country = { factor = 0 modifier = { add = 100 original_tag = REN } } default = no reset_on_civilwar = no
 initial_show_position = { focus = SOF_BRT_P0 } continuous_focus_position = { x = 50 y = 2200 }
 shortcut = { name = sof_brt_shortcut_P0 target = SOF_BRT_P0 scroll_wheel_factor = .65 }
 shortcut = { name = sof_brt_shortcut_E0 target = SOF_BRT_E0 scroll_wheel_factor = .65 }
@@ -14,75 +14,106 @@ focus = { id = SOF_BRT_P0 icon = GFX_sof_project_sof_brt_p0 x = 22 y = 0 cost = 
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p0 } } set_country_flag = sofzh_unification_started add_political_power = 35 set_country_flag = sof_brt_grant_p0 }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ } }
 focus = { id = SOF_BRT_P1 icon = GFX_sof_project_sof_brt_p1 x = 6 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p1 } } add_political_power = 25 set_country_flag = sof_brt_grant_p1 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P2 icon = GFX_sof_project_sof_brt_p2 x = 6 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p2 } } if = { limit = { NOT = { has_character = REN_francois_chateau } } recruit_character = REN_francois_chateau }
 add_country_leader_role = { character = REN_francois_chateau promote_leader = yes country_leader = { ideology = liberalism expire = "1965.1.1.1" } } set_politics = { ruling_party = social_liberal elections_allowed = yes } set_country_flag = sof_brt_grant_p2 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P3 icon = GFX_sof_project_sof_brt_p3 x = 2 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p3 } } add_political_power = 15 set_country_flag = sof_brt_grant_p3 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P4 icon = GFX_sof_project_sof_brt_p4 x = 4 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p4 } } add_political_power = 15 set_country_flag = sof_brt_grant_p4 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P5 icon = GFX_sof_project_sof_brt_p5 x = 8 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p5 } } add_political_power = 15 set_country_flag = sof_brt_grant_p5 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P6 icon = GFX_sof_project_sof_brt_p6 x = 12 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p6 } } add_political_power = 15 set_country_flag = sof_brt_grant_p6 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P7 icon = GFX_sof_project_sof_brt_p7 x = 0 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p7 } } add_political_power = 15 set_country_flag = sof_brt_grant_p7 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P8 icon = GFX_sof_project_sof_brt_p8 x = 10 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p8 } } add_political_power = 15 set_country_flag = sof_brt_grant_p8 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P9 icon = GFX_sof_project_sof_brt_p9 x = 0 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P7 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p9 } } add_stability = .02 set_country_flag = sof_brt_grant_p9 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P10 icon = GFX_sof_project_sof_brt_p10 x = 4 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p10 } } add_political_power = 35 set_country_flag = sof_brt_grant_p10 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P11 icon = GFX_sof_project_sof_brt_p11 x = 2 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P3 }
 prerequisite = { focus = SOF_BRT_P7 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p11 } } add_stability = .02 set_country_flag = sof_brt_grant_p11 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P12 icon = GFX_sof_project_sof_brt_p12 x = 6 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P2 }
@@ -90,7 +121,9 @@ mutually_exclusive = { focus = SOF_BRT_P13 focus = SOF_BRT_P14 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes has_country_flag = sof_brt_pledge_chateau has_country_flag = sof_brt_pledge_lemaistre } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p12 } } add_ideas = sof_brt_coalition_republic if = { limit = { NOT = { has_character = REN_francois_chateau } } recruit_character = REN_francois_chateau }
 promote_character = { character = REN_francois_chateau ideology = liberalism } set_country_flag = sof_brt_grant_p12 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P13 icon = GFX_sof_project_sof_brt_p13 x = 8 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P2 }
@@ -99,7 +132,11 @@ available = { is_subject = no has_capitulated = no sof_brt_majority = yes has_co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p13 } } add_ideas = sof_brt_coalition_social if = { limit = { NOT = { has_character = REN_carle_bahon } } recruit_character = REN_carle_bahon }
 promote_character = REN_carle_bahon
 set_politics = { ruling_party = social_democrat } set_country_flag = sof_brt_grant_p13 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P14 icon = GFX_sof_project_sof_brt_p14 x = 10 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P2 }
@@ -108,70 +145,96 @@ available = { is_subject = no has_capitulated = no sof_brt_majority = yes has_co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p14 } } add_ideas = sof_brt_coalition_autonomy if = { limit = { NOT = { has_character = REN_jean_lemaistre } } recruit_character = REN_jean_lemaistre }
 add_country_leader_role = { character = REN_jean_lemaistre promote_leader = yes country_leader = { ideology = conservatism expire = "1965.1.1.1" } }
 set_politics = { ruling_party = social_conservative } set_country_flag = sof_brt_grant_p14 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P15 icon = GFX_sof_project_sof_brt_p15 x = 6 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P10 }
 prerequisite = { focus = SOF_BRT_P11 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_budget } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p15 } } add_political_power = 25 set_country_flag = sof_brt_grant_p15 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P16 icon = GFX_sof_project_sof_brt_p16 x = 12 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P5 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_social } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p16 } } add_stability = .025 set_country_flag = sof_brt_grant_p16 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P17 icon = GFX_sof_project_sof_brt_p17 x = 14 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P8 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_rural } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p17 } } add_stability = .025 set_country_flag = sof_brt_grant_p17 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P18 icon = GFX_sof_project_sof_brt_p18 x = 16 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P6 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_ports } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p18 } } navy_experience = 10 set_country_flag = sof_brt_grant_p18 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P19 icon = GFX_sof_project_sof_brt_p19 x = 12 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P16 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p19 } } add_stability = .02 set_country_flag = sof_brt_grant_p19 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P20 icon = GFX_sof_project_sof_brt_p20 x = 8 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P12 focus = SOF_BRT_P13 focus = SOF_BRT_P14 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p20 } } add_political_power = 40 set_country_flag = sof_brt_grant_p20 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P21 icon = GFX_sof_project_sof_brt_p21 x = 2 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P20 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p21 } } add_ideas = sof_brt_oversight set_country_flag = sof_brt_grant_p21 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P22 icon = GFX_sof_project_sof_brt_p22 x = 0 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P10 }
 prerequisite = { focus = SOF_BRT_P15 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p22 } } add_tech_bonus = { name = industry bonus = 0.3 uses = 1 category = industry } set_country_flag = sof_brt_grant_p22 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P23 icon = GFX_sof_project_sof_brt_p23 x = 2 y = 4 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P9 }
 prerequisite = { focus = SOF_BRT_P11 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p23 } } add_ideas = sof_brt_civil_rights set_country_flag = sof_brt_grant_p23 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P24 icon = GFX_sof_project_sof_brt_p24 x = 4 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P20 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p24 } } add_political_power = 30 set_country_flag = sof_brt_grant_p24 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_P25 icon = GFX_sof_project_sof_brt_p25 x = 2 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P21 }
@@ -179,212 +242,300 @@ prerequisite = { focus = SOF_BRT_P24 }
 prerequisite = { focus = SOF_BRT_P23 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p25 } } add_stability = .04 set_country_flag = sof_brt_grant_p25 } }
-ai_will_do = { factor = 12 } }
+ai_will_do = { factor = 12
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_E0 icon = GFX_sof_project_sof_brt_e0 x = 16 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e0 } } add_political_power = 20 set_country_flag = sof_brt_grant_e0 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E1 icon = GFX_sof_project_sof_brt_e1 x = 14 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E0 }
 mutually_exclusive = { focus = SOF_BRT_E2 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e1 } } add_ideas = sof_brt_new_deal set_country_flag = sof_brt_grant_e1 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E2 icon = GFX_sof_project_sof_brt_e2 x = 16 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E0 }
 mutually_exclusive = { focus = SOF_BRT_E1 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e2 } } add_ideas = sof_brt_balanced_budget set_country_flag = sof_brt_grant_e2 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_E3 icon = GFX_sof_project_sof_brt_e3 x = 14 y = 4 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E1 focus = SOF_BRT_E2 }
 prerequisite = { focus = SOF_BRT_P17 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e3 } } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_political_power = 25 } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_e3 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E4 icon = GFX_sof_project_sof_brt_e4 x = 18 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E1 focus = SOF_BRT_E2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e4 } } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_political_power = 25 } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_e4 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E5 icon = GFX_sof_project_sof_brt_e5 x = 10 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E1 focus = SOF_BRT_E2 }
 prerequisite = { focus = SOF_BRT_P15 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e5 } } sof_brt_local_roads = yes set_country_flag = sof_brt_grant_e5 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E6 icon = GFX_sof_project_sof_brt_e6 x = 6 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E3 }
 prerequisite = { focus = SOF_BRT_P15 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e6 } } add_tech_bonus = { name = industry bonus = 1 uses = 1 category = industry } set_country_flag = sof_brt_grant_e6 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E7 icon = GFX_sof_project_sof_brt_e7 x = 8 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E4 }
 prerequisite = { focus = SOF_BRT_P15 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e7 } } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_political_power = 25 } add_ideas = sof_brt_civic_bureau if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_e7 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_E8 icon = GFX_sof_project_sof_brt_e8 x = 12 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e8 } } add_tech_bonus = { name = industry bonus = 1 uses = 1 category = industry } set_country_flag = sof_brt_grant_e8 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E9 icon = GFX_sof_project_sof_brt_e9 x = 4 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E6 }
 prerequisite = { focus = SOF_BRT_P9 }
 available = { is_subject = no has_capitulated = no amount_research_slots < 3 num_of_factories > 5  188 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11949 amount_research_slots > 1 } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { 188 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11949 amount_research_slots > 1  NOT = { has_country_flag = sof_brt_grant_e9 } } if = { limit = { amount_research_slots < 3 num_of_factories > 5 } add_research_slot = 1 } set_country_flag = sof_brt_grant_e9 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ } }
 focus = { id = SOF_BRT_E10 icon = GFX_sof_project_sof_brt_e10 x = 4 y = 7 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E9 }
 prerequisite = { focus = SOF_BRT_P22 }
 available = { is_subject = no has_capitulated = no amount_research_slots < 4 num_of_factories > 11  188 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11949 amount_research_slots > 2 } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { 188 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 11949 amount_research_slots > 2  NOT = { has_country_flag = sof_brt_grant_e10 } } if = { limit = { amount_research_slots < 4 num_of_factories > 11 } add_research_slot = 1 } add_ideas = sof_brt_science_bureau add_tech_bonus = { name = SOF_BRT_E10 bonus = 1 uses = 1 category = electronics } set_country_flag = sof_brt_grant_e10 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ } }
 focus = { id = SOF_BRT_E11 icon = GFX_sof_project_sof_brt_e11 x = 10 y = 7 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E8 }
 prerequisite = { focus = SOF_BRT_I6 focus = SOF_BRT_I7 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e11 } } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_political_power = 25 } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_e11 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E12 icon = GFX_sof_project_sof_brt_e12 x = 7 y = 8 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E11 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e12 } } add_ideas = sof_brt_production set_country_flag = sof_brt_grant_e12 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_E13 icon = GFX_sof_project_sof_brt_e13 x = 9 y = 9 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E12 }
 prerequisite = { focus = SOF_BRT_I9 }
 available = { is_subject = no has_capitulated = no has_war = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_e13 } } add_ideas = sof_brt_wartime set_country_flag = sof_brt_grant_e13 } }
-ai_will_do = { factor = 6 } }
+ai_will_do = { factor = 6
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_I0 icon = GFX_sof_project_sof_brt_i0 x = 20 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i0 } } add_political_power = 20 set_country_flag = sof_brt_grant_i0 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I1 icon = GFX_sof_project_sof_brt_i1 x = 18 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I0 }
 mutually_exclusive = { focus = SOF_BRT_I2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i1 } } add_stability = .025 set_country_flag = sof_brt_grant_i1 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I2 icon = GFX_sof_project_sof_brt_i2 x = 20 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I0 }
 mutually_exclusive = { focus = SOF_BRT_I1 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i2 } } sof_brt_set_stage_2 = yes add_war_support = .03 set_country_flag = sof_brt_grant_i2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I3 icon = GFX_sof_project_sof_brt_i3 x = 20 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i3 } } add_stability = .02 set_country_flag = sof_brt_grant_i3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I4 icon = GFX_sof_project_sof_brt_i4 x = 22 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i4 } } add_war_support = .04 set_country_flag = sof_brt_grant_i4 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I5 icon = GFX_sof_project_sof_brt_i5 x = 16 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I2 }
 prerequisite = { focus = SOF_BRT_P20 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes has_country_flag = sof_brt_law_aid } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i5 } } set_country_flag = sof_brt_aid_law add_ideas = sof_brt_aid set_country_flag = sof_brt_grant_i5 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I6 icon = GFX_sof_project_sof_brt_i6 x = 12 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I3 }
 prerequisite = { focus = SOF_BRT_P15 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i6 } } sof_brt_set_stage_2 = yes if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_political_power = 25 } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_i6 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I7 icon = GFX_sof_project_sof_brt_i7 x = 14 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I4 }
 prerequisite = { focus = SOF_BRT_P15 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i7 } } sof_brt_set_stage_1 = yes if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_political_power = 25 } if = { limit = { any_owned_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } } random_owned_state = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } OR = { state = 146 state = 154 state = 160 state = 162 state = 165 state = 167 state = 168 state = 179 state = 184 state = 186 state = 188 state = 195 state = 198 state = 200 state = 207 state = 208 state = 250 } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_i7 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I8 icon = GFX_sof_project_sof_brt_i8 x = 10 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I6 }
 prerequisite = { focus = SOF_BRT_P20 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_revision } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i8 } } sof_brt_set_stage_1 = yes set_country_flag = sof_brt_grant_i8 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I9 icon = GFX_sof_project_sof_brt_i9 x = 12 y = 7 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I8 focus = SOF_BRT_I7 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_mobilization } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i9 } } sof_brt_set_stage_0 = yes add_war_support = .05 set_country_flag = sof_brt_grant_i9 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I10 icon = GFX_sof_project_sof_brt_i10 x = 5 y = 8 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I9 }
 prerequisite = { focus = SOF_BRT_P21 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_war } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i10 } } set_country_flag = sof_brt_war_authorized sof_brt_sync = yes set_country_flag = sof_brt_grant_i10 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_I11 icon = GFX_sof_project_sof_brt_i11 x = 10 y = 10 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I10 }
 prerequisite = { focus = SOF_BRT_E13 }
 available = { is_subject = no has_capitulated = no has_war = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i11 } } remove_ideas = sof_brt_wartime add_stability = .03 set_country_flag = sof_brt_grant_i11 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_D0 icon = GFX_sof_project_sof_brt_d0 x = 22 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d0 } } add_political_power = 20 set_country_flag = sof_brt_grant_d0 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_D1 icon = GFX_sof_project_sof_brt_d1 x = 22 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d1 } } add_political_power = 15 set_country_flag = sof_brt_grant_d1 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_D2 icon = GFX_sof_project_sof_brt_d2 x = 24 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d2 } } navy_experience = 10 set_country_flag = sof_brt_grant_d2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_D3 icon = GFX_sof_project_sof_brt_d3 x = 24 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d3 } } add_stability = .02 set_country_flag = sof_brt_grant_d3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_D4 icon = GFX_sof_project_sof_brt_d4 x = 11 y = 8 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D2 }
 prerequisite = { focus = SOF_BRT_I9 }
 available = { is_subject = no has_capitulated = no sof_brt_supermajority = yes } cancel_if_invalid = yes continue_if_invalid = no
-completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d4 } } set_rule = { can_create_factions = yes } set_country_flag = sof_brt_grant_d4 }  custom_effect_tooltip = sof_tp_focus_REN_unlock_tt sof_tp_focus_REN_unlock_effect = yes }
-ai_will_do = { factor = 3 } }
+completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d4 } } add_political_power = 25 set_country_flag = sof_brt_grant_d4 }  custom_effect_tooltip = sof_tp_focus_REN_unlock_tt sof_tp_focus_REN_unlock_effect = yes }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_D5 icon = GFX_sof_project_sof_brt_d5 x = 11 y = 9 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D3 }
@@ -392,63 +543,94 @@ prerequisite = { focus = SOF_BRT_D4 }
 prerequisite = { focus = SOF_BRT_P25 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d5 } } add_stability = .02 set_country_flag = sof_brt_grant_d5 }  custom_effect_tooltip = sof_tp_focus_REN_result_tt sof_tp_focus_REN_result_effect = yes }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_M0 icon = GFX_sof_project_sof_brt_m0 x = 24 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m0 } } army_experience = 10 set_country_flag = sof_brt_grant_m0 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_M1 icon = GFX_sof_project_sof_brt_m1 x = 26 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m1 } } army_experience = 10 add_manpower = 10000 set_country_flag = sof_brt_grant_m1 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_M2 icon = GFX_sof_project_sof_brt_m2 x = 26 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m2 } } army_experience = 20 set_country_flag = sof_brt_grant_m2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_M3 icon = GFX_sof_project_sof_brt_m3 x = 28 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m3 } } add_tech_bonus = { name = support_tech bonus = 1.25 uses = 2 category = support_tech } set_country_flag = sof_brt_grant_m3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ } }
 focus = { id = SOF_BRT_M4 icon = GFX_sof_project_sof_brt_m4 x = 28 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M3 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m4 } } add_tech_bonus = { name = artillery bonus = 1.25 uses = 2 category = artillery } set_country_flag = sof_brt_grant_m4 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_M5 icon = GFX_sof_project_sof_brt_m5 x = 16 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M2 }
 prerequisite = { focus = SOF_BRT_I6 focus = SOF_BRT_I7 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m5 } } add_ideas = sof_brt_home_defence set_country_flag = sof_brt_grant_m5 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_M6 icon = GFX_sof_project_sof_brt_m6 x = 26 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m6 } } add_ideas = sof_brt_logistics set_country_flag = sof_brt_grant_m6 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_M7 icon = GFX_sof_project_sof_brt_m7 x = 14 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M5 }
 prerequisite = { focus = SOF_BRT_P16 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m7 } } army_experience = 15 add_equipment_to_stockpile = { type = infantry_equipment amount = 600 producer = ROOT } add_doctrine_cost_reduction = { name = SOF_BRT_M7 cost_reduction = 0.5 uses = 1 category = land_doctrine } set_country_flag = sof_brt_grant_m7 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_M8 icon = GFX_sof_project_sof_brt_m8 x = 18 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M6 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m8 } } add_tech_bonus = { name = engineers_tech bonus = 1.25 uses = 2 category = engineers_tech } set_country_flag = sof_brt_grant_m8 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_M9 icon = GFX_sof_project_sof_brt_m9 x = 9 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M7 }
@@ -456,7 +638,11 @@ prerequisite = { focus = SOF_BRT_M8 }
 prerequisite = { focus = SOF_BRT_P21 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_m9 } } army_experience = 25 add_ideas = sof_brt_staff_bureau set_country_flag = sof_brt_grant_m9 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_A0 icon = GFX_sof_project_sof_brt_a0 x = 26 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_P0 }
@@ -474,19 +660,27 @@ search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a2 } } add_tech_bonus = { name = light_air bonus = 1.25 uses = 2 category = light_air } set_country_flag = sof_brt_grant_a2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.7 has_war = no }
+ } }
 focus = { id = SOF_BRT_A3 icon = GFX_sof_project_sof_brt_a3 x = 30 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a3 } } add_tech_bonus = { name = medium_air bonus = 1.25 uses = 2 category = medium_air } set_country_flag = sof_brt_grant_a3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_A4 icon = GFX_sof_project_sof_brt_a4 x = 32 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a4 } } add_tech_bonus = { name = naval_bomber bonus = 1.25 uses = 2 category = naval_bomber } set_country_flag = sof_brt_grant_a4 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_A5 icon = GFX_sof_project_sof_brt_a5 x = 28 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A3 }
@@ -506,50 +700,74 @@ search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n0 } } navy_experience = 10 set_country_flag = sof_brt_grant_n0 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N1 icon = GFX_sof_project_sof_brt_n1 x = 34 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n1 } } add_political_power = 20 set_country_flag = sof_brt_grant_n1 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N2 icon = GFX_sof_project_sof_brt_n2 x = 24 y = 4 cost = 5
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N0 }
 prerequisite = { focus = SOF_BRT_P18 }
 available = { is_subject = no has_capitulated = no 168 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n2 } } if = { limit = { 168 = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } } } 168 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } } } else = { add_political_power = 25 } if = { limit = { 168 = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } } } 168 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_n2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N3 icon = GFX_sof_project_sof_brt_n3 x = 34 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N1 }
 available = { is_subject = no has_capitulated = no sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n3 } } add_equipment_to_stockpile = { type = convoy amount = 30 } set_country_flag = sof_brt_grant_n3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N4 icon = GFX_sof_project_sof_brt_n4 x = 24 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n4 } } add_tech_bonus = { name = dd_tech bonus = 1.25 uses = 2 category = dd_tech } set_country_flag = sof_brt_grant_n4 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N5 icon = GFX_sof_project_sof_brt_n5 x = 26 y = 5 cost = 5
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N2 }
 available = { is_subject = no has_capitulated = no 208 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n5 } } if = { limit = { 208 = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } } } 208 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } } } else = { add_political_power = 25 } add_tech_bonus = { name = ss_tech bonus = 1.25 uses = 2 category = ss_tech } if = { limit = { 208 = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } } } 208 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_n5 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N6 icon = GFX_sof_project_sof_brt_n6 x = 22 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n6 } } add_ideas = sof_brt_escort navy_experience = 20 add_doctrine_cost_reduction = { name = SOF_BRT_N6 cost_reduction = 0.5 uses = 1 category = naval_doctrine } set_country_flag = sof_brt_grant_n6 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N7 icon = GFX_sof_project_sof_brt_n7 x = 26 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n7 } } add_tech_bonus = { name = ss_tech bonus = 1.25 uses = 2 category = ss_tech } set_country_flag = sof_brt_grant_n7 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N8 icon = GFX_sof_project_sof_brt_n8 x = 19 y = 7 cost = 5
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N6 }
@@ -557,14 +775,20 @@ prerequisite = { focus = SOF_BRT_N7 }
 prerequisite = { focus = SOF_BRT_P20 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes 168 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n8 } } if = { limit = { 168 = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } } } 168 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } } } else = { add_political_power = 25 } add_ideas = sof_brt_naval_bureau if = { limit = { 168 = { is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } } } 168 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } } } else = { add_political_power = 25 } set_country_flag = sof_brt_grant_n8 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N9 icon = GFX_sof_project_sof_brt_n9 x = 24 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N8 }
 prerequisite = { focus = SOF_BRT_O25 }
 available = { is_subject = no has_capitulated = no sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n9 } } add_tech_bonus = { name = marine_tech bonus = 1 uses = 1 category = marine_tech } set_country_flag = sof_brt_grant_n9 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_N10 icon = GFX_sof_project_sof_brt_n10 x = 25 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N9 }
@@ -572,108 +796,160 @@ prerequisite = { focus = SOF_BRT_I9 }
 prerequisite = { focus = SOF_BRT_O28 }
 available = { is_subject = no has_capitulated = no sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_n10 } } add_ideas = sof_brt_landing set_country_flag = sof_brt_grant_n10 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_B0 icon = GFX_sof_project_sof_brt_b0 x = 13 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M9 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b0 } } army_experience = 10 set_country_flag = sof_brt_grant_b0 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B1 icon = GFX_sof_project_sof_brt_b1 x = 12 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b1 } } add_tech_bonus = { name = support_tech bonus = 0.75 uses = 1 category = support_tech } set_country_flag = sof_brt_grant_b1 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_B2 icon = GFX_sof_project_sof_brt_b2 x = 8 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B0 }
 prerequisite = { focus = SOF_BRT_P9 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b2 } } army_experience = 10 set_country_flag = sof_brt_grant_b2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B3 icon = GFX_sof_project_sof_brt_b3 x = 16 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B1 }
 prerequisite = { focus = SOF_BRT_M7 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b3 } } add_tech_bonus = { name = support_tech bonus = 0.75 uses = 1 category = support_tech } set_country_flag = sof_brt_grant_b3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B4 icon = GFX_sof_project_sof_brt_b4 x = 8 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B2 }
 prerequisite = { focus = SOF_BRT_P10 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b4 } } add_political_power = 25 set_country_flag = sof_brt_grant_b4 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B5 icon = GFX_sof_project_sof_brt_b5 x = 20 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_A5 }
 prerequisite = { focus = SOF_BRT_M3 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b5 } } add_ideas = sof_brt_signals set_country_flag = sof_brt_grant_b5 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B6 icon = GFX_sof_project_sof_brt_b6 x = 17 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B5 }
 prerequisite = { focus = SOF_BRT_E8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b6 } } add_tech_bonus = { name = industry bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_brt_grant_b6 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B7 icon = GFX_sof_project_sof_brt_b7 x = 14 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M6 }
 prerequisite = { focus = SOF_BRT_E5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b7 } } army_experience = 10 set_country_flag = sof_brt_grant_b7 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_B8 icon = GFX_sof_project_sof_brt_b8 x = 18 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B7 }
 prerequisite = { focus = SOF_BRT_B4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b8 } } add_political_power = 20 set_country_flag = sof_brt_grant_b8 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B9 icon = GFX_sof_project_sof_brt_b9 x = 22 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_A5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b9 } } air_experience = 10 set_country_flag = sof_brt_grant_b9 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ } }
 focus = { id = SOF_BRT_B10 icon = GFX_sof_project_sof_brt_b10 x = 18 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B9 }
 prerequisite = { focus = SOF_BRT_N1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b10 } } add_tech_bonus = { name = electronics bonus = 0.75 uses = 1 category = electronics } set_country_flag = sof_brt_grant_b10 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B11 icon = GFX_sof_project_sof_brt_b11 x = 21 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B10 }
 prerequisite = { focus = SOF_BRT_B6 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b11 } } add_tech_bonus = { name = light_air bonus = 0.75 uses = 1 category = light_air } set_country_flag = sof_brt_grant_b11 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B12 icon = GFX_sof_project_sof_brt_b12 x = 23 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_N8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b12 } } navy_experience = 10 set_country_flag = sof_brt_grant_b12 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B13 icon = GFX_sof_project_sof_brt_b13 x = 17 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B12 }
 prerequisite = { focus = SOF_BRT_N5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b13 } } add_tech_bonus = { name = ss_tech bonus = 0.75 uses = 1 category = ss_tech } set_country_flag = sof_brt_grant_b13 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B14 icon = GFX_sof_project_sof_brt_b14 x = 18 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B13 }
 prerequisite = { focus = SOF_BRT_B5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b14 } } add_tech_bonus = { name = electronics bonus = 0.75 uses = 1 category = electronics } set_country_flag = sof_brt_grant_b14 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_B15 icon = GFX_sof_project_sof_brt_b15 x = 18 y = 13 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B8 }
@@ -682,244 +958,356 @@ prerequisite = { focus = SOF_BRT_B14 }
 prerequisite = { focus = SOF_BRT_P21 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_b15 } } army_experience = 10 air_experience = 10 navy_experience = 10 set_country_flag = sof_brt_grant_b15 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_F0 icon = GFX_sof_project_sof_brt_f0 x = 36 y = 2 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
 mutually_exclusive = { focus = SOF_BRT_O0 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f0 } } add_ideas = sof_brt_defensive_program set_country_flag = sof_brt_grant_f0 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F1 icon = GFX_sof_project_sof_brt_f1 x = 36 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F0 }
 prerequisite = { focus = SOF_BRT_M1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f1 } } army_experience = 10 set_country_flag = sof_brt_grant_f1 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_F2 icon = GFX_sof_project_sof_brt_f2 x = 30 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F0 }
 prerequisite = { focus = SOF_BRT_M2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f2 } } add_ideas = sof_brt_bocage set_country_flag = sof_brt_grant_f2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F3 icon = GFX_sof_project_sof_brt_f3 x = 38 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F0 }
 prerequisite = { focus = SOF_BRT_A1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f3 } } air_experience = 10 set_country_flag = sof_brt_grant_f3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F4 icon = GFX_sof_project_sof_brt_f4 x = 20 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F1 }
 prerequisite = { focus = SOF_BRT_M8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f4 } } add_tech_bonus = { name = engineers_tech bonus = 0.75 uses = 1 category = engineers_tech } set_country_flag = sof_brt_grant_f4 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F5 icon = GFX_sof_project_sof_brt_f5 x = 24 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F2 }
 prerequisite = { focus = SOF_BRT_M8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f5 } } army_experience = 10 set_country_flag = sof_brt_grant_f5 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F6 icon = GFX_sof_project_sof_brt_f6 x = 32 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f6 } } army_experience = 10 set_country_flag = sof_brt_grant_f6 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F7 icon = GFX_sof_project_sof_brt_f7 x = 30 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F3 }
 prerequisite = { focus = SOF_BRT_A5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f7 } } add_tech_bonus = { name = cat_anti_air bonus = 0.75 uses = 1 category = cat_anti_air } set_country_flag = sof_brt_grant_f7 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_F8 icon = GFX_sof_project_sof_brt_f8 x = 28 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F3 }
 prerequisite = { focus = SOF_BRT_N2 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f8 } } add_tech_bonus = { name = cat_anti_air bonus = 0.75 uses = 1 category = cat_anti_air } set_country_flag = sof_brt_grant_f8 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F9 icon = GFX_sof_project_sof_brt_f9 x = 21 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F4 }
 prerequisite = { focus = SOF_BRT_M6 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f9 } } add_ideas = sof_brt_shelter set_country_flag = sof_brt_grant_f9 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F10 icon = GFX_sof_project_sof_brt_f10 x = 23 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F5 }
 prerequisite = { focus = SOF_BRT_M1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f10 } } army_experience = 15 set_country_flag = sof_brt_grant_f10 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F11 icon = GFX_sof_project_sof_brt_f11 x = 32 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F6 }
 prerequisite = { focus = SOF_BRT_M4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f11 } } add_tech_bonus = { name = artillery bonus = 0.75 uses = 1 category = artillery } set_country_flag = sof_brt_grant_f11 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F12 icon = GFX_sof_project_sof_brt_f12 x = 30 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F7 }
 prerequisite = { focus = SOF_BRT_A2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f12 } } add_ideas = sof_brt_watch set_country_flag = sof_brt_grant_f12 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F13 icon = GFX_sof_project_sof_brt_f13 x = 28 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F8 }
 prerequisite = { focus = SOF_BRT_A5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f13 } } add_tech_bonus = { name = electronics bonus = 0.75 uses = 1 category = electronics } set_country_flag = sof_brt_grant_f13 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F14 icon = GFX_sof_project_sof_brt_f14 x = 13 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F9 }
 prerequisite = { focus = SOF_BRT_P16 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f14 } } add_tech_bonus = { name = support_tech bonus = 0.75 uses = 1 category = support_tech } set_country_flag = sof_brt_grant_f14 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F15 icon = GFX_sof_project_sof_brt_f15 x = 17 y = 8 cost = 3
-search_filters = { FOCUS_FILTER_ARMY_XP }
+search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 prerequisite = { focus = SOF_BRT_F10 }
 prerequisite = { focus = SOF_BRT_E3 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
-completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f15 } } add_stability = .015 set_country_flag = sof_brt_grant_f15 } }
-ai_will_do = { factor = 3 } }
+completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f15 } } add_stability = .015 add_equipment_to_stockpile = { type = train_equipment_1 amount = 10 producer = ROOT } set_country_flag = sof_brt_grant_f15 add_ideas = sof607_brt_food_reserves } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_F16 icon = GFX_sof_project_sof_brt_f16 x = 27 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F11 }
 prerequisite = { focus = SOF_BRT_N0 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f16 } } navy_experience = 10 set_country_flag = sof_brt_grant_f16 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F17 icon = GFX_sof_project_sof_brt_f17 x = 29 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F12 }
 prerequisite = { focus = SOF_BRT_F13 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f17 } } air_experience = 10 set_country_flag = sof_brt_grant_f17 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F18 icon = GFX_sof_project_sof_brt_f18 x = 25 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F13 }
 prerequisite = { focus = SOF_BRT_N6 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f18 } } add_ideas = sof_brt_coast_guard set_country_flag = sof_brt_grant_f18 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F19 icon = GFX_sof_project_sof_brt_f19 x = 25 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F14 }
 prerequisite = { focus = SOF_BRT_N6 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f19 } } navy_experience = 10 set_country_flag = sof_brt_grant_f19 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F20 icon = GFX_sof_project_sof_brt_f20 x = 31 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F15 }
 prerequisite = { focus = SOF_BRT_N3 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f20 } } add_equipment_to_stockpile = { type = convoy amount = 6 } set_country_flag = sof_brt_grant_f20 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F21 icon = GFX_sof_project_sof_brt_f21 x = 25 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F16 }
 prerequisite = { focus = SOF_BRT_M8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f21 } } add_tech_bonus = { name = engineers_tech bonus = 0.75 uses = 1 category = engineers_tech } set_country_flag = sof_brt_grant_f21 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F22 icon = GFX_sof_project_sof_brt_f22 x = 27 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F17 }
 prerequisite = { focus = SOF_BRT_N2 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f22 } } navy_experience = 10 set_country_flag = sof_brt_grant_f22 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F23 icon = GFX_sof_project_sof_brt_f23 x = 19 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_F18 }
 prerequisite = { focus = SOF_BRT_I1 focus = SOF_BRT_I2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f23 } } add_stability = 0.015 navy_experience = 10 set_country_flag = sof_brt_grant_f23 set_country_flag = sof606_brt_patrol_training_paid } sof606_sync_policy_spirits = yes }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_F24 icon = GFX_sof_project_sof_brt_f24 x = 20 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F19 }
 prerequisite = { focus = SOF_BRT_B5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f24 } } add_tech_bonus = { name = electronics bonus = 0.75 uses = 1 category = electronics } set_country_flag = sof_brt_grant_f24 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F25 icon = GFX_sof_project_sof_brt_f25 x = 16 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F20 }
 prerequisite = { focus = SOF_BRT_P17 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f25 } } add_political_power = 20 set_country_flag = sof_brt_grant_f25 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F26 icon = GFX_sof_project_sof_brt_f26 x = 15 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F21 }
 prerequisite = { focus = SOF_BRT_M2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f26 } } army_experience = 15 set_country_flag = sof_brt_grant_f26 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F27 icon = GFX_sof_project_sof_brt_f27 x = 23 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F22 }
 prerequisite = { focus = SOF_BRT_A4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f27 } } air_experience = 10 navy_experience = 10 set_country_flag = sof_brt_grant_f27 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F28 icon = GFX_sof_project_sof_brt_f28 x = 19 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F23 }
 prerequisite = { focus = SOF_BRT_N4 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f28 } } add_tech_bonus = { name = dd_tech bonus = 0.75 uses = 1 category = dd_tech } set_country_flag = sof_brt_grant_f28 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F29 icon = GFX_sof_project_sof_brt_f29 x = 20 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F24 }
 prerequisite = { focus = SOF_BRT_B6 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f29 } } add_tech_bonus = { name = support_tech bonus = 0.75 uses = 1 category = support_tech } set_country_flag = sof_brt_grant_f29 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F30 icon = GFX_sof_project_sof_brt_f30 x = 14 y = 11 cost = 3
-search_filters = { FOCUS_FILTER_ARMY_XP }
+search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MANPOWER }
 prerequisite = { focus = SOF_BRT_F25 }
 prerequisite = { focus = SOF_BRT_P17 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
-completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f30 } } add_stability = .015 set_country_flag = sof_brt_grant_f30 } }
-ai_will_do = { factor = 3 } }
+completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f30 } } add_stability = .015 army_experience = 15 set_country_flag = sof_brt_grant_f30 add_ideas = sof607_brt_harvest_rosters } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ } }
 focus = { id = SOF_BRT_F31 icon = GFX_sof_project_sof_brt_f31 x = 30 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F26 }
 prerequisite = { focus = SOF_BRT_F27 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f31 } } army_experience = 20 set_country_flag = sof_brt_grant_f31 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F32 icon = GFX_sof_project_sof_brt_f32 x = 32 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F27 }
 prerequisite = { focus = SOF_BRT_F20 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f32 } } navy_experience = 15 set_country_flag = sof_brt_grant_f32 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F33 icon = GFX_sof_project_sof_brt_f33 x = 14 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F28 }
 prerequisite = { focus = SOF_BRT_P21 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f33 } } add_political_power = 25 set_country_flag = sof_brt_grant_f33 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_F34 icon = GFX_sof_project_sof_brt_f34 x = 25 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F29 }
@@ -927,7 +1315,10 @@ prerequisite = { focus = SOF_BRT_F30 }
 prerequisite = { focus = SOF_BRT_F31 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f34 } } add_war_support = .025 set_country_flag = sof_brt_grant_f34 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_F35 icon = GFX_sof_project_sof_brt_f35 x = 25 y = 13 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F34 }
@@ -935,7 +1326,10 @@ prerequisite = { focus = SOF_BRT_F32 }
 prerequisite = { focus = SOF_BRT_F33 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f35 } } add_ideas = sof_brt_fortress set_country_flag = sof_brt_grant_f35 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O0 icon = GFX_sof_project_sof_brt_o0 x = 31 y = 7 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
@@ -943,245 +1337,362 @@ prerequisite = { focus = SOF_BRT_I2 focus = SOF_BRT_I8 }
 mutually_exclusive = { focus = SOF_BRT_F0 }
 available = { is_subject = no has_capitulated = no sof_brt_supermajority = yes has_country_flag = sof_brt_law_expedition check_variable = { sof_brt_isolation < 3 } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o0 } } add_ideas = sof_brt_offensive_program set_country_flag = sof_brt_grant_o0 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_O1 icon = GFX_sof_project_sof_brt_o1 x = 31 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_M3 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o1 } } army_experience = 10 set_country_flag = sof_brt_grant_o1 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O2 icon = GFX_sof_project_sof_brt_o2 x = 29 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_M1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o2 } } army_experience = 15 set_country_flag = sof_brt_grant_o2 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O3 icon = GFX_sof_project_sof_brt_o3 x = 35 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_A3 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o3 } } add_tech_bonus = { name = medium_air bonus = 0.75 uses = 1 category = medium_air } set_country_flag = sof_brt_grant_o3 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O4 icon = GFX_sof_project_sof_brt_o4 x = 33 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_N2 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o4 } } navy_experience = 10 set_country_flag = sof_brt_grant_o4 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O5 icon = GFX_sof_project_sof_brt_o5 x = 27 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O1 }
 prerequisite = { focus = SOF_BRT_M2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o5 } } army_experience = 15 set_country_flag = sof_brt_grant_o5 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O6 icon = GFX_sof_project_sof_brt_o6 x = 29 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O2 }
 prerequisite = { focus = SOF_BRT_M6 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o6 } } add_tech_bonus = { name = motorized_equipment bonus = 0.75 uses = 1 category = motorized_equipment } set_country_flag = sof_brt_grant_o6 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O7 icon = GFX_sof_project_sof_brt_o7 x = 21 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O2 }
 prerequisite = { focus = SOF_BRT_E8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o7 } } add_tech_bonus = { name = armor bonus = 0.75 uses = 1 category = armor } set_country_flag = sof_brt_grant_o7 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O8 icon = GFX_sof_project_sof_brt_o8 x = 33 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O3 }
 prerequisite = { focus = SOF_BRT_A1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o8 } } air_experience = 10 set_country_flag = sof_brt_grant_o8 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O9 icon = GFX_sof_project_sof_brt_o9 x = 35 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O4 }
 prerequisite = { focus = SOF_BRT_N1 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o9 } } navy_experience = 10 set_country_flag = sof_brt_grant_o9 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_O10 icon = GFX_sof_project_sof_brt_o10 x = 24 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O5 }
 prerequisite = { focus = SOF_BRT_M4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o10 } } add_tech_bonus = { name = artillery bonus = 0.75 uses = 1 category = artillery } set_country_flag = sof_brt_grant_o10 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O11 icon = GFX_sof_project_sof_brt_o11 x = 26 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O6 }
 prerequisite = { focus = SOF_BRT_M4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o11 } } add_tech_bonus = { name = cat_anti_tank bonus = 0.75 uses = 1 category = cat_anti_tank } set_country_flag = sof_brt_grant_o11 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O12 icon = GFX_sof_project_sof_brt_o12 x = 22 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O7 }
 prerequisite = { focus = SOF_BRT_M8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o12 } } add_tech_bonus = { name = engineers_tech bonus = 0.75 uses = 1 category = engineers_tech } set_country_flag = sof_brt_grant_o12 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O13 icon = GFX_sof_project_sof_brt_o13 x = 28 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O8 }
 prerequisite = { focus = SOF_BRT_A5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o13 } } add_ideas = sof_brt_air_ground set_country_flag = sof_brt_grant_o13 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O14 icon = GFX_sof_project_sof_brt_o14 x = 34 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O9 }
 prerequisite = { focus = SOF_BRT_N5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o14 } } add_tech_bonus = { name = ss_tech bonus = 0.75 uses = 1 category = ss_tech } set_country_flag = sof_brt_grant_o14 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O15 icon = GFX_sof_project_sof_brt_o15 x = 22 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O10 }
 prerequisite = { focus = SOF_BRT_B7 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o15 } } army_experience = 10 set_country_flag = sof_brt_grant_o15 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O16 icon = GFX_sof_project_sof_brt_o16 x = 26 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O11 }
 prerequisite = { focus = SOF_BRT_M6 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o16 } } add_tech_bonus = { name = motorized_equipment bonus = 0.75 uses = 1 category = motorized_equipment } set_country_flag = sof_brt_grant_o16 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O17 icon = GFX_sof_project_sof_brt_o17 x = 24 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O12 }
 prerequisite = { focus = SOF_BRT_B1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o17 } } army_experience = 15 set_country_flag = sof_brt_grant_o17 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O18 icon = GFX_sof_project_sof_brt_o18 x = 28 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O13 }
 prerequisite = { focus = SOF_BRT_A4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o18 } } add_tech_bonus = { name = cas_bomber bonus = 0.75 uses = 1 category = cas_bomber } set_country_flag = sof_brt_grant_o18 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O19 icon = GFX_sof_project_sof_brt_o19 x = 30 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O14 }
 prerequisite = { focus = SOF_BRT_B14 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o19 } } navy_experience = 15 set_country_flag = sof_brt_grant_o19 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_O20 icon = GFX_sof_project_sof_brt_o20 x = 16 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O15 }
 prerequisite = { focus = SOF_BRT_P21 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o20 } } add_political_power = 25 set_country_flag = sof_brt_grant_o20 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_O21 icon = GFX_sof_project_sof_brt_o21 x = 29 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O16 }
 prerequisite = { focus = SOF_BRT_O17 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o21 } } add_ideas = sof_brt_mobile set_country_flag = sof_brt_grant_o21 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O22 icon = GFX_sof_project_sof_brt_o22 x = 31 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O17 }
 prerequisite = { focus = SOF_BRT_O13 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o22 } } army_experience = 10 air_experience = 10 set_country_flag = sof_brt_grant_o22 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O23 icon = GFX_sof_project_sof_brt_o23 x = 27 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O18 }
 prerequisite = { focus = SOF_BRT_B11 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o23 } } add_tech_bonus = { name = light_air bonus = 0.75 uses = 1 category = light_air } set_country_flag = sof_brt_grant_o23 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O24 icon = GFX_sof_project_sof_brt_o24 x = 23 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O19 }
 prerequisite = { focus = SOF_BRT_N8 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o24 } } add_tech_bonus = { name = dd_tech bonus = 0.75 uses = 1 category = dd_tech } set_country_flag = sof_brt_grant_o24 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O25 icon = GFX_sof_project_sof_brt_o25 x = 20 y = 13 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O20 }
 prerequisite = { focus = SOF_BRT_N8 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o25 } } add_tech_bonus = { name = marine_tech bonus = 0.75 uses = 1 category = marine_tech } set_country_flag = sof_brt_grant_o25 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_O26 icon = GFX_sof_project_sof_brt_o26 x = 29 y = 13 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O21 }
 prerequisite = { focus = SOF_BRT_N3 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o26 } } add_equipment_to_stockpile = { type = convoy amount = 6 } set_country_flag = sof_brt_grant_o26 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O27 icon = GFX_sof_project_sof_brt_o27 x = 27 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O22 }
 prerequisite = { focus = SOF_BRT_O25 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o27 } } army_experience = 15 navy_experience = 10 set_country_flag = sof_brt_grant_o27 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O28 icon = GFX_sof_project_sof_brt_o28 x = 29 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O23 }
 prerequisite = { focus = SOF_BRT_O26 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o28 } } air_experience = 15 set_country_flag = sof_brt_grant_o28 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ } }
 focus = { id = SOF_BRT_O29 icon = GFX_sof_project_sof_brt_o29 x = 29 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O24 }
 prerequisite = { focus = SOF_BRT_O27 }
 available = { is_subject = no has_capitulated = no  sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o29 } } navy_experience = 15 set_country_flag = sof_brt_grant_o29 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O30 icon = GFX_sof_project_sof_brt_o30 x = 20 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O25 }
 prerequisite = { focus = SOF_BRT_I10 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_war_authorized check_variable = { sof_brt_isolation = 0 } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o30 } } add_war_support = .025 set_country_flag = sof_brt_grant_o30 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_O31 icon = GFX_sof_project_sof_brt_o31 x = 22 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O26 }
 prerequisite = { focus = SOF_BRT_P15 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o31 } } add_ideas = sof_brt_expedition_supply set_country_flag = sof_brt_grant_o31 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 focus = { id = SOF_BRT_O32 icon = GFX_sof_project_sof_brt_o32 x = 27 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O27 }
 prerequisite = { focus = SOF_BRT_O28 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o32 } } army_experience = 20 air_experience = 10 set_country_flag = sof_brt_grant_o32 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O33 icon = GFX_sof_project_sof_brt_o33 x = 23 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O28 }
 prerequisite = { focus = SOF_BRT_P16 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o33 } } add_tech_bonus = { name = support_tech bonus = 0.75 uses = 1 category = support_tech } set_country_flag = sof_brt_grant_o33 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O34 icon = GFX_sof_project_sof_brt_o34 x = 27 y = 16 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O29 }
 prerequisite = { focus = SOF_BRT_O32 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o34 } } army_experience = 15 air_experience = 15 navy_experience = 15 set_country_flag = sof_brt_grant_o34 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ } }
 focus = { id = SOF_BRT_O35 icon = GFX_sof_project_sof_brt_o35 x = 23 y = 17 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O30 }
@@ -1190,7 +1701,11 @@ prerequisite = { focus = SOF_BRT_O33 }
 prerequisite = { focus = SOF_BRT_O34 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_war_authorized check_variable = { sof_brt_isolation = 0 } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_o35 } } add_ideas = sof_brt_initiative set_country_flag = sof_brt_grant_o35 } }
-ai_will_do = { factor = 3 } }
+ai_will_do = { factor = 3
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ } }
 
  shared_focus = SOF_NR_REN_mandate
  shortcut = { name = sof_nr_shortcut target = SOF_NR_REN_mandate scroll_wheel_factor = 0.7 }
@@ -1208,4 +1723,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_REN_diplomatic_ratification icon = GFX_sof_project_sof_brt_d4 x = 11 y = 11 cost = 10
+ prerequisite = { focus = SOF_BRT_D5 }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

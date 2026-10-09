@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_lille_vanilla_pilot country = { factor = 0 modifier = { add = 300 original_tag = LIL } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_lille_vanilla_pilot country = { factor = 0 modifier = { add = 300 original_tag = LIL } } default = no reset_on_civilwar = no
 initial_show_position = { focus = SOF_LIL36_government_resigns } continuous_focus_position = { x = 50 y = 3600 }
 shortcut = { name = SOF_LIL36_government_resigns_shortcut target = SOF_LIL36_government_resigns scroll_wheel_factor = .65 }
 shortcut = { name = SOF_LIL36_monetary_reconstruction_shortcut target = SOF_LIL36_monetary_reconstruction scroll_wheel_factor = .65 }
@@ -10,7 +10,9 @@ focus = { id = SOF_LIL36_perpetual_neutrality icon = GFX_sof_project_sof_lil36_p
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_0 } } add_ideas = sof_lil36_neutrality set_country_flag = sof_lil36_paid_0 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_independent_neutral_and_loyal icon = GFX_sof_project_sof_lil36_independent_neutral_and_loyal x = 17 y = 1 cost = 4
 
@@ -18,7 +20,9 @@ prerequisite = { focus = SOF_LIL36_perpetual_neutrality }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_1 } } add_political_power = 50 set_country_flag = sof_lil36_paid_1 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_defensive_neutrality icon = GFX_sof_project_sof_lil36_defensive_neutrality x = 2 y = 2 cost = 5
 
@@ -26,7 +30,10 @@ prerequisite = { focus = SOF_LIL36_independent_neutral_and_loyal }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_2 } } army_experience = 15 add_tech_bonus = { name = SOF_LIL36_defensive_neutrality_bonus bonus = 1 uses = 1 category = recon_tech } set_country_flag = sof_lil36_paid_2 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_national_redoubt_at_antwerp icon = GFX_sof_project_sof_lil36_national_redoubt_at_antwerp x = 3 y = 3 cost = 5
 
@@ -34,7 +41,10 @@ prerequisite = { focus = SOF_LIL36_defensive_neutrality }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_3 } } 51 = { add_building_construction = { type = bunker level = 1 province = 9249 instant_build = yes } } set_country_flag = sof_lil36_paid_3 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_belgian_gates icon = GFX_sof_project_sof_lil36_belgian_gates x = 1 y = 4 cost = 5
 
@@ -58,7 +68,12 @@ prerequisite = { focus = SOF_LIL36_belgian_gates }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_6 } } army_experience = 15 add_tech_bonus = { name = SOF_LIL36_iron_wall_bonus bonus = 1 uses = 1 category = recon_tech } set_country_flag = sof_lil36_paid_6 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_eben_emael_fortress icon = GFX_sof_project_sof_lil36_eben_emael_fortress x = 3 y = 5 cost = 5
 
@@ -74,7 +89,9 @@ prerequisite = { focus = SOF_LIL36_iron_wall }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_8 } } set_country_flag = sof20_LIL_integration_diplomacy add_political_power = 50 set_country_flag = sof_lil36_paid_8 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_koningshooikt_wavre_line icon = GFX_sof_project_sof_lil36_koningshooikt_wavre_line x = 3 y = 6 cost = 5
 
@@ -83,7 +100,10 @@ prerequisite = { focus = SOF_LIL36_iron_wall }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_9 } } add_ideas = sof_lil36_logistics army_experience = 15 set_country_flag = sof_lil36_paid_9 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_mobilize_the_nation icon = GFX_sof_project_sof_lil36_mobilize_the_nation x = 1 y = 7 cost = 10
 
@@ -91,7 +111,10 @@ prerequisite = { focus = SOF_LIL36_our_southern_neighbour focus = SOF_LIL36_koni
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_10 } } set_country_flag = sofzh_unification_war_ready add_war_support = 0.03 army_experience = 25 set_country_flag = sof_lil36_paid_10 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_flooded_tank_barriers icon = GFX_sof_project_sof_lil36_flooded_tank_barriers x = 4 y = 7 cost = 5
 
@@ -99,7 +122,10 @@ prerequisite = { focus = SOF_LIL36_koningshooikt_wavre_line }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 60 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 60 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_11 } } set_country_flag = sof_lil36_flood_plan army_experience = 15 set_country_flag = sof_lil36_paid_11 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_protect_against_france icon = GFX_sof_project_sof_lil36_protect_against_france x = 0 y = 8 cost = 10
 
@@ -107,7 +133,12 @@ prerequisite = { focus = SOF_LIL36_our_southern_neighbour }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 69 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 69 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_12 } } army_experience = 25 add_tech_bonus = { name = SOF_LIL36_protect_against_france_bonus bonus = 1 uses = 1 category = recon_tech } set_country_flag = sof_lil36_paid_12 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_dam_the_consequences icon = GFX_sof_project_sof_lil36_dam_the_consequences x = 4 y = 8 cost = 2
 
@@ -132,7 +163,11 @@ prerequisite = { focus = SOF_LIL36_independent_neutral_and_loyal }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_15 } } set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready army_experience = 15 set_country_flag = sof_lil36_paid_15 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_royal_military_academy icon = GFX_sof_project_sof_lil36_royal_military_academy x = 8 y = 3 cost = 10
 
@@ -140,7 +175,10 @@ prerequisite = { focus = SOF_LIL36_defense_bill }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_16 } } army_experience = 25 add_doctrine_cost_reduction = { name = SOF_LIL36_royal_military_academy cost_reduction = 0.5 uses = 1 category = land_doctrine } set_country_flag = sof_lil36_paid_16 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_multi_language_courses icon = GFX_sof_project_sof_lil36_multi_language_courses x = 7 y = 4 cost = 10
 
@@ -148,7 +186,13 @@ prerequisite = { focus = SOF_LIL36_royal_military_academy }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_17 } } remove_ideas = sof_lil36_training add_ideas = sof_refined_lil_staff_training army_experience = 25 set_country_flag = sof_lil36_paid_17 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_department_of_telecommunications icon = GFX_sof_project_sof_lil36_department_of_telecommunications x = 9 y = 4 cost = 10
 
@@ -156,7 +200,11 @@ prerequisite = { focus = SOF_LIL36_royal_military_academy }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_18 } } add_tech_bonus = { name = SOF_LIL36_department_of_telecommunications_bonus bonus = 1 uses = 1 category = electronics } set_country_flag = sof_lil36_paid_18 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_department_of_ballistic_metrology icon = GFX_sof_project_sof_lil36_department_of_ballistic_metrology x = 11 y = 4 cost = 10
 
@@ -164,7 +212,9 @@ prerequisite = { focus = SOF_LIL36_royal_military_academy }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_19 } } add_tech_bonus = { name = SOF_LIL36_department_of_ballistic_metrology_bonus bonus = 1 uses = 1 category = artillery } set_country_flag = sof_lil36_paid_19 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_resist_and_bite icon = GFX_sof_project_sof_lil36_resist_and_bite x = 6 y = 5 cost = 5
 
@@ -172,7 +222,12 @@ prerequisite = { focus = SOF_LIL36_multi_language_courses }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_20 } } add_tech_bonus = { name = SOF_LIL36_resist_and_bite_bonus bonus = 1 uses = 1 category = infantry_weapons } set_country_flag = sof_lil36_paid_20 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_center_for_advanced_military_studies icon = GFX_sof_project_sof_lil36_center_for_advanced_military_studies x = 8 y = 5 cost = 10
 
@@ -213,7 +268,10 @@ prerequisite = { focus = SOF_LIL36_center_for_advanced_military_studies }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_25 } } add_ideas = sof_lil36_logistics set_country_flag = sof_lil36_paid_25 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_fonderie_royale_de_canons_liege icon = GFX_sof_project_sof_lil36_fonderie_royale_de_canons_liege x = 11 y = 6 cost = 10
 
@@ -221,7 +279,10 @@ prerequisite = { focus = SOF_LIL36_department_of_ballistic_metrology }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 61 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 61 = { arms_factory < 19 }  61 = { arms_factory < 19 } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { 61 = { arms_factory < 19 }  original_tag = LIL is_subject = no has_capitulated = no 61 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 61 = { arms_factory < 19 } NOT = { has_country_flag = sof_lil36_paid_26 } } 61 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = arms_factory level = 2 instant_build = yes } } add_equipment_to_stockpile = { type = artillery_equipment amount = 120 producer = ROOT } set_country_flag = sof_lil36_paid_26 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_interpreters icon = GFX_sof_project_sof_lil36_interpreters x = 6 y = 7 cost = 10
 
@@ -229,7 +290,9 @@ prerequisite = { focus = SOF_LIL36_belgian_special_forces }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_27 } } add_command_power = 20 set_country_flag = sof_lil36_paid_27 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_center_of_nuclear_chemistry icon = GFX_sof_project_sof_lil36_center_of_nuclear_chemistry x = 9 y = 7 cost = 10
 
@@ -237,7 +300,9 @@ prerequisite = { focus = SOF_LIL36_center_for_advanced_military_studies }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  num_of_factories > 5 amount_research_slots > 1 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9249 } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { num_of_factories > 5 amount_research_slots > 1 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9249  original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_28 } } add_tech_bonus = { name = SOF_LIL36_center_of_nuclear_chemistry_bonus bonus = 1 uses = 1 category = electronics } if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = SOF_LIL36_center_of_nuclear_chemistry bonus = 1 uses = 1 category = electronics } } set_country_flag = sof_lil36_paid_28 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_strategic_doctrine_development icon = GFX_sof_project_sof_lil36_strategic_doctrine_development x = 12 y = 7 cost = 5
 
@@ -245,7 +310,10 @@ prerequisite = { focus = SOF_LIL36_junior_officer_training }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_29 } } army_experience = 20 add_doctrine_cost_reduction = { name = SOF_LIL36_strategic_doctrine_development cost_reduction = 0.5 uses = 1 category = land_doctrine } set_country_flag = sof_lil36_paid_29 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_belgian_tank_development icon = GFX_sof_project_sof_lil36_belgian_tank_development x = 11 y = 8 cost = 10
 
@@ -254,7 +322,10 @@ prerequisite = { focus = SOF_LIL36_fonderie_royale_de_canons_liege }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_30 } } add_tech_bonus = { name = SOF_LIL36_belgian_tank_development_bonus bonus = 1 uses = 1 category = armor } army_experience = 30 add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } if = { limit = { has_dlc = "No Step Back" has_country_flag = sofzh_combined_arms_initialized_2110 has_tech = basic_light_tank_chassis } add_equipment_to_stockpile = { type = light_tank_chassis_1 amount = 30 producer = ROOT variant_name = "SOF Light 1934" } } else_if = { limit = { NOT = { has_dlc = "No Step Back" } has_tech = basic_light_tank } add_equipment_to_stockpile = { type = light_tank_equipment_1 amount = 30 producer = ROOT } } else = { add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT } } set_country_flag = sof_lil36_paid_30 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_doctrinal_innovations icon = GFX_sof_project_sof_lil36_doctrinal_innovations x = 13 y = 9 cost = 10
 
@@ -262,7 +333,10 @@ prerequisite = { focus = SOF_LIL36_strategic_doctrine_development }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_31 } } add_tech_bonus = { name = SOF_LIL36_doctrinal_innovations_bonus bonus = 1 uses = 1 category = motorized_equipment } set_country_flag = sof_lil36_paid_31 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_modernized_army icon = GFX_sof_project_sof_lil36_modernized_army x = 8 y = 10 cost = 10
 
@@ -272,7 +346,10 @@ prerequisite = { focus = SOF_LIL36_doctrinal_innovations }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_32 } } add_ideas = sof_lil36_modern_army add_equipment_to_stockpile = { type = infantry_equipment amount = 1200 producer = ROOT } add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = ROOT } army_experience = 25 add_doctrine_cost_reduction = { name = SOF_LIL36_modernized_army cost_reduction = 0.5 uses = 1 category = land_doctrine } set_country_flag = sof_lil36_paid_32 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_increased_length_of_service icon = GFX_sof_project_sof_lil36_increased_length_of_service x = 15 y = 3 cost = 5
 
@@ -280,7 +357,11 @@ prerequisite = { focus = SOF_LIL36_defense_bill }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_33 } } add_war_support = 0.03 add_stability = -0.01 set_country_flag = sof_lil36_paid_33 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_fn_herstal icon = GFX_sof_project_sof_lil36_fn_herstal x = 14 y = 4 cost = 10
 
@@ -288,7 +369,12 @@ prerequisite = { focus = SOF_LIL36_defense_bill }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_34 } } add_tech_bonus = { name = SOF_LIL36_fn_herstal_bonus bonus = 1 uses = 1 category = infantry_weapons } set_country_flag = sof_lil36_paid_34 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_poudreries_reunies_de_belgique icon = GFX_sof_project_sof_lil36_poudreries_reunies_de_belgique x = 15 y = 5 cost = 10
 
@@ -296,7 +382,10 @@ prerequisite = { focus = SOF_LIL36_fn_herstal }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_35 } } add_tech_bonus = { name = SOF_LIL36_poudreries_reunies_de_belgique_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_lil36_paid_35 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_minerva_imperia icon = GFX_sof_project_sof_lil36_minerva_imperia x = 14 y = 6 cost = 10
 
@@ -305,7 +394,10 @@ prerequisite = { focus = SOF_LIL36_dyle_plan }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_36 } } add_tech_bonus = { name = SOF_LIL36_minerva_imperia_bonus bonus = 1 uses = 1 category = motorized_equipment } set_country_flag = sof_lil36_paid_36 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_legacy_of_the_great_war icon = GFX_sof_project_sof_lil36_legacy_of_the_great_war x = 14 y = 7 cost = 10
 
@@ -313,7 +405,10 @@ prerequisite = { focus = SOF_LIL36_minerva_imperia }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_37 } } army_experience = 25 set_country_flag = sof_lil36_paid_37 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_repudiate_treaty_with_france icon = GFX_sof_project_sof_lil36_repudiate_treaty_with_france x = 18 y = 2 cost = 10
 
@@ -321,7 +416,9 @@ prerequisite = { focus = SOF_LIL36_independent_neutral_and_loyal }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_38 } } set_country_flag = sof20_LIL_integration_diplomacy add_political_power = 50 set_country_flag = sof_lil36_paid_38 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_dyle_plan icon = GFX_sof_project_sof_lil36_dyle_plan x = 18 y = 5 cost = 5
 
@@ -329,14 +426,22 @@ prerequisite = { focus = SOF_LIL36_repudiate_treaty_with_france }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_39 } } add_ideas = sof_lil36_rail_staff set_country_flag = sof_lil36_paid_39 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_government_resigns icon = GFX_sof_project_sof_lil36_government_resigns x = 23 y = 0 cost = 10
 
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_40 } } country_event = { id = sof_lil36.1 days = 1 } set_country_flag = sof_lil36_paid_40 }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 focus = { id = SOF_LIL36_government_of_national_unity icon = GFX_sof_project_sof_lil36_government_of_national_unity x = 25 y = 1 cost = 0
 
@@ -345,7 +450,9 @@ mutually_exclusive = { focus = SOF_LIL36_vandervelde_minority }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { always = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_41 } } custom_effect_tooltip = sof_lil36_event_marker_tt set_country_flag = sof_lil36_paid_41 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_investigate_bribery_charges icon = GFX_sof_project_sof_lil36_investigate_bribery_charges x = 23 y = 1 cost = 5
 
@@ -353,7 +460,9 @@ prerequisite = { focus = SOF_LIL36_government_resigns }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_42 } } add_political_power = 50 add_stability = 0.04 set_country_flag = sof_lil36_paid_42 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_royal_intervention icon = GFX_sof_project_sof_lil36_royal_intervention x = 25 y = 3 cost = 5
 
@@ -362,7 +471,9 @@ prerequisite = { focus = SOF_LIL36_government_of_national_unity focus = SOF_LIL3
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_43 } } country_event = { id = sof_lil36.2 days = 1 } set_country_flag = sof_lil36_paid_43 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_paul_emile_janson icon = GFX_sof_project_sof_lil36_paul_emile_janson x = 23 y = 4 cost = 0
 
@@ -371,7 +482,9 @@ mutually_exclusive = { focus = SOF_LIL36_constitutional_crisis }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { always = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_44 } } custom_effect_tooltip = sof_lil36_event_marker_tt set_country_flag = sof_lil36_paid_44 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_plan_de_man icon = GFX_sof_project_sof_lil36_plan_de_man x = 23 y = 5 cost = 4
 
@@ -379,7 +492,10 @@ prerequisite = { focus = SOF_LIL36_paul_emile_janson }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_45 } } add_political_power = 50 set_country_flag = sof_lil36_paid_45 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_economic_recovery icon = GFX_sof_project_sof_lil36_economic_recovery x = 23 y = 6 cost = 10
 
@@ -388,7 +504,10 @@ prerequisite = { focus = SOF_LIL36_dyle_plan }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_46 } } add_political_power = 50 add_stability = 0.04 set_country_flag = sof_lil36_paid_46 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_adriaan_martens_crisis icon = GFX_sof_project_sof_lil36_adriaan_martens_crisis x = 23 y = 7 cost = 5
 
@@ -396,7 +515,9 @@ prerequisite = { focus = SOF_LIL36_economic_recovery }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_47 } } country_event = { id = sof_lil36.4 days = 1 } set_country_flag = sof_lil36_paid_47 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_benelux_union icon = GFX_sof_project_sof_lil36_benelux_union x = 22 y = 8 cost = 10
 
@@ -405,7 +526,9 @@ mutually_exclusive = { focus = SOF_LIL36_tripartite_government }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_48 } } add_ideas = sof_lil36_civic add_political_power = 50 set_country_flag = sof_lil36_paid_48 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_tripartite_government icon = GFX_sof_project_sof_lil36_tripartite_government x = 24 y = 8 cost = 10
 
@@ -414,7 +537,9 @@ mutually_exclusive = { focus = SOF_LIL36_benelux_union }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_49 } } add_ideas = sof_lil36_tripartite add_political_power = 50 set_country_flag = sof_lil36_paid_49 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_the_council_of_europe icon = GFX_sof_project_sof_lil36_the_council_of_europe x = 22 y = 9 cost = 10
 
@@ -422,7 +547,11 @@ prerequisite = { focus = SOF_LIL36_benelux_union }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_50 } } add_ideas = sof_lil36_budget add_political_power = 50 set_country_flag = sof_lil36_paid_50 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_broken_neutrality icon = GFX_sof_project_sof_lil36_broken_neutrality x = 24 y = 9 cost = 10
 
@@ -430,7 +559,11 @@ prerequisite = { focus = SOF_LIL36_tripartite_government }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_51 } } set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready army_experience = 25 set_country_flag = sof_lil36_paid_51 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_constitutional_crisis icon = GFX_sof_project_sof_lil36_constitutional_crisis x = 31 y = 5 cost = 0
 
@@ -439,7 +572,9 @@ mutually_exclusive = { focus = SOF_LIL36_paul_emile_janson }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { always = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_82 } } custom_effect_tooltip = sof_lil36_event_marker_tt set_country_flag = sof_lil36_paid_82 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_kings_abdication icon = GFX_sof_project_sof_lil36_kings_abdication x = 31 y = 6 cost = 5
 
@@ -447,7 +582,9 @@ prerequisite = { focus = SOF_LIL36_constitutional_crisis }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_83 } } add_ideas = sof_lil36_civic add_political_power = 50 set_country_flag = sof_lil36_paid_83 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_snap_election icon = GFX_sof_project_sof_lil36_snap_election x = 31 y = 7 cost = 5
 
@@ -455,7 +592,9 @@ prerequisite = { focus = SOF_LIL36_kings_abdication }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_84 } } country_event = { id = sof_lil36.3 days = 1 } set_country_flag = sof_lil36_paid_84 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_liberal_victory icon = GFX_sof_project_sof_lil36_liberal_victory x = 29 y = 8 cost = 0
 
@@ -464,7 +603,9 @@ mutually_exclusive = { focus = SOF_LIL36_socialist_victory }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { always = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_85 } } custom_effect_tooltip = sof_lil36_event_marker_tt set_country_flag = sof_lil36_paid_85 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_socialist_victory icon = GFX_sof_project_sof_lil36_socialist_victory x = 33 y = 8 cost = 0
 
@@ -473,7 +614,9 @@ mutually_exclusive = { focus = SOF_LIL36_liberal_victory }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { always = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_86 } } custom_effect_tooltip = sof_lil36_event_marker_tt set_country_flag = sof_lil36_paid_86 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_expression_of_belgian_unity icon = GFX_sof_project_sof_lil36_expression_of_belgian_unity x = 30 y = 9 cost = 10
 
@@ -481,7 +624,9 @@ prerequisite = { focus = SOF_LIL36_liberal_victory focus = SOF_LIL36_socialist_v
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_87 } } add_ideas = sof_lil36_civic add_political_power = 50 set_country_flag = sof_lil36_paid_87 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_anti_corruption_taskforce icon = GFX_sof_project_sof_lil36_anti_corruption_taskforce x = 32 y = 9 cost = 5
 
@@ -489,7 +634,9 @@ prerequisite = { focus = SOF_LIL36_liberal_victory focus = SOF_LIL36_socialist_v
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_88 } } add_political_power = 50 add_stability = 0.04 set_country_flag = sof_lil36_paid_88 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_diplomatic_rapprochment icon = GFX_sof_project_sof_lil36_diplomatic_rapprochment x = 29 y = 10 cost = 10
 
@@ -497,7 +644,9 @@ prerequisite = { focus = SOF_LIL36_liberal_victory }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_89 } } set_country_flag = sof20_LIL_integration_diplomacy add_political_power = 50 set_country_flag = sof_lil36_paid_89 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_belgian_maginot icon = GFX_sof_project_sof_lil36_belgian_maginot x = 31 y = 10 cost = 5
 
@@ -505,7 +654,12 @@ prerequisite = { focus = SOF_LIL36_expression_of_belgian_unity focus = SOF_LIL36
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_90 } } army_experience = 15 add_tech_bonus = { name = SOF_LIL36_belgian_maginot_bonus bonus = 1 uses = 1 category = recon_tech } set_country_flag = sof_lil36_paid_90 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_soviet_guarantee icon = GFX_sof_project_sof_lil36_soviet_guarantee x = 33 y = 10 cost = 5
 
@@ -514,7 +668,9 @@ mutually_exclusive = { focus = SOF_LIL36_support_the_european_project }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_91 } } add_ideas = sof_lil36_labor add_political_power = 50 set_country_flag = sof_lil36_paid_91 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_expedite_fort_construction icon = GFX_sof_project_sof_lil36_expedite_fort_construction x = 30 y = 11 cost = 5
 
@@ -522,7 +678,10 @@ prerequisite = { focus = SOF_LIL36_belgian_maginot }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_92 } } army_experience = 15 add_tech_bonus = { name = SOF_LIL36_expedite_fort_construction_bonus bonus = 1 uses = 1 category = recon_tech } set_country_flag = sof_lil36_paid_92 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_democratization_of_education icon = GFX_sof_project_sof_lil36_democratization_of_education x = 32 y = 11 cost = 10
 
@@ -530,7 +689,9 @@ prerequisite = { focus = SOF_LIL36_belgian_maginot }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  num_of_factories > 11 amount_research_slots > 2 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9249 } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { num_of_factories > 11 amount_research_slots > 2 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9249  original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_93 } } add_tech_bonus = { name = SOF_LIL36_democratization_of_education_bonus bonus = 1 uses = 1 category = electronics } if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = SOF_LIL36_democratization_of_education bonus = 1 uses = 1 category = electronics } } set_country_flag = sof_lil36_paid_93 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_invite_soviet_tank_makers icon = GFX_sof_project_sof_lil36_invite_soviet_tank_makers x = 34 y = 11 cost = 5
 
@@ -538,7 +699,10 @@ prerequisite = { focus = SOF_LIL36_soviet_guarantee }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_94 } } add_tech_bonus = { name = SOF_LIL36_invite_soviet_tank_makers_bonus bonus = 1 uses = 1 category = motorized_equipment } set_country_flag = sof_lil36_paid_94 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_join_allies icon = GFX_sof_project_sof_lil36_join_allies x = 29 y = 12 cost = 5
 
@@ -546,7 +710,9 @@ prerequisite = { focus = SOF_LIL36_diplomatic_rapprochment }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_95 } } set_country_flag = sof20_LIL_integration_diplomacy add_political_power = 50 set_country_flag = sof_lil36_paid_95 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_unity_makes_strength icon = GFX_sof_project_sof_lil36_unity_makes_strength x = 31 y = 12 cost = 10
 
@@ -554,7 +720,11 @@ prerequisite = { focus = SOF_LIL36_expedite_fort_construction focus = SOF_LIL36_
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_96 } } set_country_flag = sofzh_unification_war_ready add_war_support = 0.03 army_experience = 25 set_country_flag = sof_lil36_paid_96 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_join_comintern icon = GFX_sof_project_sof_lil36_join_comintern x = 33 y = 12 cost = 5
 
@@ -562,7 +732,11 @@ prerequisite = { focus = SOF_LIL36_soviet_guarantee }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_97 } } add_stability = 0.04 add_political_power = 50 set_country_flag = sof_lil36_paid_97 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_better_than_maginot icon = GFX_sof_project_sof_lil36_better_than_maginot x = 31 y = 13 cost = 10
 
@@ -570,7 +744,10 @@ prerequisite = { focus = SOF_LIL36_unity_makes_strength }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_98 } } add_ideas = sof_lil36_civil_defense set_country_flag = sof_lil36_paid_98 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_vandervelde_minority icon = GFX_sof_project_sof_lil36_vandervelde_minority x = 39 y = 1 cost = 0
 
@@ -579,7 +756,9 @@ mutually_exclusive = { focus = SOF_LIL36_government_of_national_unity }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { always = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_99 } } custom_effect_tooltip = sof_lil36_event_marker_tt set_country_flag = sof_lil36_paid_99 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_problem_of_language icon = GFX_sof_project_sof_lil36_problem_of_language x = 39 y = 2 cost = 4
 
@@ -587,7 +766,11 @@ prerequisite = { focus = SOF_LIL36_vandervelde_minority }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_100 } } add_political_power = 50 set_country_flag = sof_lil36_paid_100 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_trade_union_support icon = GFX_sof_project_sof_lil36_trade_union_support x = 38 y = 3 cost = 5
 
@@ -595,7 +778,9 @@ prerequisite = { focus = SOF_LIL36_problem_of_language }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_101 } } add_ideas = sof_lil36_labor add_political_power = 50 set_country_flag = sof_lil36_paid_101 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_cooperative_cooperation icon = GFX_sof_project_sof_lil36_cooperative_cooperation x = 40 y = 3 cost = 10
 
@@ -603,7 +788,12 @@ prerequisite = { focus = SOF_LIL36_problem_of_language }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_102 } } add_stability = 0.04 add_political_power = 50 set_country_flag = sof_lil36_paid_102 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 2.2 sof607_ai_left = yes }
+ }
 }
 focus = { id = SOF_LIL36_aid_for_spain icon = GFX_sof_project_sof_lil36_aid_for_spain x = 37 y = 4 cost = 5
 
@@ -611,7 +801,9 @@ prerequisite = { focus = SOF_LIL36_trade_union_support }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_103 } } add_stability = 0.04 add_political_power = -15 set_country_flag = sof_lil36_paid_103 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_the_grand_place icon = GFX_sof_project_sof_lil36_the_grand_place x = 39 y = 4 cost = 5
 
@@ -620,7 +812,9 @@ prerequisite = { focus = SOF_LIL36_cooperative_cooperation }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_104 } } add_ideas = sof_lil36_tripartite add_political_power = 50 set_country_flag = sof_lil36_paid_104 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_la_belgique_et_le_congo icon = GFX_sof_project_sof_lil36_la_belgique_et_le_congo x = 41 y = 4 cost = 10
 
@@ -628,7 +822,10 @@ prerequisite = { focus = SOF_LIL36_cooperative_cooperation }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_105 } } set_country_flag = sof_lil36_mine_safety add_stability = 0.04 set_country_flag = sof_lil36_paid_105 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_spanish_intervention icon = GFX_sof_project_sof_lil36_spanish_intervention x = 37 y = 5 cost = 5
 
@@ -636,7 +833,9 @@ prerequisite = { focus = SOF_LIL36_aid_for_spain }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_106 } } add_stability = 0.04 add_political_power = 50 set_country_flag = sof_lil36_paid_106 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_contradictions_in_socialism icon = GFX_sof_project_sof_lil36_contradictions_in_socialism x = 41 y = 5 cost = 10
 
@@ -644,7 +843,11 @@ prerequisite = { focus = SOF_LIL36_la_belgique_et_le_congo }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_107 } } add_ideas = sof_lil36_labor add_political_power = 50 set_country_flag = sof_lil36_paid_107 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_growing_threat_of_fascism icon = GFX_sof_project_sof_lil36_growing_threat_of_fascism x = 39 y = 6 cost = 10
 
@@ -652,7 +855,9 @@ prerequisite = { focus = SOF_LIL36_the_grand_place }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_108 } } add_ideas = sof_lil36_civic add_political_power = 50 set_country_flag = sof_lil36_paid_108 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_peacekeeping_missions icon = GFX_sof_project_sof_lil36_peacekeeping_missions x = 38 y = 7 cost = 10
 
@@ -660,7 +865,9 @@ prerequisite = { focus = SOF_LIL36_growing_threat_of_fascism focus = SOF_LIL36_a
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_109 } } add_stability = 0.04 add_political_power = -15 set_country_flag = sof_lil36_paid_109 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_international_socialist_bureau icon = GFX_sof_project_sof_lil36_international_socialist_bureau x = 39 y = 8 cost = 10
 
@@ -668,7 +875,9 @@ prerequisite = { focus = SOF_LIL36_growing_threat_of_fascism }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_110 } } add_ideas = sof_lil36_labor add_political_power = 50 set_country_flag = sof_lil36_paid_110 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_raise_the_red_flag icon = GFX_sof_project_sof_lil36_raise_the_red_flag x = 37 y = 9 cost = 5
 
@@ -676,7 +885,11 @@ prerequisite = { focus = SOF_LIL36_socialist_victory focus = SOF_LIL36_internati
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_111 } } add_ideas = sof_lil36_labor add_political_power = 50 set_country_flag = sof_lil36_paid_111 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_support_the_european_project icon = GFX_sof_project_sof_lil36_support_the_european_project x = 39 y = 10 cost = 10
 
@@ -685,7 +898,9 @@ mutually_exclusive = { focus = SOF_LIL36_soviet_guarantee }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_112 } } set_country_flag = sof20_LIL_integration_diplomacy add_political_power = 50 set_country_flag = sof_lil36_paid_112 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_european_community icon = GFX_sof_project_sof_lil36_european_community x = 39 y = 13 cost = 10
 
@@ -693,7 +908,9 @@ prerequisite = { focus = SOF_LIL36_support_the_european_project }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no num_of_controlled_states > 99 } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no num_of_controlled_states > 99 NOT = { has_country_flag = sof_lil36_paid_113 } } set_country_flag = sof_van_national_congress add_political_power = 50 set_country_flag = sof_lil36_paid_113 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_monetary_reconstruction icon = GFX_sof_project_sof_lil36_monetary_reconstruction x = 2 y = 16 cost = 10
 
@@ -701,7 +918,11 @@ focus = { id = SOF_LIL36_monetary_reconstruction icon = GFX_sof_project_sof_lil3
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_136 } } set_country_flag = sofzh_unification_started add_ideas = sof_lil36_strike add_political_power = 50 set_country_flag = sof_lil36_paid_136 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 3 sof_tp_phase_two = yes }
+ }
 }
 focus = { id = SOF_LIL36_rebuild_wallonian_industry icon = GFX_sof_project_sof_lil36_rebuild_wallonian_industry x = 3 y = 17 cost = 10
 
@@ -709,7 +930,10 @@ prerequisite = { focus = SOF_LIL36_monetary_reconstruction }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 51 = { industrial_complex < 19 }  51 = { industrial_complex < 19 } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { 51 = { industrial_complex < 19 }  original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 51 = { industrial_complex < 19 } NOT = { has_country_flag = sof_lil36_paid_137 } } 51 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 2 instant_build = yes } } set_country_flag = sof_lil36_paid_137 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_gold_reserves icon = GFX_sof_project_sof_lil36_gold_reserves x = 1 y = 17 cost = 4
 
@@ -717,7 +941,10 @@ prerequisite = { focus = SOF_LIL36_monetary_reconstruction }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_138 } } set_country_flag = sof_lil36_export_credit add_political_power = 50 set_country_flag = sof_lil36_paid_138 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_social_partners icon = GFX_sof_project_sof_lil36_social_partners x = 2 y = 18 cost = 10
 
@@ -725,7 +952,9 @@ prerequisite = { focus = SOF_LIL36_rebuild_wallonian_industry }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_139 } } set_country_flag = sof_lil36_bargaining add_political_power = 50 set_country_flag = sof_lil36_paid_139 }  custom_effect_tooltip = sof_tp_focus_LIL_unlock_tt sof_tp_focus_LIL_unlock_effect = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_revive_coal_mining icon = GFX_sof_project_sof_lil36_revive_coal_mining x = 4 y = 18 cost = 5
 
@@ -733,7 +962,10 @@ prerequisite = { focus = SOF_LIL36_rebuild_wallonian_industry }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_140 } } set_country_flag = sof_lil36_coal add_tech_bonus = { name = SOF_LIL36_revive_coal_mining_bonus bonus = 1 uses = 1 category = excavation_tech } 63 = { if = { limit = { infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } set_country_flag = sof_lil36_paid_140 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_40_hour_workweek icon = GFX_sof_project_sof_lil36_40_hour_workweek x = 0 y = 19 cost = 10
 
@@ -741,7 +973,9 @@ prerequisite = { focus = SOF_LIL36_social_partners }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no OR = { date > 1936.6.6 has_country_flag = sof_tp_aid_delivered } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no OR = { date > 1936.6.6 has_country_flag = sof_tp_aid_delivered } NOT = { has_country_flag = sof_lil36_paid_141 } } remove_ideas = sof_lil36_strike add_ideas = sof_lil36_settlement set_country_flag = sof_lil36_labor_settled set_country_flag = sof_lil36_paid_141 }  custom_effect_tooltip = sof_tp_focus_LIL_result_tt sof_tp_focus_LIL_result_effect = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_cockerill icon = GFX_sof_project_sof_lil36_cockerill x = 2 y = 19 cost = 10
 
@@ -750,7 +984,10 @@ prerequisite = { focus = SOF_LIL36_revive_coal_mining }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 61 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 61 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_142 } } set_country_flag = sof_lil36_steel add_tech_bonus = { name = SOF_LIL36_cockerill_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_lil36_paid_142 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_railway_expansion icon = GFX_sof_project_sof_lil36_railway_expansion x = 4 y = 19 cost = 10
 
@@ -758,7 +995,10 @@ prerequisite = { focus = SOF_LIL36_revive_coal_mining }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_143 } } set_country_flag = sof_lil36_rail add_tech_bonus = { name = SOF_LIL36_railway_expansion_bonus bonus = 1 uses = 1 category = train_tech } 62 = { if = { limit = { infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } set_country_flag = sof_lil36_paid_143 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_corporate_social_responsibility icon = GFX_sof_project_sof_lil36_corporate_social_responsibility x = 0 y = 20 cost = 10
 
@@ -766,7 +1006,9 @@ prerequisite = { focus = SOF_LIL36_40_hour_workweek }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_144 } } add_ideas = sof_lil36_labor_housing set_country_flag = sof_lil36_paid_144 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = SOF_LIL36_val_benoit_institutes icon = GFX_sof_project_sof_lil36_val_benoit_institutes x = 0 y = 21 cost = 10
 
@@ -774,7 +1016,9 @@ prerequisite = { focus = SOF_LIL36_corporate_social_responsibility }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  num_of_factories > 11 amount_research_slots > 2 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9249 } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { num_of_factories > 11 amount_research_slots > 2 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9249  original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_145 } } add_tech_bonus = { name = SOF_LIL36_val_benoit_institutes_bonus bonus = 1 uses = 1 category = electronics } if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = SOF_LIL36_val_benoit_institutes bonus = 1 uses = 1 category = electronics } } set_country_flag = sof_lil36_paid_145 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_stk icon = GFX_sof_project_sof_lil36_stk x = 1 y = 22 cost = 10
 
@@ -783,7 +1027,11 @@ prerequisite = { focus = SOF_LIL36_engine_of_the_economy }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_146 } } add_tech_bonus = { name = SOF_LIL36_stk_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_lil36_paid_146 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_embrace_export_economy icon = GFX_sof_project_sof_lil36_embrace_export_economy x = 4 y = 20 cost = 4
 
@@ -791,7 +1039,10 @@ prerequisite = { focus = SOF_LIL36_railway_expansion }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 40 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 40 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_147 } } set_country_flag = sof_lil36_export_network add_political_power = 50 set_country_flag = sof_lil36_paid_147 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_engine_of_the_economy icon = GFX_sof_project_sof_lil36_engine_of_the_economy x = 2 y = 21 cost = 10
 
@@ -801,7 +1052,10 @@ prerequisite = { focus = SOF_LIL36_railway_expansion }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 61 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 63 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 61 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 62 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_148 } } add_dynamic_modifier = { modifier = sof_lil36_coal_steel_chain } set_country_flag = sof_lil36_paid_148 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_belgian_miracle icon = GFX_sof_project_sof_lil36_belgian_miracle x = 2 y = 24 cost = 10
 
@@ -811,7 +1065,10 @@ prerequisite = { focus = SOF_LIL36_corporate_social_responsibility }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_149 } } add_stability = 0.04 add_political_power = 50 set_country_flag = sof20_LIL_specialist_project set_country_flag = sof_lil36_paid_149 } }
-ai_will_do = { factor = 20 }
+ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_belgian_air_force icon = GFX_sof_project_sof_lil36_belgian_air_force x = 13 y = 16 cost = 5
 
@@ -827,7 +1084,10 @@ prerequisite = { focus = SOF_LIL36_belgian_air_force }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_151 } } add_tech_bonus = { name = SOF_LIL36_develop_belgian_air_industry_bonus bonus = 1 uses = 1 category = air_equipment } set_country_flag = sof_lil36_paid_151 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_renard_constructions_aeronautiques icon = GFX_sof_project_sof_lil36_renard_constructions_aeronautiques x = 8 y = 18 cost = 5
 
@@ -835,7 +1095,9 @@ prerequisite = { focus = SOF_LIL36_develop_belgian_air_industry }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_152 } } add_tech_bonus = { name = SOF_LIL36_renard_constructions_aeronautiques_bonus bonus = 1 uses = 1 category = light_air } set_country_flag = sof_lil36_paid_152 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_stampe_et_vertrongen icon = GFX_sof_project_sof_lil36_stampe_et_vertrongen x = 10 y = 18 cost = 5
 
@@ -852,7 +1114,10 @@ prerequisite = { focus = SOF_LIL36_stampe_et_vertrongen }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_154 } } add_tech_bonus = { name = SOF_LIL36_relocate_air_production_bonus bonus = 1 uses = 1 category = air_equipment } set_country_flag = sof_lil36_paid_154 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_foreign_plane_purchases icon = GFX_sof_project_sof_lil36_foreign_plane_purchases x = 15 y = 17 cost = 5
 
@@ -868,7 +1133,9 @@ prerequisite = { focus = SOF_LIL36_foreign_plane_purchases focus = SOF_LIL36_dev
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 51 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_157 } } air_experience = 15 set_country_flag = sof_lil36_paid_157 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = SOF_LIL36_polish_licences icon = GFX_sof_project_sof_lil36_polish_licences x = 16 y = 18 cost = 5
 
@@ -908,7 +1175,10 @@ prerequisite = { focus = SOF_LIL36_re_establish_belgian_navy }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 36 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 36 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_163 } } add_tech_bonus = { name = SOF_LIL36_re_build_the_fleet_bonus bonus = 1 uses = 1 category = dd_tech } set_country_flag = sof_lil36_paid_163 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ }
 }
 focus = { id = SOF_LIL36_allied_donations icon = GFX_sof_project_sof_lil36_allied_donations x = 24 y = 17 cost = 5
 
@@ -924,7 +1194,10 @@ prerequisite = { focus = SOF_LIL36_re_build_the_fleet }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 36 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 36 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lil36_paid_165 } } 36 = { add_extra_state_shared_building_slots = 1 } add_tech_bonus = { name = SOF_LIL36_port_of_antwerp_bonus bonus = 1 uses = 1 category = naval_equipment } if = { limit = { 36 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } 36 = { add_extra_state_shared_building_slots = 1 if = { limit = { dockyard < 20 free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 50 } } } } set_country_flag = sof_lil36_paid_165 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = SOF_LIL36_corvette_fleet icon = GFX_sof_project_sof_lil36_corvette_fleet x = 26 y = 18 cost = 5
 
@@ -940,7 +1213,10 @@ prerequisite = { focus = SOF_LIL36_port_of_antwerp }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no 45 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 45 = { dockyard < 20 } } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no 45 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 45 = { dockyard < 20 } NOT = { has_country_flag = sof_lil36_paid_167 } } 45 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } } set_country_flag = sof_lil36_paid_167 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = SOF_LIL36_cockerill_shipyards icon = GFX_sof_project_sof_lil36_cockerill_shipyards x = 22 y = 19 cost = 10
 
@@ -981,7 +1257,10 @@ prerequisite = { focus = SOF_LIL36_cockerill_shipyards }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = LIL is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { original_tag = LIL is_subject = no has_capitulated = no NOT = { has_country_flag = sof_lil36_paid_172 } } add_ideas = sof_lil36_naval_finish set_country_flag = sof_lil36_paid_172 } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 
  shared_focus = SOF_NR_LIL_mandate
@@ -1000,4 +1279,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_LIL_diplomatic_ratification icon = GFX_sof_project_sof_lil36_join_allies x = 29 y = 13 cost = 10
+ prerequisite = { focus = SOF_LIL36_join_allies focus = SOF_LIL36_join_comintern focus = SOF_LIL36_repudiate_treaty_with_france }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

@@ -1,1 +1,12 @@
-sof_region_POI_1936_projects = { sof_region_POI_1936_survey = { icon = generic_industry cost = 30 days_remove = 30 fire_only_once = no visible = { NOT = { has_country_flag = sof_region_POI_1936_survey_done } } available = { original_tag = POI 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 } complete_effect = { set_country_flag = sof_region_POI_1936_survey_commissioned } remove_effect = { if = { limit = { original_tag = POI 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 NOT = { has_country_flag = sof_region_POI_1936_survey_done } } set_country_flag = sof_region_POI_1936_survey_done army_experience = 4 } } } }
+﻿sof_region_POI_1936_projects = {
+ sof_region_POI_1936_survey = {
+  icon = generic_industry cost = 30 days_remove = 30 fire_only_once = no
+  visible = { original_tag = POI NOT = { has_country_flag = sof_region_POI_1936_survey_done } }
+  available = { original_tag = POI 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 NOT = { has_country_flag = sof_region_POI_1936_survey_commissioned } }
+  complete_effect = { set_country_flag = sof_region_POI_1936_survey_commissioned }
+  remove_effect = { clr_country_flag = sof_region_POI_1936_survey_commissioned if = { limit = { original_tag = POI 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 NOT = { has_country_flag = sof_region_POI_1936_survey_done } } set_country_flag = sof_region_POI_1936_survey_done army_experience = 15 add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 400 producer = ROOT }add_tech_bonus = { name = sof608_armament_gauges bonus = 1 uses = 1 category = infantry_weapons } } }
+  cancel_trigger = { NOT = { original_tag = POI 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 } }
+  cancel_effect = { clr_country_flag = sof_region_POI_1936_survey_commissioned add_political_power = 15 }
+  ai_will_do = { factor = 6 modifier = { factor = 0.4 political_power < 75 } }
+ }
+}

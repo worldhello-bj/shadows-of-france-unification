@@ -1,1 +1,12 @@
-sof_region_TRS_1936_projects = { sof_region_TRS_1936_survey = { icon = generic_industry cost = 28 days_remove = 30 fire_only_once = no visible = { NOT = { has_country_flag = sof_region_TRS_1936_survey_done } } available = { original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 } complete_effect = { set_country_flag = sof_region_TRS_1936_survey_commissioned } remove_effect = { if = { limit = { original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 NOT = { has_country_flag = sof_region_TRS_1936_survey_done } } set_country_flag = sof_region_TRS_1936_survey_done army_experience = 3 } } } }
+﻿sof_region_TRS_1936_projects = {
+ sof_region_TRS_1936_survey = {
+  icon = generic_industry cost = 28 days_remove = 30 fire_only_once = no
+  visible = { original_tag = TRS NOT = { has_country_flag = sof_region_TRS_1936_survey_done } }
+  available = { original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 NOT = { has_country_flag = sof_region_TRS_1936_survey_commissioned } }
+  complete_effect = { set_country_flag = sof_region_TRS_1936_survey_commissioned }
+  remove_effect = { clr_country_flag = sof_region_TRS_1936_survey_commissioned if = { limit = { original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 NOT = { has_country_flag = sof_region_TRS_1936_survey_done } } set_country_flag = sof_region_TRS_1936_survey_done army_experience = 15 add_equipment_to_stockpile = { type = train_equipment_1 amount = 15 producer = ROOT }add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 100 producer = ROOT } } }
+  cancel_trigger = { NOT = { original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 } }
+  cancel_effect = { clr_country_flag = sof_region_TRS_1936_survey_commissioned add_political_power = 14 }
+  ai_will_do = { factor = 6 modifier = { factor = 0.4 political_power < 75 } }
+ }
+}

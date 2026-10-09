@@ -1,44 +1,34 @@
-sof_left_policy_actions = {
+﻿sof_left_policy_actions = {
 sof_left_mass_assembly = { icon = sof_cw_register cost = 25 fire_only_once = yes
  visible = { has_country_flag = sof_party_paid_pcf_pcf_mandate has_country_flag = sof_kr_party_pcf_in_power has_government = totalist NOT = { has_country_flag = sof_left_mass_assembly_done } }
  available = { has_country_flag = sof_party_paid_pcf_pcf_mandate has_country_flag = sof_kr_party_pcf_in_power has_government = totalist has_capitulated = no NOT = { has_country_flag = sof_left_mass_assembly_done } }
- complete_effect = { add_stability = 0.01 set_country_flag = sof_left_mass_assembly_done }
+ complete_effect = { add_stability = 0.05 add_war_support = 0.05 set_country_flag = sof_left_mass_assembly_done }
  ai_will_do = { factor = 1 }
 }
 sof_left_union_mediation = { icon = sof_cw_register cost = 25 fire_only_once = yes
  visible = { has_country_flag = sof_party_paid_pcf_pcf_workshops has_country_flag = sof_kr_party_pcf_in_power has_government = totalist NOT = { has_country_flag = sof_left_union_mediation_done } }
  available = { has_country_flag = sof_party_paid_pcf_pcf_workshops has_country_flag = sof_kr_party_pcf_in_power has_government = totalist has_capitulated = no NOT = { has_country_flag = sof_left_union_mediation_done } }
- complete_effect = { sof_left_relieve_strike = yes set_country_flag = sof_left_union_mediation_done }
+ complete_effect = { sof_left_relieve_strike = yes add_tech_bonus = { name = sof608_workshop_agreement bonus = 0.5 uses = 1 category = industry } set_country_flag = sof_left_union_mediation_done }
  ai_will_do = { factor = 1 }
 }
 sof_left_food_relief = { icon = sof_cw_register cost = 20 fire_only_once = yes
  visible = { OR = { AND = { has_country_flag = sof_party_paid_pcf_pcf_peasants has_country_flag = sof_kr_party_pcf_in_power has_government = totalist } AND = { has_country_flag = sof_party_paid_prrrs_prrrs_rural has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal } } NOT = { has_country_flag = sof_left_food_relief_done } }
  available = { OR = { AND = { has_country_flag = sof_party_paid_pcf_pcf_peasants has_country_flag = sof_kr_party_pcf_in_power has_government = totalist } AND = { has_country_flag = sof_party_paid_prrrs_prrrs_rural has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal } } has_capitulated = no NOT = { has_country_flag = sof_left_food_relief_done } }
- complete_effect = { add_stability = 0.01 set_country_flag = sof_left_food_relief_done }
+ complete_effect = { add_stability = 0.04 add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 75 producer = ROOT } set_country_flag = sof_left_food_relief_done }
  ai_will_do = { factor = 1 }
 }
-sof_left_public_leisure = { icon = sof_cw_register cost = 0 fire_only_once = yes
- visible = { has_country_flag = sof_party_paid_sfio_sfio_leisure has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat NOT = { has_country_flag = sof_left_public_leisure_done } }
- available = { has_country_flag = sof_party_paid_sfio_sfio_leisure has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat has_capitulated = no NOT = { has_country_flag = sof_left_public_leisure_done } }
- complete_effect = { add_stability = 0.005 add_political_power = 15 set_country_flag = sof_left_public_leisure_done }
- ai_will_do = { factor = 1 }
-}
-sof_left_coalition_mediation = { icon = sof_cw_register cost = 0 fire_only_once = yes
- visible = { has_country_flag = sof_party_paid_prrrs_prrrs_balance has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal NOT = { has_country_flag = sof_left_coalition_mediation_done } }
- available = { has_country_flag = sof_party_paid_prrrs_prrrs_balance has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal has_capitulated = no NOT = { has_country_flag = sof_left_coalition_mediation_done } }
- complete_effect = { add_stability = 0.01 set_country_flag = sof_left_coalition_mediation_done }
- ai_will_do = { factor = 1 }
-}
+
+
 sof_left_workers_preparation = { icon = sof_cw_register cost = 15 fire_only_once = yes
  visible = { has_country_flag = sof_party_paid_pup_pup_bridge has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist NOT = { has_country_flag = sof_left_workers_preparation_done } }
  available = { has_country_flag = sof_party_paid_pup_pup_bridge has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist has_capitulated = no NOT = { has_country_flag = sof_left_workers_preparation_done } }
- complete_effect = { add_stability = 0.005 set_country_flag = sof_left_workers_preparation_done }
+ complete_effect = { army_experience = 20 add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT } set_country_flag = sof_left_workers_preparation_done }
  ai_will_do = { factor = 1 }
 }
 sof_left_humanitarian_relief = { icon = sof_cw_register cost = 25 fire_only_once = yes
  visible = { has_country_flag = sof_party_paid_pup_pup_against_war has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist NOT = { has_country_flag = sof_left_humanitarian_relief_done } }
  available = { has_country_flag = sof_party_paid_pup_pup_against_war has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist has_capitulated = no NOT = { has_country_flag = sof_left_humanitarian_relief_done } }
- complete_effect = { add_stability = 0.01 set_country_flag = sof_left_humanitarian_relief_done }
+ complete_effect = { add_stability = 0.04 add_equipment_to_stockpile = { type = support_equipment_1 amount = 150 producer = ROOT } set_country_flag = sof_left_humanitarian_relief_done }
  ai_will_do = { factor = 1 }
 }
 sof_left_defensive_offer = { icon = sof_cw_offer cost = 35 fire_only_once = yes

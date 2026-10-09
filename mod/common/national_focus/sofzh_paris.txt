@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sofzh_paris country = { factor = 0 modifier = { add = 1000 original_tag = PRS } } default = no reset_on_civilwar = no initial_show_position = { focus = SFP_devalue_the_franc } continuous_focus_position = { x = 50 y = 2200 }
+focus_tree = { id = sofzh_paris country = { factor = 0 modifier = { add = 1000 original_tag = PRS } } default = no reset_on_civilwar = no initial_show_position = { focus = SFP_devalue_the_franc } continuous_focus_position = { x = 50 y = 2200 }
 focus = {
  id = SFP_devalue_the_franc icon = GFX_sof_focus_unique_sfp_devalue_the_franc
  x = 0
@@ -7,7 +7,11 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_devalue_the_franc days = 365 } custom_effect_tooltip = sof_hist_fra_vincent_auriol_unlock_tt  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 focus = {
  id = SFP_autoroutes icon = GFX_sof_focus_unique_sfp_autoroutes
@@ -19,7 +23,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_invest_in_the_metropole icon = GFX_sof_focus_unique_sfp_invest_in_the_metropole
@@ -43,7 +50,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_industrial_expansion icon = GFX_sof_focus_unique_sfp_industrial_expansion
@@ -55,7 +65,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 19 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 19 } add_extra_state_shared_building_slots = 2 if = { limit = { free_building_slots = { building = industrial_complex size > 1 } } add_building_construction = { type = industrial_complex level = 2 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } custom_effect_tooltip = sof_hist_fra_louis_renault_unlock_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_military_factories icon = GFX_sof_focus_unique_sfp_military_factories
@@ -67,7 +80,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 19 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 19 } add_extra_state_shared_building_slots = 2 if = { limit = { free_building_slots = { building = arms_factory size > 1 } } add_building_construction = { type = arms_factory level = 2 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_algerie_france icon = GFX_sof_focus_unique_sfp_algerie_france
@@ -79,7 +95,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_invest_in_the_colonies icon = GFX_sof_focus_unique_sfp_invest_in_the_colonies
@@ -99,7 +118,11 @@ focus = {
     }
    } else = { add_tech_bonus = { name = sof604_paris_local_development bonus = 1 uses = 1 category = industry } }
    }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_invest_in_west_africa icon = GFX_sof_focus_unique_sfp_invest_in_west_africa
@@ -111,7 +134,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_invest_in_indochina icon = GFX_sof_focus_unique_sfp_invest_in_indochina
@@ -123,7 +149,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_invest_in_syria icon = GFX_sof_focus_unique_sfp_invest_in_syria
@@ -135,7 +164,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_colonial_industry icon = GFX_sof_focus_unique_sfp_colonial_industry
@@ -147,7 +179,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_extra_research_slot icon = GFX_sof_focus_unique_sfp_extra_research_slot
@@ -159,7 +194,9 @@ focus = {
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no num_of_factories > 5 amount_research_slots > 1 143 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = SFP_extra_research_slot bonus = 1 uses = 1 category = electronics } } custom_effect_tooltip = sof_hist_fra_irene_joliot_curie_unlock_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_extra_research_slot_2 icon = GFX_sof_focus_unique_sfp_extra_research_slot_2
@@ -171,7 +208,9 @@ focus = {
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no num_of_factories > 11 amount_research_slots > 2 143 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_completed_focus = SFP_extra_research_slot } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = SFP_extra_research_slot_2 bonus = 1 uses = 1 category = electronics } } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_global_integration icon = GFX_sof_focus_unique_sfp_global_integration
@@ -183,7 +222,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_global_investments }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_begin_rearmament icon = GFX_sof_focus_unique_sfp_begin_rearmament
@@ -193,7 +235,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready sofzh_unification_grant_border_goals = yes random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_defensive_focus icon = GFX_sof_focus_unique_sfp_defensive_focus
@@ -230,7 +275,9 @@ focus = {
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_doctrine_cost_reduction = { name = SFP_methodical_battle category = land_doctrine uses = 2 cost_reduction = 0.4 } custom_effect_tooltip = SFP_methodical_battle_balance_note_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_fortification_focus icon = GFX_sof_focus_unique_sfp_fortification_focus
@@ -274,7 +321,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 5.0 add_ideas = sof_van_prs_fra_infantry_focus }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_artillery_focus icon = GFX_sof_focus_unique_sfp_artillery_focus
@@ -285,7 +335,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_artillery_focus bonus = 0.5 uses = 1 category = artillery } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_heavy_armor_focus icon = GFX_sof_focus_unique_sfp_heavy_armor_focus
@@ -296,7 +349,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_heavy_armor_focus bonus = 0.5 uses = 1 category = cat_heavy_armor } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_division_cuirassee icon = GFX_sof_focus_unique_sfp_division_cuirassee
@@ -318,7 +374,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_tech_bonus = { name = SFP_infantry_tanks bonus = 0.5 uses = 1 category = armor } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_special_forces icon = GFX_sof_focus_unique_sfp_special_forces
@@ -340,7 +399,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof20_learn_coast = yes navy_experience = 10 add_tech_bonus = { name = SFP_fusiliers_marine category = tp_tech category = marine_tech uses = 2 bonus = 0.5 } if = { limit = { has_dlc = "Arms Against Tyranny" } add_doctrine_cost_reduction = { cost_reduction = 0.4 uses = 2 category = special_forces_doctrine } } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ }
 }
 focus = {
  id = SFP_aggressive_focus icon = GFX_sof_focus_unique_sfp_aggressive_focus
@@ -352,7 +414,10 @@ focus = {
  prerequisite = { focus = SFP_begin_rearmament }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 25.0 custom_effect_tooltip = sof_hist_fra_maurice_gamelin_unlock_tt custom_effect_tooltip = SFP_aggressive_focus_balance_note_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_battle_of_maneuver icon = GFX_sof_focus_unique_sfp_battle_of_maneuver
@@ -364,7 +429,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof20_learn_plain = yes army_experience = 10 custom_effect_tooltip = SFP_battle_of_maneuver_balance_note_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_motorized_focus icon = GFX_sof_focus_unique_sfp_motorized_focus
@@ -375,7 +443,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 5.0 add_ideas = sof_van_prs_fra_motorized_focus }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_mechanized_focus icon = GFX_sof_focus_unique_sfp_mechanized_focus
@@ -386,7 +457,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_mechanized_focus bonus = 0.5 uses = 1 category = cat_mechanized_equipment } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_light_medium_armor icon = GFX_sof_focus_unique_sfp_light_medium_armor
@@ -397,7 +471,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 5.0 add_tech_bonus = { name = SFP_light_medium_armor bonus = 0.5 uses = 1 category = cat_light_armor category = cat_medium_armor } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_air_dominance icon = GFX_sof_focus_unique_sfp_air_dominance
@@ -432,7 +509,9 @@ focus = {
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_doctrine_cost_reduction = { name = SFP_air_ground_cooperation category = air_doctrine uses = 2 cost_reduction = 0.4 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_flying_artillery icon = GFX_sof_focus_unique_sfp_flying_artillery
@@ -455,7 +534,11 @@ focus = {
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { remove_ideas = sof_van_prs_fra_victors_of_wwi army_experience = 30 add_doctrine_cost_reduction = { name = SFP_army_reform cost_reduction = 0.5 uses = 2 category = land_doctrine } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_form_the_popular_front icon = GFX_sof_focus_unique_sfp_form_the_popular_front
@@ -468,7 +551,9 @@ focus = {
  allow_branch = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_revive_the_national_bloc } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = social_democrat elections_allowed = yes } add_popularity = { ideology = social_democrat popularity = 0.10 } add_stability = 0.05 custom_effect_tooltip = sof_hist_fra_leon_blum_unlock_tt sof_hist_complete_fra_form_the_popular_front = yes }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_invite_communist_ministers icon = GFX_sof_focus_unique_sfp_invite_communist_ministers
@@ -481,7 +566,9 @@ focus = {
  allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_revive_the_national_bloc has_completed_focus = SFP_review_foreign_policy } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = radical_socialist elections_allowed = no } add_popularity = { ideology = radical_socialist popularity = 0.10 } add_stability = -0.03 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_strengthen_the_unions icon = GFX_sof_focus_unique_sfp_strengthen_the_unions
@@ -493,7 +580,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_popularity = { ideology = radical_socialist popularity = 0.05 }  custom_effect_tooltip = sof_tp_focus_PRS_unlock_tt sof_tp_focus_PRS_unlock_effect = yes }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_celebrate_the_commune icon = GFX_sof_focus_unique_sfp_celebrate_the_commune
@@ -505,7 +594,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_popularity = { ideology = radical_socialist popularity = 0.05 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_womens_suffrage icon = GFX_sof_focus_unique_sfp_womens_suffrage
@@ -517,7 +608,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_womens_suffrage add_popularity = { ideology = radical_socialist popularity = 0.05 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_legal_equality icon = GFX_sof_focus_unique_sfp_legal_equality
@@ -529,7 +622,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_popularity = { ideology = radical_socialist popularity = 0.05 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_industrial_collectivization icon = GFX_sof_focus_unique_sfp_industrial_collectivization
@@ -542,7 +637,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_agricultural_collectivization icon = GFX_sof_focus_unique_sfp_agricultural_collectivization
@@ -554,7 +652,10 @@ focus = {
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_agricultural_collectivization add_stability = -0.05 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_force_the_issue icon = GFX_sof_focus_unique_sfp_force_the_issue
@@ -566,7 +667,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = radical_socialist elections_allowed = no } add_stability = -0.05 remove_ideas = sof_van_prs_fra_disjointed_government }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_reconciliation icon = GFX_sof_focus_unique_sfp_reconciliation
@@ -590,7 +693,9 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_political_power = 120 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_anti_fascist_coalition icon = GFX_sof_focus_unique_sfp_anti_fascist_coalition
@@ -601,7 +706,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_anti_fascist_coalition = yes }
+ completion_reward = { add_political_power = 25 custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_anti_fascist_coalition = yes }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -671,7 +776,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { country_exists = STR STR = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } STR = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_revolution_to_the_utmost icon = GFX_sof_focus_unique_sfp_revolution_to_the_utmost
@@ -717,7 +824,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_loyalty_to_the_cause = yes }
+ completion_reward = { add_political_power = 25 custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_loyalty_to_the_cause = yes }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -786,7 +893,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_matignon_agreements if = { limit = { has_idea = sof_van_prs_fra_factory_strikes } remove_ideas = sof_van_prs_fra_factory_strikes } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_nationalize_key_industry icon = GFX_sof_focus_unique_sfp_nationalize_key_industry
@@ -798,7 +908,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } swap_ideas = { remove_idea = sof_van_prs_fra_inefficient_economy_2 add_idea = sof_van_prs_fra_inefficient_economy_1 } } else_if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_1 } remove_ideas = sof_van_prs_fra_inefficient_economy_1 } else = { add_political_power = 50 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_reorganize_the_aviation_industry icon = GFX_sof_focus_unique_sfp_reorganize_the_aviation_industry
@@ -810,7 +923,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_form_the_state_arsenals icon = GFX_sof_focus_unique_sfp_form_the_state_arsenals
@@ -822,7 +938,12 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { has_dlc = "Arms Against Tyranny" } } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_general_work_council icon = GFX_sof_focus_unique_sfp_general_work_council
@@ -835,7 +956,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_1 } remove_ideas = sof_van_prs_fra_inefficient_economy_1 } if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } remove_ideas = sof_van_prs_fra_inefficient_economy_2 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_dirigisme icon = GFX_sof_focus_unique_sfp_dirigisme
@@ -847,7 +971,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_dirigisme }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_national_champions icon = GFX_sof_focus_unique_sfp_national_champions
@@ -859,7 +986,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size > 0 } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_ban_the_leagues icon = GFX_sof_focus_unique_sfp_ban_the_leagues
@@ -884,7 +1014,9 @@ focus = {
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT has_resistance = yes } add_compliance = 10 } add_stability = 0.03 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_expand_the_citizenship icon = GFX_sof_focus_unique_sfp_expand_the_citizenship
@@ -896,7 +1028,9 @@ focus = {
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_expanded_citizenship }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_france_undividable icon = GFX_sof_focus_unique_sfp_france_undividable
@@ -933,7 +1067,12 @@ focus = {
  search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { remove_ideas = sof_van_prs_fra_full_employment add_manpower = 1000 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_review_foreign_policy icon = GFX_sof_focus_unique_sfp_review_foreign_policy
@@ -948,7 +1087,9 @@ focus = {
  allow_branch = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_invite_communist_ministers has_completed_focus = SFP_utilize_the_leagues } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_political_power = 120 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_intervention_in_spain icon = GFX_sof_focus_unique_sfp_intervention_in_spain
@@ -973,7 +1114,10 @@ focus = {
  cost = 5
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { army_experience = 10.0 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = {
  id = SFP_confirm_eastern_commitments icon = GFX_sof_focus_unique_sfp_confirm_eastern_commitments
@@ -996,7 +1140,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 100 add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = ROOT } }
+ completion_reward = { add_political_power = 25 add_political_power = 100 add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = ROOT } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1030,7 +1174,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_country_flag = sof_van_allied_investment }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_coordinate_rearmament icon = GFX_sof_focus_unique_sfp_coordinate_rearmament
@@ -1054,7 +1201,11 @@ focus = {
  search_filters = { FOCUS_FILTER_MANPOWER }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { remove_ideas = sof_van_prs_fra_full_employment add_manpower = 1000 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 2.2 sof607_ai_left = yes }
+ }
 }
 focus = {
  id = SFP_join_the_ententes icon = GFX_sof_focus_unique_sfp_join_the_ententes
@@ -1113,7 +1264,9 @@ focus = {
  search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { remove_ideas = sof_van_prs_fra_disjointed_government }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_go_with_britain icon = GFX_sof_focus_unique_sfp_go_with_britain
@@ -1148,8 +1301,10 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 120 }
- ai_will_do = { factor = 1 }
+ completion_reward = { add_political_power = 25 add_political_power = 120 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_concessions_to_italy icon = GFX_sof_focus_unique_sfp_concessions_to_italy
@@ -1195,7 +1350,9 @@ focus = {
  allow_branch = { NOT = { always = yes } if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_revive_the_national_bloc } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = radical_socialist elections_allowed = no } add_popularity = { ideology = radical_socialist popularity = 0.10 } add_stability = 0.02 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_national_mobilization icon = GFX_sof_focus_unique_sfp_national_mobilization
@@ -1207,7 +1364,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { remove_ideas = sof_van_prs_fra_disjointed_government add_ideas = sof_van_prs_fra_national_mobilization_focus }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_join_comintern icon = GFX_sof_focus_unique_sfp_join_comintern
@@ -1219,8 +1378,10 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_workers_front } set_country_flag = sof_van_coalition_enabled }
- ai_will_do = { factor = 1 }
+ completion_reward = { add_political_power = 25 if = { limit = { is_in_faction = no } add_stability = 0.03 } set_country_flag = sof_van_coalition_enabled }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_humanite_unie icon = GFX_sof_focus_unique_sfp_humanite_unie
@@ -1232,8 +1393,10 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
- ai_will_do = { factor = 1 }
+ completion_reward = { add_political_power = 25 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_revive_the_national_bloc icon = GFX_sof_focus_unique_sfp_revive_the_national_bloc
@@ -1247,7 +1410,9 @@ focus = {
  allow_branch = { if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = authoritarian_democrat elections_allowed = no } add_popularity = { ideology = authoritarian_democrat popularity = 0.10 } add_stability = 0.03 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_laissez_faire icon = GFX_sof_focus_unique_sfp_laissez_faire
@@ -1260,7 +1425,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_tech_bonus = { name = SFP_laissez_faire category = industry uses = 2 bonus = 0.75 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_protect_the_rights_of_man icon = GFX_sof_focus_unique_sfp_protect_the_rights_of_man
@@ -1295,7 +1463,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_market_dynamism }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_agricultural_protectionism icon = GFX_sof_focus_unique_sfp_agricultural_protectionism
@@ -1308,7 +1479,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_agricultural_protectionism }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_economic_devolution icon = GFX_sof_focus_unique_sfp_economic_devolution
@@ -1320,7 +1494,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_2 } swap_ideas = { remove_idea = sof_van_prs_fra_inefficient_economy_2 add_idea = sof_van_prs_fra_inefficient_economy_1 } } else = { add_ideas = sof_van_prs_fra_inefficient_economy_1 } } else_if = { limit = { has_idea = sof_van_prs_fra_inefficient_economy_1 } remove_ideas = sof_van_prs_fra_inefficient_economy_1 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_promote_entrepeneurship icon = GFX_sof_focus_unique_sfp_promote_entrepeneurship
@@ -1332,7 +1509,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_entrepeneurship }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_ban_communism icon = GFX_sof_focus_unique_sfp_ban_communism
@@ -1359,7 +1539,9 @@ focus = {
  allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front has_completed_focus = SFP_review_foreign_policy } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_political_power = 75 add_stability = -0.03 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_national_regeneration icon = GFX_sof_focus_unique_sfp_national_regeneration
@@ -1373,7 +1555,9 @@ focus = {
  allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } NOT = { has_completed_focus = SFP_review_foreign_policy } NOT = { has_completed_focus = SFP_the_council_of_rambouillet } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = national_populist elections_allowed = no } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_destroy_decadence icon = GFX_sof_focus_unique_sfp_destroy_decadence
@@ -1409,7 +1593,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_travail custom_effect_tooltip = SFP_work_balance_note_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_family icon = GFX_sof_focus_unique_sfp_family
@@ -1459,7 +1646,7 @@ focus = {
  
  cost = 5
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 75 }
+ completion_reward = { add_political_power = 25 add_political_power = 75 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1471,7 +1658,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1527,7 +1714,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_paris_congress } set_country_flag = sof_van_coalition_enabled }
+ completion_reward = { add_political_power = 25 if = { limit = { is_in_faction = no } add_stability = 0.03 } set_country_flag = sof_van_coalition_enabled }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1643,7 +1830,9 @@ focus = {
  allow_branch = { NOT = { always = yes } if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = national_populist elections_allowed = no } add_popularity = { ideology = national_populist popularity = 0.10 } add_stability = 0.02 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_army_of_aggression icon = GFX_sof_focus_unique_sfp_army_of_aggression
@@ -1655,7 +1844,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { remove_ideas = sof_van_prs_fra_protected_by_the_maginot_line remove_ideas = sof_van_prs_fra_disjointed_government add_ideas = sof_van_prs_fra_army_of_aggression_focus }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_france_first icon = GFX_sof_focus_unique_sfp_france_first
@@ -1667,8 +1858,10 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = SFP_france_first_balance_note_tt }
- ai_will_do = { factor = 1 }
+ completion_reward = { add_political_power = 25 custom_effect_tooltip = SFP_france_first_balance_note_tt }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_woo_italy icon = GFX_sof_focus_unique_sfp_woo_italy
@@ -1681,7 +1874,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { country_exists = MRS MRS = { sofzh_unification_candidate = yes has_war = no NOT = { has_war_with = ROOT } } has_war = no } MRS = { country_event = { id = sof_van_diplomacy.1 days = 1 } } } else = { add_political_power = 40 } custom_effect_tooltip = SFP_woo_italy_balance_note_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_dismantle_the_democracies icon = GFX_sof_focus_unique_sfp_dismantle_the_democracies
@@ -1693,7 +1888,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_rhone_alpes = yes }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_join_germany icon = GFX_sof_focus_unique_sfp_join_germany
@@ -1705,8 +1902,10 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_eastern_pact } set_country_flag = sof_van_coalition_enabled custom_effect_tooltip = SFP_join_germany_balance_note_tt }
- ai_will_do = { factor = 1 }
+ completion_reward = { add_political_power = 25 if = { limit = { is_in_faction = no } add_stability = 0.03 } set_country_flag = sof_van_coalition_enabled custom_effect_tooltip = SFP_join_germany_balance_note_tt }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_the_council_of_rambouillet icon = GFX_sof_focus_unique_sfp_the_council_of_rambouillet
@@ -1721,7 +1920,9 @@ focus = {
  allow_branch = { always = yes if = { limit = { has_game_rule = { rule = obsolete_focus_branches_visibility option = HIDE } } NOT = { has_completed_focus = SFP_form_the_popular_front } NOT = { has_completed_focus = SFP_review_foreign_policy } NOT = { has_completed_focus = SFP_national_regeneration } } }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_popularity = { ideology = authoritarian_democrat popularity = 0.1 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_revise_the_constitution icon = GFX_sof_focus_unique_sfp_revise_the_constitution
@@ -1733,7 +1934,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_timed_idea = { idea = sof_van_prs_fra_constitutional_revision days = 365 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_repeal_the_law_of_exile icon = GFX_sof_focus_unique_sfp_repeal_the_law_of_exile
@@ -1745,7 +1948,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_political_power = 120 remove_ideas = sof_van_prs_fra_disjointed_government }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_orleanist_restoration icon = GFX_sof_focus_unique_sfp_orleanist_restoration
@@ -1769,7 +1974,9 @@ focus = {
  search_filters = { FOCUS_FILTER_STABILITY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_stability = 0.1 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_the_first_citizen_of_the_state icon = GFX_sof_focus_unique_sfp_the_first_citizen_of_the_state
@@ -1780,7 +1987,9 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_politics = { ruling_party = authoritarian_democrat elections_allowed = no } add_popularity = { ideology = authoritarian_democrat popularity = 0.10 } add_stability = 0.05 }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_counter_action icon = GFX_sof_focus_unique_sfp_counter_action
@@ -1801,7 +2010,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1847,7 +2056,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_aquitaine = yes set_rule = { can_create_factions = yes } }
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_aquitaine = yes add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1871,7 +2080,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_stability = 0.1 }
+ completion_reward = { add_political_power = 25 add_stability = 0.1 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1883,7 +2092,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_politics = { ruling_party = authoritarian_democrat } set_rule = { can_create_factions = yes } }
+ completion_reward = { set_politics = { ruling_party = authoritarian_democrat } add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1907,7 +2116,9 @@ focus = {
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_picardie = yes }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = {
  id = SFP_retribution_for_sedan icon = GFX_sof_focus_unique_sfp_retribution_for_sedan
@@ -1973,7 +2184,12 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { navy_experience = 25.0 random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } custom_effect_tooltip = sof_hist_fra_francois_darlan_unlock_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ }
 }
 focus = {
  id = SFP_colonial_naval_bases icon = GFX_sof_focus_unique_sfp_colonial_naval_bases
@@ -1996,7 +2212,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_the_old_school icon = GFX_sof_focus_unique_sfp_the_old_school
@@ -2009,7 +2228,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT } add_extra_state_shared_building_slots = 2 } if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = ROOT dockyard < 20 is_coastal = yes } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = dockyard size > 0 } } add_building_construction = { type = dockyard level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 40 } } } } else = { add_political_power = 40 } custom_effect_tooltip = SFP_the_old_school_balance_note_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_capital_ship_focus icon = GFX_sof_focus_unique_sfp_capital_ship_focus
@@ -2055,7 +2277,9 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_tech_bonus = { name = SFP_rush_the_richelieus bonus = 0.5 uses = 1 category = bb_tech } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_prioritize_the_joffre icon = GFX_sof_project_sfp_prioritize_the_joffre
@@ -2066,7 +2290,9 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_tech_bonus = { name = SFP_prioritize_the_joffre bonus = 0.5 uses = 1 category = cv_tech } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_the_young_school icon = GFX_sof_focus_unique_sfp_the_young_school
@@ -2079,7 +2305,10 @@ focus = {
  search_filters = { FOCUS_FILTER_INDUSTRY }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_ideas = sof_van_prs_fra_the_young_school custom_effect_tooltip = SFP_the_young_school_balance_note_tt }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = {
  id = SFP_undersea_combat icon = GFX_sof_focus_unique_sfp_undersea_combat
@@ -2125,7 +2354,11 @@ focus = {
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_doctrine_cost_reduction = { name = SFP_naval_doctrine cost_reduction = 0.4 uses = 2 category = naval_doctrine } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ }
 }
 focus = {
  id = SFP_air_focus icon = GFX_sof_focus_unique_sfp_air_focus
@@ -2182,7 +2415,9 @@ focus = {
  search_filters = { FOCUS_FILTER_RESEARCH }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { air_experience = 25 add_doctrine_cost_reduction = { name = SFP_air_doctrine cost_reduction = 0.4 uses = 2 category = air_doctrine } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = {
  id = SFP_heavy_bomber_focus icon = GFX_sof_focus_unique_sfp_heavy_bomber_focus
@@ -2204,7 +2439,10 @@ focus = {
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { add_tech_bonus = { name = SFP_naval_bomber_focus bonus = 0.5 uses = 2 category = naval_bomber } }
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 0.45 num_of_military_factories < 5 }
+  modifier = { factor = 2 original_tag = AJC }
+ }
 }
 
  shared_focus = SOF_NR_PRS_mandate
@@ -2223,4 +2461,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_PRS_diplomatic_ratification icon = GFX_sof_focus_unique_sfp_join_the_ententes x = 34 y = 17 cost = 10
+ prerequisite = { focus = SFP_join_the_ententes focus = SFP_france_leads focus = SFP_join_comintern focus = SFP_humanite_unie focus = SFP_the_congress_of_paris focus = SFP_france_first focus = SFP_join_germany focus = SFP_two_countries_two_crowns focus = SFP_proclaim_the_third_empire }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

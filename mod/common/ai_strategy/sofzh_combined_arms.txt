@@ -1,31 +1,31 @@
-sofzh_usa_unit_production = {
+﻿sofzh_usa_unit_production = {
  allowed = { always = yes }
  enable = { is_ai = yes capital_scope = { sofzh_logistics_french_state = yes } }
  abort_when_not_enabled = yes
- ai_strategy = { type = role_ratio id = paratroopers value = 5 }
+ ai_strategy = { type = role_ratio id = paratroopers value = -60 }
  ai_strategy = { type = role_ratio id = mountaineers value = 2 }
- ai_strategy = { type = role_ratio id = marines value = 10 }
+ ai_strategy = { type = role_ratio id = marines value = -20 }
  ai_strategy = { type = role_ratio id = armor value = 10 }
  ai_strategy = { type = role_ratio id = infantry value = 75 }
  ai_strategy = { type = role_ratio id = mobile value = 10 }
  ai_strategy = { type = unit_ratio id = fighter value = 80 }
  ai_strategy = { type = unit_ratio id = cas value = 10 }
  ai_strategy = { type = unit_ratio id = tactical_bomber value = 10 }
- ai_strategy = { type = unit_ratio id = strategic_bomber value = 5 }
+ ai_strategy = { type = unit_ratio id = strategic_bomber value = 0 }
  ai_strategy = { type = unit_ratio id = naval_bomber value = 10 }
  ai_strategy = { type = equipment_production_factor id = heavy_fighter value = -40 }
- ai_strategy = { type = unit_ratio id = heavy_fighter value = 20 }
+ ai_strategy = { type = unit_ratio id = heavy_fighter value = 5 }
  ai_strategy = { type = equipment_production_factor id = fighter value = 35 }
  ai_strategy = { type = equipment_production_factor id = infantry value = 40 }
  ai_strategy = { type = equipment_production_factor id = artillery value = 25 }
 }
-sofzh_usa_min_fighters = { allowed = { always = yes } enable = { is_ai = yes capital_scope = { sofzh_logistics_french_state = yes } num_of_military_factories > 1 } abort_when_not_enabled = yes
+sofzh_usa_min_fighters = { allowed = { always = yes } enable = { is_ai = yes capital_scope = { sofzh_logistics_french_state = yes } num_of_military_factories > 4 } abort_when_not_enabled = yes
  ai_strategy = { type = equipment_production_min_factories id = fighter value = 1 }
 }
-sofzh_usa_min_tanks = { allowed = { always = yes } enable = { is_ai = yes capital_scope = { sofzh_logistics_french_state = yes } num_of_military_factories > 2 } abort_when_not_enabled = yes
+sofzh_usa_min_tanks = { allowed = { always = yes } enable = { is_ai = yes capital_scope = { sofzh_logistics_french_state = yes } num_of_military_factories > 9 } abort_when_not_enabled = yes
  ai_strategy = { type = equipment_production_min_factories_archetype id = light_tank_chassis value = 1 }
 }
-sofzh_usa_min_combined = { allowed = { always = yes } enable = { is_ai = yes capital_scope = { sofzh_logistics_french_state = yes } num_of_military_factories > 5 } abort_when_not_enabled = yes
+sofzh_usa_min_combined = { allowed = { always = yes } enable = { is_ai = yes capital_scope = { sofzh_logistics_french_state = yes } num_of_military_factories > 15 } abort_when_not_enabled = yes
  ai_strategy = { type = equipment_production_min_factories id = cas value = 1 }
  ai_strategy = { type = equipment_production_min_factories_archetype id = medium_tank_chassis value = 1 }
 }
@@ -39,5 +39,23 @@ sofzh_frontline_pressure = {
  allowed = { always = yes }
  enable = { is_ai = yes has_war = yes capital_scope = { sofzh_logistics_french_state = yes } }
  abort_when_not_enabled = yes
- ai_strategy = { type = front_control country_trigger = { always = yes } priority = 5 execution_type = rush_weak manual_attack = yes }
+ ai_strategy = { type = front_control country_trigger = { always = yes } priority = 5 execution_type = balanced manual_attack = yes }
+}
+
+sof607_small_region_production = {
+ allowed = { always = yes }
+ enable = { is_ai = yes sof_tp_country = yes num_of_military_factories < 6 }
+ abort_when_not_enabled = yes
+ ai_strategy = { type = equipment_production_factor id = infantry value = 60 }
+ ai_strategy = { type = equipment_production_factor id = support value = 25 }
+ ai_strategy = { type = role_ratio id = armor value = -70 }
+ ai_strategy = { type = role_ratio id = mobile value = -40 }
+ ai_strategy = { type = role_ratio id = paratroopers value = -40 }
+}
+sof607_reconstruction_building = {
+ allowed = { always = yes }
+ enable = { is_ai = yes sof_tp_country = yes sof_tp_phase_two = yes has_war = no }
+ abort_when_not_enabled = yes
+ ai_strategy = { type = build_building id = industrial_complex value = 35 }
+ ai_strategy = { type = build_building id = infrastructure value = 20 }
 }

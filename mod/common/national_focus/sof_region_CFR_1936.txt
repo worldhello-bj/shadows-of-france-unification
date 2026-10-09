@@ -1,4 +1,4 @@
-﻿focus_tree = {
+focus_tree = {
  id = sof_region_CFR_1936
  country = { factor = 0 modifier = { add = 300 original_tag = CFR } }
  default = no
@@ -14,7 +14,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_assembly_paid } } set_country_flag = sof_region_CFR_1936_assembly_paid add_political_power = 30 set_country_flag = sofzh_unification_started }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
 }
 focus = {
@@ -27,7 +30,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_ledger_paid } } set_country_flag = sof_region_CFR_1936_ledger_paid add_stability = 0.03  add_political_power = 50 } }
 }
 focus = {
@@ -40,7 +46,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 2.2 sof607_ai_left = yes }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_workers_paid } } set_country_flag = sof_region_CFR_1936_workers_paid add_stability = 0.02 } }
 }
 focus = {
@@ -92,7 +101,9 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_charter_paid } } set_country_flag = sof_region_CFR_1936_charter_paid add_political_power = 25 add_stability = 0.015 set_country_flag = sofzh_unification_war_ready } }
 }
 focus = {
@@ -131,7 +142,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 2 AND = { amount_research_slots < 3 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } } }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.7 has_war = no }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_schools_paid } } set_country_flag = sof_region_CFR_1936_schools_paid if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_cfr_1936_schools_electronics bonus = 1 uses = 1 category = electronics } }   } }
 }
 focus = {
@@ -222,7 +236,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_army_tyre_paid } } set_country_flag = sof_region_CFR_1936_army_tyre_paid add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT }  sof604_register_region_cfr_1936_army_tyre_network = yes } }
 }
 focus = {
@@ -326,7 +343,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 292 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_dispersal_paid } } set_country_flag = sof_region_CFR_1936_dispersal_paid add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT }  army_experience = 20 } }
 }
 focus = {
@@ -352,7 +372,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_inspection_paid } } set_country_flag = sof_region_CFR_1936_inspection_paid sof604_register_region_cfr_1936_inspection_network = yes } }
 }
 focus = {
@@ -378,7 +401,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_resilience_paid } } set_country_flag = sof_region_CFR_1936_resilience_paid sof604_register_region_cfr_1936_resilience_network = yes } }
 }
 focus = {
@@ -391,7 +417,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 372 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_roads_paid } } set_country_flag = sof_region_CFR_1936_roads_paid army_experience = 8 } }
 }
 focus = {
@@ -430,7 +459,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 372 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 384 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_villages_paid } } set_country_flag = sof_region_CFR_1936_villages_paid sof604_register_region_cfr_1936_villages_network = yes } }
 }
 focus = {
@@ -443,7 +475,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 372 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_convoys_paid } } set_country_flag = sof_region_CFR_1936_convoys_paid army_experience = 15 add_tech_bonus = { name = sof_region_CFR_1936_convoys_a1_bonus bonus = 0.2 uses = 1 category = motorized_equipment } } }
 }
 focus = {
@@ -469,7 +504,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 372 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_ambulance_paid } } set_country_flag = sof_region_CFR_1936_ambulance_paid army_experience = 12 add_tech_bonus = { name = sof_region_CFR_1936_ambulance_a1_bonus bonus = 0.2 uses = 1 category = support_tech } } }
 }
 focus = {
@@ -482,7 +520,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_reserve_paid } } set_country_flag = sof_region_CFR_1936_reserve_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT } army_experience = 20 add_doctrine_cost_reduction = { name = sof603_south_cfr_reserve_land_doctrine cost_reduction = 0.5 uses = 1 category = land_doctrine }  sof604_register_region_cfr_1936_reserve_policy = yes } }
 }
 focus = {
@@ -495,7 +536,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_depots_paid } } set_country_flag = sof_region_CFR_1936_depots_paid army_experience = 10 add_tech_bonus = { name = sof_region_CFR_1936_depots_a1_bonus bonus = 0.3 uses = 1 category = train_tech } } }
 }
 focus = {
@@ -560,7 +604,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_manual_paid } } set_country_flag = sof_region_CFR_1936_manual_paid sof604_register_region_cfr_1936_manual_policy = yes } }
 }
 focus = {
@@ -573,7 +620,9 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.2 OR = { has_government = market_liberal has_government = social_conservative has_government = social_liberal } }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_chamber_paid } } set_country_flag = sof_region_CFR_1936_chamber_paid add_political_power = 15 } }
 }
 focus = {
@@ -588,6 +637,8 @@ focus = {
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_offer_paid } } set_country_flag = sof_region_CFR_1936_offer_paid LYO = { country_event = { id = sof_region_CFR_1936.1 days = 1 } } } }
+
+ bypass = { OR = { NOT = { country_exists = LYO } LYO = { OR = { is_subject = yes has_capitulated = yes } } } }
 }
 focus = {
  id = sof_region_CFR_1936_exchange
@@ -599,7 +650,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_country_flag = sof_region_CFR_1936_accepted exists = LYO NOT = { has_war_with = LYO } LYO = { is_subject = no has_capitulated = no } }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_exchange_paid } } set_country_flag = sof_region_CFR_1936_exchange_paid add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } army_experience = 20  add_tech_bonus = { name = sof_region_CFR_1936_exchange_a0_bonus bonus = 1 uses = 1 category = motorized_equipment } } }
 }
 focus = {
@@ -625,7 +679,9 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_relief_paid } } set_country_flag = sof_region_CFR_1936_relief_paid add_stability = 0.02 add_tech_bonus = { name = sof_region_CFR_1936_relief_a1_bonus bonus = 0.2 uses = 1 category = industry } } }
 }
 focus = {
@@ -651,7 +707,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_register_paid } } set_country_flag = sof_region_CFR_1936_register_paid add_political_power = 35 } }
 }
 focus = {
@@ -664,7 +723,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_restore_paid } } set_country_flag = sof_region_CFR_1936_restore_paid add_tech_bonus = { name = sof_region_CFR_1936_restore_a0_bonus bonus = 0.35 uses = 1 category = train_tech } } }
 }
 focus = {
@@ -690,7 +752,9 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 372 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } check_variable = { num_owned_states > 99 } num_of_controlled_states > 99 }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_national_paid } } set_country_flag = sof_region_CFR_1936_national_paid set_country_flag = sof_van_national_congress add_political_power = 40 } }
 }
 focus = {
@@ -703,7 +767,10 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 372 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_covenant_paid } } set_country_flag = sof_region_CFR_1936_covenant_paid add_stability = 0.035 sof604_register_region_cfr_1936_covenant_policy = yes } }
 }
 focus = {
@@ -729,7 +796,9 @@ focus = {
  available = { original_tag = CFR is_subject = no has_capitulated = no 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 3 AND = { amount_research_slots < 3 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } }  has_completed_focus = sof_region_CFR_1936_schools }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_calibration_paid } } set_country_flag = sof_region_CFR_1936_calibration_paid if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_cfr_1936_calibration_electronics bonus = 1 uses = 1 category = electronics } }   } }
 }
 focus = {
@@ -788,4 +857,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_CFR_diplomatic_ratification icon = GFX_sof_project_sof_region_cfr_1936_offer x = -2 y = 6 cost = 10
+ prerequisite = { focus = sof_region_CFR_1936_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }
