@@ -1,9 +1,9 @@
-# Local policies: bounded rewards only; generator owns one-shot focus receipts.
+﻿# Local policies: bounded rewards only; generator owns one-shot focus receipts.
 sof_left_relieve_strike = {
  if = { limit = { has_idea = strikes_3 } swap_ideas = { remove_idea = strikes_3 add_idea = strikes_2 } }
  else_if = { limit = { has_idea = strikes_2 } swap_ideas = { remove_idea = strikes_2 add_idea = strikes_1 } }
  else_if = { limit = { has_idea = strikes_1 } remove_ideas = strikes_1 }
- else = { add_stability = 0.005 }
+ else = { add_stability = 0.04 }
 }
 sof_left_build_core_infrastructure = {
  if = { limit = { any_owned_state = { is_owned_by = ROOT is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = infrastructure size > 0 } } }

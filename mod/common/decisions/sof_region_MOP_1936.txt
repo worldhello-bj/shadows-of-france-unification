@@ -1,1 +1,12 @@
-sof_region_MOP_1936_projects = { sof_region_MOP_1936_survey = { icon = generic_industry cost = 25 days_remove = 30 fire_only_once = no visible = { NOT = { has_country_flag = sof_region_MOP_1936_survey_done } } available = { original_tag = MOP 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 } complete_effect = { set_country_flag = sof_region_MOP_1936_survey_commissioned } remove_effect = { if = { limit = { original_tag = MOP 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 NOT = { has_country_flag = sof_region_MOP_1936_survey_done } } set_country_flag = sof_region_MOP_1936_survey_done add_stability = 0.005 } } } }
+﻿sof_region_MOP_1936_projects = {
+ sof_region_MOP_1936_survey = {
+  icon = generic_industry cost = 25 days_remove = 30 fire_only_once = no
+  visible = { original_tag = MOP NOT = { has_country_flag = sof_region_MOP_1936_survey_done } }
+  available = { original_tag = MOP 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 NOT = { has_country_flag = sof_region_MOP_1936_survey_commissioned } }
+  complete_effect = { set_country_flag = sof_region_MOP_1936_survey_commissioned }
+  remove_effect = { clr_country_flag = sof_region_MOP_1936_survey_commissioned if = { limit = { original_tag = MOP 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 NOT = { has_country_flag = sof_region_MOP_1936_survey_done } } set_country_flag = sof_region_MOP_1936_survey_done add_stability = 0.04 add_tech_bonus = { name = sof608_wine_credit bonus = 1 uses = 1 category = industry }449 = { add_extra_state_shared_building_slots = 1 } } }
+  cancel_trigger = { NOT = { original_tag = MOP 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 } }
+  cancel_effect = { clr_country_flag = sof_region_MOP_1936_survey_commissioned add_political_power = 12.5 }
+  ai_will_do = { factor = 6 modifier = { factor = 0.4 political_power < 75 } }
+ }
+}
