@@ -1,0 +1,22 @@
+﻿ideas = {
+ country = {
+  sof606_met_municipal_finance = {
+   allowed = { always = no } allowed_civil_war = { always = no } removal_cost = -1
+   picture = sof_project_sof_ne_met_municipal
+   do_effect = { has_country_flag = sof_ne_MET_municipal_paid NOT = { has_country_flag = sof_ne_MET_prefect_paid } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT } }
+   modifier = { production_speed_industrial_complex_factor = 0.10 consumer_goods_factor = -0.03 }
+  }
+  sof606_met_prefect_budget = {
+   allowed = { always = no } allowed_civil_war = { always = no } removal_cost = -1
+   picture = sof_project_sof_ne_met_prefect
+   do_effect = { has_country_flag = sof_ne_MET_prefect_paid NOT = { has_country_flag = sof_ne_MET_municipal_paid } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT } }
+   modifier = { political_power_factor = 0.10 stability_factor = 0.03 }
+  }
+  sof606_brt_neutral_patrols = {
+   allowed = { always = no } allowed_civil_war = { always = no } removal_cost = -1
+   picture = sof_project_sof_brt_f23
+   do_effect = { has_country_flag = sof_brt_grant_f23 is_subject = no has_capitulated = no OR = { has_idea = sof_brt_isolation_2 has_idea = sof_brt_isolation_3 } any_owned_state = { is_coastal = yes is_fully_controlled_by = ROOT } }
+   modifier = { naval_detection = 0.10 convoy_escort_efficiency = 0.10 }
+  }
+ }
+}

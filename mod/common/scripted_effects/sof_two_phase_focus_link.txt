@@ -1,0 +1,13 @@
+sof_tp_focus_office_effect = { if = { limit = { sof_tp_country = yes } set_country_flag = sof_tp_diplomatic_office } }
+sof_tp_focus_congress_effect = { if = { limit = { sof_tp_country = yes } set_country_flag = sof_tp_diplomatic_office set_country_flag = sof_tp_congress_institution } }
+sof_tp_focus_federal_effect = { if = { limit = { sof_tp_country = yes NOT = { has_country_flag = sof_tp_charter_central } } set_country_flag = sof_tp_constitution_institution set_country_flag = sof_tp_charter_federal } }
+sof_tp_focus_unitary_effect = { if = { limit = { sof_tp_country = yes NOT = { has_country_flag = sof_tp_charter_federal } } set_country_flag = sof_tp_constitution_institution set_country_flag = sof_tp_charter_central } }
+sof_tp_focus_settlement_effect = { if = { limit = { NOT = { has_country_flag = sof_tp_focus_settlement_paid } } set_country_flag = sof_tp_focus_settlement_paid if = { limit = { OR = { has_country_flag = sof_tp_reconstruction_complete has_country_flag = sof_tp_transport_restored has_country_flag = sof_tp_demobilisation_completed } } add_political_power = 75 } if = { limit = { OR = { has_country_flag = sof_tp_aid_delivered has_country_flag = sof_tp_industry_restored } } add_tech_bonus = { name = sof_tp_industrial_aid_bonus bonus = 0.25 uses = 1 category = industry } } else_if = { limit = { OR = { has_country_flag = sof_tp_force_executed has_country_flag = sof_tp_army_coordination_delivered } } army_experience = 15 } } }
+sof_tp_focus_PRS_unlock_effect = { set_country_flag = sof_tp_paris_workers }
+sof_tp_focus_LIL_unlock_effect = { set_country_flag = sof_tp_lille_board }
+sof_tp_focus_BRD_unlock_effect = { set_country_flag = sof_tp_bordeaux_credit }
+sof_tp_focus_REN_unlock_effect = { set_country_flag = sof_tp_brittany_guarantees }
+sof_tp_focus_PRS_result_effect = { if = { limit = { has_country_flag = sof_tp_treaty_signed NOT = { has_country_flag = sof_tp_focus_PRS_result_paid } } set_country_flag = sof_tp_focus_PRS_result_paid add_stability = 0.05 add_political_power = 50 } }
+sof_tp_focus_LIL_result_effect = { if = { limit = { has_country_flag = sof_tp_aid_delivered NOT = { has_country_flag = sof_tp_focus_LIL_result_paid } } set_country_flag = sof_tp_focus_LIL_result_paid add_stability = 0.05 } }
+sof_tp_focus_BRD_result_effect = { if = { limit = { has_country_flag = sof_tp_aid_delivered NOT = { has_country_flag = sof_tp_focus_BRD_result_paid } } set_country_flag = sof_tp_focus_BRD_result_paid add_stability = 0.05 } }
+sof_tp_focus_REN_result_effect = { if = { limit = { has_country_flag = sof_tp_aid_delivered NOT = { has_country_flag = sof_tp_focus_REN_result_paid } } set_country_flag = sof_tp_focus_REN_result_paid add_stability = 0.05 } }

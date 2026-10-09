@@ -1,0 +1,1428 @@
+﻿# Concrete native helpers generated from the original intended parameter values.
+
+# {"arguments": {"COMMUNISM": "ROOT.communist_support_before_change", "DEMOCRATIC": "ROOT.democratic_support_before_change", "FASCISM": "ROOT.fascist_support_before_change", "NEUTRALITY": "ROOT.neutrality_support_before_change"}, "template": "sof_kr_set_family_popularities"}
+sof606_kr_set_family_popularities_de2d956930 = {
+set_temp_variable = { sof_kr_old_family = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@radical_socialist }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_totalist = party_popularity@totalist }
+divide_temp_variable = { sof_kr_new_totalist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_totalist = ROOT.communist_support_before_change }
+set_temp_variable = { sof_kr_new_syndicalist = party_popularity@syndicalist }
+divide_temp_variable = { sof_kr_new_syndicalist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_syndicalist = ROOT.communist_support_before_change }
+set_temp_variable = { sof_kr_new_radical_socialist = party_popularity@radical_socialist }
+divide_temp_variable = { sof_kr_new_radical_socialist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_radical_socialist = ROOT.communist_support_before_change }
+}
+else = {
+set_temp_variable = { sof_kr_new_totalist = 0 }
+set_temp_variable = { sof_kr_new_syndicalist = 0 }
+set_temp_variable = { sof_kr_new_radical_socialist = ROOT.communist_support_before_change }
+}
+set_temp_variable = { sof_kr_old_family = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@social_conservative }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_social_democrat = party_popularity@social_democrat }
+divide_temp_variable = { sof_kr_new_social_democrat = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_social_democrat = ROOT.democratic_support_before_change }
+set_temp_variable = { sof_kr_new_social_liberal = party_popularity@social_liberal }
+divide_temp_variable = { sof_kr_new_social_liberal = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_social_liberal = ROOT.democratic_support_before_change }
+set_temp_variable = { sof_kr_new_market_liberal = party_popularity@market_liberal }
+divide_temp_variable = { sof_kr_new_market_liberal = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_market_liberal = ROOT.democratic_support_before_change }
+set_temp_variable = { sof_kr_new_social_conservative = party_popularity@social_conservative }
+divide_temp_variable = { sof_kr_new_social_conservative = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_social_conservative = ROOT.democratic_support_before_change }
+}
+else = {
+set_temp_variable = { sof_kr_new_social_democrat = 0 }
+set_temp_variable = { sof_kr_new_social_liberal = ROOT.democratic_support_before_change }
+set_temp_variable = { sof_kr_new_market_liberal = 0 }
+set_temp_variable = { sof_kr_new_social_conservative = 0 }
+}
+set_temp_variable = { sof_kr_old_family = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@paternal_autocrat }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_authoritarian_democrat = party_popularity@authoritarian_democrat }
+divide_temp_variable = { sof_kr_new_authoritarian_democrat = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_authoritarian_democrat = ROOT.neutrality_support_before_change }
+set_temp_variable = { sof_kr_new_paternal_autocrat = party_popularity@paternal_autocrat }
+divide_temp_variable = { sof_kr_new_paternal_autocrat = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_paternal_autocrat = ROOT.neutrality_support_before_change }
+}
+else = {
+set_temp_variable = { sof_kr_new_authoritarian_democrat = ROOT.neutrality_support_before_change }
+set_temp_variable = { sof_kr_new_paternal_autocrat = 0 }
+}
+set_temp_variable = { sof_kr_old_family = party_popularity@national_populist }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_national_populist = party_popularity@national_populist }
+divide_temp_variable = { sof_kr_new_national_populist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_national_populist = ROOT.fascist_support_before_change }
+}
+else = {
+set_temp_variable = { sof_kr_new_national_populist = ROOT.fascist_support_before_change }
+}
+set_popularities = {
+totalist = sof_kr_new_totalist
+syndicalist = sof_kr_new_syndicalist
+radical_socialist = sof_kr_new_radical_socialist
+social_democrat = sof_kr_new_social_democrat
+social_liberal = sof_kr_new_social_liberal
+market_liberal = sof_kr_new_market_liberal
+social_conservative = sof_kr_new_social_conservative
+authoritarian_democrat = sof_kr_new_authoritarian_democrat
+paternal_autocrat = sof_kr_new_paternal_autocrat
+national_populist = sof_kr_new_national_populist
+}
+}
+
+# {"arguments": {"COMMUNISM": "communism_support_var", "DEMOCRATIC": "democratic_support_var", "FASCISM": "fascism_support_var", "NEUTRALITY": "neutrality_support_var"}, "template": "sof_kr_set_family_popularities"}
+sof606_kr_set_family_popularities_f499d09fcc = {
+set_temp_variable = { sof_kr_old_family = party_popularity@totalist }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@syndicalist }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@radical_socialist }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_totalist = party_popularity@totalist }
+divide_temp_variable = { sof_kr_new_totalist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_totalist = communism_support_var }
+set_temp_variable = { sof_kr_new_syndicalist = party_popularity@syndicalist }
+divide_temp_variable = { sof_kr_new_syndicalist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_syndicalist = communism_support_var }
+set_temp_variable = { sof_kr_new_radical_socialist = party_popularity@radical_socialist }
+divide_temp_variable = { sof_kr_new_radical_socialist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_radical_socialist = communism_support_var }
+}
+else = {
+set_temp_variable = { sof_kr_new_totalist = 0 }
+set_temp_variable = { sof_kr_new_syndicalist = 0 }
+set_temp_variable = { sof_kr_new_radical_socialist = communism_support_var }
+}
+set_temp_variable = { sof_kr_old_family = party_popularity@social_democrat }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@social_liberal }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@market_liberal }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@social_conservative }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_social_democrat = party_popularity@social_democrat }
+divide_temp_variable = { sof_kr_new_social_democrat = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_social_democrat = democratic_support_var }
+set_temp_variable = { sof_kr_new_social_liberal = party_popularity@social_liberal }
+divide_temp_variable = { sof_kr_new_social_liberal = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_social_liberal = democratic_support_var }
+set_temp_variable = { sof_kr_new_market_liberal = party_popularity@market_liberal }
+divide_temp_variable = { sof_kr_new_market_liberal = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_market_liberal = democratic_support_var }
+set_temp_variable = { sof_kr_new_social_conservative = party_popularity@social_conservative }
+divide_temp_variable = { sof_kr_new_social_conservative = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_social_conservative = democratic_support_var }
+}
+else = {
+set_temp_variable = { sof_kr_new_social_democrat = 0 }
+set_temp_variable = { sof_kr_new_social_liberal = democratic_support_var }
+set_temp_variable = { sof_kr_new_market_liberal = 0 }
+set_temp_variable = { sof_kr_new_social_conservative = 0 }
+}
+set_temp_variable = { sof_kr_old_family = party_popularity@authoritarian_democrat }
+add_to_temp_variable = { sof_kr_old_family = party_popularity@paternal_autocrat }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_authoritarian_democrat = party_popularity@authoritarian_democrat }
+divide_temp_variable = { sof_kr_new_authoritarian_democrat = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_authoritarian_democrat = neutrality_support_var }
+set_temp_variable = { sof_kr_new_paternal_autocrat = party_popularity@paternal_autocrat }
+divide_temp_variable = { sof_kr_new_paternal_autocrat = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_paternal_autocrat = neutrality_support_var }
+}
+else = {
+set_temp_variable = { sof_kr_new_authoritarian_democrat = neutrality_support_var }
+set_temp_variable = { sof_kr_new_paternal_autocrat = 0 }
+}
+set_temp_variable = { sof_kr_old_family = party_popularity@national_populist }
+if = { limit = { check_variable = { var = sof_kr_old_family value = 0 compare = greater_than } }
+set_temp_variable = { sof_kr_new_national_populist = party_popularity@national_populist }
+divide_temp_variable = { sof_kr_new_national_populist = sof_kr_old_family }
+multiply_temp_variable = { sof_kr_new_national_populist = fascism_support_var }
+}
+else = {
+set_temp_variable = { sof_kr_new_national_populist = fascism_support_var }
+}
+set_popularities = {
+totalist = sof_kr_new_totalist
+syndicalist = sof_kr_new_syndicalist
+radical_socialist = sof_kr_new_radical_socialist
+social_democrat = sof_kr_new_social_democrat
+social_liberal = sof_kr_new_social_liberal
+market_liberal = sof_kr_new_market_liberal
+social_conservative = sof_kr_new_social_conservative
+authoritarian_democrat = sof_kr_new_authoritarian_democrat
+paternal_autocrat = sof_kr_new_paternal_autocrat
+national_populist = sof_kr_new_national_populist
+}
+}
+
+# {"arguments": {"DONOR": "ROOT", "TYPE": "2"}, "template": "sof_tp_begin_contract"}
+sof606_tp_begin_contract_76e25c4d68 = {
+ set_country_flag = sof_tp_contract_active clr_country_flag = sof_tp_contract_defaulted clr_country_flag = sof_tp_contract_started clr_country_flag = sof_tp_contract_ready
+ set_variable = { sof_tp_contract_partner = ROOT } set_variable = { sof_tp_contract_type = 2 }
+ set_variable = { sof_tp_contract_progress = 0 } set_variable = { sof_tp_contract_days_left = 180 } set_variable = { sof_tp_contract_work_left = 0 }
+ if = { limit = { check_variable = { sof_tp_contract_type = 3 } } set_variable = { sof_tp_contract_days_left = 120 } }
+ if = { limit = { check_variable = { sof_tp_contract_type = 1 } } set_country_flag = sof_tp_aid_due@ROOT }
+}
+
+# {"arguments": {"DONOR": "FROM", "TYPE": "FROM.sof_tp_offer_terms_sent"}, "template": "sof_tp_begin_contract"}
+sof606_tp_begin_contract_cb369420bc = {
+ set_country_flag = sof_tp_contract_active clr_country_flag = sof_tp_contract_defaulted clr_country_flag = sof_tp_contract_started clr_country_flag = sof_tp_contract_ready
+ set_variable = { sof_tp_contract_partner = FROM } set_variable = { sof_tp_contract_type = FROM.sof_tp_offer_terms_sent }
+ set_variable = { sof_tp_contract_progress = 0 } set_variable = { sof_tp_contract_days_left = 180 } set_variable = { sof_tp_contract_work_left = 0 }
+ if = { limit = { check_variable = { sof_tp_contract_type = 3 } } set_variable = { sof_tp_contract_days_left = 120 } }
+ if = { limit = { check_variable = { sof_tp_contract_type = 1 } } set_country_flag = sof_tp_aid_due@FROM }
+}
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_cancel_outgoing_target_effect"}
+sof606_tp_cancel_outgoing_target_effect_064d0d3f33 = { if = { limit = { FROM = { sof_tp_cancel_outgoing_target = yes } } add_to_variable = { sof_tp_trust = -10 } add_to_variable = { sof_tp_legitimacy = -5 } FROM = { add_to_variable = { sof_tp_trust = -5 } set_country_flag = sof_tp_contract_defaulted country_event = { id = sof_tp_contract.5 days = 1 } sof_tp_clear_contract = yes } } }
+
+# {"arguments": {"TARGET": "var:sof_tp_selected_country"}, "template": "sof_tp_cancel_outgoing_target_effect"}
+sof606_tp_cancel_outgoing_target_effect_99bb89d317 = { if = { limit = { var:sof_tp_selected_country = { sof_tp_cancel_outgoing_target = yes } } add_to_variable = { sof_tp_trust = -10 } add_to_variable = { sof_tp_legitimacy = -5 } var:sof_tp_selected_country = { add_to_variable = { sof_tp_trust = -5 } set_country_flag = sof_tp_contract_defaulted country_event = { id = sof_tp_contract.5 days = 1 } sof_tp_clear_contract = yes } } }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_08d547586d = { if = { limit = { CFR = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = CFR expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_19a27199b7 = { if = { limit = { FROM = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = FROM expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_1bae144db3 = { if = { limit = { CHL = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = CHL expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_3562338e50 = { if = { limit = { MRS = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = MRS expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_40560573c1 = { if = { limit = { LIL = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = LIL expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_4aa2b085da = { if = { limit = { BRD = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = BRD expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_5aa5e2e877 = { if = { limit = { AJC = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = AJC expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_64a778c307 = { if = { limit = { TRS = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = TRS expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_6b63881fe7 = { if = { limit = { ROU = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = ROU expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_824c5ccde5 = { if = { limit = { REN = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = REN expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_82ce53914f = { if = { limit = { PRS = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = PRS expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_8c711e9f39 = { if = { limit = { POI = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = POI expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_91771f7ccd = { if = { limit = { AMI = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = AMI expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_990ba7ede4 = { if = { limit = { TOU = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = TOU expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_9aecfd40b6 = { if = { limit = { NAN = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = NAN expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_a8bfb7fa65 = { if = { limit = { LYO = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = LYO expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_b6049c580e = { if = { limit = { MOP = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = MOP expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_c2ad3976c4 = { if = { limit = { MET = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = MET expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_d6f3d14dcb = { if = { limit = { DIJ = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = DIJ expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_d84ca97826 = { if = { limit = { STR = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = STR expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_challenge_rival_target_effect"}
+sof606_tp_challenge_rival_target_effect_e29ac32fef = { if = { limit = { BES = { sof_tp_challenge_target = yes } } add_political_power = -75 create_wargoal = { type = annex_everything target = BES expire = 180 } add_to_variable = { sof_tp_trust = -5 } } }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_081493853c = { if = { limit = { CHL = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = CHL type = annex_everything } } }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_17a0c5ec44 = { if = { limit = { POI = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = POI type = annex_everything } } }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_3a604d6d65 = { if = { limit = { FROM = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = FROM type = annex_everything } } }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_4869622194 = { if = { limit = { ROU = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = ROU type = annex_everything } } }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_4b18883489 = { if = { limit = { REN = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = REN type = annex_everything } } }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_53723a7932 = { if = { limit = { DIJ = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = DIJ type = annex_everything } } }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_5ab2a76360 = { if = { limit = { CFR = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = CFR type = annex_everything } } }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_6119891db0 = { if = { limit = { PRS = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = PRS type = annex_everything } } }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_7c14cbbacf = { if = { limit = { BRD = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = BRD type = annex_everything } } }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_857d4ea029 = { if = { limit = { BES = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = BES type = annex_everything } } }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_87ffd57fd5 = { if = { limit = { MOP = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = MOP type = annex_everything } } }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_949dcf279d = { if = { limit = { TRS = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = TRS type = annex_everything } } }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_9acef29c94 = { if = { limit = { STR = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = STR type = annex_everything } } }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_a39f0c6ceb = { if = { limit = { AMI = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = AMI type = annex_everything } } }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_b1073a0de2 = { if = { limit = { MET = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = MET type = annex_everything } } }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_b80dd79a21 = { if = { limit = { NAN = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = NAN type = annex_everything } } }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_ba355b2504 = { if = { limit = { TOU = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = TOU type = annex_everything } } }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_d0e5cf4b48 = { if = { limit = { MRS = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = MRS type = annex_everything } } }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_dc73f08d0a = { if = { limit = { LIL = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = LIL type = annex_everything } } }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_de5c315e35 = { if = { limit = { LYO = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = LYO type = annex_everything } } }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_enforce_claim_target_effect"}
+sof606_tp_enforce_claim_target_effect_ef9b5d87f9 = { if = { limit = { AJC = { sof_tp_enforce_target = yes } } set_country_flag = sof_tp_force_executed declare_war_on = { target = AJC type = annex_everything } } }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_0bc28d734a = { if = { limit = { MET = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { MET = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 MET = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { MET = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 MET = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { MET = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 MET = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ MET = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_10b8089cd7 = { if = { limit = { LIL = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { LIL = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 LIL = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { LIL = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 LIL = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { LIL = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 LIL = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ LIL = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_3e24fd40d3 = { if = { limit = { POI = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { POI = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 POI = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { POI = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 POI = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { POI = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 POI = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ POI = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_3fffae919d = { if = { limit = { BRD = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { BRD = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 BRD = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { BRD = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 BRD = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { BRD = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 BRD = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ BRD = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_56bfa21c2d = { if = { limit = { ROU = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { ROU = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 ROU = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { ROU = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 ROU = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { ROU = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 ROU = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ ROU = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_5990c7fa89 = { if = { limit = { TOU = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { TOU = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 TOU = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { TOU = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 TOU = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { TOU = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 TOU = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ TOU = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_5e64aac023 = { if = { limit = { TRS = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { TRS = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 TRS = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { TRS = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 TRS = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { TRS = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 TRS = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ TRS = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_7095cb1085 = { if = { limit = { BES = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { BES = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 BES = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { BES = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 BES = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { BES = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 BES = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ BES = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_98ac7a4e16 = { if = { limit = { MOP = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { MOP = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 MOP = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { MOP = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 MOP = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { MOP = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 MOP = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ MOP = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_a7edac428c = { if = { limit = { AMI = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { AMI = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 AMI = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { AMI = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 AMI = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { AMI = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 AMI = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ AMI = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_ab4fc4c3db = { if = { limit = { CFR = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { CFR = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 CFR = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { CFR = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 CFR = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { CFR = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 CFR = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ CFR = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_b0ab6c3b10 = { if = { limit = { AJC = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { AJC = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 AJC = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { AJC = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 AJC = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { AJC = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 AJC = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ AJC = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_b92c6ee788 = { if = { limit = { NAN = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { NAN = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 NAN = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { NAN = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 NAN = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { NAN = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 NAN = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ NAN = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_c2928123a1 = { if = { limit = { FROM = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { FROM = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 FROM = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { FROM = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 FROM = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { FROM = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 FROM = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ FROM = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_c2c3294fcb = { if = { limit = { DIJ = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { DIJ = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 DIJ = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { DIJ = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 DIJ = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { DIJ = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 DIJ = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ DIJ = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_ca723953d2 = { if = { limit = { PRS = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { PRS = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 PRS = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { PRS = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 PRS = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { PRS = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 PRS = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ PRS = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_d73b3ed3d2 = { if = { limit = { LYO = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { LYO = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 LYO = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { LYO = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 LYO = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { LYO = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 LYO = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ LYO = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_dafb853c3e = { if = { limit = { MRS = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { MRS = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 MRS = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { MRS = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 MRS = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { MRS = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 MRS = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ MRS = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_dbfeb737e5 = { if = { limit = { CHL = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { CHL = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 CHL = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { CHL = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 CHL = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { CHL = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 CHL = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ CHL = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_e91f99b7b0 = { if = { limit = { STR = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { STR = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 STR = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { STR = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 STR = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { STR = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 STR = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ STR = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_execute_contract_target_effect"}
+sof606_tp_execute_contract_target_effect_f16dd0881a = { if = { limit = { REN = { sof_tp_execute_contract_target = yes } }
+ if = { limit = { REN = { check_variable = { sof_tp_contract_type = 1 } } } add_political_power = -75 REN = { set_variable = { sof_tp_contract_work_left = 60 } set_variable = { sof_tp_contract_duration = 60 } } }
+ else_if = { limit = { REN = { check_variable = { sof_tp_contract_type = 2 } } } add_political_power = -40 REN = { add_political_power = 40 set_variable = { sof_tp_contract_work_left = 90 } set_variable = { sof_tp_contract_duration = 90 } set_country_flag = { flag = sof_tp_administrative_transition days = 90 } } }
+ else_if = { limit = { REN = { check_variable = { sof_tp_contract_type = 3 } } } add_political_power = -50 army_experience = -20 REN = { set_variable = { sof_tp_contract_work_left = 45 } set_variable = { sof_tp_contract_duration = 45 } } }
+ REN = { set_country_flag = sof_tp_contract_started }
+} }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_10177460ec = { sof606_tp_execute_contract_target_effect_f16dd0881a = yes }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_21d557d797 = { sof606_tp_execute_contract_target_effect_c2c3294fcb = yes }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_22f630c552 = { sof606_tp_execute_contract_target_effect_a7edac428c = yes }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_28fdb1234a = { sof606_tp_execute_contract_target_effect_56bfa21c2d = yes }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_2a4e4b6732 = { sof606_tp_execute_contract_target_effect_10b8089cd7 = yes }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_2aab9bbff4 = { sof606_tp_execute_contract_target_effect_5990c7fa89 = yes }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_3a049e1d94 = { sof606_tp_execute_contract_target_effect_ab4fc4c3db = yes }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_4097b655e9 = { sof606_tp_execute_contract_target_effect_d73b3ed3d2 = yes }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_5165f94218 = { sof606_tp_execute_contract_target_effect_c2928123a1 = yes }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_61415d493d = { sof606_tp_execute_contract_target_effect_dbfeb737e5 = yes }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_6b128f6e7a = { sof606_tp_execute_contract_target_effect_ca723953d2 = yes }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_8c2cfc46fb = { sof606_tp_execute_contract_target_effect_e91f99b7b0 = yes }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_8cd8e9d38b = { sof606_tp_execute_contract_target_effect_3fffae919d = yes }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_9f1e74840a = { sof606_tp_execute_contract_target_effect_dafb853c3e = yes }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_abe596edcd = { sof606_tp_execute_contract_target_effect_b0ab6c3b10 = yes }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_b07e63ec40 = { sof606_tp_execute_contract_target_effect_3e24fd40d3 = yes }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_c88187c1aa = { sof606_tp_execute_contract_target_effect_5e64aac023 = yes }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_ce8a69f167 = { sof606_tp_execute_contract_target_effect_98ac7a4e16 = yes }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_d191acd947 = { sof606_tp_execute_contract_target_effect_7095cb1085 = yes }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_d6c03af9d7 = { sof606_tp_execute_contract_target_effect_b92c6ee788 = yes }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_fulfil_aid_target_effect"}
+sof606_tp_fulfil_aid_target_effect_dd73137d88 = { sof606_tp_execute_contract_target_effect_0bc28d734a = yes }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_158d63706a = { if = { limit = { DIJ = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@DIJ days = 30 }
+ DIJ = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_19a4780367 = { if = { limit = { TOU = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@TOU days = 30 }
+ TOU = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_22be348ef0 = { if = { limit = { BES = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@BES days = 30 }
+ BES = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_230d33b290 = { if = { limit = { PRS = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@PRS days = 30 }
+ PRS = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_271673340f = { if = { limit = { STR = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@STR days = 30 }
+ STR = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_3010b42d48 = { if = { limit = { CHL = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@CHL days = 30 }
+ CHL = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_39d7e512e1 = { if = { limit = { AJC = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@AJC days = 30 }
+ AJC = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_4580c79ca7 = { if = { limit = { FROM = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@FROM days = 30 }
+ FROM = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_52077fd633 = { if = { limit = { POI = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@POI days = 30 }
+ POI = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_5eb2b63aa2 = { if = { limit = { LYO = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@LYO days = 30 }
+ LYO = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_6058f28900 = { if = { limit = { CFR = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@CFR days = 30 }
+ CFR = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_818a712298 = { if = { limit = { NAN = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@NAN days = 30 }
+ NAN = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_95f4fef032 = { if = { limit = { MOP = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@MOP days = 30 }
+ MOP = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_97127d3575 = { if = { limit = { ROU = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@ROU days = 30 }
+ ROU = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_ac797af8b9 = { if = { limit = { REN = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@REN days = 30 }
+ REN = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_ae95dfece7 = { if = { limit = { TRS = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@TRS days = 30 }
+ TRS = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_d36abaf2ce = { if = { limit = { MRS = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@MRS days = 30 }
+ MRS = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_f446831b3a = { if = { limit = { AMI = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@AMI days = 30 }
+ AMI = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_f5116eb7eb = { if = { limit = { LIL = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@LIL days = 30 }
+ LIL = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_f551c0193f = { if = { limit = { BRD = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@BRD days = 30 }
+ BRD = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_invite_congress_target_effect"}
+sof606_tp_invite_congress_target_effect_f576dfdd6f = { if = { limit = { MET = { sof_tp_congress_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_invite_to@MET days = 30 }
+ MET = { set_country_flag = { flag = sof_tp_invite_from@ROOT days = 30 } country_event = { id = sof_tp.2 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_007da9b97b = { if = { limit = { POI = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@POI days = 30 }
+ POI = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_0f2082c8dd = { if = { limit = { LYO = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@LYO days = 30 }
+ LYO = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_1a2be72240 = { if = { limit = { NAN = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@NAN days = 30 }
+ NAN = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_240f85052b = { if = { limit = { BRD = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@BRD days = 30 }
+ BRD = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_3efeefb795 = { if = { limit = { CFR = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@CFR days = 30 }
+ CFR = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_5ce8926b65 = { if = { limit = { MRS = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@MRS days = 30 }
+ MRS = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_5f1b3906c6 = { if = { limit = { AMI = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@AMI days = 30 }
+ AMI = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_633c6d6dc7 = { if = { limit = { MOP = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@MOP days = 30 }
+ MOP = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_6c53d11a81 = { if = { limit = { ROU = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@ROU days = 30 }
+ ROU = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_7ed1469461 = { if = { limit = { BES = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@BES days = 30 }
+ BES = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_7faec6dad0 = { if = { limit = { AJC = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@AJC days = 30 }
+ AJC = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_8bc1718694 = { if = { limit = { DIJ = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@DIJ days = 30 }
+ DIJ = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_9c04f5d3b1 = { if = { limit = { STR = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@STR days = 30 }
+ STR = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_aa7d1e60f3 = { if = { limit = { CHL = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@CHL days = 30 }
+ CHL = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_ab20149860 = { if = { limit = { TRS = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@TRS days = 30 }
+ TRS = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_c014caeda6 = { if = { limit = { TOU = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@TOU days = 30 }
+ TOU = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_c16bafe751 = { if = { limit = { PRS = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@PRS days = 30 }
+ PRS = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_cceb7b08ba = { if = { limit = { REN = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@REN days = 30 }
+ REN = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_cedbaa078c = { if = { limit = { FROM = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@FROM days = 30 }
+ FROM = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_f4008720b8 = { if = { limit = { MET = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@MET days = 30 }
+ MET = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_membership_request_target_effect"}
+sof606_tp_membership_request_target_effect_f583f500f9 = { if = { limit = { LIL = { sof_tp_membership_target = yes } political_power > 24 }
+ add_political_power = -25 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_membership_to@LIL days = 30 }
+ LIL = { set_country_flag = { flag = sof_tp_membership_from@ROOT days = 30 } country_event = { id = sof_tp.1 days = 1 } }
+} }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_0d25f11529 = {
+ if = { limit = { BRD = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@BRD days = 30 }
+  BRD = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { BRD = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes BRD = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@BRD days = 30 }
+  BRD = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_19616b20e3 = {
+ if = { limit = { BES = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@BES days = 30 }
+  BES = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { BES = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes BES = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@BES days = 30 }
+  BES = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_1dd96b8594 = {
+ if = { limit = { TRS = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@TRS days = 30 }
+  TRS = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { TRS = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes TRS = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@TRS days = 30 }
+  TRS = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_44629a1eb1 = {
+ if = { limit = { STR = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@STR days = 30 }
+  STR = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { STR = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes STR = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@STR days = 30 }
+  STR = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_49d47a510c = {
+ if = { limit = { LIL = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@LIL days = 30 }
+  LIL = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { LIL = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes LIL = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@LIL days = 30 }
+  LIL = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_59a8c0375f = {
+ if = { limit = { REN = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@REN days = 30 }
+  REN = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { REN = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes REN = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@REN days = 30 }
+  REN = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_5aa9ab463c = {
+ if = { limit = { NAN = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@NAN days = 30 }
+  NAN = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { NAN = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes NAN = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@NAN days = 30 }
+  NAN = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_6a98feeb2c = {
+ if = { limit = { MRS = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@MRS days = 30 }
+  MRS = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { MRS = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes MRS = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@MRS days = 30 }
+  MRS = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_8981eb7e1d = {
+ if = { limit = { CHL = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@CHL days = 30 }
+  CHL = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { CHL = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes CHL = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@CHL days = 30 }
+  CHL = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_9a4f728328 = {
+ if = { limit = { MOP = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@MOP days = 30 }
+  MOP = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { MOP = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes MOP = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@MOP days = 30 }
+  MOP = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_9f59bcdea3 = {
+ if = { limit = { DIJ = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@DIJ days = 30 }
+  DIJ = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { DIJ = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes DIJ = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@DIJ days = 30 }
+  DIJ = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_b0c5e7f0d5 = {
+ if = { limit = { AJC = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@AJC days = 30 }
+  AJC = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { AJC = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes AJC = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@AJC days = 30 }
+  AJC = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_de184aecd1 = {
+ if = { limit = { POI = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@POI days = 30 }
+  POI = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { POI = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes POI = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@POI days = 30 }
+  POI = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_e8a1b39cd4 = {
+ if = { limit = { PRS = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@PRS days = 30 }
+  PRS = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { PRS = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes PRS = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@PRS days = 30 }
+  PRS = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_f1bc228431 = {
+ if = { limit = { CFR = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@CFR days = 30 }
+  CFR = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { CFR = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes CFR = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@CFR days = 30 }
+  CFR = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_f44aff6a21 = {
+ if = { limit = { TOU = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@TOU days = 30 }
+  TOU = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { TOU = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes TOU = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@TOU days = 30 }
+  TOU = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_f77f433052 = {
+ if = { limit = { AMI = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@AMI days = 30 }
+  AMI = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { AMI = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes AMI = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@AMI days = 30 }
+  AMI = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_f8b3b2fd26 = {
+ if = { limit = { LYO = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@LYO days = 30 }
+  LYO = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { LYO = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes LYO = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@LYO days = 30 }
+  LYO = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_fb8a2048c9 = {
+ if = { limit = { ROU = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@ROU days = 30 }
+  ROU = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { ROU = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes ROU = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@ROU days = 30 }
+  ROU = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_fc9d5757d6 = {
+ if = { limit = { FROM = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@FROM days = 30 }
+  FROM = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { FROM = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes FROM = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@FROM days = 30 }
+  FROM = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_offer_union_target_effect"}
+sof606_tp_offer_union_target_effect_fd0e7f200a = {
+ if = { limit = { MET = { sof_tp_contract_final_target = yes } }
+  set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_final_to@MET days = 30 }
+  MET = { set_country_flag = { flag = sof_tp_final_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_final_pending days = 30 } country_event = { id = sof_tp_contract.3 days = 1 } }
+ }
+ else_if = { limit = { MET = { sof_tp_union_target = yes } political_power > 49 }
+  add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 }
+  set_variable = { sof_tp_offer_terms_sent = sof_tp_offer_terms } if = { limit = { check_variable = { sof_tp_offer_terms_sent < 1 } } set_variable = { sof_tp_offer_terms_sent = 1 } }
+  if = { limit = { is_ai = yes MET = { has_country_flag = sof_tp_industrial_contract_paid } } set_variable = { sof_tp_offer_terms_sent = 2 } if = { limit = { army_experience > 39 } random_list = { 70 = { set_variable = { sof_tp_offer_terms_sent = 2 } } 30 = { set_variable = { sof_tp_offer_terms_sent = 3 } } } } }
+  set_country_flag = { flag = sof_tp_union_to@MET days = 30 }
+  MET = { set_country_flag = { flag = sof_tp_union_from@ROOT days = 30 } country_event = { id = sof_tp_contract.1 days = 1 } }
+ }
+ }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_10363f05e6 = { if = { limit = { CHL = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ CHL = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { CHL = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = CHL }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = CHL expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_2e665b9c7c = { if = { limit = { LIL = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ LIL = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { LIL = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = LIL }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = LIL expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_40d811770e = { if = { limit = { MRS = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ MRS = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { MRS = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = MRS }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = MRS expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_424e474ff9 = { if = { limit = { AMI = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ AMI = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { AMI = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = AMI }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = AMI expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_44bf02d25d = { if = { limit = { NAN = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ NAN = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { NAN = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = NAN }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = NAN expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_4a211fe8a7 = { if = { limit = { MET = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ MET = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { MET = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = MET }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = MET expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_66076635c8 = { if = { limit = { LYO = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ LYO = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { LYO = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = LYO }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = LYO expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_6d1c310ff8 = { if = { limit = { BRD = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ BRD = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { BRD = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = BRD }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = BRD expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_6d771ffb67 = { if = { limit = { DIJ = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ DIJ = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { DIJ = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = DIJ }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = DIJ expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_8053695bae = { if = { limit = { POI = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ POI = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { POI = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = POI }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = POI expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_8722261d41 = { if = { limit = { MOP = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ MOP = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { MOP = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = MOP }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = MOP expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_934718a838 = { if = { limit = { STR = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ STR = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { STR = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = STR }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = STR expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_a462fccd52 = { if = { limit = { TRS = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ TRS = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { TRS = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = TRS }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = TRS expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_b0a43f2f7c = { if = { limit = { CFR = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ CFR = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { CFR = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = CFR }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = CFR expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_b1e754218c = { if = { limit = { TOU = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ TOU = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { TOU = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = TOU }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = TOU expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_c9c59b2b8b = { if = { limit = { AJC = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ AJC = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { AJC = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = AJC }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = AJC expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_cd1685eec9 = { if = { limit = { FROM = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ FROM = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { FROM = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = FROM }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = FROM expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_e38608b682 = { if = { limit = { PRS = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ PRS = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { PRS = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = PRS }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = PRS expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_eb4933a8b9 = { if = { limit = { BES = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ BES = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { BES = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = BES }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = BES expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_f27c9a1189 = { if = { limit = { ROU = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ ROU = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { ROU = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = ROU }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = ROU expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_press_claim_target_effect"}
+sof606_tp_press_claim_target_effect_f328221083 = { if = { limit = { REN = { sof_tp_claim_target = yes } }
+ add_political_power = -75 add_to_variable = { sof_tp_trust = -15 } add_to_variable = { sof_tp_legitimacy = -10 }
+ REN = { set_country_flag = { flag = sof_tp_claim_cooldown@ROOT days = 180 } }
+ if = { limit = { REN = { is_in_faction_with = ROOT } }
+  if = { limit = { is_faction_leader = yes } remove_from_faction = REN }
+  else = { leave_faction = yes set_variable = { sof_tp_bloc = 0 } }
+ }
+ create_wargoal = { type = annex_everything target = REN expire = 180 }
+ sof_tp_refresh = yes
+} }
+
+# {"arguments": {"TARGET": "CFR"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_0678f4f8af = { if = { limit = { CFR = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@CFR days = 30 } CFR = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "MRS"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_10965aaa46 = { if = { limit = { MRS = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@MRS days = 30 } MRS = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "ROU"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_140f5795cd = { if = { limit = { ROU = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@ROU days = 30 } ROU = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "LYO"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_21be94c4cc = { if = { limit = { LYO = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@LYO days = 30 } LYO = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "POI"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_231e4a631d = { if = { limit = { POI = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@POI days = 30 } POI = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "TRS"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_35aa428dad = { if = { limit = { TRS = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@TRS days = 30 } TRS = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "BES"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_438e3e52b0 = { if = { limit = { BES = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@BES days = 30 } BES = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "REN"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_5bb324125a = { if = { limit = { REN = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@REN days = 30 } REN = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "TOU"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_6a0620a1fc = { if = { limit = { TOU = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@TOU days = 30 } TOU = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "BRD"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_6f749dca33 = { if = { limit = { BRD = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@BRD days = 30 } BRD = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "MOP"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_7993206d05 = { if = { limit = { MOP = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@MOP days = 30 } MOP = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "CHL"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_8255848232 = { if = { limit = { CHL = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@CHL days = 30 } CHL = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "FROM"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_8717e9d8d4 = { if = { limit = { FROM = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@FROM days = 30 } FROM = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "LIL"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_91971fca62 = { if = { limit = { LIL = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@LIL days = 30 } LIL = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "STR"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_9803d51f0c = { if = { limit = { STR = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@STR days = 30 } STR = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "AMI"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_b16ee7f5be = { if = { limit = { AMI = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@AMI days = 30 } AMI = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "NAN"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_d4614e5d15 = { if = { limit = { NAN = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@NAN days = 30 } NAN = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "DIJ"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_d8c8d9ac6b = { if = { limit = { DIJ = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@DIJ days = 30 } DIJ = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "PRS"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_e76f0a08d1 = { if = { limit = { PRS = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@PRS days = 30 } PRS = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "MET"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_f429b17fa5 = { if = { limit = { MET = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@MET days = 30 } MET = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }
+
+# {"arguments": {"TARGET": "AJC"}, "template": "sof_tp_seek_settlement_target_effect"}
+sof606_tp_seek_settlement_target_effect_f5ada95b61 = { if = { limit = { AJC = { sof_tp_settlement_target = yes } political_power > 49 } add_political_power = -50 set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } set_country_flag = { flag = sof_tp_settlement_to@AJC days = 30 } AJC = { set_country_flag = { flag = sof_tp_settlement_from@ROOT days = 30 } country_event = { id = sof_tp.9 days = 1 } } } }

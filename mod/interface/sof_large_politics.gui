@@ -1,49 +1,673 @@
-guiTypes = {
-containerWindowType = { name = "sof_large_politics_window" orientation = CENTER position = { x = -590 y = -290 } size = { width = 1180 height = 650 } moveable = yes click_to_front = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" }
+﻿guiTypes = {
+ containerWindowType = {
+  name = "sof_large_politics_window"
+  orientation = UPPER_LEFT
+  position = { x = 2% y = 80 }
+  size = { width = 96% height = 100%% max = { width = 1220 height = 840 } }
+  clipping = yes
+  click_to_front = yes
+  background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg"  alwaystransparent = no }
+  instantTextBoxType = {
+   name = "sof_large_politics_window_scroll_hint"
+   position = { x = 16 y = 9 }
+   font = "hoi_16mbs"
+   text = "sof_refined_gui_scroll_hint"
+   maxWidth = 600 maxHeight = 22 fixedsize = yes
+   alwaystransparent = yes
+  }
+  containerWindowType = {
+   name = "sof_large_politics_window_viewport"
+   position = { x = 0 y = 38 }
+   size = { width = 100%% height = 100%% }
+   margin = { left = 8 right = 22 top = 0 bottom = 22 }
+   clipping = yes
+   verticalScrollbar = "right_vertical_slider"
+   horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+   smooth_scrolling = yes
+   containerWindowType = {
+    name = "sof_large_politics_window_canvas"
+    position = { x = 0 y = 0 }
+    size = { width = 1180 height = 780 }
 
-instantTextBoxType = { name = "sof_large_politics_title" position = { x = 24 y = 20 } font = "hoi_36header" text = "sof_large_politics_title" maxWidth = 1080 maxHeight = 40 format = left }
-instantTextBoxType = { name = "sof_large_politics_subtitle" position = { x = 25 y = 65 } font = "hoi_16mbs" text = "sof_large_politics_subtitle" maxWidth = 1100 maxHeight = 35 format = left }
-containerWindowType = { name = "sof_party_card_totalist" position = { x = 24 y = 112 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_totalist" position = { x = 40 y = 124 } font = "hoi_24header" text = "totalist" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_totalist" position = { x = 424 y = 132 } font = "hoi_24header" text = "sof_party_value_totalist" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_totalist" position = { x = 40 y = 160 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_syndicalist" position = { x = 24 y = 208 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_syndicalist" position = { x = 40 y = 220 } font = "hoi_24header" text = "syndicalist" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_syndicalist" position = { x = 424 y = 228 } font = "hoi_24header" text = "sof_party_value_syndicalist" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_syndicalist" position = { x = 40 y = 256 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_radical_socialist" position = { x = 24 y = 304 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_radical_socialist" position = { x = 40 y = 316 } font = "hoi_24header" text = "radical_socialist" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_radical_socialist" position = { x = 424 y = 324 } font = "hoi_24header" text = "sof_party_value_radical_socialist" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_radical_socialist" position = { x = 40 y = 352 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_social_democrat" position = { x = 24 y = 400 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_social_democrat" position = { x = 40 y = 412 } font = "hoi_24header" text = "social_democrat" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_social_democrat" position = { x = 424 y = 420 } font = "hoi_24header" text = "sof_party_value_social_democrat" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_social_democrat" position = { x = 40 y = 448 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_social_liberal" position = { x = 24 y = 496 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_social_liberal" position = { x = 40 y = 508 } font = "hoi_24header" text = "social_liberal" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_social_liberal" position = { x = 424 y = 516 } font = "hoi_24header" text = "sof_party_value_social_liberal" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_social_liberal" position = { x = 40 y = 544 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_market_liberal" position = { x = 596 y = 112 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_market_liberal" position = { x = 612 y = 124 } font = "hoi_24header" text = "market_liberal" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_market_liberal" position = { x = 996 y = 132 } font = "hoi_24header" text = "sof_party_value_market_liberal" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_market_liberal" position = { x = 612 y = 160 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_social_conservative" position = { x = 596 y = 208 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_social_conservative" position = { x = 612 y = 220 } font = "hoi_24header" text = "social_conservative" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_social_conservative" position = { x = 996 y = 228 } font = "hoi_24header" text = "sof_party_value_social_conservative" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_social_conservative" position = { x = 612 y = 256 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_authoritarian_democrat" position = { x = 596 y = 304 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_authoritarian_democrat" position = { x = 612 y = 316 } font = "hoi_24header" text = "authoritarian_democrat" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_authoritarian_democrat" position = { x = 996 y = 324 } font = "hoi_24header" text = "sof_party_value_authoritarian_democrat" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_authoritarian_democrat" position = { x = 612 y = 352 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_paternal_autocrat" position = { x = 596 y = 400 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_paternal_autocrat" position = { x = 612 y = 412 } font = "hoi_24header" text = "paternal_autocrat" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_paternal_autocrat" position = { x = 996 y = 420 } font = "hoi_24header" text = "sof_party_value_paternal_autocrat" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_paternal_autocrat" position = { x = 612 y = 448 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-containerWindowType = { name = "sof_party_card_national_populist" position = { x = 596 y = 496 } size = { width = 548 height = 84 } background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } }
-instantTextBoxType = { name = "sof_party_label_national_populist" position = { x = 612 y = 508 } font = "hoi_24header" text = "national_populist" maxWidth = 340 maxHeight = 28 format = left }
-instantTextBoxType = { name = "sof_party_value_national_populist" position = { x = 996 y = 516 } font = "hoi_24header" text = "sof_party_value_national_populist" maxWidth = 120 maxHeight = 32 format = left }
-instantTextBoxType = { name = "sof_party_ruling_national_populist" position = { x = 612 y = 544 } font = "hoi_16mbs" text = "sof_party_ruling" maxWidth = 480 maxHeight = 24 format = left }
-instantTextBoxType = { name = "sof_large_politics_footer" position = { x = 24 y = 610 } font = "hoi_16mbs" text = "sof_large_politics_footer" maxWidth = 1100 maxHeight = 30 format = left }
-buttonType = { name = "sof_large_politics_close" position = { x = 1143 y = 16 } quadTextureSprite = "GFX_closebutton" shortcut = "ESCAPE" clicksound = click_close }
+
+
+
+
+
+
+
+
+
+
+    clipping = yes
+    background = {
+   name = "Background"
+   quadTextureSprite = "GFX_tiled_plain_bg"
+  }
+iconType = {
+   name = "sof_large_politics_window_chrome"
+   position = {
+    x = 0
+    y = 0
+   }
+   spriteType = "GFX_sof_polish_panel_politics"
+   alwaystransparent = no
+  }
+
+containerWindowType = { name = "sof_polish_politics_clip" position = { x = 620 y = 10 } size = { width = 420 height = 60 } clipping = yes
+ iconType = { name = "sof_polish_politics_art" position = { x = 0 y = -38 } spriteType = "GFX_sof_polish_politics_art" scale = 0.19764706 alwaystransparent = yes }
 }
+instantTextBoxType = {
+   name = "sof_large_politics_title"
+   position = {
+    x = 66
+    y = 16
+   }
+   font = "hoi_24header"
+   text = "sof_large_politics_title"
+   maxWidth = 530
+   maxHeight = 31
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_large_politics_subtitle"
+   position = {
+    x = 68
+    y = 49
+   }
+   font = "hoi_16mbs"
+   text = "sof_large_politics_subtitle"
+   maxWidth = 530
+   maxHeight = 26
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_totalist"
+   position = {
+    x = 24
+    y = 112
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_totalist"
+   position = {
+    x = 40
+    y = 124
+   }
+   font = "hoi_24header"
+   text = "totalist"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_totalist"
+   position = {
+    x = 424
+    y = 132
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_totalist"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_totalist"
+   position = {
+    x = 40
+    y = 186
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_syndicalist"
+   position = {
+    x = 24
+    y = 234
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_syndicalist"
+   position = {
+    x = 40
+    y = 246
+   }
+   font = "hoi_24header"
+   text = "syndicalist"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_syndicalist"
+   position = {
+    x = 424
+    y = 254
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_syndicalist"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_syndicalist"
+   position = {
+    x = 40
+    y = 308
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_radical_socialist"
+   position = {
+    x = 24
+    y = 356
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_radical_socialist"
+   position = {
+    x = 40
+    y = 368
+   }
+   font = "hoi_24header"
+   text = "radical_socialist"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_radical_socialist"
+   position = {
+    x = 424
+    y = 376
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_radical_socialist"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_radical_socialist"
+   position = {
+    x = 40
+    y = 430
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_social_democrat"
+   position = {
+    x = 24
+    y = 478
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_social_democrat"
+   position = {
+    x = 40
+    y = 490
+   }
+   font = "hoi_24header"
+   text = "social_democrat"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_social_democrat"
+   position = {
+    x = 424
+    y = 498
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_social_democrat"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_social_democrat"
+   position = {
+    x = 40
+    y = 552
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_social_liberal"
+   position = {
+    x = 24
+    y = 600
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_social_liberal"
+   position = {
+    x = 40
+    y = 612
+   }
+   font = "hoi_24header"
+   text = "social_liberal"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_social_liberal"
+   position = {
+    x = 424
+    y = 620
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_social_liberal"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_social_liberal"
+   position = {
+    x = 40
+    y = 674
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_market_liberal"
+   position = {
+    x = 596
+    y = 112
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_market_liberal"
+   position = {
+    x = 612
+    y = 124
+   }
+   font = "hoi_24header"
+   text = "market_liberal"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_market_liberal"
+   position = {
+    x = 996
+    y = 132
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_market_liberal"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_market_liberal"
+   position = {
+    x = 612
+    y = 186
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_social_conservative"
+   position = {
+    x = 596
+    y = 234
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_social_conservative"
+   position = {
+    x = 612
+    y = 246
+   }
+   font = "hoi_24header"
+   text = "social_conservative"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_social_conservative"
+   position = {
+    x = 996
+    y = 254
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_social_conservative"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_social_conservative"
+   position = {
+    x = 612
+    y = 308
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_authoritarian_democrat"
+   position = {
+    x = 596
+    y = 356
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_authoritarian_democrat"
+   position = {
+    x = 612
+    y = 368
+   }
+   font = "hoi_24header"
+   text = "authoritarian_democrat"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_authoritarian_democrat"
+   position = {
+    x = 996
+    y = 376
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_authoritarian_democrat"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_authoritarian_democrat"
+   position = {
+    x = 612
+    y = 430
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_paternal_autocrat"
+   position = {
+    x = 596
+    y = 478
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_paternal_autocrat"
+   position = {
+    x = 612
+    y = 490
+   }
+   font = "hoi_24header"
+   text = "paternal_autocrat"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_paternal_autocrat"
+   position = {
+    x = 996
+    y = 498
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_paternal_autocrat"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_paternal_autocrat"
+   position = {
+    x = 612
+    y = 552
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+containerWindowType = {
+   name = "sof_party_card_national_populist"
+   position = {
+    x = 596
+    y = 600
+   }
+   size = {
+    width = 548
+    height = 110
+   }
+   
+  }
+instantTextBoxType = {
+   name = "sof_party_label_national_populist"
+   position = {
+    x = 612
+    y = 612
+   }
+   font = "hoi_24header"
+   text = "national_populist"
+   maxWidth = 340
+   maxHeight = 52
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_value_national_populist"
+   position = {
+    x = 996
+    y = 620
+   }
+   font = "hoi_24header"
+   text = "sof_party_value_national_populist"
+   maxWidth = 120
+   maxHeight = 32
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_party_ruling_national_populist"
+   position = {
+    x = 612
+    y = 674
+   }
+   font = "hoi_16mbs"
+   text = "sof_party_ruling"
+   maxWidth = 480
+   maxHeight = 24
+   format = left
+  
+   fixedsize = yes
+  }
+instantTextBoxType = {
+   name = "sof_large_politics_footer"
+   position = {
+    x = 24
+    y = 742
+   }
+   font = "hoi_16mbs"
+   text = "sof_large_politics_footer"
+   maxWidth = 1100
+   maxHeight = 20
+   format = left
+  
+   fixedsize = yes
+  }
+   
+
+
+instantTextBoxType = { name = "sof606_large_party_pcf" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_pcf" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_sfio" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_sfio" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_prrrs" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_prrrs" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_usr" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_usr" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_pup" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_pup" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_rg_ad" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_rg_ad" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_fr_urd" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_fr_urd" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_pdp" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_pdp" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_upr" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_upr" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_doriot" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_doriot" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+instantTextBoxType = { name = "sof606_large_party_ppf" position = { x = 24 y = 82 } font = "hoi_18mbs" text = "sof606_current_party_ppf" maxWidth = 1100 maxHeight = 24 fixedsize = yes alwaystransparent = yes }
+}
+  
+ background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+}
+  buttonType = {
+   name = "sof_large_politics_close"
+   position = { x = -54 y = 7 }
+   quadTextureSprite = "GFX_sof_tp_popup_close"
+   shortcut = "ESCAPE"
+   clicksound = click_close
+   buttonText = "sof_tp_popup_close"
+   buttonFont = "hoi_16mbs"
+   pdx_tooltip = "sof_tp_popup_close_tt"
+  
+   orientation = UPPER_RIGHT
+  }
+ }
 }

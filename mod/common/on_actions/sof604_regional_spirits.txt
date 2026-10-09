@@ -1,0 +1,9 @@
+# Replaces the former bucket runtime; there is exactly one country pulse.
+on_actions = {
+	on_daily = {
+		effect = {
+			sof605_sync_late_entitlements = yes
+			if = { limit = { has_country_flag = sof605_regional_spirits_active } sof605_refresh_country_spirits = yes }
+		}
+	}
+}

@@ -1,0 +1,155 @@
+﻿sof_tp_classify = {
+ set_variable = { sof_tp_natural_bloc = 0 }
+ if = { limit = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } } set_variable = { sof_tp_natural_bloc = 1 } }
+ else_if = { limit = { has_government = social_democrat } set_variable = { sof_tp_natural_bloc = 2 } }
+ else_if = { limit = { has_government = social_conservative } set_variable = { sof_tp_natural_bloc = 3 } }
+ else_if = { limit = { has_government = paternal_autocrat } set_variable = { sof_tp_natural_bloc = 4 } }
+ else_if = { limit = { has_government = national_populist } set_variable = { sof_tp_natural_bloc = 5 } }
+}
+sof_tp_refresh = {
+ if = { limit = { is_in_faction = no } set_variable = { sof_tp_bloc = 0 } }
+ clear_array = sof_tp_members clear_array = sof_tp_neutrals clear_array = sof_tp_participants
+ set_variable = { sof_tp_states = 0 } set_variable = { sof_tp_bloc_states = 0 }
+ set_variable = { sof_tp_members_count = 0 } set_variable = { sof_tp_neutrals_count = 0 }
+ every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = PREV } PREV = { add_to_variable = { sof_tp_states = 1 } } }
+ set_variable = { sof_tp_bloc_states = sof_tp_states }
+ every_other_country = {
+  limit = { sof_tp_country = yes }
+  if = { limit = { is_in_faction_with = PREV }
+   if = { limit = { is_faction_leader = yes } PREV = { set_variable = { sof_tp_bloc = PREV.sof_tp_bloc } } }
+   PREV = { add_to_array = { array = sof_tp_members value = PREV } add_to_variable = { sof_tp_members_count = 1 } }
+   every_owned_state = { limit = { sofzh_unification_french_state = yes is_fully_controlled_by = PREV } PREV.PREV = { add_to_variable = { sof_tp_bloc_states = 1 } } }
+  }
+  else_if = { limit = { is_in_faction = no } PREV = { add_to_array = { array = sof_tp_neutrals value = PREV } add_to_variable = { sof_tp_neutrals_count = 1 } } }
+  if = { limit = { has_country_flag = sof_tp_congress@PREV } PREV = { add_to_array = { array = sof_tp_participants value = PREV } } }
+ }
+ clamp_variable = { var = sof_tp_legitimacy min = 0 max = 100 }
+ clamp_variable = { var = sof_tp_trust min = 0 max = 100 }
+ clamp_variable = { var = sof_tp_reconstruction min = 0 max = 100 }
+
+}
+
+sof_tp_setup_country = {
+ if = { limit = { NOT = { has_country_flag = sof_tp_initialized } }
+  set_country_flag = sof_tp_initialized set_variable = { sof_tp_trust = 50 } set_variable = { sof_tp_legitimacy = 25 } set_variable = { sof_tp_reconstruction = 0 } set_variable = { sof_tp_offer_terms = 1 }
+  sof_tp_classify = yes set_variable = { sof_tp_bloc = sof_tp_natural_bloc } set_variable = { sof_tp_last_natural_bloc = sof_tp_natural_bloc }
+ }
+}
+sof_tp_leave_bloc_effect = {
+ if = { limit = { sof_tp_can_leave_bloc = yes }
+  if = { limit = { is_faction_leader = yes } random_other_country = { limit = { is_in_faction_with = ROOT } set_faction_leader = yes } }
+  if = { limit = { is_faction_leader = yes } dismantle_faction = yes } else = { leave_faction = yes }
+  set_variable = { sof_tp_bloc = 0 } set_country_flag = { flag = sof_tp_switch_cooldown days = 90 } add_to_variable = { sof_tp_trust = -5 } sof_tp_refresh = yes
+ }
+}
+sof_tp_claim_victory_effect = {
+ if = { limit = { sof_tp_major = yes sof_tp_phase_one = yes check_variable = { sof_tp_bloc_states > 199 } OR = { is_in_faction = no is_faction_leader = yes } }
+ every_country = { limit = { sof_tp_country = yes } sof_tp_refresh = yes }
+ sof_tp_refresh = yes
+ if = { limit = { sof_tp_can_claim_victory = yes }
+  set_global_flag = sof_tp_reconstruction set_country_flag = sof_tp_coordinator set_country_flag = sof_tp_winner
+  every_other_country = { limit = { sof_tp_country = yes is_in_faction_with = ROOT } set_country_flag = sof_tp_winner }
+  add_to_variable = { sof_tp_legitimacy = 20 } country_event = { id = sof_tp.4 days = 1 }
+ }
+
+ }
+}
+sof_tp_open_congress_effect = { if = { limit = { sof_tp_can_open_congress = yes } set_country_flag = sof_tp_congress_open add_to_variable = { sof_tp_legitimacy = 10 } } }
+sof_tp_adopt_federal_effect = { if = { limit = { sof_tp_can_adopt_federal = yes } add_political_power = -50 set_country_flag = sof_tp_charter_federal add_to_variable = { sof_tp_trust = 15 } } }
+sof_tp_adopt_central_effect = { if = { limit = { sof_tp_can_adopt_central = yes } add_political_power = -50 set_country_flag = sof_tp_charter_central add_to_variable = { sof_tp_reconstruction = 15 } } }
+sof_tp_fund_reconstruction_effect = { if = { limit = { sof_tp_can_fund_reconstruction = yes } add_political_power = -75 add_to_variable = { sof_tp_reconstruction = 20 } set_country_flag = { flag = sof_tp_funding_cooldown days = 45 } sof_tp_refresh = yes } }
+sof_tp_keep_promises_effect = { if = { limit = { sof_tp_can_keep_promises = yes } add_political_power = -50 add_to_variable = { sof_tp_trust = 10 } add_to_variable = { sof_tp_legitimacy = 5 } add_to_variable = { sof_tp_reconstruction = 5 } set_country_flag = { flag = sof_tp_promise_cooldown days = 60 } if = { limit = { has_country_flag = sof_tp_paris_workers } add_to_variable = { sof_tp_legitimacy = 3 } } sof_tp_refresh = yes } }
+sof_tp_break_promises_effect = { if = { limit = { sof_tp_can_break_promises = yes } set_country_flag = sof_tp_broke_promises add_to_variable = { sof_tp_trust = -30 } add_to_variable = { sof_tp_legitimacy = -15 } add_to_variable = { sof_tp_reconstruction = 25 } add_stability = -0.10 sof_tp_refresh = yes } }
+sof_tp_complete_reconstruction_effect = {
+ if = { limit = { has_country_flag = sof_tp_congress_open check_variable = { sof_tp_reconstruction > 99 } NOT = { has_country_flag = sof_tp_reconstruction_complete } }  sof_tp_refresh = yes if = { limit = { sof_tp_can_complete_reconstruction = yes } set_country_flag = sof_tp_reconstruction_complete add_stability = 0.05 add_political_power = 100 if = { limit = { check_variable = { sof_tp_trust > 69 } } add_stability = 0.05 add_political_power = 100 } country_event = { id = sof_tp.8 days = 1 } }
+ }
+}
+sof_tp_membership_request_effect = { sof606_tp_membership_request_target_effect_cedbaa078c = yes }
+# sof_tp_membership_request_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+
+sof_tp_invite_congress_effect = { sof606_tp_invite_congress_target_effect_4580c79ca7 = yes }
+# sof_tp_invite_congress_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+
+sof_tp_offer_union_effect = { sof606_tp_offer_union_target_effect_fc9d5757d6 = yes }
+# sof_tp_offer_union_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+
+sof_tp_press_claim_effect = { sof606_tp_press_claim_target_effect_cd1685eec9 = yes }
+# sof_tp_press_claim_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+
+
+sof_tp_create_bloc_1 = {
+ if = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 1 } NOT = { has_global_flag = sof_tp_bloc_1_created } }
+  create_faction = sof_tp_bloc_1 set_global_flag = sof_tp_bloc_1_created save_event_target_as = sof_tp_bloc_host
+  every_other_country = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 1 } } event_target:sof_tp_bloc_host = { add_to_faction = PREV } }
+ }
+}
+
+sof_tp_create_bloc_2 = {
+ if = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 2 } NOT = { has_global_flag = sof_tp_bloc_2_created } }
+  create_faction = sof_tp_bloc_2 set_global_flag = sof_tp_bloc_2_created save_event_target_as = sof_tp_bloc_host
+  every_other_country = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 2 } } event_target:sof_tp_bloc_host = { add_to_faction = PREV } }
+ }
+}
+
+sof_tp_create_bloc_3 = {
+ if = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 3 } NOT = { has_global_flag = sof_tp_bloc_3_created } }
+  create_faction = sof_tp_bloc_3 set_global_flag = sof_tp_bloc_3_created save_event_target_as = sof_tp_bloc_host
+  every_other_country = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 3 } } event_target:sof_tp_bloc_host = { add_to_faction = PREV } }
+ }
+}
+
+sof_tp_create_bloc_4 = {
+ if = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 4 } NOT = { has_global_flag = sof_tp_bloc_4_created } }
+  create_faction = sof_tp_bloc_4 set_global_flag = sof_tp_bloc_4_created save_event_target_as = sof_tp_bloc_host
+  every_other_country = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 4 } } event_target:sof_tp_bloc_host = { add_to_faction = PREV } }
+ }
+}
+
+sof_tp_create_bloc_5 = {
+ if = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 5 } NOT = { has_global_flag = sof_tp_bloc_5_created } }
+  create_faction = sof_tp_bloc_5 set_global_flag = sof_tp_bloc_5_created save_event_target_as = sof_tp_bloc_host
+  every_other_country = { limit = { sof_tp_major = yes sof_brt_expansion_allowed = yes is_in_faction = no check_variable = { sof_tp_bloc = 5 } } event_target:sof_tp_bloc_host = { add_to_faction = PREV } }
+ }
+}
+
+sof_tp_weekly = {
+ if = { limit = { sof_tp_country = yes }
+  sof_tp_setup_country = yes sof_tp_classify = yes
+  if = { limit = { is_in_faction = yes any_other_country = { is_in_faction_with = ROOT } } set_country_flag = sof_tp_alliance_signed }
+  if = { limit = { NOT = { check_variable = { sof_tp_last_natural_bloc = sof_tp_natural_bloc } } }
+   set_variable = { sof_tp_last_natural_bloc = sof_tp_natural_bloc } country_event = { id = sof_tp.7 days = 1 }
+  }
+  sof_tp_refresh = yes
+  if = { limit = { is_ai = no } sof_tp_refresh_selection = yes sof_tp_refresh_map = yes }
+
+  if = { limit = { is_ai = yes }
+   sof_tp_claim_victory_effect = yes sof_tp_open_congress_effect = yes
+   if = { limit = { sof_tp_can_adopt_federal = yes } random_list = { 70 = { sof_tp_adopt_federal_effect = yes } 30 = { sof_tp_adopt_central_effect = yes } } }
+   sof_tp_fund_reconstruction_effect = yes sof_tp_keep_promises_effect = yes sof_tp_complete_reconstruction_effect = yes
+  }
+ }
+}
+
+sof_tp_seek_settlement_effect = { sof606_tp_seek_settlement_target_effect_8717e9d8d4 = yes }
+# sof_tp_seek_settlement_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+
+
+sof_tp_form_bloc_effect = { if = { limit = { sof_tp_can_form_bloc = yes }
+ add_political_power = -50 sof_tp_classify = yes set_variable = { sof_tp_bloc = sof_tp_natural_bloc }
+ if = { limit = { check_variable = { sof_tp_bloc = 0 } } create_faction = sof_tp_bloc_0 }
+ if = { limit = { check_variable = { sof_tp_bloc = 1 } } create_faction = sof_tp_bloc_1 }
+ if = { limit = { check_variable = { sof_tp_bloc = 2 } } create_faction = sof_tp_bloc_2 }
+ if = { limit = { check_variable = { sof_tp_bloc = 3 } } create_faction = sof_tp_bloc_3 }
+ if = { limit = { check_variable = { sof_tp_bloc = 4 } } create_faction = sof_tp_bloc_4 }
+ if = { limit = { check_variable = { sof_tp_bloc = 5 } } create_faction = sof_tp_bloc_5 }
+ set_country_flag = { flag = sof_tp_switch_cooldown days = 90 } sof_tp_refresh = yes
+} }
+sof_tp_fulfil_aid_effect = { sof606_tp_fulfil_aid_target_effect_5165f94218 = yes }
+# sof_tp_fulfil_aid_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+
+
+sof_tp_challenge_rival_effect = { sof606_tp_challenge_rival_target_effect_19a27199b7 = yes }
+# sof_tp_challenge_rival_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.
+
+sof_tp_enforce_claim_effect = { sof606_tp_enforce_claim_target_effect_3a604d6d65 = yes }
+# sof_tp_enforce_claim_target_effect is expanded into native parameter-free helpers in sof606_parameterized_compatibility.txt.

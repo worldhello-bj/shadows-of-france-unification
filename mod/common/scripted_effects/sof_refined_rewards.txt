@@ -1,0 +1,144 @@
+# Focus reward refinements. Called visibly inside each original one-off guard.
+sof_refined_sof_region_lyo_1936_chemistry_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_lyo_1936_chemistry_effect_paid } }
+  set_country_flag = sof_refined_sof_region_lyo_1936_chemistry_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_region_lyo_1936_chemistry_industry_research bonus = 0.5 uses = 1 category = industry } 
+ }
+}
+
+sof_refined_sof_region_lyo_1936_metrology_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_lyo_1936_metrology_effect_paid } }
+  set_country_flag = sof_refined_sof_region_lyo_1936_metrology_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_region_lyo_1936_metrology_electronics_research bonus = 0.5 uses = 1 category = electronics } 
+ }
+}
+
+sof_refined_sof_region_lyo_1936_spares_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_lyo_1936_spares_effect_paid } }
+  set_country_flag = sof_refined_sof_region_lyo_1936_spares_effect_paid
+  add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 30 producer = ROOT }
+ }
+}
+
+sof_refined_sof_region_tou_1936_fuel_safety_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_tou_1936_fuel_safety_effect_paid } }
+  set_country_flag = sof_refined_sof_region_tou_1936_fuel_safety_effect_paid
+  add_fuel = 5000 air_experience = 15
+ }
+}
+
+sof_refined_sof_region_tou_1936_propellers_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_tou_1936_propellers_effect_paid } }
+  set_country_flag = sof_refined_sof_region_tou_1936_propellers_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_region_tou_1936_propellers_light_air_research bonus = 0.5 uses = 1 category = light_air } 
+ }
+}
+
+sof_refined_sof_region_tou_1936_serial_jigs_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_tou_1936_serial_jigs_effect_paid } }
+  set_country_flag = sof_refined_sof_region_tou_1936_serial_jigs_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_region_tou_1936_serial_jigs_industry_research bonus = 0.5 uses = 1 category = industry } 
+ }
+}
+
+sof_refined_sof_region_mop_1936_ventilation_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_mop_1936_ventilation_effect_paid } }
+  set_country_flag = sof_refined_sof_region_mop_1936_ventilation_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_region_mop_1936_ventilation_excavation_tech_research bonus = 0.5 uses = 1 category = excavation_tech } 
+ }
+}
+
+sof_refined_sof_region_mop_1936_water_compact_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_mop_1936_water_compact_effect_paid } }
+  set_country_flag = sof_refined_sof_region_mop_1936_water_compact_effect_paid
+  if = { limit = { any_owned_state = { is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_state = { limit = { is_fully_controlled_by = ROOT infrastructure < 5 NOT = { has_state_flag = sof_refined_sof_region_mop_1936_water_compact_project } } set_state_flag = sof_refined_sof_region_mop_1936_water_compact_project add_building_construction = { type = infrastructure level = 1 instant_build = yes } } random_owned_state = { limit = { is_fully_controlled_by = ROOT infrastructure < 5 NOT = { has_state_flag = sof_refined_sof_region_mop_1936_water_compact_project } } set_state_flag = sof_refined_sof_region_mop_1936_water_compact_project add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_refined_sof_region_mop_1936_water_compact_construction_tech_research bonus = 0.5 uses = 1 category = construction_tech } }
+ }
+}
+
+sof_refined_sof_region_brd_1936_national_shipping_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_brd_1936_national_shipping_effect_paid } }
+  set_country_flag = sof_refined_sof_region_brd_1936_national_shipping_effect_paid
+  if = { limit = { any_owned_state = { is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_state = { limit = { is_fully_controlled_by = ROOT infrastructure < 5 NOT = { has_state_flag = sof_refined_sof_region_brd_1936_national_shipping_project } } set_state_flag = sof_refined_sof_region_brd_1936_national_shipping_project add_building_construction = { type = infrastructure level = 1 instant_build = yes } } random_owned_state = { limit = { is_fully_controlled_by = ROOT infrastructure < 5 NOT = { has_state_flag = sof_refined_sof_region_brd_1936_national_shipping_project } } set_state_flag = sof_refined_sof_region_brd_1936_national_shipping_project add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_refined_sof_region_brd_1936_national_shipping_construction_tech_research bonus = 0.5 uses = 1 category = construction_tech } } add_tech_bonus = { name = sof_refined_sof_region_brd_1936_national_shipping_naval_equipment_research bonus = 0.5 uses = 1 category = naval_equipment }
+ }
+}
+
+sof_refined_sof_region_cfr_1936_reclaim_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_cfr_1936_reclaim_effect_paid } }
+  set_country_flag = sof_refined_sof_region_cfr_1936_reclaim_effect_paid
+  add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 30 producer = ROOT }
+ }
+}
+
+sof_refined_sof_ne_met_nancy_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_ne_met_nancy_effect_paid } }
+  set_country_flag = sof_refined_sof_ne_met_nancy_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_ne_met_nancy_electronics_research bonus = 0.5 uses = 1 category = electronics } 
+ }
+}
+
+sof_refined_sof_ne_met_public_audit_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_ne_met_public_audit_effect_paid } }
+  set_country_flag = sof_refined_sof_ne_met_public_audit_effect_paid
+  add_political_power = 50
+ }
+}
+
+sof_refined_sof_region_bes_1936_gauges_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_bes_1936_gauges_effect_paid } }
+  set_country_flag = sof_refined_sof_region_bes_1936_gauges_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_region_bes_1936_gauges_infantry_weapons_research bonus = 0.5 uses = 1 category = infantry_weapons } 
+ }
+}
+
+sof_refined_sof_region_poi_1936_spares_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_poi_1936_spares_effect_paid } }
+  set_country_flag = sof_refined_sof_region_poi_1936_spares_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_region_poi_1936_spares_infantry_weapons_research bonus = 0.5 uses = 1 category = infantry_weapons } 
+ }
+}
+
+sof_refined_sof_region_trs_1936_post_rail_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_trs_1936_post_rail_effect_paid } }
+  set_country_flag = sof_refined_sof_region_trs_1936_post_rail_effect_paid
+  if = { limit = { any_owned_state = { is_fully_controlled_by = ROOT infrastructure < 5 } } random_owned_state = { limit = { is_fully_controlled_by = ROOT infrastructure < 5 NOT = { has_state_flag = sof_refined_sof_region_trs_1936_post_rail_project } } set_state_flag = sof_refined_sof_region_trs_1936_post_rail_project add_building_construction = { type = infrastructure level = 1 instant_build = yes } } random_owned_state = { limit = { is_fully_controlled_by = ROOT infrastructure < 5 NOT = { has_state_flag = sof_refined_sof_region_trs_1936_post_rail_project } } set_state_flag = sof_refined_sof_region_trs_1936_post_rail_project add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_refined_sof_region_trs_1936_post_rail_construction_tech_research bonus = 0.5 uses = 1 category = construction_tech } }
+ }
+}
+
+sof_refined_sof_ne_rou_local_freight_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_ne_rou_local_freight_effect_paid } }
+  set_country_flag = sof_refined_sof_ne_rou_local_freight_effect_paid
+  add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 30 producer = ROOT }
+ }
+}
+
+sof_refined_sof_lil36_legacy_of_the_belgian_airforce_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_lil36_legacy_of_the_belgian_airforce_effect_paid } }
+  set_country_flag = sof_refined_sof_lil36_legacy_of_the_belgian_airforce_effect_paid
+  add_tech_bonus = { name = sof_refined_sof_lil36_legacy_of_the_belgian_airforce_light_air_research bonus = 0.5 uses = 1 category = light_air }
+ }
+}
+
+sof_refined_sof_region_trs_1936_post_arsenal_effect = {
+ if = {
+  limit = { NOT = { has_country_flag = sof_refined_sof_region_trs_1936_post_arsenal_effect_paid } }
+  set_country_flag = sof_refined_sof_region_trs_1936_post_arsenal_effect_paid
+  army_experience = 25
+ }
+}

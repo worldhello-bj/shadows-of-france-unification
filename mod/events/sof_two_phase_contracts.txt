@@ -1,0 +1,55 @@
+﻿add_namespace = sof_tp_contract
+country_event = { id = sof_tp_contract.1 title = sof_tp_contract.1.t desc = sof_tp_contract.1.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+ option = { name = sof_tp_contract.1.a trigger = { sof_tp_valid_contract_offer = yes } ai_chance = { factor = 55 modifier = { factor = 1.5 FROM = { has_country_flag = sof_tp_charter_federal } } }
+ if = { limit = { sof_tp_valid_contract_offer = yes }
+  custom_effect_tooltip = sof_tp_contract_accept_tt sof606_tp_begin_contract_cb369420bc = yes
+  clr_country_flag = sof_tp_union_from@FROM FROM = { clr_country_flag = sof_tp_union_to@ROOT clr_country_flag = sof_tp_diplomatic_pending }
+ }
+ }
+ option = { name = sof_tp_contract.1.b trigger = { sof_tp_valid_contract_offer = yes FROM = { NOT = { check_variable = { sof_tp_offer_terms_sent = 2 } } } } ai_chance = { factor = 30 modifier = { factor = 2 OR = { original_tag = REN original_tag = AJC } } }
+ if = { limit = { sof_tp_valid_contract_offer = yes }
+  clr_country_flag = sof_tp_union_from@FROM set_country_flag = { flag = sof_tp_counter_to@FROM days = 30 }
+  FROM = { clr_country_flag = sof_tp_union_to@ROOT set_country_flag = { flag = sof_tp_counter_from@ROOT days = 30 } set_country_flag = { flag = sof_tp_diplomatic_pending days = 30 } country_event = { id = sof_tp_contract.2 days = 1 } }
+ }
+ }
+ option = { name = sof_tp_contract.1.c ai_chance = { factor = 25 }
+ if = { limit = { sof_tp_valid_contract_offer = yes } clr_country_flag = sof_tp_union_from@FROM set_country_flag = { flag = sof_tp_union_refused@FROM days = 180 } set_country_flag = { flag = sof_tp_union_cooldown@FROM days = 90 } FROM = { clr_country_flag = sof_tp_union_to@ROOT clr_country_flag = sof_tp_diplomatic_pending country_event = { id = sof_tp.6 days = 1 } } }
+ }
+
+}
+country_event = { id = sof_tp_contract.2 title = sof_tp_contract.2.t desc = sof_tp_contract.2.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+ option = { name = sof_tp_contract.2.a trigger = { sof_tp_valid_counter_reply = yes } ai_chance = { factor = 75 }
+ if = { limit = { sof_tp_valid_counter_reply = yes }
+  clr_country_flag = sof_tp_counter_from@FROM clr_country_flag = sof_tp_diplomatic_pending
+  custom_effect_tooltip = sof_tp_contract_accept_tt FROM = { clr_country_flag = sof_tp_counter_to@ROOT sof606_tp_begin_contract_76e25c4d68 = yes }
+ }
+ }
+ option = { name = sof_tp_contract.2.b ai_chance = { factor = 25 }
+ if = { limit = { sof_tp_valid_counter_reply = yes } clr_country_flag = sof_tp_counter_from@FROM clr_country_flag = sof_tp_diplomatic_pending FROM = { clr_country_flag = sof_tp_counter_to@ROOT set_country_flag = { flag = sof_tp_union_cooldown@ROOT days = 90 } } }
+ }
+
+}
+country_event = { id = sof_tp_contract.3 title = sof_tp_contract.3.t desc = sof_tp_contract.3.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+ option = { name = sof_tp_contract.3.a trigger = { sof_tp_valid_final_reply = yes } ai_chance = { factor = 55 modifier = { factor = 2 FROM = { check_variable = { sof_tp_trust > 69 } } } modifier = { factor = 0.2 FROM = { has_country_flag = sof_tp_broke_promises } } modifier = { factor = 0.5 OR = { original_tag = REN original_tag = AJC } } }
+ if = { limit = { sof_tp_valid_final_reply = yes }
+  every_owned_state = { add_core_of = FROM }
+  FROM = { clr_country_flag = sof_tp_final_to@ROOT clr_country_flag = sof_tp_diplomatic_pending set_country_flag = sof_tp_treaty_signed set_country_flag = sof_tp_integrated@ROOT add_to_variable = { sof_tp_trust = 5 } add_to_variable = { sof_tp_legitimacy = 10 } annex_country = { target = ROOT transfer_troops = yes } sof_tp_refresh = yes sof_nr_count_states = yes country_event = { id = sof_tp.5 days = 1 } }
+ }
+ }
+ option = { name = sof_tp_contract.3.b ai_chance = { factor = 45 }
+ if = { limit = { sof_tp_valid_final_reply = yes } set_country_flag = { flag = sof_tp_union_refused@FROM days = 180 } set_country_flag = { flag = sof_tp_union_cooldown@FROM days = 180 } FROM = { clr_country_flag = sof_tp_final_to@ROOT clr_country_flag = sof_tp_diplomatic_pending country_event = { id = sof_tp.6 days = 1 } } sof_tp_clear_contract = yes }
+ }
+
+}
+country_event = { id = sof_tp_contract.4 title = sof_tp_contract.4.t desc = sof_tp_contract.4.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+option = { name = sof_tp_contract.4.a }
+}
+country_event = { id = sof_tp_contract.5 title = sof_tp_contract.5.t desc = sof_tp_contract.5.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+option = { name = sof_tp_contract.5.a }
+}
+country_event = { id = sof_tp_contract.6 title = sof_tp_contract.6.t desc = sof_tp_contract.6.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+option = { name = sof_tp_contract.6.a }
+}
+country_event = { id = sof_tp_contract.7 title = sof_tp_contract.7.t desc = sof_tp_contract.7.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+option = { name = sof_tp_contract.7.a }
+}

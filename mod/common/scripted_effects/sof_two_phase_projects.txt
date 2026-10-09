@@ -1,0 +1,51 @@
+sof_tp_clear_project = { clr_country_flag = sof_tp_project_active clear_variable = sof_tp_project_state clear_array = sof_tp_project_state_list set_variable = { sof_tp_project_type = 0 } set_variable = { sof_tp_project_progress = 0 } set_variable = { sof_tp_project_days_left = 0 } set_variable = { sof_tp_project_reserved_manpower = 0 } }
+sof_tp_cancel_project_effect = { if = { limit = { sof_tp_can_cancel_project = yes }
+ if = { limit = { check_variable = { sof_tp_project_type = 1 } } add_manpower = 1000 } else = { add_manpower = 1500 }
+ if = { limit = { check_variable = { sof_tp_project_type = 1 } } add_political_power = 30 }
+ else_if = { limit = { check_variable = { sof_tp_project_type = 2 } } add_political_power = 50 }
+ else_if = { limit = { check_variable = { sof_tp_project_type = 3 } } add_political_power = 25 }
+ sof_tp_clear_project = yes
+} }
+sof_tp_start_transport_project_effect = { if = { limit = { sof_tp_can_start_transport_project = yes }
+ add_political_power = -60 add_manpower = -1000 set_variable = { sof_tp_project_reserved_manpower = 1000 }
+ set_country_flag = sof_tp_project_active set_variable = { sof_tp_project_type = 1 } set_variable = { sof_tp_project_days_left = 45 } set_variable = { sof_tp_project_duration = 45 } set_variable = { sof_tp_project_progress = 0 } clear_array = sof_tp_project_state_list
+ random_owned_controlled_state = { limit = { sof_tp_transport_site = yes } ROOT = { set_variable = { sof_tp_project_state = PREV } add_to_array = { array = sof_tp_project_state_list value = PREV } } }
+} }
+sof_tp_start_industry_project_effect = { if = { limit = { sof_tp_can_start_industry_project = yes }
+ add_political_power = -100 add_manpower = -1500 set_variable = { sof_tp_project_reserved_manpower = 1500 }
+ set_country_flag = sof_tp_project_active set_variable = { sof_tp_project_type = 2 } set_variable = { sof_tp_project_days_left = 60 } set_variable = { sof_tp_project_duration = 60 } set_variable = { sof_tp_project_progress = 0 } clear_array = sof_tp_project_state_list
+ random_owned_controlled_state = { limit = { sof_tp_industry_site = yes } ROOT = { set_variable = { sof_tp_project_state = PREV } add_to_array = { array = sof_tp_project_state_list value = PREV } } }
+} }
+sof_tp_start_demobilisation_project_effect = { if = { limit = { sof_tp_can_start_demobilisation_project = yes }
+ add_political_power = -50 add_manpower = -1500 set_variable = { sof_tp_project_reserved_manpower = 1500 }
+ set_country_flag = sof_tp_project_active set_variable = { sof_tp_project_type = 3 } set_variable = { sof_tp_project_days_left = 30 } set_variable = { sof_tp_project_duration = 30 } set_variable = { sof_tp_project_progress = 0 } clear_array = sof_tp_project_state_list
+ random_owned_controlled_state = { limit = { sof_tp_demobilisation_site = yes } ROOT = { set_variable = { sof_tp_project_state = PREV } add_to_array = { array = sof_tp_project_state_list value = PREV } } }
+} }
+
+sof_tp_complete_project = { if = { limit = { has_country_flag = sof_tp_project_active sof_tp_project_site_valid = yes }
+ if = { limit = { check_variable = { sof_tp_project_type = 1 } var:sof_tp_project_state = { sof_tp_transport_site = yes } }
+  var:sof_tp_project_state = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } set_state_flag = sof_tp_transport_project_paid }
+  add_manpower = 1000 set_country_flag = sof_tp_transport_restored add_to_variable = { sof_tp_reconstruction = 15 } add_to_variable = { sof_tp_legitimacy = 5 } set_country_flag = sof_tp_project_done_this_tick
+ }
+ else_if = { limit = { check_variable = { sof_tp_project_type = 2 } var:sof_tp_project_state = { sof_tp_industry_site = yes } }
+  var:sof_tp_project_state = { add_building_construction = { type = industrial_complex level = 1 instant_build = yes } set_state_flag = sof_tp_industry_project_paid }
+  add_manpower = 1500 set_country_flag = sof_tp_industry_restored add_to_variable = { sof_tp_reconstruction = 20 } add_to_variable = { sof_tp_legitimacy = 5 } set_country_flag = sof_tp_project_done_this_tick
+ }
+ else_if = { limit = { check_variable = { sof_tp_project_type = 3 } var:sof_tp_project_state = { sof_tp_demobilisation_site = yes } }
+  var:sof_tp_project_state = { set_state_flag = sof_tp_demobilisation_project_paid }
+  add_stability = 0.03 add_war_support = -0.02 add_timed_idea = { idea = sof_tp_demobilised_workforce days = 180 }
+  set_country_flag = sof_tp_demobilisation_completed add_to_variable = { sof_tp_reconstruction = 12 } set_country_flag = sof_tp_project_done_this_tick
+ }
+ if = { limit = { has_country_flag = sof_tp_project_done_this_tick } clr_country_flag = sof_tp_project_done_this_tick set_variable = { sof_tp_last_project_type = sof_tp_project_type } set_variable = { sof_tp_last_project_state = sof_tp_project_state } country_event = { id = sof_tp_contract.6 days = 1 } sof_tp_clear_project = yes }
+ else = { country_event = { id = sof_tp_contract.7 days = 1 } sof_tp_cancel_project_effect = yes }
+} }
+sof_tp_project_daily = {
+ if = { limit = { has_country_flag = sof_tp_project_active }
+  if = { limit = { OR = { NOT = { sof_tp_country = yes } NOT = { sof_tp_project_site_valid = yes } } } country_event = { id = sof_tp_contract.7 days = 1 } sof_tp_cancel_project_effect = yes }
+  else_if = { limit = { has_war = no }
+   subtract_from_variable = { sof_tp_project_days_left = 1 }
+   set_variable = { sof_tp_project_progress = sof_tp_project_duration } subtract_from_variable = { sof_tp_project_progress = sof_tp_project_days_left } multiply_variable = { sof_tp_project_progress = 100 } divide_variable = { sof_tp_project_progress = sof_tp_project_duration }
+   if = { limit = { check_variable = { sof_tp_project_days_left < 1 } } sof_tp_complete_project = yes }
+  }
+ }
+}

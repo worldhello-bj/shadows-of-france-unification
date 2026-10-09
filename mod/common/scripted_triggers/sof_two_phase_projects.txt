@@ -1,0 +1,9 @@
+sof_tp_project_authorised = { sof_tp_country = yes has_war = no has_country_flag = sof_tp_congress_open sof_tp_has_charter = yes NOT = { has_country_flag = sof_tp_project_active } }
+sof_tp_transport_site = { sofzh_unification_french_state = yes is_owned_by = ROOT is_fully_controlled_by = ROOT infrastructure < 5 NOT = { has_state_flag = sof_tp_transport_project_paid } }
+sof_tp_industry_site = { sofzh_unification_french_state = yes is_owned_by = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 } NOT = { has_state_flag = sof_tp_industry_project_paid } }
+sof_tp_demobilisation_site = { sofzh_unification_french_state = yes is_owned_by = ROOT is_fully_controlled_by = ROOT NOT = { has_state_flag = sof_tp_demobilisation_project_paid } }
+sof_tp_can_start_transport_project = { sof_tp_project_authorised = yes political_power > 59 has_manpower > 999 any_owned_state = { sof_tp_transport_site = yes } }
+sof_tp_can_start_industry_project = { sof_tp_project_authorised = yes political_power > 99 has_manpower > 1499 any_owned_state = { sof_tp_industry_site = yes } }
+sof_tp_can_start_demobilisation_project = { sof_tp_project_authorised = yes political_power > 49 has_manpower > 1499 any_owned_state = { sof_tp_demobilisation_site = yes } }
+sof_tp_can_cancel_project = { has_country_flag = sof_tp_project_active }
+sof_tp_project_site_valid = { has_variable = sof_tp_project_state var:sof_tp_project_state = { is_owned_by = ROOT is_fully_controlled_by = ROOT sofzh_unification_french_state = yes } }

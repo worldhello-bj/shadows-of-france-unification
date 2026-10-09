@@ -1,4 +1,4 @@
-version="5.1.0"
+﻿version="6.0.6"
 name="法兰西之影：统一战争（独立中文版）"
 replace_path="portraits"
 replace_path="common/abilities"
@@ -52,3 +52,4 @@ replace_path="map/supplyareas"
 tags={ "Map" "Gameplay" "Alternative History" }
 picture="Thumbnail.png"
 supported_version="1.19.*"
+remote_file_id="3813153193"
