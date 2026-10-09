@@ -788,11 +788,11 @@ available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f14 } } add_tech_bonus = { name = support_tech bonus = 0.75 uses = 1 category = support_tech } set_country_flag = sof_brt_grant_f14 } }
 ai_will_do = { factor = 3 } }
 focus = { id = SOF_BRT_F15 icon = GFX_sof_project_sof_brt_f15 x = 17 y = 8 cost = 3
-search_filters = { FOCUS_FILTER_ARMY_XP }
+search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 prerequisite = { focus = SOF_BRT_F10 }
 prerequisite = { focus = SOF_BRT_E3 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
-completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f15 } } add_stability = .015 set_country_flag = sof_brt_grant_f15 } }
+completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f15 } } add_stability = .015 add_equipment_to_stockpile = { type = train_equipment_1 amount = 10 producer = ROOT } set_country_flag = sof_brt_grant_f15 add_ideas = sof607_brt_food_reserves } }
 ai_will_do = { factor = 3 } }
 focus = { id = SOF_BRT_F16 icon = GFX_sof_project_sof_brt_f16 x = 27 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
@@ -893,11 +893,11 @@ available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f29 } } add_tech_bonus = { name = support_tech bonus = 0.75 uses = 1 category = support_tech } set_country_flag = sof_brt_grant_f29 } }
 ai_will_do = { factor = 3 } }
 focus = { id = SOF_BRT_F30 icon = GFX_sof_project_sof_brt_f30 x = 14 y = 11 cost = 3
-search_filters = { FOCUS_FILTER_ARMY_XP }
+search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MANPOWER }
 prerequisite = { focus = SOF_BRT_F25 }
 prerequisite = { focus = SOF_BRT_P17 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
-completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f30 } } add_stability = .015 set_country_flag = sof_brt_grant_f30 } }
+completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_f30 } } add_stability = .015 army_experience = 15 set_country_flag = sof_brt_grant_f30 add_ideas = sof607_brt_harvest_rosters } }
 ai_will_do = { factor = 3 } }
 focus = { id = SOF_BRT_F31 icon = GFX_sof_project_sof_brt_f31 x = 30 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }

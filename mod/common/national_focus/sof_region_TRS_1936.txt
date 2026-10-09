@@ -18,7 +18,7 @@ focus = { id = sof_region_TRS_1936_rail_authority icon = GFX_sof_project_sof_reg
  prerequisite = { focus = sof_region_TRS_1936_assembly }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_rail_authority_paid } } army_experience = 4 set_country_flag = sof_region_TRS_1936_rail_authority_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_rail_authority_paid } } army_experience = 4 add_equipment_to_stockpile = { type = train_equipment_1 amount = 10 producer = ROOT } add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 100 producer = ROOT } set_country_flag = sof_region_TRS_1936_rail_authority_paid } }
  ai_will_do = { factor = 20 }
  }
 focus = { id = sof_region_TRS_1936_local_charters icon = GFX_sof_project_sof_region_trs_1936_local_charters x = 6 y = 2 cost = 5
@@ -39,14 +39,14 @@ focus = { id = sof_region_TRS_1936_council_records icon = GFX_sof_project_sof_re
  prerequisite = { focus = sof_region_TRS_1936_local_charters }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_council_records_paid } } add_political_power = 12 set_country_flag = sof_region_TRS_1936_council_records_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_council_records_paid } } add_political_power = 12 add_political_power = 63 add_stability = 0.04 set_country_flag = sof_region_TRS_1936_council_records_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_emergency_review icon = GFX_sof_project_sof_region_trs_1936_emergency_review x = 12 y = 3 cost = 3
  prerequisite = { focus = sof_region_TRS_1936_central_dispatch }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_emergency_review_paid } } add_stability = 0.015 set_country_flag = sof_region_TRS_1936_emergency_review_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_emergency_review_paid } } add_stability = 0.015 add_political_power = 50 set_country_flag = sof_region_TRS_1936_emergency_review_paid add_ideas = sof607_trs_emergency_secretariat } }
  ai_will_do = { factor = 20 }
  }
 focus = { id = sof_region_TRS_1936_statute icon = GFX_sof_project_sof_region_trs_1936_statute x = 9 y = 4 cost = 5
@@ -60,28 +60,28 @@ focus = { id = sof_region_TRS_1936_archives icon = GFX_sof_project_sof_region_tr
  prerequisite = { focus = sof_region_TRS_1936_civic_rolls }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_archives_paid } } add_political_power = 18 set_country_flag = sof_region_TRS_1936_archives_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_archives_paid } } add_political_power = 18 add_tech_bonus = { name = sof607_trs_administration bonus = 1 uses = 1 category = electronics } set_country_flag = sof_region_TRS_1936_archives_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_heritage icon = GFX_sof_project_sof_region_trs_1936_heritage x = 6 y = 3 cost = 3
  prerequisite = { focus = sof_region_TRS_1936_archives }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_heritage_paid } } add_stability = 0.015 set_country_flag = sof_region_TRS_1936_heritage_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_heritage_paid } } add_stability = 0.015 add_tech_bonus = { name = sof607_trs_civil_education bonus = 0.5 uses = 1 category = electronics } set_country_flag = sof_region_TRS_1936_heritage_paid add_ideas = sof607_trs_public_education } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_tours_station icon = GFX_sof_project_sof_region_trs_1936_tours_station x = 2 y = 1 cost = 3
  prerequisite = { focus = sof_region_TRS_1936_assembly }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_tours_station_paid } } army_experience = 5 set_country_flag = sof_region_TRS_1936_tours_station_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_tours_station_paid } } army_experience = 5 225 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } set_country_flag = sof_region_TRS_1936_tours_station_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_rail_survey icon = GFX_sof_project_sof_region_trs_1936_rail_survey x = 0 y = 2 cost = 4
  prerequisite = { focus = sof_region_TRS_1936_tours_station }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sof_region_TRS_1936_survey_done } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sof_region_TRS_1936_survey_done NOT = { has_country_flag = sof_region_TRS_1936_rail_survey_paid } } add_political_power = 50 set_country_flag = sof_region_TRS_1936_rail_survey_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sof_region_TRS_1936_survey_done NOT = { has_country_flag = sof_region_TRS_1936_rail_survey_paid } } add_political_power = 50 add_tech_bonus = { name = sof607_trs_rail_survey bonus = 1 uses = 1 category = construction_tech } set_country_flag = sof_region_TRS_1936_rail_survey_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_maintenance icon = GFX_sof_project_sof_region_trs_1936_maintenance x = 0 y = 3 cost = 5
@@ -123,7 +123,7 @@ focus = { id = sof_region_TRS_1936_orleans icon = GFX_sof_project_sof_region_trs
  prerequisite = { focus = sof_region_TRS_1936_statute } prerequisite = { focus = sof_region_TRS_1936_waybills }
 
  available = { original_tag = TRS has_capitulated = no 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 902  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 902  NOT = { has_country_flag = sof_region_TRS_1936_orleans_paid } } army_experience = 6 set_country_flag = sof_region_TRS_1936_orleans_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 902  NOT = { has_country_flag = sof_region_TRS_1936_orleans_paid } } army_experience = 6 201 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } } set_country_flag = sof_region_TRS_1936_orleans_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_bridge_reports icon = GFX_sof_project_sof_region_trs_1936_bridge_reports x = 4 y = 6 cost = 5
@@ -158,7 +158,7 @@ focus = { id = sof_region_TRS_1936_bourges icon = GFX_sof_project_sof_region_trs
  prerequisite = { focus = sof_region_TRS_1936_assembly }
 
  available = { original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262  NOT = { has_country_flag = sof_region_TRS_1936_bourges_paid } } army_experience = 7 set_country_flag = sof_region_TRS_1936_bourges_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262  NOT = { has_country_flag = sof_region_TRS_1936_bourges_paid } } army_experience = 7 add_tech_bonus = { name = sof607_trs_ordnance_archive bonus = 1 uses = 1 category = artillery } army_experience = 13 set_country_flag = sof_region_TRS_1936_bourges_paid } }
  ai_will_do = { factor = 20 }
  }
 focus = { id = sof_region_TRS_1936_proof_ranges icon = GFX_sof_project_sof_region_trs_1936_proof_ranges x = 12 y = 2 cost = 5
@@ -221,7 +221,7 @@ focus = { id = sof_region_TRS_1936_arsenal_rail icon = GFX_sof_project_sof_regio
  prerequisite = { focus = sof_region_TRS_1936_quality_register } prerequisite = { focus = sof_region_TRS_1936_loire_timetable } prerequisite = { focus = sof_region_TRS_1936_rear_depots }
 
  available = { original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_TRS_1936_arsenal_rail_paid } } army_experience = 16 set_country_flag = sof_region_TRS_1936_arsenal_rail_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_TRS_1936_arsenal_rail_paid } } army_experience = 16 add_equipment_to_stockpile = { type = train_equipment_1 amount = 20 producer = ROOT } add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 120 producer = ROOT } set_country_flag = sof_region_TRS_1936_arsenal_rail_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_territorials icon = GFX_sof_project_sof_region_trs_1936_territorials x = 18 y = 1 cost = 5
@@ -277,7 +277,7 @@ focus = { id = sof_region_TRS_1936_supply_evacuation icon = GFX_sof_project_sof_
  prerequisite = { focus = sof_region_TRS_1936_redoubt } prerequisite = { focus = sof_region_TRS_1936_loire_timetable }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_supply_evacuation_paid } } army_experience = 10 set_country_flag = sof_region_TRS_1936_supply_evacuation_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  NOT = { has_country_flag = sof_region_TRS_1936_supply_evacuation_paid } } army_experience = 10 add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 200 producer = ROOT } add_equipment_to_stockpile = { type = support_equipment_1 amount = 150 producer = ROOT } set_country_flag = sof_region_TRS_1936_supply_evacuation_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_popular_air icon = GFX_sof_project_sof_region_trs_1936_popular_air x = 27 y = 3 cost = 5
@@ -354,7 +354,7 @@ focus = { id = sof_region_TRS_1936_accepted_admin icon = GFX_sof_brt_goal_generi
  prerequisite = { focus = sof_region_TRS_1936_paris_offer }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sof_region_TRS_1936_paris_offer_accepted PRS = { exists = yes NOT = { has_war_with = TRS } } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sof_region_TRS_1936_paris_offer_accepted PRS = { exists = yes NOT = { has_war_with = TRS } } NOT = { has_country_flag = sof_region_TRS_1936_accepted_admin_paid } } add_political_power = 22 set_country_flag = sof_region_TRS_1936_accepted_admin_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sof_region_TRS_1936_paris_offer_accepted PRS = { exists = yes NOT = { has_war_with = TRS } } NOT = { has_country_flag = sof_region_TRS_1936_accepted_admin_paid } } add_political_power = 22 add_political_power = 78 add_tech_bonus = { name = sof607_trs_shared_archives bonus = 0.5 uses = 1 category = electronics } set_country_flag = sof_region_TRS_1936_accepted_admin_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_toulouse_offer icon = GFX_sof_project_sof_region_trs_1936_toulouse_offer x = 10 y = 10 cost = 4
@@ -389,7 +389,7 @@ focus = { id = sof_region_TRS_1936_post_admin icon = GFX_sof_project_sof_region_
  prerequisite = { focus = sof_region_TRS_1936_congress } prerequisite = { focus = sof_region_TRS_1936_heritage }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 99 } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 99 } NOT = { has_country_flag = sof_region_TRS_1936_post_admin_paid } } add_stability = 0.03 set_country_flag = sof_region_TRS_1936_post_admin_paid add_political_power = 50   } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 99 } NOT = { has_country_flag = sof_region_TRS_1936_post_admin_paid } } add_stability = 0.03 add_political_power = 75 add_tech_bonus = { name = sof607_trs_regional_administration bonus = 1 uses = 1 category = industry } set_country_flag = sof_region_TRS_1936_post_admin_paid add_political_power = 50   } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_post_arsenal icon = GFX_sof_project_sof_region_trs_1936_post_arsenal x = 10 y = 13 cost = 10
@@ -403,14 +403,14 @@ focus = { id = sof_region_TRS_1936_post_civil icon = GFX_sof_project_sof_region_
  prerequisite = { focus = sof_region_TRS_1936_post_rail } prerequisite = { focus = sof_region_TRS_1936_post_admin }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 149 } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 149 } NOT = { has_country_flag = sof_region_TRS_1936_post_civil_paid } } add_stability = 0.02 set_country_flag = sof_region_TRS_1936_post_civil_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 149 } NOT = { has_country_flag = sof_region_TRS_1936_post_civil_paid } } add_stability = 0.02 225 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } add_equipment_to_stockpile = { type = train_equipment_1 amount = 20 producer = ROOT } set_country_flag = sof_region_TRS_1936_post_civil_paid } }
  ai_will_do = { factor = 8 }
  }
 focus = { id = sof_region_TRS_1936_regional_guarantee icon = GFX_sof_project_sof_region_trs_1936_regional_guarantee x = 10 y = 15 cost = 10
  prerequisite = { focus = sof_region_TRS_1936_post_civil } prerequisite = { focus = sof_region_TRS_1936_post_arsenal } prerequisite = { focus = sof_region_TRS_1936_supply_evacuation }
 
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } NOT = { has_country_flag = sof_region_TRS_1936_regional_guarantee_paid } } add_stability = 0.03 set_country_flag = sof_region_TRS_1936_regional_guarantee_paid } }
+ completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } NOT = { has_country_flag = sof_region_TRS_1936_regional_guarantee_paid } } add_stability = 0.03 add_stability = 0.05 add_tech_bonus = { name = sof607_trs_commonwealth_research bonus = 1 uses = 2 category = industry } set_country_flag = sof_region_TRS_1936_regional_guarantee_paid } }
  ai_will_do = { factor = 8 }
  }
 
