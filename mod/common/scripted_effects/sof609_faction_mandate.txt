@@ -1,4 +1,4 @@
-sof609_refresh_faction_permission = {
+﻿sof609_refresh_faction_permission = {
  if = { limit = { sof_nr_french_origin = yes }
   if = { limit = { has_country_flag = sof609_diplomacy_ratified }
    set_rule = { can_create_factions = yes can_join_factions = yes }
@@ -7,11 +7,12 @@ sof609_refresh_faction_permission = {
  }
 }
 sof609_unlock_factions = {
- set_country_flag = sof609_diplomacy_ratified
+ if = { limit = { NOT = { has_country_flag = sof609_diplomacy_ratified } }
+  set_country_flag = sof609_diplomacy_ratified add_political_power = 100 add_stability = 0.05 army_experience = 15
+ }
  sof_tp_focus_office_effect = yes
  sof609_refresh_faction_permission = yes
- add_political_power = 50
- add_stability = 0.05
+ sof611_refresh_diplomacy = yes
 }
 sof609_record_faction_foundation = {
  if = { limit = { original_tag = MRS sof_mrs_red_active = yes is_in_faction = yes }

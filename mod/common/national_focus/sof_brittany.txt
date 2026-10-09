@@ -1,4 +1,4 @@
-focus_tree = { id = sof_brittany country = { factor = 0 modifier = { add = 100 original_tag = REN } } default = no reset_on_civilwar = no
+﻿focus_tree = { id = sof_brittany country = { factor = 0 modifier = { add = 100 original_tag = REN } } default = no reset_on_civilwar = no
 initial_show_position = { focus = SOF_BRT_P0 } continuous_focus_position = { x = 50 y = 2200 }
 shortcut = { name = sof_brt_shortcut_P0 target = SOF_BRT_P0 scroll_wheel_factor = .65 }
 shortcut = { name = sof_brt_shortcut_E0 target = SOF_BRT_E0 scroll_wheel_factor = .65 }
@@ -10,23 +10,23 @@ shortcut = { name = sof_brt_shortcut_N0 target = SOF_BRT_N0 scroll_wheel_factor 
 shortcut = { name = sof_brt_shortcut_B0 target = SOF_BRT_B0 scroll_wheel_factor = .65 }
 shortcut = { name = sof_brt_shortcut_F0 target = SOF_BRT_F0 scroll_wheel_factor = .65 }
 shortcut = { name = sof_brt_shortcut_O0 target = SOF_BRT_O0 scroll_wheel_factor = .65 }
-focus = { id = SOF_BRT_P0 icon = GFX_sof_project_sof_brt_p0 x = 22 y = 0 cost = 5
+focus = {  id = SOF_BRT_P0 icon = GFX_sof_project_sof_brt_p0 x = 22 y = 0 cost = 5
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p0 } } set_country_flag = sofzh_unification_started add_political_power = 35 set_country_flag = sof_brt_grant_p0 }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
   modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
- } }
-focus = { id = SOF_BRT_P1 icon = GFX_sof_project_sof_brt_p1 x = 6 y = 1 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P1 icon = GFX_sof_project_sof_brt_p1 x = 6 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p1 } } add_political_power = 25 set_country_flag = sof_brt_grant_p1 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P2 icon = GFX_sof_project_sof_brt_p2 x = 6 y = 2 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P2 icon = GFX_sof_project_sof_brt_p2 x = 6 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
@@ -34,16 +34,16 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 add_country_leader_role = { character = REN_francois_chateau promote_leader = yes country_leader = { ideology = liberalism expire = "1965.1.1.1" } } set_politics = { ruling_party = social_liberal elections_allowed = yes } set_country_flag = sof_brt_grant_p2 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P3 icon = GFX_sof_project_sof_brt_p3 x = 2 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P3 icon = GFX_sof_project_sof_brt_p3 x = 2 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p3 } } add_political_power = 15 set_country_flag = sof_brt_grant_p3 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P4 icon = GFX_sof_project_sof_brt_p4 x = 4 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P4 icon = GFX_sof_project_sof_brt_p4 x = 4 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -52,32 +52,32 @@ ai_will_do = { factor = 12
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P5 icon = GFX_sof_project_sof_brt_p5 x = 8 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P5 icon = GFX_sof_project_sof_brt_p5 x = 8 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p5 } } add_political_power = 15 set_country_flag = sof_brt_grant_p5 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P6 icon = GFX_sof_project_sof_brt_p6 x = 12 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P6 icon = GFX_sof_project_sof_brt_p6 x = 12 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p6 } } add_political_power = 15 set_country_flag = sof_brt_grant_p6 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P7 icon = GFX_sof_project_sof_brt_p7 x = 0 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P7 icon = GFX_sof_project_sof_brt_p7 x = 0 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p7 } } add_political_power = 15 set_country_flag = sof_brt_grant_p7 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P8 icon = GFX_sof_project_sof_brt_p8 x = 10 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P8 icon = GFX_sof_project_sof_brt_p8 x = 10 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -86,16 +86,16 @@ ai_will_do = { factor = 12
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P9 icon = GFX_sof_project_sof_brt_p9 x = 0 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P9 icon = GFX_sof_project_sof_brt_p9 x = 0 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P7 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p9 } } add_stability = .02 set_country_flag = sof_brt_grant_p9 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P10 icon = GFX_sof_project_sof_brt_p10 x = 4 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P10 icon = GFX_sof_project_sof_brt_p10 x = 4 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -104,8 +104,8 @@ ai_will_do = { factor = 12
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P11 icon = GFX_sof_project_sof_brt_p11 x = 2 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P11 icon = GFX_sof_project_sof_brt_p11 x = 2 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P3 }
 prerequisite = { focus = SOF_BRT_P7 }
@@ -113,8 +113,8 @@ available = { is_subject = no has_capitulated = no sof_brt_majority = yes } canc
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p11 } } add_stability = .02 set_country_flag = sof_brt_grant_p11 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P12 icon = GFX_sof_project_sof_brt_p12 x = 6 y = 3 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P12 icon = GFX_sof_project_sof_brt_p12 x = 6 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P2 }
 mutually_exclusive = { focus = SOF_BRT_P13 focus = SOF_BRT_P14 }
@@ -123,8 +123,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 promote_character = { character = REN_francois_chateau ideology = liberalism } set_country_flag = sof_brt_grant_p12 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P13 icon = GFX_sof_project_sof_brt_p13 x = 8 y = 3 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P13 icon = GFX_sof_project_sof_brt_p13 x = 8 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P2 }
 mutually_exclusive = { focus = SOF_BRT_P12 focus = SOF_BRT_P14 }
@@ -136,8 +136,8 @@ ai_will_do = { factor = 12
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P14 icon = GFX_sof_project_sof_brt_p14 x = 10 y = 3 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P14 icon = GFX_sof_project_sof_brt_p14 x = 10 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P2 }
 mutually_exclusive = { focus = SOF_BRT_P12 focus = SOF_BRT_P13 }
@@ -147,8 +147,8 @@ add_country_leader_role = { character = REN_jean_lemaistre promote_leader = yes 
 set_politics = { ruling_party = social_conservative } set_country_flag = sof_brt_grant_p14 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P15 icon = GFX_sof_project_sof_brt_p15 x = 6 y = 4 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P15 icon = GFX_sof_project_sof_brt_p15 x = 6 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P10 }
 prerequisite = { focus = SOF_BRT_P11 }
@@ -156,16 +156,16 @@ available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_la
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p15 } } add_political_power = 25 set_country_flag = sof_brt_grant_p15 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P16 icon = GFX_sof_project_sof_brt_p16 x = 12 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P16 icon = GFX_sof_project_sof_brt_p16 x = 12 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P5 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_social } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p16 } } add_stability = .025 set_country_flag = sof_brt_grant_p16 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P17 icon = GFX_sof_project_sof_brt_p17 x = 14 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P17 icon = GFX_sof_project_sof_brt_p17 x = 14 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P8 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_rural } cancel_if_invalid = yes continue_if_invalid = no
@@ -174,8 +174,8 @@ ai_will_do = { factor = 12
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P18 icon = GFX_sof_project_sof_brt_p18 x = 16 y = 3 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P18 icon = GFX_sof_project_sof_brt_p18 x = 16 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P6 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_ports } cancel_if_invalid = yes continue_if_invalid = no
@@ -184,32 +184,32 @@ ai_will_do = { factor = 12
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P19 icon = GFX_sof_project_sof_brt_p19 x = 12 y = 4 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P19 icon = GFX_sof_project_sof_brt_p19 x = 12 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P16 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p19 } } add_stability = .02 set_country_flag = sof_brt_grant_p19 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P20 icon = GFX_sof_project_sof_brt_p20 x = 8 y = 4 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P20 icon = GFX_sof_project_sof_brt_p20 x = 8 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P12 focus = SOF_BRT_P13 focus = SOF_BRT_P14 }
 available = { is_subject = no has_capitulated = no sof_brt_majority = yes } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p20 } } add_political_power = 40 set_country_flag = sof_brt_grant_p20 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P21 icon = GFX_sof_project_sof_brt_p21 x = 2 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P21 icon = GFX_sof_project_sof_brt_p21 x = 2 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P20 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p21 } } add_ideas = sof_brt_oversight set_country_flag = sof_brt_grant_p21 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P22 icon = GFX_sof_project_sof_brt_p22 x = 0 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P22 icon = GFX_sof_project_sof_brt_p22 x = 0 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P10 }
 prerequisite = { focus = SOF_BRT_P15 }
@@ -217,8 +217,8 @@ available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p22 } } add_tech_bonus = { name = industry bonus = 0.3 uses = 1 category = industry } set_country_flag = sof_brt_grant_p22 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P23 icon = GFX_sof_project_sof_brt_p23 x = 2 y = 4 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P23 icon = GFX_sof_project_sof_brt_p23 x = 2 y = 4 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P9 }
 prerequisite = { focus = SOF_BRT_P11 }
@@ -226,16 +226,16 @@ available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p23 } } add_ideas = sof_brt_civil_rights set_country_flag = sof_brt_grant_p23 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P24 icon = GFX_sof_project_sof_brt_p24 x = 4 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_P24 icon = GFX_sof_project_sof_brt_p24 x = 4 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P20 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p24 } } add_political_power = 30 set_country_flag = sof_brt_grant_p24 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_P25 icon = GFX_sof_project_sof_brt_p25 x = 2 y = 6 cost = 10
+ }  }
+focus = {  id = SOF_BRT_P25 icon = GFX_sof_project_sof_brt_p25 x = 2 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P21 }
 prerequisite = { focus = SOF_BRT_P24 }
@@ -244,8 +244,8 @@ available = { is_subject = no has_capitulated = no sof_brt_majority = yes } canc
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_p25 } } add_stability = .04 set_country_flag = sof_brt_grant_p25 } }
 ai_will_do = { factor = 12
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_E0 icon = GFX_sof_project_sof_brt_e0 x = 16 y = 1 cost = 3
+ }  }
+focus = {  id = SOF_BRT_E0 icon = GFX_sof_project_sof_brt_e0 x = 16 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -253,8 +253,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E1 icon = GFX_sof_project_sof_brt_e1 x = 14 y = 2 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E1 icon = GFX_sof_project_sof_brt_e1 x = 14 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E0 }
 mutually_exclusive = { focus = SOF_BRT_E2 }
@@ -263,8 +263,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E2 icon = GFX_sof_project_sof_brt_e2 x = 16 y = 2 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E2 icon = GFX_sof_project_sof_brt_e2 x = 16 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E0 }
 mutually_exclusive = { focus = SOF_BRT_E1 }
@@ -274,8 +274,8 @@ ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_E3 icon = GFX_sof_project_sof_brt_e3 x = 14 y = 4 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E3 icon = GFX_sof_project_sof_brt_e3 x = 14 y = 4 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E1 focus = SOF_BRT_E2 }
 prerequisite = { focus = SOF_BRT_P17 }
@@ -284,8 +284,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E4 icon = GFX_sof_project_sof_brt_e4 x = 18 y = 3 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E4 icon = GFX_sof_project_sof_brt_e4 x = 18 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E1 focus = SOF_BRT_E2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -293,8 +293,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E5 icon = GFX_sof_project_sof_brt_e5 x = 10 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E5 icon = GFX_sof_project_sof_brt_e5 x = 10 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E1 focus = SOF_BRT_E2 }
 prerequisite = { focus = SOF_BRT_P15 }
@@ -303,8 +303,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E6 icon = GFX_sof_project_sof_brt_e6 x = 6 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E6 icon = GFX_sof_project_sof_brt_e6 x = 6 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E3 }
 prerequisite = { focus = SOF_BRT_P15 }
@@ -313,8 +313,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E7 icon = GFX_sof_project_sof_brt_e7 x = 8 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E7 icon = GFX_sof_project_sof_brt_e7 x = 8 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E4 }
 prerequisite = { focus = SOF_BRT_P15 }
@@ -324,8 +324,8 @@ ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_E8 icon = GFX_sof_project_sof_brt_e8 x = 12 y = 6 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E8 icon = GFX_sof_project_sof_brt_e8 x = 12 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -333,8 +333,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E9 icon = GFX_sof_project_sof_brt_e9 x = 4 y = 6 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E9 icon = GFX_sof_project_sof_brt_e9 x = 4 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E6 }
 prerequisite = { focus = SOF_BRT_P9 }
@@ -344,8 +344,8 @@ ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.7 has_war = no }
- } }
-focus = { id = SOF_BRT_E10 icon = GFX_sof_project_sof_brt_e10 x = 4 y = 7 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E10 icon = GFX_sof_project_sof_brt_e10 x = 4 y = 7 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E9 }
 prerequisite = { focus = SOF_BRT_P22 }
@@ -355,8 +355,8 @@ ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.7 has_war = no }
- } }
-focus = { id = SOF_BRT_E11 icon = GFX_sof_project_sof_brt_e11 x = 10 y = 7 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E11 icon = GFX_sof_project_sof_brt_e11 x = 10 y = 7 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E8 }
 prerequisite = { focus = SOF_BRT_I6 focus = SOF_BRT_I7 }
@@ -367,8 +367,8 @@ ai_will_do = { factor = 6
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E12 icon = GFX_sof_project_sof_brt_e12 x = 7 y = 8 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E12 icon = GFX_sof_project_sof_brt_e12 x = 7 y = 8 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E11 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -376,8 +376,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_E13 icon = GFX_sof_project_sof_brt_e13 x = 9 y = 9 cost = 10
+ }  }
+focus = {  id = SOF_BRT_E13 icon = GFX_sof_project_sof_brt_e13 x = 9 y = 9 cost = 10
 search_filters = { FOCUS_FILTER_INDUSTRY }
 prerequisite = { focus = SOF_BRT_E12 }
 prerequisite = { focus = SOF_BRT_I9 }
@@ -386,16 +386,16 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 6
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_I0 icon = GFX_sof_project_sof_brt_i0 x = 20 y = 1 cost = 3
+ }  }
+focus = {  id = SOF_BRT_I0 icon = GFX_sof_project_sof_brt_i0 x = 20 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i0 } } add_political_power = 20 set_country_flag = sof_brt_grant_i0 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I1 icon = GFX_sof_project_sof_brt_i1 x = 18 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_I1 icon = GFX_sof_project_sof_brt_i1 x = 18 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I0 }
 mutually_exclusive = { focus = SOF_BRT_I2 }
@@ -403,8 +403,8 @@ available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i1 } } add_stability = .025 set_country_flag = sof_brt_grant_i1 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I2 icon = GFX_sof_project_sof_brt_i2 x = 20 y = 2 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I2 icon = GFX_sof_project_sof_brt_i2 x = 20 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I0 }
 mutually_exclusive = { focus = SOF_BRT_I1 }
@@ -412,24 +412,24 @@ available = { is_subject = no has_capitulated = no sof_brt_majority = yes } canc
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i2 } } sof_brt_set_stage_2 = yes add_war_support = .03 set_country_flag = sof_brt_grant_i2 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I3 icon = GFX_sof_project_sof_brt_i3 x = 20 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_I3 icon = GFX_sof_project_sof_brt_i3 x = 20 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i3 } } add_stability = .02 set_country_flag = sof_brt_grant_i3 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I4 icon = GFX_sof_project_sof_brt_i4 x = 22 y = 3 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I4 icon = GFX_sof_project_sof_brt_i4 x = 22 y = 3 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i4 } } add_war_support = .04 set_country_flag = sof_brt_grant_i4 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I5 icon = GFX_sof_project_sof_brt_i5 x = 16 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I5 icon = GFX_sof_project_sof_brt_i5 x = 16 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I2 }
 prerequisite = { focus = SOF_BRT_P20 }
@@ -437,8 +437,8 @@ available = { is_subject = no has_capitulated = no sof_brt_majority = yes has_co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i5 } } set_country_flag = sof_brt_aid_law add_ideas = sof_brt_aid set_country_flag = sof_brt_grant_i5 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I6 icon = GFX_sof_project_sof_brt_i6 x = 12 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I6 icon = GFX_sof_project_sof_brt_i6 x = 12 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I3 }
 prerequisite = { focus = SOF_BRT_P15 }
@@ -448,8 +448,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I7 icon = GFX_sof_project_sof_brt_i7 x = 14 y = 5 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I7 icon = GFX_sof_project_sof_brt_i7 x = 14 y = 5 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I4 }
 prerequisite = { focus = SOF_BRT_P15 }
@@ -459,8 +459,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I8 icon = GFX_sof_project_sof_brt_i8 x = 10 y = 6 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I8 icon = GFX_sof_project_sof_brt_i8 x = 10 y = 6 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I6 }
 prerequisite = { focus = SOF_BRT_P20 }
@@ -468,16 +468,16 @@ available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_la
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i8 } } sof_brt_set_stage_1 = yes set_country_flag = sof_brt_grant_i8 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I9 icon = GFX_sof_project_sof_brt_i9 x = 12 y = 7 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I9 icon = GFX_sof_project_sof_brt_i9 x = 12 y = 7 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I8 focus = SOF_BRT_I7 }
 available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_law_mobilization } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i9 } } sof_brt_set_stage_0 = yes add_war_support = .05 set_country_flag = sof_brt_grant_i9 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I10 icon = GFX_sof_project_sof_brt_i10 x = 5 y = 8 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I10 icon = GFX_sof_project_sof_brt_i10 x = 5 y = 8 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I9 }
 prerequisite = { focus = SOF_BRT_P21 }
@@ -485,8 +485,8 @@ available = { is_subject = no has_capitulated = no has_country_flag = sof_brt_la
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i10 } } set_country_flag = sof_brt_war_authorized sof_brt_sync = yes set_country_flag = sof_brt_grant_i10 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_I11 icon = GFX_sof_project_sof_brt_i11 x = 10 y = 10 cost = 10
+ }  }
+focus = {  id = SOF_BRT_I11 icon = GFX_sof_project_sof_brt_i11 x = 10 y = 10 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_I10 }
 prerequisite = { focus = SOF_BRT_E13 }
@@ -494,40 +494,40 @@ available = { is_subject = no has_capitulated = no has_war = no } cancel_if_inva
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_i11 } } remove_ideas = sof_brt_wartime add_stability = .03 set_country_flag = sof_brt_grant_i11 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_D0 icon = GFX_sof_project_sof_brt_d0 x = 22 y = 1 cost = 3
+ }  }
+focus = {  id = SOF_BRT_D0 icon = GFX_sof_project_sof_brt_d0 x = 22 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d0 } } add_political_power = 20 set_country_flag = sof_brt_grant_d0 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_D1 icon = GFX_sof_project_sof_brt_d1 x = 22 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_D1 icon = GFX_sof_project_sof_brt_d1 x = 22 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d1 } } add_political_power = 15 set_country_flag = sof_brt_grant_d1 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_D2 icon = GFX_sof_project_sof_brt_d2 x = 24 y = 2 cost = 10
+ }  }
+focus = {  id = SOF_BRT_D2 icon = GFX_sof_project_sof_brt_d2 x = 24 y = 2 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d2 } } navy_experience = 10 set_country_flag = sof_brt_grant_d2 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_D3 icon = GFX_sof_project_sof_brt_d3 x = 24 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_D3 icon = GFX_sof_project_sof_brt_d3 x = 24 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d3 } } add_stability = .02 set_country_flag = sof_brt_grant_d3 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_D4 icon = GFX_sof_project_sof_brt_d4 x = 11 y = 8 cost = 10
+ }  }
+focus = {  id = SOF_BRT_D4 icon = GFX_sof_project_sof_brt_d4 x = 11 y = 8 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D2 }
 prerequisite = { focus = SOF_BRT_I9 }
@@ -535,8 +535,8 @@ available = { is_subject = no has_capitulated = no sof_brt_supermajority = yes }
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d4 } } add_political_power = 25 set_country_flag = sof_brt_grant_d4 }  custom_effect_tooltip = sof_tp_focus_REN_unlock_tt sof_tp_focus_REN_unlock_effect = yes }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_D5 icon = GFX_sof_project_sof_brt_d5 x = 11 y = 9 cost = 10
+ }  }
+focus = {  id = SOF_BRT_D5 icon = GFX_sof_project_sof_brt_d5 x = 11 y = 9 cost = 10
 search_filters = { FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_D3 }
 prerequisite = { focus = SOF_BRT_D4 }
@@ -545,8 +545,8 @@ available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes co
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_d5 } } add_stability = .02 set_country_flag = sof_brt_grant_d5 }  custom_effect_tooltip = sof_tp_focus_REN_result_tt sof_tp_focus_REN_result_effect = yes }
 ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_M0 icon = GFX_sof_project_sof_brt_m0 x = 24 y = 1 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M0 icon = GFX_sof_project_sof_brt_m0 x = 24 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -554,8 +554,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_M1 icon = GFX_sof_project_sof_brt_m1 x = 26 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M1 icon = GFX_sof_project_sof_brt_m1 x = 26 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -564,8 +564,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_M2 icon = GFX_sof_project_sof_brt_m2 x = 26 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M2 icon = GFX_sof_project_sof_brt_m2 x = 26 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -573,8 +573,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_M3 icon = GFX_sof_project_sof_brt_m3 x = 28 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M3 icon = GFX_sof_project_sof_brt_m3 x = 28 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -583,8 +583,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.7 has_war = no }
- } }
-focus = { id = SOF_BRT_M4 icon = GFX_sof_project_sof_brt_m4 x = 28 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M4 icon = GFX_sof_project_sof_brt_m4 x = 28 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M3 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -592,8 +592,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_M5 icon = GFX_sof_project_sof_brt_m5 x = 16 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M5 icon = GFX_sof_project_sof_brt_m5 x = 16 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M2 }
 prerequisite = { focus = SOF_BRT_I6 focus = SOF_BRT_I7 }
@@ -602,8 +602,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_M6 icon = GFX_sof_project_sof_brt_m6 x = 26 y = 4 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M6 icon = GFX_sof_project_sof_brt_m6 x = 26 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -611,8 +611,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_M7 icon = GFX_sof_project_sof_brt_m7 x = 14 y = 7 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M7 icon = GFX_sof_project_sof_brt_m7 x = 14 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M5 }
 prerequisite = { focus = SOF_BRT_P16 }
@@ -621,8 +621,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_M8 icon = GFX_sof_project_sof_brt_m8 x = 18 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M8 icon = GFX_sof_project_sof_brt_m8 x = 18 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M6 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -630,8 +630,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_M9 icon = GFX_sof_project_sof_brt_m9 x = 9 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_M9 icon = GFX_sof_project_sof_brt_m9 x = 9 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M7 }
 prerequisite = { focus = SOF_BRT_M8 }
@@ -642,28 +642,28 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_A0 icon = GFX_sof_project_sof_brt_a0 x = 26 y = 1 cost = 3
+ }  }
+focus = {  id = SOF_BRT_A0 icon = GFX_sof_project_sof_brt_a0 x = 26 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a0 } } air_experience = 10 set_country_flag = sof_brt_grant_a0 } }
-ai_will_do = { factor = 3 } }
-focus = { id = SOF_BRT_A1 icon = GFX_sof_project_sof_brt_a1 x = 30 y = 2 cost = 3
+ai_will_do = { factor = 3 }  }
+focus = {  id = SOF_BRT_A1 icon = GFX_sof_project_sof_brt_a1 x = 30 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a1 } } add_tech_bonus = { name = light_air bonus = 1.25 uses = 2 category = light_air } set_country_flag = sof_brt_grant_a1 } }
-ai_will_do = { factor = 3 } }
-focus = { id = SOF_BRT_A2 icon = GFX_sof_project_sof_brt_a2 x = 32 y = 2 cost = 3
+ai_will_do = { factor = 3 }  }
+focus = {  id = SOF_BRT_A2 icon = GFX_sof_project_sof_brt_a2 x = 32 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a2 } } add_tech_bonus = { name = light_air bonus = 1.25 uses = 2 category = light_air } set_country_flag = sof_brt_grant_a2 } }
 ai_will_do = { factor = 3
   modifier = { factor = 1.7 has_war = no }
- } }
-focus = { id = SOF_BRT_A3 icon = GFX_sof_project_sof_brt_a3 x = 30 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_A3 icon = GFX_sof_project_sof_brt_a3 x = 30 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A1 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -671,8 +671,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_A4 icon = GFX_sof_project_sof_brt_a4 x = 32 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_A4 icon = GFX_sof_project_sof_brt_a4 x = 32 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -680,22 +680,22 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_A5 icon = GFX_sof_project_sof_brt_a5 x = 28 y = 4 cost = 3
+ }  }
+focus = {  id = SOF_BRT_A5 icon = GFX_sof_project_sof_brt_a5 x = 28 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A3 }
 prerequisite = { focus = SOF_BRT_A4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a5 } } add_tech_bonus = { name = electronics bonus = 1.25 uses = 2 category = electronics } set_country_flag = sof_brt_grant_a5 } }
-ai_will_do = { factor = 3 } }
-focus = { id = SOF_BRT_A6 icon = GFX_sof_project_sof_brt_a6 x = 15 y = 8 cost = 3
+ai_will_do = { factor = 3 }  }
+focus = {  id = SOF_BRT_A6 icon = GFX_sof_project_sof_brt_a6 x = 15 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_AIR_XP }
 prerequisite = { focus = SOF_BRT_A5 }
 prerequisite = { focus = SOF_BRT_I9 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
 completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_a6 } } air_experience = 25 add_ideas = sof_brt_air_service set_country_flag = sof_brt_grant_a6 } }
-ai_will_do = { factor = 3 } }
-focus = { id = SOF_BRT_N0 icon = GFX_sof_project_sof_brt_n0 x = 28 y = 1 cost = 3
+ai_will_do = { factor = 3 }  }
+focus = {  id = SOF_BRT_N0 icon = GFX_sof_project_sof_brt_n0 x = 28 y = 1 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_P0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -703,8 +703,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N1 icon = GFX_sof_project_sof_brt_n1 x = 34 y = 2 cost = 3
+ }  }
+focus = {  id = SOF_BRT_N1 icon = GFX_sof_project_sof_brt_n1 x = 34 y = 2 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -712,8 +712,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N2 icon = GFX_sof_project_sof_brt_n2 x = 24 y = 4 cost = 5
+ }  }
+focus = {  id = SOF_BRT_N2 icon = GFX_sof_project_sof_brt_n2 x = 24 y = 4 cost = 5
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N0 }
 prerequisite = { focus = SOF_BRT_P18 }
@@ -722,8 +722,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N3 icon = GFX_sof_project_sof_brt_n3 x = 34 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_N3 icon = GFX_sof_project_sof_brt_n3 x = 34 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N1 }
 available = { is_subject = no has_capitulated = no sof_brt_owned_coast = yes } cancel_if_invalid = yes continue_if_invalid = no
@@ -731,8 +731,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N4 icon = GFX_sof_project_sof_brt_n4 x = 24 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_N4 icon = GFX_sof_project_sof_brt_n4 x = 24 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -740,8 +740,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N5 icon = GFX_sof_project_sof_brt_n5 x = 26 y = 5 cost = 5
+ }  }
+focus = {  id = SOF_BRT_N5 icon = GFX_sof_project_sof_brt_n5 x = 26 y = 5 cost = 5
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N2 }
 available = { is_subject = no has_capitulated = no 208 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
@@ -749,8 +749,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N6 icon = GFX_sof_project_sof_brt_n6 x = 22 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_N6 icon = GFX_sof_project_sof_brt_n6 x = 22 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N4 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -758,8 +758,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N7 icon = GFX_sof_project_sof_brt_n7 x = 26 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_N7 icon = GFX_sof_project_sof_brt_n7 x = 26 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -767,8 +767,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N8 icon = GFX_sof_project_sof_brt_n8 x = 19 y = 7 cost = 5
+ }  }
+focus = {  id = SOF_BRT_N8 icon = GFX_sof_project_sof_brt_n8 x = 19 y = 7 cost = 5
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N6 }
 prerequisite = { focus = SOF_BRT_N7 }
@@ -778,8 +778,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N9 icon = GFX_sof_project_sof_brt_n9 x = 24 y = 14 cost = 3
+ }  }
+focus = {  id = SOF_BRT_N9 icon = GFX_sof_project_sof_brt_n9 x = 24 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N8 }
 prerequisite = { focus = SOF_BRT_O25 }
@@ -788,8 +788,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_N10 icon = GFX_sof_project_sof_brt_n10 x = 25 y = 15 cost = 3
+ }  }
+focus = {  id = SOF_BRT_N10 icon = GFX_sof_project_sof_brt_n10 x = 25 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP }
 prerequisite = { focus = SOF_BRT_N9 }
 prerequisite = { focus = SOF_BRT_I9 }
@@ -799,8 +799,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_B0 icon = GFX_sof_project_sof_brt_b0 x = 13 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B0 icon = GFX_sof_project_sof_brt_b0 x = 13 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M9 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -808,8 +808,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B1 icon = GFX_sof_project_sof_brt_b1 x = 12 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B1 icon = GFX_sof_project_sof_brt_b1 x = 12 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B0 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -818,8 +818,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_B2 icon = GFX_sof_project_sof_brt_b2 x = 8 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B2 icon = GFX_sof_project_sof_brt_b2 x = 8 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B0 }
 prerequisite = { focus = SOF_BRT_P9 }
@@ -828,8 +828,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B3 icon = GFX_sof_project_sof_brt_b3 x = 16 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B3 icon = GFX_sof_project_sof_brt_b3 x = 16 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B1 }
 prerequisite = { focus = SOF_BRT_M7 }
@@ -838,8 +838,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B4 icon = GFX_sof_project_sof_brt_b4 x = 8 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B4 icon = GFX_sof_project_sof_brt_b4 x = 8 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B2 }
 prerequisite = { focus = SOF_BRT_P10 }
@@ -848,8 +848,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B5 icon = GFX_sof_project_sof_brt_b5 x = 20 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B5 icon = GFX_sof_project_sof_brt_b5 x = 20 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_A5 }
 prerequisite = { focus = SOF_BRT_M3 }
@@ -858,8 +858,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B6 icon = GFX_sof_project_sof_brt_b6 x = 17 y = 7 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B6 icon = GFX_sof_project_sof_brt_b6 x = 17 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B5 }
 prerequisite = { focus = SOF_BRT_E8 }
@@ -868,8 +868,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B7 icon = GFX_sof_project_sof_brt_b7 x = 14 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B7 icon = GFX_sof_project_sof_brt_b7 x = 14 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M6 }
 prerequisite = { focus = SOF_BRT_E5 }
@@ -880,8 +880,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_B8 icon = GFX_sof_project_sof_brt_b8 x = 18 y = 12 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B8 icon = GFX_sof_project_sof_brt_b8 x = 18 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B7 }
 prerequisite = { focus = SOF_BRT_B4 }
@@ -890,8 +890,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B9 icon = GFX_sof_project_sof_brt_b9 x = 22 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B9 icon = GFX_sof_project_sof_brt_b9 x = 22 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_A5 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -900,8 +900,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.7 has_war = no }
- } }
-focus = { id = SOF_BRT_B10 icon = GFX_sof_project_sof_brt_b10 x = 18 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B10 icon = GFX_sof_project_sof_brt_b10 x = 18 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B9 }
 prerequisite = { focus = SOF_BRT_N1 }
@@ -910,8 +910,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B11 icon = GFX_sof_project_sof_brt_b11 x = 21 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B11 icon = GFX_sof_project_sof_brt_b11 x = 21 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B10 }
 prerequisite = { focus = SOF_BRT_B6 }
@@ -920,8 +920,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B12 icon = GFX_sof_project_sof_brt_b12 x = 23 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B12 icon = GFX_sof_project_sof_brt_b12 x = 23 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_N8 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -929,8 +929,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B13 icon = GFX_sof_project_sof_brt_b13 x = 17 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B13 icon = GFX_sof_project_sof_brt_b13 x = 17 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B12 }
 prerequisite = { focus = SOF_BRT_N5 }
@@ -939,8 +939,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B14 icon = GFX_sof_project_sof_brt_b14 x = 18 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_B14 icon = GFX_sof_project_sof_brt_b14 x = 18 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B13 }
 prerequisite = { focus = SOF_BRT_B5 }
@@ -949,8 +949,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_B15 icon = GFX_sof_project_sof_brt_b15 x = 18 y = 13 cost = 5
+ }  }
+focus = {  id = SOF_BRT_B15 icon = GFX_sof_project_sof_brt_b15 x = 18 y = 13 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_B8 }
 prerequisite = { focus = SOF_BRT_B11 }
@@ -962,8 +962,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_F0 icon = GFX_sof_project_sof_brt_f0 x = 36 y = 2 cost = 5
+ }  }
+focus = {  id = SOF_BRT_F0 icon = GFX_sof_project_sof_brt_f0 x = 36 y = 2 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
 mutually_exclusive = { focus = SOF_BRT_O0 }
@@ -972,8 +972,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F1 icon = GFX_sof_project_sof_brt_f1 x = 36 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F1 icon = GFX_sof_project_sof_brt_f1 x = 36 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F0 }
 prerequisite = { focus = SOF_BRT_M1 }
@@ -983,8 +983,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_F2 icon = GFX_sof_project_sof_brt_f2 x = 30 y = 4 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F2 icon = GFX_sof_project_sof_brt_f2 x = 30 y = 4 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F0 }
 prerequisite = { focus = SOF_BRT_M2 }
@@ -993,8 +993,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F3 icon = GFX_sof_project_sof_brt_f3 x = 38 y = 3 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F3 icon = GFX_sof_project_sof_brt_f3 x = 38 y = 3 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F0 }
 prerequisite = { focus = SOF_BRT_A1 }
@@ -1003,8 +1003,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F4 icon = GFX_sof_project_sof_brt_f4 x = 20 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F4 icon = GFX_sof_project_sof_brt_f4 x = 20 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F1 }
 prerequisite = { focus = SOF_BRT_M8 }
@@ -1013,8 +1013,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F5 icon = GFX_sof_project_sof_brt_f5 x = 24 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F5 icon = GFX_sof_project_sof_brt_f5 x = 24 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F2 }
 prerequisite = { focus = SOF_BRT_M8 }
@@ -1023,8 +1023,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F6 icon = GFX_sof_project_sof_brt_f6 x = 32 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F6 icon = GFX_sof_project_sof_brt_f6 x = 32 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F2 }
 available = { is_subject = no has_capitulated = no  } cancel_if_invalid = yes continue_if_invalid = no
@@ -1032,8 +1032,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F7 icon = GFX_sof_project_sof_brt_f7 x = 30 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F7 icon = GFX_sof_project_sof_brt_f7 x = 30 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F3 }
 prerequisite = { focus = SOF_BRT_A5 }
@@ -1043,8 +1043,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_F8 icon = GFX_sof_project_sof_brt_f8 x = 28 y = 5 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F8 icon = GFX_sof_project_sof_brt_f8 x = 28 y = 5 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F3 }
 prerequisite = { focus = SOF_BRT_N2 }
@@ -1053,8 +1053,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F9 icon = GFX_sof_project_sof_brt_f9 x = 21 y = 7 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F9 icon = GFX_sof_project_sof_brt_f9 x = 21 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F4 }
 prerequisite = { focus = SOF_BRT_M6 }
@@ -1063,8 +1063,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F10 icon = GFX_sof_project_sof_brt_f10 x = 23 y = 7 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F10 icon = GFX_sof_project_sof_brt_f10 x = 23 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F5 }
 prerequisite = { focus = SOF_BRT_M1 }
@@ -1073,8 +1073,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F11 icon = GFX_sof_project_sof_brt_f11 x = 32 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F11 icon = GFX_sof_project_sof_brt_f11 x = 32 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F6 }
 prerequisite = { focus = SOF_BRT_M4 }
@@ -1083,8 +1083,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F12 icon = GFX_sof_project_sof_brt_f12 x = 30 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F12 icon = GFX_sof_project_sof_brt_f12 x = 30 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F7 }
 prerequisite = { focus = SOF_BRT_A2 }
@@ -1093,8 +1093,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F13 icon = GFX_sof_project_sof_brt_f13 x = 28 y = 6 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F13 icon = GFX_sof_project_sof_brt_f13 x = 28 y = 6 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F8 }
 prerequisite = { focus = SOF_BRT_A5 }
@@ -1103,8 +1103,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F14 icon = GFX_sof_project_sof_brt_f14 x = 13 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F14 icon = GFX_sof_project_sof_brt_f14 x = 13 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F9 }
 prerequisite = { focus = SOF_BRT_P16 }
@@ -1113,8 +1113,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F15 icon = GFX_sof_project_sof_brt_f15 x = 17 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F15 icon = GFX_sof_project_sof_brt_f15 x = 17 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 prerequisite = { focus = SOF_BRT_F10 }
 prerequisite = { focus = SOF_BRT_E3 }
@@ -1123,8 +1123,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_F16 icon = GFX_sof_project_sof_brt_f16 x = 27 y = 7 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F16 icon = GFX_sof_project_sof_brt_f16 x = 27 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F11 }
 prerequisite = { focus = SOF_BRT_N0 }
@@ -1133,8 +1133,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F17 icon = GFX_sof_project_sof_brt_f17 x = 29 y = 7 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F17 icon = GFX_sof_project_sof_brt_f17 x = 29 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F12 }
 prerequisite = { focus = SOF_BRT_F13 }
@@ -1143,8 +1143,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F18 icon = GFX_sof_project_sof_brt_f18 x = 25 y = 7 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F18 icon = GFX_sof_project_sof_brt_f18 x = 25 y = 7 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F13 }
 prerequisite = { focus = SOF_BRT_N6 }
@@ -1153,8 +1153,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F19 icon = GFX_sof_project_sof_brt_f19 x = 25 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F19 icon = GFX_sof_project_sof_brt_f19 x = 25 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F14 }
 prerequisite = { focus = SOF_BRT_N6 }
@@ -1163,8 +1163,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F20 icon = GFX_sof_project_sof_brt_f20 x = 31 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F20 icon = GFX_sof_project_sof_brt_f20 x = 31 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F15 }
 prerequisite = { focus = SOF_BRT_N3 }
@@ -1173,8 +1173,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F21 icon = GFX_sof_project_sof_brt_f21 x = 25 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F21 icon = GFX_sof_project_sof_brt_f21 x = 25 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F16 }
 prerequisite = { focus = SOF_BRT_M8 }
@@ -1183,8 +1183,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F22 icon = GFX_sof_project_sof_brt_f22 x = 27 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F22 icon = GFX_sof_project_sof_brt_f22 x = 27 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F17 }
 prerequisite = { focus = SOF_BRT_N2 }
@@ -1193,8 +1193,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F23 icon = GFX_sof_project_sof_brt_f23 x = 19 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F23 icon = GFX_sof_project_sof_brt_f23 x = 19 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_POLITICAL }
 prerequisite = { focus = SOF_BRT_F18 }
 prerequisite = { focus = SOF_BRT_I1 focus = SOF_BRT_I2 }
@@ -1204,8 +1204,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 1.8 has_stability < 0.45 }
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_F24 icon = GFX_sof_project_sof_brt_f24 x = 20 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F24 icon = GFX_sof_project_sof_brt_f24 x = 20 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F19 }
 prerequisite = { focus = SOF_BRT_B5 }
@@ -1214,8 +1214,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F25 icon = GFX_sof_project_sof_brt_f25 x = 16 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F25 icon = GFX_sof_project_sof_brt_f25 x = 16 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F20 }
 prerequisite = { focus = SOF_BRT_P17 }
@@ -1224,8 +1224,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F26 icon = GFX_sof_project_sof_brt_f26 x = 15 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F26 icon = GFX_sof_project_sof_brt_f26 x = 15 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F21 }
 prerequisite = { focus = SOF_BRT_M2 }
@@ -1234,8 +1234,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F27 icon = GFX_sof_project_sof_brt_f27 x = 23 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F27 icon = GFX_sof_project_sof_brt_f27 x = 23 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F22 }
 prerequisite = { focus = SOF_BRT_A4 }
@@ -1244,8 +1244,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F28 icon = GFX_sof_project_sof_brt_f28 x = 19 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F28 icon = GFX_sof_project_sof_brt_f28 x = 19 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F23 }
 prerequisite = { focus = SOF_BRT_N4 }
@@ -1254,8 +1254,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F29 icon = GFX_sof_project_sof_brt_f29 x = 20 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F29 icon = GFX_sof_project_sof_brt_f29 x = 20 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F24 }
 prerequisite = { focus = SOF_BRT_B6 }
@@ -1264,8 +1264,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F30 icon = GFX_sof_project_sof_brt_f30 x = 14 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F30 icon = GFX_sof_project_sof_brt_f30 x = 14 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MANPOWER }
 prerequisite = { focus = SOF_BRT_F25 }
 prerequisite = { focus = SOF_BRT_P17 }
@@ -1276,8 +1276,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
- } }
-focus = { id = SOF_BRT_F31 icon = GFX_sof_project_sof_brt_f31 x = 30 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F31 icon = GFX_sof_project_sof_brt_f31 x = 30 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F26 }
 prerequisite = { focus = SOF_BRT_F27 }
@@ -1286,8 +1286,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F32 icon = GFX_sof_project_sof_brt_f32 x = 32 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F32 icon = GFX_sof_project_sof_brt_f32 x = 32 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F27 }
 prerequisite = { focus = SOF_BRT_F20 }
@@ -1296,8 +1296,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F33 icon = GFX_sof_project_sof_brt_f33 x = 14 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F33 icon = GFX_sof_project_sof_brt_f33 x = 14 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F28 }
 prerequisite = { focus = SOF_BRT_P21 }
@@ -1307,8 +1307,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_F34 icon = GFX_sof_project_sof_brt_f34 x = 25 y = 12 cost = 3
+ }  }
+focus = {  id = SOF_BRT_F34 icon = GFX_sof_project_sof_brt_f34 x = 25 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F29 }
 prerequisite = { focus = SOF_BRT_F30 }
@@ -1318,8 +1318,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_F35 icon = GFX_sof_project_sof_brt_f35 x = 25 y = 13 cost = 5
+ }  }
+focus = {  id = SOF_BRT_F35 icon = GFX_sof_project_sof_brt_f35 x = 25 y = 13 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_F34 }
 prerequisite = { focus = SOF_BRT_F32 }
@@ -1329,8 +1329,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O0 icon = GFX_sof_project_sof_brt_o0 x = 31 y = 7 cost = 5
+ }  }
+focus = {  id = SOF_BRT_O0 icon = GFX_sof_project_sof_brt_o0 x = 31 y = 7 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_M0 }
 prerequisite = { focus = SOF_BRT_I2 focus = SOF_BRT_I8 }
@@ -1341,8 +1341,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_O1 icon = GFX_sof_project_sof_brt_o1 x = 31 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O1 icon = GFX_sof_project_sof_brt_o1 x = 31 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_M3 }
@@ -1351,8 +1351,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O2 icon = GFX_sof_project_sof_brt_o2 x = 29 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O2 icon = GFX_sof_project_sof_brt_o2 x = 29 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_M1 }
@@ -1361,8 +1361,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O3 icon = GFX_sof_project_sof_brt_o3 x = 35 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O3 icon = GFX_sof_project_sof_brt_o3 x = 35 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_A3 }
@@ -1371,8 +1371,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O4 icon = GFX_sof_project_sof_brt_o4 x = 33 y = 8 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O4 icon = GFX_sof_project_sof_brt_o4 x = 33 y = 8 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O0 }
 prerequisite = { focus = SOF_BRT_N2 }
@@ -1381,8 +1381,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O5 icon = GFX_sof_project_sof_brt_o5 x = 27 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O5 icon = GFX_sof_project_sof_brt_o5 x = 27 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O1 }
 prerequisite = { focus = SOF_BRT_M2 }
@@ -1391,8 +1391,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O6 icon = GFX_sof_project_sof_brt_o6 x = 29 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O6 icon = GFX_sof_project_sof_brt_o6 x = 29 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O2 }
 prerequisite = { focus = SOF_BRT_M6 }
@@ -1401,8 +1401,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O7 icon = GFX_sof_project_sof_brt_o7 x = 21 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O7 icon = GFX_sof_project_sof_brt_o7 x = 21 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O2 }
 prerequisite = { focus = SOF_BRT_E8 }
@@ -1411,8 +1411,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O8 icon = GFX_sof_project_sof_brt_o8 x = 33 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O8 icon = GFX_sof_project_sof_brt_o8 x = 33 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O3 }
 prerequisite = { focus = SOF_BRT_A1 }
@@ -1421,8 +1421,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O9 icon = GFX_sof_project_sof_brt_o9 x = 35 y = 9 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O9 icon = GFX_sof_project_sof_brt_o9 x = 35 y = 9 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O4 }
 prerequisite = { focus = SOF_BRT_N1 }
@@ -1433,8 +1433,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_O10 icon = GFX_sof_project_sof_brt_o10 x = 24 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O10 icon = GFX_sof_project_sof_brt_o10 x = 24 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O5 }
 prerequisite = { focus = SOF_BRT_M4 }
@@ -1443,8 +1443,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O11 icon = GFX_sof_project_sof_brt_o11 x = 26 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O11 icon = GFX_sof_project_sof_brt_o11 x = 26 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O6 }
 prerequisite = { focus = SOF_BRT_M4 }
@@ -1453,8 +1453,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O12 icon = GFX_sof_project_sof_brt_o12 x = 22 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O12 icon = GFX_sof_project_sof_brt_o12 x = 22 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O7 }
 prerequisite = { focus = SOF_BRT_M8 }
@@ -1463,8 +1463,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O13 icon = GFX_sof_project_sof_brt_o13 x = 28 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O13 icon = GFX_sof_project_sof_brt_o13 x = 28 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O8 }
 prerequisite = { focus = SOF_BRT_A5 }
@@ -1473,8 +1473,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O14 icon = GFX_sof_project_sof_brt_o14 x = 34 y = 10 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O14 icon = GFX_sof_project_sof_brt_o14 x = 34 y = 10 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O9 }
 prerequisite = { focus = SOF_BRT_N5 }
@@ -1483,8 +1483,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O15 icon = GFX_sof_project_sof_brt_o15 x = 22 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O15 icon = GFX_sof_project_sof_brt_o15 x = 22 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O10 }
 prerequisite = { focus = SOF_BRT_B7 }
@@ -1493,8 +1493,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O16 icon = GFX_sof_project_sof_brt_o16 x = 26 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O16 icon = GFX_sof_project_sof_brt_o16 x = 26 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O11 }
 prerequisite = { focus = SOF_BRT_M6 }
@@ -1503,8 +1503,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O17 icon = GFX_sof_project_sof_brt_o17 x = 24 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O17 icon = GFX_sof_project_sof_brt_o17 x = 24 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O12 }
 prerequisite = { focus = SOF_BRT_B1 }
@@ -1513,8 +1513,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O18 icon = GFX_sof_project_sof_brt_o18 x = 28 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O18 icon = GFX_sof_project_sof_brt_o18 x = 28 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O13 }
 prerequisite = { focus = SOF_BRT_A4 }
@@ -1523,8 +1523,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O19 icon = GFX_sof_project_sof_brt_o19 x = 30 y = 11 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O19 icon = GFX_sof_project_sof_brt_o19 x = 30 y = 11 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O14 }
 prerequisite = { focus = SOF_BRT_B14 }
@@ -1535,8 +1535,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_O20 icon = GFX_sof_project_sof_brt_o20 x = 16 y = 12 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O20 icon = GFX_sof_project_sof_brt_o20 x = 16 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O15 }
 prerequisite = { focus = SOF_BRT_P21 }
@@ -1546,8 +1546,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_O21 icon = GFX_sof_project_sof_brt_o21 x = 29 y = 12 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O21 icon = GFX_sof_project_sof_brt_o21 x = 29 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O16 }
 prerequisite = { focus = SOF_BRT_O17 }
@@ -1556,8 +1556,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O22 icon = GFX_sof_project_sof_brt_o22 x = 31 y = 12 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O22 icon = GFX_sof_project_sof_brt_o22 x = 31 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O17 }
 prerequisite = { focus = SOF_BRT_O13 }
@@ -1566,8 +1566,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O23 icon = GFX_sof_project_sof_brt_o23 x = 27 y = 12 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O23 icon = GFX_sof_project_sof_brt_o23 x = 27 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O18 }
 prerequisite = { focus = SOF_BRT_B11 }
@@ -1576,8 +1576,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O24 icon = GFX_sof_project_sof_brt_o24 x = 23 y = 12 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O24 icon = GFX_sof_project_sof_brt_o24 x = 23 y = 12 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O19 }
 prerequisite = { focus = SOF_BRT_N8 }
@@ -1586,8 +1586,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O25 icon = GFX_sof_project_sof_brt_o25 x = 20 y = 13 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O25 icon = GFX_sof_project_sof_brt_o25 x = 20 y = 13 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O20 }
 prerequisite = { focus = SOF_BRT_N8 }
@@ -1598,8 +1598,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_O26 icon = GFX_sof_project_sof_brt_o26 x = 29 y = 13 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O26 icon = GFX_sof_project_sof_brt_o26 x = 29 y = 13 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O21 }
 prerequisite = { focus = SOF_BRT_N3 }
@@ -1608,8 +1608,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O27 icon = GFX_sof_project_sof_brt_o27 x = 27 y = 14 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O27 icon = GFX_sof_project_sof_brt_o27 x = 27 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O22 }
 prerequisite = { focus = SOF_BRT_O25 }
@@ -1618,8 +1618,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O28 icon = GFX_sof_project_sof_brt_o28 x = 29 y = 14 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O28 icon = GFX_sof_project_sof_brt_o28 x = 29 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O23 }
 prerequisite = { focus = SOF_BRT_O26 }
@@ -1630,8 +1630,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 0.45 num_of_military_factories < 5 }
   modifier = { factor = 2 original_tag = AJC }
- } }
-focus = { id = SOF_BRT_O29 icon = GFX_sof_project_sof_brt_o29 x = 29 y = 15 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O29 icon = GFX_sof_project_sof_brt_o29 x = 29 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O24 }
 prerequisite = { focus = SOF_BRT_O27 }
@@ -1640,8 +1640,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O30 icon = GFX_sof_project_sof_brt_o30 x = 20 y = 14 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O30 icon = GFX_sof_project_sof_brt_o30 x = 20 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O25 }
 prerequisite = { focus = SOF_BRT_I10 }
@@ -1651,8 +1651,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_O31 icon = GFX_sof_project_sof_brt_o31 x = 22 y = 14 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O31 icon = GFX_sof_project_sof_brt_o31 x = 22 y = 14 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O26 }
 prerequisite = { focus = SOF_BRT_P15 }
@@ -1662,8 +1662,8 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
-focus = { id = SOF_BRT_O32 icon = GFX_sof_project_sof_brt_o32 x = 27 y = 15 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O32 icon = GFX_sof_project_sof_brt_o32 x = 27 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O27 }
 prerequisite = { focus = SOF_BRT_O28 }
@@ -1672,8 +1672,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O33 icon = GFX_sof_project_sof_brt_o33 x = 23 y = 15 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O33 icon = GFX_sof_project_sof_brt_o33 x = 23 y = 15 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O28 }
 prerequisite = { focus = SOF_BRT_P16 }
@@ -1682,8 +1682,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O34 icon = GFX_sof_project_sof_brt_o34 x = 27 y = 16 cost = 3
+ }  }
+focus = {  id = SOF_BRT_O34 icon = GFX_sof_project_sof_brt_o34 x = 27 y = 16 cost = 3
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O29 }
 prerequisite = { focus = SOF_BRT_O32 }
@@ -1692,8 +1692,8 @@ completion_reward = { if = { limit = { NOT = { has_country_flag = sof_brt_grant_
 ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
- } }
-focus = { id = SOF_BRT_O35 icon = GFX_sof_project_sof_brt_o35 x = 23 y = 17 cost = 5
+ }  }
+focus = {  id = SOF_BRT_O35 icon = GFX_sof_project_sof_brt_o35 x = 23 y = 17 cost = 5
 search_filters = { FOCUS_FILTER_ARMY_XP }
 prerequisite = { focus = SOF_BRT_O30 }
 prerequisite = { focus = SOF_BRT_O31 }
@@ -1705,7 +1705,7 @@ ai_will_do = { factor = 3
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
- } }
+ }  }
 
  shared_focus = SOF_NR_REN_mandate
  shortcut = { name = sof_nr_shortcut target = SOF_NR_REN_mandate scroll_wheel_factor = 0.7 }
@@ -1717,19 +1717,31 @@ shared_focus = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
 shared_focus = SOF_PARTY_USR_USR_COALITION
 shared_focus = SOF_PARTY_PUP_PUP_BRIDGE
 shared_focus = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
-shared_focus = SOF_PARTY_RG_AD_RG_AD_ACCOUNTS
+
 shared_focus = SOF_PARTY_FR_URD_FR_URD_NOTABLES
 shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
 
-focus = { id = SOF609_REN_diplomatic_ratification icon = GFX_sof_project_sof_brt_d4 x = 11 y = 11 cost = 10
+focus = {  id = SOF609_REN_diplomatic_ratification icon = GFX_sof_project_sof_brt_d4 x = 11 y = 11 cost = 10
  prerequisite = { focus = SOF_BRT_D5 }
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no }
  cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
  ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
-}
+ }
+
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_PCF_PCF_MANDATE scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_pcf_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_SFIO_SFIO_OFFICE scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_sfio_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_PRRRS_PRRRS_REPUBLIC scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_prrrs_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_USR_USR_COALITION scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_usr_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_PUP_PUP_BRIDGE scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_pup_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_RG_AD_RG_AD_COMMITTEES scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_rg_ad_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_FR_URD_FR_URD_NOTABLES scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_fr_urd_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_PDP_PDP_MANDATE scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_pdp_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_UPR_UPR_MANDATE scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_upr_in_power } }
+shortcut = { name = sof611_party_shortcut target = SOF_PARTY_DORIOT_DORIOT_RAYON scroll_wheel_factor = 0.8 trigger = { has_country_flag = sof_kr_party_doriot_in_power } }
+shortcut = { name = sof611_diplomacy_shortcut target = SOF609_REN_diplomatic_ratification scroll_wheel_factor = 0.8 }
 }
