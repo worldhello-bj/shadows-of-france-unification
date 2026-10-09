@@ -1,13 +1,16 @@
-add_namespace = sof_region_LYO_1936
+﻿add_namespace = sof_region_LYO_1936
 country_event = {
  id = sof_region_LYO_1936.1 title = sof_region_LYO_1936.1.t desc = sof_region_LYO_1936.1.d is_triggered_only = yes
  trigger = { original_tag = CFR exists = LYO is_subject = no has_capitulated = no NOT = { has_country_flag = sof_region_LYO_1936_responded } NOT = { has_war_with = LYO } }
- option = { name = sof_region_LYO_1936.1.a ai_chance = { factor = 60 }
+ option = {  name = sof_region_LYO_1936.1.a ai_chance = {  factor = 60 
+modifier = { factor = 1.5 num_of_civilian_factories < 8 }
+modifier = { factor = 0.7 check_variable = { sof611_active_partners > 2 } }
+ }
   set_country_flag = sof_region_LYO_1936_responded set_country_flag = sof_region_LYO_1936_accepted
   add_tech_bonus = { name = sof_region_LYO_1936_recipient_exchange bonus = 0.35 uses = 1 category = industry }
   add_opinion_modifier = { target = LYO modifier = sof_region_LYO_1936_agreement }
   LYO = { set_country_flag = sof_region_LYO_1936_accepted add_opinion_modifier = { target = CFR modifier = sof_region_LYO_1936_agreement } country_event = { id = sof_region_LYO_1936.2 days = 1 } }
- }
+  }
  option = { name = sof_region_LYO_1936.1.b ai_chance = { factor = 40 }
   set_country_flag = sof_region_LYO_1936_responded LYO = { set_country_flag = sof_region_LYO_1936_refused country_event = { id = sof_region_LYO_1936.3 days = 1 } }
  }
