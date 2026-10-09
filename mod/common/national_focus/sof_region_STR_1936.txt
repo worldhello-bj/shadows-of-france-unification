@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_region_STR_1936 country = { factor = 0 modifier = { add = 300 original_tag = STR } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_region_STR_1936 country = { factor = 0 modifier = { add = 300 original_tag = STR } } default = no reset_on_civilwar = no
 initial_show_position = { focus = sof_ne_STR_register } continuous_focus_position = { x = 0 y = 3100 }
 focus = { id = sof_ne_STR_register icon = GFX_sof_project_sof_ne_str_register x = 7 y = 0 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
@@ -132,6 +132,8 @@ completion_reward = { if = { limit = {   has_war = no MET = { exists = yes is_su
 ai_will_do = { factor = 10
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
+
+ bypass = { OR = { NOT = { country_exists = MET } MET = { OR = { is_subject = yes has_capitulated = yes } } } }
 }
 focus = { id = sof_ne_STR_border_engineers icon = GFX_sof_project_sof_ne_str_border_engineers x = 18 y = 3 cost = 5
 prerequisite = { focus = sof_ne_STR_wissem }
@@ -385,6 +387,8 @@ completion_reward = { if = { limit = {   has_war = no BES = { exists = yes is_su
 ai_will_do = { factor = 10
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
+
+ bypass = { OR = { NOT = { country_exists = BES } BES = { OR = { is_subject = yes has_capitulated = yes } } } }
 }
 focus = { id = sof_ne_STR_frontier_manual icon = GFX_sof_project_sof_ne_str_frontier_manual x = 15 y = 8 cost = 5
 prerequisite = { focus = sof_ne_STR_mounted focus = sof_ne_STR_static }
@@ -584,4 +588,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_STR_diplomatic_ratification icon = GFX_sof_project_sof_ne_str_jura_offer x = 18 y = 8 cost = 10
+ prerequisite = { focus = sof_ne_STR_jura_offer focus = sof_ne_STR_lorraine_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

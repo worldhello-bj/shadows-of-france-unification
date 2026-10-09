@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_region_TRS_1936 country = { factor = 0 modifier = { add = 300 original_tag = TRS } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_region_TRS_1936 country = { factor = 0 modifier = { add = 300 original_tag = TRS } } default = no reset_on_civilwar = no
  initial_show_position = { focus = sof_region_TRS_1936_assembly } continuous_focus_position = { x = 50 y = 3800 }
 focus = { id = sof_region_TRS_1936_assembly icon = GFX_sof_project_sof_region_trs_1936_assembly x = 9 y = 0 cost = 3
 
@@ -437,7 +437,9 @@ focus = { id = sof_region_TRS_1936_poitou_offer icon = GFX_sof_project_sof_regio
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = POI } POI = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_TRS_1936_accepted_rail icon = GFX_sof_van_goal_generic_construct_civ_factory x = 7 y = 10 cost = 5
  prerequisite = { focus = sof_region_TRS_1936_poitou_offer }
 
@@ -454,7 +456,9 @@ focus = { id = sof_region_TRS_1936_paris_offer icon = GFX_sof_project_sof_region
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  PRS = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = PRS } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  PRS = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = PRS } NOT = { has_country_flag = sof_region_TRS_1936_paris_offer_paid } }  set_country_flag = sof_region_TRS_1936_paris_offer_pending PRS = { country_event = { id = sof_region_TRS_1936.50 days = 1 } } set_country_flag = sof_region_TRS_1936_paris_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = PRS } PRS = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_TRS_1936_accepted_admin icon = GFX_sof_brt_goal_generic_neutrality_focus x = 9 y = 8 cost = 3
  prerequisite = { focus = sof_region_TRS_1936_paris_offer }
 
@@ -468,7 +472,9 @@ focus = { id = sof_region_TRS_1936_toulouse_offer icon = GFX_sof_project_sof_reg
  available = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  TOU = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TOU } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  TOU = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TOU } NOT = { has_country_flag = sof_region_TRS_1936_toulouse_offer_paid } }  set_country_flag = sof_region_TRS_1936_toulouse_offer_pending TOU = { country_event = { id = sof_region_TRS_1936.52 days = 1 } } set_country_flag = sof_region_TRS_1936_toulouse_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = TOU } TOU = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_TRS_1936_accepted_proof icon = GFX_sof_project_sof_region_trs_1936_accepted_proof x = 10 y = 11 cost = 5
  prerequisite = { focus = sof_region_TRS_1936_toulouse_offer }
 
@@ -552,4 +558,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_TRS_diplomatic_ratification icon = GFX_sof_project_sof_region_trs_1936_poitou_offer x = 7 y = 11 cost = 10
+ prerequisite = { focus = sof_region_TRS_1936_poitou_offer focus = sof_region_TRS_1936_paris_offer focus = sof_region_TRS_1936_toulouse_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

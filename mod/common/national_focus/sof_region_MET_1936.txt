@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_region_MET_1936 country = { factor = 0 modifier = { add = 300 original_tag = MET } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_region_MET_1936 country = { factor = 0 modifier = { add = 300 original_tag = MET } } default = no reset_on_civilwar = no
 initial_show_position = { focus = sof_ne_MET_assembly } continuous_focus_position = { x = 0 y = 3100 }
 focus = { id = sof_ne_MET_assembly icon = GFX_sof_project_sof_ne_met_assembly x = 9 y = 0 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
@@ -625,4 +625,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_MET_diplomatic_ratification icon = GFX_sof_project_sof_ne_met_delegation x = 21 y = 9 cost = 10
+ prerequisite = { focus = sof_ne_MET_delegation }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

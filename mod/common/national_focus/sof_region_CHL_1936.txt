@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_region_CHL_1936 country = { factor = 0 modifier = { add = 300 original_tag = CHL } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_region_CHL_1936 country = { factor = 0 modifier = { add = 300 original_tag = CHL } } default = no reset_on_civilwar = no
 initial_show_position = { focus = sof_ne_CHL_commission } continuous_focus_position = { x = 0 y = 3100 }
 focus = { id = sof_ne_CHL_commission icon = GFX_sof_project_sof_ne_chl_commission x = 7 y = 0 cost = 3
 search_filters = { FOCUS_FILTER_POLITICAL }
@@ -168,6 +168,8 @@ ai_will_do = { factor = 10
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
+
+ bypass = { OR = { NOT = { country_exists = AMI } AMI = { OR = { is_subject = yes has_capitulated = yes } } } }
 }
 focus = { id = sof_ne_CHL_price_board icon = GFX_sof_project_sof_ne_chl_price_board x = 1 y = 4 cost = 5
 prerequisite = { focus = sof_ne_CHL_growers focus = sof_ne_CHL_houses }
@@ -229,6 +231,8 @@ ai_will_do = { factor = 10
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
+
+ bypass = { OR = { NOT = { country_exists = MET } MET = { OR = { is_subject = yes has_capitulated = yes } } } }
 }
 focus = { id = sof_ne_CHL_aoc icon = GFX_sof_project_sof_ne_chl_aoc x = 0 y = 5 cost = 4
 prerequisite = { focus = sof_ne_CHL_price_board }
@@ -585,4 +589,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_CHL_diplomatic_ratification icon = GFX_sof_project_sof_ne_chl_lorraine_offer x = 24 y = 4 cost = 10
+ prerequisite = { focus = sof_ne_CHL_lorraine_offer focus = sof_ne_CHL_picardy_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

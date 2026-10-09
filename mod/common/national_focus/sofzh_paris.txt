@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sofzh_paris country = { factor = 0 modifier = { add = 1000 original_tag = PRS } } default = no reset_on_civilwar = no initial_show_position = { focus = SFP_devalue_the_franc } continuous_focus_position = { x = 50 y = 2200 }
+focus_tree = { id = sofzh_paris country = { factor = 0 modifier = { add = 1000 original_tag = PRS } } default = no reset_on_civilwar = no initial_show_position = { focus = SFP_devalue_the_franc } continuous_focus_position = { x = 50 y = 2200 }
 focus = {
  id = SFP_devalue_the_franc icon = GFX_sof_focus_unique_sfp_devalue_the_franc
  x = 0
@@ -706,7 +706,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_anti_fascist_coalition = yes }
+ completion_reward = { add_political_power = 25 custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_anti_fascist_coalition = yes }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -824,7 +824,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_loyalty_to_the_cause = yes }
+ completion_reward = { add_political_power = 25 custom_effect_tooltip = sof_hist_fra_rene_nicod_unlock_tt sof_hist_complete_fra_loyalty_to_the_cause = yes }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1140,7 +1140,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 100 add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = ROOT } }
+ completion_reward = { add_political_power = 25 add_political_power = 100 add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = ROOT } }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1301,7 +1301,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 120 }
+ completion_reward = { add_political_power = 25 add_political_power = 120 }
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
@@ -1378,7 +1378,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_workers_front } set_country_flag = sof_van_coalition_enabled }
+ completion_reward = { add_political_power = 25 if = { limit = { is_in_faction = no } add_stability = 0.03 } set_country_flag = sof_van_coalition_enabled }
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
@@ -1393,7 +1393,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { add_political_power = 25 }
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
@@ -1646,7 +1646,7 @@ focus = {
  
  cost = 5
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_political_power = 75 }
+ completion_reward = { add_political_power = 25 add_political_power = 75 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1658,7 +1658,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1714,7 +1714,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_paris_congress } set_country_flag = sof_van_coalition_enabled }
+ completion_reward = { add_political_power = 25 if = { limit = { is_in_faction = no } add_stability = 0.03 } set_country_flag = sof_van_coalition_enabled }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -1858,7 +1858,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } custom_effect_tooltip = SFP_france_first_balance_note_tt }
+ completion_reward = { add_political_power = 25 custom_effect_tooltip = SFP_france_first_balance_note_tt }
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
@@ -1902,7 +1902,7 @@ focus = {
  cost = 10
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } if = { limit = { is_in_faction = no } create_faction = sof_van_eastern_pact } set_country_flag = sof_van_coalition_enabled custom_effect_tooltip = SFP_join_germany_balance_note_tt }
+ completion_reward = { add_political_power = 25 if = { limit = { is_in_faction = no } add_stability = 0.03 } set_country_flag = sof_van_coalition_enabled custom_effect_tooltip = SFP_join_germany_balance_note_tt }
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
@@ -2010,7 +2010,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } }
+ completion_reward = { add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2056,7 +2056,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_aquitaine = yes set_rule = { can_create_factions = yes } }
+ completion_reward = { set_country_flag = sofzh_unification_war_ready sof_van_goal_aquitaine = yes add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2080,7 +2080,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_rule = { can_create_factions = yes } add_stability = 0.1 }
+ completion_reward = { add_political_power = 25 add_stability = 0.1 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2092,7 +2092,7 @@ focus = {
  
  cost = 10
  available = { is_subject = no has_capitulated = no } cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { set_politics = { ruling_party = authoritarian_democrat } set_rule = { can_create_factions = yes } }
+ completion_reward = { set_politics = { ruling_party = authoritarian_democrat } add_political_power = 25 }
  ai_will_do = { factor = 1 }
 }
 focus = {
@@ -2461,4 +2461,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_PRS_diplomatic_ratification icon = GFX_sof_focus_unique_sfp_join_the_ententes x = 34 y = 17 cost = 10
+ prerequisite = { focus = SFP_join_the_ententes focus = SFP_france_leads focus = SFP_join_comintern focus = SFP_humanite_unie focus = SFP_the_congress_of_paris focus = SFP_france_first focus = SFP_join_germany focus = SFP_two_countries_two_crowns focus = SFP_proclaim_the_third_empire }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

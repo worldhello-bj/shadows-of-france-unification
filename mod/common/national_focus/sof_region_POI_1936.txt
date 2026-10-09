@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_region_POI_1936 country = { factor = 0 modifier = { add = 300 original_tag = POI } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_region_POI_1936 country = { factor = 0 modifier = { add = 300 original_tag = POI } } default = no reset_on_civilwar = no
  initial_show_position = { focus = sof_region_POI_1936_council } continuous_focus_position = { x = 50 y = 3800 }
 focus = { id = sof_region_POI_1936_council icon = GFX_sof_project_sof_region_poi_1936_council x = 9 y = 0 cost = 3
 
@@ -397,7 +397,9 @@ focus = { id = sof_region_POI_1936_south_offer icon = GFX_sof_project_sof_region
  available = { original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070  BRD = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = BRD } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070  BRD = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = BRD } NOT = { has_country_flag = sof_region_POI_1936_south_offer_paid } }  set_country_flag = sof_region_POI_1936_south_offer_pending BRD = { country_event = { id = sof_region_POI_1936.44 days = 1 } } set_country_flag = sof_region_POI_1936_south_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = BRD } BRD = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_POI_1936_south_contract icon = GFX_sof_project_sof_region_poi_1936_south_contract x = 13 y = 8 cost = 5
  prerequisite = { focus = sof_region_POI_1936_south_offer }
 
@@ -414,7 +416,9 @@ focus = { id = sof_region_POI_1936_tours_offer icon = GFX_sof_project_sof_region
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = TRS } TRS = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_POI_1936_rail_contract icon = GFX_sof_project_sof_region_poi_1936_rail_contract x = 10 y = 8 cost = 3
  prerequisite = { focus = sof_region_POI_1936_tours_offer }
 
@@ -431,7 +435,9 @@ focus = { id = sof_region_POI_1936_nantes_offer icon = GFX_sof_project_sof_regio
  available = { original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070  NAN = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = NAN } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070  NAN = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = NAN } NOT = { has_country_flag = sof_region_POI_1936_nantes_offer_paid } }  set_country_flag = sof_region_POI_1936_nantes_offer_pending NAN = { country_event = { id = sof_region_POI_1936.48 days = 1 } } set_country_flag = sof_region_POI_1936_nantes_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = NAN } NAN = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_POI_1936_repair_exchange icon = GFX_sof_project_sof_region_poi_1936_repair_exchange x = 17 y = 8 cost = 3
  prerequisite = { focus = sof_region_POI_1936_nantes_offer }
 
@@ -504,4 +510,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_POI_diplomatic_ratification icon = GFX_sof_project_sof_region_poi_1936_south_offer x = 15 y = 8 cost = 10
+ prerequisite = { focus = sof_region_POI_1936_south_offer focus = sof_region_POI_1936_tours_offer focus = sof_region_POI_1936_nantes_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

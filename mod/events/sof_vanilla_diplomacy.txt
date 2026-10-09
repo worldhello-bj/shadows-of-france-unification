@@ -6,7 +6,7 @@ country_event = {
  option = { name = sof_van_accept ai_chance = { factor = 40 modifier = { factor = 2 has_government = FROM } }
   diplomatic_relation = { country = FROM relation = non_aggression_pact active = yes }
   add_stability = 0.02 FROM = { add_stability = 0.02 }
-  if = { limit = { is_in_faction = no has_government = FROM FROM = { is_faction_leader = yes } } FROM = { add_to_faction = ROOT } }
+  if = { limit = { is_in_faction = no has_government = FROM FROM = { is_faction_leader = yes } } FROM = { if = { limit = { sof609_faction_ready = yes ROOT = { sof609_faction_ready = yes } } add_to_faction = ROOT } } }
  }
  option = { name = sof_van_decline ai_chance = { factor = 60 } FROM = { country_event = { id = sof_van_diplomacy.2 days = 1 } } }
 }

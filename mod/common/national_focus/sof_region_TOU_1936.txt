@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_region_TOU_1936 country = { factor = 0 modifier = { add = 300 original_tag = TOU } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_region_TOU_1936 country = { factor = 0 modifier = { add = 300 original_tag = TOU } } default = no reset_on_civilwar = no
  initial_show_position = { focus = sof_region_TOU_1936_mandate } continuous_focus_position = { x = 50 y = 3800 }
 focus = { id = sof_region_TOU_1936_mandate icon = GFX_sof_project_sof_region_tou_1936_mandate x = 9 y = 0 cost = 3
 
@@ -198,7 +198,9 @@ focus = { id = sof_region_TOU_1936_port_offer icon = GFX_sof_project_sof_region_
  available = { original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  BRD = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = BRD } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  BRD = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = BRD } NOT = { has_country_flag = sof_region_TOU_1936_port_offer_paid } }  set_country_flag = sof_region_TOU_1936_port_offer_pending BRD = { country_event = { id = sof_region_TOU_1936.25 days = 1 } } set_country_flag = sof_region_TOU_1936_port_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = BRD } BRD = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_TOU_1936_barrel_train icon = GFX_sof_project_sof_region_tou_1936_barrel_train x = 15 y = 4 cost = 3
  prerequisite = { focus = sof_region_TOU_1936_port_offer } prerequisite = { focus = sof_region_TOU_1936_fuel_safety }
 
@@ -401,7 +403,9 @@ focus = { id = sof_region_TOU_1936_mediterranean_offer icon = GFX_sof_project_so
  available = { original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  MOP = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = MOP } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  MOP = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = MOP } NOT = { has_country_flag = sof_region_TOU_1936_mediterranean_offer_paid } }  set_country_flag = sof_region_TOU_1936_mediterranean_offer_pending MOP = { country_event = { id = sof_region_TOU_1936.49 days = 1 } } set_country_flag = sof_region_TOU_1936_mediterranean_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = MOP } MOP = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_TOU_1936_relay icon = GFX_sof_project_sof_region_tou_1936_relay x = 9 y = 8 cost = 3
  prerequisite = { focus = sof_region_TOU_1936_mediterranean_offer }
 
@@ -418,7 +422,9 @@ focus = { id = sof_region_TOU_1936_central_offer icon = GFX_sof_project_sof_regi
  available = { original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  TRS = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TRS } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  TRS = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TRS } NOT = { has_country_flag = sof_region_TOU_1936_central_offer_paid } }  set_country_flag = sof_region_TOU_1936_central_offer_pending TRS = { country_event = { id = sof_region_TOU_1936.51 days = 1 } } set_country_flag = sof_region_TOU_1936_central_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = TRS } TRS = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_TOU_1936_proof_exchange icon = GFX_sof_project_sof_region_tou_1936_proof_exchange x = 12 y = 7 cost = 5
  prerequisite = { focus = sof_region_TOU_1936_central_offer }
 
@@ -489,4 +495,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_TOU_diplomatic_ratification icon = GFX_sof_project_sof_region_tou_1936_port_offer x = 12 y = 8 cost = 10
+ prerequisite = { focus = sof_region_TOU_1936_port_offer focus = sof_region_TOU_1936_mediterranean_offer focus = sof_region_TOU_1936_central_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

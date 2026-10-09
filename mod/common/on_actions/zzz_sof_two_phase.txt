@@ -1,9 +1,16 @@
 on_actions = {
- on_startup = { effect = { if = { limit = { NOT = { has_global_flag = sof_tp_started } } set_global_flag = sof_tp_started every_country = { limit = { sof_tp_country = yes } sof_tp_setup_country = yes } PRS = { sof_tp_create_bloc_1 = yes } LIL = { sof_tp_create_bloc_2 = yes } MET = { sof_tp_create_bloc_3 = yes } every_country = { sof_tp_create_bloc_1 = yes } every_country = { sof_tp_create_bloc_2 = yes } every_country = { sof_tp_create_bloc_3 = yes } every_country = { sof_tp_create_bloc_4 = yes } every_country = { sof_tp_create_bloc_5 = yes } every_country = { limit = { sof_tp_country = yes } if = { limit = { is_in_faction = yes any_other_country = { is_in_faction_with = PREV } } set_country_flag = sof_tp_alliance_signed } sof_tp_refresh = yes } } } }
- on_weekly = { effect = { sof_tp_weekly = yes } }
+ on_startup = { effect = {
+ set_global_flag = sof_tp_started
+ every_country = { limit = { sof_nr_french_origin = yes }
+  sof609_refresh_faction_permission = yes
+  if = { limit = { sof_tp_country = yes } sof_tp_setup_country = yes sof_tp_refresh = yes }
+ }
+} }
+ on_weekly = { effect = { sof609_refresh_faction_permission = yes sof_tp_weekly = yes } }
  on_daily = { effect = { sof_tp_contract_daily = yes sof_tp_project_daily = yes if = { limit = { is_ai = no has_country_flag = sof_tp_popup_open sof_tp_country = yes } sof_tp_popup_refresh_effect = yes } } }
  # Existing project on_action convention: annexer ROOT, annexed country FROM.
  on_annex = { effect = { FROM = { if = { limit = { has_country_flag = sof_tp_project_active } sof_tp_clear_project = yes } if = { limit = { has_country_flag = sof_tp_contract_active } sof_tp_clear_contract = yes } } } }
  # Guard the actual capitulated country, independent of which event scope is the loser.
  on_capitulation = { effect = { if = { limit = { has_capitulated = yes } sof_tp_cancel_project_effect = yes if = { limit = { has_country_flag = sof_tp_contract_active } sof_tp_clear_contract = yes } } FROM = { if = { limit = { has_capitulated = yes } sof_tp_cancel_project_effect = yes if = { limit = { has_country_flag = sof_tp_contract_active } sof_tp_clear_contract = yes } } } } }
+ on_create_faction = { effect = { sof609_record_faction_foundation = yes FROM = { sof609_record_faction_foundation = yes } } }
 }

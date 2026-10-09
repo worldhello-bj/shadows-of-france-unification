@@ -1,4 +1,4 @@
-﻿shared_focus = {
+shared_focus = {
 		id = SOF_GENERIC_arrondissement
 		icon = GFX_sof_project_sof_generic_arrondissement
 		cost = 3
@@ -6080,4 +6080,28 @@ shared_focus = {
  
 
  offset = { x = 80 y = 0 trigger = { original_tag = MRS } }
+}
+
+shared_focus = { id = SOF609_GENERIC_embassies icon = GFX_sof_project_sof_generic_arrondissement relative_position_id = SOF_GENERIC_arrondissement x = 4 y = 1 cost = 5
+ prerequisite = { focus = SOF_GENERIC_arrondissement }
+ allow_branch = { OR = { NOT = { sof_tp_major = yes } original_tag = MRS } }
+ available = { is_subject = no has_capitulated = no sof_mrs_red_active = no }
+ completion_reward = { add_political_power = 35 }
+ ai_will_do = { factor = 5 modifier = { factor = 2 has_war = yes } }
+}
+
+shared_focus = { id = SOF609_GENERIC_treaties icon = GFX_sof_project_sof_generic_arrondissement relative_position_id = SOF_GENERIC_arrondissement x = 4 y = 2 cost = 5
+ prerequisite = { focus = SOF609_GENERIC_embassies }
+ allow_branch = { OR = { NOT = { sof_tp_major = yes } original_tag = MRS } }
+ available = { is_subject = no has_capitulated = no sof_mrs_red_active = no }
+ completion_reward = { add_stability = 0.05 }
+ ai_will_do = { factor = 5 modifier = { factor = 2 has_war = yes } }
+}
+
+shared_focus = { id = SOF609_GENERIC_ratify icon = GFX_sof_project_sof_generic_arrondissement relative_position_id = SOF_GENERIC_arrondissement x = 4 y = 3 cost = 10
+ prerequisite = { focus = SOF609_GENERIC_treaties }
+ allow_branch = { OR = { NOT = { sof_tp_major = yes } original_tag = MRS } }
+ available = { is_subject = no has_capitulated = no sof_mrs_red_active = no }
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 5 modifier = { factor = 2 has_war = yes } }
 }

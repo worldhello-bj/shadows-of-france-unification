@@ -1,4 +1,4 @@
-﻿focus_tree = { id = sof_region_MOP_1936 country = { factor = 0 modifier = { add = 300 original_tag = MOP } } default = no reset_on_civilwar = no
+focus_tree = { id = sof_region_MOP_1936 country = { factor = 0 modifier = { add = 300 original_tag = MOP } } default = no reset_on_civilwar = no
  initial_show_position = { focus = sof_region_MOP_1936_crisis } continuous_focus_position = { x = 50 y = 3800 }
 focus = { id = sof_region_MOP_1936_crisis icon = GFX_sof_project_sof_region_mop_1936_crisis x = 10 y = 0 cost = 3
 
@@ -241,7 +241,9 @@ focus = { id = sof_region_MOP_1936_med_offer icon = GFX_sof_project_sof_region_m
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  MRS = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = MRS } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  MRS = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = MRS } NOT = { has_country_flag = sof_region_MOP_1936_med_offer_paid } }  set_country_flag = sof_region_MOP_1936_med_offer_pending MRS = { country_event = { id = sof_region_MOP_1936.28 days = 1 } } set_country_flag = sof_region_MOP_1936_med_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = MRS } MRS = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_MOP_1936_sea_manifest icon = GFX_sof_project_sof_region_mop_1936_sea_manifest x = 15 y = 6 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_med_offer } prerequisite = { focus = sof_region_MOP_1936_narbonne }
 
@@ -376,7 +378,9 @@ focus = { id = sof_region_MOP_1936_toulouse_offer icon = GFX_sof_project_sof_reg
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  TOU = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TOU } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  TOU = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = TOU } NOT = { has_country_flag = sof_region_MOP_1936_toulouse_offer_paid } }  set_country_flag = sof_region_MOP_1936_toulouse_offer_pending TOU = { country_event = { id = sof_region_MOP_1936.44 days = 1 } } set_country_flag = sof_region_MOP_1936_toulouse_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = TOU } TOU = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_MOP_1936_relief_corridor icon = GFX_sof_project_sof_region_mop_1936_relief_corridor x = 9 y = 7 cost = 3
  prerequisite = { focus = sof_region_MOP_1936_toulouse_offer } prerequisite = { focus = sof_region_MOP_1936_narbonne }
 
@@ -393,7 +397,9 @@ focus = { id = sof_region_MOP_1936_rhone_offer icon = GFX_sof_project_sof_region
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  LYO = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = LYO } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  LYO = { exists = yes is_subject = no has_capitulated = no } is_subject = no NOT = { has_war_with = LYO } NOT = { has_country_flag = sof_region_MOP_1936_rhone_offer_paid } }  set_country_flag = sof_region_MOP_1936_rhone_offer_pending LYO = { country_event = { id = sof_region_MOP_1936.46 days = 1 } } set_country_flag = sof_region_MOP_1936_rhone_offer_paid } }
  ai_will_do = { factor = 8 }
- }
+ 
+ bypass = { OR = { NOT = { country_exists = LYO } LYO = { OR = { is_subject = yes has_capitulated = yes } } } }
+}
 focus = { id = sof_region_MOP_1936_accepted_tools icon = GFX_sof_project_sof_region_mop_1936_accepted_tools x = 15 y = 7 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_rhone_offer }
 
@@ -496,4 +502,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_MOP_diplomatic_ratification icon = GFX_sof_project_sof_region_mop_1936_med_offer x = 6 y = 7 cost = 10
+ prerequisite = { focus = sof_region_MOP_1936_med_offer focus = sof_region_MOP_1936_toulouse_offer focus = sof_region_MOP_1936_rhone_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

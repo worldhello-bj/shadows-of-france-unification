@@ -1,4 +1,4 @@
-﻿focus_tree = {
+focus_tree = {
  id = sof_region_CFR_1936
  country = { factor = 0 modifier = { add = 300 original_tag = CFR } }
  default = no
@@ -637,6 +637,8 @@ focus = {
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_CFR_1936_offer_paid } } set_country_flag = sof_region_CFR_1936_offer_paid LYO = { country_event = { id = sof_region_CFR_1936.1 days = 1 } } } }
+
+ bypass = { OR = { NOT = { country_exists = LYO } LYO = { OR = { is_subject = yes has_capitulated = yes } } } }
 }
 focus = {
  id = sof_region_CFR_1936_exchange
@@ -855,4 +857,13 @@ shared_focus = SOF_PARTY_PDP_PDP_MANDATE
 shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
+
+focus = { id = SOF609_CFR_diplomatic_ratification icon = GFX_sof_project_sof_region_cfr_1936_offer x = -2 y = 6 cost = 10
+ prerequisite = { focus = sof_region_CFR_1936_offer }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { is_subject = no has_capitulated = no }
+ cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+}
 }

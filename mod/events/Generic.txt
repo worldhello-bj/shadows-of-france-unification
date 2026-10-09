@@ -1,4 +1,4 @@
-﻿###########################
+###########################
 # turkey Events
 ###########################
 
@@ -115,7 +115,7 @@ country_event = {
 	
 	option = { #Agree / Both Democratic
 		name = generic.2.a
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			AND = {
 				FROM = {
 					OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative }
@@ -126,7 +126,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		add_to_faction = FROM
+		if = { limit = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } } add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -136,7 +136,7 @@ country_event = {
 	}
 	option = { #Agree / Both Fascist
 		name = generic.2.b
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			AND = {
 				FROM = {
 					OR = { has_government = national_populist }
@@ -147,7 +147,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		add_to_faction = FROM
+		if = { limit = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } } add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -157,7 +157,7 @@ country_event = {
 	}
 	option = { #Agree / Both Communist
 		name = generic.2.c
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			AND = {
 				FROM = {
 					OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist }
@@ -168,7 +168,7 @@ country_event = {
 		ai_chance = {
 			base = 100
 		}
-		add_to_faction = FROM
+		if = { limit = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } } add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -178,7 +178,7 @@ country_event = {
 	}
 	option = { #Agree / Both different
 		name = generic.2.e
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			NOT = {
 				AND = {
 					FROM = {
@@ -225,7 +225,7 @@ country_event = {
 				}
 			}
 		}
-		add_to_faction = FROM
+		if = { limit = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } } add_to_faction = FROM }
 		FROM = { country_event = { id = generic.3 hours = 6 } }
 		hidden_effect = {
 			set_country_flag = alliance_inviter@ROOT
@@ -529,7 +529,7 @@ country_event = {
 	
 	option = { #Agree / Both Democratic
 		name = generic.5.a
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			is_in_faction = no
 			AND = {
 				FROM = {
@@ -542,7 +542,7 @@ country_event = {
 			base = 100
 		}
 		FROM = { 
-			add_to_faction = ROOT
+			if = { limit = { sof609_faction_ready = yes ROOT = { sof609_faction_ready = yes } } add_to_faction = ROOT }
 			country_event = { id = generic.6 hours = 6 } 
 		}
 		add_ai_strategy = {
@@ -558,7 +558,7 @@ country_event = {
 	}
 	option = { #Agree / Both Fascist
 		name = generic.5.b
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			is_in_faction = no
 			AND = {
 				FROM = {
@@ -571,7 +571,7 @@ country_event = {
 			base = 100
 		}
 		FROM = { 
-			add_to_faction = ROOT
+			if = { limit = { sof609_faction_ready = yes ROOT = { sof609_faction_ready = yes } } add_to_faction = ROOT }
 			country_event = { id = generic.6 hours = 6 } 
 		}
 		add_ai_strategy = {
@@ -587,7 +587,7 @@ country_event = {
 	}
 	option = { #Agree / Both Communist
 		name = generic.5.c
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			is_in_faction = no
 			AND = {
 				FROM = {
@@ -600,7 +600,7 @@ country_event = {
 			base = 100
 		}
 		FROM = { 
-			add_to_faction = ROOT
+			if = { limit = { sof609_faction_ready = yes ROOT = { sof609_faction_ready = yes } } add_to_faction = ROOT }
 			country_event = { id = generic.6 hours = 6 }
 		}
 		add_ai_strategy = {
@@ -616,7 +616,7 @@ country_event = {
 	}
 	option = { #Agree / Both different
 		name = generic.5.e
-		trigger = {
+		trigger = { sof609_faction_ready = yes FROM = { sof609_faction_ready = yes } 
 			is_in_faction = no
 			NOT = {
 				AND = {
@@ -665,7 +665,7 @@ country_event = {
 			}
 		}
 		FROM = { 
-			add_to_faction = ROOT
+			if = { limit = { sof609_faction_ready = yes ROOT = { sof609_faction_ready = yes } } add_to_faction = ROOT }
 			country_event = { id = generic.6 hours = 6 }
 		}
 		add_ai_strategy = {
