@@ -124,8 +124,21 @@ sof_tp_weekly = {
 
   if = { limit = { is_ai = yes }
    sof_tp_claim_victory_effect = yes sof_tp_open_congress_effect = yes
-   if = { limit = { sof_tp_can_adopt_federal = yes } random_list = { 70 = { sof_tp_adopt_federal_effect = yes } 30 = { sof_tp_adopt_central_effect = yes } } }
-   sof_tp_fund_reconstruction_effect = yes sof_tp_keep_promises_effect = yes sof_tp_complete_reconstruction_effect = yes
+   if = { limit = { sof_tp_can_adopt_federal = yes }
+    random_list = {
+     50 = { modifier = { factor = 3 sof607_ai_pluralist = yes } modifier = { factor = 2 OR = { original_tag = REN original_tag = AJC original_tag = STR } } sof_tp_adopt_federal_effect = yes }
+     50 = { modifier = { factor = 3 sof607_ai_centralist = yes } sof_tp_adopt_central_effect = yes }
+    }
+   }
+   # Fulfil contracts before discretionary projects and repeated trust spending.
+   if = { limit = { NOT = { sof607_ai_outstanding_aid = yes } political_power > 174 check_variable = { sof_tp_reconstruction < 100 } } sof_tp_fund_reconstruction_effect = yes }
+   if = { limit = { NOT = { sof607_ai_outstanding_aid = yes } political_power > 124 OR = { check_variable = { sof_tp_trust < 80 } check_variable = { sof_tp_legitimacy < 70 } } } sof_tp_keep_promises_effect = yes }
+   sof_tp_complete_reconstruction_effect = yes
+   if = { limit = { NOT = { has_country_flag = sof_tp_diplomatic_pending } }
+    if = { limit = { political_power < 125 } set_variable = { sof_tp_offer_terms = 2 } }
+    else_if = { limit = { sof607_ai_centralist = yes army_experience > 39 } set_variable = { sof_tp_offer_terms = 3 } }
+    else = { set_variable = { sof_tp_offer_terms = 1 } }
+   }
   }
  }
 }

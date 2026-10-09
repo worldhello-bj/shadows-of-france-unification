@@ -5,35 +5,49 @@ focus = { id = sof_region_MOP_1936_crisis icon = GFX_sof_project_sof_region_mop_
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_crisis_paid } } add_political_power = 10 add_stability = -0.015 set_country_flag = sof_region_MOP_1936_crisis_paid }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 20 }
+ ai_will_do = { factor = 20
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
  }
 focus = { id = sof_region_MOP_1936_inventory icon = GFX_sof_project_sof_region_mop_1936_inventory x = 1 y = 1 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_crisis }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_inventory_paid } } add_political_power = 50 add_tech_bonus = { name = sof607_mop_inventory bonus = 0.5 uses = 1 category = industry } set_country_flag = sof_region_MOP_1936_inventory_paid add_stability = 0.03  } }
- ai_will_do = { factor = 20 }
+ ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_representatives icon = GFX_sof_project_sof_region_mop_1936_representatives x = 7 y = 1 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_crisis }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_representatives_paid } } add_stability = 0.03 add_political_power = 50 set_country_flag = sof_region_MOP_1936_representatives_paid add_political_power = 50   } }
- ai_will_do = { factor = 20 }
+ ai_will_do = { factor = 20
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  }
 focus = { id = sof_region_MOP_1936_cooperative_voice icon = GFX_sof_project_sof_region_mop_1936_cooperative_voice x = 4 y = 2 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_representatives }
  mutually_exclusive = { focus = sof_region_MOP_1936_municipal_voice }
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_cooperative_voice_paid } } add_stability = 0.025 add_political_power = -12 sof604_register_region_mop_1936_cooperative_voice_network = yes set_country_flag = sof_region_MOP_1936_cooperative_voice_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 2.2 sof607_ai_left = yes }
+ }
  }
 focus = { id = sof_region_MOP_1936_municipal_voice icon = GFX_sof_project_sof_region_mop_1936_municipal_voice x = 7 y = 2 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_representatives }
  mutually_exclusive = { focus = sof_region_MOP_1936_cooperative_voice }
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_municipal_voice_paid } } add_political_power = 24 sof604_register_region_mop_1936_municipal_voice_network = yes set_country_flag = sof_region_MOP_1936_municipal_voice_paid } }
- ai_will_do = { factor = 20 }
+ ai_will_do = { factor = 20
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
  }
 focus = { id = sof_region_MOP_1936_debt_audit icon = GFX_sof_project_sof_region_mop_1936_debt_audit x = 1 y = 2 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_inventory }
@@ -47,21 +61,31 @@ focus = { id = sof_region_MOP_1936_charter icon = GFX_sof_project_sof_region_mop
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_charter_paid } } add_stability = 0.02 set_country_flag = sof20_MOP_integration_diplomacy set_country_flag = sof_region_MOP_1936_charter_paid  if = { limit = { has_completed_focus = sof_region_MOP_1936_cooperative_voice } sof605_register_new_mop_charter_cooperative_bridge = yes }  if = { limit = { has_completed_focus = sof_region_MOP_1936_municipal_voice } sof605_register_new_mop_charter_municipal_bridge = yes }  hidden_effect = { set_country_flag = sof605_milestone_mop_1936_charter sof605_refresh_MOP = yes } } }
- ai_will_do = { factor = 20 }
+ ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  }
 focus = { id = sof_region_MOP_1936_credit icon = GFX_sof_project_sof_region_mop_1936_credit x = 1 y = 3 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_inventory } prerequisite = { focus = sof_region_MOP_1936_debt_audit }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_credit_paid } } add_political_power = -18 441 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } set_country_flag = sof_region_MOP_1936_credit_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_agde_site icon = GFX_sof_project_sof_region_mop_1936_agde_site x = 1 y = 4 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_credit }
 
  available = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 has_country_flag = sof_region_MOP_1936_survey_done } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 has_country_flag = sof_region_MOP_1936_survey_done NOT = { has_country_flag = sof_region_MOP_1936_agde_site_paid } }  449 = { set_state_flag = sof604_sof_region_MOP_1936_agde_site_local_survey_earned add_dynamic_modifier = { modifier = sof_region_MOP_1936_agde_site_local } } set_country_flag = sof_region_MOP_1936_agde_site_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_presses icon = GFX_sof_project_sof_region_mop_1936_presses x = 1 y = 5 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_agde_site }
@@ -75,7 +99,10 @@ focus = { id = sof_region_MOP_1936_storage icon = GFX_sof_project_sof_region_mop
  mutually_exclusive = { focus = sof_region_MOP_1936_distillation }
  available = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604  NOT = { has_country_flag = sof_region_MOP_1936_storage_paid } } add_political_power = -20 449 = { add_dynamic_modifier = { modifier = sof_region_MOP_1936_storage_local } } set_country_flag = sof_region_MOP_1936_storage_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_distillation icon = GFX_sof_project_sof_region_mop_1936_distillation x = 3 y = 6 cost = 10
  prerequisite = { focus = sof_region_MOP_1936_presses } prerequisite = { focus = sof_region_MOP_1936_charter }
@@ -89,7 +116,11 @@ focus = { id = sof_region_MOP_1936_quality_labs icon = GFX_sof_project_sof_regio
 
  available = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604   OR = { amount_research_slots > 3 AND = { amount_research_slots < 3 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } }  has_completed_focus = sof_region_MOP_1936_agronomy } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604  NOT = { has_country_flag = sof_region_MOP_1936_quality_labs_paid } }  set_country_flag = sof_region_MOP_1936_quality_labs_paid if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_mop_1936_quality_labs_electronics bonus = 1 uses = 1 category = electronics } }  } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
  }
 focus = { id = sof_region_MOP_1936_byproducts icon = GFX_sof_project_sof_region_mop_1936_byproducts x = 3 y = 7 cost = 3
  prerequisite = { focus = sof_region_MOP_1936_distillation }
@@ -103,7 +134,10 @@ focus = { id = sof_region_MOP_1936_cellar_network icon = GFX_sof_project_sof_reg
 
  available = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604  NOT = { has_country_flag = sof_region_MOP_1936_cellar_network_paid } }  449 = { add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } set_country_flag = sof_region_MOP_1936_cellar_network_paid 449 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } }   sof605_register_new_mop_cellar_network = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_rural_delegates icon = GFX_sof_project_sof_region_mop_1936_rural_delegates x = 10 y = 1 cost = 3
  prerequisite = { focus = sof_region_MOP_1936_crisis }
@@ -117,7 +151,11 @@ focus = { id = sof_region_MOP_1936_agronomy icon = GFX_sof_project_sof_region_mo
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597   OR = { amount_research_slots > 2 AND = { amount_research_slots < 3 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_agronomy_paid } }  set_country_flag = sof_region_MOP_1936_agronomy_paid if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_mop_1936_agronomy_electronics bonus = 1 uses = 1 category = electronics } }  } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
  }
 focus = { id = sof_region_MOP_1936_canal_survey icon = GFX_sof_project_sof_region_mop_1936_canal_survey x = 9 y = 3 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_agronomy }
@@ -131,7 +169,9 @@ focus = { id = sof_region_MOP_1936_drinking_water icon = GFX_sof_project_sof_reg
  mutually_exclusive = { focus = sof_region_MOP_1936_irrigation }
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_drinking_water_paid } } add_stability = 0.05 441 = { add_dynamic_modifier = { modifier = sof_region_MOP_1936_drinking_water_local } } set_country_flag = sof_region_MOP_1936_drinking_water_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  }
 focus = { id = sof_region_MOP_1936_irrigation icon = GFX_sof_project_sof_region_mop_1936_irrigation x = 10 y = 4 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_canal_survey }
@@ -152,7 +192,10 @@ focus = { id = sof_region_MOP_1936_rural_roads icon = GFX_sof_project_sof_region
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_rural_roads_paid } }  441 = { if = { limit = { infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } set_country_flag = sof_region_MOP_1936_rural_roads_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_market_halls icon = GFX_sof_project_sof_region_mop_1936_market_halls x = 9 y = 9 cost = 10
  prerequisite = { focus = sof_region_MOP_1936_rural_roads } prerequisite = { focus = sof_region_MOP_1936_cellar_network }
@@ -173,7 +216,10 @@ focus = { id = sof_region_MOP_1936_coastal_rail icon = GFX_sof_project_sof_regio
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_coastal_rail_paid } } add_political_power = 12 add_equipment_to_stockpile = { type = train_equipment_1 amount = 15 producer = ROOT } add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 100 producer = ROOT } set_country_flag = sof_region_MOP_1936_coastal_rail_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_narbonne icon = GFX_sof_project_sof_region_mop_1936_narbonne x = 12 y = 3 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_coastal_rail }
@@ -215,7 +261,10 @@ focus = { id = sof_region_MOP_1936_mines icon = GFX_sof_project_sof_region_mop_1
 
  available = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  NOT = { has_country_flag = sof_region_MOP_1936_mines_paid } } add_political_power = 12 add_tech_bonus = { name = sof607_mop_mine_safety bonus = 1 uses = 1 category = excavation_tech } set_country_flag = sof_region_MOP_1936_mines_paid } }
- ai_will_do = { factor = 20 }
+ ai_will_do = { factor = 20
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_ricard icon = GFX_sof_project_sof_region_mop_1936_ricard x = 16 y = 2 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_mines }
@@ -236,7 +285,10 @@ focus = { id = sof_region_MOP_1936_mine_housing icon = GFX_sof_project_sof_regio
 
  available = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  NOT = { has_country_flag = sof_region_MOP_1936_mine_housing_paid } } add_stability = 0.02 add_stability = 0.03 add_equipment_to_stockpile = { type = support_equipment_1 amount = 200 producer = ROOT } set_country_flag = sof_region_MOP_1936_mine_housing_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_coal_dispatch icon = GFX_sof_project_sof_region_mop_1936_coal_dispatch x = 16 y = 4 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_ventilation } prerequisite = { focus = sof_region_MOP_1936_mine_housing }
@@ -257,14 +309,20 @@ focus = { id = sof_region_MOP_1936_mountain_units icon = GFX_sof_project_sof_reg
 
  available = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  NOT = { has_country_flag = sof_region_MOP_1936_mountain_units_paid } } army_experience = 20 set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready set_country_flag = sof_region_MOP_1936_mountain_units_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT } add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT } add_doctrine_cost_reduction = { name = sof603_south_mop_mountain_land_doctrine cost_reduction = 0.5 uses = 1 category = land_doctrine }  } }
- ai_will_do = { factor = 20 }
+ ai_will_do = { factor = 20
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_mule_columns icon = GFX_sof_project_sof_region_mop_1936_mule_columns x = 21 y = 3 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_mountain_units }
 
  available = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491  NOT = { has_country_flag = sof_region_MOP_1936_mule_columns_paid } } add_tech_bonus = { name = sof_region_MOP_1936_mountain_bonus bonus = 0.3 uses = 1 category = mountaineers_tech } set_country_flag = sof_region_MOP_1936_mule_columns_paid  sof605_register_new_mop_mule_columns = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_sappers icon = GFX_sof_project_sof_region_mop_1936_sappers x = 19 y = 4 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_mule_columns } prerequisite = { focus = sof_region_MOP_1936_ventilation }
@@ -278,28 +336,39 @@ focus = { id = sof_region_MOP_1936_mobile_columns icon = GFX_sof_project_sof_reg
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_mobile_columns_paid } } army_experience = 15 add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1200 producer = ROOT } set_country_flag = sof_region_MOP_1936_mobile_columns_paid  sof605_register_new_mop_mobile_columns = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_coastal_guard icon = GFX_sof_project_sof_region_mop_1936_coastal_guard x = 13 y = 8 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_mobile_columns } prerequisite = { focus = sof_region_MOP_1936_small_repairs focus = sof_region_MOP_1936_port_labor }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_coastal_guard_paid } } army_experience = 8 navy_experience = 4 set_country_flag = sof_region_MOP_1936_coastal_guard_paid  sof605_register_new_mop_coastal_guard = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_public_health icon = GFX_sof_project_sof_region_mop_1936_public_health x = 4 y = 4 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_charter } prerequisite = { focus = sof_region_MOP_1936_agronomy }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_public_health_paid } } add_tech_bonus = { name = sof_region_MOP_1936_hospital_bonus bonus = 0.25 uses = 1 category = hospital_tech } set_country_flag = sof_region_MOP_1936_public_health_paid  sof605_register_new_mop_public_health = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.7 has_war = no }
+ }
  }
 focus = { id = sof_region_MOP_1936_spanish_border icon = GFX_sof_project_sof_region_mop_1936_spanish_border x = 6 y = 5 cost = 3
  prerequisite = { focus = sof_region_MOP_1936_public_health }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 date > 1936.7.18 } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 date > 1936.7.18 NOT = { has_country_flag = sof_region_MOP_1936_spanish_border_paid } } add_stability = 0.012 add_tech_bonus = { name = sof607_mop_medical_exchange bonus = 1 uses = 1 category = support_tech } army_experience = 15 set_country_flag = sof_region_MOP_1936_spanish_border_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_toulouse_offer icon = GFX_sof_project_sof_region_mop_1936_toulouse_offer x = 6 y = 6 cost = 4
  prerequisite = { focus = sof_region_MOP_1936_spanish_border } prerequisite = { focus = sof_region_MOP_1936_charter }
@@ -313,7 +382,10 @@ focus = { id = sof_region_MOP_1936_relief_corridor icon = GFX_sof_project_sof_re
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 has_country_flag = sof_region_MOP_1936_toulouse_offer_accepted TOU = { exists = yes NOT = { has_war_with = MOP } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 has_country_flag = sof_region_MOP_1936_toulouse_offer_accepted TOU = { exists = yes NOT = { has_war_with = MOP } } NOT = { has_country_flag = sof_region_MOP_1936_relief_corridor_paid } } army_experience = 8 add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT } set_country_flag = sof_region_MOP_1936_relief_corridor_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_rhone_offer icon = GFX_sof_project_sof_region_mop_1936_rhone_offer x = 12 y = 6 cost = 4
  prerequisite = { focus = sof_region_MOP_1936_ales_workshops } prerequisite = { focus = sof_region_MOP_1936_charter }
@@ -327,21 +399,29 @@ focus = { id = sof_region_MOP_1936_accepted_tools icon = GFX_sof_project_sof_reg
 
  available = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 has_country_flag = sof_region_MOP_1936_rhone_offer_accepted LYO = { exists = yes NOT = { has_war_with = MOP } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 has_country_flag = sof_region_MOP_1936_rhone_offer_accepted LYO = { exists = yes NOT = { has_war_with = MOP } } NOT = { has_country_flag = sof_region_MOP_1936_accepted_tools_paid } } add_tech_bonus = { name = sof_region_MOP_1936_machine_bonus bonus = 1 uses = 1 category = industry } set_country_flag = sof_region_MOP_1936_accepted_tools_paid add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT }  } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_union_debate icon = GFX_sof_project_sof_region_mop_1936_union_debate x = 10 y = 10 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_market_halls } prerequisite = { focus = sof_region_MOP_1936_relief_corridor focus = sof_region_MOP_1936_accepted_tools focus = sof_region_MOP_1936_medical_drill }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_union_debate_paid } } set_country_flag = sofzh_unification_started add_political_power = 18 set_country_flag = sof_region_MOP_1936_union_debate_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  }
 focus = { id = sof_region_MOP_1936_cellar_debt icon = GFX_sof_project_sof_region_mop_1936_cellar_debt x = 7 y = 11 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_union_debate } prerequisite = { focus = sof_region_MOP_1936_cellar_network }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 99 } 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 99 } 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_MOP_1936_cellar_debt_paid } } add_stability = 0.025 set_country_flag = sof_region_MOP_1936_cellar_debt_paid  sof605_register_new_mop_cellar_debt = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_water_compact icon = GFX_sof_project_sof_region_mop_1936_water_compact x = 10 y = 11 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_union_debate } prerequisite = { focus = sof_region_MOP_1936_water_register }
@@ -355,35 +435,49 @@ focus = { id = sof_region_MOP_1936_mine_compact icon = GFX_sof_project_sof_regio
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 149 } 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 149 } 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_MOP_1936_mine_compact_paid } } add_political_power = 20 set_country_flag = sof_region_MOP_1936_mine_compact_paid  sof605_register_new_mop_mine_compact = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_port_balance icon = GFX_sof_project_sof_region_mop_1936_port_balance x = 10 y = 12 cost = 10
  prerequisite = { focus = sof_region_MOP_1936_cellar_debt } prerequisite = { focus = sof_region_MOP_1936_water_compact } prerequisite = { focus = sof_region_MOP_1936_mine_compact }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 149 } 468 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 149 } 468 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_region_MOP_1936_port_balance_paid } } army_experience = 12 set_country_flag = sof_region_MOP_1936_port_balance_paid  if = { limit = { has_completed_focus = sof_region_MOP_1936_cooperative_voice } sof604_register_mature_mop_cooperative_balance = yes }  if = { limit = { has_completed_focus = sof_region_MOP_1936_municipal_voice } sof604_register_mature_mop_municipal_balance = yes } } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_medical_drill icon = GFX_sof_project_sof_region_mop_1936_medical_drill x = 12 y = 9 cost = 5
  prerequisite = { focus = sof_region_MOP_1936_coastal_guard } prerequisite = { focus = sof_region_MOP_1936_public_health }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_medical_drill_paid } } army_experience = 9 set_country_flag = sof_region_MOP_1936_medical_drill_paid  sof605_register_new_mop_medical_drill = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_market_scales icon = GFX_sof_project_sof_region_mop_1936_market_scales x = 3 y = 9 cost = 3
  prerequisite = { focus = sof_region_MOP_1936_cellar_network }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  NOT = { has_country_flag = sof_region_MOP_1936_market_scales_paid } } add_stability = 0.012 add_tech_bonus = { name = sof607_mop_common_standards bonus = 1 uses = 1 category = industry } add_stability = 0.028 set_country_flag = sof_region_MOP_1936_market_scales_paid } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  }
 focus = { id = sof_region_MOP_1936_regional_charter icon = GFX_sof_project_sof_region_mop_1936_regional_charter x = 13 y = 13 cost = 10
  prerequisite = { focus = sof_region_MOP_1936_port_balance } prerequisite = { focus = sof_region_MOP_1936_coastal_guard }
 
  available = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { if = { limit = { original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } NOT = { has_country_flag = sof_region_MOP_1936_regional_charter_paid } } add_stability = 0.03 set_country_flag = sof_region_MOP_1936_regional_charter_paid  sof605_register_new_mop_regional_charter = yes } }
- ai_will_do = { factor = 8 }
+ ai_will_do = { factor = 8
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  }
 
  shared_focus = SOF_NR_MOP_mandate

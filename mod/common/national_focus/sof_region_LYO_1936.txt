@@ -14,7 +14,9 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5647  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_council_paid } } set_country_flag = sof_region_LYO_1936_council_paid add_political_power = 35 set_country_flag = sofzh_unification_started }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
 }
 focus = {
@@ -40,7 +42,11 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_delegates_paid } } set_country_flag = sof_region_LYO_1936_delegates_paid add_stability = 0.025 } }
 }
 focus = {
@@ -53,7 +59,9 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_municipal_paid } } set_country_flag = sof_region_LYO_1936_municipal_paid sof604_register_region_lyo_1936_municipal_policy = yes } }
 }
 focus = {
@@ -79,7 +87,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_hearing_paid } } set_country_flag = sof_region_LYO_1936_hearing_paid add_political_power = 50 } }
 }
 focus = {
@@ -92,7 +103,9 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_charter_paid } } set_country_flag = sof_region_LYO_1936_charter_paid add_stability = 0.03 add_political_power = 15 set_country_flag = sofzh_unification_war_ready } }
 }
 focus = {
@@ -144,7 +157,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_silk_paid } } set_country_flag = sof_region_LYO_1936_silk_paid add_tech_bonus = { name = sof_region_LYO_1936_silk_a0_bonus bonus = 0.2 uses = 1 category = industry } } }
 }
 focus = {
@@ -183,7 +199,9 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_chemistry_paid } } set_country_flag = sof_region_LYO_1936_chemistry_paid 336 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  industrial_complex < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = industrial_complex size = 1 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } }  add_tech_bonus = { name = sof603_south_lyo_chemistry_industry bonus = 1 uses = 1 category = industry } sof604_register_region_lyo_1936_chemistry_network = yes } }
 }
 focus = {
@@ -196,7 +214,12 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_conversion_paid } } set_country_flag = sof_region_LYO_1936_conversion_paid add_tech_bonus = { name = sof_region_LYO_1936_conversion_a0_bonus bonus = 0.35 uses = 1 category = support_tech } } }
 }
 focus = {
@@ -261,7 +284,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_road_test_paid } } set_country_flag = sof_region_LYO_1936_road_test_paid add_doctrine_cost_reduction = { name = sof603_south_lyo_road_land_doctrine cost_reduction = 0.5 uses = 1 category = land_doctrine }  army_experience = 20 add_tech_bonus = { name = sof_region_LYO_1936_road_test_a1_bonus bonus = 0.5 uses = 1 category = motorized_equipment } } }
 }
 focus = {
@@ -274,7 +300,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15281  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_arsenal_paid } } set_country_flag = sof_region_LYO_1936_arsenal_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT }  army_experience = 15 } }
 }
 focus = {
@@ -287,7 +316,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15281  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_gauges_paid } } set_country_flag = sof_region_LYO_1936_gauges_paid sof604_register_region_lyo_1936_gauges_network = yes } }
 }
 focus = {
@@ -313,7 +345,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15281  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_arsenal_line_paid } } set_country_flag = sof_region_LYO_1936_arsenal_line_paid 360 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } } add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT }  if = { limit = { 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 360 = { arms_factory < 20 } } 360 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_LYO_1936_arsenal_line_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
 }
 focus = {
@@ -326,7 +361,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_triangle_paid } } set_country_flag = sof_region_LYO_1936_triangle_paid sof604_register_region_lyo_1936_triangle_network = yes } }
 }
 focus = {
@@ -352,7 +390,11 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 3 AND = { amount_research_slots < 3 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } } }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_technicians_paid } } set_country_flag = sof_region_LYO_1936_technicians_paid if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_lyo_1936_technicians_electronics bonus = 1 uses = 1 category = electronics } }   } }
 }
 focus = {
@@ -365,7 +407,12 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_rhone_paid } } set_country_flag = sof_region_LYO_1936_rhone_paid army_experience = 6 } }
 }
 focus = {
@@ -391,7 +438,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_bridges_paid } } set_country_flag = sof_region_LYO_1936_bridges_paid if = { limit = { 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 377 = { infrastructure < 5 } } 377 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_LYO_1936_bridges_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
 }
 focus = {
@@ -404,7 +454,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 361 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_alpine_paid } } set_country_flag = sof_region_LYO_1936_alpine_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT } add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT } add_doctrine_cost_reduction = { name = sof603_south_lyo_alpine_land_doctrine cost_reduction = 0.5 uses = 1 category = land_doctrine }  army_experience = 20 } }
 }
 focus = {
@@ -430,7 +483,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_engineers_paid } } set_country_flag = sof_region_LYO_1936_engineers_paid add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT }  add_tech_bonus = { name = sof_region_LYO_1936_engineers_a0_bonus bonus = 1 uses = 1 category = recon_tech } army_experience = 20 } }
 }
 focus = {
@@ -443,7 +499,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_reserve_paid } } set_country_flag = sof_region_LYO_1936_reserve_paid sof604_register_region_lyo_1936_reserve_policy = yes } }
 }
 focus = {
@@ -469,7 +528,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 361 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_artillery_paid } } set_country_flag = sof_region_LYO_1936_artillery_paid add_tech_bonus = { name = sof_region_LYO_1936_artillery_a0_bonus bonus = 0.3 uses = 1 category = artillery } army_experience = 8 } }
 }
 focus = {
@@ -495,7 +557,9 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.7 has_war = no }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_mechanics_paid } } set_country_flag = sof_region_LYO_1936_mechanics_paid add_tech_bonus = { name = sof_region_LYO_1936_mechanics_a0_bonus bonus = 0.3 uses = 1 category = air_equipment } } }
 }
 focus = {
@@ -521,7 +585,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_army_manual_paid } } set_country_flag = sof_region_LYO_1936_army_manual_paid sof604_register_region_lyo_1936_army_manual_policy = yes } }
 }
 focus = {
@@ -612,7 +679,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_relief_paid } } set_country_flag = sof_region_LYO_1936_relief_paid add_stability = 0.025 army_experience = 8 } }
 }
 focus = {
@@ -638,7 +708,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_registration_paid } } set_country_flag = sof_region_LYO_1936_registration_paid add_tech_bonus = { name = sof_region_LYO_1936_registration_a0_bonus bonus = 0.3 uses = 1 category = industry } } }
 }
 focus = {
@@ -651,7 +724,9 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 3 sof_tp_phase_two = yes }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_reconstruction_paid } } set_country_flag = sof_region_LYO_1936_reconstruction_paid if = { limit = { 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 377 = { industrial_complex < 20 } } 377 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_LYO_1936_reconstruction_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
 }
 focus = {
@@ -664,7 +739,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_general_staff_paid } } set_country_flag = sof_region_LYO_1936_general_staff_paid army_experience = 25  if = { limit = { has_completed_focus = sof_region_LYO_1936_army_manual } sof604_register_mature_lyo_general_staff = yes } } }
 }
 focus = {
@@ -677,7 +755,9 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 377 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } check_variable = { num_owned_states > 99 } num_of_controlled_states > 99 }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_delegation_paid } } set_country_flag = sof_region_LYO_1936_delegation_paid set_country_flag = sof_van_national_congress add_political_power = 40 } }
 }
 focus = {
@@ -703,7 +783,11 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 2 AND = { amount_research_slots < 3 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } } }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_university_paid } } set_country_flag = sof_region_LYO_1936_university_paid if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_lyo_1936_university_electronics bonus = 1 uses = 1 category = electronics } }   } }
 }
 focus = {
@@ -729,7 +813,10 @@ focus = {
  available = { original_tag = LYO is_subject = no has_capitulated = no 361 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
- ai_will_do = { factor = 1 }
+ ai_will_do = { factor = 1
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
  completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_LYO_1936_winter_paid } } set_country_flag = sof_region_LYO_1936_winter_paid army_experience = 18 add_tech_bonus = { name = sof_region_LYO_1936_winter_a1_bonus bonus = 0.25 uses = 1 category = support_tech } } }
 }
 

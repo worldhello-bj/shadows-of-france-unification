@@ -1,25 +1,37 @@
 ﻿shared_focus = { id = SOF_NR_PRS_mandate icon = GFX_sof_project_sof_nr_prs_mandate x = 35 y = 24 cost = 10
    available = { original_tag = PRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = PRS sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_PRS_mandate } } set_country_flag = sof_nr_paid_PRS_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_PRS_integration icon = GFX_sof_project_sof_nr_prs_integration x = 35 y = 26 cost = 10
  prerequisite = { focus = SOF_NR_PRS_mandate }  available = { original_tag = PRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = PRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_PRS_integration } } set_country_flag = sof_nr_paid_PRS_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_PRS_unitary icon = GFX_sof_project_sof_nr_prs_unitary x = 33 y = 28 cost = 10
  prerequisite = { focus = SOF_NR_PRS_integration } mutually_exclusive = { focus = SOF_NR_PRS_federal } available = { original_tag = PRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = PRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_PRS_unitary } } set_country_flag = sof_nr_paid_PRS_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_PRS_federal icon = GFX_sof_project_sof_nr_prs_federal x = 37 y = 28 cost = 10
  prerequisite = { focus = SOF_NR_PRS_integration } mutually_exclusive = { focus = SOF_NR_PRS_unitary } available = { original_tag = PRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = PRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_PRS_federal } } set_country_flag = sof_nr_paid_PRS_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_PRS_proclamation icon = GFX_sof_project_sof_nr_prs_proclamation x = 35 y = 30 cost = 5
@@ -31,31 +43,44 @@ shared_focus = { id = SOF_NR_PRS_proclamation icon = GFX_sof_project_sof_nr_prs_
 shared_focus = { id = SOF_NR_PRS_settlement icon = GFX_sof_project_sof_nr_prs_settlement x = 35 y = 32 cost = 10
  prerequisite = { focus = SOF_NR_PRS_proclamation }  available = { original_tag = PRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = PRS sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_PRS_settlement } } set_country_flag = sof_nr_paid_PRS_settlement sof_nr_finish = yes add_ideas = sof_nr_legacy_PRS country_event = { id = sof_nr.100 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 
 shared_focus = { id = SOF_NR_AJC_mandate icon = GFX_sof_project_sof_nr_ajc_mandate x = 40 y = 19 cost = 10
    available = { original_tag = AJC sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AJC sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_AJC_mandate } } set_country_flag = sof_nr_paid_AJC_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_AJC_integration icon = GFX_sof_project_sof_nr_ajc_integration x = 40 y = 21 cost = 10
  prerequisite = { focus = SOF_NR_AJC_mandate }  available = { original_tag = AJC sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AJC sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_AJC_integration } } set_country_flag = sof_nr_paid_AJC_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_AJC_unitary icon = GFX_sof_project_sof_nr_ajc_unitary x = 38 y = 23 cost = 10
  prerequisite = { focus = SOF_NR_AJC_integration } mutually_exclusive = { focus = SOF_NR_AJC_federal } available = { original_tag = AJC sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AJC sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_AJC_unitary } } set_country_flag = sof_nr_paid_AJC_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_AJC_federal icon = GFX_sof_project_sof_nr_ajc_federal x = 42 y = 23 cost = 10
  prerequisite = { focus = SOF_NR_AJC_integration } mutually_exclusive = { focus = SOF_NR_AJC_unitary } available = { original_tag = AJC sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AJC sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_AJC_federal } } set_country_flag = sof_nr_paid_AJC_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_AJC_proclamation icon = GFX_sof_project_sof_nr_ajc_proclamation x = 40 y = 25 cost = 5
@@ -73,25 +98,36 @@ shared_focus = { id = SOF_NR_AJC_settlement icon = GFX_sof_project_sof_nr_ajc_se
 shared_focus = { id = SOF_NR_REN_mandate icon = GFX_sof_project_sof_nr_ren_mandate x = 25 y = 19 cost = 10
    available = { original_tag = REN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = REN sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_REN_mandate } } set_country_flag = sof_nr_paid_REN_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_REN_integration icon = GFX_sof_project_sof_nr_ren_integration x = 25 y = 21 cost = 10
  prerequisite = { focus = SOF_NR_REN_mandate }  available = { original_tag = REN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = REN sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_REN_integration } } set_country_flag = sof_nr_paid_REN_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_REN_unitary icon = GFX_sof_project_sof_nr_ren_unitary x = 23 y = 23 cost = 10
  prerequisite = { focus = SOF_NR_REN_integration } mutually_exclusive = { focus = SOF_NR_REN_federal } available = { original_tag = REN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = REN sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_REN_unitary } } set_country_flag = sof_nr_paid_REN_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_REN_federal icon = GFX_sof_project_sof_nr_ren_federal x = 27 y = 23 cost = 10
  prerequisite = { focus = SOF_NR_REN_integration } mutually_exclusive = { focus = SOF_NR_REN_unitary } available = { original_tag = REN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = REN sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_REN_federal } } set_country_flag = sof_nr_paid_REN_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_REN_proclamation icon = GFX_sof_project_sof_nr_ren_proclamation x = 25 y = 25 cost = 5
@@ -109,25 +145,36 @@ shared_focus = { id = SOF_NR_REN_settlement icon = GFX_sof_project_sof_nr_ren_se
 shared_focus = { id = SOF_NR_MRS_mandate icon = GFX_sof_project_sof_nr_mrs_mandate x = 30 y = 36 cost = 10
    available = { original_tag = MRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MRS sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_MRS_mandate } } set_country_flag = sof_nr_paid_MRS_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_MRS_integration icon = GFX_sof_project_sof_nr_mrs_integration x = 30 y = 38 cost = 10
  prerequisite = { focus = SOF_NR_MRS_mandate }  available = { original_tag = MRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_MRS_integration } } set_country_flag = sof_nr_paid_MRS_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_MRS_unitary icon = GFX_sof_project_sof_nr_mrs_unitary x = 28 y = 40 cost = 10
  prerequisite = { focus = SOF_NR_MRS_integration } mutually_exclusive = { focus = SOF_NR_MRS_federal } available = { original_tag = MRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_MRS_unitary } } set_country_flag = sof_nr_paid_MRS_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_MRS_federal icon = GFX_sof_project_sof_nr_mrs_federal x = 32 y = 40 cost = 10
  prerequisite = { focus = SOF_NR_MRS_integration } mutually_exclusive = { focus = SOF_NR_MRS_unitary } available = { original_tag = MRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_MRS_federal } } set_country_flag = sof_nr_paid_MRS_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_MRS_proclamation icon = GFX_sof_project_sof_nr_mrs_proclamation x = 30 y = 42 cost = 5
@@ -139,31 +186,44 @@ shared_focus = { id = SOF_NR_MRS_proclamation icon = GFX_sof_project_sof_nr_mrs_
 shared_focus = { id = SOF_NR_MRS_settlement icon = GFX_sof_project_sof_nr_mrs_settlement x = 30 y = 44 cost = 10
  prerequisite = { focus = SOF_NR_MRS_proclamation }  available = { original_tag = MRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MRS sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_MRS_settlement } } set_country_flag = sof_nr_paid_MRS_settlement sof_nr_finish = yes add_ideas = sof_nr_legacy_MRS country_event = { id = sof_nr.103 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 
 shared_focus = { id = SOF_NR_LIL_mandate icon = GFX_sof_project_sof_nr_lil_mandate x = 26 y = 26 cost = 10
    available = { original_tag = LIL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LIL sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_LIL_mandate } } set_country_flag = sof_nr_paid_LIL_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_LIL_integration icon = GFX_sof_project_sof_nr_lil_integration x = 26 y = 28 cost = 10
  prerequisite = { focus = SOF_NR_LIL_mandate }  available = { original_tag = LIL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LIL sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_LIL_integration } } set_country_flag = sof_nr_paid_LIL_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_LIL_unitary icon = GFX_sof_project_sof_nr_lil_unitary x = 24 y = 30 cost = 10
  prerequisite = { focus = SOF_NR_LIL_integration } mutually_exclusive = { focus = SOF_NR_LIL_federal } available = { original_tag = LIL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LIL sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_LIL_unitary } } set_country_flag = sof_nr_paid_LIL_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_LIL_federal icon = GFX_sof_project_sof_nr_lil_federal x = 28 y = 30 cost = 10
  prerequisite = { focus = SOF_NR_LIL_integration } mutually_exclusive = { focus = SOF_NR_LIL_unitary } available = { original_tag = LIL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LIL sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_LIL_federal } } set_country_flag = sof_nr_paid_LIL_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_LIL_proclamation icon = GFX_sof_project_sof_nr_lil_proclamation x = 26 y = 32 cost = 5
@@ -175,31 +235,45 @@ shared_focus = { id = SOF_NR_LIL_proclamation icon = GFX_sof_project_sof_nr_lil_
 shared_focus = { id = SOF_NR_LIL_settlement icon = GFX_sof_project_sof_nr_lil_settlement x = 26 y = 34 cost = 10
  prerequisite = { focus = SOF_NR_LIL_proclamation }  available = { original_tag = LIL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LIL sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_LIL_settlement } } set_country_flag = sof_nr_paid_LIL_settlement sof_nr_finish = yes add_ideas = sof_nr_legacy_LIL country_event = { id = sof_nr.104 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 
 shared_focus = { id = SOF_NR_MET_mandate icon = GFX_sof_project_sof_nr_met_mandate x = 16 y = 18 cost = 10
    available = { original_tag = MET sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MET sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_MET_mandate } } set_country_flag = sof_nr_paid_MET_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_MET_integration icon = GFX_sof_project_sof_nr_met_integration x = 16 y = 20 cost = 10
  prerequisite = { focus = SOF_NR_MET_mandate }  available = { original_tag = MET sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MET sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_MET_integration } } set_country_flag = sof_nr_paid_MET_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_MET_unitary icon = GFX_sof_project_sof_nr_met_unitary x = 14 y = 22 cost = 10
  prerequisite = { focus = SOF_NR_MET_integration } mutually_exclusive = { focus = SOF_NR_MET_federal } available = { original_tag = MET sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MET sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_MET_unitary } } set_country_flag = sof_nr_paid_MET_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_MET_federal icon = GFX_sof_project_sof_nr_met_federal x = 18 y = 22 cost = 10
  prerequisite = { focus = SOF_NR_MET_integration } mutually_exclusive = { focus = SOF_NR_MET_unitary } available = { original_tag = MET sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MET sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_MET_federal } } set_country_flag = sof_nr_paid_MET_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_MET_proclamation icon = GFX_sof_project_sof_nr_met_proclamation x = 16 y = 24 cost = 5
@@ -211,31 +285,45 @@ shared_focus = { id = SOF_NR_MET_proclamation icon = GFX_sof_project_sof_nr_met_
 shared_focus = { id = SOF_NR_MET_settlement icon = GFX_sof_project_sof_nr_met_settlement x = 16 y = 26 cost = 10
  prerequisite = { focus = SOF_NR_MET_proclamation }  available = { original_tag = MET sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MET sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_MET_settlement } } set_country_flag = sof_nr_paid_MET_settlement sof_nr_finish = yes add_ideas = sof_nr_legacy_MET country_event = { id = sof_nr.105 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 
 shared_focus = { id = SOF_NR_STR_mandate icon = GFX_sof_project_sof_nr_str_mandate x = 16 y = 16 cost = 10
    available = { original_tag = STR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = STR sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_STR_mandate } } set_country_flag = sof_nr_paid_STR_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_STR_integration icon = GFX_sof_project_sof_nr_str_integration x = 16 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_STR_mandate }  available = { original_tag = STR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = STR sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_STR_integration } } set_country_flag = sof_nr_paid_STR_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_STR_unitary icon = GFX_sof_project_sof_nr_str_unitary x = 14 y = 20 cost = 10
  prerequisite = { focus = SOF_NR_STR_integration } mutually_exclusive = { focus = SOF_NR_STR_federal } available = { original_tag = STR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = STR sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_STR_unitary } } set_country_flag = sof_nr_paid_STR_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_STR_federal icon = GFX_sof_project_sof_nr_str_federal x = 18 y = 20 cost = 10
  prerequisite = { focus = SOF_NR_STR_integration } mutually_exclusive = { focus = SOF_NR_STR_unitary } available = { original_tag = STR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = STR sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_STR_federal } } set_country_flag = sof_nr_paid_STR_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_STR_proclamation icon = GFX_sof_project_sof_nr_str_proclamation x = 16 y = 22 cost = 5
@@ -247,31 +335,44 @@ shared_focus = { id = SOF_NR_STR_proclamation icon = GFX_sof_project_sof_nr_str_
 shared_focus = { id = SOF_NR_STR_settlement icon = GFX_sof_project_sof_nr_str_settlement x = 16 y = 24 cost = 10
  prerequisite = { focus = SOF_NR_STR_proclamation }  available = { original_tag = STR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = STR sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_STR_settlement } } set_country_flag = sof_nr_paid_STR_settlement sof_nr_finish = yes add_ideas = sof_nr_legacy_STR country_event = { id = sof_nr.106 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 
 shared_focus = { id = SOF_NR_ROU_mandate icon = GFX_sof_project_sof_nr_rou_mandate x = 16 y = 15 cost = 10
    available = { original_tag = ROU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = ROU sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_ROU_mandate } } set_country_flag = sof_nr_paid_ROU_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_ROU_integration icon = GFX_sof_project_sof_nr_rou_integration x = 16 y = 17 cost = 10
  prerequisite = { focus = SOF_NR_ROU_mandate }  available = { original_tag = ROU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = ROU sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_ROU_integration } } set_country_flag = sof_nr_paid_ROU_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_ROU_unitary icon = GFX_sof_project_sof_nr_rou_unitary x = 14 y = 19 cost = 10
  prerequisite = { focus = SOF_NR_ROU_integration } mutually_exclusive = { focus = SOF_NR_ROU_federal } available = { original_tag = ROU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = ROU sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_ROU_unitary } } set_country_flag = sof_nr_paid_ROU_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_ROU_federal icon = GFX_sof_project_sof_nr_rou_federal x = 18 y = 19 cost = 10
  prerequisite = { focus = SOF_NR_ROU_integration } mutually_exclusive = { focus = SOF_NR_ROU_unitary } available = { original_tag = ROU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = ROU sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_ROU_federal } } set_country_flag = sof_nr_paid_ROU_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_ROU_proclamation icon = GFX_sof_project_sof_nr_rou_proclamation x = 16 y = 21 cost = 5
@@ -289,25 +390,36 @@ shared_focus = { id = SOF_NR_ROU_settlement icon = GFX_sof_project_sof_nr_rou_se
 shared_focus = { id = SOF_NR_LYO_mandate icon = GFX_sof_project_sof_nr_lyo_mandate x = 20 y = 11 cost = 10
    available = { original_tag = LYO sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LYO sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_LYO_mandate } } set_country_flag = sof_nr_paid_LYO_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_LYO_integration icon = GFX_sof_project_sof_nr_lyo_integration x = 20 y = 13 cost = 10
  prerequisite = { focus = SOF_NR_LYO_mandate }  available = { original_tag = LYO sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LYO sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_LYO_integration } } set_country_flag = sof_nr_paid_LYO_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_LYO_unitary icon = GFX_sof_project_sof_nr_lyo_unitary x = 18 y = 15 cost = 10
  prerequisite = { focus = SOF_NR_LYO_integration } mutually_exclusive = { focus = SOF_NR_LYO_federal } available = { original_tag = LYO sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LYO sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_LYO_unitary } } set_country_flag = sof_nr_paid_LYO_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_LYO_federal icon = GFX_sof_project_sof_nr_lyo_federal x = 22 y = 15 cost = 10
  prerequisite = { focus = SOF_NR_LYO_integration } mutually_exclusive = { focus = SOF_NR_LYO_unitary } available = { original_tag = LYO sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LYO sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_LYO_federal } } set_country_flag = sof_nr_paid_LYO_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_LYO_proclamation icon = GFX_sof_project_sof_nr_lyo_proclamation x = 20 y = 17 cost = 5
@@ -325,25 +437,36 @@ shared_focus = { id = SOF_NR_LYO_settlement icon = GFX_sof_project_sof_nr_lyo_se
 shared_focus = { id = SOF_NR_BRD_mandate icon = GFX_sof_project_sof_nr_brd_mandate x = 18 y = 14 cost = 10
    available = { original_tag = BRD sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BRD sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_BRD_mandate } } set_country_flag = sof_nr_paid_BRD_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_BRD_integration icon = GFX_sof_project_sof_nr_brd_integration x = 18 y = 16 cost = 10
  prerequisite = { focus = SOF_NR_BRD_mandate }  available = { original_tag = BRD sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BRD sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_BRD_integration } } set_country_flag = sof_nr_paid_BRD_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_BRD_unitary icon = GFX_sof_project_sof_nr_brd_unitary x = 16 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_BRD_integration } mutually_exclusive = { focus = SOF_NR_BRD_federal } available = { original_tag = BRD sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BRD sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_BRD_unitary } } set_country_flag = sof_nr_paid_BRD_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_BRD_federal icon = GFX_sof_project_sof_nr_brd_federal x = 20 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_BRD_integration } mutually_exclusive = { focus = SOF_NR_BRD_unitary } available = { original_tag = BRD sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BRD sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_BRD_federal } } set_country_flag = sof_nr_paid_BRD_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_BRD_proclamation icon = GFX_sof_project_sof_nr_brd_proclamation x = 18 y = 20 cost = 5
@@ -361,25 +484,36 @@ shared_focus = { id = SOF_NR_BRD_settlement icon = GFX_sof_project_sof_nr_brd_se
 shared_focus = { id = SOF_NR_TOU_mandate icon = GFX_sof_project_sof_nr_tou_mandate x = 21 y = 14 cost = 10
    available = { original_tag = TOU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TOU sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_TOU_mandate } } set_country_flag = sof_nr_paid_TOU_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_TOU_integration icon = GFX_sof_project_sof_nr_tou_integration x = 21 y = 16 cost = 10
  prerequisite = { focus = SOF_NR_TOU_mandate }  available = { original_tag = TOU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TOU sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_TOU_integration } } set_country_flag = sof_nr_paid_TOU_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_TOU_unitary icon = GFX_sof_project_sof_nr_tou_unitary x = 19 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_TOU_integration } mutually_exclusive = { focus = SOF_NR_TOU_federal } available = { original_tag = TOU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TOU sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_TOU_unitary } } set_country_flag = sof_nr_paid_TOU_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_TOU_federal icon = GFX_sof_project_sof_nr_tou_federal x = 23 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_TOU_integration } mutually_exclusive = { focus = SOF_NR_TOU_unitary } available = { original_tag = TOU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TOU sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_TOU_federal } } set_country_flag = sof_nr_paid_TOU_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_TOU_proclamation icon = GFX_sof_project_sof_nr_tou_proclamation x = 21 y = 20 cost = 5
@@ -391,31 +525,46 @@ shared_focus = { id = SOF_NR_TOU_proclamation icon = GFX_sof_project_sof_nr_tou_
 shared_focus = { id = SOF_NR_TOU_settlement icon = GFX_sof_project_sof_nr_tou_settlement x = 21 y = 22 cost = 10
  prerequisite = { focus = SOF_NR_TOU_proclamation }  available = { original_tag = TOU sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TOU sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_TOU_settlement } } set_country_flag = sof_nr_paid_TOU_settlement sof_nr_finish = yes add_ideas = sof_nr_legacy_TOU country_event = { id = sof_nr.110 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 
 shared_focus = { id = SOF_NR_NAN_mandate icon = GFX_sof_project_sof_nr_nan_mandate x = 21 y = 16 cost = 10
    available = { original_tag = NAN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = NAN sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_NAN_mandate } } set_country_flag = sof_nr_paid_NAN_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_NAN_integration icon = GFX_sof_project_sof_nr_nan_integration x = 21 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_NAN_mandate }  available = { original_tag = NAN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = NAN sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_NAN_integration } } set_country_flag = sof_nr_paid_NAN_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_NAN_unitary icon = GFX_sof_project_sof_nr_nan_unitary x = 19 y = 20 cost = 10
  prerequisite = { focus = SOF_NR_NAN_integration } mutually_exclusive = { focus = SOF_NR_NAN_federal } available = { original_tag = NAN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = NAN sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_NAN_unitary } } set_country_flag = sof_nr_paid_NAN_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_NAN_federal icon = GFX_sof_project_sof_nr_nan_federal x = 23 y = 20 cost = 10
  prerequisite = { focus = SOF_NR_NAN_integration } mutually_exclusive = { focus = SOF_NR_NAN_unitary } available = { original_tag = NAN sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = NAN sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_NAN_federal } } set_country_flag = sof_nr_paid_NAN_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_NAN_proclamation icon = GFX_sof_project_sof_nr_nan_proclamation x = 21 y = 22 cost = 5
@@ -433,25 +582,36 @@ shared_focus = { id = SOF_NR_NAN_settlement icon = GFX_sof_project_sof_nr_nan_se
 shared_focus = { id = SOF_NR_CFR_mandate icon = GFX_sof_project_sof_nr_cfr_mandate x = 20 y = 13 cost = 10
    available = { original_tag = CFR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CFR sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_CFR_mandate } } set_country_flag = sof_nr_paid_CFR_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_CFR_integration icon = GFX_sof_project_sof_nr_cfr_integration x = 20 y = 15 cost = 10
  prerequisite = { focus = SOF_NR_CFR_mandate }  available = { original_tag = CFR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CFR sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_CFR_integration } } set_country_flag = sof_nr_paid_CFR_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_CFR_unitary icon = GFX_sof_project_sof_nr_cfr_unitary x = 18 y = 17 cost = 10
  prerequisite = { focus = SOF_NR_CFR_integration } mutually_exclusive = { focus = SOF_NR_CFR_federal } available = { original_tag = CFR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CFR sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_CFR_unitary } } set_country_flag = sof_nr_paid_CFR_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_CFR_federal icon = GFX_sof_project_sof_nr_cfr_federal x = 22 y = 17 cost = 10
  prerequisite = { focus = SOF_NR_CFR_integration } mutually_exclusive = { focus = SOF_NR_CFR_unitary } available = { original_tag = CFR sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CFR sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_CFR_federal } } set_country_flag = sof_nr_paid_CFR_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_CFR_proclamation icon = GFX_sof_project_sof_nr_cfr_proclamation x = 20 y = 19 cost = 5
@@ -469,25 +629,36 @@ shared_focus = { id = SOF_NR_CFR_settlement icon = GFX_sof_project_sof_nr_cfr_se
 shared_focus = { id = SOF_NR_DIJ_mandate icon = GFX_sof_project_sof_nr_dij_mandate x = 18 y = 14 cost = 10
    available = { original_tag = DIJ sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = DIJ sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_DIJ_mandate } } set_country_flag = sof_nr_paid_DIJ_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_DIJ_integration icon = GFX_sof_project_sof_nr_dij_integration x = 18 y = 16 cost = 10
  prerequisite = { focus = SOF_NR_DIJ_mandate }  available = { original_tag = DIJ sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = DIJ sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_DIJ_integration } } set_country_flag = sof_nr_paid_DIJ_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_DIJ_unitary icon = GFX_sof_project_sof_nr_dij_unitary x = 16 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_DIJ_integration } mutually_exclusive = { focus = SOF_NR_DIJ_federal } available = { original_tag = DIJ sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = DIJ sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_DIJ_unitary } } set_country_flag = sof_nr_paid_DIJ_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_DIJ_federal icon = GFX_sof_project_sof_nr_dij_federal x = 20 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_DIJ_integration } mutually_exclusive = { focus = SOF_NR_DIJ_unitary } available = { original_tag = DIJ sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = DIJ sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_DIJ_federal } } set_country_flag = sof_nr_paid_DIJ_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_DIJ_proclamation icon = GFX_sof_project_sof_nr_dij_proclamation x = 18 y = 20 cost = 5
@@ -505,25 +676,36 @@ shared_focus = { id = SOF_NR_DIJ_settlement icon = GFX_sof_project_sof_nr_dij_se
 shared_focus = { id = SOF_NR_BES_mandate icon = GFX_sof_project_sof_nr_bes_mandate x = 21 y = 14 cost = 10
    available = { original_tag = BES sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BES sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_BES_mandate } } set_country_flag = sof_nr_paid_BES_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_BES_integration icon = GFX_sof_project_sof_nr_bes_integration x = 21 y = 16 cost = 10
  prerequisite = { focus = SOF_NR_BES_mandate }  available = { original_tag = BES sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BES sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_BES_integration } } set_country_flag = sof_nr_paid_BES_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_BES_unitary icon = GFX_sof_project_sof_nr_bes_unitary x = 19 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_BES_integration } mutually_exclusive = { focus = SOF_NR_BES_federal } available = { original_tag = BES sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BES sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_BES_unitary } } set_country_flag = sof_nr_paid_BES_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_BES_federal icon = GFX_sof_project_sof_nr_bes_federal x = 23 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_BES_integration } mutually_exclusive = { focus = SOF_NR_BES_unitary } available = { original_tag = BES sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = BES sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_BES_federal } } set_country_flag = sof_nr_paid_BES_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_BES_proclamation icon = GFX_sof_project_sof_nr_bes_proclamation x = 21 y = 20 cost = 5
@@ -541,25 +723,36 @@ shared_focus = { id = SOF_NR_BES_settlement icon = GFX_sof_project_sof_nr_bes_se
 shared_focus = { id = SOF_NR_TRS_mandate icon = GFX_sof_project_sof_nr_trs_mandate x = 20 y = 17 cost = 10
    available = { original_tag = TRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TRS sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_TRS_mandate } } set_country_flag = sof_nr_paid_TRS_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_TRS_integration icon = GFX_sof_project_sof_nr_trs_integration x = 20 y = 19 cost = 10
  prerequisite = { focus = SOF_NR_TRS_mandate }  available = { original_tag = TRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_TRS_integration } } set_country_flag = sof_nr_paid_TRS_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_TRS_unitary icon = GFX_sof_project_sof_nr_trs_unitary x = 18 y = 21 cost = 10
  prerequisite = { focus = SOF_NR_TRS_integration } mutually_exclusive = { focus = SOF_NR_TRS_federal } available = { original_tag = TRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_TRS_unitary } } set_country_flag = sof_nr_paid_TRS_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_TRS_federal icon = GFX_sof_project_sof_nr_trs_federal x = 22 y = 21 cost = 10
  prerequisite = { focus = SOF_NR_TRS_integration } mutually_exclusive = { focus = SOF_NR_TRS_unitary } available = { original_tag = TRS sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = TRS sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_TRS_federal } } set_country_flag = sof_nr_paid_TRS_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_TRS_proclamation icon = GFX_sof_project_sof_nr_trs_proclamation x = 20 y = 23 cost = 5
@@ -577,25 +770,38 @@ shared_focus = { id = SOF_NR_TRS_settlement icon = GFX_sof_project_sof_nr_trs_se
 shared_focus = { id = SOF_NR_AMI_mandate icon = GFX_sof_project_sof_nr_ami_mandate x = 16 y = 15 cost = 10
    available = { original_tag = AMI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AMI sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_AMI_mandate } } set_country_flag = sof_nr_paid_AMI_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_AMI_integration icon = GFX_sof_project_sof_nr_ami_integration x = 16 y = 17 cost = 10
  prerequisite = { focus = SOF_NR_AMI_mandate }  available = { original_tag = AMI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AMI sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_AMI_integration } } set_country_flag = sof_nr_paid_AMI_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_AMI_unitary icon = GFX_sof_project_sof_nr_ami_unitary x = 14 y = 19 cost = 10
  prerequisite = { focus = SOF_NR_AMI_integration } mutually_exclusive = { focus = SOF_NR_AMI_federal } available = { original_tag = AMI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AMI sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_AMI_unitary } } set_country_flag = sof_nr_paid_AMI_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_AMI_federal icon = GFX_sof_project_sof_nr_ami_federal x = 18 y = 19 cost = 10
  prerequisite = { focus = SOF_NR_AMI_integration } mutually_exclusive = { focus = SOF_NR_AMI_unitary } available = { original_tag = AMI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = AMI sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_AMI_federal } } set_country_flag = sof_nr_paid_AMI_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_AMI_proclamation icon = GFX_sof_project_sof_nr_ami_proclamation x = 16 y = 21 cost = 5
@@ -613,25 +819,36 @@ shared_focus = { id = SOF_NR_AMI_settlement icon = GFX_sof_project_sof_nr_ami_se
 shared_focus = { id = SOF_NR_CHL_mandate icon = GFX_sof_project_sof_nr_chl_mandate x = 18 y = 16 cost = 10
    available = { original_tag = CHL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CHL sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_CHL_mandate } } set_country_flag = sof_nr_paid_CHL_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_CHL_integration icon = GFX_sof_project_sof_nr_chl_integration x = 18 y = 18 cost = 10
  prerequisite = { focus = SOF_NR_CHL_mandate }  available = { original_tag = CHL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CHL sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_CHL_integration } } set_country_flag = sof_nr_paid_CHL_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_CHL_unitary icon = GFX_sof_project_sof_nr_chl_unitary x = 16 y = 20 cost = 10
  prerequisite = { focus = SOF_NR_CHL_integration } mutually_exclusive = { focus = SOF_NR_CHL_federal } available = { original_tag = CHL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CHL sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_CHL_unitary } } set_country_flag = sof_nr_paid_CHL_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_CHL_federal icon = GFX_sof_project_sof_nr_chl_federal x = 20 y = 20 cost = 10
  prerequisite = { focus = SOF_NR_CHL_integration } mutually_exclusive = { focus = SOF_NR_CHL_unitary } available = { original_tag = CHL sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = CHL sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_CHL_federal } } set_country_flag = sof_nr_paid_CHL_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_CHL_proclamation icon = GFX_sof_project_sof_nr_chl_proclamation x = 18 y = 22 cost = 5
@@ -649,25 +866,36 @@ shared_focus = { id = SOF_NR_CHL_settlement icon = GFX_sof_project_sof_nr_chl_se
 shared_focus = { id = SOF_NR_MOP_mandate icon = GFX_sof_project_sof_nr_mop_mandate x = 16 y = 15 cost = 10
    available = { original_tag = MOP sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MOP sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_MOP_mandate } } set_country_flag = sof_nr_paid_MOP_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_MOP_integration icon = GFX_sof_project_sof_nr_mop_integration x = 16 y = 17 cost = 10
  prerequisite = { focus = SOF_NR_MOP_mandate }  available = { original_tag = MOP sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MOP sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_MOP_integration } } set_country_flag = sof_nr_paid_MOP_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_MOP_unitary icon = GFX_sof_project_sof_nr_mop_unitary x = 14 y = 19 cost = 10
  prerequisite = { focus = SOF_NR_MOP_integration } mutually_exclusive = { focus = SOF_NR_MOP_federal } available = { original_tag = MOP sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MOP sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_MOP_unitary } } set_country_flag = sof_nr_paid_MOP_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_MOP_federal icon = GFX_sof_project_sof_nr_mop_federal x = 18 y = 19 cost = 10
  prerequisite = { focus = SOF_NR_MOP_integration } mutually_exclusive = { focus = SOF_NR_MOP_unitary } available = { original_tag = MOP sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = MOP sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_MOP_federal } } set_country_flag = sof_nr_paid_MOP_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_MOP_proclamation icon = GFX_sof_project_sof_nr_mop_proclamation x = 16 y = 21 cost = 5
@@ -685,25 +913,40 @@ shared_focus = { id = SOF_NR_MOP_settlement icon = GFX_sof_project_sof_nr_mop_se
 shared_focus = { id = SOF_NR_POI_mandate icon = GFX_sof_project_sof_nr_poi_mandate x = 17 y = 13 cost = 10
    available = { original_tag = POI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = POI sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_POI_mandate } } set_country_flag = sof_nr_paid_POI_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
 }
 
 shared_focus = { id = SOF_NR_POI_integration icon = GFX_sof_project_sof_nr_poi_integration x = 17 y = 15 cost = 10
  prerequisite = { focus = SOF_NR_POI_mandate }  available = { original_tag = POI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = POI sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_POI_integration } } set_country_flag = sof_nr_paid_POI_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 2.5 has_war = no }
+ }
 }
 
 shared_focus = { id = SOF_NR_POI_unitary icon = GFX_sof_project_sof_nr_poi_unitary x = 15 y = 17 cost = 10
  prerequisite = { focus = SOF_NR_POI_integration } mutually_exclusive = { focus = SOF_NR_POI_federal } available = { original_tag = POI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = POI sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_POI_unitary } } set_country_flag = sof_nr_paid_POI_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_POI_federal icon = GFX_sof_project_sof_nr_poi_federal x = 19 y = 17 cost = 10
  prerequisite = { focus = SOF_NR_POI_integration } mutually_exclusive = { focus = SOF_NR_POI_unitary } available = { original_tag = POI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = POI sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_POI_federal } } set_country_flag = sof_nr_paid_POI_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes }
- ai_will_do = { factor = 18 }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
 }
 
 shared_focus = { id = SOF_NR_POI_proclamation icon = GFX_sof_project_sof_nr_poi_proclamation x = 17 y = 19 cost = 5
@@ -715,5 +958,7 @@ shared_focus = { id = SOF_NR_POI_proclamation icon = GFX_sof_project_sof_nr_poi_
 shared_focus = { id = SOF_NR_POI_settlement icon = GFX_sof_project_sof_nr_poi_settlement x = 17 y = 21 cost = 10
  prerequisite = { focus = SOF_NR_POI_proclamation }  available = { original_tag = POI sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
  completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = POI sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_POI_settlement } } set_country_flag = sof_nr_paid_POI_settlement sof_nr_finish = yes add_ideas = sof_nr_legacy_POI country_event = { id = sof_nr.119 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes }
- ai_will_do = { factor = 30 }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }

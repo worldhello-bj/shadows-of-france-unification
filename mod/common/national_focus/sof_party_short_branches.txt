@@ -113,7 +113,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_mandate } } add_political_power = 25 set_country_flag = sof_party_paid_pcf_pcf_mandate } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PCF_PCF_HAND icon = GFX_sof_project_sof_party_pcf_pcf_hand x = -2 y = 1 cost = 3
 relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
@@ -125,7 +129,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_hand } } add_stability = 0.03 set_country_flag = sof_party_paid_pcf_pcf_hand } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PCF_PCF_WORKSHOPS icon = GFX_sof_project_sof_party_pcf_pcf_workshops x = 2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
@@ -137,7 +144,12 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_workshops } } if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT OR = { industrial_complex > 0 arms_factory > 0 } } } add_political_power = 25 } set_country_flag = sof_party_paid_pcf_pcf_workshops } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PCF_PCF_FAMILIES icon = GFX_sof_project_sof_party_pcf_pcf_families x = 0 y = 2 cost = 6
 relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
@@ -151,7 +163,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_families } } add_political_power = -30
 add_timed_idea = { idea = sof_left_credit_transition days = 90 } set_country_flag = sof_party_paid_pcf_pcf_families } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PCF_PCF_PEASANTS icon = GFX_sof_project_sof_party_pcf_pcf_peasants x = -3 y = 2 cost = 3
 relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
@@ -163,7 +178,12 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_peasants } } add_stability = 0.03 set_country_flag = sof_party_paid_pcf_pcf_peasants } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PCF_PCF_LEAGUES icon = GFX_sof_project_sof_party_pcf_pcf_leagues x = 3 y = 2 cost = 4
 relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
@@ -175,7 +195,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_leagues } } add_stability = 0.03 set_country_flag = sof_party_paid_pcf_pcf_leagues } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PCF_PCF_ARMS icon = GFX_sof_project_sof_party_pcf_pcf_arms x = 0 y = 3 cost = 5
 relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
@@ -187,7 +210,12 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_arms } } if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT arms_factory > 0 } } add_timed_idea = { idea = sof_left_arms_handover days = 180 } } else = { army_experience = 10 } set_country_flag = sof_party_paid_pcf_pcf_arms } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PCF_PCF_SECURITY icon = GFX_sof_project_sof_party_pcf_pcf_security x = 2 y = 4 cost = 6
 relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
@@ -200,7 +228,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pcf_pcf_security } } add_war_support = 0.04 set_country_flag = sof_party_paid_pcf_pcf_security } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_OFFICE icon = GFX_sof_project_sof_party_sfio_sfio_office x = 0 y = 0 cost = 3
 offset = { x = 23 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -318,7 +349,11 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_sfio_sfio_office } } add_political_power = 25
 add_stability = 0.025 set_country_flag = sof_party_paid_sfio_sfio_office } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_AGREEMENTS icon = GFX_sof_project_sof_party_sfio_sfio_agreements x = 0 y = 1 cost = 4
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -331,7 +366,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no  date > 1936.5.31 NOT = { has_country_flag = sof_party_paid_sfio_sfio_agreements } } sof_left_relieve_strike = yes
 add_timed_idea = { idea = sof_left_agreement_transition days = 120 } set_country_flag = sof_party_paid_sfio_sfio_agreements } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_HOURS icon = GFX_sof_project_sof_party_sfio_sfio_hours x = -2 y = 2 cost = 5
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -344,7 +382,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no  date > 1936.5.31 NOT = { has_country_flag = sof_party_paid_sfio_sfio_hours } } add_ideas = sof_left_law_forty_hours
 add_timed_idea = { idea = sof_left_hours_transition days = 180 } set_country_flag = sof_party_paid_sfio_sfio_hours } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_DEMAND icon = GFX_sof_project_sof_party_sfio_sfio_demand x = 2 y = 2 cost = 4
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -356,7 +397,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_sfio_sfio_demand } } add_timed_idea = { idea = sof_left_relief_budget days = 90 } set_country_flag = sof_party_paid_sfio_sfio_demand } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_CREDIT icon = GFX_sof_project_sof_party_sfio_sfio_credit x = 3 y = 3 cost = 6
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -370,7 +414,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_sfio_sfio_credit } } add_political_power = -45
 add_timed_idea = { idea = sof_left_credit_transition days = 180 } set_country_flag = sof_party_paid_sfio_sfio_credit } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_COMPROMISE icon = GFX_sof_project_sof_party_sfio_sfio_compromise x = 1 y = 3 cost = 3
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -384,7 +431,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_sfio_sfio_compromise } } add_political_power = 15
 add_stability = 0.025 set_country_flag = sof_party_paid_sfio_sfio_compromise } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_WORKS icon = GFX_sof_project_sof_party_sfio_sfio_works x = 2 y = 4 cost = 6
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -397,7 +447,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_sfio_sfio_works } } add_political_power = -25
 sof_left_build_core_infrastructure = yes set_country_flag = sof_party_paid_sfio_sfio_works } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_LEAVE icon = GFX_sof_project_sof_party_sfio_sfio_leave x = -2 y = 3 cost = 4
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -410,7 +463,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no  date > 1936.6.19 NOT = { has_country_flag = sof_party_paid_sfio_sfio_leave } } add_ideas = sof_left_law_paid_leave
 if = { limit = { has_defensive_war = no } add_timed_idea = { idea = sof_left_leave_transition days = 180 } } set_country_flag = sof_party_paid_sfio_sfio_leave } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_SFIO_SFIO_LEISURE icon = GFX_sof_project_sof_party_sfio_sfio_leisure x = 0 y = 5 cost = 6
 relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
@@ -423,7 +479,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_sfio_sfio_leisure } } add_political_power = 25 set_country_flag = sof_party_paid_sfio_sfio_leisure } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC icon = GFX_sof_project_sof_party_prrrs_prrrs_republic x = 0 y = 0 cost = 3
 offset = { x = 23 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -541,7 +600,11 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_republic } } add_stability = 0.03
 add_political_power = 20 set_country_flag = sof_party_paid_prrrs_prrrs_republic } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_BANKS icon = GFX_sof_project_sof_party_prrrs_prrrs_banks x = -2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
@@ -553,7 +616,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_banks } } add_political_power = 25 set_country_flag = sof_party_paid_prrrs_prrrs_banks } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_RURAL icon = GFX_sof_project_sof_party_prrrs_prrrs_rural x = -2 y = 2 cost = 3
 relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
@@ -565,7 +631,12 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_rural } } add_stability = 0.03 set_country_flag = sof_party_paid_prrrs_prrrs_rural } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_COOPS icon = GFX_sof_project_sof_party_prrrs_prrrs_coops x = -2 y = 3 cost = 4
 relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
@@ -578,7 +649,12 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_coops } } add_political_power = -20
 sof_left_build_rural_infrastructure = yes set_country_flag = sof_party_paid_prrrs_prrrs_coops } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_SCHOOL icon = GFX_sof_project_sof_party_prrrs_prrrs_school x = 2 y = 1 cost = 5
 relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
@@ -591,7 +667,11 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no  date > 1936.7.31 NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_school } } add_political_power = -25
 add_ideas = sof_left_law_school_age set_country_flag = sof_party_paid_prrrs_prrrs_school } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.7 has_war = no }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_CONSCIENCE icon = GFX_sof_project_sof_party_prrrs_prrrs_conscience x = 2 y = 2 cost = 3
 relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
@@ -603,7 +683,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no  date > 1936.11.30 NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_conscience } } add_ideas = sof_left_law_school_neutrality set_country_flag = sof_party_paid_prrrs_prrrs_conscience } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.7 has_war = no }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_ACCOUNTS icon = GFX_sof_project_sof_party_prrrs_prrrs_accounts x = 0 y = 1 cost = 4
 relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
@@ -615,7 +699,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_accounts } } add_political_power = -15 set_country_flag = sof_party_paid_prrrs_prrrs_accounts } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PRRRS_PRRRS_BALANCE icon = GFX_sof_project_sof_party_prrrs_prrrs_balance x = 0 y = 4 cost = 6
 relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
@@ -628,7 +715,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_prrrs_prrrs_balance } } add_stability = 0.03 set_country_flag = sof_party_paid_prrrs_prrrs_balance } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_USR_USR_COALITION icon = GFX_sof_project_sof_party_usr_usr_coalition x = 0 y = 0 cost = 3
 offset = { x = 23 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -745,7 +835,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_usr_usr_coalition } } add_political_power = 30 set_country_flag = sof_party_paid_usr_usr_coalition } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_USR_USR_EXPERTISE icon = GFX_sof_project_sof_party_usr_usr_expertise x = 1 y = 1 cost = 5
 relative_position_id = SOF_PARTY_USR_USR_COALITION
@@ -757,7 +851,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_usr_usr_expertise } } add_political_power = -20 set_country_flag = sof_party_paid_usr_usr_expertise } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_USR_USR_ARBITRATION icon = GFX_sof_project_sof_party_usr_usr_arbitration x = 1 y = 2 cost = 3
 relative_position_id = SOF_PARTY_USR_USR_COALITION
@@ -770,7 +867,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_usr_usr_arbitration } } sof_left_relieve_strike = yes
 add_stability = 0.025 set_country_flag = sof_party_paid_usr_usr_arbitration } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_USR_USR_POWER icon = GFX_sof_project_sof_party_usr_usr_power x = 1 y = 3 cost = 6
 relative_position_id = SOF_PARTY_USR_USR_COALITION
@@ -782,7 +882,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_usr_usr_power } } sof_left_build_core_infrastructure = yes set_country_flag = sof_party_paid_usr_usr_power } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_USR_USR_SURVEYS icon = GFX_sof_project_sof_party_usr_usr_surveys x = 3 y = 2 cost = 4
 relative_position_id = SOF_PARTY_USR_USR_COALITION
@@ -794,7 +897,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_usr_usr_surveys } } add_tech_bonus = { name = sof_left_technical_survey bonus = 0.25 uses = 1 category = industry } set_country_flag = sof_party_paid_usr_usr_surveys } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.7 has_war = no }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_USR_USR_GENEVA icon = GFX_sof_project_sof_party_usr_usr_geneva x = -2 y = 1 cost = 3
 relative_position_id = SOF_PARTY_USR_USR_COALITION
@@ -806,7 +913,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_usr_usr_geneva } } add_political_power = 25 set_country_flag = sof_party_paid_usr_usr_geneva } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_USR_USR_GOVERNMENT icon = GFX_sof_project_sof_party_usr_usr_government x = 0 y = 4 cost = 6
 relative_position_id = SOF_PARTY_USR_USR_COALITION
@@ -819,7 +929,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_usr_usr_government } } add_stability = 0.025 set_country_flag = sof_party_paid_usr_usr_government } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PUP_PUP_BRIDGE icon = GFX_sof_project_sof_party_pup_pup_bridge x = 0 y = 0 cost = 3
 offset = { x = 23 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -936,7 +1049,13 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pup_pup_bridge } } add_political_power = 25 set_country_flag = sof_party_paid_pup_pup_bridge } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PUP_PUP_DEMOCRACY icon = GFX_sof_project_sof_party_pup_pup_democracy x = -2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_PUP_PUP_BRIDGE
@@ -949,7 +1068,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pup_pup_democracy } } add_stability = 0.03
 add_timed_idea = { idea = sof_left_internal_deliberation days = 180 } set_country_flag = sof_party_paid_pup_pup_democracy } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PUP_PUP_UNIONS icon = GFX_sof_project_sof_party_pup_pup_unions x = 2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_PUP_PUP_BRIDGE
@@ -961,7 +1083,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pup_pup_unions } } sof_left_relieve_strike = yes set_country_flag = sof_party_paid_pup_pup_unions } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PUP_PUP_UNITY icon = GFX_sof_project_sof_party_pup_pup_unity x = 0 y = 2 cost = 4
 relative_position_id = SOF_PARTY_PUP_PUP_BRIDGE
@@ -975,7 +1100,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no  date > 1936.7.8 NOT = { has_country_flag = sof_party_paid_pup_pup_unity } } add_political_power = -20
 add_stability = 0.03 set_country_flag = sof_party_paid_pup_pup_unity } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PUP_PUP_INDEPENDENT icon = GFX_sof_project_sof_party_pup_pup_independent x = -2 y = 3 cost = 6
 relative_position_id = SOF_PARTY_PUP_PUP_BRIDGE
@@ -988,7 +1116,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pup_pup_independent } } add_stability = 0.03 set_country_flag = sof_party_paid_pup_pup_independent } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PUP_PUP_SOCIALIST_UNION icon = GFX_sof_project_sof_party_pup_pup_socialist_union x = 2 y = 3 cost = 4
 relative_position_id = SOF_PARTY_PUP_PUP_BRIDGE
@@ -1003,7 +1134,10 @@ search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no  date > 1936.7.8 NOT = { has_country_flag = sof_party_paid_pup_pup_socialist_union } } add_political_power = -20
 set_country_flag = sof_left_pup_agreement_pending
 random_list = { 65 = { set_country_flag = sof_left_pup_proposal_ready country_event = { id = sof_party_left.3 days = 1 } } 35 = { set_country_flag = sof_left_pup_proposal_failed country_event = { id = sof_party_left.4 days = 1 } } } set_country_flag = sof_party_paid_pup_pup_socialist_union } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PUP_PUP_AGAINST_WAR icon = GFX_sof_project_sof_party_pup_pup_against_war x = -4 y = 1 cost = 3
 relative_position_id = SOF_PARTY_PUP_PUP_BRIDGE
@@ -1016,7 +1150,10 @@ continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no   NOT = { has_country_flag = sof_party_paid_pup_pup_against_war } } add_stability = 0.03
 if = { limit = { has_defensive_war = no } add_war_support = -0.015 } set_country_flag = sof_party_paid_pup_pup_against_war } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES icon = GFX_sof_project_sof_party_rg_ad_rg_ad_committees x = 0 y = 0 cost = 3
 offset = { x = 23 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -1133,7 +1270,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_committees } } add_political_power = 35 set_country_flag = sof_party_paid_rg_ad_rg_ad_committees } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_ACCOUNTS icon = GFX_sof_project_sof_party_rg_ad_rg_ad_accounts x = 4 y = 1 cost = 4
 relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
@@ -1144,7 +1285,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_accounts } } add_political_power = -20 add_stability = -0.01 set_country_flag = sof_party_paid_rg_ad_rg_ad_accounts } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_RECONCILE icon = GFX_sof_project_sof_party_rg_ad_rg_ad_reconcile x = 0 y = 1 cost = 3
 relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
@@ -1156,7 +1301,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_reconcile } } add_stability = 0.03 set_country_flag = sof_party_paid_rg_ad_rg_ad_reconcile } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_CREDIT icon = GFX_sof_project_sof_party_rg_ad_rg_ad_credit x = 4 y = 2 cost = 5
 relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
@@ -1168,7 +1316,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_credit } }  set_country_flag = sof_party_paid_rg_ad_rg_ad_credit } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_DISCIPLINE icon = GFX_sof_project_sof_party_rg_ad_rg_ad_discipline x = 1 y = 2 cost = 4
 relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
@@ -1181,7 +1332,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_discipline } } add_political_power = -35 add_stability = 0.02 set_country_flag = sof_party_paid_rg_ad_rg_ad_discipline } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_ENTERPRISE icon = GFX_sof_project_sof_party_rg_ad_rg_ad_enterprise x = 4 y = 3 cost = 6
 relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
@@ -1193,7 +1347,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_enterprise } } add_political_power = -30 if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT  infrastructure < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT  infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_right_enterprise_research bonus = 0.25 uses = 1 category = industry } } set_country_flag = sof_party_paid_rg_ad_rg_ad_enterprise } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_CENTRE icon = GFX_sof_project_sof_party_rg_ad_rg_ad_centre x = 1 y = 3 cost = 3
 relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
@@ -1205,7 +1362,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_centre } } add_stability = 0.02 add_political_power = 15 set_country_flag = sof_party_paid_rg_ad_rg_ad_centre } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_RG_AD_RG_AD_RECOVERY icon = GFX_sof_project_sof_party_rg_ad_rg_ad_recovery x = 3 y = 4 cost = 7
 relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
@@ -1218,7 +1378,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_rg_ad_rg_ad_recovery } }  set_country_flag = sof_party_paid_rg_ad_rg_ad_recovery } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_NOTABLES icon = GFX_sof_project_sof_party_fr_urd_fr_urd_notables x = 2 y = 0 cost = 3
 offset = { x = 21 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -1335,7 +1498,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_notables } } add_political_power = 40 set_country_flag = sof_party_paid_fr_urd_fr_urd_notables } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_PROPERTY icon = GFX_sof_project_sof_party_fr_urd_fr_urd_property x = -2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
@@ -1347,7 +1514,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_property } } add_stability = -0.01 set_country_flag = sof_party_paid_fr_urd_fr_urd_property } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_SCHOOLS icon = GFX_sof_project_sof_party_fr_urd_fr_urd_schools x = 0 y = 1 cost = 5
 relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
@@ -1359,7 +1529,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_schools } } add_political_power = -40 add_stability = 0.02 add_tech_bonus = { name = sof_right_schools_research bonus = 0.25 uses = 1 category = industry } set_country_flag = sof_party_paid_fr_urd_fr_urd_schools } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_SERVICE icon = GFX_sof_project_sof_party_fr_urd_fr_urd_service x = 2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
@@ -1371,7 +1544,12 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_service } } army_experience = 10 set_country_flag = sof_party_paid_fr_urd_fr_urd_service } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_DEFENCE icon = GFX_sof_project_sof_party_fr_urd_fr_urd_defence x = 2 y = 2 cost = 6
 relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
@@ -1384,7 +1562,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_defence } } add_political_power = -35 add_tech_bonus = { name = sof_right_defence_research bonus = 0.25 uses = 1 category = construction_tech } set_country_flag = sof_party_paid_fr_urd_fr_urd_defence } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_LEGAL icon = GFX_sof_project_sof_party_fr_urd_fr_urd_legal x = -1 y = 2 cost = 4
 relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
@@ -1398,7 +1579,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_legal } } add_stability = 0.03 set_country_flag = sof_party_paid_fr_urd_fr_urd_legal } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_NATIONAL icon = GFX_sof_project_sof_party_fr_urd_fr_urd_national x = 1 y = 3 cost = 5
 relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
@@ -1412,7 +1596,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_national } } add_political_power = 50 add_stability = -0.04 add_war_support = 0.03 set_country_flag = sof_party_paid_fr_urd_fr_urd_national } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_FR_URD_FR_URD_RESERVE icon = GFX_sof_project_sof_party_fr_urd_fr_urd_reserve x = 3 y = 3 cost = 5
 relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
@@ -1424,7 +1611,13 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_fr_urd_fr_urd_reserve } } army_experience = 10 add_tech_bonus = { name = sof_right_reserve_research bonus = 0.5 uses = 1 category = support_tech } set_country_flag = sof_party_paid_fr_urd_fr_urd_reserve } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.7 has_war = no }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_MANDATE icon = GFX_sof_project_sof_party_pdp_pdp_mandate x = 2 y = 0 cost = 3
 offset = { x = 21 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -1541,7 +1734,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_mandate } } add_political_power = 30 add_stability = 0.03 set_country_flag = sof_party_paid_pdp_pdp_mandate } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_BODIES icon = GFX_sof_project_sof_party_pdp_pdp_bodies x = -2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
@@ -1553,7 +1750,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_bodies } } add_political_power = -20 add_stability = 0.02 set_country_flag = sof_party_paid_pdp_pdp_bodies } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_FAMILIES icon = GFX_sof_project_sof_party_pdp_pdp_families x = 2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
@@ -1565,7 +1765,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_families } } add_stability = 0.03 add_timed_idea = { idea = sof_right_family_cost days = 180 } set_country_flag = sof_party_paid_pdp_pdp_families } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_BARGAIN icon = GFX_sof_project_sof_party_pdp_pdp_bargain x = -2 y = 2 cost = 5
 relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
@@ -1577,7 +1780,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_bargain } } add_political_power = -25 set_country_flag = sof_party_paid_pdp_pdp_bargain } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_INSURANCE icon = GFX_sof_project_sof_party_pdp_pdp_insurance x = 2 y = 2 cost = 6
 relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
@@ -1589,7 +1795,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_insurance } } add_timed_idea = { idea = sof_right_insurance_cost days = 180 } set_country_flag = sof_party_paid_pdp_pdp_insurance } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_COUNCIL icon = GFX_sof_project_sof_party_pdp_pdp_council x = -1 y = 3 cost = 5
 relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
@@ -1602,7 +1811,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_council } } add_political_power = -30 add_tech_bonus = { name = sof_right_council_research bonus = 0.25 uses = 1 category = construction_tech } set_country_flag = sof_party_paid_pdp_pdp_council } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_RIGHTS icon = GFX_sof_project_sof_party_pdp_pdp_rights x = 1 y = 3 cost = 4
 relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
@@ -1615,7 +1827,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_rights } } add_political_power = -35 add_stability = 0.02 set_country_flag = sof_right_civic_representation_reform set_country_flag = sof_party_paid_pdp_pdp_rights } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_PDP_PDP_COMPACT icon = GFX_sof_project_sof_party_pdp_pdp_compact x = 0 y = 4 cost = 7
 relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
@@ -1628,7 +1843,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT }  NOT = { has_country_flag = sof_party_paid_pdp_pdp_compact } } add_political_power = 25 remove_ideas = sof_right_family_cost set_country_flag = sof_party_paid_pdp_pdp_compact } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_UPR_UPR_MANDATE icon = GFX_sof_project_sof_party_upr_upr_mandate x = 2 y = 0 cost = 3
 offset = { x = 21 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -1745,7 +1963,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = STR any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } }  NOT = { has_country_flag = sof_party_paid_upr_upr_mandate } } add_political_power = 30 add_stability = 0.03 set_country_flag = sof_party_paid_upr_upr_mandate } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_UPR_UPR_LOCAL_LAW icon = GFX_sof_project_sof_party_upr_upr_local_law x = -2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_UPR_UPR_MANDATE
@@ -1757,7 +1979,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = STR any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } }  NOT = { has_country_flag = sof_party_paid_upr_upr_local_law } } add_political_power = -25 add_stability = 0.03 set_country_flag = sof_party_paid_upr_upr_local_law } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_UPR_UPR_BILINGUAL icon = GFX_sof_project_sof_party_upr_upr_bilingual x = 2 y = 1 cost = 4
 relative_position_id = SOF_PARTY_UPR_UPR_MANDATE
@@ -1769,7 +1994,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = STR any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } }  NOT = { has_country_flag = sof_party_paid_upr_upr_bilingual } } add_political_power = -25 add_tech_bonus = { name = sof_right_bilingual_research bonus = 0.25 uses = 1 category = electronics } set_country_flag = sof_party_paid_upr_upr_bilingual } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_UPR_UPR_SCHOOLS icon = GFX_sof_project_sof_party_upr_upr_schools x = -2 y = 2 cost = 5
 relative_position_id = SOF_PARTY_UPR_UPR_MANDATE
@@ -1781,7 +2009,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = STR any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } }  NOT = { has_country_flag = sof_party_paid_upr_upr_schools } } add_stability = 0.02 add_timed_idea = { idea = sof_right_alsace_school_cost days = 180 } set_country_flag = sof_party_paid_upr_upr_schools } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.7 has_war = no }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_UPR_UPR_COUNCILS icon = GFX_sof_project_sof_party_upr_upr_councils x = 2 y = 2 cost = 6
 relative_position_id = SOF_PARTY_UPR_UPR_MANDATE
@@ -1793,7 +2025,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = STR any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } }  NOT = { has_country_flag = sof_party_paid_upr_upr_councils } } add_political_power = -20 if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } infrastructure < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_right_alsace_councils_research bonus = 0.25 uses = 1 category = industry } } set_country_flag = sof_party_paid_upr_upr_councils } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_UPR_UPR_SETTLEMENT icon = GFX_sof_project_sof_party_upr_upr_settlement x = 0 y = 3 cost = 6
 relative_position_id = SOF_PARTY_UPR_UPR_MANDATE
@@ -1806,7 +2041,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = STR any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } }  NOT = { has_country_flag = sof_party_paid_upr_upr_settlement } } add_stability = 0.02 remove_ideas = sof_right_alsace_school_cost add_tech_bonus = { name = sof_right_alsace_settlement_research bonus = 0.25 uses = 1 category = construction_tech } set_country_flag = sof_party_paid_upr_upr_settlement } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_UPR_UPR_BORDER icon = GFX_sof_project_sof_party_upr_upr_border x = 3 y = 3 cost = 4
 relative_position_id = SOF_PARTY_UPR_UPR_MANDATE
@@ -1818,7 +2056,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = STR any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } }  NOT = { has_country_flag = sof_party_paid_upr_upr_border } } add_political_power = -25 if = { limit = { any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } anti_air_building < 5 } } random_owned_controlled_state = { limit = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 126 state = 127 state = 128 state = 170 state = 173 state = 183 state = 193 state = 197 state = 210 state = 214 state = 217 state = 223 } anti_air_building < 5 } add_building_construction = { type = anti_air_building level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_right_alsace_border_research bonus = 0.25 uses = 1 category = industry } } set_country_flag = sof_party_paid_upr_upr_border } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_DORIOT_DORIOT_RAYON icon = GFX_sof_project_sof_party_doriot_doriot_rayon x = 2 y = 0 cost = 3
 offset = { x = 21 y = 24 trigger = { has_focus_tree = sofzh_paris } }
@@ -1935,7 +2176,11 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = PRS any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 135 state = 143 } }  NOT = { has_country_flag = sof_party_paid_doriot_doriot_rayon } } add_political_power = 25 set_country_flag = sof_party_paid_doriot_doriot_rayon } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 2 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_DORIOT_DORIOT_MUNICIPAL icon = GFX_sof_project_sof_party_doriot_doriot_municipal x = 0 y = 1 cost = 4
 relative_position_id = SOF_PARTY_DORIOT_DORIOT_RAYON
@@ -1947,7 +2192,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = PRS any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 135 state = 143 } }  NOT = { has_country_flag = sof_party_paid_doriot_doriot_municipal } } add_political_power = -20 add_stability = 0.02 set_country_flag = sof_party_paid_doriot_doriot_municipal } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_DORIOT_DORIOT_ORGANIZERS icon = GFX_sof_project_sof_party_doriot_doriot_organizers x = 0 y = 2 cost = 4
 relative_position_id = SOF_PARTY_DORIOT_DORIOT_RAYON
@@ -1959,7 +2207,12 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = PRS any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 135 state = 143 } }  NOT = { has_country_flag = sof_party_paid_doriot_doriot_organizers } } add_political_power = 20 add_stability = -0.01 set_country_flag = sof_party_paid_doriot_doriot_organizers } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_DORIOT_DORIOT_LOCAL_CHOICE icon = GFX_sof_project_sof_party_doriot_doriot_local_choice x = -2 y = 3 cost = 5
 relative_position_id = SOF_PARTY_DORIOT_DORIOT_RAYON
@@ -1972,7 +2225,10 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = PRS any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 135 state = 143 } }  NOT = { has_country_flag = sof_party_paid_doriot_doriot_local_choice } } add_stability = 0.02 set_country_flag = sof_right_doriot_local_route set_country_flag = sof_party_paid_doriot_doriot_local_choice } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }
 shared_focus = { id = SOF_PARTY_DORIOT_DORIOT_PPF icon = GFX_sof_project_sof_party_doriot_doriot_ppf x = 2 y = 3 cost = 5
 relative_position_id = SOF_PARTY_DORIOT_DORIOT_RAYON
@@ -1985,5 +2241,8 @@ cancel_if_invalid = yes
 continue_if_invalid = no
 search_filters = { FOCUS_FILTER_POLITICAL }
 completion_reward = { if = { limit = { has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat OR = { original_tag = PRS original_tag = AJC original_tag = LIL original_tag = LYO original_tag = MRS original_tag = TOU original_tag = CFR original_tag = DIJ original_tag = AMI original_tag = MOP original_tag = BRD original_tag = TRS original_tag = CHL original_tag = POI original_tag = MET original_tag = ROU original_tag = NAN original_tag = REN original_tag = BES original_tag = STR } has_capitulated = no original_tag = PRS any_owned_state = { sofzh_unification_french_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT OR = { state = 135 state = 143 } } date > 1936.6.27 NOT = { has_country_flag = sof_party_paid_doriot_doriot_ppf } } country_event = { id = sof_party_right.1 } set_country_flag = sof_party_paid_doriot_doriot_ppf } sof_party_sync_policies = yes  sof606_sync_party_maturity = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 1.5 has_war = no }
+ }
 }

@@ -4,70 +4,99 @@ focus = { id = sof_ne_AMI_reconstruction icon = GFX_sof_project_sof_ne_ami_recon
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_reconstruction_paid } } sof604_register_ne_ami_land_board = yes set_country_flag = sof_ne_AMI_reconstruction_paid }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+  modifier = { factor = 3 sof_tp_phase_two = yes }
+ }
 }
 focus = { id = sof_ne_AMI_land_survey icon = GFX_sof_project_sof_ne_ami_land_survey x = 3 y = 1 cost = 4
 prerequisite = { focus = sof_ne_AMI_reconstruction }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_land_survey_paid } } add_political_power = 50 set_country_flag = sof_ne_AMI_land_survey_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_rail_survey icon = GFX_sof_project_sof_ne_ami_rail_survey x = 8 y = 1 cost = 5
 prerequisite = { focus = sof_ne_AMI_reconstruction }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_rail_survey_paid } } add_tech_bonus = { name = sof_ne_AMI_rail_survey_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_AMI_rail_survey_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_civil_rights icon = GFX_sof_project_sof_ne_ami_civil_rights x = 11 y = 1 cost = 5
 prerequisite = { focus = sof_ne_AMI_reconstruction }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_civil_rights_paid } } add_stability = 0.04 set_country_flag = sof_ne_AMI_civil_rights_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_peronne icon = GFX_sof_project_sof_ne_ami_peronne x = 0 y = 2 cost = 5
 prerequisite = { focus = sof_ne_AMI_land_survey }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4060  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4060  NOT = { has_country_flag = sof_ne_AMI_peronne_paid } } 73 = { add_dynamic_modifier = { modifier = sof_ne_AMI_fields_local } } set_country_flag = sof_ne_AMI_peronne_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_tenants icon = GFX_sof_project_sof_ne_ami_tenants x = 3 y = 2 cost = 5
 prerequisite = { focus = sof_ne_AMI_land_survey }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_tenants_paid } } sof604_register_ne_ami_tenants = yes set_country_flag = sof_ne_AMI_tenants_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_amiens_junction icon = GFX_sof_project_sof_ne_ami_amiens_junction x = 9 y = 2 cost = 5
 prerequisite = { focus = sof_ne_AMI_rail_survey }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  NOT = { has_country_flag = sof_ne_AMI_amiens_junction_paid } } 70 = { add_dynamic_modifier = { modifier = sof_ne_AMI_junction_local } } set_country_flag = sof_ne_AMI_amiens_junction_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_potez_access icon = GFX_sof_project_sof_ne_ami_potez_access x = 12 y = 2 cost = 5
 prerequisite = { focus = sof_ne_AMI_rail_survey }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  NOT = { has_country_flag = sof_ne_AMI_potez_access_paid } } custom_effect_tooltip = sof_ne_AMI_airframes_unlock_tt set_country_flag = sof_ne_AMI_potez_access_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_claims icon = GFX_sof_project_sof_ne_ami_claims x = 15 y = 2 cost = 4
 prerequisite = { focus = sof_ne_AMI_civil_rights }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_claims_paid } } add_political_power = 50 set_country_flag = sof_ne_AMI_claims_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_beet icon = GFX_sof_project_sof_ne_ami_beet x = 0 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_peronne }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_beet_paid } } add_tech_bonus = { name = sof_ne_AMI_beet_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_ne_AMI_beet_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_coop icon = GFX_sof_project_sof_ne_ami_coop x = 3 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_tenants }
@@ -75,7 +104,10 @@ mutually_exclusive = { focus = sof_ne_AMI_rural_credit }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_coop_paid } } sof604_register_ne_ami_cooperative = yes set_country_flag = sof_ne_AMI_coop_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_rural_credit icon = GFX_sof_project_sof_ne_ami_rural_credit x = 6 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_tenants }
@@ -83,28 +115,38 @@ mutually_exclusive = { focus = sof_ne_AMI_coop }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_rural_credit_paid } } sof604_register_ne_ami_credit = yes set_country_flag = sof_ne_AMI_rural_credit_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_cosserat icon = GFX_sof_project_sof_ne_ami_cosserat x = 9 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_amiens_junction }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  NOT = { has_country_flag = sof_ne_AMI_cosserat_paid } } custom_effect_tooltip = sof_ne_AMI_loom_unlock_tt if = { limit = { 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } 70 = { add_extra_state_shared_building_slots = 1 if = { limit = { industrial_complex < 20 free_building_slots = { building = industrial_complex size > 0 } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } else = { ROOT = { add_political_power = 50 } } } } set_country_flag = sof_ne_AMI_cosserat_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_metal_shop icon = GFX_sof_project_sof_ne_ami_metal_shop x = 12 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_potez_access }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  NOT = { has_country_flag = sof_ne_AMI_metal_shop_paid } } add_tech_bonus = { name = sof_ne_AMI_metal_shop_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_ne_AMI_metal_shop_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_minutes icon = GFX_sof_project_sof_ne_ami_minutes x = 15 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_claims }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_minutes_paid } } add_stability = 0.04 set_country_flag = sof_ne_AMI_minutes_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_agronomy icon = GFX_sof_project_sof_ne_ami_agronomy x = 3 y = 4 cost = 5
 prerequisite = { focus = sof_ne_AMI_coop focus = sof_ne_AMI_rural_credit }
@@ -112,42 +154,61 @@ prerequisite = { focus = sof_ne_AMI_beet }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_agronomy_paid } } add_tech_bonus = { name = sof_ne_AMI_agronomy_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_ne_AMI_agronomy_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_cloth icon = GFX_sof_project_sof_ne_ami_cloth x = 6 y = 4 cost = 5
 prerequisite = { focus = sof_ne_AMI_cosserat }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_cloth_paid } } sof604_register_ne_ami_textile = yes set_country_flag = sof_ne_AMI_cloth_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_air_workers icon = GFX_sof_project_sof_ne_ami_air_workers x = 9 y = 4 cost = 5
 prerequisite = { focus = sof_ne_AMI_metal_shop }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  NOT = { has_country_flag = sof_ne_AMI_air_workers_paid } } sof604_register_ne_ami_air_workers = yes set_country_flag = sof_ne_AMI_air_workers_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.7 has_war = no }
+  modifier = { factor = 2.2 sof607_ai_left = yes }
+ }
 }
 focus = { id = sof_ne_AMI_debt_rules icon = GFX_sof_project_sof_ne_ami_debt_rules x = 12 y = 4 cost = 4
 prerequisite = { focus = sof_ne_AMI_minutes }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_debt_rules_paid } } add_political_power = 50 set_country_flag = sof_ne_AMI_debt_rules_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_lille_offer icon = GFX_sof_project_sof_ne_ami_lille_offer x = 18 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_amiens_junction }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   has_war = no LIL = { exists = yes is_subject = no has_capitulated = no has_war = no 51 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 9249 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   has_war = no LIL = { exists = yes is_subject = no has_capitulated = no has_war = no 51 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 9249 } NOT = { has_country_flag = sof_ne_AMI_lille_offer_paid } } set_country_flag = sof_ne_AMI_lille_pending LIL = { country_event = { id = sof_ne_AMI_diplomacy.1 days = 1 } } set_country_flag = sof_ne_AMI_lille_offer_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_granaries icon = GFX_sof_project_sof_ne_ami_granaries x = 0 y = 5 cost = 7
 prerequisite = { focus = sof_ne_AMI_agronomy }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = AMI 77 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 1387  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 77 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 1387  NOT = { has_country_flag = sof_ne_AMI_granaries_paid } } 77 = {  add_building_construction = { type = infrastructure level = 1  instant_build = yes } } set_country_flag = sof_ne_AMI_granaries_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_beauvais icon = GFX_sof_project_sof_ne_ami_beauvais x = 3 y = 5 cost = 10
 prerequisite = { focus = sof_ne_AMI_agronomy }
@@ -155,7 +216,10 @@ prerequisite = { focus = sof_ne_AMI_cloth }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = AMI 85 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10027   85 = { industrial_complex < 19 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { 85 = { industrial_complex < 19 }  original_tag = AMI 85 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10027  NOT = { has_country_flag = sof_ne_AMI_beauvais_paid } } 85 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = industrial_complex level = 2  instant_build = yes } } set_country_flag = sof_ne_AMI_beauvais_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_civil_air icon = GFX_sof_project_sof_ne_ami_civil_air x = 6 y = 5 cost = 5
 prerequisite = { focus = sof_ne_AMI_air_workers }
@@ -163,7 +227,9 @@ mutually_exclusive = { focus = sof_ne_AMI_military_air }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_civil_air_paid } } add_tech_bonus = { name = sof_ne_AMI_civil_air_bonus bonus = 1 uses = 1 category = light_air } set_country_flag = sof_ne_AMI_civil_air_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_military_air icon = GFX_sof_project_sof_ne_ami_military_air x = 9 y = 5 cost = 5
 prerequisite = { focus = sof_ne_AMI_air_workers }
@@ -171,56 +237,76 @@ mutually_exclusive = { focus = sof_ne_AMI_civil_air }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_military_air_paid } } add_tech_bonus = { name = sof_ne_AMI_military_air_bonus bonus = 1 uses = 1 category = cas_bomber } air_experience = 25 if = { limit = { has_dlc = "By Blood Alone" has_country_flag = sofzh_combined_arms_initialized_2110 has_tech = basic_small_airframe } add_equipment_to_stockpile = { type = small_plane_airframe_1 amount = 24 producer = ROOT variant_name = "SOF CAS 1936" } } else_if = { limit = { NOT = { has_dlc = "By Blood Alone" } has_tech = CAS1 } add_equipment_to_stockpile = { type = CAS_equipment_1 amount = 24 producer = ROOT } } else = { add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT } } set_country_flag = sof_ne_AMI_military_air_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_regional_charter icon = GFX_sof_project_sof_ne_ami_regional_charter x = 12 y = 5 cost = 7
 prerequisite = { focus = sof_ne_AMI_debt_rules }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_regional_charter_paid } } add_stability = 0.04 set_country_flag = sof_ne_AMI_regional_charter_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_rouen_offer icon = GFX_sof_project_sof_ne_ami_rouen_offer x = 15 y = 4 cost = 5
 prerequisite = { focus = sof_ne_AMI_lille_offer focus = sof_ne_AMI_amiens_junction }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   has_war = no ROU = { exists = yes is_subject = no has_capitulated = no has_war = no 84 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 10076 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   has_war = no ROU = { exists = yes is_subject = no has_capitulated = no has_war = no 84 = { is_owned_by = PREV is_fully_controlled_by = PREV } controls_province = 10076 } NOT = { has_country_flag = sof_ne_AMI_rouen_offer_paid } } set_country_flag = sof_ne_AMI_rouen_pending ROU = { country_event = { id = sof_ne_AMI_diplomacy.2 days = 1 } } set_country_flag = sof_ne_AMI_rouen_offer_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_abbeville icon = GFX_sof_project_sof_ne_ami_abbeville x = 0 y = 6 cost = 7
 prerequisite = { focus = sof_ne_AMI_granaries }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = { original_tag = AMI 67 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4892  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 67 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 4892  NOT = { has_country_flag = sof_ne_AMI_abbeville_paid } } 67 = {  add_building_construction = { type = infrastructure level = 1  instant_build = yes } } set_country_flag = sof_ne_AMI_abbeville_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_repair_credit icon = GFX_sof_project_sof_ne_ami_repair_credit x = 3 y = 6 cost = 5
 prerequisite = { focus = sof_ne_AMI_beauvais }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_repair_credit_paid } } add_tech_bonus = { name = sof_ne_AMI_repair_credit_bonus bonus = 1 uses = 1 category = construction_tech } set_country_flag = sof_ne_AMI_repair_credit_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_air_quality icon = GFX_sof_project_sof_ne_ami_air_quality x = 8 y = 6 cost = 5
 prerequisite = { focus = sof_ne_AMI_civil_air focus = sof_ne_AMI_military_air }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  NOT = { has_country_flag = sof_ne_AMI_air_quality_paid } } air_experience = 15 set_country_flag = sof_ne_AMI_air_quality_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_civic_recruiting icon = GFX_sof_project_sof_ne_ami_civic_recruiting x = 12 y = 6 cost = 5
 prerequisite = { focus = sof_ne_AMI_regional_charter }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_civic_recruiting_paid } } army_experience = 15 set_country_flag = sof_ne_AMI_civic_recruiting_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_own_freight icon = GFX_sof_project_sof_ne_ami_own_freight x = 21 y = 3 cost = 5
 prerequisite = { focus = sof_ne_AMI_amiens_junction }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_own_freight_paid } } add_tech_bonus = { name = sof_ne_AMI_own_freight_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_AMI_own_freight_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_farm_balance icon = GFX_sof_project_sof_ne_ami_farm_balance x = 2 y = 7 cost = 5
 prerequisite = { focus = sof_ne_AMI_abbeville }
@@ -228,7 +314,10 @@ prerequisite = { focus = sof_ne_AMI_repair_credit }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_farm_balance_paid } } add_stability = 0.04 set_country_flag = sof_ne_AMI_farm_balance_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_air_hall icon = GFX_sof_project_sof_ne_ami_air_hall x = 6 y = 7 cost = 10
 prerequisite = { focus = sof_ne_AMI_air_quality }
@@ -236,21 +325,28 @@ prerequisite = { focus = sof_ne_AMI_cloth }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395   73 = { arms_factory < 19 } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { 73 = { arms_factory < 19 }  original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  NOT = { has_country_flag = sof_ne_AMI_air_hall_paid } } 73 = { add_extra_state_shared_building_slots = 2 add_building_construction = { type = arms_factory level = 2  instant_build = yes } } set_country_flag = sof_ne_AMI_air_hall_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_test_ground icon = GFX_sof_project_sof_ne_ami_test_ground x = 9 y = 7 cost = 5
 prerequisite = { focus = sof_ne_AMI_air_quality }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  NOT = { has_country_flag = sof_ne_AMI_test_ground_paid } } air_experience = 15 set_country_flag = sof_ne_AMI_test_ground_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_somme_bridges icon = GFX_sof_project_sof_ne_ami_somme_bridges x = 12 y = 7 cost = 5
 prerequisite = { focus = sof_ne_AMI_civic_recruiting }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  NOT = { has_country_flag = sof_ne_AMI_somme_bridges_paid } } add_tech_bonus = { name = sof_ne_AMI_somme_bridges_bonus bonus = 1 uses = 1 category = engineers_tech } set_country_flag = sof_ne_AMI_somme_bridges_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_soissons icon = GFX_sof_project_sof_ne_ami_soissons x = 15 y = 7 cost = 5
 prerequisite = { focus = sof_ne_AMI_civic_recruiting }
@@ -264,14 +360,20 @@ prerequisite = { focus = sof_ne_AMI_lille_offer focus = sof_ne_AMI_rouen_offer }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {  OR = { has_country_flag = sof_ne_AMI_lille_accepted has_country_flag = sof_ne_AMI_rouen_accepted } } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {  OR = { has_country_flag = sof_ne_AMI_lille_accepted has_country_flag = sof_ne_AMI_rouen_accepted } NOT = { has_country_flag = sof_ne_AMI_received_orders_paid } } add_tech_bonus = { name = sof_ne_AMI_received_orders_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_AMI_received_orders_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_artisan_training icon = GFX_sof_project_sof_ne_ami_artisan_training x = 2 y = 8 cost = 5
 prerequisite = { focus = sof_ne_AMI_farm_balance }
 search_filters = { FOCUS_FILTER_INDUSTRY }
 available = {    num_of_factories > 5 amount_research_slots > 1 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318 } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { num_of_factories > 5 amount_research_slots > 1 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318    NOT = { has_country_flag = sof_ne_AMI_artisan_training_paid } } add_tech_bonus = { name = sof_ne_AMI_artisan_training_bonus bonus = 1 uses = 1 category = construction_tech } if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof_ne_AMI_artisan_training bonus = 1 uses = 1 category = electronics } } set_country_flag = sof_ne_AMI_artisan_training_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_airfield icon = GFX_sof_project_sof_ne_ami_airfield x = 6 y = 8 cost = 7
 prerequisite = { focus = sof_ne_AMI_air_hall }
@@ -279,7 +381,11 @@ prerequisite = { focus = sof_ne_AMI_test_ground }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 73 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7395  NOT = { has_country_flag = sof_ne_AMI_airfield_paid } } 73 = {  add_building_construction = { type = air_base level = 1  instant_build = yes } } set_country_flag = sof_ne_AMI_airfield_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_air_supply icon = GFX_sof_project_sof_ne_ami_air_supply x = 9 y = 8 cost = 5
 prerequisite = { focus = sof_ne_AMI_test_ground }
@@ -287,7 +393,9 @@ prerequisite = { focus = sof_ne_AMI_amiens_junction }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_air_supply_paid } } add_tech_bonus = { name = sof_ne_AMI_air_supply_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_AMI_air_supply_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_reserve icon = GFX_sof_project_sof_ne_ami_reserve x = 12 y = 8 cost = 5
 prerequisite = { focus = sof_ne_AMI_somme_bridges }
@@ -295,21 +403,28 @@ prerequisite = { focus = sof_ne_AMI_soissons }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_reserve_paid } } sof604_register_ne_ami_reserve = yes set_country_flag = sof_ne_AMI_reserve_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_clearing icon = GFX_sof_project_sof_ne_ami_clearing x = 15 y = 6 cost = 4
 prerequisite = { focus = sof_ne_AMI_received_orders focus = sof_ne_AMI_own_freight }
 search_filters = { FOCUS_FILTER_POLITICAL }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_clearing_paid } } add_political_power = 50 set_country_flag = sof_ne_AMI_clearing_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_civil_air_defense icon = GFX_sof_project_sof_ne_ami_civil_air_defense x = 3 y = 9 cost = 7
 prerequisite = { focus = sof_ne_AMI_airfield }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318  NOT = { has_country_flag = sof_ne_AMI_civil_air_defense_paid } } 70 = {  add_building_construction = { type = anti_air_building level = 1  instant_build = yes } } set_country_flag = sof_ne_AMI_civil_air_defense_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_scout_training icon = GFX_sof_project_sof_ne_ami_scout_training x = 9 y = 9 cost = 5
 prerequisite = { focus = sof_ne_AMI_air_supply }
@@ -317,7 +432,9 @@ prerequisite = { focus = sof_ne_AMI_reserve }
 search_filters = { FOCUS_FILTER_RESEARCH }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_scout_training_paid } } air_experience = 18 set_country_flag = sof_ne_AMI_scout_training_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_mobile_reserve icon = GFX_sof_project_sof_ne_ami_mobile_reserve x = 12 y = 9 cost = 5
 prerequisite = { focus = sof_ne_AMI_reserve }
@@ -325,7 +442,10 @@ mutually_exclusive = { focus = sof_ne_AMI_entrenched }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_mobile_reserve_paid } } army_experience = 25 add_equipment_to_stockpile = { type = infantry_equipment amount = 1200 producer = ROOT } add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } set_country_flag = sof_ne_AMI_mobile_reserve_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_entrenched icon = GFX_sof_project_sof_ne_ami_entrenched x = 15 y = 9 cost = 7
 prerequisite = { focus = sof_ne_AMI_reserve }
@@ -333,7 +453,10 @@ mutually_exclusive = { focus = sof_ne_AMI_mobile_reserve }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = { original_tag = AMI 76 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9692  } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { original_tag = AMI 76 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 9692  NOT = { has_country_flag = sof_ne_AMI_entrenched_paid } } 76 = {  add_building_construction = { type = bunker level = 1 province = 9692 instant_build = yes } } set_country_flag = sof_ne_AMI_entrenched_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_manual icon = GFX_sof_project_sof_ne_ami_manual x = 11 y = 10 cost = 5
 prerequisite = { focus = sof_ne_AMI_mobile_reserve focus = sof_ne_AMI_entrenched }
@@ -341,7 +464,10 @@ prerequisite = { focus = sof_ne_AMI_scout_training }
 search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_manual_paid } } army_experience = 15 add_doctrine_cost_reduction = { name = sof_ne_AMI_manual cost_reduction = 0.5 uses = 1 category = land_doctrine } set_country_flag = sof_ne_AMI_manual_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_recovery_accounts icon = GFX_sof_project_sof_ne_ami_recovery_accounts x = 6 y = 9 cost = 4
 prerequisite = { focus = sof_ne_AMI_artisan_training }
@@ -371,7 +497,10 @@ prerequisite = { focus = sof_ne_AMI_unified_recovery }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_rail_accounts_paid } } add_tech_bonus = { name = sof_ne_AMI_rail_accounts_bonus bonus = 1 uses = 1 category = logistics_tech } set_country_flag = sof_ne_AMI_rail_accounts_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_aircraft_standards icon = GFX_sof_project_sof_ne_ami_aircraft_standards x = 8 y = 11 cost = 5
 prerequisite = { focus = sof_ne_AMI_unified_recovery }
@@ -387,7 +516,10 @@ prerequisite = { focus = sof_ne_AMI_manual }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_army_handover_paid } } army_experience = 18 set_country_flag = sof_ne_AMI_army_handover_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+ }
 }
 focus = { id = sof_ne_AMI_reconstruction_settlement icon = GFX_sof_project_sof_ne_ami_reconstruction_settlement x = 5 y = 12 cost = 4
 prerequisite = { focus = sof_ne_AMI_land_records }
@@ -395,7 +527,9 @@ prerequisite = { focus = sof_ne_AMI_rail_accounts }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_reconstruction_settlement_paid } } add_political_power = 50 set_country_flag = sof_ne_AMI_reconstruction_settlement_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
 }
 focus = { id = sof_ne_AMI_technical_network icon = GFX_sof_project_sof_ne_ami_technical_network x = 8 y = 12 cost = 5
 prerequisite = { focus = sof_ne_AMI_aircraft_standards }
@@ -403,7 +537,9 @@ prerequisite = { focus = sof_ne_AMI_army_handover }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {   } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = {   NOT = { has_country_flag = sof_ne_AMI_technical_network_paid } } add_tech_bonus = { name = sof_ne_AMI_technical_network_bonus bonus = 0.75 uses = 1 category = industry } set_country_flag = sof_ne_AMI_technical_network_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 focus = { id = sof_ne_AMI_unification_mandate icon = GFX_sof_project_sof_ne_ami_unification_mandate x = 18 y = 9 cost = 7
 prerequisite = { focus = sof_ne_AMI_regional_charter }
@@ -419,7 +555,9 @@ prerequisite = { focus = sof_ne_AMI_technical_network }
 search_filters = { FOCUS_FILTER_STABILITY }
 available = {    num_of_factories > 11 amount_research_slots > 2 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318 } cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
 completion_reward = { if = { limit = { num_of_factories > 11 amount_research_slots > 2 70 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 8318    NOT = { has_country_flag = sof_ne_AMI_picardy_in_france_paid } } if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof_ne_AMI_picardy_in_france bonus = 1 uses = 1 category = electronics } } set_country_flag = sof_ne_AMI_picardy_in_france_paid } }
-ai_will_do = { factor = 10 }
+ai_will_do = { factor = 10
+  modifier = { factor = 1.7 has_war = no }
+ }
 }
 
  shared_focus = SOF_NR_AMI_mandate
