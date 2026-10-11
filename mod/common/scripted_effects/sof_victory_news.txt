@@ -1,0 +1,648 @@
+sof_vpn_dkq_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_dkq_initialized } }
+ save_global_event_target_as = sof_vpn_dkq_controller save_global_event_target_as = sof_vpn_dkq_home set_global_flag = sof_vpn_dkq_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_dkq_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_dkq_controller NOT = { has_global_flag = sof_vpn_dkq_news_lock } }
+  event_target:sof_vpn_dkq_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_dkq_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_dkq_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.1 } }
+ }
+ save_global_event_target_as = sof_vpn_dkq_controller
+}
+ }
+}
+
+sof_vpn_dkq_check = {
+every_country = { limit = { controls_province = 4218 } sof_vpn_dkq_observe = yes }
+}
+
+sof_vpn_lil_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_lil_initialized } }
+ save_global_event_target_as = sof_vpn_lil_controller save_global_event_target_as = sof_vpn_lil_home set_global_flag = sof_vpn_lil_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_lil_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_lil_controller NOT = { has_global_flag = sof_vpn_lil_news_lock } }
+  event_target:sof_vpn_lil_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_lil_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_lil_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.2 } }
+ }
+ save_global_event_target_as = sof_vpn_lil_controller
+}
+ }
+}
+
+sof_vpn_lil_check = {
+every_country = { limit = { controls_province = 9249 } sof_vpn_lil_observe = yes }
+}
+
+sof_vpn_ami_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_ami_initialized } }
+ save_global_event_target_as = sof_vpn_ami_controller save_global_event_target_as = sof_vpn_ami_home set_global_flag = sof_vpn_ami_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_ami_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_ami_controller NOT = { has_global_flag = sof_vpn_ami_news_lock } }
+  event_target:sof_vpn_ami_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_ami_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_ami_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.3 } }
+ }
+ save_global_event_target_as = sof_vpn_ami_controller
+}
+ }
+}
+
+sof_vpn_ami_check = {
+every_country = { limit = { controls_province = 8318 } sof_vpn_ami_observe = yes }
+}
+
+sof_vpn_hav_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_hav_initialized } }
+ save_global_event_target_as = sof_vpn_hav_controller save_global_event_target_as = sof_vpn_hav_home set_global_flag = sof_vpn_hav_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_hav_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_hav_controller NOT = { has_global_flag = sof_vpn_hav_news_lock } }
+  event_target:sof_vpn_hav_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_hav_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_hav_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.4 } }
+ }
+ save_global_event_target_as = sof_vpn_hav_controller
+}
+ }
+}
+
+sof_vpn_hav_check = {
+every_country = { limit = { controls_province = 9962 } sof_vpn_hav_observe = yes }
+}
+
+sof_vpn_rou_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_rou_initialized } }
+ save_global_event_target_as = sof_vpn_rou_controller save_global_event_target_as = sof_vpn_rou_home set_global_flag = sof_vpn_rou_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_rou_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_rou_controller NOT = { has_global_flag = sof_vpn_rou_news_lock } }
+  event_target:sof_vpn_rou_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_rou_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_rou_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.5 } }
+ }
+ save_global_event_target_as = sof_vpn_rou_controller
+}
+ }
+}
+
+sof_vpn_rou_check = {
+every_country = { limit = { controls_province = 10076 } sof_vpn_rou_observe = yes }
+}
+
+sof_vpn_chl_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_chl_initialized } }
+ save_global_event_target_as = sof_vpn_chl_controller save_global_event_target_as = sof_vpn_chl_home set_global_flag = sof_vpn_chl_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_chl_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_chl_controller NOT = { has_global_flag = sof_vpn_chl_news_lock } }
+  event_target:sof_vpn_chl_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_chl_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_chl_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.6 } }
+ }
+ save_global_event_target_as = sof_vpn_chl_controller
+}
+ }
+}
+
+sof_vpn_chl_check = {
+every_country = { limit = { controls_province = 10620 } sof_vpn_chl_observe = yes }
+}
+
+sof_vpn_met_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_met_initialized } }
+ save_global_event_target_as = sof_vpn_met_controller save_global_event_target_as = sof_vpn_met_home set_global_flag = sof_vpn_met_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_met_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_met_controller NOT = { has_global_flag = sof_vpn_met_news_lock } }
+  event_target:sof_vpn_met_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_met_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_met_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.7 } }
+ }
+ save_global_event_target_as = sof_vpn_met_controller
+}
+ }
+}
+
+sof_vpn_met_check = {
+every_country = { limit = { controls_province = 5300 } sof_vpn_met_observe = yes }
+}
+
+sof_vpn_prs_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_prs_initialized } }
+ save_global_event_target_as = sof_vpn_prs_controller save_global_event_target_as = sof_vpn_prs_home set_global_flag = sof_vpn_prs_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_prs_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_prs_controller NOT = { has_global_flag = sof_vpn_prs_news_lock } }
+  event_target:sof_vpn_prs_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_prs_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_prs_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.8 } }
+ }
+ save_global_event_target_as = sof_vpn_prs_controller
+}
+ }
+}
+
+sof_vpn_prs_check = {
+every_country = { limit = { controls_province = 10776 } sof_vpn_prs_observe = yes }
+}
+
+sof_vpn_bre_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_bre_initialized } }
+ save_global_event_target_as = sof_vpn_bre_controller save_global_event_target_as = sof_vpn_bre_home set_global_flag = sof_vpn_bre_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_bre_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_bre_controller NOT = { has_global_flag = sof_vpn_bre_news_lock } }
+  event_target:sof_vpn_bre_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_bre_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_bre_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.9 } }
+ }
+ save_global_event_target_as = sof_vpn_bre_controller
+}
+ }
+}
+
+sof_vpn_bre_check = {
+every_country = { limit = { controls_province = 11485 } sof_vpn_bre_observe = yes }
+}
+
+sof_vpn_str_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_str_initialized } }
+ save_global_event_target_as = sof_vpn_str_controller save_global_event_target_as = sof_vpn_str_home set_global_flag = sof_vpn_str_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_str_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_str_controller NOT = { has_global_flag = sof_vpn_str_news_lock } }
+  event_target:sof_vpn_str_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_str_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_str_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.10 } }
+ }
+ save_global_event_target_as = sof_vpn_str_controller
+}
+ }
+}
+
+sof_vpn_str_check = {
+every_country = { limit = { controls_province = 1667 } sof_vpn_str_observe = yes }
+}
+
+sof_vpn_ren_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_ren_initialized } }
+ save_global_event_target_as = sof_vpn_ren_controller save_global_event_target_as = sof_vpn_ren_home set_global_flag = sof_vpn_ren_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_ren_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_ren_controller NOT = { has_global_flag = sof_vpn_ren_news_lock } }
+  event_target:sof_vpn_ren_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_ren_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_ren_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.11 } }
+ }
+ save_global_event_target_as = sof_vpn_ren_controller
+}
+ }
+}
+
+sof_vpn_ren_check = {
+every_country = { limit = { controls_province = 11949 } sof_vpn_ren_observe = yes }
+}
+
+sof_vpn_orl_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_orl_initialized } }
+ save_global_event_target_as = sof_vpn_orl_controller save_global_event_target_as = sof_vpn_orl_home set_global_flag = sof_vpn_orl_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_orl_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_orl_controller NOT = { has_global_flag = sof_vpn_orl_news_lock } }
+  event_target:sof_vpn_orl_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_orl_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_orl_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.12 } }
+ }
+ save_global_event_target_as = sof_vpn_orl_controller
+}
+ }
+}
+
+sof_vpn_orl_check = {
+every_country = { limit = { controls_province = 902 } sof_vpn_orl_observe = yes }
+}
+
+sof_vpn_mul_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_mul_initialized } }
+ save_global_event_target_as = sof_vpn_mul_controller save_global_event_target_as = sof_vpn_mul_home set_global_flag = sof_vpn_mul_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_mul_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_mul_controller NOT = { has_global_flag = sof_vpn_mul_news_lock } }
+  event_target:sof_vpn_mul_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_mul_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_mul_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.13 } }
+ }
+ save_global_event_target_as = sof_vpn_mul_controller
+}
+ }
+}
+
+sof_vpn_mul_check = {
+every_country = { limit = { controls_province = 3754 } sof_vpn_mul_observe = yes }
+}
+
+sof_vpn_trs_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_trs_initialized } }
+ save_global_event_target_as = sof_vpn_trs_controller save_global_event_target_as = sof_vpn_trs_home set_global_flag = sof_vpn_trs_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_trs_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_trs_controller NOT = { has_global_flag = sof_vpn_trs_news_lock } }
+  event_target:sof_vpn_trs_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_trs_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_trs_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.14 } }
+ }
+ save_global_event_target_as = sof_vpn_trs_controller
+}
+ }
+}
+
+sof_vpn_trs_check = {
+every_country = { limit = { controls_province = 13089 } sof_vpn_trs_observe = yes }
+}
+
+sof_vpn_dij_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_dij_initialized } }
+ save_global_event_target_as = sof_vpn_dij_controller save_global_event_target_as = sof_vpn_dij_home set_global_flag = sof_vpn_dij_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_dij_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_dij_controller NOT = { has_global_flag = sof_vpn_dij_news_lock } }
+  event_target:sof_vpn_dij_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_dij_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_dij_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.15 } }
+ }
+ save_global_event_target_as = sof_vpn_dij_controller
+}
+ }
+}
+
+sof_vpn_dij_check = {
+every_country = { limit = { controls_province = 13134 } sof_vpn_dij_observe = yes }
+}
+
+sof_vpn_bes_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_bes_initialized } }
+ save_global_event_target_as = sof_vpn_bes_controller save_global_event_target_as = sof_vpn_bes_home set_global_flag = sof_vpn_bes_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_bes_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_bes_controller NOT = { has_global_flag = sof_vpn_bes_news_lock } }
+  event_target:sof_vpn_bes_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_bes_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_bes_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.16 } }
+ }
+ save_global_event_target_as = sof_vpn_bes_controller
+}
+ }
+}
+
+sof_vpn_bes_check = {
+every_country = { limit = { controls_province = 13274 } sof_vpn_bes_observe = yes }
+}
+
+sof_vpn_nan_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_nan_initialized } }
+ save_global_event_target_as = sof_vpn_nan_controller save_global_event_target_as = sof_vpn_nan_home set_global_flag = sof_vpn_nan_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_nan_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_nan_controller NOT = { has_global_flag = sof_vpn_nan_news_lock } }
+  event_target:sof_vpn_nan_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_nan_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_nan_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.17 } }
+ }
+ save_global_event_target_as = sof_vpn_nan_controller
+}
+ }
+}
+
+sof_vpn_nan_check = {
+every_country = { limit = { controls_province = 3806 } sof_vpn_nan_observe = yes }
+}
+
+sof_vpn_poi_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_poi_initialized } }
+ save_global_event_target_as = sof_vpn_poi_controller save_global_event_target_as = sof_vpn_poi_home set_global_flag = sof_vpn_poi_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_poi_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_poi_controller NOT = { has_global_flag = sof_vpn_poi_news_lock } }
+  event_target:sof_vpn_poi_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_poi_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_poi_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.18 } }
+ }
+ save_global_event_target_as = sof_vpn_poi_controller
+}
+ }
+}
+
+sof_vpn_poi_check = {
+every_country = { limit = { controls_province = 14070 } sof_vpn_poi_observe = yes }
+}
+
+sof_vpn_lmg_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_lmg_initialized } }
+ save_global_event_target_as = sof_vpn_lmg_controller save_global_event_target_as = sof_vpn_lmg_home set_global_flag = sof_vpn_lmg_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_lmg_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_lmg_controller NOT = { has_global_flag = sof_vpn_lmg_news_lock } }
+  event_target:sof_vpn_lmg_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_lmg_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_lmg_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.19 } }
+ }
+ save_global_event_target_as = sof_vpn_lmg_controller
+}
+ }
+}
+
+sof_vpn_lmg_check = {
+every_country = { limit = { controls_province = 1917 } sof_vpn_lmg_observe = yes }
+}
+
+sof_vpn_lyo_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_lyo_initialized } }
+ save_global_event_target_as = sof_vpn_lyo_controller save_global_event_target_as = sof_vpn_lyo_home set_global_flag = sof_vpn_lyo_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_lyo_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_lyo_controller NOT = { has_global_flag = sof_vpn_lyo_news_lock } }
+  event_target:sof_vpn_lyo_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_lyo_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_lyo_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.20 } }
+ }
+ save_global_event_target_as = sof_vpn_lyo_controller
+}
+ }
+}
+
+sof_vpn_lyo_check = {
+every_country = { limit = { controls_province = 2292 } sof_vpn_lyo_observe = yes }
+}
+
+sof_vpn_cfr_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_cfr_initialized } }
+ save_global_event_target_as = sof_vpn_cfr_controller save_global_event_target_as = sof_vpn_cfr_home set_global_flag = sof_vpn_cfr_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_cfr_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_cfr_controller NOT = { has_global_flag = sof_vpn_cfr_news_lock } }
+  event_target:sof_vpn_cfr_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_cfr_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_cfr_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.21 } }
+ }
+ save_global_event_target_as = sof_vpn_cfr_controller
+}
+ }
+}
+
+sof_vpn_cfr_check = {
+every_country = { limit = { controls_province = 1885 } sof_vpn_cfr_observe = yes }
+}
+
+sof_vpn_set_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_set_initialized } }
+ save_global_event_target_as = sof_vpn_set_controller save_global_event_target_as = sof_vpn_set_home set_global_flag = sof_vpn_set_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_set_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_set_controller NOT = { has_global_flag = sof_vpn_set_news_lock } }
+  event_target:sof_vpn_set_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_set_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_set_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.22 } }
+ }
+ save_global_event_target_as = sof_vpn_set_controller
+}
+ }
+}
+
+sof_vpn_set_check = {
+every_country = { limit = { controls_province = 15281 } sof_vpn_set_observe = yes }
+}
+
+sof_vpn_brd_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_brd_initialized } }
+ save_global_event_target_as = sof_vpn_brd_controller save_global_event_target_as = sof_vpn_brd_home set_global_flag = sof_vpn_brd_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_brd_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_brd_controller NOT = { has_global_flag = sof_vpn_brd_news_lock } }
+  event_target:sof_vpn_brd_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_brd_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_brd_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.23 } }
+ }
+ save_global_event_target_as = sof_vpn_brd_controller
+}
+ }
+}
+
+sof_vpn_brd_check = {
+every_country = { limit = { controls_province = 15887 } sof_vpn_brd_observe = yes }
+}
+
+sof_vpn_tou_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_tou_initialized } }
+ save_global_event_target_as = sof_vpn_tou_controller save_global_event_target_as = sof_vpn_tou_home set_global_flag = sof_vpn_tou_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_tou_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_tou_controller NOT = { has_global_flag = sof_vpn_tou_news_lock } }
+  event_target:sof_vpn_tou_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_tou_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_tou_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.24 } }
+ }
+ save_global_event_target_as = sof_vpn_tou_controller
+}
+ }
+}
+
+sof_vpn_tou_check = {
+every_country = { limit = { controls_province = 17211 } sof_vpn_tou_observe = yes }
+}
+
+sof_vpn_mop_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_mop_initialized } }
+ save_global_event_target_as = sof_vpn_mop_controller save_global_event_target_as = sof_vpn_mop_home set_global_flag = sof_vpn_mop_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_mop_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_mop_controller NOT = { has_global_flag = sof_vpn_mop_news_lock } }
+  event_target:sof_vpn_mop_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_mop_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_mop_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.25 } }
+ }
+ save_global_event_target_as = sof_vpn_mop_controller
+}
+ }
+}
+
+sof_vpn_mop_check = {
+every_country = { limit = { controls_province = 2597 } sof_vpn_mop_observe = yes }
+}
+
+sof_vpn_mrs_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_mrs_initialized } }
+ save_global_event_target_as = sof_vpn_mrs_controller save_global_event_target_as = sof_vpn_mrs_home set_global_flag = sof_vpn_mrs_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_mrs_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_mrs_controller NOT = { has_global_flag = sof_vpn_mrs_news_lock } }
+  event_target:sof_vpn_mrs_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_mrs_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_mrs_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.26 } }
+ }
+ save_global_event_target_as = sof_vpn_mrs_controller
+}
+ }
+}
+
+sof_vpn_mrs_check = {
+every_country = { limit = { controls_province = 929 } sof_vpn_mrs_observe = yes }
+}
+
+sof_vpn_tln_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_tln_initialized } }
+ save_global_event_target_as = sof_vpn_tln_controller save_global_event_target_as = sof_vpn_tln_home set_global_flag = sof_vpn_tln_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_tln_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_tln_controller NOT = { has_global_flag = sof_vpn_tln_news_lock } }
+  event_target:sof_vpn_tln_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_tln_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_tln_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.27 } }
+ }
+ save_global_event_target_as = sof_vpn_tln_controller
+}
+ }
+}
+
+sof_vpn_tln_check = {
+every_country = { limit = { controls_province = 17772 } sof_vpn_tln_observe = yes }
+}
+
+sof_vpn_ajc_observe = {
+if = { limit = { NOT = { has_global_flag = sof_vpn_ajc_initialized } }
+ save_global_event_target_as = sof_vpn_ajc_controller save_global_event_target_as = sof_vpn_ajc_home set_global_flag = sof_vpn_ajc_initialized
+} else = { 
+if = { limit = { NOT = { tag = event_target:sof_vpn_ajc_controller } }
+ if = { limit = { has_war_with = event_target:sof_vpn_ajc_controller NOT = { has_global_flag = sof_vpn_ajc_news_lock } }
+  event_target:sof_vpn_ajc_controller = { save_event_target_as = sof_vpn_old }
+  save_event_target_as = sof_vpn_new
+  event_target:sof_vpn_ajc_home = { save_event_target_as = sof_vpn_home }
+  set_global_flag = { flag = sof_vpn_ajc_news_lock days = 1 }
+  # Explicit human recipients make ROOT the viewer; local targets snapshot both sides.
+  every_country = { limit = { is_ai = no } news_event = { id = sof_vpn.28 } }
+ }
+ save_global_event_target_as = sof_vpn_ajc_controller
+}
+ }
+}
+
+sof_vpn_ajc_check = {
+every_country = { limit = { controls_province = 18258 } sof_vpn_ajc_observe = yes }
+}
+
+sof_vpn_scan = {
+every_country = { limit = { OR = { controls_province = 4218 controls_province = 9249 controls_province = 8318 controls_province = 9962 controls_province = 10076 controls_province = 10620 controls_province = 5300 controls_province = 10776 controls_province = 11485 controls_province = 1667 controls_province = 11949 controls_province = 902 controls_province = 3754 controls_province = 13089 controls_province = 13134 controls_province = 13274 controls_province = 3806 controls_province = 14070 controls_province = 1917 controls_province = 2292 controls_province = 1885 controls_province = 15281 controls_province = 15887 controls_province = 17211 controls_province = 2597 controls_province = 929 controls_province = 17772 controls_province = 18258 } }
+if = { limit = { controls_province = 4218 } sof_vpn_dkq_observe = yes }
+if = { limit = { controls_province = 9249 } sof_vpn_lil_observe = yes }
+if = { limit = { controls_province = 8318 } sof_vpn_ami_observe = yes }
+if = { limit = { controls_province = 9962 } sof_vpn_hav_observe = yes }
+if = { limit = { controls_province = 10076 } sof_vpn_rou_observe = yes }
+if = { limit = { controls_province = 10620 } sof_vpn_chl_observe = yes }
+if = { limit = { controls_province = 5300 } sof_vpn_met_observe = yes }
+if = { limit = { controls_province = 10776 } sof_vpn_prs_observe = yes }
+if = { limit = { controls_province = 11485 } sof_vpn_bre_observe = yes }
+if = { limit = { controls_province = 1667 } sof_vpn_str_observe = yes }
+if = { limit = { controls_province = 11949 } sof_vpn_ren_observe = yes }
+if = { limit = { controls_province = 902 } sof_vpn_orl_observe = yes }
+if = { limit = { controls_province = 3754 } sof_vpn_mul_observe = yes }
+if = { limit = { controls_province = 13089 } sof_vpn_trs_observe = yes }
+if = { limit = { controls_province = 13134 } sof_vpn_dij_observe = yes }
+if = { limit = { controls_province = 13274 } sof_vpn_bes_observe = yes }
+if = { limit = { controls_province = 3806 } sof_vpn_nan_observe = yes }
+if = { limit = { controls_province = 14070 } sof_vpn_poi_observe = yes }
+if = { limit = { controls_province = 1917 } sof_vpn_lmg_observe = yes }
+if = { limit = { controls_province = 2292 } sof_vpn_lyo_observe = yes }
+if = { limit = { controls_province = 1885 } sof_vpn_cfr_observe = yes }
+if = { limit = { controls_province = 15281 } sof_vpn_set_observe = yes }
+if = { limit = { controls_province = 15887 } sof_vpn_brd_observe = yes }
+if = { limit = { controls_province = 17211 } sof_vpn_tou_observe = yes }
+if = { limit = { controls_province = 2597 } sof_vpn_mop_observe = yes }
+if = { limit = { controls_province = 929 } sof_vpn_mrs_observe = yes }
+if = { limit = { controls_province = 17772 } sof_vpn_tln_observe = yes }
+if = { limit = { controls_province = 18258 } sof_vpn_ajc_observe = yes }
+}
+}

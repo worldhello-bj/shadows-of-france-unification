@@ -1,18 +1,18 @@
-﻿sof610_build_civ = {
- if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } }
- random_owned_controlled_state = { limit = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }
+sof610_build_civ = {
+ if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes }  sof_rl_home_state = yes } }
+ random_owned_controlled_state = { limit = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes }  sof_rl_home_state = yes } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }
  } else = { add_political_power = 100 add_tech_bonus = { name = sof610_technical_program bonus = 1 uses = 2 category = industry } }
 }
 
 sof610_build_mil = {
- if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } } }
- random_owned_controlled_state = { limit = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }
+ if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes }  sof_rl_home_state = yes } }
+ random_owned_controlled_state = { limit = { is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes }  sof_rl_home_state = yes } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }
  } else = { add_political_power = 100 add_tech_bonus = { name = sof610_technical_program bonus = 1 uses = 2 category = industry } }
 }
 
 sof610_build_infra = {
- if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5 } }
- random_owned_controlled_state = { limit = { is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+ if = { limit = { any_owned_state = { is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5  sof_rl_home_state = yes } }
+ random_owned_controlled_state = { limit = { is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5  sof_rl_home_state = yes } add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
  } else = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
 }
 
@@ -84,11 +84,11 @@ set_variable = { sof610_pcf_output = 0 }
 set_variable = { sof610_pcf_pp = 0 }
 set_variable = { sof610_pcf_stab = 0 }
 if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_mandate } add_to_variable = { sof610_pcf_pp = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_hand } add_to_variable = { sof610_pcf_stab = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_hand } add_to_variable = { sof610_pcf_stab = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_workshops } add_to_variable = { sof610_pcf_eff = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_families } add_to_variable = { sof610_pcf_civ = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_peasants } add_to_variable = { sof610_pcf_eff = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_leagues } add_to_variable = { sof610_pcf_output = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_peasants } add_to_variable = { sof610_pcf_eff = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_leagues } add_to_variable = { sof610_pcf_output = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_arms } add_to_variable = { sof610_pcf_output = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_pcf_pcf_security } add_to_variable = { sof610_pcf_eff = 0.1 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_pcf } } } add_dynamic_modifier = { modifier = sof610_program_pcf } }
@@ -100,14 +100,14 @@ set_variable = { sof610_sfio_civ = 0 }
 set_variable = { sof610_sfio_pp = 0 }
 set_variable = { sof610_sfio_stab = 0 }
 if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_office } add_to_variable = { sof610_sfio_pp = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_agreements } add_to_variable = { sof610_sfio_stab = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_hours } add_to_variable = { sof610_sfio_cap = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_agreements } add_to_variable = { sof610_sfio_stab = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_hours } add_to_variable = { sof610_sfio_cap = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_demand } add_to_variable = { sof610_sfio_civ = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_credit } add_to_variable = { sof610_sfio_cap = 0.05 } add_to_variable = { sof610_sfio_cg = -0.08 } }
-if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_compromise } add_to_variable = { sof610_sfio_civ = 0.05 } add_to_variable = { sof610_sfio_cg = -0.08 } }
+if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_credit } add_to_variable = { sof610_sfio_cap = 0.06 } add_to_variable = { sof610_sfio_cg = -0.08 } }
+if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_compromise } add_to_variable = { sof610_sfio_civ = 0.06 } add_to_variable = { sof610_sfio_cg = -0.08 } }
 if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_works } add_to_variable = { sof610_sfio_civ = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_leave } add_to_variable = { sof610_sfio_stab = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_leisure } add_to_variable = { sof610_sfio_civ = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_leave } add_to_variable = { sof610_sfio_stab = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_sfio_sfio_leisure } add_to_variable = { sof610_sfio_civ = 0.06 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_sfio } } } add_dynamic_modifier = { modifier = sof610_program_sfio } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_sfio } } remove_dynamic_modifier = { modifier = sof610_program_sfio } } }
 if = { limit = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal has_capitulated = no OR = { has_country_flag = sof_party_paid_prrrs_prrrs_republic has_country_flag = sof_party_paid_prrrs_prrrs_banks has_country_flag = sof_party_paid_prrrs_prrrs_rural has_country_flag = sof_party_paid_prrrs_prrrs_coops has_country_flag = sof_party_paid_prrrs_prrrs_school has_country_flag = sof_party_paid_prrrs_prrrs_conscience has_country_flag = sof_party_paid_prrrs_prrrs_accounts has_country_flag = sof_party_paid_prrrs_prrrs_balance } }
@@ -121,8 +121,8 @@ if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_rural } add_to_va
 if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_coops } add_to_variable = { sof610_prrrs_civ = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_school } add_to_variable = { sof610_prrrs_research = 0.04 } }
 if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_conscience } add_to_variable = { sof610_prrrs_stab = 0.04 } add_to_variable = { sof610_prrrs_research = 0.04 } }
-if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_accounts } add_to_variable = { sof610_prrrs_pp = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_balance } add_to_variable = { sof610_prrrs_civ = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_accounts } add_to_variable = { sof610_prrrs_pp = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_prrrs_prrrs_balance } add_to_variable = { sof610_prrrs_civ = 0.06 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_prrrs } } } add_dynamic_modifier = { modifier = sof610_program_prrrs } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_prrrs } } remove_dynamic_modifier = { modifier = sof610_program_prrrs } } }
 if = { limit = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat has_capitulated = no OR = { has_country_flag = sof_party_paid_usr_usr_coalition has_country_flag = sof_party_paid_usr_usr_expertise has_country_flag = sof_party_paid_usr_usr_arbitration has_country_flag = sof_party_paid_usr_usr_power has_country_flag = sof_party_paid_usr_usr_surveys has_country_flag = sof_party_paid_usr_usr_geneva has_country_flag = sof_party_paid_usr_usr_government has_country_flag = sof_party_paid_usr_usr_investment } }
@@ -133,10 +133,10 @@ set_variable = { sof610_usr_pp = 0 }
 set_variable = { sof610_usr_research = 0 }
 if = { limit = { has_country_flag = sof_party_paid_usr_usr_coalition } add_to_variable = { sof610_usr_pp = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_usr_usr_expertise } add_to_variable = { sof610_usr_eff = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_usr_usr_arbitration } add_to_variable = { sof610_usr_output = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_usr_usr_power } add_to_variable = { sof610_usr_infra = 0.15 } }
-if = { limit = { has_country_flag = sof_party_paid_usr_usr_surveys } add_to_variable = { sof610_usr_research = 0.05 } add_to_variable = { sof610_usr_eff = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_usr_usr_geneva } add_to_variable = { sof610_usr_pp = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_usr_usr_arbitration } add_to_variable = { sof610_usr_output = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_usr_usr_power } add_to_variable = { sof610_usr_infra = 0.16 } }
+if = { limit = { has_country_flag = sof_party_paid_usr_usr_surveys } add_to_variable = { sof610_usr_research = 0.06 } add_to_variable = { sof610_usr_eff = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_usr_usr_geneva } add_to_variable = { sof610_usr_pp = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_usr_usr_government } add_to_variable = { sof610_usr_eff = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_usr_usr_investment } add_to_variable = { sof610_usr_infra = 0.1 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_usr } } } add_dynamic_modifier = { modifier = sof610_program_usr } }
@@ -146,15 +146,15 @@ set_variable = { sof610_pup_cap = 0 }
 set_variable = { sof610_pup_output = 0 }
 set_variable = { sof610_pup_retention = 0 }
 set_variable = { sof610_pup_stab = 0 }
-if = { limit = { has_country_flag = sof_party_paid_pup_pup_bridge } add_to_variable = { sof610_pup_stab = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_pup_pup_bridge } add_to_variable = { sof610_pup_stab = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_pup_pup_democracy } add_to_variable = { sof610_pup_retention = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pup_pup_unions } add_to_variable = { sof610_pup_output = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_pup_pup_unity } add_to_variable = { sof610_pup_cap = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_pup_pup_unions } add_to_variable = { sof610_pup_output = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_pup_pup_unity } add_to_variable = { sof610_pup_cap = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_pup_pup_independent } add_to_variable = { sof610_pup_retention = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pup_pup_socialist_union } add_to_variable = { sof610_pup_cap = 0.05 } add_to_variable = { sof610_pup_retention = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_pup_pup_against_war } add_to_variable = { sof610_pup_stab = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_pup_pup_socialist_union } add_to_variable = { sof610_pup_cap = 0.06 } add_to_variable = { sof610_pup_retention = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_pup_pup_against_war } add_to_variable = { sof610_pup_stab = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_pup_pup_cooperatives } add_to_variable = { sof610_pup_output = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pup_pup_technicians } add_to_variable = { sof610_pup_retention = 0.05 } add_to_variable = { sof610_pup_cap = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_pup_pup_technicians } add_to_variable = { sof610_pup_retention = 0.06 } add_to_variable = { sof610_pup_cap = 0.06 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_pup } } } add_dynamic_modifier = { modifier = sof610_program_pup } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_pup } } remove_dynamic_modifier = { modifier = sof610_program_pup } } }
 if = { limit = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal has_capitulated = no OR = { has_country_flag = sof_party_paid_rg_ad_rg_ad_committees has_country_flag = sof_party_paid_rg_ad_rg_ad_accounts has_country_flag = sof_party_paid_rg_ad_rg_ad_reconcile has_country_flag = sof_party_paid_rg_ad_rg_ad_credit has_country_flag = sof_party_paid_rg_ad_rg_ad_discipline has_country_flag = sof_party_paid_rg_ad_rg_ad_enterprise has_country_flag = sof_party_paid_rg_ad_rg_ad_centre has_country_flag = sof_party_paid_rg_ad_rg_ad_recovery } }
@@ -165,12 +165,12 @@ set_variable = { sof610_rg_ad_eff = 0 }
 set_variable = { sof610_rg_ad_pp = 0 }
 if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_committees } add_to_variable = { sof610_rg_ad_pp = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_accounts } add_to_variable = { sof610_rg_ad_cg = -0.04 } }
-if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_reconcile } add_to_variable = { sof610_rg_ad_pp = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_reconcile } add_to_variable = { sof610_rg_ad_pp = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_credit } add_to_variable = { sof610_rg_ad_civ = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_discipline } add_to_variable = { sof610_rg_ad_cg = -0.04 } }
 if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_enterprise } add_to_variable = { sof610_rg_ad_civ = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_centre } add_to_variable = { sof610_rg_ad_cap = 0.05 } add_to_variable = { sof610_rg_ad_eff = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_recovery } add_to_variable = { sof610_rg_ad_civ = 0.05 } add_to_variable = { sof610_rg_ad_eff = 0.1 } }
+if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_centre } add_to_variable = { sof610_rg_ad_cap = 0.06 } add_to_variable = { sof610_rg_ad_eff = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_rg_ad_rg_ad_recovery } add_to_variable = { sof610_rg_ad_civ = 0.06 } add_to_variable = { sof610_rg_ad_eff = 0.1 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_rg_ad } } } add_dynamic_modifier = { modifier = sof610_program_rg_ad } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_rg_ad } } remove_dynamic_modifier = { modifier = sof610_program_rg_ad } } }
 if = { limit = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative has_capitulated = no OR = { has_country_flag = sof_party_paid_fr_urd_fr_urd_notables has_country_flag = sof_party_paid_fr_urd_fr_urd_property has_country_flag = sof_party_paid_fr_urd_fr_urd_schools has_country_flag = sof_party_paid_fr_urd_fr_urd_service has_country_flag = sof_party_paid_fr_urd_fr_urd_defence has_country_flag = sof_party_paid_fr_urd_fr_urd_legal has_country_flag = sof_party_paid_fr_urd_fr_urd_national has_country_flag = sof_party_paid_fr_urd_fr_urd_reserve has_country_flag = sof_party_paid_fr_urd_fr_urd_arsenals } }
@@ -181,14 +181,14 @@ set_variable = { sof610_fr_urd_pp = 0 }
 set_variable = { sof610_fr_urd_stab = 0 }
 set_variable = { sof610_fr_urd_training = 0 }
 if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_notables } add_to_variable = { sof610_fr_urd_pp = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_property } add_to_variable = { sof610_fr_urd_cap = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_schools } add_to_variable = { sof610_fr_urd_cap = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_property } add_to_variable = { sof610_fr_urd_cap = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_schools } add_to_variable = { sof610_fr_urd_cap = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_service } add_to_variable = { sof610_fr_urd_training = -0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_defence } add_to_variable = { sof610_fr_urd_mil = 0.15 } }
+if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_defence } add_to_variable = { sof610_fr_urd_mil = 0.16 } }
 if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_legal } add_to_variable = { sof610_fr_urd_stab = 0.08 } }
-if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_national } add_to_variable = { sof610_fr_urd_org = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_national } add_to_variable = { sof610_fr_urd_org = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_reserve } add_to_variable = { sof610_fr_urd_mil = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_arsenals } add_to_variable = { sof610_fr_urd_org = 0.03 } }
+if = { limit = { has_country_flag = sof_party_paid_fr_urd_fr_urd_arsenals } add_to_variable = { sof610_fr_urd_org = 0.04 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_fr_urd } } } add_dynamic_modifier = { modifier = sof610_program_fr_urd } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_fr_urd } } remove_dynamic_modifier = { modifier = sof610_program_fr_urd } } }
 if = { limit = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative has_capitulated = no OR = { has_country_flag = sof_party_paid_pdp_pdp_mandate has_country_flag = sof_party_paid_pdp_pdp_bodies has_country_flag = sof_party_paid_pdp_pdp_families has_country_flag = sof_party_paid_pdp_pdp_bargain has_country_flag = sof_party_paid_pdp_pdp_insurance has_country_flag = sof_party_paid_pdp_pdp_council has_country_flag = sof_party_paid_pdp_pdp_rights has_country_flag = sof_party_paid_pdp_pdp_compact } }
@@ -198,12 +198,12 @@ set_variable = { sof610_pdp_eff = 0 }
 set_variable = { sof610_pdp_pp = 0 }
 set_variable = { sof610_pdp_stab = 0 }
 if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_mandate } add_to_variable = { sof610_pdp_pp = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_bodies } add_to_variable = { sof610_pdp_eff = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_families } add_to_variable = { sof610_pdp_stab = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_bodies } add_to_variable = { sof610_pdp_eff = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_families } add_to_variable = { sof610_pdp_stab = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_bargain } add_to_variable = { sof610_pdp_eff = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_insurance } add_to_variable = { sof610_pdp_stab = 0.05 } add_to_variable = { sof610_pdp_cg = -0.04 } }
+if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_insurance } add_to_variable = { sof610_pdp_stab = 0.06 } add_to_variable = { sof610_pdp_cg = -0.04 } }
 if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_council } add_to_variable = { sof610_pdp_civ = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_rights } add_to_variable = { sof610_pdp_pp = 0.05 } add_to_variable = { sof610_pdp_cg = -0.04 } }
+if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_rights } add_to_variable = { sof610_pdp_pp = 0.06 } add_to_variable = { sof610_pdp_cg = -0.04 } }
 if = { limit = { has_country_flag = sof_party_paid_pdp_pdp_compact } add_to_variable = { sof610_pdp_eff = 0.1 } add_to_variable = { sof610_pdp_civ = 0.1 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_pdp } } } add_dynamic_modifier = { modifier = sof610_program_pdp } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_pdp } } remove_dynamic_modifier = { modifier = sof610_program_pdp } } }
@@ -213,14 +213,14 @@ set_variable = { sof610_upr_infra = 0 }
 set_variable = { sof610_upr_research = 0 }
 set_variable = { sof610_upr_stab = 0 }
 set_variable = { sof610_upr_supply = 0 }
-if = { limit = { has_country_flag = sof_party_paid_upr_upr_mandate } add_to_variable = { sof610_upr_stab = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_upr_upr_mandate } add_to_variable = { sof610_upr_stab = 0.06 } }
 if = { limit = { has_country_flag = sof_party_paid_upr_upr_local_law } add_to_variable = { sof610_upr_civ = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_upr_upr_bilingual } add_to_variable = { sof610_upr_research = 0.03 } }
-if = { limit = { has_country_flag = sof_party_paid_upr_upr_schools } add_to_variable = { sof610_upr_stab = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_upr_upr_councils } add_to_variable = { sof610_upr_infra = 0.15 } }
+if = { limit = { has_country_flag = sof_party_paid_upr_upr_bilingual } add_to_variable = { sof610_upr_research = 0.04 } }
+if = { limit = { has_country_flag = sof_party_paid_upr_upr_schools } add_to_variable = { sof610_upr_stab = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_upr_upr_councils } add_to_variable = { sof610_upr_infra = 0.16 } }
 if = { limit = { has_country_flag = sof_party_paid_upr_upr_settlement } add_to_variable = { sof610_upr_civ = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_upr_upr_border } add_to_variable = { sof610_upr_supply = -0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_upr_upr_rhine } add_to_variable = { sof610_upr_infra = 0.1 } add_to_variable = { sof610_upr_supply = -0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_upr_upr_border } add_to_variable = { sof610_upr_supply = -0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_upr_upr_rhine } add_to_variable = { sof610_upr_infra = 0.1 } add_to_variable = { sof610_upr_supply = -0.06 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_upr } } } add_dynamic_modifier = { modifier = sof610_program_upr } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_upr } } remove_dynamic_modifier = { modifier = sof610_program_upr } } }
 if = { limit = { has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat has_capitulated = no original_tag = PRS OR = { has_country_flag = sof_party_paid_doriot_doriot_rayon has_country_flag = sof_party_paid_doriot_doriot_municipal has_country_flag = sof_party_paid_doriot_doriot_organizers has_country_flag = sof_party_paid_doriot_doriot_local_choice has_country_flag = sof_party_paid_doriot_doriot_ppf has_country_flag = sof_party_paid_doriot_doriot_credit has_country_flag = sof_party_paid_doriot_doriot_workshops has_country_flag = sof_party_paid_doriot_doriot_training has_country_flag = sof_party_paid_doriot_doriot_services } }
@@ -236,12 +236,13 @@ set_variable = { sof610_doriot_war = 0 }
 if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_rayon } add_to_variable = { sof610_doriot_pp = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_municipal } add_to_variable = { sof610_doriot_infra = 0.1 } }
 if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_organizers } add_to_variable = { sof610_doriot_training = -0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_local_choice } add_to_variable = { sof610_doriot_civ = 0.25 } add_to_variable = { sof610_doriot_stab = 0.08 } }
-if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_ppf } add_to_variable = { sof610_doriot_org = 0.08 } add_to_variable = { sof610_doriot_morale = 0.25 } add_to_variable = { sof610_doriot_war = 0.1 } }
-if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_credit } add_to_variable = { sof610_doriot_infra = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_workshops } add_to_variable = { sof610_doriot_output = 0.05 } }
-if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_training } add_to_variable = { sof610_doriot_output = 0.05 } }
+if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_local_choice } add_to_variable = { sof610_doriot_civ = 0.26 } add_to_variable = { sof610_doriot_stab = 0.08 } }
+if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_ppf } add_to_variable = { sof610_doriot_org = 0.08 } add_to_variable = { sof610_doriot_morale = 0.26 } add_to_variable = { sof610_doriot_war = 0.1 } }
+if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_credit } add_to_variable = { sof610_doriot_infra = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_workshops } add_to_variable = { sof610_doriot_output = 0.06 } }
+if = { limit = { has_country_flag = sof_party_paid_doriot_doriot_training } add_to_variable = { sof610_doriot_output = 0.06 } }
 if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof610_program_doriot } } } add_dynamic_modifier = { modifier = sof610_program_doriot } }
 } else = { if = { limit = { has_dynamic_modifier = { modifier = sof610_program_doriot } } remove_dynamic_modifier = { modifier = sof610_program_doriot } } }
 force_update_dynamic_modifier = yes
+ sof_rpe_sync = yes
 }

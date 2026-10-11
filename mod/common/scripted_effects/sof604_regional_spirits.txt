@@ -1,4 +1,4 @@
-﻿# v6.0.5 replaces the previous regional bucket runtime in this filename.
+# v6.0.5 replaces the previous regional bucket runtime in this filename.
 # Each thematic institution has one active named stage. Country ROOT is preserved.
 
 sof604_register_region_nan_1936_port_authority_policy = {
@@ -4683,25 +4683,25 @@ sof605_refresh_AMI = { hidden_effect = { if = { limit = { sof606_AMI_regional_ac
 		set_variable = { sof605_AMI_rail_evacuation_supply_consumption_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_ne_ami_land_board }
-			add_to_variable = { sof605_AMI_land_reconstruction_political_power_gain = 0.1 }
+			add_to_variable = { sof605_AMI_land_reconstruction_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_ami_tenants }
-			add_to_variable = { sof605_AMI_land_reconstruction_stability_factor = 0.05 }
+			add_to_variable = { sof605_AMI_land_reconstruction_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_ami_cooperative }
-			add_to_variable = { sof605_AMI_farm_cooperatives_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_AMI_farm_cooperatives_consumer_goods_factor = -0.06 }
 			add_to_variable = { sof605_AMI_farm_cooperatives_production_speed_arms_factory_factor = -0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_ami_credit }
-			add_to_variable = { sof605_AMI_rural_credit_production_speed_industrial_complex_factor = 0.07 }
-			add_to_variable = { sof605_AMI_rural_credit_political_power_gain = -0.05 }
+			add_to_variable = { sof605_AMI_rural_credit_production_speed_industrial_complex_factor = 0.08 }
+			add_to_variable = { sof605_AMI_rural_credit_political_power_gain = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_ami_textile }
-			add_to_variable = { sof605_AMI_textile_works_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_AMI_textile_works_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_ami_air_workers  sof606_geo_sof_ne_ami_air_workers = yes }
@@ -4714,10 +4714,10 @@ sof605_refresh_AMI = { hidden_effect = { if = { limit = { sof606_AMI_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_ami_integration }
-			add_to_variable = { sof605_AMI_land_reconstruction_stability_factor = 0.05 }
-			add_to_variable = { sof605_AMI_land_reconstruction_production_speed_infrastructure_factor = 0.05 }
+			add_to_variable = { sof605_AMI_land_reconstruction_stability_factor = 0.06 }
+			add_to_variable = { sof605_AMI_land_reconstruction_production_speed_infrastructure_factor = 0.06 }
 			add_to_variable = { sof605_AMI_textile_works_production_factory_efficiency_gain_factor = 0.2 }
-			add_to_variable = { sof605_AMI_aviation_apprentices_air_training_xp_gain_factor = 0.17 }
+			add_to_variable = { sof605_AMI_aviation_apprentices_air_training_xp_gain_factor = 0.18 }
 		}
 		if = {
 			limit = { OR = { has_dynamic_modifier = sof605_AMI_land_reconstruction_reconstruction_board has_dynamic_modifier = sof605_AMI_land_reconstruction_tenancy_settlement has_dynamic_modifier = sof605_AMI_land_reconstruction_national_reconstruction AND = { has_country_flag = sof604_done_ne_ami_integration  } AND = { has_country_flag = sof604_done_ne_ami_land_board  } AND = { has_country_flag = sof604_done_ne_ami_tenants  } } }
@@ -4786,68 +4786,68 @@ sof605_refresh_BES = { hidden_effect = { if = { limit = { sof606_BES_regional_ac
 		set_variable = { sof605_BES_mobile_repair_columns_supply_consumption_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_municipal_policy  sof606_geo_sof_region_bes_1936_municipal = yes }
-			add_to_variable = { sof605_BES_cantonal_charter_stability_factor = 0.05 }
-			add_to_variable = { sof605_BES_cantonal_charter_political_power_gain = 0.1 }
+			add_to_variable = { sof605_BES_cantonal_charter_stability_factor = 0.06 }
+			add_to_variable = { sof605_BES_cantonal_charter_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_regional_policy }
-			add_to_variable = { sof605_BES_cantonal_charter_political_power_gain = 0.15 }
-			add_to_variable = { sof605_BES_cantonal_charter_industrial_capacity_factory = 0.05 }
-			add_to_variable = { sof605_BES_cantonal_charter_consumer_goods_factor = 0.01 }
+			add_to_variable = { sof605_BES_cantonal_charter_political_power_gain = 2 }
+			add_to_variable = { sof605_BES_cantonal_charter_industrial_capacity_factory = 0.06 }
+			add_to_variable = { sof605_BES_cantonal_charter_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_cover_policy }
 			add_to_variable = { sof605_BES_jura_covering_force_max_dig_in = 2 }
-			add_to_variable = { sof605_BES_jura_covering_force_dig_in_speed_factor = 0.15 }
+			add_to_variable = { sof605_BES_jura_covering_force_dig_in_speed_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_combined_policy }
-			add_to_variable = { sof605_BES_jura_covering_force_army_org_factor = 0.05 }
+			add_to_variable = { sof605_BES_jura_covering_force_army_org_factor = 0.06 }
 			add_to_variable = { sof605_BES_jura_covering_force_supply_consumption_factor = -0.06 }
 			add_to_variable = { sof605_BES_jura_covering_force_planning_speed = 0.08 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_retention_policy  sof606_geo_sof_region_bes_1936_retention = yes }
-			add_to_variable = { sof605_BES_apprentice_compact_industrial_capacity_factory = 0.05 }
-			add_to_variable = { sof605_BES_apprentice_compact_training_time_army_factor = -0.05 }
+			add_to_variable = { sof605_BES_apprentice_compact_industrial_capacity_factory = 0.06 }
+			add_to_variable = { sof605_BES_apprentice_compact_training_time_army_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_training_wages_network original_tag = BES 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_training_wages = yes }
-			add_to_variable = { sof605_BES_apprentice_compact_stability_factor = 0.05 }
-			add_to_variable = { sof605_BES_apprentice_compact_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_BES_apprentice_compact_stability_factor = 0.06 }
+			add_to_variable = { sof605_BES_apprentice_compact_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_mediation_network original_tag = BES 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_mediation = yes }
-			add_to_variable = { sof605_BES_apprentice_compact_stability_factor = 0.05 }
-			add_to_variable = { sof605_BES_apprentice_compact_industrial_capacity_factory = -0.015 }
+			add_to_variable = { sof605_BES_apprentice_compact_stability_factor = 0.06 }
+			add_to_variable = { sof605_BES_apprentice_compact_industrial_capacity_factory = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_gauges_network original_tag = BES 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_gauges = yes }
-			add_to_variable = { sof605_BES_precision_institute_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_BES_precision_institute_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_export_craft_network original_tag = BES 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_export_craft = yes }
-			add_to_variable = { sof605_BES_precision_institute_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_BES_precision_institute_stability_factor = 0.05 }
+			add_to_variable = { sof605_BES_precision_institute_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_BES_precision_institute_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_war_precision_network original_tag = BES 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_war_precision = yes }
 			add_to_variable = { sof605_BES_precision_institute_production_factory_efficiency_gain_factor = 0.06 }
-			add_to_variable = { sof605_BES_precision_institute_research_speed_factor = 0.03 }
+			add_to_variable = { sof605_BES_precision_institute_research_speed_factor = 0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_lineflow_network original_tag = BES 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_lineflow = yes }
-			add_to_variable = { sof605_BES_sochaux_assembly_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_BES_sochaux_assembly_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_commercial_network original_tag = BES 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_commercial = yes }
-			add_to_variable = { sof605_BES_sochaux_assembly_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_BES_sochaux_assembly_stability_factor = 0.05 }
+			add_to_variable = { sof605_BES_sochaux_assembly_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_BES_sochaux_assembly_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_motorization_network original_tag = BES 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_motorization = yes }
 			add_to_variable = { sof605_BES_sochaux_assembly_industrial_capacity_factory = 0.12 }
-			add_to_variable = { sof605_BES_sochaux_assembly_consumer_goods_factor = 0.01 }
+			add_to_variable = { sof605_BES_sochaux_assembly_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_precision_vehicle_network original_tag = BES 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_precision_vehicle = yes }
@@ -4860,12 +4860,12 @@ sof605_refresh_BES = { hidden_effect = { if = { limit = { sof606_BES_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_repair_columns_network original_tag = BES 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 212 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_repair_columns = yes }
-			add_to_variable = { sof605_BES_mobile_repair_columns_supply_consumption_factor = -0.045 }
+			add_to_variable = { sof605_BES_mobile_repair_columns_supply_consumption_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_bes_1936_settlement_network original_tag = BES 243 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 239 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_bes_1936_settlement = yes }
-			add_to_variable = { sof605_BES_precision_institute_production_factory_efficiency_gain_factor = 0.05 }
-			add_to_variable = { sof605_BES_precision_institute_research_speed_factor = 0.03 }
+			add_to_variable = { sof605_BES_precision_institute_production_factory_efficiency_gain_factor = 0.06 }
+			add_to_variable = { sof605_BES_precision_institute_research_speed_factor = 0.04 }
 		}
 		if = {
 			limit = { OR = { has_dynamic_modifier = sof605_BES_cantonal_charter_municipal has_dynamic_modifier = sof605_BES_cantonal_charter_executive AND = { has_country_flag = sof604_done_region_bes_1936_municipal_policy  } AND = { has_country_flag = sof604_done_region_bes_1936_regional_policy  } } }
@@ -4944,22 +4944,22 @@ sof605_refresh_BRD = { hidden_effect = { if = { limit = { sof606_BRD_regional_ac
 		if = {
 			limit = { has_country_flag = sof604_done_region_brd_1936_chamber_network original_tag = BRD 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  sof606_geo_sof_region_brd_1936_chamber = yes }
 			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_dockyard_factor = 0.1 }
-			add_to_variable = { sof605_BRD_gironde_port_capital_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_BRD_gironde_port_capital_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_brd_1936_public_credit_network original_tag = BRD 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  sof606_geo_sof_region_brd_1936_public_credit = yes }
-			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_infrastructure_factor = 0.15 }
-			add_to_variable = { sof605_BRD_gironde_port_capital_political_power_gain = -0.05 }
+			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_infrastructure_factor = 0.16 }
+			add_to_variable = { sof605_BRD_gironde_port_capital_political_power_gain = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network original_tag = BRD 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887  sof606_geo_sof_region_brd_1936_maritime_staff = yes }
-			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.25 }
+			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.26 }
 			add_to_variable = { sof605_BRD_gironde_maritime_staff_naval_coordination = 0.2 }
-			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_dockyard_factor = 0.15 }
+			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_dockyard_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_component_sof604_mature_BRD_export_port_finance original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_war = no has_completed_focus = sof_region_BRD_1936_chamber has_completed_focus = sof_region_BRD_1936_export_credit has_completed_focus = sof_region_BRD_1936_insurance NOT = { has_completed_focus = sof_region_BRD_1936_maritime_staff }  NOT = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network }  sof606_geo_sof_region_brd_1936_maritime_staff = yes }
-			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_dockyard_factor = 0.15 }
+			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_dockyard_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_component_sof604_mature_BRD_export_public_finance original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_war = no has_completed_focus = sof_region_BRD_1936_public_credit has_completed_focus = sof_region_BRD_1936_export_credit has_completed_focus = sof_region_BRD_1936_insurance }
@@ -4967,41 +4967,41 @@ sof605_refresh_BRD = { hidden_effect = { if = { limit = { sof606_BRD_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_repair_yards original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887    NOT = { OR = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network has_country_flag = sof604_component_sof604_mature_BRD_export_port_finance } }  sof606_geo_sof_region_brd_1936_maritime_staff = yes }
-			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_dockyard_factor = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_port_capital_production_speed_dockyard_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_shipping original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887    NOT = { OR = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network } }  sof606_geo_sof_region_brd_1936_maritime_staff = yes }
-			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_crew_school original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887    NOT = { OR = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network } }  sof606_geo_sof_region_brd_1936_maritime_staff = yes }
-			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.05 }
-			add_to_variable = { sof605_BRD_gironde_maritime_staff_naval_coordination = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.06 }
+			add_to_variable = { sof605_BRD_gironde_maritime_staff_naval_coordination = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_coastal_escorts original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887    NOT = { OR = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network } }  sof606_geo_sof_region_brd_1936_maritime_staff = yes }
-			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.05 }
-			add_to_variable = { sof605_BRD_gironde_maritime_staff_naval_coordination = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_maritime_staff_convoy_escort_efficiency = 0.06 }
+			add_to_variable = { sof605_BRD_gironde_maritime_staff_naval_coordination = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_air_watch original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_gironde_maritime_staff_naval_detection = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_maritime_staff_naval_detection = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_warehouses original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.05 }
+			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_quality original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.05 }
+			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_export_houses original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.05 }
+			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_colonial_ledgers original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.05 }
+			add_to_variable = { sof605_BRD_bordeaux_export_houses_production_speed_industrial_complex_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_tooling original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
@@ -5017,27 +5017,27 @@ sof605_refresh_BRD = { hidden_effect = { if = { limit = { sof606_BRD_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_territorials original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_coast_watch original_tag = BRD has_capitulated = no 376 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5773 }
-			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_static_depots original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_staff_exercise original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_territorial_service_army_defence_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_mobile_reserve original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 }
-			add_to_variable = { sof605_BRD_gironde_territorial_service_army_speed_factor = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_territorial_service_army_speed_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_brd_mobile_staff original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887   OR = { has_completed_focus = sof_region_BRD_1936_mobile_reserve has_country_flag = sof605_milestone_brd_1936_mobile_reserve } }
-			add_to_variable = { sof605_BRD_gironde_territorial_service_army_speed_factor = 0.05 }
+			add_to_variable = { sof605_BRD_gironde_territorial_service_army_speed_factor = 0.06 }
 		}
 		if = {
 			limit = { OR = { has_dynamic_modifier = sof605_BRD_gironde_port_capital_chamber has_dynamic_modifier = sof605_BRD_gironde_port_capital_public_credit has_dynamic_modifier = sof605_BRD_gironde_port_capital_yards_chamber has_dynamic_modifier = sof605_BRD_gironde_port_capital_yards_public_credit has_dynamic_modifier = sof605_BRD_gironde_port_capital_maritime_chamber has_dynamic_modifier = sof605_BRD_gironde_port_capital_maritime_public_credit has_dynamic_modifier = sof605_BRD_gironde_port_capital_export_chamber has_dynamic_modifier = sof605_BRD_gironde_port_capital_export_public has_dynamic_modifier = sof605_BRD_gironde_port_capital_public_complete AND = { has_country_flag = sof604_component_sof604_mature_BRD_export_port_finance original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_war = no has_completed_focus = sof_region_BRD_1936_chamber has_completed_focus = sof_region_BRD_1936_export_credit has_completed_focus = sof_region_BRD_1936_insurance NOT = { has_completed_focus = sof_region_BRD_1936_maritime_staff }  NOT = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network } } AND = { has_country_flag = sof604_component_sof604_mature_BRD_export_public_finance original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 has_war = no has_completed_focus = sof_region_BRD_1936_public_credit has_completed_focus = sof_region_BRD_1936_export_credit has_completed_focus = sof_region_BRD_1936_insurance } AND = { has_country_flag = sof605_done_new_brd_repair_yards original_tag = BRD has_capitulated = no 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887    NOT = { OR = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network has_country_flag = sof604_component_sof604_mature_BRD_export_port_finance } } } AND = { has_country_flag = sof604_done_region_brd_1936_chamber_network original_tag = BRD 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 } AND = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network original_tag = BRD 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 } AND = { has_country_flag = sof604_done_region_brd_1936_public_credit_network original_tag = BRD 389 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 15887 } } }
@@ -5056,7 +5056,7 @@ sof605_refresh_BRD = { hidden_effect = { if = { limit = { sof606_BRD_regional_ac
 			if = { limit = { OR = { has_completed_focus = sof_region_BRD_1936_maritime_staff has_country_flag = sof605_milestone_brd_1936_maritime_staff } } sof605_select_BRD_gironde_maritime_staff_staff = yes }
 			else_if = { limit = { OR = { has_completed_focus = sof_region_BRD_1936_coastal_escorts has_country_flag = sof605_milestone_brd_1936_coastal_escorts } } sof605_select_BRD_gironde_maritime_staff_escort = yes }
 			else_if = { limit = { OR = { has_completed_focus = sof_region_BRD_1936_crew_school has_country_flag = sof605_milestone_brd_1936_crew_school } } sof605_select_BRD_gironde_maritime_staff_crew = yes }
-			else_if = { limit = { OR = { has_completed_focus = sof_region_BRD_1936_shipping has_country_flag = sof605_milestone_brd_1936_shipping } } sof605_select_BRD_gironde_maritime_staff_shipping = yes }
+			else_if = { limit = { OR = { has_completed_focus = sof_region_BRD_1936_repair_yards has_country_flag = sof605_milestone_brd_1936_shipping } } sof605_select_BRD_gironde_maritime_staff_shipping = yes }
 			else = { sof605_select_BRD_gironde_maritime_staff_air_watch = yes }
 		}
 		if = {
@@ -5133,70 +5133,70 @@ sof605_refresh_CFR = { hidden_effect = { if = { limit = { sof606_CFR_regional_ac
 		set_variable = { sof605_CFR_highland_depots_supply_consumption_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_company_policy }
-			add_to_variable = { sof605_CFR_social_covenant_production_factory_efficiency_gain_factor = 0.05 }
-			add_to_variable = { sof605_CFR_social_covenant_consumer_goods_factor = 0.008 }
+			add_to_variable = { sof605_CFR_social_covenant_production_factory_efficiency_gain_factor = 0.06 }
+			add_to_variable = { sof605_CFR_social_covenant_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_tripartite_policy }
-			add_to_variable = { sof605_CFR_social_covenant_stability_factor = 0.05 }
-			add_to_variable = { sof605_CFR_social_covenant_industrial_capacity_factory = -0.01 }
+			add_to_variable = { sof605_CFR_social_covenant_stability_factor = 0.06 }
+			add_to_variable = { sof605_CFR_social_covenant_industrial_capacity_factory = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_reserve_policy }
 			add_to_variable = { sof605_CFR_puy_reserve_max_dig_in = 1 }
-			add_to_variable = { sof605_CFR_puy_reserve_army_org_factor = 0.05 }
+			add_to_variable = { sof605_CFR_puy_reserve_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_security_policy }
-			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_efficiency_gain_factor = 0.05 }
-			add_to_variable = { sof605_CFR_dispersed_workshops_stability_factor = 0.05 }
+			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_efficiency_gain_factor = 0.06 }
+			add_to_variable = { sof605_CFR_dispersed_workshops_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_manual_policy }
 			add_to_variable = { sof605_CFR_puy_reserve_supply_consumption_factor = -0.08 }
 			add_to_variable = { sof605_CFR_puy_reserve_planning_speed = 0.08 }
-			add_to_variable = { sof605_CFR_puy_reserve_army_org_factor = 0.05 }
+			add_to_variable = { sof605_CFR_puy_reserve_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_covenant_policy  sof606_geo_sof_region_cfr_1936_covenant = yes }
-			add_to_variable = { sof605_CFR_social_covenant_stability_factor = 0.05 }
+			add_to_variable = { sof605_CFR_social_covenant_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_housing_network original_tag = CFR 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_housing = yes }
-			add_to_variable = { sof605_CFR_social_covenant_stability_factor = 0.05 }
-			add_to_variable = { sof605_CFR_social_covenant_consumer_goods_factor = 0.005 }
+			add_to_variable = { sof605_CFR_social_covenant_stability_factor = 0.06 }
+			add_to_variable = { sof605_CFR_social_covenant_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_cataroux_network original_tag = CFR 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_cataroux = yes }
-			add_to_variable = { sof605_CFR_cataroux_rubber_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_CFR_cataroux_rubber_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_reclaim_network original_tag = CFR 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_reclaim = yes }
-			add_to_variable = { sof605_CFR_cataroux_rubber_production_factory_max_efficiency_factor = 0.03 }
-			add_to_variable = { sof605_CFR_cataroux_rubber_industrial_capacity_factory = -0.005 }
+			add_to_variable = { sof605_CFR_cataroux_rubber_production_factory_max_efficiency_factor = 0.04 }
+			add_to_variable = { sof605_CFR_cataroux_rubber_industrial_capacity_factory = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_roadtyre_network original_tag = CFR 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_roadtyre = yes }
-			add_to_variable = { sof605_CFR_cataroux_rubber_stability_factor = 0.05 }
-			add_to_variable = { sof605_CFR_cataroux_rubber_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_CFR_cataroux_rubber_stability_factor = 0.06 }
+			add_to_variable = { sof605_CFR_cataroux_rubber_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_army_tyre_network original_tag = CFR 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_army_tyre = yes }
 			add_to_variable = { sof605_CFR_cataroux_rubber_industrial_capacity_factory = 0.1 }
-			add_to_variable = { sof605_CFR_cataroux_rubber_stability_factor = -0.025 }
+			add_to_variable = { sof605_CFR_cataroux_rubber_stability_factor = -0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_subcontracts_network original_tag = CFR 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_subcontracts = yes }
-			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_inspection_network original_tag = CFR 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_inspection = yes }
-			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_cfr_1936_resilience_network original_tag = CFR 345 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 332 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 356 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_cfr_1936_resilience = yes }
 			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_efficiency_gain_factor = 0.08 }
-			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { sof605_CFR_dispersed_workshops_production_factory_max_efficiency_factor = 0.06 }
 			add_to_variable = { sof605_CFR_dispersed_workshops_supply_consumption_factor = -0.04 }
 		}
 		if = {
@@ -5266,39 +5266,39 @@ sof605_refresh_CHL = { hidden_effect = { if = { limit = { sof606_CHL_regional_ac
 		set_variable = { sof605_CHL_troyes_knitwear_production_factory_efficiency_gain_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_commission }
-			add_to_variable = { sof605_CHL_wine_commission_political_power_gain = 0.1 }
+			add_to_variable = { sof605_CHL_wine_commission_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_quality  sof606_geo_sof_ne_chl_quality = yes }
-			add_to_variable = { sof605_CHL_wine_commission_stability_factor = 0.05 }
+			add_to_variable = { sof605_CHL_wine_commission_stability_factor = 0.06 }
 			add_to_variable = { sof605_CHL_wine_commission_trade_opinion_factor = 0.1 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_growers }
 			add_to_variable = { sof605_CHL_growers_syndicate_stability_factor = 0.06 }
-			add_to_variable = { sof605_CHL_growers_syndicate_political_power_gain = -0.05 }
+			add_to_variable = { sof605_CHL_growers_syndicate_political_power_gain = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_houses }
-			add_to_variable = { sof605_CHL_merchant_houses_political_power_gain = 0.2 }
+			add_to_variable = { sof605_CHL_merchant_houses_political_power_gain = 2 }
 			add_to_variable = { sof605_CHL_merchant_houses_stability_factor = -0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_camp_rules }
-			add_to_variable = { sof605_CHL_camp_compensation_stability_factor = 0.05 }
+			add_to_variable = { sof605_CHL_camp_compensation_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_reserve }
-			add_to_variable = { sof605_CHL_depth_reserves_army_org_factor = 0.05 }
+			add_to_variable = { sof605_CHL_depth_reserves_army_org_factor = 0.06 }
 			add_to_variable = { sof605_CHL_depth_reserves_supply_consumption_factor = -0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_cloth  sof606_geo_sof_ne_chl_troyes = yes }
-			add_to_variable = { sof605_CHL_troyes_knitwear_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_CHL_troyes_knitwear_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_chl_integration }
-			add_to_variable = { sof605_CHL_wine_commission_stability_factor = 0.05 }
+			add_to_variable = { sof605_CHL_wine_commission_stability_factor = 0.06 }
 			add_to_variable = { sof605_CHL_depth_reserves_army_org_factor = 0.2 }
 		}
 		if = {
@@ -5365,27 +5365,27 @@ sof605_refresh_DIJ = { hidden_effect = { if = { limit = { sof606_DIJ_regional_ac
 		set_variable = { sof605_DIJ_rail_artillery_staff_supply_consumption_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_charter_policy  sof606_geo_sof_region_dij_1936_charter = yes }
-			add_to_variable = { sof605_DIJ_common_budget_political_power_gain = 0.15 }
-			add_to_variable = { sof605_DIJ_common_budget_stability_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_common_budget_political_power_gain = 2 }
+			add_to_variable = { sof605_DIJ_common_budget_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_morvan_policy  sof606_geo_sof_region_dij_1936_morvan = yes }
 			add_to_variable = { sof605_DIJ_morvan_defense_max_dig_in = 2 }
-			add_to_variable = { sof605_DIJ_morvan_defense_army_org_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_morvan_defense_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_fallback_policy }
 			add_to_variable = { sof605_DIJ_morvan_defense_planning_speed = 0.06 }
-			add_to_variable = { sof605_DIJ_morvan_defense_army_morale_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_morvan_defense_army_morale_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_arsenal_staff_policy }
 			add_to_variable = { sof605_DIJ_rail_artillery_staff_planning_speed = 0.12 }
-			add_to_variable = { sof605_DIJ_rail_artillery_staff_army_org_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_rail_artillery_staff_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_priority_policy  sof606_geo_sof_region_dij_1936_priority = yes }
-			add_to_variable = { sof605_DIJ_railway_dispatch_production_speed_infrastructure_factor = 0.15 }
+			add_to_variable = { sof605_DIJ_railway_dispatch_production_speed_infrastructure_factor = 0.16 }
 			add_to_variable = { sof605_DIJ_railway_dispatch_planning_speed = 0.06 }
 		}
 		if = {
@@ -5394,37 +5394,37 @@ sof605_refresh_DIJ = { hidden_effect = { if = { limit = { sof606_DIJ_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_merchant_network original_tag = DIJ 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_merchant = yes }
-			add_to_variable = { sof605_DIJ_beaune_appellation_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_DIJ_beaune_appellation_stability_factor = -0.01 }
+			add_to_variable = { sof605_DIJ_beaune_appellation_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_DIJ_beaune_appellation_stability_factor = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_cooperative_network original_tag = DIJ 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_cooperative = yes }
-			add_to_variable = { sof605_DIJ_beaune_appellation_stability_factor = 0.05 }
-			add_to_variable = { sof605_DIJ_beaune_appellation_consumer_goods_factor = 0.005 }
+			add_to_variable = { sof605_DIJ_beaune_appellation_stability_factor = 0.06 }
+			add_to_variable = { sof605_DIJ_beaune_appellation_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_appellation_network original_tag = DIJ 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_appellation = yes }
-			add_to_variable = { sof605_DIJ_beaune_appellation_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_DIJ_beaune_appellation_stability_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_beaune_appellation_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_DIJ_beaune_appellation_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_harvest_network original_tag = DIJ 291 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_harvest = yes }
-			add_to_variable = { sof605_DIJ_charolais_food_contract_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_DIJ_charolais_food_contract_consumer_goods_factor = -0.06 }
 			add_to_variable = { sof605_DIJ_charolais_food_contract_supply_consumption_factor = -0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_locomotives_network original_tag = DIJ 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_locomotives = yes }
-			add_to_variable = { sof605_DIJ_creusot_orders_production_speed_infrastructure_factor = 0.25 }
-			add_to_variable = { sof605_DIJ_creusot_orders_industrial_capacity_factory = 0.05 }
+			add_to_variable = { sof605_DIJ_creusot_orders_production_speed_infrastructure_factor = 0.26 }
+			add_to_variable = { sof605_DIJ_creusot_orders_industrial_capacity_factory = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_heavy_guns_network original_tag = DIJ 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_heavy_guns = yes }
 			add_to_variable = { sof605_DIJ_creusot_orders_industrial_capacity_factory = 0.12 }
-			add_to_variable = { sof605_DIJ_creusot_orders_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_creusot_orders_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_spare_pool_network original_tag = DIJ 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_spare_pool = yes }
-			add_to_variable = { sof605_DIJ_railway_dispatch_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_railway_dispatch_production_factory_efficiency_gain_factor = 0.06 }
 			add_to_variable = { sof605_DIJ_railway_dispatch_supply_consumption_factor = -0.04 }
 		}
 		if = {
@@ -5438,8 +5438,8 @@ sof605_refresh_DIJ = { hidden_effect = { if = { limit = { sof606_DIJ_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_dij_1936_food_security_network original_tag = DIJ 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_dij_1936_food_security = yes }
-			add_to_variable = { sof605_DIJ_charolais_food_contract_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_DIJ_charolais_food_contract_stability_factor = 0.05 }
+			add_to_variable = { sof605_DIJ_charolais_food_contract_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_DIJ_charolais_food_contract_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { OR = { has_dynamic_modifier = sof605_DIJ_common_budget_charter AND = { has_country_flag = sof604_done_region_dij_1936_charter_policy  } } }
@@ -5520,43 +5520,43 @@ sof605_refresh_LYO = { hidden_effect = { if = { limit = { sof606_LYO_regional_ac
 		set_variable = { sof605_LYO_rhone_reserve_reform_supply_consumption_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_municipal_policy }
-			add_to_variable = { sof605_LYO_rhone_charter_political_power_gain = 0.1 }
-			add_to_variable = { sof605_LYO_rhone_charter_stability_factor = 0.05 }
+			add_to_variable = { sof605_LYO_rhone_charter_political_power_gain = 2 }
+			add_to_variable = { sof605_LYO_rhone_charter_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_executive_policy }
-			add_to_variable = { sof605_LYO_rhone_charter_political_power_gain = 0.12 }
-			add_to_variable = { sof605_LYO_rhone_charter_consumer_goods_factor = 0.01 }
+			add_to_variable = { sof605_LYO_rhone_charter_political_power_gain = 2 }
+			add_to_variable = { sof605_LYO_rhone_charter_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_reserve_policy }
 			add_to_variable = { sof605_LYO_rhone_reserve_reform_planning_speed = 0.05 }
-			add_to_variable = { sof605_LYO_rhone_reserve_reform_army_org_factor = 0.05 }
+			add_to_variable = { sof605_LYO_rhone_reserve_reform_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_army_manual_policy }
-			add_to_variable = { sof605_LYO_rhone_reserve_reform_army_org_factor = 0.05 }
+			add_to_variable = { sof605_LYO_rhone_reserve_reform_army_org_factor = 0.06 }
 			add_to_variable = { sof605_LYO_rhone_reserve_reform_max_dig_in = 2 }
 			add_to_variable = { sof605_LYO_rhone_reserve_reform_planning_speed = 0.08 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_settlement_policy  sof606_geo_sof_region_lyo_1936_settlement = yes }
-			add_to_variable = { sof605_LYO_rhone_charter_political_power_gain = 0.1 }
+			add_to_variable = { sof605_LYO_rhone_charter_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_mediation_network original_tag = LYO 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_mediation = yes }
-			add_to_variable = { sof605_LYO_venissieux_social_compact_stability_factor = 0.05 }
-			add_to_variable = { sof605_LYO_venissieux_social_compact_industrial_capacity_factory = -0.01 }
+			add_to_variable = { sof605_LYO_venissieux_social_compact_stability_factor = 0.06 }
+			add_to_variable = { sof605_LYO_venissieux_social_compact_industrial_capacity_factory = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_housing_network original_tag = LYO 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_housing = yes }
-			add_to_variable = { sof605_LYO_venissieux_social_compact_stability_factor = 0.05 }
-			add_to_variable = { sof605_LYO_venissieux_social_compact_consumer_goods_factor = 0.008 }
+			add_to_variable = { sof605_LYO_venissieux_social_compact_stability_factor = 0.06 }
+			add_to_variable = { sof605_LYO_venissieux_social_compact_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_chemistry_network original_tag = LYO 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_chemistry = yes }
-			add_to_variable = { sof605_LYO_rhone_research_research_speed_factor = 0.03 }
-			add_to_variable = { sof605_LYO_rhone_research_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_LYO_rhone_research_research_speed_factor = 0.04 }
+			add_to_variable = { sof605_LYO_rhone_research_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_spares_network original_tag = LYO 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_spares = yes }
@@ -5564,12 +5564,12 @@ sof605_refresh_LYO = { hidden_effect = { if = { limit = { sof606_LYO_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_gauges_network original_tag = LYO 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_gauges = yes }
-			add_to_variable = { sof605_LYO_industrial_triangle_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_LYO_industrial_triangle_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_triangle_network original_tag = LYO 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_triangle = yes }
 			add_to_variable = { sof605_LYO_industrial_triangle_industrial_capacity_factory = 0.26 }
-			add_to_variable = { sof605_LYO_industrial_triangle_production_factory_efficiency_gain_factor = 0.15 }
+			add_to_variable = { sof605_LYO_industrial_triangle_production_factory_efficiency_gain_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_valleys_network original_tag = LYO 361 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_valleys = yes }
@@ -5581,12 +5581,12 @@ sof605_refresh_LYO = { hidden_effect = { if = { limit = { sof606_LYO_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_lyo_1936_metrology_network original_tag = LYO 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_lyo_1936_metrology = yes }
-			add_to_variable = { sof605_LYO_rhone_research_research_speed_factor = 0.03 }
+			add_to_variable = { sof605_LYO_rhone_research_research_speed_factor = 0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_component_sof604_mature_LYO_general_staff original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_completed_focus = sof_region_LYO_1936_army_manual 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_completed_focus = sof_region_LYO_1936_general_staff }
 			add_to_variable = { sof605_LYO_rhone_reserve_reform_army_org_factor = 0.1 }
-			add_to_variable = { sof605_LYO_rhone_reserve_reform_supply_consumption_factor = -0.13 }
+			add_to_variable = { sof605_LYO_rhone_reserve_reform_supply_consumption_factor = -0.14 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_component_sof604_mature_LYO_scientific_settlement original_tag = LYO is_subject = no has_capitulated = no 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 360 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_completed_focus = sof_region_LYO_1936_university has_completed_focus = sof_region_LYO_1936_metrology 336 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 365 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_completed_focus = sof_region_LYO_1936_settlement }
@@ -5670,35 +5670,35 @@ sof605_refresh_MET = { hidden_effect = { if = { limit = { sof606_MET_regional_ac
 		set_variable = { sof605_MET_mobile_columns_org_loss_when_moving = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_ledger }
-			add_to_variable = { sof605_MET_steel_compact_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_MET_steel_compact_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_inspection  sof606_geo_sof_ne_met_safety = yes }
-			add_to_variable = { sof605_MET_industrial_arbitration_stability_factor = 0.05 }
-			add_to_variable = { sof605_MET_industrial_arbitration_industrial_capacity_factory = -0.01 }
+			add_to_variable = { sof605_MET_industrial_arbitration_stability_factor = 0.06 }
+			add_to_variable = { sof605_MET_industrial_arbitration_industrial_capacity_factory = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_arbitration }
-			add_to_variable = { sof605_MET_industrial_arbitration_political_power_gain = 0.1 }
+			add_to_variable = { sof605_MET_industrial_arbitration_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_reserve }
-			add_to_variable = { sof605_MET_border_rotation_army_org_factor = 0.05 }
-			add_to_variable = { sof605_MET_border_rotation_training_time_army_factor = 0.03 }
+			add_to_variable = { sof605_MET_border_rotation_army_org_factor = 0.06 }
+			add_to_variable = { sof605_MET_border_rotation_training_time_army_factor = 0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_contracts }
-			add_to_variable = { sof605_MET_steel_compact_industrial_capacity_factory = 0.05 }
+			add_to_variable = { sof605_MET_steel_compact_industrial_capacity_factory = 0.06 }
 			add_to_variable = { sof605_MET_steel_compact_production_factory_max_efficiency_factor = 0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_schools  sof606_geo_sof_ne_met_nancy = yes }
-			add_to_variable = { sof605_MET_nancy_engineering_research_speed_factor = 0.03 }
+			add_to_variable = { sof605_MET_nancy_engineering_research_speed_factor = 0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_integration }
-			add_to_variable = { sof605_MET_industrial_arbitration_stability_factor = 0.05 }
-			add_to_variable = { sof605_MET_steel_compact_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_MET_industrial_arbitration_stability_factor = 0.06 }
+			add_to_variable = { sof605_MET_steel_compact_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_met_mobile_response }
@@ -5712,8 +5712,8 @@ sof605_refresh_MET = { hidden_effect = { if = { limit = { sof606_MET_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_component_sof604_mature_MET_fortress_readiness original_tag = MET  has_completed_focus = sof_ne_MET_fortress 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5300 has_completed_focus = sof_ne_MET_readiness }
-			add_to_variable = { sof605_MET_fortress_command_max_dig_in_factor = 0.15 }
-			add_to_variable = { sof605_MET_fortress_command_production_speed_bunker_factor = 0.15 }
+			add_to_variable = { sof605_MET_fortress_command_max_dig_in_factor = 0.16 }
+			add_to_variable = { sof605_MET_fortress_command_production_speed_bunker_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_component_sof604_mature_MET_mobile_readiness original_tag = MET  has_completed_focus = sof_ne_MET_mobile 112 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 5300 has_completed_focus = sof_ne_MET_readiness }
@@ -5778,12 +5778,12 @@ sof605_refresh_MOP = { hidden_effect = { if = { limit = { sof606_MOP_regional_ac
 		set_variable = { sof605_MOP_montpellier_medical_army_morale_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_mop_1936_cooperative_voice_network original_tag = MOP 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  sof606_geo_sof_region_mop_1936_cooperative_voice = yes }
-			add_to_variable = { sof605_MOP_languedoc_compact_stability_factor = 0.05 }
-			add_to_variable = { sof605_MOP_languedoc_compact_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_MOP_languedoc_compact_stability_factor = 0.06 }
+			add_to_variable = { sof605_MOP_languedoc_compact_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_mop_1936_municipal_voice_network original_tag = MOP 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597  sof606_geo_sof_region_mop_1936_municipal_voice = yes }
-			add_to_variable = { sof605_MOP_languedoc_compact_political_power_gain = 0.12 }
+			add_to_variable = { sof605_MOP_languedoc_compact_political_power_gain = 2 }
 			add_to_variable = { sof605_MOP_languedoc_compact_production_speed_infrastructure_factor = 0.1 }
 		}
 		if = {
@@ -5792,31 +5792,31 @@ sof605_refresh_MOP = { hidden_effect = { if = { limit = { sof606_MOP_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_component_sof604_mature_MOP_municipal_balance original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 149 } 468 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_completed_focus = sof_region_MOP_1936_municipal_voice has_completed_focus = sof_region_MOP_1936_port_balance }
-			add_to_variable = { sof605_MOP_languedoc_compact_production_speed_infrastructure_factor = 0.15 }
+			add_to_variable = { sof605_MOP_languedoc_compact_production_speed_infrastructure_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_charter_cooperative_bridge original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597   OR = { has_completed_focus = sof_region_MOP_1936_cooperative_voice has_country_flag = sof605_milestone_mop_1936_cooperative_voice } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_MOP_cooperative_balance } } }
-			add_to_variable = { sof605_MOP_languedoc_compact_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_MOP_languedoc_compact_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_charter_municipal_bridge original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597   OR = { has_completed_focus = sof_region_MOP_1936_municipal_voice has_country_flag = sof605_milestone_mop_1936_municipal_voice } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_MOP_municipal_balance } } }
-			add_to_variable = { sof605_MOP_languedoc_compact_production_speed_infrastructure_factor = 0.05 }
+			add_to_variable = { sof605_MOP_languedoc_compact_production_speed_infrastructure_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_water_compact_cooperative_bridge original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 99 }  OR = { has_completed_focus = sof_region_MOP_1936_cooperative_voice has_country_flag = sof605_milestone_mop_1936_cooperative_voice } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_MOP_cooperative_balance } } }
-			add_to_variable = { sof605_MOP_languedoc_compact_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_MOP_languedoc_compact_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_water_compact_municipal_bridge original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 99 }  OR = { has_completed_focus = sof_region_MOP_1936_municipal_voice has_country_flag = sof605_milestone_mop_1936_municipal_voice } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_MOP_municipal_balance } } }
-			add_to_variable = { sof605_MOP_languedoc_compact_production_speed_infrastructure_factor = 0.05 }
+			add_to_variable = { sof605_MOP_languedoc_compact_production_speed_infrastructure_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_presses original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604    449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 }
-			add_to_variable = { sof605_MOP_languedoc_cellars_production_speed_industrial_complex_factor = 0.05 }
+			add_to_variable = { sof605_MOP_languedoc_cellars_production_speed_industrial_complex_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_cellar_network original_tag = MOP has_capitulated = no 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604    449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 }
-			add_to_variable = { sof605_MOP_languedoc_cellars_production_speed_industrial_complex_factor = 0.05 }
+			add_to_variable = { sof605_MOP_languedoc_cellars_production_speed_industrial_complex_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_cellar_debt original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 99 } 449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   449 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17604 }
@@ -5824,11 +5824,11 @@ sof605_refresh_MOP = { hidden_effect = { if = { limit = { sof606_MOP_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_ricard original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491    414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 }
-			add_to_variable = { sof605_MOP_ales_industrial_supply_production_lack_of_resource_penalty_factor = -0.05 }
+			add_to_variable = { sof605_MOP_ales_industrial_supply_production_lack_of_resource_penalty_factor = -0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_coal_dispatch original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491    414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 }
-			add_to_variable = { sof605_MOP_ales_industrial_supply_production_lack_of_resource_penalty_factor = -0.05 }
+			add_to_variable = { sof605_MOP_ales_industrial_supply_production_lack_of_resource_penalty_factor = -0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_mine_compact original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 149 } 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 }
@@ -5836,11 +5836,11 @@ sof605_refresh_MOP = { hidden_effect = { if = { limit = { sof606_MOP_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_mule_columns original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491    414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 }
-			add_to_variable = { sof605_MOP_cevennes_columns_attrition = -0.05 }
+			add_to_variable = { sof605_MOP_cevennes_columns_attrition = -0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_sappers original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491    414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 }
-			add_to_variable = { sof605_MOP_cevennes_columns_attrition = -0.05 }
+			add_to_variable = { sof605_MOP_cevennes_columns_attrition = -0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_mobile_columns original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597    414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 }
@@ -5848,11 +5848,11 @@ sof605_refresh_MOP = { hidden_effect = { if = { limit = { sof606_MOP_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_port_labor original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 date > 1936.6.1 }
-			add_to_variable = { sof605_MOP_sete_coastal_service_convoy_escort_efficiency = 0.05 }
+			add_to_variable = { sof605_MOP_sete_coastal_service_convoy_escort_efficiency = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_small_repairs original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 }
-			add_to_variable = { sof605_MOP_sete_coastal_service_convoy_escort_efficiency = 0.05 }
+			add_to_variable = { sof605_MOP_sete_coastal_service_convoy_escort_efficiency = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_coastal_guard original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 }
@@ -5860,11 +5860,11 @@ sof605_refresh_MOP = { hidden_effect = { if = { limit = { sof606_MOP_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_public_health original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 }
-			add_to_variable = { sof605_MOP_montpellier_medical_army_morale_factor = 0.05 }
+			add_to_variable = { sof605_MOP_montpellier_medical_army_morale_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_medical_drill original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 }
-			add_to_variable = { sof605_MOP_montpellier_medical_army_morale_factor = 0.05 }
+			add_to_variable = { sof605_MOP_montpellier_medical_army_morale_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_mop_regional_charter original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 }  OR = { has_completed_focus = sof_region_MOP_1936_medical_drill has_country_flag = sof605_milestone_mop_1936_medical_drill } }
@@ -5890,7 +5890,7 @@ sof605_refresh_MOP = { hidden_effect = { if = { limit = { sof606_MOP_regional_ac
 		if = {
 			limit = { OR = { has_dynamic_modifier = sof605_MOP_ales_industrial_supply_ricard has_dynamic_modifier = sof605_MOP_ales_industrial_supply_coal_dispatch has_dynamic_modifier = sof605_MOP_ales_industrial_supply_mine_compact AND = { has_country_flag = sof605_done_new_mop_coal_dispatch original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491    414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 } AND = { has_country_flag = sof605_done_new_mop_mine_compact original_tag = MOP has_capitulated = no 441 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 2597 check_variable = { num_owned_states > 149 } 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 } AND = { has_country_flag = sof605_done_new_mop_ricard original_tag = MOP has_capitulated = no 414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491    414 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 6491 } } }
 			if = { limit = { OR = { has_completed_focus = sof_region_MOP_1936_mine_compact has_country_flag = sof605_milestone_mop_1936_mine_compact } } sof605_select_MOP_ales_industrial_supply_mine_compact = yes }
-			else_if = { limit = { OR = { has_completed_focus = sof_region_MOP_1936_coal_dispatch has_country_flag = sof605_milestone_mop_1936_coal_dispatch } } sof605_select_MOP_ales_industrial_supply_coal_dispatch = yes }
+			else_if = { limit = { OR = { has_completed_focus = sof_region_MOP_1936_ales_workshops has_country_flag = sof605_milestone_mop_1936_coal_dispatch } } sof605_select_MOP_ales_industrial_supply_coal_dispatch = yes }
 			else = { sof605_select_MOP_ales_industrial_supply_ricard = yes }
 		}
 		if = {
@@ -5963,13 +5963,13 @@ sof605_refresh_NAN = { hidden_effect = { if = { limit = { sof606_NAN_regional_ac
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_port_authority_policy }
 			add_to_variable = { sof605_NAN_estuary_port_settlement_industrial_capacity_dockyard = 0.04 }
-			add_to_variable = { sof605_NAN_estuary_port_settlement_political_power_gain = 0.12 }
-			add_to_variable = { sof605_NAN_estuary_port_settlement_consumer_goods_factor = 0.01 }
+			add_to_variable = { sof605_NAN_estuary_port_settlement_political_power_gain = 2 }
+			add_to_variable = { sof605_NAN_estuary_port_settlement_consumer_goods_factor = 0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_communes_policy }
-			add_to_variable = { sof605_NAN_estuary_port_settlement_stability_factor = 0.05 }
-			add_to_variable = { sof605_NAN_estuary_port_settlement_political_power_gain = 0.1 }
+			add_to_variable = { sof605_NAN_estuary_port_settlement_stability_factor = 0.06 }
+			add_to_variable = { sof605_NAN_estuary_port_settlement_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_escort_staff_policy }
@@ -5978,7 +5978,7 @@ sof605_refresh_NAN = { hidden_effect = { if = { limit = { sof606_NAN_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_landward_policy }
-			add_to_variable = { sof605_NAN_shipyard_hinterland_guard_army_org_factor = 0.05 }
+			add_to_variable = { sof605_NAN_shipyard_hinterland_guard_army_org_factor = 0.06 }
 			add_to_variable = { sof605_NAN_shipyard_hinterland_guard_max_dig_in = 2 }
 		}
 		if = {
@@ -5988,13 +5988,13 @@ sof605_refresh_NAN = { hidden_effect = { if = { limit = { sof606_NAN_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_safety_network original_tag = NAN 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_safety = yes }
-			add_to_variable = { sof605_NAN_dockworker_safety_stability_factor = 0.05 }
-			add_to_variable = { sof605_NAN_dockworker_safety_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_NAN_dockworker_safety_stability_factor = 0.06 }
+			add_to_variable = { sof605_NAN_dockworker_safety_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_merchant_network original_tag = NAN 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_merchant = yes }
-			add_to_variable = { sof605_NAN_loire_shipbuilding_industrial_capacity_dockyard = 0.15 }
-			add_to_variable = { sof605_NAN_loire_shipbuilding_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_NAN_loire_shipbuilding_industrial_capacity_dockyard = 0.16 }
+			add_to_variable = { sof605_NAN_loire_shipbuilding_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_naval_network original_tag = NAN 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_naval = yes }
@@ -6003,37 +6003,37 @@ sof605_refresh_NAN = { hidden_effect = { if = { limit = { sof606_NAN_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_steel_schedule_network original_tag = NAN 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_steel_schedule = yes }
-			add_to_variable = { sof605_NAN_loire_shipbuilding_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_NAN_loire_shipbuilding_production_factory_efficiency_gain_factor = 0.06 }
 			add_to_variable = { sof605_NAN_loire_shipbuilding_industrial_capacity_dockyard = 0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_shipbuilding_network original_tag = NAN 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_shipbuilding = yes }
 			add_to_variable = { sof605_NAN_loire_shipbuilding_industrial_capacity_dockyard = 0.12 }
-			add_to_variable = { sof605_NAN_loire_shipbuilding_repair_speed_factor = 0.15 }
+			add_to_variable = { sof605_NAN_loire_shipbuilding_repair_speed_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_freight_network original_tag = NAN 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_freight = yes }
-			add_to_variable = { sof605_NAN_freight_mutual_insurance_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_NAN_freight_mutual_insurance_stability_factor = 0.05 }
+			add_to_variable = { sof605_NAN_freight_mutual_insurance_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_NAN_freight_mutual_insurance_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_pilotage_network original_tag = NAN 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_pilotage = yes }
-			add_to_variable = { sof605_NAN_estuary_escort_command_naval_coordination = 0.05 }
+			add_to_variable = { sof605_NAN_estuary_escort_command_naval_coordination = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_vendee_network original_tag = NAN 268 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_vendee = yes }
-			add_to_variable = { sof605_NAN_port_country_provisioning_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_NAN_port_country_provisioning_stability_factor = 0.05 }
+			add_to_variable = { sof605_NAN_port_country_provisioning_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_NAN_port_country_provisioning_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_food_pact_network original_tag = NAN 222 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 268 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_food_pact = yes }
-			add_to_variable = { sof605_NAN_port_country_provisioning_consumer_goods_factor = -0.05 }
-			add_to_variable = { sof605_NAN_port_country_provisioning_stability_factor = 0.05 }
+			add_to_variable = { sof605_NAN_port_country_provisioning_consumer_goods_factor = -0.06 }
+			add_to_variable = { sof605_NAN_port_country_provisioning_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_rail_convoys_network original_tag = NAN 196 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 222 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_rail_convoys = yes }
 			add_to_variable = { sof605_NAN_rail_sea_transfer_supply_consumption_factor = -0.08 }
-			add_to_variable = { sof605_NAN_rail_sea_transfer_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_NAN_rail_sea_transfer_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_nan_1936_settlement_network original_tag = NAN 249 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 237 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  sof606_geo_sof_region_nan_1936_settlement = yes }
@@ -6115,15 +6115,15 @@ sof605_refresh_POI = { hidden_effect = { if = { limit = { sof606_POI_regional_ac
 		set_variable = { sof605_POI_poitiers_civil_service_stability_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_poi_1936_feed_priority_network original_tag = POI 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302  sof606_geo_sof_region_poi_1936_feed_priority = yes }
-			add_to_variable = { sof605_POI_poitou_grain_board_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_POI_poitou_grain_board_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_poi_1936_army_grain_network original_tag = POI 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302  sof606_geo_sof_region_poi_1936_army_grain = yes }
-			add_to_variable = { sof605_POI_poitou_grain_board_supply_consumption_factor = -0.07 }
+			add_to_variable = { sof605_POI_poitou_grain_board_supply_consumption_factor = -0.08 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_poi_1936_arsenal_batches_network original_tag = POI 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771  sof606_geo_sof_region_poi_1936_arsenal_batches = yes }
-			add_to_variable = { sof605_POI_chatellerault_standards_army_org_factor = 0.05 }
+			add_to_variable = { sof605_POI_chatellerault_standards_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_poi_1936_field_exercise_network original_tag = POI 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070  sof606_geo_sof_region_poi_1936_field_exercise = yes }
@@ -6140,19 +6140,19 @@ sof605_refresh_POI = { hidden_effect = { if = { limit = { sof606_POI_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_market_feed_priority original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070   OR = { has_completed_focus = sof_region_POI_1936_feed_priority has_country_flag = sof605_milestone_poi_1936_feed_priority } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_POI_civilian_grain } } 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 }
-			add_to_variable = { sof605_POI_poitou_grain_board_consumer_goods_factor = -0.05 }
+			add_to_variable = { sof605_POI_poitou_grain_board_consumer_goods_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_market_army_grain original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070   OR = { has_completed_focus = sof_region_POI_1936_army_grain has_country_flag = sof605_milestone_poi_1936_army_grain } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_POI_military_grain } } 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 }
-			add_to_variable = { sof605_POI_poitou_grain_board_supply_consumption_factor = -0.05 }
+			add_to_variable = { sof605_POI_poitou_grain_board_supply_consumption_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_gauges original_tag = POI has_capitulated = no 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 has_country_flag = sof_region_POI_1936_survey_done   263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 }
-			add_to_variable = { sof605_POI_chatellerault_standards_production_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { sof605_POI_chatellerault_standards_production_factory_max_efficiency_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_independent_acceptance original_tag = POI has_capitulated = no 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771    263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 }
-			add_to_variable = { sof605_POI_chatellerault_standards_production_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { sof605_POI_chatellerault_standards_production_factory_max_efficiency_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_arsenal_after original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 check_variable = { num_owned_states > 99 } 263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   263 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13771 }
@@ -6160,23 +6160,23 @@ sof605_refresh_POI = { hidden_effect = { if = { limit = { sof606_POI_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_service_schools original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070    NOT = { OR = { has_country_flag = sof604_done_region_poi_1936_field_exercise_network } }  sof606_geo_sof_region_poi_1936_field_exercise = yes }
-			add_to_variable = { sof605_POI_poitou_field_school_training_time_army_factor = -0.03 }
+			add_to_variable = { sof605_POI_poitou_field_school_training_time_army_factor = -0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_territorials original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070    NOT = { OR = { has_country_flag = sof604_done_region_poi_1936_field_exercise_network } }  sof606_geo_sof_region_poi_1936_field_exercise = yes }
-			add_to_variable = { sof605_POI_poitou_field_school_army_org_factor = 0.05 }
+			add_to_variable = { sof605_POI_poitou_field_school_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_rifle_instruction original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070    NOT = { OR = { has_country_flag = sof604_done_region_poi_1936_field_exercise_network } }  sof606_geo_sof_region_poi_1936_field_exercise = yes }
-			add_to_variable = { sof605_POI_poitou_field_school_army_org_factor = 0.05 }
+			add_to_variable = { sof605_POI_poitou_field_school_army_org_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_rochefort_skills original_tag = POI has_capitulated = no 322 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14663    322 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14663 }
-			add_to_variable = { sof605_POI_rochefort_repair_service_repair_speed_factor = 0.05 }
+			add_to_variable = { sof605_POI_rochefort_repair_service_repair_speed_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_small_boat_repair original_tag = POI has_capitulated = no 322 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14663    322 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14663 }
-			add_to_variable = { sof605_POI_rochefort_repair_service_repair_speed_factor = 0.05 }
+			add_to_variable = { sof605_POI_rochefort_repair_service_repair_speed_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_port_after original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 check_variable = { num_owned_states > 149 } 310 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  OR = { has_completed_focus = sof_region_POI_1936_small_boat_repair has_country_flag = sof605_milestone_poi_1936_small_boat_repair } 322 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14663 }
@@ -6184,23 +6184,23 @@ sof605_refresh_POI = { hidden_effect = { if = { limit = { sof606_POI_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_clerks original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 }
-			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 0.03 }
+			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_budget_settlement original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 }
-			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 0.04 }
+			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_weights original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 }
-			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 0.05 }
+			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_municipal_credit original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 }
-			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 0.04 }
+			add_to_variable = { sof605_POI_poitiers_civil_service_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_poi_regional_office original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 date > 1936.8.15 }
-			add_to_variable = { sof605_POI_poitiers_civil_service_stability_factor = 0.03 }
+			add_to_variable = { sof605_POI_poitiers_civil_service_stability_factor = 0.04 }
 		}
 		if = {
 			limit = { OR = { has_dynamic_modifier = sof605_POI_poitou_grain_board_feed_priority_feed_priority has_dynamic_modifier = sof605_POI_poitou_grain_board_market_credit_feed_priority has_dynamic_modifier = sof605_POI_poitou_grain_board_rural_guarantee_feed_priority has_dynamic_modifier = sof605_POI_poitou_grain_board_army_grain_army_grain has_dynamic_modifier = sof605_POI_poitou_grain_board_market_credit_army_grain has_dynamic_modifier = sof605_POI_poitou_grain_board_rural_guarantee_army_grain AND = { has_country_flag = sof604_component_sof604_mature_POI_civilian_grain original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } has_completed_focus = sof_region_POI_1936_feed_priority 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 has_completed_focus = sof_region_POI_1936_rural_guarantee } AND = { has_country_flag = sof604_component_sof604_mature_POI_military_grain original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070 has_country_flag = sofzh_unification_complete check_variable = { num_owned_states > 199 } has_completed_focus = sof_region_POI_1936_army_grain 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 has_completed_focus = sof_region_POI_1936_rural_guarantee } AND = { has_country_flag = sof605_done_new_poi_market_army_grain original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070   OR = { has_completed_focus = sof_region_POI_1936_army_grain has_country_flag = sof605_milestone_poi_1936_army_grain } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_POI_military_grain } } 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 } AND = { has_country_flag = sof605_done_new_poi_market_feed_priority original_tag = POI has_capitulated = no 288 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 14070   OR = { has_completed_focus = sof_region_POI_1936_feed_priority has_country_flag = sof605_milestone_poi_1936_feed_priority } NOT = { OR = { has_country_flag = sof604_component_sof604_mature_POI_civilian_grain } } 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 } AND = { has_country_flag = sof604_done_region_poi_1936_army_grain_network original_tag = POI 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 } AND = { has_country_flag = sof604_done_region_poi_1936_feed_priority_network original_tag = POI 299 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 7302 } } }
@@ -6281,22 +6281,22 @@ sof605_refresh_ROU = { hidden_effect = { if = { limit = { sof606_ROU_regional_ac
 		set_variable = { sof605_ROU_norman_metallurgy_production_factory_efficiency_gain_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_ne_rou_harbour_board }
-			add_to_variable = { sof605_ROU_harbour_authority_political_power_gain = 0.1 }
+			add_to_variable = { sof605_ROU_harbour_authority_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_rou_dock_safety }
-			add_to_variable = { sof605_ROU_harbour_authority_stability_factor = 0.05 }
-			add_to_variable = { sof605_ROU_harbour_authority_industrial_capacity_dockyard = -0.01 }
+			add_to_variable = { sof605_ROU_harbour_authority_stability_factor = 0.06 }
+			add_to_variable = { sof605_ROU_harbour_authority_industrial_capacity_dockyard = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_rou_merchant }
 			add_to_variable = { sof605_ROU_merchant_shipyards_industrial_capacity_dockyard = 0.1 }
-			add_to_variable = { sof605_ROU_merchant_shipyards_naval_doctrine_cost_factor = 0.03 }
+			add_to_variable = { sof605_ROU_merchant_shipyards_naval_doctrine_cost_factor = 0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_rou_escort }
 			add_to_variable = { sof605_ROU_channel_escorts_naval_coordination = 0.1 }
-			add_to_variable = { sof605_ROU_channel_escorts_convoy_escort_efficiency = 0.15 }
+			add_to_variable = { sof605_ROU_channel_escorts_convoy_escort_efficiency = 0.16 }
 			add_to_variable = { sof605_ROU_channel_escorts_industrial_capacity_dockyard = -0.02 }
 		}
 		if = {
@@ -6305,19 +6305,19 @@ sof605_refresh_ROU = { hidden_effect = { if = { limit = { sof606_ROU_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_rou_metallurgy  sof606_geo_sof_ne_rou_metallurgy = yes }
-			add_to_variable = { sof605_ROU_norman_metallurgy_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_ROU_norman_metallurgy_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_rou_integration }
-			add_to_variable = { sof605_ROU_river_sea_dispatch_naval_coordination = 0.15 }
-			add_to_variable = { sof605_ROU_harbour_authority_stability_factor = 0.05 }
+			add_to_variable = { sof605_ROU_river_sea_dispatch_naval_coordination = 0.16 }
+			add_to_variable = { sof605_ROU_harbour_authority_stability_factor = 0.06 }
 		}
 		if = {
-			limit = { has_country_flag = sof604_component_sof604_mature_ROU_merchant_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_merchant 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_fleet_merge }
+			limit = { has_country_flag = sof604_component_sof604_mature_ROU_merchant_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_merchant 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_coast_network }
 			add_to_variable = { sof605_ROU_merchant_shipyards_industrial_capacity_dockyard = 0.16 }
 		}
 		if = {
-			limit = { has_country_flag = sof604_component_sof604_mature_ROU_escort_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_escort 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_fleet_merge }
+			limit = { has_country_flag = sof604_component_sof604_mature_ROU_escort_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_escort 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_coast_network }
 			add_to_variable = { sof605_ROU_channel_escorts_convoy_escort_efficiency = 0.1 }
 		}
 		if = {
@@ -6327,12 +6327,12 @@ sof605_refresh_ROU = { hidden_effect = { if = { limit = { sof606_ROU_regional_ac
 			else = { sof605_select_ROU_harbour_authority_harbour_council = yes }
 		}
 		if = {
-			limit = { OR = { has_dynamic_modifier = sof605_ROU_merchant_shipyards_merchant_priority has_dynamic_modifier = sof605_ROU_merchant_shipyards_integrated_merchant_yards AND = { has_country_flag = sof604_component_sof604_mature_ROU_merchant_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_merchant 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_fleet_merge } AND = { has_country_flag = sof604_done_ne_rou_merchant  } } }
+			limit = { OR = { has_dynamic_modifier = sof605_ROU_merchant_shipyards_merchant_priority has_dynamic_modifier = sof605_ROU_merchant_shipyards_integrated_merchant_yards AND = { has_country_flag = sof604_component_sof604_mature_ROU_merchant_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_merchant 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_coast_network } AND = { has_country_flag = sof604_done_ne_rou_merchant  } } }
 			if = { limit = { has_country_flag = sof604_component_sof604_mature_ROU_merchant_fleet_merge } sof605_select_ROU_merchant_shipyards_integrated_merchant_yards = yes }
 			else = { sof605_select_ROU_merchant_shipyards_merchant_priority = yes }
 		}
 		if = {
-			limit = { OR = { has_dynamic_modifier = sof605_ROU_channel_escorts_escort_service has_dynamic_modifier = sof605_ROU_channel_escorts_integrated_escort_rosters AND = { has_country_flag = sof604_component_sof604_mature_ROU_escort_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_escort 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_fleet_merge } AND = { has_country_flag = sof604_done_ne_rou_escort  } } }
+			limit = { OR = { has_dynamic_modifier = sof605_ROU_channel_escorts_escort_service has_dynamic_modifier = sof605_ROU_channel_escorts_integrated_escort_rosters AND = { has_country_flag = sof604_component_sof604_mature_ROU_escort_fleet_merge original_tag = ROU  has_completed_focus = sof_ne_ROU_escort 84 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 10076 has_completed_focus = sof_ne_ROU_coast_network } AND = { has_country_flag = sof604_done_ne_rou_escort  } } }
 			if = { limit = { has_country_flag = sof604_component_sof604_mature_ROU_escort_fleet_merge } sof605_select_ROU_channel_escorts_integrated_escort_rosters = yes }
 			else = { sof605_select_ROU_channel_escorts_escort_service = yes }
 		}
@@ -6374,21 +6374,21 @@ sof605_refresh_STR = { hidden_effect = { if = { limit = { sof606_STR_regional_ac
 		set_variable = { sof605_STR_territorial_militia_training_time_army_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_registry }
-			add_to_variable = { sof605_STR_bilingual_registry_political_power_gain = 0.1 }
+			add_to_variable = { sof605_STR_bilingual_registry_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_bilingual }
-			add_to_variable = { sof605_STR_bilingual_registry_stability_factor = 0.05 }
+			add_to_variable = { sof605_STR_bilingual_registry_stability_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_civil_code }
-			add_to_variable = { sof605_STR_common_civil_forms_political_power_gain = 0.2 }
+			add_to_variable = { sof605_STR_common_civil_forms_political_power_gain = 2 }
 			add_to_variable = { sof605_STR_common_civil_forms_stability_factor = -0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_local_code }
 			add_to_variable = { sof605_STR_local_law_stability_factor = 0.06 }
-			add_to_variable = { sof605_STR_local_law_political_power_gain = -0.05 }
+			add_to_variable = { sof605_STR_local_law_political_power_gain = -0 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_customs }
@@ -6396,18 +6396,18 @@ sof605_refresh_STR = { hidden_effect = { if = { limit = { sof606_STR_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_militia }
-			add_to_variable = { sof605_STR_territorial_militia_army_org_factor = 0.05 }
+			add_to_variable = { sof605_STR_territorial_militia_army_org_factor = 0.06 }
 			add_to_variable = { sof605_STR_territorial_militia_training_time_army_factor = 0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_precision  sof606_geo_sof_ne_str_precision = yes }
-			add_to_variable = { sof605_STR_precision_workshops_production_factory_efficiency_gain_factor = 0.05 }
-			add_to_variable = { sof605_STR_precision_workshops_production_factory_max_efficiency_factor = 0.03 }
+			add_to_variable = { sof605_STR_precision_workshops_production_factory_efficiency_gain_factor = 0.06 }
+			add_to_variable = { sof605_STR_precision_workshops_production_factory_max_efficiency_factor = 0.04 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_ne_str_integration }
-			add_to_variable = { sof605_STR_bilingual_registry_stability_factor = 0.05 }
-			add_to_variable = { sof605_STR_precision_workshops_research_speed_factor = 0.03 }
+			add_to_variable = { sof605_STR_bilingual_registry_stability_factor = 0.06 }
+			add_to_variable = { sof605_STR_precision_workshops_research_speed_factor = 0.04 }
 			add_to_variable = { sof605_STR_precision_workshops_production_factory_efficiency_gain_factor = 0.2 }
 		}
 		if = {
@@ -6460,30 +6460,30 @@ sof605_refresh_TOU = { hidden_effect = { if = { limit = { sof606_TOU_regional_ac
 		set_variable = { sof605_TOU_pyrenean_reserve_org_loss_when_moving = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_tou_1936_parliamentary_network original_tag = TOU 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  sof606_geo_sof_region_tou_1936_parliamentary = yes }
-			add_to_variable = { sof605_TOU_garonne_procurement_stability_factor = 0.05 }
-			add_to_variable = { sof605_TOU_garonne_procurement_political_power_gain = 0.1 }
+			add_to_variable = { sof605_TOU_garonne_procurement_stability_factor = 0.06 }
+			add_to_variable = { sof605_TOU_garonne_procurement_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_tou_1936_commissioners_network original_tag = TOU 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  sof606_geo_sof_region_tou_1936_commissioners = yes }
 			add_to_variable = { sof605_TOU_garonne_procurement_production_speed_arms_factory_factor = 0.12 }
-			add_to_variable = { sof605_TOU_garonne_procurement_stability_factor = -0.03 }
+			add_to_variable = { sof605_TOU_garonne_procurement_stability_factor = -0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_tou_1936_air_staff_network original_tag = TOU 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211  sof606_geo_sof_region_tou_1936_air_staff = yes }
-			add_to_variable = { sof605_TOU_francazal_air_service_air_accidents_factor = -0.15 }
-			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.25 }
+			add_to_variable = { sof605_TOU_francazal_air_service_air_accidents_factor = -0.16 }
+			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.26 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_fiscal original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211    NOT = { OR = { has_country_flag = sof604_done_region_tou_1936_parliamentary_network has_country_flag = sof604_done_region_tou_1936_commissioners_network } }  OR = { sof606_geo_sof_region_tou_1936_commissioners = yes sof606_geo_sof_region_tou_1936_parliamentary = yes } }
-			add_to_variable = { sof605_TOU_garonne_procurement_political_power_gain = 0.03 }
+			add_to_variable = { sof605_TOU_garonne_procurement_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_dewoitine original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211 }
-			add_to_variable = { sof605_TOU_dewoitine_industry_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_TOU_dewoitine_industry_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_acceptance original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211 }
-			add_to_variable = { sof605_TOU_dewoitine_industry_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_TOU_dewoitine_industry_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_production original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211 }
@@ -6491,25 +6491,25 @@ sof605_refresh_TOU = { hidden_effect = { if = { limit = { sof606_TOU_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_air_francazal original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211    NOT = { OR = { has_country_flag = sof604_done_region_tou_1936_air_staff_network } }  sof606_geo_sof_region_tou_1936_air_staff = yes }
-			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.05 }
-			add_to_variable = { sof605_TOU_francazal_air_service_air_accidents_factor = -0.05 }
+			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.06 }
+			add_to_variable = { sof605_TOU_francazal_air_service_air_accidents_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_air_flying_clubs original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211    NOT = { OR = { has_country_flag = sof604_done_region_tou_1936_air_staff_network } }  sof606_geo_sof_region_tou_1936_air_staff = yes }
-			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.05 }
-			add_to_variable = { sof605_TOU_francazal_air_service_air_accidents_factor = -0.05 }
+			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.06 }
+			add_to_variable = { sof605_TOU_francazal_air_service_air_accidents_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_air_production original_tag = TOU has_capitulated = no 439 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 17211    NOT = { OR = { has_country_flag = sof604_done_region_tou_1936_air_staff_network } }  sof606_geo_sof_region_tou_1936_air_staff = yes }
-			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.05 }
+			add_to_variable = { sof605_TOU_francazal_air_service_air_mission_efficiency = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_mountain_guides original_tag = TOU has_capitulated = no 453 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 482 }
-			add_to_variable = { sof605_TOU_pyrenean_reserve_org_loss_when_moving = -0.05 }
+			add_to_variable = { sof605_TOU_pyrenean_reserve_org_loss_when_moving = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_mountain_reserve original_tag = TOU has_capitulated = no 453 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 482 }
-			add_to_variable = { sof605_TOU_pyrenean_reserve_org_loss_when_moving = -0.05 }
+			add_to_variable = { sof605_TOU_pyrenean_reserve_org_loss_when_moving = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_tou_field_artillery original_tag = TOU has_capitulated = no 453 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 482 }
@@ -6570,38 +6570,38 @@ sof605_refresh_TRS = { hidden_effect = { if = { limit = { sof606_TRS_regional_ac
 		set_variable = { sof605_TRS_touraine_air_school_air_training_xp_gain_factor = 0 }
 		if = {
 			limit = { has_country_flag = sof604_done_region_trs_1936_local_charters_network original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  sof606_geo_sof_region_trs_1936_local_charters = yes }
-			add_to_variable = { sof605_TRS_touraine_statute_stability_factor = 0.05 }
-			add_to_variable = { sof605_TRS_touraine_statute_political_power_gain = 0.1 }
+			add_to_variable = { sof605_TRS_touraine_statute_stability_factor = 0.06 }
+			add_to_variable = { sof605_TRS_touraine_statute_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_trs_1936_central_dispatch_network original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  sof606_geo_sof_region_trs_1936_central_dispatch = yes }
 			add_to_variable = { sof605_TRS_loire_rail_service_supply_consumption_factor = -0.08 }
-			add_to_variable = { sof605_TRS_touraine_statute_stability_factor = -0.03 }
+			add_to_variable = { sof605_TRS_touraine_statute_stability_factor = -0.02 }
 		}
 		if = {
 			limit = { has_country_flag = sof604_done_region_trs_1936_redoubt_network original_tag = TRS 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089  sof606_geo_sof_region_trs_1936_redoubt = yes }
-			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.25 }
-			add_to_variable = { sof605_TRS_loire_redoubt_dig_in_speed_factor = 0.15 }
+			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.26 }
+			add_to_variable = { sof605_TRS_loire_redoubt_dig_in_speed_factor = 0.16 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_civic_rolls original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089    NOT = { OR = { has_country_flag = sof604_done_region_trs_1936_local_charters_network has_country_flag = sof604_done_region_trs_1936_central_dispatch_network } }  OR = { sof606_geo_sof_region_trs_1936_central_dispatch = yes sof606_geo_sof_region_trs_1936_local_charters = yes } }
-			add_to_variable = { sof605_TRS_touraine_statute_political_power_gain = 0.03 }
+			add_to_variable = { sof605_TRS_touraine_statute_political_power_gain = 2 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_waybills original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 }
-			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.05 }
+			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_rolling_stock original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 }
-			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.05 }
+			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_loire_timetable original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
-			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.05 }
+			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_post_rail original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 99 } 201 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
-			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.05 }
+			add_to_variable = { sof605_TRS_loire_rail_service_supply_node_range = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_proof_priority original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 }
@@ -6609,56 +6609,56 @@ sof605_refresh_TRS = { hidden_effect = { if = { limit = { sof606_TRS_regional_ac
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_inspection_mission original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 }
-			add_to_variable = { sof605_TRS_bourges_ordnance_experience_gain_artillery_combat_factor = 0.05 }
+			add_to_variable = { sof605_TRS_bourges_ordnance_experience_gain_artillery_combat_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_serial_priority original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 }
-			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_arsenal_capacity original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 }
-			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_quality_trials original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262   OR = { has_completed_focus = sof_region_TRS_1936_proof_priority has_country_flag = sof605_milestone_trs_1936_proof_priority } }
-			add_to_variable = { sof605_TRS_bourges_ordnance_experience_gain_artillery_combat_factor = 0.05 }
+			add_to_variable = { sof605_TRS_bourges_ordnance_experience_gain_artillery_combat_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_quality_serial original_tag = TRS has_capitulated = no 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262   OR = { has_completed_focus = sof_region_TRS_1936_serial_priority has_country_flag = sof605_milestone_trs_1936_serial_priority } }
-			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_national_trials original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 149 } 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  OR = { has_completed_focus = sof_region_TRS_1936_proof_priority has_country_flag = sof605_milestone_trs_1936_proof_priority } 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 }
-			add_to_variable = { sof605_TRS_bourges_ordnance_experience_gain_artillery_combat_factor = 0.05 }
+			add_to_variable = { sof605_TRS_bourges_ordnance_experience_gain_artillery_combat_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_national_serial original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 check_variable = { num_owned_states > 149 } 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  OR = { has_completed_focus = sof_region_TRS_1936_serial_priority has_country_flag = sof605_milestone_trs_1936_serial_priority } 242 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 3262 }
-			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.05 }
+			add_to_variable = { sof605_TRS_bourges_ordnance_production_factory_efficiency_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_territorials original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089    NOT = { OR = { has_country_flag = sof604_done_region_trs_1936_redoubt_network } }  sof606_geo_sof_region_trs_1936_redoubt = yes }
-			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.05 }
+			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_bridge_guard original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089    NOT = { OR = { has_country_flag = sof604_done_region_trs_1936_redoubt_network } }  sof606_geo_sof_region_trs_1936_redoubt = yes }
-			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.05 }
+			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_field_signals original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089    NOT = { OR = { has_country_flag = sof604_done_region_trs_1936_redoubt_network } }  sof606_geo_sof_region_trs_1936_redoubt = yes }
-			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.05 }
+			add_to_variable = { sof605_TRS_loire_redoubt_army_defence_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_popular_air original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 date > 1936.10.1 }
-			add_to_variable = { sof605_TRS_touraine_air_school_air_training_xp_gain_factor = 0.05 }
+			add_to_variable = { sof605_TRS_touraine_air_school_air_training_xp_gain_factor = 0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_air_mechanics original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 }
-			add_to_variable = { sof605_TRS_touraine_air_school_air_training_xp_gain_factor = 0.05 }
-			add_to_variable = { sof605_TRS_touraine_air_school_air_accidents_factor = -0.05 }
+			add_to_variable = { sof605_TRS_touraine_air_school_air_training_xp_gain_factor = 0.06 }
+			add_to_variable = { sof605_TRS_touraine_air_school_air_accidents_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_trainer_airfields original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 }
-			add_to_variable = { sof605_TRS_touraine_air_school_air_accidents_factor = -0.05 }
+			add_to_variable = { sof605_TRS_touraine_air_school_air_accidents_factor = -0.06 }
 		}
 		if = {
 			limit = { has_country_flag = sof605_done_new_trs_observation original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 }
@@ -6700,7 +6700,7 @@ sof605_refresh_TRS = { hidden_effect = { if = { limit = { sof606_TRS_regional_ac
 			limit = { OR = { has_dynamic_modifier = sof605_TRS_touraine_air_school_popular_air has_dynamic_modifier = sof605_TRS_touraine_air_school_air_mechanics has_dynamic_modifier = sof605_TRS_touraine_air_school_trainer_airfields has_dynamic_modifier = sof605_TRS_touraine_air_school_observation AND = { has_country_flag = sof605_done_new_trs_air_mechanics original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 } AND = { has_country_flag = sof605_done_new_trs_observation original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 } AND = { has_country_flag = sof605_done_new_trs_popular_air original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 date > 1936.10.1 } AND = { has_country_flag = sof605_done_new_trs_trainer_airfields original_tag = TRS has_capitulated = no 225 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13089 } } }
 			if = { limit = { OR = { has_completed_focus = sof_region_TRS_1936_observation has_country_flag = sof605_milestone_trs_1936_observation } } sof605_select_TRS_touraine_air_school_observation = yes }
 			else_if = { limit = { OR = { has_completed_focus = sof_region_TRS_1936_trainer_airfields has_country_flag = sof605_milestone_trs_1936_trainer_airfields } } sof605_select_TRS_touraine_air_school_trainer_airfields = yes }
-			else_if = { limit = { OR = { has_completed_focus = sof_region_TRS_1936_air_mechanics has_country_flag = sof605_milestone_trs_1936_air_mechanics } } sof605_select_TRS_touraine_air_school_air_mechanics = yes }
+			else_if = { limit = { OR = { has_completed_focus = sof_region_TRS_1936_trainer_airfields has_country_flag = sof605_milestone_trs_1936_air_mechanics } } sof605_select_TRS_touraine_air_school_air_mechanics = yes }
 			else = { sof605_select_TRS_touraine_air_school_popular_air = yes }
 		}
 		force_update_dynamic_modifier = yes
@@ -6737,7 +6737,7 @@ sof605_sync_late_entitlements = {
 			if = { limit = { has_completed_focus = sof_region_BRD_1936_chamber has_completed_focus = sof_region_BRD_1936_export_credit has_completed_focus = sof_region_BRD_1936_insurance NOT = { has_country_flag = sof604_component_sof604_mature_BRD_export_port_finance } NOT = { has_completed_focus = sof_region_BRD_1936_maritime_staff } NOT = { has_country_flag = sof604_done_region_brd_1936_maritime_staff_network } } sof604_register_mature_brd_export_port_finance = yes }
 			if = { limit = { has_completed_focus = sof_region_BRD_1936_public_credit has_completed_focus = sof_region_BRD_1936_export_credit has_completed_focus = sof_region_BRD_1936_insurance NOT = { has_country_flag = sof604_component_sof604_mature_BRD_export_public_finance } } sof604_register_mature_brd_export_public_finance = yes }
 			if = { limit = { has_completed_focus = sof_region_BRD_1936_repair_yards NOT = { has_country_flag = sof605_done_new_brd_repair_yards } } sof605_register_new_brd_repair_yards = yes }
-			if = { limit = { has_completed_focus = sof_region_BRD_1936_shipping NOT = { has_country_flag = sof605_done_new_brd_shipping } } sof605_register_new_brd_shipping = yes }
+			if = { limit = { has_completed_focus = sof_region_BRD_1936_repair_yards NOT = { has_country_flag = sof605_done_new_brd_shipping } } sof605_register_new_brd_shipping = yes }
 			if = { limit = { has_completed_focus = sof_region_BRD_1936_crew_school NOT = { has_country_flag = sof605_done_new_brd_crew_school } } sof605_register_new_brd_crew_school = yes }
 			if = { limit = { has_completed_focus = sof_region_BRD_1936_coastal_escorts NOT = { has_country_flag = sof605_done_new_brd_coastal_escorts } } sof605_register_new_brd_coastal_escorts = yes }
 			if = { limit = { has_completed_focus = sof_region_BRD_1936_air_watch NOT = { has_country_flag = sof605_done_new_brd_air_watch } } sof605_register_new_brd_air_watch = yes }
@@ -6774,7 +6774,7 @@ sof605_sync_late_entitlements = {
 			if = { limit = { has_completed_focus = sof_region_MOP_1936_cellar_network NOT = { has_country_flag = sof605_done_new_mop_cellar_network } } sof605_register_new_mop_cellar_network = yes }
 			if = { limit = { has_completed_focus = sof_region_MOP_1936_cellar_debt NOT = { has_country_flag = sof605_done_new_mop_cellar_debt } } sof605_register_new_mop_cellar_debt = yes }
 			if = { limit = { has_completed_focus = sof_region_MOP_1936_ricard NOT = { has_country_flag = sof605_done_new_mop_ricard } } sof605_register_new_mop_ricard = yes }
-			if = { limit = { has_completed_focus = sof_region_MOP_1936_coal_dispatch NOT = { has_country_flag = sof605_done_new_mop_coal_dispatch } } sof605_register_new_mop_coal_dispatch = yes }
+			if = { limit = { has_completed_focus = sof_region_MOP_1936_ales_workshops NOT = { has_country_flag = sof605_done_new_mop_coal_dispatch } } sof605_register_new_mop_coal_dispatch = yes }
 			if = { limit = { has_completed_focus = sof_region_MOP_1936_mine_compact NOT = { has_country_flag = sof605_done_new_mop_mine_compact } } sof605_register_new_mop_mine_compact = yes }
 			if = { limit = { has_completed_focus = sof_region_MOP_1936_mule_columns NOT = { has_country_flag = sof605_done_new_mop_mule_columns } } sof605_register_new_mop_mule_columns = yes }
 			if = { limit = { has_completed_focus = sof_region_MOP_1936_sappers NOT = { has_country_flag = sof605_done_new_mop_sappers } } sof605_register_new_mop_sappers = yes }
@@ -6807,8 +6807,8 @@ sof605_sync_late_entitlements = {
 			if = { limit = { has_completed_focus = sof_region_POI_1936_regional_office NOT = { has_country_flag = sof605_done_new_poi_regional_office } } sof605_register_new_poi_regional_office = yes }
 		}
 		else_if = { limit = { original_tag = ROU }
-			if = { limit = { has_completed_focus = sof_ne_ROU_merchant has_completed_focus = sof_ne_ROU_fleet_merge NOT = { has_country_flag = sof604_component_sof604_mature_ROU_merchant_fleet_merge } } sof604_register_mature_rou_merchant_fleet_merge = yes }
-			if = { limit = { has_completed_focus = sof_ne_ROU_escort has_completed_focus = sof_ne_ROU_fleet_merge NOT = { has_country_flag = sof604_component_sof604_mature_ROU_escort_fleet_merge } } sof604_register_mature_rou_escort_fleet_merge = yes }
+			if = { limit = { has_completed_focus = sof_ne_ROU_merchant has_completed_focus = sof_ne_ROU_coast_network NOT = { has_country_flag = sof604_component_sof604_mature_ROU_merchant_fleet_merge } } sof604_register_mature_rou_merchant_fleet_merge = yes }
+			if = { limit = { has_completed_focus = sof_ne_ROU_escort has_completed_focus = sof_ne_ROU_coast_network NOT = { has_country_flag = sof604_component_sof604_mature_ROU_escort_fleet_merge } } sof604_register_mature_rou_escort_fleet_merge = yes }
 		}
 		else_if = { limit = { original_tag = TOU }
 			if = { limit = { has_completed_focus = sof_region_TOU_1936_fiscal NOT = { has_country_flag = sof605_done_new_tou_fiscal } } sof605_register_new_tou_fiscal = yes }
@@ -6840,7 +6840,7 @@ sof605_sync_late_entitlements = {
 			if = { limit = { has_completed_focus = sof_region_TRS_1936_bridge_guard NOT = { has_country_flag = sof605_done_new_trs_bridge_guard } } sof605_register_new_trs_bridge_guard = yes }
 			if = { limit = { has_completed_focus = sof_region_TRS_1936_field_signals NOT = { has_country_flag = sof605_done_new_trs_field_signals } } sof605_register_new_trs_field_signals = yes }
 			if = { limit = { has_completed_focus = sof_region_TRS_1936_popular_air NOT = { has_country_flag = sof605_done_new_trs_popular_air } } sof605_register_new_trs_popular_air = yes }
-			if = { limit = { has_completed_focus = sof_region_TRS_1936_air_mechanics NOT = { has_country_flag = sof605_done_new_trs_air_mechanics } } sof605_register_new_trs_air_mechanics = yes }
+			if = { limit = { has_completed_focus = sof_region_TRS_1936_trainer_airfields NOT = { has_country_flag = sof605_done_new_trs_air_mechanics } } sof605_register_new_trs_air_mechanics = yes }
 			if = { limit = { has_completed_focus = sof_region_TRS_1936_trainer_airfields NOT = { has_country_flag = sof605_done_new_trs_trainer_airfields } } sof605_register_new_trs_trainer_airfields = yes }
 			if = { limit = { has_completed_focus = sof_region_TRS_1936_observation NOT = { has_country_flag = sof605_done_new_trs_observation } } sof605_register_new_trs_observation = yes }
 		}

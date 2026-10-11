@@ -1,0 +1,156 @@
+on_actions = {
+on_startup = {
+effect = { every_country = { limit = { exists = yes sof_chr_origin = yes NOT = { has_country_flag = sof_chr_initialized } } sof_chr_initialize = yes } }
+}
+on_daily = {
+effect = { if = { limit = { exists = yes sof_chr_origin = yes } sof_chr_daily = yes } sof_chr_urgent_daily = yes sof_chr_press_daily = yes }
+}
+on_weekly = {
+effect = { if = { limit = { sof_chr_country = yes } sof_chr_weekly = yes } }
+}
+on_declare_war = {
+effect = { if = {
+limit = { sof_chr_country = yes FROM = { sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_system_seen_301 } } FROM = { save_event_target_as = sof_chr_other } set_global_flag = sof_chr_system_seen_301 sof_chr_report_301 = yes
+}
+FROM = {
+if = {
+limit = { sof_chr_country = yes ROOT = { sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_system_seen_301 } } ROOT = { save_event_target_as = sof_chr_other } set_global_flag = sof_chr_system_seen_301 sof_chr_report_301 = yes
+}
+
+}
+ }
+}
+on_capitulation = {
+effect = { if = {
+limit = { original_tag = AJC FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_ajc } } set_global_flag = sof_chr_seen_cap_ajc set_global_flag = sof_chr_pending_cap_ajc save_global_event_target_as = sof_chr_cap_ajc_other FROM = { save_global_event_target_as = sof_chr_cap_ajc_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = PRS FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_prs } } set_global_flag = sof_chr_seen_cap_prs set_global_flag = sof_chr_pending_cap_prs save_global_event_target_as = sof_chr_cap_prs_other FROM = { save_global_event_target_as = sof_chr_cap_prs_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = REN FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_ren } } set_global_flag = sof_chr_seen_cap_ren set_global_flag = sof_chr_pending_cap_ren save_global_event_target_as = sof_chr_cap_ren_other FROM = { save_global_event_target_as = sof_chr_cap_ren_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = LIL FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_lil } } set_global_flag = sof_chr_seen_cap_lil set_global_flag = sof_chr_pending_cap_lil save_global_event_target_as = sof_chr_cap_lil_other FROM = { save_global_event_target_as = sof_chr_cap_lil_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = MRS FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_mrs } } set_global_flag = sof_chr_seen_cap_mrs set_global_flag = sof_chr_pending_cap_mrs save_global_event_target_as = sof_chr_cap_mrs_other FROM = { save_global_event_target_as = sof_chr_cap_mrs_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = AMI FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_ami } } set_global_flag = sof_chr_seen_cap_ami set_global_flag = sof_chr_pending_cap_ami save_global_event_target_as = sof_chr_cap_ami_other FROM = { save_global_event_target_as = sof_chr_cap_ami_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = BES FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_bes } } set_global_flag = sof_chr_seen_cap_bes set_global_flag = sof_chr_pending_cap_bes save_global_event_target_as = sof_chr_cap_bes_other FROM = { save_global_event_target_as = sof_chr_cap_bes_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = BRD FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_brd } } set_global_flag = sof_chr_seen_cap_brd set_global_flag = sof_chr_pending_cap_brd save_global_event_target_as = sof_chr_cap_brd_other FROM = { save_global_event_target_as = sof_chr_cap_brd_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = CFR FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_cfr } } set_global_flag = sof_chr_seen_cap_cfr set_global_flag = sof_chr_pending_cap_cfr save_global_event_target_as = sof_chr_cap_cfr_other FROM = { save_global_event_target_as = sof_chr_cap_cfr_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = CHL FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_chl } } set_global_flag = sof_chr_seen_cap_chl set_global_flag = sof_chr_pending_cap_chl save_global_event_target_as = sof_chr_cap_chl_other FROM = { save_global_event_target_as = sof_chr_cap_chl_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = DIJ FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_dij } } set_global_flag = sof_chr_seen_cap_dij set_global_flag = sof_chr_pending_cap_dij save_global_event_target_as = sof_chr_cap_dij_other FROM = { save_global_event_target_as = sof_chr_cap_dij_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = LMG FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_lmg } } set_global_flag = sof_chr_seen_cap_lmg set_global_flag = sof_chr_pending_cap_lmg save_global_event_target_as = sof_chr_cap_lmg_other FROM = { save_global_event_target_as = sof_chr_cap_lmg_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = LYO FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_lyo } } set_global_flag = sof_chr_seen_cap_lyo set_global_flag = sof_chr_pending_cap_lyo save_global_event_target_as = sof_chr_cap_lyo_other FROM = { save_global_event_target_as = sof_chr_cap_lyo_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = MET FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_met } } set_global_flag = sof_chr_seen_cap_met set_global_flag = sof_chr_pending_cap_met save_global_event_target_as = sof_chr_cap_met_other FROM = { save_global_event_target_as = sof_chr_cap_met_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = MOP FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_mop } } set_global_flag = sof_chr_seen_cap_mop set_global_flag = sof_chr_pending_cap_mop save_global_event_target_as = sof_chr_cap_mop_other FROM = { save_global_event_target_as = sof_chr_cap_mop_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = NAN FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_nan } } set_global_flag = sof_chr_seen_cap_nan set_global_flag = sof_chr_pending_cap_nan save_global_event_target_as = sof_chr_cap_nan_other FROM = { save_global_event_target_as = sof_chr_cap_nan_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = POI FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_poi } } set_global_flag = sof_chr_seen_cap_poi set_global_flag = sof_chr_pending_cap_poi save_global_event_target_as = sof_chr_cap_poi_other FROM = { save_global_event_target_as = sof_chr_cap_poi_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = ROU FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_rou } } set_global_flag = sof_chr_seen_cap_rou set_global_flag = sof_chr_pending_cap_rou save_global_event_target_as = sof_chr_cap_rou_other FROM = { save_global_event_target_as = sof_chr_cap_rou_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = STR FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_str } } set_global_flag = sof_chr_seen_cap_str set_global_flag = sof_chr_pending_cap_str save_global_event_target_as = sof_chr_cap_str_other FROM = { save_global_event_target_as = sof_chr_cap_str_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = TOU FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_tou } } set_global_flag = sof_chr_seen_cap_tou set_global_flag = sof_chr_pending_cap_tou save_global_event_target_as = sof_chr_cap_tou_other FROM = { save_global_event_target_as = sof_chr_cap_tou_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+if = {
+limit = { original_tag = TRS FROM = { exists = yes sof_nr_french_origin = yes } NOT = { has_global_flag = sof_chr_seen_cap_trs } } set_global_flag = sof_chr_seen_cap_trs set_global_flag = sof_chr_pending_cap_trs save_global_event_target_as = sof_chr_cap_trs_other FROM = { save_global_event_target_as = sof_chr_cap_trs_actor if = { limit = { sof_chr_origin = yes } set_country_flag = sof_chr_major_victory } }
+}
+ }
+}
+on_annex = {
+effect = { if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = AJC } NOT = { has_global_flag = sof_chr_seen_annex_ajc } } set_global_flag = sof_chr_seen_annex_ajc set_global_flag = sof_chr_pending_annex_ajc save_global_event_target_as = sof_chr_annex_ajc_actor FROM = { save_global_event_target_as = sof_chr_annex_ajc_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = PRS } NOT = { has_global_flag = sof_chr_seen_annex_prs } } set_global_flag = sof_chr_seen_annex_prs set_global_flag = sof_chr_pending_annex_prs save_global_event_target_as = sof_chr_annex_prs_actor FROM = { save_global_event_target_as = sof_chr_annex_prs_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = REN } NOT = { has_global_flag = sof_chr_seen_annex_ren } } set_global_flag = sof_chr_seen_annex_ren set_global_flag = sof_chr_pending_annex_ren save_global_event_target_as = sof_chr_annex_ren_actor FROM = { save_global_event_target_as = sof_chr_annex_ren_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = LIL } NOT = { has_global_flag = sof_chr_seen_annex_lil } } set_global_flag = sof_chr_seen_annex_lil set_global_flag = sof_chr_pending_annex_lil save_global_event_target_as = sof_chr_annex_lil_actor FROM = { save_global_event_target_as = sof_chr_annex_lil_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = MRS } NOT = { has_global_flag = sof_chr_seen_annex_mrs } } set_global_flag = sof_chr_seen_annex_mrs set_global_flag = sof_chr_pending_annex_mrs save_global_event_target_as = sof_chr_annex_mrs_actor FROM = { save_global_event_target_as = sof_chr_annex_mrs_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = AMI } NOT = { has_global_flag = sof_chr_seen_annex_ami } } set_global_flag = sof_chr_seen_annex_ami set_global_flag = sof_chr_pending_annex_ami save_global_event_target_as = sof_chr_annex_ami_actor FROM = { save_global_event_target_as = sof_chr_annex_ami_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = BES } NOT = { has_global_flag = sof_chr_seen_annex_bes } } set_global_flag = sof_chr_seen_annex_bes set_global_flag = sof_chr_pending_annex_bes save_global_event_target_as = sof_chr_annex_bes_actor FROM = { save_global_event_target_as = sof_chr_annex_bes_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = BRD } NOT = { has_global_flag = sof_chr_seen_annex_brd } } set_global_flag = sof_chr_seen_annex_brd set_global_flag = sof_chr_pending_annex_brd save_global_event_target_as = sof_chr_annex_brd_actor FROM = { save_global_event_target_as = sof_chr_annex_brd_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = CFR } NOT = { has_global_flag = sof_chr_seen_annex_cfr } } set_global_flag = sof_chr_seen_annex_cfr set_global_flag = sof_chr_pending_annex_cfr save_global_event_target_as = sof_chr_annex_cfr_actor FROM = { save_global_event_target_as = sof_chr_annex_cfr_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = CHL } NOT = { has_global_flag = sof_chr_seen_annex_chl } } set_global_flag = sof_chr_seen_annex_chl set_global_flag = sof_chr_pending_annex_chl save_global_event_target_as = sof_chr_annex_chl_actor FROM = { save_global_event_target_as = sof_chr_annex_chl_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = DIJ } NOT = { has_global_flag = sof_chr_seen_annex_dij } } set_global_flag = sof_chr_seen_annex_dij set_global_flag = sof_chr_pending_annex_dij save_global_event_target_as = sof_chr_annex_dij_actor FROM = { save_global_event_target_as = sof_chr_annex_dij_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = LMG } NOT = { has_global_flag = sof_chr_seen_annex_lmg } } set_global_flag = sof_chr_seen_annex_lmg set_global_flag = sof_chr_pending_annex_lmg save_global_event_target_as = sof_chr_annex_lmg_actor FROM = { save_global_event_target_as = sof_chr_annex_lmg_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = LYO } NOT = { has_global_flag = sof_chr_seen_annex_lyo } } set_global_flag = sof_chr_seen_annex_lyo set_global_flag = sof_chr_pending_annex_lyo save_global_event_target_as = sof_chr_annex_lyo_actor FROM = { save_global_event_target_as = sof_chr_annex_lyo_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = MET } NOT = { has_global_flag = sof_chr_seen_annex_met } } set_global_flag = sof_chr_seen_annex_met set_global_flag = sof_chr_pending_annex_met save_global_event_target_as = sof_chr_annex_met_actor FROM = { save_global_event_target_as = sof_chr_annex_met_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = MOP } NOT = { has_global_flag = sof_chr_seen_annex_mop } } set_global_flag = sof_chr_seen_annex_mop set_global_flag = sof_chr_pending_annex_mop save_global_event_target_as = sof_chr_annex_mop_actor FROM = { save_global_event_target_as = sof_chr_annex_mop_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = NAN } NOT = { has_global_flag = sof_chr_seen_annex_nan } } set_global_flag = sof_chr_seen_annex_nan set_global_flag = sof_chr_pending_annex_nan save_global_event_target_as = sof_chr_annex_nan_actor FROM = { save_global_event_target_as = sof_chr_annex_nan_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = POI } NOT = { has_global_flag = sof_chr_seen_annex_poi } } set_global_flag = sof_chr_seen_annex_poi set_global_flag = sof_chr_pending_annex_poi save_global_event_target_as = sof_chr_annex_poi_actor FROM = { save_global_event_target_as = sof_chr_annex_poi_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = ROU } NOT = { has_global_flag = sof_chr_seen_annex_rou } } set_global_flag = sof_chr_seen_annex_rou set_global_flag = sof_chr_pending_annex_rou save_global_event_target_as = sof_chr_annex_rou_actor FROM = { save_global_event_target_as = sof_chr_annex_rou_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = STR } NOT = { has_global_flag = sof_chr_seen_annex_str } } set_global_flag = sof_chr_seen_annex_str set_global_flag = sof_chr_pending_annex_str save_global_event_target_as = sof_chr_annex_str_actor FROM = { save_global_event_target_as = sof_chr_annex_str_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = TOU } NOT = { has_global_flag = sof_chr_seen_annex_tou } } set_global_flag = sof_chr_seen_annex_tou set_global_flag = sof_chr_pending_annex_tou save_global_event_target_as = sof_chr_annex_tou_actor FROM = { save_global_event_target_as = sof_chr_annex_tou_other }
+}
+if = {
+limit = { sof_nr_french_origin = yes FROM = { original_tag = TRS } NOT = { has_global_flag = sof_chr_seen_annex_trs } } set_global_flag = sof_chr_seen_annex_trs set_global_flag = sof_chr_pending_annex_trs save_global_event_target_as = sof_chr_annex_trs_actor FROM = { save_global_event_target_as = sof_chr_annex_trs_other }
+}
+ }
+}
+
+}

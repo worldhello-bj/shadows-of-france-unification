@@ -1,4 +1,4 @@
-﻿add_namespace = sof_tp_contract
+add_namespace = sof_tp_contract
 country_event = { id = sof_tp_contract.1 title = sof_tp_contract.1.t desc = sof_tp_contract.1.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
  option = { name = sof_tp_contract.1.a trigger = { sof_tp_valid_contract_offer = yes } ai_chance = {  factor = 55 modifier = { factor = 1.5 FROM = { has_country_flag = sof_tp_charter_federal } }  modifier = { factor = 1.8 sof607_ai_same_natural_bloc = yes } modifier = { factor = 1.5 has_government = FROM } modifier = { factor = 0.3 FROM = { check_variable = { sof_tp_trust < 30 } } } modifier = { factor = 1.5 is_in_faction_with = FROM } }
  if = { limit = { sof_tp_valid_contract_offer = yes }

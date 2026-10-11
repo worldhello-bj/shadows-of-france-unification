@@ -1,0 +1,37 @@
+sof_lmg_setup = {
+ if = { limit = { original_tag = LMG NOT = { has_focus_tree = sof_region_LMG_1936 } }
+  if = { limit = { has_focus_tree = sof_generic }
+   if = { limit = { has_completed_focus = SOF_GENERIC_arrondissement } set_country_flag = sof_lmg_migrate_council set_country_flag = sof_lmg_council_paid }
+   if = { limit = { has_completed_focus = SOF_GENERIC_department } set_country_flag = sof_lmg_migrate_council set_country_flag = sof_lmg_council_paid set_country_flag = sof_lmg_migrate_accounts set_country_flag = sof_lmg_accounts_paid }
+   if = { limit = { has_completed_focus = SOF_GENERIC_province } set_country_flag = sof_lmg_migrate_council set_country_flag = sof_lmg_council_paid set_country_flag = sof_lmg_migrate_accounts set_country_flag = sof_lmg_accounts_paid set_country_flag = sof_lmg_migrate_rural_register set_country_flag = sof_lmg_rural_register_paid }
+   if = { limit = { has_completed_focus = SOF_GENERIC_basic_industry } set_country_flag = sof_lmg_migrate_council set_country_flag = sof_lmg_council_paid set_country_flag = sof_lmg_migrate_workshop_census set_country_flag = sof_lmg_workshop_census_paid }
+   if = { limit = { has_completed_focus = SOF_GENERIC_3_infantry_divisions } set_country_flag = sof_lmg_migrate_council set_country_flag = sof_lmg_council_paid set_country_flag = sof_lmg_migrate_defense_survey set_country_flag = sof_lmg_defense_survey_paid }
+  }
+  load_focus_tree = { tree = sof_region_LMG_1936 keep_completed = yes }
+  set_country_flag = sof_lmg_tree_migrated
+ }
+ if = { limit = { original_tag = LMG has_focus_tree = sof_region_LMG_1936 }
+  if = { limit = { has_country_flag = sof_lmg_migrate_council NOT = { has_completed_focus = sof_lmg_council } } complete_national_focus = sof_lmg_council }
+  if = { limit = { has_country_flag = sof_lmg_migrate_accounts NOT = { has_completed_focus = sof_lmg_accounts } } complete_national_focus = sof_lmg_accounts }
+  if = { limit = { has_country_flag = sof_lmg_migrate_rural_register NOT = { has_completed_focus = sof_lmg_rural_register } } complete_national_focus = sof_lmg_rural_register }
+  if = { limit = { has_country_flag = sof_lmg_migrate_workshop_census NOT = { has_completed_focus = sof_lmg_workshop_census } } complete_national_focus = sof_lmg_workshop_census }
+  if = { limit = { has_country_flag = sof_lmg_migrate_defense_survey NOT = { has_completed_focus = sof_lmg_defense_survey } } complete_national_focus = sof_lmg_defense_survey }
+  if = { limit = { has_completed_focus = sof_lmg_council } sof_tp_focus_office_effect = yes }
+  sof_lmg_sync_sites = yes
+ }
+}
+
+sof_lmg_sync_sites = {
+ if = { limit = { original_tag = LMG }
+  if = { limit = { has_country_flag = sof_lmg_legrand_paid has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+   if = { limit = { NOT = { has_idea = sof_lmg_electrical_workshops } } add_ideas = sof_lmg_electrical_workshops }
+  } else = { remove_ideas = sof_lmg_electrical_workshops }
+  if = { limit = { has_country_flag = sof_lmg_tulle_tooling_paid has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+   if = { limit = { NOT = { has_idea = sof_lmg_tulle_workshops } } add_ideas = sof_lmg_tulle_workshops }
+  } else = { remove_ideas = sof_lmg_tulle_workshops }
+  if = { limit = { NOT = { has_country_flag = sof_kr_party_sfio_in_power } } remove_ideas = sof_lmg_municipal_policy }
+  if = { limit = { NOT = { has_country_flag = sof_kr_party_prrrs_in_power } } remove_ideas = sof_lmg_radical_policy }
+  if = { limit = { has_country_flag = sof_lmg_municipal_paid has_country_flag = sof_kr_party_sfio_in_power NOT = { has_idea = sof_lmg_municipal_policy } } add_ideas = sof_lmg_municipal_policy }
+  if = { limit = { has_country_flag = sof_lmg_radical_paid has_country_flag = sof_kr_party_prrrs_in_power NOT = { has_idea = sof_lmg_radical_policy } } add_ideas = sof_lmg_radical_policy }
+ }
+}

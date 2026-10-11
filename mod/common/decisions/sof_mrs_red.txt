@@ -40,8 +40,8 @@ ai_will_do = { factor = 8 } }
 sof_mrs_red_military = {
 sof_mrs_red_militia_course = { 
 icon = sof_cw_specialty cost = 25 days_remove = 60 fire_only_once = yes
-visible = { OR = { has_completed_focus = SOF_MRS_RED_A3 has_completed_focus = SOF_MRS_RED_M1 } NOT = { has_country_flag = sof_mrs_red_militia_template } }
-available = { sof_mrs_red_candidate = yes manpower > 2999 has_equipment = { infantry_equipment > 149 } }
+visible = { OR = { has_completed_focus = SOF_MRS_RED_A3 has_completed_focus = SOF_MRS_RED_M2 } NOT = { has_country_flag = sof_mrs_red_militia_template } }
+available = { sof_mrs_red_candidate = yes has_manpower > 2999 has_equipment = { infantry_equipment > 149 } }
 custom_cost_trigger = { has_equipment = { infantry_equipment > 149 } } custom_cost_text = sof_mrs_red_militia_cost_tt
 complete_effect = { add_equipment_to_stockpile = { type = infantry_equipment amount = -150 } set_country_flag = sof_mrs_red_militia_training }
 remove_effect = { clr_country_flag = sof_mrs_red_militia_training if = { limit = { sof_mrs_red_candidate = yes NOT = { has_country_flag = sof_mrs_red_militia_template } }
@@ -69,7 +69,7 @@ complete_effect = { set_country_flag = sof_mrs_red_campaign_pending }
 remove_effect = { clr_country_flag = sof_mrs_red_campaign_pending if = { limit = { sof_mrs_red_active = yes has_war = no FROM = { sof_mrs_red_campaign_target = yes } } create_wargoal = { type = annex_everything target = FROM expire = 180 } } }
 cancel_trigger = { OR = { sof_mrs_red_active = no has_war = yes FROM = { sof_mrs_red_campaign_target = no } } }
 cancel_effect = { clr_country_flag = sof_mrs_red_campaign_pending }
-ai_will_do = { factor = 4 modifier = { factor = 0 OR = { has_stability < 0.45 manpower < 3000 strength_ratio = { tag = FROM ratio < 1.1 } FROM = { OR = { has_war = yes is_in_faction = yes } } } } } }
+ai_will_do = { factor = 4 modifier = { factor = 0 OR = { has_stability < 0.45 has_manpower < 3000 strength_ratio = { tag = FROM ratio < 1.1 } FROM = { OR = { has_war = yes is_in_faction = yes } } } } } }
 sof_mrs_red_sea_campaign_prepare = { 
 icon = sof_cw_campaign targets = { ABB ABR ABU ACC ACH AGL AGN AGZ AIX AJC ALB ALE ALS ALT AMB AMI ANC AND ANG ANN ANT ANY APT ARE ARG ARL ARR AUR AUS AUT AVA AVE AVG AVR AXR BAR BAY BBL BCL BEA BEB BEL BER BES BET BEY BEZ BGB BGC BGN BLA BLC BLD BLF BLO BLY BOB BON BOU BRC BRD BRE BRG BRU BRY BSM BSS BST BVA BVG BYN CAE CAH CAL CAM CAO CBR CCL CCS CDM CER CFL CFR CGC CHA CHB CHC CHD CHE CHG CHI CHL CHM CHO CHR CHS CHT CHU CLA CLM CLV CMP COL COM COR COU CRL CRP CRR CRT CSL CST CTE CTH D01 D02 D03 D04 D05 D06 D07 D08 D09 D10 D11 D12 D13 D14 D15 D16 D17 D18 D19 D20 D21 D22 D23 D24 D25 D26 D27 D28 D29 D30 D31 D32 D33 D34 D35 D36 D37 D38 D39 D40 D41 D42 D43 D44 D45 D46 D47 D48 D49 D50 D51 D52 D53 D54 D55 D56 D57 D58 D59 D60 D61 D62 D63 D64 D65 D66 D67 D68 D69 D70 D71 D72 D73 D74 D75 DAX DGG DIE DIJ DIN DIP DKQ DLB DOL DOU DRE ENG EPE EPI ETP EVR EVY FAC FGC FLQ FON FOR FOU FOX FTB GAP GBW GER GEX GRD GRN GSS GUE GUI HAG HAV HLR HOL ISO ISS IST ITA JZC LAG LAN LAO LAR LAV LCH LDV LEN LFL LIB LIL LIS LMA LMC LMG LMX LNG LOC LON LOR LOU LRA LRO LRY LUN LUR LUX LYO MAC MAM MAY MBE MBR MBS MEA MEN MET MLC MLJ MLL MLU MMS MOL MON MOP MOR MOU MRC MRD MRE MRL MRM MTB MTD MTM MTR MUL NAN NCH NEV NIC NIM NNC NNT NOG NON NRB NRC NRT NSM NSS NTR NYO OLO ORL OSM PAU PER PEV PGX PIT PLS PMS PNT POI PON PPG PRD PRH PRI PRS PRV PTN QUI RBL RCF RCH RDZ RED REI REN RET RIB RIO RML ROA ROU SAM SAR SAU SAV SBR SCL SDI SDZ SED SEG SEL SEN SET SFR SGI SGL SGU SIN SJA SJG SJM SLC SLO SMA SME SNA SNL SOS SPR SRC SRG SRT STD STO STQ STR SWI TDP THA THE THO THR TLB TLN TOL TOU TRB TRC TRO TRS TSR TUL USS VAL VAN VCH VEN VER VES VIE VIG VIN VIR VIT VLC VLF VNV VOU VRS VRV VSS WIS YSS } cost = 50 days_remove = 90 days_re_enable = 180
 target_root_trigger = { original_tag = MRS } target_trigger = { FROM = { sof_mrs_red_sea_target = yes } }
