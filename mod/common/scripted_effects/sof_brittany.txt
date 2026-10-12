@@ -10,26 +10,27 @@ if = { limit = { has_country_flag = sof_brt_pledge_legorgeu } add_to_variable = 
 if = { limit = { has_country_flag = sof_brt_pledge_tremintin } add_to_variable = { sof_brt_support = 15 } set_variable = { sof_brt_ui_tremintin = 2 } } else = { set_variable = { sof_brt_ui_tremintin = 1 } }
 if = { limit = { has_country_flag = sof_brt_pledge_prigent } add_to_variable = { sof_brt_support = 15 } set_variable = { sof_brt_ui_prigent = 2 } } else = { set_variable = { sof_brt_ui_prigent = 1 } }
 clamp_variable = { var = sof_brt_support min = 0 max = 100 } }
-sof_brt_pledge_chateau_grant = { set_country_flag = { flag = sof_brt_pledge_chateau days = 180 } add_timed_idea = { idea = sof_brt_municipal days = 180 } sof_brt_count_support = yes }
-sof_brt_gui_lobby_chateau = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P3 NOT = { has_country_flag = sof_brt_pledge_chateau } NOT = { has_country_flag = sof_brt_suspended_chateau } NOT = { has_political_power < 25 } } add_political_power = -25 sof_brt_pledge_chateau_grant = yes } }
-sof_brt_pledge_lemaistre_grant = { set_country_flag = { flag = sof_brt_pledge_lemaistre days = 180 } add_timed_idea = { idea = sof_brt_fiscal days = 180 } sof_brt_count_support = yes }
-sof_brt_gui_lobby_lemaistre = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P4 NOT = { has_country_flag = sof_brt_pledge_lemaistre } NOT = { has_country_flag = sof_brt_suspended_lemaistre } NOT = { has_political_power < 25 } } add_political_power = -25 sof_brt_pledge_lemaistre_grant = yes } }
-sof_brt_pledge_bahon_grant = { set_country_flag = { flag = sof_brt_pledge_bahon days = 180 } add_timed_idea = { idea = sof_brt_labour days = 180 } sof_brt_count_support = yes }
-sof_brt_gui_lobby_bahon = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P5 NOT = { has_country_flag = sof_brt_pledge_bahon } NOT = { has_country_flag = sof_brt_suspended_bahon } NOT = { has_political_power < 30 } } add_political_power = -30 sof_brt_pledge_bahon_grant = yes } }
-sof_brt_pledge_legorgeu_grant = { set_country_flag = { flag = sof_brt_pledge_legorgeu days = 180 } add_timed_idea = { idea = sof_brt_ports days = 180 } sof_brt_count_support = yes }
-sof_brt_gui_lobby_legorgeu = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P6 NOT = { has_country_flag = sof_brt_pledge_legorgeu } NOT = { has_country_flag = sof_brt_suspended_legorgeu } NOT = { has_political_power < 35 } } add_political_power = -35 sof_brt_pledge_legorgeu_grant = yes } }
-sof_brt_pledge_tremintin_grant = { set_country_flag = { flag = sof_brt_pledge_tremintin days = 180 } add_timed_idea = { idea = sof_brt_schools days = 180 } sof_brt_count_support = yes }
-sof_brt_gui_lobby_tremintin = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P7 NOT = { has_country_flag = sof_brt_pledge_tremintin } NOT = { has_country_flag = sof_brt_suspended_tremintin } NOT = { has_political_power < 25 } } add_political_power = -25 sof_brt_pledge_tremintin_grant = yes } }
-sof_brt_pledge_prigent_grant = { set_country_flag = { flag = sof_brt_pledge_prigent days = 180 } add_timed_idea = { idea = sof_brt_rural days = 180 } sof_brt_count_support = yes }
-sof_brt_gui_lobby_prigent = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P8 NOT = { has_country_flag = sof_brt_pledge_prigent } NOT = { has_country_flag = sof_brt_suspended_prigent } NOT = { has_political_power < 30 } } add_political_power = -30 sof_brt_pledge_prigent_grant = yes } }
+sof_brt_pledge_chateau_grant = { set_country_flag = { flag = sof_brt_pledge_chateau days = 540 } add_timed_idea = { idea = sof_brt_municipal days = 540 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_chateau = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_chateau } NOT = { has_country_flag = sof_brt_suspended_chateau } NOT = { has_political_power < 25 } } add_political_power = -25 sof_brt_pledge_chateau_grant = yes } }
+sof_brt_pledge_lemaistre_grant = { set_country_flag = { flag = sof_brt_pledge_lemaistre days = 540 } add_timed_idea = { idea = sof_brt_fiscal days = 540 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_lemaistre = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_lemaistre } NOT = { has_country_flag = sof_brt_suspended_lemaistre } NOT = { has_political_power < 25 } } add_political_power = -25 sof_brt_pledge_lemaistre_grant = yes } }
+sof_brt_pledge_bahon_grant = { set_country_flag = { flag = sof_brt_pledge_bahon days = 540 } add_timed_idea = { idea = sof_brt_labour days = 540 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_bahon = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_bahon } NOT = { has_country_flag = sof_brt_suspended_bahon } NOT = { has_political_power < 30 } } add_political_power = -30 sof_brt_pledge_bahon_grant = yes } }
+sof_brt_pledge_legorgeu_grant = { set_country_flag = { flag = sof_brt_pledge_legorgeu days = 540 } add_timed_idea = { idea = sof_brt_ports days = 540 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_legorgeu = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_legorgeu } NOT = { has_country_flag = sof_brt_suspended_legorgeu } NOT = { has_political_power < 35 } } add_political_power = -35 sof_brt_pledge_legorgeu_grant = yes } }
+sof_brt_pledge_tremintin_grant = { set_country_flag = { flag = sof_brt_pledge_tremintin days = 540 } add_timed_idea = { idea = sof_brt_schools days = 540 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_tremintin = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_tremintin } NOT = { has_country_flag = sof_brt_suspended_tremintin } NOT = { has_political_power < 25 } } add_political_power = -25 sof_brt_pledge_tremintin_grant = yes } }
+sof_brt_pledge_prigent_grant = { set_country_flag = { flag = sof_brt_pledge_prigent days = 540 } add_timed_idea = { idea = sof_brt_rural days = 540 } sof_brt_count_support = yes }
+sof_brt_gui_lobby_prigent = { if = { limit = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_prigent } NOT = { has_country_flag = sof_brt_suspended_prigent } NOT = { has_political_power < 30 } } add_political_power = -30 sof_brt_pledge_prigent_grant = yes } }
 sof_brt_initialize = {
 if = { limit = { original_tag = REN NOT = { has_country_flag = sof_brt_initialized } }
  set_country_flag = sof_brt_initialized
  set_variable = { sof_brt_isolation = 3 }
- set_country_flag = { flag = sof_brt_pledge_chateau days = 180 }
- set_country_flag = { flag = sof_brt_pledge_lemaistre days = 180 }
+ set_country_flag = { flag = sof_brt_pledge_chateau days = 540 }
+ set_country_flag = { flag = sof_brt_pledge_lemaistre days = 540 }
  clr_country_flag = sofzh_unification_war_ready
  }
+ sof_brt_compact_upgrade = yes
 }
 sof_brt_sync = {
 if = { limit = { sof_brt_active = yes }
@@ -114,7 +115,7 @@ if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = 
 if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_M3 OR = { has_completed_focus = SOF_BRT_F0 has_completed_focus = SOF_BRT_O0 } has_country_flag = sof_brt_pledge_bahon has_country_flag = sof_brt_pledge_lemaistre } } remove_ideas = sof_brt_committee_army }
 if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_N2 has_country_flag = sof_brt_law_ports has_country_flag = sof_brt_pledge_legorgeu } } remove_ideas = sof_brt_committee_navy }
 if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_A2 has_country_flag = sof_brt_pledge_bahon has_country_flag = sof_brt_pledge_tremintin } } remove_ideas = sof_brt_committee_air }
-if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_E9 has_completed_focus = SOF_BRT_P9 has_country_flag = sof_brt_pledge_lemaistre has_country_flag = sof_brt_pledge_tremintin } } remove_ideas = sof_brt_committee_science }
+if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_E9 has_completed_focus = SOF_BRT_P15 has_country_flag = sof_brt_pledge_lemaistre has_country_flag = sof_brt_pledge_tremintin } } remove_ideas = sof_brt_committee_science }
 if = { limit = { NOT = { sof_brt_active = yes is_subject = no has_capitulated = no sof_brt_majority = yes has_completed_focus = SOF_BRT_D0 has_completed_focus = SOF_BRT_P20 has_country_flag = sof_brt_pledge_chateau has_country_flag = sof_brt_pledge_legorgeu } } remove_ideas = sof_brt_committee_diplomacy }
 }
 sof_brt_home_watch = { if = { limit = { sof_brt_active = yes }

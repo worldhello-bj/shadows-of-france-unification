@@ -1,0 +1,2357 @@
+# Investments are country-wide one-shot allocations; policies follow the current government.
+
+sof_rpe_build_primary_industrial_complex = {
+ if = { limit = { any_owned_state = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } }
+  random_owned_controlled_state = { limit = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }
+ } else = { add_political_power = 80 add_tech_bonus = { name = sof_rpe_capacity_bonus bonus = 0.75 uses = 1 category = industry } }
+}
+
+sof_rpe_build_primary_arms_factory = {
+ if = { limit = { any_owned_state = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } } }
+  random_owned_controlled_state = { limit = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }
+ } else = { add_political_power = 80 add_tech_bonus = { name = sof_rpe_capacity_bonus bonus = 0.75 uses = 1 category = industry } }
+}
+
+sof_rpe_build_primary_dockyard = {
+ if = { limit = { any_owned_state = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } is_coastal = yes } }
+  random_owned_controlled_state = { limit = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } is_coastal = yes } add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } }
+ } else = { add_political_power = 80 add_tech_bonus = { name = sof_rpe_capacity_bonus bonus = 0.75 uses = 1 category = industry } }
+}
+
+sof_rpe_build_primary_infrastructure = {
+ if = { limit = { any_owned_state = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5 } }
+  random_owned_controlled_state = { limit = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5 }  add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+ } else = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_build_secondary_industrial_complex = {
+ if = { limit = { any_owned_state = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } }
+  random_owned_controlled_state = { limit = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }
+ } else = { add_political_power = 80 add_tech_bonus = { name = sof_rpe_capacity_bonus bonus = 0.75 uses = 1 category = industry } }
+}
+
+sof_rpe_build_secondary_arms_factory = {
+ if = { limit = { any_owned_state = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } } }
+  random_owned_controlled_state = { limit = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } } add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } }
+ } else = { add_political_power = 80 add_tech_bonus = { name = sof_rpe_capacity_bonus bonus = 0.75 uses = 1 category = industry } }
+}
+
+sof_rpe_build_secondary_dockyard = {
+ if = { limit = { any_owned_state = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } is_coastal = yes } }
+  random_owned_controlled_state = { limit = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT free_building_slots = { building = dockyard size > 0 include_locked = yes } is_coastal = yes } add_extra_state_shared_building_slots = 1 add_building_construction = { type = dockyard level = 1 instant_build = yes } }
+ } else = { add_political_power = 80 add_tech_bonus = { name = sof_rpe_capacity_bonus bonus = 0.75 uses = 1 category = industry } }
+}
+
+sof_rpe_build_secondary_infrastructure = {
+ if = { limit = { any_owned_state = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5 } }
+  random_owned_controlled_state = { limit = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT infrastructure < 5 }  add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+ } else = { add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_pcf_a = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_primary_dockyard = yes sof_rpe_build_primary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+}
+
+sof_rpe_invest_pcf_b = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_sfio_a = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_primary_dockyard = yes sof_rpe_build_primary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+}
+
+sof_rpe_invest_sfio_b = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_prrrs_a = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_primary_dockyard = yes sof_rpe_build_primary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+}
+
+sof_rpe_invest_prrrs_b = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_usr_a = {
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+}
+
+sof_rpe_invest_usr_b = {
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_pup_a = {
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+}
+
+sof_rpe_invest_pup_b = {
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_rg_ad_a = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_primary_dockyard = yes sof_rpe_build_primary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+}
+
+sof_rpe_invest_rg_ad_b = {
+ if = { limit = { has_focus_tree = sofzh_corsica } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_fr_urd_a = {
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_primary_dockyard = yes sof_rpe_build_primary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+}
+
+sof_rpe_invest_fr_urd_b = {
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_pdp_a = {
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_primary_dockyard = yes sof_rpe_build_primary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+}
+
+sof_rpe_invest_pdp_b = {
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_mrs_red } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } sof_rpe_build_secondary_dockyard = yes sof_rpe_build_secondary_dockyard = yes }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_upr_a = {
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_primary_industrial_complex = yes sof_rpe_build_primary_industrial_complex = yes }
+}
+
+sof_rpe_invest_upr_b = {
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_invest_doriot_a = {
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_primary_arms_factory = yes sof_rpe_build_primary_arms_factory = yes }
+}
+
+sof_rpe_invest_doriot_b = {
+ if = { limit = { has_focus_tree = sofzh_paris } sof_rpe_build_secondary_infrastructure = yes add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } }
+}
+
+sof_rpe_upgrade = {
+ if = { limit = { sof_rpe_region = yes NOT = { has_country_flag = sof_rpe_layout_v1 } }
+ set_country_flag = sof_rpe_layout_v1
+ if = { limit = { has_focus_tree = sofzh_corsica } load_focus_tree = { tree = sofzh_corsica keep_completed = yes } }
+ if = { limit = { has_focus_tree = sofzh_paris } load_focus_tree = { tree = sofzh_paris keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_lille_vanilla_pilot } load_focus_tree = { tree = sof_lille_vanilla_pilot keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_mrs_red } load_focus_tree = { tree = sof_mrs_red keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_AMI_1936 } load_focus_tree = { tree = sof_region_AMI_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_BES_1936 } load_focus_tree = { tree = sof_region_BES_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_BRD_1936 } load_focus_tree = { tree = sof_region_BRD_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_CFR_1936 } load_focus_tree = { tree = sof_region_CFR_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_CHL_1936 } load_focus_tree = { tree = sof_region_CHL_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_DIJ_1936 } load_focus_tree = { tree = sof_region_DIJ_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_LMG_1936 } load_focus_tree = { tree = sof_region_LMG_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_LYO_1936 } load_focus_tree = { tree = sof_region_LYO_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_MET_1936 } load_focus_tree = { tree = sof_region_MET_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_MOP_1936 } load_focus_tree = { tree = sof_region_MOP_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_NAN_1936 } load_focus_tree = { tree = sof_region_NAN_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_POI_1936 } load_focus_tree = { tree = sof_region_POI_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_ROU_1936 } load_focus_tree = { tree = sof_region_ROU_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_STR_1936 } load_focus_tree = { tree = sof_region_STR_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_TOU_1936 } load_focus_tree = { tree = sof_region_TOU_1936 keep_completed = yes } }
+ if = { limit = { has_focus_tree = sof_region_TRS_1936 } load_focus_tree = { tree = sof_region_TRS_1936 keep_completed = yes } }
+ }
+}
+
+sof_rpe_sync = {
+ sof_rpe_upgrade = yes
+ set_variable = { sof_rpe_civ = 0 }
+ set_variable = { sof_rpe_mil = 0 }
+ set_variable = { sof_rpe_dock = 0 }
+ set_variable = { sof_rpe_infra = 0 }
+ set_variable = { sof_rpe_output = 0 }
+ set_variable = { sof_rpe_eff = 0 }
+ set_variable = { sof_rpe_cap = 0 }
+ set_variable = { sof_rpe_retention = 0 }
+ set_variable = { sof_rpe_pp = 0 }
+ set_variable = { sof_rpe_stab = 0 }
+ set_variable = { sof_rpe_research = 0 }
+ set_variable = { sof_rpe_supply = 0 }
+ set_variable = { sof_rpe_org = 0 }
+ if = { limit = { sof_rpe_pcf_active = yes }
+  if = { limit = { has_focus_tree = sofzh_corsica }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_AMI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BES_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BRD_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CHL_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_DIJ_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MET_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MOP_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_mrs_red }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_NAN_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.06 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_POI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_ROU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_STR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TOU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LMG_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pcf_a_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_retention = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pcf_b_paid }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_pcf_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_sfio_active = yes }
+  if = { limit = { has_focus_tree = sofzh_corsica }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_AMI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BES_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BRD_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CHL_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_DIJ_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MET_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MOP_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_mrs_red }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_NAN_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.06 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_POI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_ROU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_STR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TOU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LMG_1936 }
+   if = { limit = { has_country_flag = sof_rpe_sfio_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_retention = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_sfio_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_sfio_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_prrrs_active = yes }
+  if = { limit = { has_focus_tree = sofzh_corsica }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_AMI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BES_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BRD_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_pp = 0.04 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CHL_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_DIJ_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MET_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MOP_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_mrs_red }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_NAN_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.06 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_POI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_ROU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_STR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TOU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LMG_1936 }
+   if = { limit = { has_country_flag = sof_rpe_prrrs_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.06 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_retention = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_prrrs_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_prrrs_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_usr_active = yes }
+  if = { limit = { has_focus_tree = sof_region_AMI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BRD_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CHL_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_DIJ_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MET_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MOP_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_mrs_red }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_POI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_ROU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TOU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_usr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_usr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_usr_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_pup_active = yes }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pup_a_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pup_b_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CHL_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pup_a_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pup_b_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_DIJ_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pup_a_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pup_b_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_pup_a_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pup_b_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pup_a_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pup_b_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_pup_a_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pup_b_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pup_a_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pup_b_paid }
+    add_to_variable = { sof_rpe_retention = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_pup_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_rg_ad_active = yes }
+  if = { limit = { has_focus_tree = sofzh_corsica }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_AMI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BES_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BRD_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.04 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CHL_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_DIJ_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MET_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MOP_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_mrs_red }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_NAN_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.06 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_POI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_ROU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_STR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TOU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LMG_1936 }
+   if = { limit = { has_country_flag = sof_rpe_rg_ad_a_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_retention = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_rg_ad_b_paid }
+    add_to_variable = { sof_rpe_cap = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_rg_ad_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_fr_urd_active = yes }
+  if = { limit = { has_focus_tree = sof_region_AMI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BES_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BRD_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CHL_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_DIJ_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.06 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.06 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MET_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.06 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MOP_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_mrs_red }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_NAN_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_dock = 0.06 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_POI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_ROU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.06 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_STR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TOU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.06 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LMG_1936 }
+   if = { limit = { has_country_flag = sof_rpe_fr_urd_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_retention = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_fr_urd_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.04 }
+    add_to_variable = { sof_rpe_org = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_fr_urd_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_pdp_active = yes }
+  if = { limit = { has_focus_tree = sof_region_AMI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_cap = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.06 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BES_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_BRD_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_pp = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_CFR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_lille_vanilla_pilot }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_LYO_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_MET_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_mrs_red }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_NAN_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.06 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_POI_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.04 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.06 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_ROU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+    add_to_variable = { sof_rpe_dock = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_STR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TOU_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+    add_to_variable = { sof_rpe_research = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.06 }
+   }
+  }
+  if = { limit = { has_focus_tree = sof_region_TRS_1936 }
+   if = { limit = { has_country_flag = sof_rpe_pdp_a_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_output = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_pdp_b_paid }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.04 }
+    add_to_variable = { sof_rpe_supply = -0.04 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_pdp_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_upr_active = yes }
+  if = { limit = { has_focus_tree = sof_region_STR_1936 }
+   if = { limit = { has_country_flag = sof_rpe_upr_a_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_upr_b_paid }
+    add_to_variable = { sof_rpe_research = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_supply = -0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_upr_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ else_if = { limit = { sof_rpe_doriot_active = yes }
+  if = { limit = { has_focus_tree = sofzh_paris }
+   if = { limit = { has_country_flag = sof_rpe_doriot_a_paid }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.04 }
+    add_to_variable = { sof_rpe_civ = 0.02 }
+   }
+   else_if = { limit = { has_country_flag = sof_rpe_doriot_b_paid }
+    add_to_variable = { sof_rpe_mil = 0.02 }
+    add_to_variable = { sof_rpe_eff = 0.02 }
+    add_to_variable = { sof_rpe_stab = 0.02 }
+    add_to_variable = { sof_rpe_infra = 0.04 }
+   }
+  }
+  if = { limit = { has_country_flag = sof_rpe_doriot_review_paid } add_to_variable = { sof_rpe_pp = 0.02 } }
+ }
+ if = { limit = { sof_rpe_program_active = yes }
+  if = { limit = { NOT = { has_dynamic_modifier = { modifier = sof_rpe_regional_program } } } add_dynamic_modifier = { modifier = sof_rpe_regional_program } }
+ } else = { if = { limit = { has_dynamic_modifier = { modifier = sof_rpe_regional_program } } remove_dynamic_modifier = { modifier = sof_rpe_regional_program } } }
+ force_update_dynamic_modifier = yes
+}

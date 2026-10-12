@@ -1,0 +1,3472 @@
+add_namespace = sof_chronicle
+
+country_event = {
+id = sof_chronicle.1
+ title = sof_chr_region_ajc_t
+ desc = sof_chr_region_ajc_d
+ picture = GFX_sof_chr_art_harbor_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_ajc } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_ajc_option_a
+ trigger = { sof_chr_eligible_region_ajc = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_ajc_a = yes
+}
+option = {
+name = sof_chr_region_ajc_option_b
+ trigger = { sof_chr_eligible_region_ajc = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_ajc_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_ajc } } set_country_flag = sof_chr_done_region_ajc }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.2
+ title = sof_chr_region_prs_t
+ desc = sof_chr_region_prs_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_prs } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_prs_option_a
+ trigger = { sof_chr_eligible_region_prs = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_prs_a = yes
+}
+option = {
+name = sof_chr_region_prs_option_b
+ trigger = { sof_chr_eligible_region_prs = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_prs_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_prs } } set_country_flag = sof_chr_done_region_prs }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.3
+ title = sof_chr_region_ren_t
+ desc = sof_chr_region_ren_d
+ picture = GFX_sof_chr_art_harbor_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_ren } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_ren_option_a
+ trigger = { sof_chr_eligible_region_ren = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_ren_a = yes
+}
+option = {
+name = sof_chr_region_ren_option_b
+ trigger = { sof_chr_eligible_region_ren = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_ren_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_ren } } set_country_flag = sof_chr_done_region_ren }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.4
+ title = sof_chr_region_lil_t
+ desc = sof_chr_region_lil_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_lil } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_lil_option_a
+ trigger = { sof_chr_eligible_region_lil = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_lil_a = yes
+}
+option = {
+name = sof_chr_region_lil_option_b
+ trigger = { sof_chr_eligible_region_lil = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_lil_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_lil } } set_country_flag = sof_chr_done_region_lil }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.5
+ title = sof_chr_region_mrs_t
+ desc = sof_chr_region_mrs_d
+ picture = GFX_sof_chr_art_harbor_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_mrs } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_mrs_option_a
+ trigger = { sof_chr_eligible_region_mrs = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_mrs_a = yes
+}
+option = {
+name = sof_chr_region_mrs_option_b
+ trigger = { sof_chr_eligible_region_mrs = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_mrs_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_mrs } } set_country_flag = sof_chr_done_region_mrs }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.6
+ title = sof_chr_region_ami_t
+ desc = sof_chr_region_ami_d
+ picture = GFX_sof_chr_art_railways_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_ami } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_ami_option_a
+ trigger = { sof_chr_eligible_region_ami = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_ami_a = yes
+}
+option = {
+name = sof_chr_region_ami_option_b
+ trigger = { sof_chr_eligible_region_ami = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_ami_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_ami } } set_country_flag = sof_chr_done_region_ami }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.7
+ title = sof_chr_region_bes_t
+ desc = sof_chr_region_bes_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_bes } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_bes_option_a
+ trigger = { sof_chr_eligible_region_bes = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_bes_a = yes
+}
+option = {
+name = sof_chr_region_bes_option_b
+ trigger = { sof_chr_eligible_region_bes = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_bes_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_bes } } set_country_flag = sof_chr_done_region_bes }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.8
+ title = sof_chr_region_brd_t
+ desc = sof_chr_region_brd_d
+ picture = GFX_sof_chr_art_harbor_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_brd } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_brd_option_a
+ trigger = { sof_chr_eligible_region_brd = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_brd_a = yes
+}
+option = {
+name = sof_chr_region_brd_option_b
+ trigger = { sof_chr_eligible_region_brd = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_brd_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_brd } } set_country_flag = sof_chr_done_region_brd }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.9
+ title = sof_chr_region_cfr_t
+ desc = sof_chr_region_cfr_d
+ picture = GFX_sof_chr_art_railways_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_cfr } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_cfr_option_a
+ trigger = { sof_chr_eligible_region_cfr = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_cfr_a = yes
+}
+option = {
+name = sof_chr_region_cfr_option_b
+ trigger = { sof_chr_eligible_region_cfr = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_cfr_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_cfr } } set_country_flag = sof_chr_done_region_cfr }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.10
+ title = sof_chr_region_chl_t
+ desc = sof_chr_region_chl_d
+ picture = GFX_sof_chr_art_command_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_chl } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_chl_option_a
+ trigger = { sof_chr_eligible_region_chl = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_chl_a = yes
+}
+option = {
+name = sof_chr_region_chl_option_b
+ trigger = { sof_chr_eligible_region_chl = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_chl_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_chl } } set_country_flag = sof_chr_done_region_chl }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.11
+ title = sof_chr_region_dij_t
+ desc = sof_chr_region_dij_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_dij } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_dij_option_a
+ trigger = { sof_chr_eligible_region_dij = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_dij_a = yes
+}
+option = {
+name = sof_chr_region_dij_option_b
+ trigger = { sof_chr_eligible_region_dij = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_dij_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_dij } } set_country_flag = sof_chr_done_region_dij }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.12
+ title = sof_chr_region_lmg_t
+ desc = sof_chr_region_lmg_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_lmg } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_lmg_option_a
+ trigger = { sof_chr_eligible_region_lmg = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_lmg_a = yes
+}
+option = {
+name = sof_chr_region_lmg_option_b
+ trigger = { sof_chr_eligible_region_lmg = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_lmg_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_lmg } } set_country_flag = sof_chr_done_region_lmg }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.13
+ title = sof_chr_region_lyo_t
+ desc = sof_chr_region_lyo_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_lyo } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_lyo_option_a
+ trigger = { sof_chr_eligible_region_lyo = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_lyo_a = yes
+}
+option = {
+name = sof_chr_region_lyo_option_b
+ trigger = { sof_chr_eligible_region_lyo = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_lyo_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_lyo } } set_country_flag = sof_chr_done_region_lyo }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.14
+ title = sof_chr_region_met_t
+ desc = sof_chr_region_met_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_met } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_met_option_a
+ trigger = { sof_chr_eligible_region_met = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_met_a = yes
+}
+option = {
+name = sof_chr_region_met_option_b
+ trigger = { sof_chr_eligible_region_met = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_met_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_met } } set_country_flag = sof_chr_done_region_met }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.15
+ title = sof_chr_region_mop_t
+ desc = sof_chr_region_mop_d
+ picture = GFX_sof_chr_art_railways_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_mop } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_mop_option_a
+ trigger = { sof_chr_eligible_region_mop = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_mop_a = yes
+}
+option = {
+name = sof_chr_region_mop_option_b
+ trigger = { sof_chr_eligible_region_mop = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_mop_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_mop } } set_country_flag = sof_chr_done_region_mop }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.16
+ title = sof_chr_region_nan_t
+ desc = sof_chr_region_nan_d
+ picture = GFX_sof_chr_art_harbor_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_nan } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_nan_option_a
+ trigger = { sof_chr_eligible_region_nan = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_nan_a = yes
+}
+option = {
+name = sof_chr_region_nan_option_b
+ trigger = { sof_chr_eligible_region_nan = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_nan_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_nan } } set_country_flag = sof_chr_done_region_nan }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.17
+ title = sof_chr_region_poi_t
+ desc = sof_chr_region_poi_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_poi } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_poi_option_a
+ trigger = { sof_chr_eligible_region_poi = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_poi_a = yes
+}
+option = {
+name = sof_chr_region_poi_option_b
+ trigger = { sof_chr_eligible_region_poi = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_poi_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_poi } } set_country_flag = sof_chr_done_region_poi }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.18
+ title = sof_chr_region_rou_t
+ desc = sof_chr_region_rou_d
+ picture = GFX_sof_chr_art_harbor_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_rou } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_rou_option_a
+ trigger = { sof_chr_eligible_region_rou = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_rou_a = yes
+}
+option = {
+name = sof_chr_region_rou_option_b
+ trigger = { sof_chr_eligible_region_rou = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_rou_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_rou } } set_country_flag = sof_chr_done_region_rou }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.19
+ title = sof_chr_region_str_t
+ desc = sof_chr_region_str_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_str } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_str_option_a
+ trigger = { sof_chr_eligible_region_str = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_str_a = yes
+}
+option = {
+name = sof_chr_region_str_option_b
+ trigger = { sof_chr_eligible_region_str = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_str_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_str } } set_country_flag = sof_chr_done_region_str }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.20
+ title = sof_chr_region_tou_t
+ desc = sof_chr_region_tou_d
+ picture = GFX_sof_chr_art_aviation_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_tou } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_tou_option_a
+ trigger = { sof_chr_eligible_region_tou = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_tou_a = yes
+}
+option = {
+name = sof_chr_region_tou_option_b
+ trigger = { sof_chr_eligible_region_tou = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_tou_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_tou } } set_country_flag = sof_chr_done_region_tou }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.21
+ title = sof_chr_region_trs_t
+ desc = sof_chr_region_trs_d
+ picture = GFX_sof_chr_art_railways_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_region_trs } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_region_trs_option_a
+ trigger = { sof_chr_eligible_region_trs = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_trs_a = yes
+}
+option = {
+name = sof_chr_region_trs_option_b
+ trigger = { sof_chr_eligible_region_trs = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_region_trs_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_region_trs } } set_country_flag = sof_chr_done_region_trs }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.201
+ title = sof_chr_mandate_t
+ desc = sof_chr_mandate_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_mandate } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_mandate_option_a
+ trigger = { sof_chr_eligible_mandate = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_mandate_a = yes
+}
+option = {
+name = sof_chr_mandate_option_b
+ trigger = { sof_chr_eligible_mandate = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_mandate_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_mandate } } set_country_flag = sof_chr_done_mandate }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.202
+ title = sof_chr_industry_t
+ desc = sof_chr_industry_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_industry } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_industry_option_a
+ trigger = { sof_chr_eligible_industry = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_industry_a = yes
+}
+option = {
+name = sof_chr_industry_option_b
+ trigger = { sof_chr_eligible_industry = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_industry_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_industry } } set_country_flag = sof_chr_done_industry }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.203
+ title = sof_chr_staff_t
+ desc = sof_chr_staff_d
+ picture = GFX_sof_chr_art_command_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_staff } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_staff_option_a
+ trigger = { sof_chr_eligible_staff = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_staff_a = yes
+}
+option = {
+name = sof_chr_staff_option_b
+ trigger = { sof_chr_eligible_staff = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_staff_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_staff } } set_country_flag = sof_chr_done_staff }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.204
+ title = sof_chr_cabinet_t
+ desc = sof_chr_cabinet_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_cabinet } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_cabinet_option_a
+ trigger = { sof_chr_eligible_cabinet = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_cabinet_a = yes
+}
+option = {
+name = sof_chr_cabinet_option_b
+ trigger = { sof_chr_eligible_cabinet = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_cabinet_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_cabinet } } set_country_flag = sof_chr_done_cabinet }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.205
+ title = sof_chr_supply_t
+ desc = sof_chr_supply_d
+ picture = GFX_sof_chr_art_railways_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_supply } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_supply_option_a
+ trigger = { sof_chr_eligible_supply = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_supply_a = yes
+}
+option = {
+name = sof_chr_supply_option_b
+ trigger = { sof_chr_eligible_supply = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_supply_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_supply } } set_country_flag = sof_chr_done_supply }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.206
+ title = sof_chr_war_budget_t
+ desc = sof_chr_war_budget_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_war_budget } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_war_budget_option_a
+ trigger = { sof_chr_eligible_war_budget = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_war_budget_a = yes
+}
+option = {
+name = sof_chr_war_budget_option_b
+ trigger = { sof_chr_eligible_war_budget = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_war_budget_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_war_budget } } set_country_flag = sof_chr_done_war_budget }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.207
+ title = sof_chr_unrest_t
+ desc = sof_chr_unrest_d
+ picture = GFX_sof_chr_art_civic_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_unrest } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_unrest_option_a
+ trigger = { sof_chr_eligible_unrest = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_unrest_a = yes
+}
+option = {
+name = sof_chr_unrest_option_b
+ trigger = { sof_chr_eligible_unrest = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_unrest_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_unrest } } set_country_flag = sof_chr_done_unrest }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.208
+ title = sof_chr_fatigue_t
+ desc = sof_chr_fatigue_d
+ picture = GFX_sof_chr_art_ruins_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_fatigue } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_fatigue_option_a
+ trigger = { sof_chr_eligible_fatigue = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_fatigue_a = yes
+}
+option = {
+name = sof_chr_fatigue_option_b
+ trigger = { sof_chr_eligible_fatigue = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_fatigue_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_fatigue } } set_country_flag = sof_chr_done_fatigue }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.209
+ title = sof_chr_retreat_t
+ desc = sof_chr_retreat_d
+ picture = GFX_sof_chr_art_ruins_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_retreat } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_retreat_option_a
+ trigger = { sof_chr_eligible_retreat = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_retreat_a = yes
+}
+option = {
+name = sof_chr_retreat_option_b
+ trigger = { sof_chr_eligible_retreat = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_retreat_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_retreat } } set_country_flag = sof_chr_done_retreat }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.210
+ title = sof_chr_recovery_t
+ desc = sof_chr_recovery_d
+ picture = GFX_sof_chr_art_liberation_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_recovery } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_recovery_option_a
+ trigger = { sof_chr_eligible_recovery = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_recovery_a = yes
+}
+option = {
+name = sof_chr_recovery_option_b
+ trigger = { sof_chr_eligible_recovery = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_recovery_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_recovery } } set_country_flag = sof_chr_done_recovery }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.211
+ title = sof_chr_integration_t
+ desc = sof_chr_integration_d
+ picture = GFX_sof_chr_art_civic_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_integration } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_integration_option_a
+ trigger = { sof_chr_eligible_integration = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_integration_a = yes
+}
+option = {
+name = sof_chr_integration_option_b
+ trigger = { sof_chr_eligible_integration = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_integration_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_integration } } set_country_flag = sof_chr_done_integration }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.212
+ title = sof_chr_congress_t
+ desc = sof_chr_congress_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_congress } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_congress_option_a
+ trigger = { sof_chr_eligible_congress = yes has_political_power > 29.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_congress_a = yes
+}
+option = {
+name = sof_chr_congress_option_b
+ trigger = { sof_chr_eligible_congress = yes has_political_power > 29.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_congress_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_congress } } set_country_flag = sof_chr_done_congress }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.213
+ title = sof_chr_unitary_t
+ desc = sof_chr_unitary_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_unitary } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_unitary_option_a
+ trigger = { sof_chr_eligible_unitary = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_unitary_a = yes
+}
+option = {
+name = sof_chr_unitary_option_b
+ trigger = { sof_chr_eligible_unitary = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_unitary_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_unitary } } set_country_flag = sof_chr_done_unitary }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.214
+ title = sof_chr_federal_t
+ desc = sof_chr_federal_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_federal } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_federal_option_a
+ trigger = { sof_chr_eligible_federal = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_federal_a = yes
+}
+option = {
+name = sof_chr_federal_option_b
+ trigger = { sof_chr_eligible_federal = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_federal_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_federal } } set_country_flag = sof_chr_done_federal }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.215
+ title = sof_chr_compact_t
+ desc = sof_chr_compact_d
+ picture = GFX_sof_chr_art_diplomacy_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_compact } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_compact_option_a
+ trigger = { sof_chr_eligible_compact = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_compact_a = yes
+}
+option = {
+name = sof_chr_compact_option_b
+ trigger = { sof_chr_eligible_compact = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_compact_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_compact } } set_country_flag = sof_chr_done_compact }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.216
+ title = sof_chr_victory_t
+ desc = sof_chr_victory_d
+ picture = GFX_sof_chr_art_liberation_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_victory } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_victory_option_a
+ trigger = { sof_chr_eligible_victory = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_victory_a = yes
+}
+option = {
+name = sof_chr_victory_option_b
+ trigger = { sof_chr_eligible_victory = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_victory_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_victory } } set_country_flag = sof_chr_done_victory }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.217
+ title = sof_chr_government_t
+ desc = sof_chr_government_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_government } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_government_option_a
+ trigger = { sof_chr_eligible_government = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_government_a = yes
+}
+option = {
+name = sof_chr_government_option_b
+ trigger = { sof_chr_eligible_government = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_government_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_government } } set_country_flag = sof_chr_done_government }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.218
+ title = sof_chr_education_t
+ desc = sof_chr_education_d
+ picture = GFX_sof_chr_art_civic_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_education } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_education_option_a
+ trigger = { sof_chr_eligible_education = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_education_a = yes
+}
+option = {
+name = sof_chr_education_option_b
+ trigger = { sof_chr_eligible_education = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_education_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_education } } set_country_flag = sof_chr_done_education }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.219
+ title = sof_chr_demobilisation_t
+ desc = sof_chr_demobilisation_d
+ picture = GFX_sof_chr_art_civic_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_demobilisation } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_demobilisation_option_a
+ trigger = { sof_chr_eligible_demobilisation = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_demobilisation_a = yes
+}
+option = {
+name = sof_chr_demobilisation_option_b
+ trigger = { sof_chr_eligible_demobilisation = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_demobilisation_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_demobilisation } } set_country_flag = sof_chr_done_demobilisation }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.220
+ title = sof_chr_reconstruction_t
+ desc = sof_chr_reconstruction_d
+ picture = GFX_sof_chr_art_reconstruction_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_reconstruction } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_reconstruction_option_a
+ trigger = { sof_chr_eligible_reconstruction = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_reconstruction_a = yes
+}
+option = {
+name = sof_chr_reconstruction_option_b
+ trigger = { sof_chr_eligible_reconstruction = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_reconstruction_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_reconstruction } } set_country_flag = sof_chr_done_reconstruction }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.221
+ title = sof_chr_railways_t
+ desc = sof_chr_railways_d
+ picture = GFX_sof_chr_art_railways_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_railways } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_railways_option_a
+ trigger = { sof_chr_eligible_railways = yes has_political_power > 29.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_railways_a = yes
+}
+option = {
+name = sof_chr_railways_option_b
+ trigger = { sof_chr_eligible_railways = yes has_political_power > 29.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_railways_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_railways } } set_country_flag = sof_chr_done_railways }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.222
+ title = sof_chr_amnesty_t
+ desc = sof_chr_amnesty_d
+ picture = GFX_sof_chr_art_civic_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_amnesty } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_amnesty_option_a
+ trigger = { sof_chr_eligible_amnesty = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_amnesty_a = yes
+}
+option = {
+name = sof_chr_amnesty_option_b
+ trigger = { sof_chr_eligible_amnesty = yes has_political_power > 34.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_amnesty_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_amnesty } } set_country_flag = sof_chr_done_amnesty }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.223
+ title = sof_chr_memorial_t
+ desc = sof_chr_memorial_d
+ picture = GFX_sof_chr_art_memorial_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_memorial } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_memorial_option_a
+ trigger = { sof_chr_eligible_memorial = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_memorial_a = yes
+}
+option = {
+name = sof_chr_memorial_option_b
+ trigger = { sof_chr_eligible_memorial = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_memorial_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_memorial } } set_country_flag = sof_chr_done_memorial }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.224
+ title = sof_chr_archives_t
+ desc = sof_chr_archives_d
+ picture = GFX_sof_chr_art_civic_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_archives } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_archives_option_a
+ trigger = { sof_chr_eligible_archives = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_archives_a = yes
+}
+option = {
+name = sof_chr_archives_option_b
+ trigger = { sof_chr_eligible_archives = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_archives_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_archives } } set_country_flag = sof_chr_done_archives }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.225
+ title = sof_chr_foreign_t
+ desc = sof_chr_foreign_d
+ picture = GFX_sof_chr_art_diplomacy_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_foreign } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_foreign_option_a
+ trigger = { sof_chr_eligible_foreign = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_foreign_a = yes
+}
+option = {
+name = sof_chr_foreign_option_b
+ trigger = { sof_chr_eligible_foreign = yes has_political_power > 39.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_foreign_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_foreign } } set_country_flag = sof_chr_done_foreign }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.226
+ title = sof_chr_reconstruction_finish_t
+ desc = sof_chr_reconstruction_finish_d
+ picture = GFX_sof_chr_art_industry_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_reconstruction_finish } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_reconstruction_finish_option_a
+ trigger = { sof_chr_eligible_reconstruction_finish = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_reconstruction_finish_a = yes
+}
+option = {
+name = sof_chr_reconstruction_finish_option_b
+ trigger = { sof_chr_eligible_reconstruction_finish = yes has_political_power > 24.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_reconstruction_finish_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_reconstruction_finish } } set_country_flag = sof_chr_done_reconstruction_finish }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.227
+ title = sof_chr_anniversary_t
+ desc = sof_chr_anniversary_d
+ picture = GFX_sof_chr_art_liberation_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_anniversary } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_anniversary_option_a
+ trigger = { sof_chr_eligible_anniversary = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_anniversary_a = yes
+}
+option = {
+name = sof_chr_anniversary_option_b
+ trigger = { sof_chr_eligible_anniversary = yes has_political_power > 19.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_anniversary_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_anniversary } } set_country_flag = sof_chr_done_anniversary }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+country_event = {
+id = sof_chronicle.228
+ title = sof_chr_settlement_t
+ desc = sof_chr_settlement_d
+ picture = GFX_sof_chr_art_assembly_report
+ is_triggered_only = yes
+ trigger = { sof_chr_country = yes NOT = { has_country_flag = sof_chr_done_settlement } }
+ immediate = { clr_country_flag = sof_chr_queued set_country_flag = sof_chr_active }
+option = {
+name = sof_chr_settlement_option_a
+ trigger = { sof_chr_eligible_settlement = yes has_political_power > 29.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_settlement_a = yes
+}
+option = {
+name = sof_chr_settlement_option_b
+ trigger = { sof_chr_eligible_settlement = yes has_political_power > 29.99 }
+ ai_chance = { factor = 50 }
+ custom_effect_tooltip = sof_chr_policy_replace_tt
+ sof_chr_choose_settlement_b = yes
+}
+option = {
+name = sof_chr_keep ai_chance = { factor = 5 }
+ custom_effect_tooltip = sof_chr_keep_tt
+ if = { limit = { NOT = { has_country_flag = sof_chr_done_settlement } } set_country_flag = sof_chr_done_settlement }
+ clr_country_flag = sof_chr_active set_country_flag = { flag = sof_chr_choice_cooldown days = 28 }
+}
+
+}
+news_event = {
+id = sof_chronicle.101
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_harbor_news
+title = {
+text = sof_chr_region_ajc_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_ajc_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_ajc_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_ajc_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_101_a } }
+}
+desc = {
+text = sof_chr_region_ajc_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_101_b } }
+}
+desc = {
+text = sof_chr_region_ajc_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_101_a } }
+}
+desc = {
+text = sof_chr_region_ajc_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_101_b } }
+}
+desc = {
+text = sof_chr_region_ajc_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_101_a } }
+}
+desc = {
+text = sof_chr_region_ajc_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_101_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.102
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_region_prs_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_prs_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_prs_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_prs_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_102_a } }
+}
+desc = {
+text = sof_chr_region_prs_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_102_b } }
+}
+desc = {
+text = sof_chr_region_prs_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_102_a } }
+}
+desc = {
+text = sof_chr_region_prs_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_102_b } }
+}
+desc = {
+text = sof_chr_region_prs_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_102_a } }
+}
+desc = {
+text = sof_chr_region_prs_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_102_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.103
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_harbor_news
+title = {
+text = sof_chr_region_ren_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_ren_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_ren_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_ren_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_103_a } }
+}
+desc = {
+text = sof_chr_region_ren_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_103_b } }
+}
+desc = {
+text = sof_chr_region_ren_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_103_a } }
+}
+desc = {
+text = sof_chr_region_ren_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_103_b } }
+}
+desc = {
+text = sof_chr_region_ren_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_103_a } }
+}
+desc = {
+text = sof_chr_region_ren_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_103_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.104
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_lil_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_lil_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_lil_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_lil_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_104_a } }
+}
+desc = {
+text = sof_chr_region_lil_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_104_b } }
+}
+desc = {
+text = sof_chr_region_lil_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_104_a } }
+}
+desc = {
+text = sof_chr_region_lil_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_104_b } }
+}
+desc = {
+text = sof_chr_region_lil_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_104_a } }
+}
+desc = {
+text = sof_chr_region_lil_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_104_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.105
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_harbor_news
+title = {
+text = sof_chr_region_mrs_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_mrs_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_mrs_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_mrs_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_105_a } }
+}
+desc = {
+text = sof_chr_region_mrs_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_105_b } }
+}
+desc = {
+text = sof_chr_region_mrs_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_105_a } }
+}
+desc = {
+text = sof_chr_region_mrs_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_105_b } }
+}
+desc = {
+text = sof_chr_region_mrs_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_105_a } }
+}
+desc = {
+text = sof_chr_region_mrs_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_105_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.106
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_railways_news
+title = {
+text = sof_chr_region_ami_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_ami_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_ami_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_ami_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_106_a } }
+}
+desc = {
+text = sof_chr_region_ami_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_106_b } }
+}
+desc = {
+text = sof_chr_region_ami_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_106_a } }
+}
+desc = {
+text = sof_chr_region_ami_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_106_b } }
+}
+desc = {
+text = sof_chr_region_ami_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_106_a } }
+}
+desc = {
+text = sof_chr_region_ami_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_106_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.107
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_bes_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_bes_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_bes_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_bes_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_107_a } }
+}
+desc = {
+text = sof_chr_region_bes_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_107_b } }
+}
+desc = {
+text = sof_chr_region_bes_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_107_a } }
+}
+desc = {
+text = sof_chr_region_bes_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_107_b } }
+}
+desc = {
+text = sof_chr_region_bes_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_107_a } }
+}
+desc = {
+text = sof_chr_region_bes_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_107_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.108
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_harbor_news
+title = {
+text = sof_chr_region_brd_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_brd_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_brd_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_brd_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_108_a } }
+}
+desc = {
+text = sof_chr_region_brd_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_108_b } }
+}
+desc = {
+text = sof_chr_region_brd_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_108_a } }
+}
+desc = {
+text = sof_chr_region_brd_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_108_b } }
+}
+desc = {
+text = sof_chr_region_brd_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_108_a } }
+}
+desc = {
+text = sof_chr_region_brd_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_108_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.109
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_railways_news
+title = {
+text = sof_chr_region_cfr_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_cfr_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_cfr_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_cfr_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_109_a } }
+}
+desc = {
+text = sof_chr_region_cfr_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_109_b } }
+}
+desc = {
+text = sof_chr_region_cfr_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_109_a } }
+}
+desc = {
+text = sof_chr_region_cfr_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_109_b } }
+}
+desc = {
+text = sof_chr_region_cfr_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_109_a } }
+}
+desc = {
+text = sof_chr_region_cfr_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_109_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.110
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_command_news
+title = {
+text = sof_chr_region_chl_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_chl_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_chl_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_chl_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_110_a } }
+}
+desc = {
+text = sof_chr_region_chl_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_110_b } }
+}
+desc = {
+text = sof_chr_region_chl_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_110_a } }
+}
+desc = {
+text = sof_chr_region_chl_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_110_b } }
+}
+desc = {
+text = sof_chr_region_chl_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_110_a } }
+}
+desc = {
+text = sof_chr_region_chl_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_110_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.111
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_dij_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_dij_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_dij_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_dij_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_111_a } }
+}
+desc = {
+text = sof_chr_region_dij_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_111_b } }
+}
+desc = {
+text = sof_chr_region_dij_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_111_a } }
+}
+desc = {
+text = sof_chr_region_dij_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_111_b } }
+}
+desc = {
+text = sof_chr_region_dij_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_111_a } }
+}
+desc = {
+text = sof_chr_region_dij_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_111_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.112
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_lmg_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_lmg_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_lmg_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_lmg_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_112_a } }
+}
+desc = {
+text = sof_chr_region_lmg_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_112_b } }
+}
+desc = {
+text = sof_chr_region_lmg_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_112_a } }
+}
+desc = {
+text = sof_chr_region_lmg_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_112_b } }
+}
+desc = {
+text = sof_chr_region_lmg_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_112_a } }
+}
+desc = {
+text = sof_chr_region_lmg_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_112_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.113
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_lyo_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_lyo_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_lyo_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_lyo_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_113_a } }
+}
+desc = {
+text = sof_chr_region_lyo_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_113_b } }
+}
+desc = {
+text = sof_chr_region_lyo_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_113_a } }
+}
+desc = {
+text = sof_chr_region_lyo_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_113_b } }
+}
+desc = {
+text = sof_chr_region_lyo_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_113_a } }
+}
+desc = {
+text = sof_chr_region_lyo_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_113_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.114
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_met_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_met_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_met_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_met_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_114_a } }
+}
+desc = {
+text = sof_chr_region_met_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_114_b } }
+}
+desc = {
+text = sof_chr_region_met_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_114_a } }
+}
+desc = {
+text = sof_chr_region_met_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_114_b } }
+}
+desc = {
+text = sof_chr_region_met_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_114_a } }
+}
+desc = {
+text = sof_chr_region_met_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_114_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.115
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_railways_news
+title = {
+text = sof_chr_region_mop_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_mop_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_mop_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_mop_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_115_a } }
+}
+desc = {
+text = sof_chr_region_mop_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_115_b } }
+}
+desc = {
+text = sof_chr_region_mop_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_115_a } }
+}
+desc = {
+text = sof_chr_region_mop_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_115_b } }
+}
+desc = {
+text = sof_chr_region_mop_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_115_a } }
+}
+desc = {
+text = sof_chr_region_mop_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_115_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.116
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_harbor_news
+title = {
+text = sof_chr_region_nan_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_nan_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_nan_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_nan_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_116_a } }
+}
+desc = {
+text = sof_chr_region_nan_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_116_b } }
+}
+desc = {
+text = sof_chr_region_nan_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_116_a } }
+}
+desc = {
+text = sof_chr_region_nan_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_116_b } }
+}
+desc = {
+text = sof_chr_region_nan_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_116_a } }
+}
+desc = {
+text = sof_chr_region_nan_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_116_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.117
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_poi_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_poi_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_poi_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_poi_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_117_a } }
+}
+desc = {
+text = sof_chr_region_poi_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_117_b } }
+}
+desc = {
+text = sof_chr_region_poi_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_117_a } }
+}
+desc = {
+text = sof_chr_region_poi_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_117_b } }
+}
+desc = {
+text = sof_chr_region_poi_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_117_a } }
+}
+desc = {
+text = sof_chr_region_poi_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_117_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.118
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_harbor_news
+title = {
+text = sof_chr_region_rou_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_rou_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_rou_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_rou_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_118_a } }
+}
+desc = {
+text = sof_chr_region_rou_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_118_b } }
+}
+desc = {
+text = sof_chr_region_rou_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_118_a } }
+}
+desc = {
+text = sof_chr_region_rou_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_118_b } }
+}
+desc = {
+text = sof_chr_region_rou_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_118_a } }
+}
+desc = {
+text = sof_chr_region_rou_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_118_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.119
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_region_str_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_str_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_str_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_str_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_119_a } }
+}
+desc = {
+text = sof_chr_region_str_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_119_b } }
+}
+desc = {
+text = sof_chr_region_str_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_119_a } }
+}
+desc = {
+text = sof_chr_region_str_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_119_b } }
+}
+desc = {
+text = sof_chr_region_str_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_119_a } }
+}
+desc = {
+text = sof_chr_region_str_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_119_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.120
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_aviation_news
+title = {
+text = sof_chr_region_tou_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_tou_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_tou_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_tou_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_120_a } }
+}
+desc = {
+text = sof_chr_region_tou_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_120_b } }
+}
+desc = {
+text = sof_chr_region_tou_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_120_a } }
+}
+desc = {
+text = sof_chr_region_tou_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_120_b } }
+}
+desc = {
+text = sof_chr_region_tou_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_120_a } }
+}
+desc = {
+text = sof_chr_region_tou_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_120_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.121
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_railways_news
+title = {
+text = sof_chr_region_trs_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_trs_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_region_trs_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_region_trs_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_121_a } }
+}
+desc = {
+text = sof_chr_region_trs_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_121_b } }
+}
+desc = {
+text = sof_chr_region_trs_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_121_a } }
+}
+desc = {
+text = sof_chr_region_trs_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_121_b } }
+}
+desc = {
+text = sof_chr_region_trs_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_121_a } }
+}
+desc = {
+text = sof_chr_region_trs_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_121_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.401
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_mandate_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_mandate_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_mandate_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_mandate_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_401_a } }
+}
+desc = {
+text = sof_chr_mandate_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_401_b } }
+}
+desc = {
+text = sof_chr_mandate_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_401_a } }
+}
+desc = {
+text = sof_chr_mandate_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_401_b } }
+}
+desc = {
+text = sof_chr_mandate_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_401_a } }
+}
+desc = {
+text = sof_chr_mandate_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_401_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.402
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_industry_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_industry_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_industry_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_industry_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_402_a } }
+}
+desc = {
+text = sof_chr_industry_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_402_b } }
+}
+desc = {
+text = sof_chr_industry_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_402_a } }
+}
+desc = {
+text = sof_chr_industry_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_402_b } }
+}
+desc = {
+text = sof_chr_industry_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_402_a } }
+}
+desc = {
+text = sof_chr_industry_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_402_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.403
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_command_news
+title = {
+text = sof_chr_staff_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_staff_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_staff_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_staff_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_403_a } }
+}
+desc = {
+text = sof_chr_staff_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_403_b } }
+}
+desc = {
+text = sof_chr_staff_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_403_a } }
+}
+desc = {
+text = sof_chr_staff_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_403_b } }
+}
+desc = {
+text = sof_chr_staff_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_403_a } }
+}
+desc = {
+text = sof_chr_staff_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_403_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.406
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_war_budget_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_war_budget_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_war_budget_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_war_budget_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_406_a } }
+}
+desc = {
+text = sof_chr_war_budget_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_406_b } }
+}
+desc = {
+text = sof_chr_war_budget_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_406_a } }
+}
+desc = {
+text = sof_chr_war_budget_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_406_b } }
+}
+desc = {
+text = sof_chr_war_budget_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_406_a } }
+}
+desc = {
+text = sof_chr_war_budget_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_406_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.409
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_ruins_news
+title = {
+text = sof_chr_retreat_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_retreat_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_retreat_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_retreat_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_409_a } }
+}
+desc = {
+text = sof_chr_retreat_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_409_b } }
+}
+desc = {
+text = sof_chr_retreat_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_409_a } }
+}
+desc = {
+text = sof_chr_retreat_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_409_b } }
+}
+desc = {
+text = sof_chr_retreat_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_409_a } }
+}
+desc = {
+text = sof_chr_retreat_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_409_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.410
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_liberation_news
+title = {
+text = sof_chr_recovery_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_recovery_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_recovery_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_recovery_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_410_a } }
+}
+desc = {
+text = sof_chr_recovery_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_410_b } }
+}
+desc = {
+text = sof_chr_recovery_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_410_a } }
+}
+desc = {
+text = sof_chr_recovery_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_410_b } }
+}
+desc = {
+text = sof_chr_recovery_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_410_a } }
+}
+desc = {
+text = sof_chr_recovery_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_410_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.411
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_civic_news
+title = {
+text = sof_chr_integration_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_integration_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_integration_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_integration_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_411_a } }
+}
+desc = {
+text = sof_chr_integration_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_411_b } }
+}
+desc = {
+text = sof_chr_integration_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_411_a } }
+}
+desc = {
+text = sof_chr_integration_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_411_b } }
+}
+desc = {
+text = sof_chr_integration_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_411_a } }
+}
+desc = {
+text = sof_chr_integration_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_411_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.412
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_congress_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_congress_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_congress_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_congress_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_412_a } }
+}
+desc = {
+text = sof_chr_congress_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_412_b } }
+}
+desc = {
+text = sof_chr_congress_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_412_a } }
+}
+desc = {
+text = sof_chr_congress_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_412_b } }
+}
+desc = {
+text = sof_chr_congress_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_412_a } }
+}
+desc = {
+text = sof_chr_congress_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_412_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.419
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_civic_news
+title = {
+text = sof_chr_demobilisation_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_demobilisation_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_demobilisation_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_demobilisation_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_419_a } }
+}
+desc = {
+text = sof_chr_demobilisation_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_419_b } }
+}
+desc = {
+text = sof_chr_demobilisation_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_419_a } }
+}
+desc = {
+text = sof_chr_demobilisation_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_419_b } }
+}
+desc = {
+text = sof_chr_demobilisation_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_419_a } }
+}
+desc = {
+text = sof_chr_demobilisation_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_419_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.420
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_reconstruction_news
+title = {
+text = sof_chr_reconstruction_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_reconstruction_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_reconstruction_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_reconstruction_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_420_a } }
+}
+desc = {
+text = sof_chr_reconstruction_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_420_b } }
+}
+desc = {
+text = sof_chr_reconstruction_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_420_a } }
+}
+desc = {
+text = sof_chr_reconstruction_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_420_b } }
+}
+desc = {
+text = sof_chr_reconstruction_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_420_a } }
+}
+desc = {
+text = sof_chr_reconstruction_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_420_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.422
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_civic_news
+title = {
+text = sof_chr_amnesty_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_amnesty_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_amnesty_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_amnesty_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_422_a } }
+}
+desc = {
+text = sof_chr_amnesty_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_422_b } }
+}
+desc = {
+text = sof_chr_amnesty_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_422_a } }
+}
+desc = {
+text = sof_chr_amnesty_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_422_b } }
+}
+desc = {
+text = sof_chr_amnesty_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_422_a } }
+}
+desc = {
+text = sof_chr_amnesty_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_422_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.423
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_memorial_news
+title = {
+text = sof_chr_memorial_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_memorial_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_memorial_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_memorial_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_423_a } }
+}
+desc = {
+text = sof_chr_memorial_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_423_b } }
+}
+desc = {
+text = sof_chr_memorial_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_423_a } }
+}
+desc = {
+text = sof_chr_memorial_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_423_b } }
+}
+desc = {
+text = sof_chr_memorial_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_423_a } }
+}
+desc = {
+text = sof_chr_memorial_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_423_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.425
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_diplomacy_news
+title = {
+text = sof_chr_foreign_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_foreign_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_foreign_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_foreign_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_425_a } }
+}
+desc = {
+text = sof_chr_foreign_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_425_b } }
+}
+desc = {
+text = sof_chr_foreign_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_425_a } }
+}
+desc = {
+text = sof_chr_foreign_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_425_b } }
+}
+desc = {
+text = sof_chr_foreign_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_425_a } }
+}
+desc = {
+text = sof_chr_foreign_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_425_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.426
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_reconstruction_finish_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_reconstruction_finish_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_reconstruction_finish_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_reconstruction_finish_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_426_a } }
+}
+desc = {
+text = sof_chr_reconstruction_finish_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_426_b } }
+}
+desc = {
+text = sof_chr_reconstruction_finish_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_426_a } }
+}
+desc = {
+text = sof_chr_reconstruction_finish_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_426_b } }
+}
+desc = {
+text = sof_chr_reconstruction_finish_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_426_a } }
+}
+desc = {
+text = sof_chr_reconstruction_finish_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_426_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.427
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_liberation_news
+title = {
+text = sof_chr_anniversary_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_anniversary_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_anniversary_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_anniversary_news_actor_a_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_427_a } }
+}
+desc = {
+text = sof_chr_anniversary_news_actor_b_d
+ trigger = { tag = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_427_b } }
+}
+desc = {
+text = sof_chr_anniversary_news_rival_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_427_a } }
+}
+desc = {
+text = sof_chr_anniversary_news_rival_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_427_b } }
+}
+desc = {
+text = sof_chr_anniversary_news_observer_a_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_427_a } }
+}
+desc = {
+text = sof_chr_anniversary_news_observer_b_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } event_target:sof_chr_actor = { has_country_flag = sof_chr_news_choice_427_b } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.301
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_command_news
+title = {
+text = sof_chr_war_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_war_news_rival_t
+ trigger = { tag = event_target:sof_chr_other }
+}
+title = {
+text = sof_chr_war_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { tag = event_target:sof_chr_other } }
+}
+desc = {
+text = sof_chr_war_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_war_news_rival_d
+ trigger = { tag = event_target:sof_chr_other }
+}
+desc = {
+text = sof_chr_war_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { tag = event_target:sof_chr_other } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.302
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_ruins_news
+title = {
+text = sof_chr_capitulation_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_capitulation_news_rival_t
+ trigger = { tag = event_target:sof_chr_other }
+}
+title = {
+text = sof_chr_capitulation_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { tag = event_target:sof_chr_other } }
+}
+desc = {
+text = sof_chr_capitulation_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_capitulation_news_rival_d
+ trigger = { tag = event_target:sof_chr_other }
+}
+desc = {
+text = sof_chr_capitulation_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { tag = event_target:sof_chr_other } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.303
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_civic_news
+title = {
+text = sof_chr_annexation_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_annexation_news_rival_t
+ trigger = { tag = event_target:sof_chr_other }
+}
+title = {
+text = sof_chr_annexation_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { tag = event_target:sof_chr_other } }
+}
+desc = {
+text = sof_chr_annexation_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_annexation_news_rival_d
+ trigger = { tag = event_target:sof_chr_other }
+}
+desc = {
+text = sof_chr_annexation_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { tag = event_target:sof_chr_other } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.304
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_fifty_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_fifty_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_fifty_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_fifty_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_fifty_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_fifty_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.305
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_hundred_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_hundred_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_hundred_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_hundred_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_hundred_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_hundred_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.306
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_two_hundred_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_two_hundred_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_two_hundred_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_two_hundred_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_two_hundred_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_two_hundred_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.307
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_assembly_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_assembly_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_assembly_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_assembly_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_assembly_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_assembly_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.308
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_central_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_central_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_central_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_central_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_central_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_central_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.309
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_federal_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_federal_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_federal_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_federal_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_federal_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_federal_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.310
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_diplomacy_news
+title = {
+text = sof_chr_bloc_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_bloc_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_bloc_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_bloc_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_bloc_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_bloc_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.311
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_industry_news
+title = {
+text = sof_chr_rebuilt_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_rebuilt_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_rebuilt_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_rebuilt_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_rebuilt_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_rebuilt_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.312
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_assembly_news
+title = {
+text = sof_chr_government_change_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_government_change_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_government_change_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_government_change_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_government_change_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_government_change_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}
+news_event = {
+id = sof_chronicle.313
+ is_triggered_only = yes major = no picture = GFX_sof_chr_art_diplomacy_news
+title = {
+text = sof_chr_peace_news_actor_t
+ trigger = { tag = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_peace_news_rival_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+title = {
+text = sof_chr_peace_news_observer_t
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+desc = {
+text = sof_chr_peace_news_actor_d
+ trigger = { tag = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_peace_news_rival_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } has_war_with = event_target:sof_chr_actor }
+}
+desc = {
+text = sof_chr_peace_news_observer_d
+ trigger = { NOT = { tag = event_target:sof_chr_actor } NOT = { has_war_with = event_target:sof_chr_actor } }
+}
+option = {
+name = sof_chr_ack
+}
+
+}

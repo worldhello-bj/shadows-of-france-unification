@@ -1,0 +1,1022 @@
+# Load after sof_party_short_branches: native relative positions require earlier declarations.
+# Four-node continuations; no changes to old IDs, rewards or party presence.
+
+shared_focus = {
+ id = SOF_PARTY_PCF_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_pcf_pcf_mandate
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_PCF_PCF_MANDATE
+ prerequisite = { focus = SOF_PARTY_PCF_PCF_SECURITY }
+ allow_branch = { has_country_flag = sof_kr_party_pcf_in_power sof_kr_1936_party_presence_pcf = yes sof_rpe_region = yes }
+ available = { sof_rpe_pcf_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pcf_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_pcf_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_pcf_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pcf_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pcf_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PCF_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_pcf_pcf_security
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PCF_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PCF_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_pcf_in_power sof_kr_1936_party_presence_pcf = yes sof_rpe_region = yes }
+ available = { sof_rpe_pcf_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pcf_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PCF_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_pcf_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_pcf_b_paid } NOT = { has_country_flag = sof_rpe_pcf_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pcf_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_pcf_a_tt
+   hidden_effect = { sof_rpe_invest_pcf_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_pcf_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pcf_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PCF_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_pcf_pcf_security
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PCF_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PCF_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_pcf_in_power sof_kr_1936_party_presence_pcf = yes sof_rpe_region = yes }
+ available = { sof_rpe_pcf_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pcf_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PCF_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_pcf_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_pcf_a_paid } NOT = { has_country_flag = sof_rpe_pcf_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pcf_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_pcf_b_tt
+   hidden_effect = { sof_rpe_invest_pcf_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_pcf_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pcf_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PCF_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_pcf_pcf_security
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_PCF_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PCF_REGIONAL_PRODUCTION focus = SOF_PARTY_PCF_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_pcf_in_power sof_kr_1936_party_presence_pcf = yes sof_rpe_region = yes }
+ available = { sof_rpe_pcf_government = yes sof_rpe_pcf_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pcf_government = yes sof_rpe_pcf_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_pcf_government = yes sof_rpe_pcf_active = yes NOT = { has_country_flag = sof_rpe_pcf_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_pcf_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pcf_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_SFIO_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_sfio_sfio_office
+ x = 0 y = 6 cost = 5
+ relative_position_id = SOF_PARTY_SFIO_SFIO_OFFICE
+ prerequisite = { focus = SOF_PARTY_SFIO_SFIO_LEISURE }
+ allow_branch = { has_country_flag = sof_kr_party_sfio_in_power sof_kr_1936_party_presence_sfio = yes sof_rpe_region = yes }
+ available = { sof_rpe_sfio_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_sfio_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_sfio_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_sfio_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_sfio_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_sfio_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_SFIO_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_sfio_sfio_leisure
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_SFIO_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_SFIO_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_sfio_in_power sof_kr_1936_party_presence_sfio = yes sof_rpe_region = yes }
+ available = { sof_rpe_sfio_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_sfio_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_SFIO_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_sfio_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_sfio_b_paid } NOT = { has_country_flag = sof_rpe_sfio_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_sfio_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_sfio_a_tt
+   hidden_effect = { sof_rpe_invest_sfio_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_sfio_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_sfio_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_SFIO_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_sfio_sfio_leisure
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_SFIO_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_SFIO_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_sfio_in_power sof_kr_1936_party_presence_sfio = yes sof_rpe_region = yes }
+ available = { sof_rpe_sfio_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_sfio_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_SFIO_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_sfio_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_sfio_a_paid } NOT = { has_country_flag = sof_rpe_sfio_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_sfio_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_sfio_b_tt
+   hidden_effect = { sof_rpe_invest_sfio_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_sfio_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_sfio_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_SFIO_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_sfio_sfio_leisure
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_SFIO_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_SFIO_REGIONAL_PRODUCTION focus = SOF_PARTY_SFIO_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_sfio_in_power sof_kr_1936_party_presence_sfio = yes sof_rpe_region = yes }
+ available = { sof_rpe_sfio_government = yes sof_rpe_sfio_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_sfio_government = yes sof_rpe_sfio_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_sfio_government = yes sof_rpe_sfio_active = yes NOT = { has_country_flag = sof_rpe_sfio_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_sfio_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_sfio_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PRRRS_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_prrrs_prrrs_republic
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
+ prerequisite = { focus = SOF_PARTY_PRRRS_PRRRS_BALANCE }
+ allow_branch = { has_country_flag = sof_kr_party_prrrs_in_power sof_kr_1936_party_presence_prrrs = yes sof_rpe_region = yes }
+ available = { sof_rpe_prrrs_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_prrrs_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_prrrs_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_prrrs_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_prrrs_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_prrrs_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PRRRS_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_prrrs_prrrs_balance
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PRRRS_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PRRRS_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_prrrs_in_power sof_kr_1936_party_presence_prrrs = yes sof_rpe_region = yes }
+ available = { sof_rpe_prrrs_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_prrrs_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PRRRS_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_prrrs_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_prrrs_b_paid } NOT = { has_country_flag = sof_rpe_prrrs_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_prrrs_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_prrrs_a_tt
+   hidden_effect = { sof_rpe_invest_prrrs_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_prrrs_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_prrrs_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PRRRS_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_prrrs_prrrs_balance
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PRRRS_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PRRRS_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_prrrs_in_power sof_kr_1936_party_presence_prrrs = yes sof_rpe_region = yes }
+ available = { sof_rpe_prrrs_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_prrrs_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PRRRS_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_prrrs_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_prrrs_a_paid } NOT = { has_country_flag = sof_rpe_prrrs_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_prrrs_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_prrrs_b_tt
+   hidden_effect = { sof_rpe_invest_prrrs_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_prrrs_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_prrrs_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PRRRS_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_prrrs_prrrs_balance
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_PRRRS_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PRRRS_REGIONAL_PRODUCTION focus = SOF_PARTY_PRRRS_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_prrrs_in_power sof_kr_1936_party_presence_prrrs = yes sof_rpe_region = yes }
+ available = { sof_rpe_prrrs_government = yes sof_rpe_prrrs_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_prrrs_government = yes sof_rpe_prrrs_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_prrrs_government = yes sof_rpe_prrrs_active = yes NOT = { has_country_flag = sof_rpe_prrrs_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_prrrs_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_prrrs_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_USR_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_usr_usr_coalition
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_USR_USR_COALITION
+ prerequisite = { focus = SOF_PARTY_USR_USR_INVESTMENT }
+ allow_branch = { has_country_flag = sof_kr_party_usr_in_power sof_kr_1936_party_presence_usr = yes sof_rpe_region = yes }
+ available = { sof_rpe_usr_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_usr_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_usr_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_usr_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_usr_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_usr_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_USR_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_usr_usr_power
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_USR_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_USR_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_usr_in_power sof_kr_1936_party_presence_usr = yes sof_rpe_region = yes }
+ available = { sof_rpe_usr_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_usr_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_USR_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_usr_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_usr_b_paid } NOT = { has_country_flag = sof_rpe_usr_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_usr_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_usr_a_tt
+   hidden_effect = { sof_rpe_invest_usr_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_usr_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_usr_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_USR_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_usr_usr_power
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_USR_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_USR_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_usr_in_power sof_kr_1936_party_presence_usr = yes sof_rpe_region = yes }
+ available = { sof_rpe_usr_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_usr_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_USR_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_usr_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_usr_a_paid } NOT = { has_country_flag = sof_rpe_usr_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_usr_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_usr_b_tt
+   hidden_effect = { sof_rpe_invest_usr_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_usr_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_usr_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_USR_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_usr_usr_power
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_USR_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_USR_REGIONAL_PRODUCTION focus = SOF_PARTY_USR_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_usr_in_power sof_kr_1936_party_presence_usr = yes sof_rpe_region = yes }
+ available = { sof_rpe_usr_government = yes sof_rpe_usr_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_usr_government = yes sof_rpe_usr_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_usr_government = yes sof_rpe_usr_active = yes NOT = { has_country_flag = sof_rpe_usr_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_usr_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_usr_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PUP_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_pup_pup_bridge
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_PUP_PUP_BRIDGE
+ prerequisite = { focus = SOF_PARTY_PUP_PUP_INDEPENDENT focus = SOF_PARTY_PUP_PUP_SOCIALIST_UNION }
+ allow_branch = { has_country_flag = sof_kr_party_pup_in_power sof_kr_1936_party_presence_pup = yes sof_rpe_region = yes }
+ available = { sof_rpe_pup_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pup_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_pup_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_pup_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pup_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pup_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PUP_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_pup_pup_independent
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PUP_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PUP_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_pup_in_power sof_kr_1936_party_presence_pup = yes sof_rpe_region = yes }
+ available = { sof_rpe_pup_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pup_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PUP_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_pup_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_pup_b_paid } NOT = { has_country_flag = sof_rpe_pup_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pup_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_pup_a_tt
+   hidden_effect = { sof_rpe_invest_pup_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_pup_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pup_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PUP_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_pup_pup_independent
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PUP_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PUP_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_pup_in_power sof_kr_1936_party_presence_pup = yes sof_rpe_region = yes }
+ available = { sof_rpe_pup_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pup_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PUP_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_pup_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_pup_a_paid } NOT = { has_country_flag = sof_rpe_pup_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pup_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_pup_b_tt
+   hidden_effect = { sof_rpe_invest_pup_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_pup_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pup_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PUP_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_pup_pup_independent
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_PUP_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PUP_REGIONAL_PRODUCTION focus = SOF_PARTY_PUP_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_pup_in_power sof_kr_1936_party_presence_pup = yes sof_rpe_region = yes }
+ available = { sof_rpe_pup_government = yes sof_rpe_pup_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pup_government = yes sof_rpe_pup_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_pup_government = yes sof_rpe_pup_active = yes NOT = { has_country_flag = sof_rpe_pup_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_pup_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pup_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_RG_AD_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_rg_ad_rg_ad_committees
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
+ prerequisite = { focus = SOF_PARTY_RG_AD_RG_AD_RECOVERY }
+ allow_branch = { has_country_flag = sof_kr_party_rg_ad_in_power sof_kr_1936_party_presence_rg_ad = yes sof_rpe_region = yes }
+ available = { sof_rpe_rg_ad_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_rg_ad_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_rg_ad_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_rg_ad_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_rg_ad_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_rg_ad_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_RG_AD_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_rg_ad_rg_ad_recovery
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_RG_AD_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_RG_AD_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_rg_ad_in_power sof_kr_1936_party_presence_rg_ad = yes sof_rpe_region = yes }
+ available = { sof_rpe_rg_ad_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_rg_ad_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_RG_AD_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_rg_ad_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_rg_ad_b_paid } NOT = { has_country_flag = sof_rpe_rg_ad_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_rg_ad_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_rg_ad_a_tt
+   hidden_effect = { sof_rpe_invest_rg_ad_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_rg_ad_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_rg_ad_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_RG_AD_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_rg_ad_rg_ad_recovery
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_RG_AD_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_RG_AD_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_rg_ad_in_power sof_kr_1936_party_presence_rg_ad = yes sof_rpe_region = yes }
+ available = { sof_rpe_rg_ad_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_rg_ad_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_RG_AD_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_rg_ad_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_rg_ad_a_paid } NOT = { has_country_flag = sof_rpe_rg_ad_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_rg_ad_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_rg_ad_b_tt
+   hidden_effect = { sof_rpe_invest_rg_ad_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_rg_ad_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_rg_ad_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_RG_AD_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_rg_ad_rg_ad_recovery
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_RG_AD_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_RG_AD_REGIONAL_PRODUCTION focus = SOF_PARTY_RG_AD_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_rg_ad_in_power sof_kr_1936_party_presence_rg_ad = yes sof_rpe_region = yes }
+ available = { sof_rpe_rg_ad_government = yes sof_rpe_rg_ad_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_rg_ad_government = yes sof_rpe_rg_ad_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_rg_ad_government = yes sof_rpe_rg_ad_active = yes NOT = { has_country_flag = sof_rpe_rg_ad_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_rg_ad_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_rg_ad_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_FR_URD_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_fr_urd_fr_urd_notables
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_FR_URD_FR_URD_NOTABLES
+ prerequisite = { focus = SOF_PARTY_FR_URD_FR_URD_ARSENALS }
+ allow_branch = { has_country_flag = sof_kr_party_fr_urd_in_power sof_kr_1936_party_presence_fr_urd = yes sof_rpe_region = yes }
+ available = { sof_rpe_fr_urd_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_fr_urd_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_fr_urd_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_fr_urd_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_fr_urd_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_fr_urd_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_FR_URD_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_fr_urd_fr_urd_reserve
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_FR_URD_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_FR_URD_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_fr_urd_in_power sof_kr_1936_party_presence_fr_urd = yes sof_rpe_region = yes }
+ available = { sof_rpe_fr_urd_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_fr_urd_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_FR_URD_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_fr_urd_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_fr_urd_b_paid } NOT = { has_country_flag = sof_rpe_fr_urd_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_fr_urd_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_fr_urd_a_tt
+   hidden_effect = { sof_rpe_invest_fr_urd_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_fr_urd_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_fr_urd_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_FR_URD_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_fr_urd_fr_urd_reserve
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_FR_URD_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_FR_URD_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_fr_urd_in_power sof_kr_1936_party_presence_fr_urd = yes sof_rpe_region = yes }
+ available = { sof_rpe_fr_urd_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_fr_urd_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_FR_URD_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_fr_urd_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_fr_urd_a_paid } NOT = { has_country_flag = sof_rpe_fr_urd_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_fr_urd_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_fr_urd_b_tt
+   hidden_effect = { sof_rpe_invest_fr_urd_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_fr_urd_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_fr_urd_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_FR_URD_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_fr_urd_fr_urd_reserve
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_FR_URD_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_FR_URD_REGIONAL_PRODUCTION focus = SOF_PARTY_FR_URD_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_fr_urd_in_power sof_kr_1936_party_presence_fr_urd = yes sof_rpe_region = yes }
+ available = { sof_rpe_fr_urd_government = yes sof_rpe_fr_urd_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_fr_urd_government = yes sof_rpe_fr_urd_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_fr_urd_government = yes sof_rpe_fr_urd_active = yes NOT = { has_country_flag = sof_rpe_fr_urd_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_fr_urd_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_fr_urd_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PDP_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_pdp_pdp_mandate
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_PDP_PDP_MANDATE
+ prerequisite = { focus = SOF_PARTY_PDP_PDP_COMPACT }
+ allow_branch = { has_country_flag = sof_kr_party_pdp_in_power sof_kr_1936_party_presence_pdp = yes sof_rpe_region = yes }
+ available = { sof_rpe_pdp_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pdp_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_pdp_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_pdp_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pdp_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pdp_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PDP_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_pdp_pdp_compact
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PDP_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PDP_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_pdp_in_power sof_kr_1936_party_presence_pdp = yes sof_rpe_region = yes }
+ available = { sof_rpe_pdp_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pdp_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PDP_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_pdp_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_pdp_b_paid } NOT = { has_country_flag = sof_rpe_pdp_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pdp_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_pdp_a_tt
+   hidden_effect = { sof_rpe_invest_pdp_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_pdp_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pdp_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PDP_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_pdp_pdp_compact
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_PDP_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PDP_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_pdp_in_power sof_kr_1936_party_presence_pdp = yes sof_rpe_region = yes }
+ available = { sof_rpe_pdp_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pdp_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_PDP_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_pdp_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_pdp_a_paid } NOT = { has_country_flag = sof_rpe_pdp_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_pdp_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_pdp_b_tt
+   hidden_effect = { sof_rpe_invest_pdp_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_pdp_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pdp_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_PDP_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_pdp_pdp_compact
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_PDP_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_PDP_REGIONAL_PRODUCTION focus = SOF_PARTY_PDP_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_pdp_in_power sof_kr_1936_party_presence_pdp = yes sof_rpe_region = yes }
+ available = { sof_rpe_pdp_government = yes sof_rpe_pdp_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_pdp_government = yes sof_rpe_pdp_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_pdp_government = yes sof_rpe_pdp_active = yes NOT = { has_country_flag = sof_rpe_pdp_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_pdp_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_pdp_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_UPR_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_upr_upr_mandate
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_UPR_UPR_MANDATE
+ prerequisite = { focus = SOF_PARTY_UPR_UPR_RHINE }
+ allow_branch = { has_country_flag = sof_kr_party_upr_in_power sof_kr_1936_party_presence_upr = yes sof_rpe_region = yes }
+ available = { sof_rpe_upr_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_upr_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_upr_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_upr_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_upr_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_upr_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_UPR_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_rg_ad_rg_ad_enterprise
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_UPR_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_UPR_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_upr_in_power sof_kr_1936_party_presence_upr = yes sof_rpe_region = yes }
+ available = { sof_rpe_upr_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_upr_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_UPR_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_upr_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_upr_b_paid } NOT = { has_country_flag = sof_rpe_upr_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_upr_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_upr_a_tt
+   hidden_effect = { sof_rpe_invest_upr_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_upr_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_upr_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_UPR_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_rg_ad_rg_ad_enterprise
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_UPR_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_UPR_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_upr_in_power sof_kr_1936_party_presence_upr = yes sof_rpe_region = yes }
+ available = { sof_rpe_upr_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_upr_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_UPR_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_upr_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_upr_a_paid } NOT = { has_country_flag = sof_rpe_upr_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_upr_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_upr_b_tt
+   hidden_effect = { sof_rpe_invest_upr_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_upr_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_upr_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_UPR_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_rg_ad_rg_ad_enterprise
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_UPR_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_UPR_REGIONAL_PRODUCTION focus = SOF_PARTY_UPR_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_upr_in_power sof_kr_1936_party_presence_upr = yes sof_rpe_region = yes }
+ available = { sof_rpe_upr_government = yes sof_rpe_upr_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_upr_government = yes sof_rpe_upr_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_upr_government = yes sof_rpe_upr_active = yes NOT = { has_country_flag = sof_rpe_upr_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_upr_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_upr_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_DORIOT_REGIONAL_AGENDA
+ icon = GFX_sof_project_sof_party_doriot_doriot_rayon
+ x = 0 y = 5 cost = 5
+ relative_position_id = SOF_PARTY_DORIOT_DORIOT_RAYON
+ prerequisite = { focus = SOF_PARTY_DORIOT_DORIOT_LOCAL_CHOICE focus = SOF_PARTY_DORIOT_DORIOT_PPF }
+ allow_branch = { has_country_flag = sof_kr_party_doriot_in_power sof_kr_1936_party_presence_doriot = yes sof_rpe_region = yes }
+ available = { sof_rpe_doriot_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_doriot_government = yes sof_rl_home_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_doriot_government = yes sof_rl_home_control = yes NOT = { has_country_flag = sof_rpe_doriot_agenda_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_doriot_agenda_paid
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_doriot_regional_agenda sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_DORIOT_REGIONAL_PRODUCTION
+ icon = GFX_sof_project_sof_party_doriot_doriot_local_choice
+ x = -3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_DORIOT_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_DORIOT_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_doriot_in_power sof_kr_1936_party_presence_doriot = yes sof_rpe_region = yes }
+ available = { sof_rpe_doriot_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_doriot_government = yes sof_rpe_primary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_DORIOT_REGIONAL_SERVICES }
+ completion_reward = { if = { limit = { sof_rpe_doriot_government = yes sof_rpe_primary_control = yes NOT = { has_country_flag = sof_rpe_doriot_b_paid } NOT = { has_country_flag = sof_rpe_doriot_a_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_doriot_a_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_doriot_a_tt
+   hidden_effect = { sof_rpe_invest_doriot_a = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_doriot_a_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_doriot_regional_production sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_DORIOT_REGIONAL_SERVICES
+ icon = GFX_sof_project_sof_party_doriot_doriot_local_choice
+ x = 3 y = 1 cost = 5
+ relative_position_id = SOF_PARTY_DORIOT_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_DORIOT_REGIONAL_AGENDA }
+ allow_branch = { has_country_flag = sof_kr_party_doriot_in_power sof_kr_1936_party_presence_doriot = yes sof_rpe_region = yes }
+ available = { sof_rpe_doriot_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_doriot_government = yes sof_rpe_secondary_control = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ mutually_exclusive = { focus = SOF_PARTY_DORIOT_REGIONAL_PRODUCTION }
+ completion_reward = { if = { limit = { sof_rpe_doriot_government = yes sof_rpe_secondary_control = yes NOT = { has_country_flag = sof_rpe_doriot_a_paid } NOT = { has_country_flag = sof_rpe_doriot_b_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate }
+  set_country_flag = sof_rpe_doriot_b_paid
+  if = { limit = { NOT = { has_country_flag = sof_rpe_investment_paid } }
+   custom_effect_tooltip = sof_rpe_doriot_b_tt
+   hidden_effect = { sof_rpe_invest_doriot_b = yes set_country_flag = sof_rpe_investment_paid }
+  } else = {   }
+  custom_effect_tooltip = sof_rpe_doriot_b_policy_tt
+  custom_effect_tooltip = sof_rpe_policy_tt
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_doriot_regional_services sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+shared_focus = {
+ id = SOF_PARTY_DORIOT_REGIONAL_REVIEW
+ icon = GFX_sof_project_sof_party_doriot_doriot_local_choice
+ x = 0 y = 2 cost = 5
+ relative_position_id = SOF_PARTY_DORIOT_REGIONAL_AGENDA
+ prerequisite = { focus = SOF_PARTY_DORIOT_REGIONAL_PRODUCTION focus = SOF_PARTY_DORIOT_REGIONAL_SERVICES }
+ allow_branch = { has_country_flag = sof_kr_party_doriot_in_power sof_kr_1936_party_presence_doriot = yes sof_rpe_region = yes }
+ available = { sof_rpe_doriot_government = yes sof_rpe_doriot_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+ cancel_if_invalid = yes
+ continue_if_invalid = no
+ cancel = { NOT = { AND = { sof_rpe_doriot_government = yes sof_rpe_doriot_active = yes  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress } } }
+ search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+ ai_will_do = { factor = 8 }
+ completion_reward = { if = { limit = { sof_rpe_doriot_government = yes sof_rpe_doriot_active = yes NOT = { has_country_flag = sof_rpe_doriot_review_paid }  sof_nr_candidate = yes has_country_flag = sof_nr_mandate has_country_flag = sof_nr_congress }
+  set_country_flag = sof_rpe_doriot_review_paid
+  
+  if = { limit = { NOT = { has_country_flag = sof_rpe_audit_reward_paid } } set_country_flag = sof_rpe_audit_reward_paid  }
+  
+  hidden_effect = { sof610_sync_party_program = yes }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_party_doriot_regional_review sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}

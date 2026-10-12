@@ -1,0 +1,5 @@
+# Reconcile the stronger institutions once for saves; focus completion also synchronizes immediately.
+on_actions = {
+ on_startup = { effect = { every_country = { sof_sc_sync = yes sof_gn_sync = yes sof610_sync_party_program = yes set_country_flag = sof_sc_v608_reconciled } } }
+ on_daily = { effect = { if = { limit = { NOT = { has_country_flag = sof_sc_v608_reconciled } } sof_sc_sync = yes sof_gn_sync = yes sof610_sync_party_program = yes set_country_flag = sof_sc_v608_reconciled } } }
+}

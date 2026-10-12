@@ -1,0 +1,1038 @@
+{
+  "country": "LMG",
+  "tree": "sof_region_LMG_1936",
+  "baseline": "6.0.6 + 2026-10-09 startup repairs",
+  "own_focuses": 63,
+  "local_focuses": 57,
+  "shared_party_roots": [
+    "SOF_PARTY_PCF_PCF_MANDATE",
+    "SOF_PARTY_SFIO_SFIO_OFFICE",
+    "SOF_PARTY_PRRRS_PRRRS_REPUBLIC",
+    "SOF_PARTY_USR_USR_COALITION",
+    "SOF_PARTY_PUP_PUP_BRIDGE",
+    "SOF_PARTY_RG_AD_RG_AD_COMMITTEES",
+    "SOF_PARTY_RG_AD_RG_AD_ACCOUNTS",
+    "SOF_PARTY_FR_URD_FR_URD_NOTABLES",
+    "SOF_PARTY_PDP_PDP_MANDATE",
+    "SOF_PARTY_UPR_UPR_MANDATE",
+    "SOF_PARTY_DORIOT_DORIOT_RAYON"
+  ],
+  "nodes": [
+    {
+      "id": "sof_lmg_council",
+      "key": "council",
+      "title": "利穆赞联席会议",
+      "x": 18,
+      "y": 0,
+      "parents": [],
+      "reward": "add_political_power = 45 add_stability = 0.02 sof_tp_focus_office_effect = yes",
+      "kind": "politics",
+      "cost": 3,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 30
+    },
+    {
+      "id": "sof_lmg_accounts",
+      "key": "accounts",
+      "title": "核对市镇账簿",
+      "x": 6,
+      "y": 1,
+      "parents": [
+        "council"
+      ],
+      "reward": "add_political_power = 50",
+      "kind": "politics",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_rural_register",
+      "key": "rural_register",
+      "title": "乡村行政登记",
+      "x": 2,
+      "y": 2,
+      "parents": [
+        "accounts"
+      ],
+      "reward": "sof_generic_upgrade_administration_1 = yes",
+      "kind": "politics",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_delegates",
+      "key": "delegates",
+      "title": "市镇与农户代表",
+      "x": 10,
+      "y": 2,
+      "parents": [
+        "accounts"
+      ],
+      "reward": "add_political_power = 25 add_stability = 0.02",
+      "kind": "politics",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_municipal",
+      "key": "municipal",
+      "title": "市镇社会主义",
+      "x": 8,
+      "y": 3,
+      "parents": [
+        "delegates"
+      ],
+      "reward": "sof_kr_set_party_sfio = yes add_ideas = sof_lmg_municipal_policy",
+      "kind": "politics",
+      "cost": 5,
+      "available": "has_stability > 0.34",
+      "exclusive": [
+        "radical"
+      ],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_radical",
+      "key": "radical",
+      "title": "激进派地方共和",
+      "x": 12,
+      "y": 3,
+      "parents": [
+        "delegates"
+      ],
+      "reward": "sof_kr_set_party_prrrs = yes add_ideas = sof_lmg_radical_policy",
+      "kind": "politics",
+      "cost": 5,
+      "available": "has_stability > 0.34",
+      "exclusive": [
+        "municipal"
+      ],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_public_charter",
+      "key": "public_charter",
+      "title": "地方公共章程",
+      "x": 10,
+      "y": 4,
+      "parents": [
+        [
+          "municipal",
+          "radical"
+        ]
+      ],
+      "reward": "add_political_power = 50",
+      "kind": "politics",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_cooperatives",
+      "key": "cooperatives",
+      "title": "利穆赞农业合作社",
+      "x": 2,
+      "y": 3,
+      "parents": [
+        "rural_register"
+      ],
+      "reward": "add_ideas = sof_lmg_cooperatives",
+      "kind": "politics",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_rural_credit",
+      "key": "rural_credit",
+      "title": "贝拉克乡村信贷",
+      "x": 2,
+      "y": 4,
+      "parents": [
+        "cooperatives"
+      ],
+      "reward": "309 = { set_state_flag = sof_lmg_rural_credit_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } ",
+      "kind": "industry",
+      "cost": 7,
+      "available": "309 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 309 = { NOT = { has_state_flag = sof_lmg_rural_credit_built } }",
+      "exclusive": [],
+      "bypass": "309 = { has_state_flag = sof_lmg_rural_credit_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_market_routes",
+      "key": "market_routes",
+      "title": "布里夫集市道路",
+      "x": 2,
+      "y": 5,
+      "parents": [
+        "rural_credit"
+      ],
+      "reward": "363 = { set_state_flag = sof_lmg_market_routes_built add_building_construction = { type = infrastructure level = 1 instant_build = yes } } ",
+      "kind": "industry",
+      "cost": 5,
+      "available": "363 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 363 = { NOT = { has_state_flag = sof_lmg_market_routes_built } }",
+      "exclusive": [],
+      "bypass": "363 = { has_state_flag = sof_lmg_market_routes_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_artisan_leagues",
+      "key": "artisan_leagues",
+      "title": "奥比松工匠联会",
+      "x": 6,
+      "y": 5,
+      "parents": [
+        "public_charter"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_artisan_leagues_bonus bonus = 0.35 uses = 1 category = industry }",
+      "kind": "science",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_public_school",
+      "key": "public_school",
+      "title": "地方技术教育",
+      "x": 12,
+      "y": 5,
+      "parents": [
+        "public_charter"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_public_school_bonus bonus = 0.35 uses = 1 category = electronics }",
+      "kind": "science",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_regional_charter",
+      "key": "regional_charter",
+      "title": "八州协作章程",
+      "x": 10,
+      "y": 6,
+      "parents": [
+        "public_charter",
+        "cooperatives"
+      ],
+      "reward": "sof_generic_upgrade_administration_2 = yes add_stability = 0.03",
+      "kind": "politics",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_depots",
+      "key": "depots",
+      "title": "利摩日军需仓",
+      "x": 2,
+      "y": 7,
+      "parents": [
+        "market_routes"
+      ],
+      "reward": "326 = { set_state_flag = sof_lmg_depots_built add_dynamic_modifier = { modifier = sof_lmg_depots_local } } ",
+      "kind": "army",
+      "cost": 5,
+      "available": "326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_depots_built } }",
+      "exclusive": [],
+      "bypass": "326 = { has_state_flag = sof_lmg_depots_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_reconstruction",
+      "key": "reconstruction",
+      "title": "市镇工程队",
+      "x": 10,
+      "y": 8,
+      "parents": [
+        "regional_charter"
+      ],
+      "reward": "sof_generic_upgrade_civil_industry_2 = yes",
+      "kind": "industry",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_diplomacy",
+      "key": "diplomacy",
+      "title": "批准地区外交",
+      "x": 6,
+      "y": 8,
+      "parents": [
+        "regional_charter"
+      ],
+      "reward": "sof609_unlock_factions = yes",
+      "kind": "politics",
+      "cost": 7,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 18
+    },
+    {
+      "id": "sof_lmg_central_compact",
+      "key": "central_compact",
+      "title": "中央高原技术协约",
+      "x": 2,
+      "y": 10,
+      "parents": [
+        "diplomacy",
+        "artisan_leagues"
+      ],
+      "reward": "set_country_flag = sof_lmg_compact_pending CFR = { country_event = { id = sof_lmg.2 days = 1 } }",
+      "kind": "politics",
+      "cost": 7,
+      "available": "country_exists = CFR is_subject = no NOT = { has_war_with = CFR } CFR = { is_subject = no has_capitulated = no }",
+      "exclusive": [],
+      "bypass": "OR = { NOT = { country_exists = CFR } CFR = { OR = { is_subject = yes has_capitulated = yes } } }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_mediation",
+      "key": "mediation",
+      "title": "利穆赞调解公署",
+      "x": 10,
+      "y": 10,
+      "parents": [
+        "diplomacy"
+      ],
+      "reward": "add_political_power = 50 add_command_power = 10",
+      "kind": "politics",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_workshop_census",
+      "key": "workshop_census",
+      "title": "清点窑炉与机床",
+      "x": 20,
+      "y": 1,
+      "parents": [
+        "council"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_workshop_census_bonus bonus = 0.25 uses = 1 category = industry }",
+      "kind": "industry",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_kiln_fuels",
+      "key": "kiln_fuels",
+      "title": "窑炉燃料统筹",
+      "x": 16,
+      "y": 2,
+      "parents": [
+        "workshop_census"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_kiln_fuels_bonus bonus = 0.35 uses = 1 category = industry }",
+      "kind": "industry",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_porcelain_standard",
+      "key": "porcelain_standard",
+      "title": "电工瓷件标准",
+      "x": 20,
+      "y": 2,
+      "parents": [
+        "workshop_census"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_porcelain_standard_bonus bonus = 0.4 uses = 1 category = electronics }",
+      "kind": "science",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_tulle_inventory",
+      "key": "tulle_inventory",
+      "title": "蒂勒兵工清册",
+      "x": 24,
+      "y": 2,
+      "parents": [
+        "workshop_census"
+      ],
+      "reward": "army_experience = 10",
+      "kind": "arms",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_modern_kilns",
+      "key": "modern_kilns",
+      "title": "利摩日窑炉改造",
+      "x": 16,
+      "y": 3,
+      "parents": [
+        "kiln_fuels"
+      ],
+      "reward": "326 = { set_state_flag = sof_lmg_modern_kilns_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } ",
+      "kind": "industry",
+      "cost": 7,
+      "available": "326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_modern_kilns_built } }",
+      "exclusive": [],
+      "bypass": "326 = { has_state_flag = sof_lmg_modern_kilns_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_legrand",
+      "key": "legrand",
+      "title": "罗格朗电工工场",
+      "x": 20,
+      "y": 3,
+      "parents": [
+        "porcelain_standard"
+      ],
+      "reward": "add_ideas = sof_lmg_electrical_workshops add_tech_bonus = { name = sof_lmg_legrand_bonus bonus = 0.5 uses = 1 category = electronics }",
+      "kind": "production",
+      "cost": 5,
+      "available": "326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_tulle_arsenal",
+      "key": "tulle_arsenal",
+      "title": "恢复蒂勒兵工",
+      "x": 24,
+      "y": 3,
+      "parents": [
+        "tulle_inventory"
+      ],
+      "reward": "354 = { set_state_flag = sof_lmg_tulle_arsenal_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } ",
+      "kind": "arms",
+      "cost": 7,
+      "available": "354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_tulle_arsenal_built } }",
+      "exclusive": [],
+      "bypass": "354 = { has_state_flag = sof_lmg_tulle_arsenal_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_aubusson",
+      "key": "aubusson",
+      "title": "奥比松织造订单",
+      "x": 14,
+      "y": 4,
+      "parents": [
+        "modern_kilns"
+      ],
+      "reward": "312 = { set_state_flag = sof_lmg_aubusson_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } ",
+      "kind": "industry",
+      "cost": 7,
+      "available": "312 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 312 = { NOT = { has_state_flag = sof_lmg_aubusson_built } }",
+      "exclusive": [],
+      "bypass": "312 = { has_state_flag = sof_lmg_aubusson_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_insulation",
+      "key": "insulation",
+      "title": "绝缘材料试验",
+      "x": 18,
+      "y": 4,
+      "parents": [
+        "legrand"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_insulation_bonus bonus = 0.5 uses = 1 category = electronics }",
+      "kind": "science",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_gauging",
+      "key": "gauging",
+      "title": "蒂勒量具校验",
+      "x": 26,
+      "y": 4,
+      "parents": [
+        "tulle_arsenal"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_gauging_bonus bonus = 0.35 uses = 1 category = infantry_weapons }",
+      "kind": "arms",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_grid",
+      "key": "grid",
+      "title": "维埃纳河电力调度",
+      "x": 18,
+      "y": 5,
+      "parents": [
+        "insulation"
+      ],
+      "reward": "326 = { set_state_flag = sof_lmg_grid_built add_building_construction = { type = infrastructure level = 1 instant_build = yes } } ",
+      "kind": "industry",
+      "cost": 5,
+      "available": "326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_grid_built } }",
+      "exclusive": [],
+      "bypass": "326 = { has_state_flag = sof_lmg_grid_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_machine_tools",
+      "key": "machine_tools",
+      "title": "工场机床标准化",
+      "x": 22,
+      "y": 5,
+      "parents": [
+        "legrand",
+        "gauging"
+      ],
+      "reward": "sof_generic_upgrade_mil_industry_1 = yes",
+      "kind": "production",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_dispersed_workshops",
+      "key": "dispersed_workshops",
+      "title": "科雷兹分散工场",
+      "x": 26,
+      "y": 5,
+      "parents": [
+        "gauging"
+      ],
+      "reward": "354 = { set_state_flag = sof_lmg_dispersed_workshops_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } ",
+      "kind": "arms",
+      "cost": 7,
+      "available": "354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_dispersed_workshops_built } }",
+      "exclusive": [],
+      "bypass": "354 = { has_state_flag = sof_lmg_dispersed_workshops_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_apprentices",
+      "key": "apprentices",
+      "title": "陶瓷与机电学徒",
+      "x": 16,
+      "y": 6,
+      "parents": [
+        "aubusson",
+        "insulation"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_apprentices_bonus bonus = 0.5 uses = 1 category = industry }",
+      "kind": "science",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_tungsten",
+      "key": "tungsten",
+      "title": "利摩日钨矿普查",
+      "x": 20,
+      "y": 6,
+      "parents": [
+        "grid"
+      ],
+      "reward": "326 = { set_state_flag = sof_lmg_tungsten_built add_dynamic_modifier = { modifier = sof_lmg_tungsten_local } } ",
+      "kind": "industry",
+      "cost": 5,
+      "available": "326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_tungsten_built } }",
+      "exclusive": [],
+      "bypass": "326 = { has_state_flag = sof_lmg_tungsten_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_tulle_tooling",
+      "key": "tulle_tooling",
+      "title": "蒂勒工艺协作",
+      "x": 24,
+      "y": 6,
+      "parents": [
+        "machine_tools",
+        "dispersed_workshops"
+      ],
+      "reward": "add_ideas = sof_lmg_tulle_workshops",
+      "kind": "production",
+      "cost": 5,
+      "available": "354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_technical_classes",
+      "key": "technical_classes",
+      "title": "工场技术讲习班",
+      "x": 16,
+      "y": 7,
+      "parents": [
+        "apprentices"
+      ],
+      "reward": "if = { limit = { num_of_factories > 3 amount_research_slots < 3 } add_research_slot = 1 }",
+      "kind": "science",
+      "cost": 5,
+      "available": "num_of_factories > 3",
+      "exclusive": [],
+      "bypass": "amount_research_slots > 2",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_research_schools",
+      "key": "research_schools",
+      "title": "利穆赞技术学校",
+      "x": 18,
+      "y": 8,
+      "parents": [
+        "technical_classes",
+        "public_school"
+      ],
+      "reward": "if = { limit = { num_of_factories > 9 amount_research_slots < 4 } add_research_slot = 1 }",
+      "kind": "science",
+      "cost": 7,
+      "available": "num_of_factories > 9",
+      "exclusive": [],
+      "bypass": "amount_research_slots > 3",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_wartime_conversion",
+      "key": "wartime_conversion",
+      "title": "地方工场战时转产",
+      "x": 24,
+      "y": 8,
+      "parents": [
+        "tulle_tooling"
+      ],
+      "reward": "sof_generic_upgrade_mil_industry_2 = yes army_experience = 15",
+      "kind": "production",
+      "cost": 7,
+      "available": "num_of_factories > 11",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_regional_industry",
+      "key": "regional_industry",
+      "title": "利穆赞工业联合",
+      "x": 20,
+      "y": 9,
+      "parents": [
+        "research_schools",
+        "wartime_conversion"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_regional_industry_bonus bonus = 0.5 uses = 2 category = industry }",
+      "kind": "industry",
+      "cost": 7,
+      "available": "num_of_factories > 15",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_institute",
+      "key": "institute",
+      "title": "利穆赞应用研究院",
+      "x": 22,
+      "y": 11,
+      "parents": [
+        "regional_industry"
+      ],
+      "reward": "if = { limit = { num_of_factories > 19 amount_research_slots < 5 } add_research_slot = 1 }",
+      "kind": "science",
+      "cost": 7,
+      "available": "num_of_factories > 19",
+      "exclusive": [],
+      "bypass": "amount_research_slots > 4",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_defense_survey",
+      "key": "defense_survey",
+      "title": "中央高原守备调查",
+      "x": 34,
+      "y": 1,
+      "parents": [
+        "council"
+      ],
+      "reward": "army_experience = 10",
+      "kind": "army",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_territorial_rolls",
+      "key": "territorial_rolls",
+      "title": "乡村预备役名册",
+      "x": 30,
+      "y": 2,
+      "parents": [
+        "defense_survey"
+      ],
+      "reward": "add_manpower = 1500 add_war_support = 0.03",
+      "kind": "army",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_drill",
+      "key": "drill",
+      "title": "地方守备轮训",
+      "x": 34,
+      "y": 2,
+      "parents": [
+        "defense_survey"
+      ],
+      "reward": "army_experience = 15",
+      "kind": "army",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_hill_positions",
+      "key": "hill_positions",
+      "title": "于塞勒丘陵阵地",
+      "x": 38,
+      "y": 2,
+      "parents": [
+        "defense_survey"
+      ],
+      "reward": "349 = { set_state_flag = sof_lmg_hill_positions_built add_building_construction = { type = bunker level = 1 instant_build = yes province = 15145 } } ",
+      "kind": "defense",
+      "cost": 5,
+      "available": "349 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 349 = { NOT = { has_state_flag = sof_lmg_hill_positions_built } }",
+      "exclusive": [],
+      "bypass": "349 = { has_state_flag = sof_lmg_hill_positions_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_logistics_train",
+      "key": "logistics_train",
+      "title": "乡村运输分队",
+      "x": 30,
+      "y": 3,
+      "parents": [
+        "territorial_rolls"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_logistics_train_bonus bonus = 0.35 uses = 1 category = support_tech }",
+      "kind": "army",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_reserve_instructors",
+      "key": "reserve_instructors",
+      "title": "蒂勒守备教导队",
+      "x": 34,
+      "y": 3,
+      "parents": [
+        "drill"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_reserve_instructors_bonus bonus = 0.35 uses = 1 category = infantry_weapons }",
+      "kind": "arms",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_correze_forts",
+      "key": "correze_forts",
+      "title": "科雷兹防御支点",
+      "x": 38,
+      "y": 4,
+      "parents": [
+        "hill_positions"
+      ],
+      "reward": "354 = { set_state_flag = sof_lmg_correze_forts_built add_building_construction = { type = bunker level = 1 instant_build = yes province = 15412 } } ",
+      "kind": "defense",
+      "cost": 5,
+      "available": "354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_correze_forts_built } }",
+      "exclusive": [],
+      "bypass": "354 = { has_state_flag = sof_lmg_correze_forts_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_signal_corps",
+      "key": "signal_corps",
+      "title": "军用电工与通信",
+      "x": 30,
+      "y": 4,
+      "parents": [
+        "logistics_train"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_signal_corps_bonus bonus = 0.35 uses = 1 category = electronics }",
+      "kind": "science",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_tulle_rifle",
+      "key": "tulle_rifle",
+      "title": "蒂勒步枪交付",
+      "x": 34,
+      "y": 4,
+      "parents": [
+        "reserve_instructors",
+        "tulle_arsenal"
+      ],
+      "reward": "add_equipment_to_stockpile = { type = infantry_equipment_0 amount = 300 producer = LMG }",
+      "kind": "arms",
+      "cost": 5,
+      "available": "354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_brive_motor_pool",
+      "key": "brive_motor_pool",
+      "title": "布里夫运输工场",
+      "x": 30,
+      "y": 5,
+      "parents": [
+        "signal_corps"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_brive_motor_pool_bonus bonus = 0.4 uses = 1 category = motorized_equipment }",
+      "kind": "army",
+      "cost": 5,
+      "available": "363 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_hill_doctrine",
+      "key": "hill_doctrine",
+      "title": "丘陵守备教范",
+      "x": 38,
+      "y": 5,
+      "parents": [
+        "correze_forts",
+        "drill"
+      ],
+      "reward": "add_ideas = sof_lmg_hill_service",
+      "kind": "defense",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_central_staff",
+      "key": "central_staff",
+      "title": "利穆赞参谋联络",
+      "x": 34,
+      "y": 6,
+      "parents": [
+        "tulle_rifle",
+        "logistics_train"
+      ],
+      "reward": "army_experience = 25 add_command_power = 15",
+      "kind": "army",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_observer_school",
+      "key": "observer_school",
+      "title": "高原空情观察班",
+      "x": 30,
+      "y": 7,
+      "parents": [
+        "brive_motor_pool"
+      ],
+      "reward": "air_experience = 15",
+      "kind": "air",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_airfield",
+      "key": "airfield",
+      "title": "利摩日航空保障",
+      "x": 34,
+      "y": 7,
+      "parents": [
+        "central_staff"
+      ],
+      "reward": "326 = { set_state_flag = sof_lmg_airfield_built add_building_construction = { type = air_base level = 1 instant_build = yes } } ",
+      "kind": "air",
+      "cost": 5,
+      "available": "326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_airfield_built } }",
+      "exclusive": [],
+      "bypass": "326 = { has_state_flag = sof_lmg_airfield_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_patrol_wings",
+      "key": "patrol_wings",
+      "title": "高原巡逻航空队",
+      "x": 30,
+      "y": 8,
+      "parents": [
+        "observer_school",
+        "airfield"
+      ],
+      "reward": "add_tech_bonus = { name = sof_lmg_patrol_wings_bonus bonus = 0.4 uses = 1 category = light_air }",
+      "kind": "air",
+      "cost": 5,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_anti_air",
+      "key": "anti_air",
+      "title": "利摩日防空阵地",
+      "x": 38,
+      "y": 8,
+      "parents": [
+        "hill_doctrine"
+      ],
+      "reward": "326 = { set_state_flag = sof_lmg_anti_air_built add_building_construction = { type = anti_air_building level = 1 instant_build = yes } } ",
+      "kind": "defense",
+      "cost": 5,
+      "available": "326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_anti_air_built } }",
+      "exclusive": [],
+      "bypass": "326 = { has_state_flag = sof_lmg_anti_air_built }",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_combined_exercises",
+      "key": "combined_exercises",
+      "title": "高原军种协同",
+      "x": 34,
+      "y": 10,
+      "parents": [
+        "central_staff",
+        "patrol_wings",
+        "hill_doctrine"
+      ],
+      "reward": "army_experience = 25 air_experience = 15",
+      "kind": "army",
+      "cost": 7,
+      "available": "",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    },
+    {
+      "id": "sof_lmg_war_authorization",
+      "key": "war_authorization",
+      "title": "利穆赞统一授权",
+      "x": 34,
+      "y": 12,
+      "parents": [
+        "combined_exercises",
+        "regional_charter"
+      ],
+      "reward": "set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready add_war_support = 0.05",
+      "kind": "army",
+      "cost": 7,
+      "available": "is_subject = no NOT = { has_country_flag = sofzh_unification_complete }",
+      "exclusive": [],
+      "bypass": "",
+      "ai": 10
+    }
+  ],
+  "migration": {
+    "SOF_GENERIC_arrondissement": [
+      "council"
+    ],
+    "SOF_GENERIC_department": [
+      "council",
+      "accounts"
+    ],
+    "SOF_GENERIC_province": [
+      "council",
+      "accounts",
+      "rural_register"
+    ],
+    "SOF_GENERIC_basic_industry": [
+      "council",
+      "workshop_census"
+    ],
+    "SOF_GENERIC_3_infantry_divisions": [
+      "council",
+      "defense_survey"
+    ]
+  },
+  "art": "Existing bundled art by theme; no new generated illustrations in this change.",
+  "sources": [
+    "https://www.legrand.com/fr/le-groupe/notre-histoire",
+    "https://www.cite-tapisserie.fr/le-musee/nos-collections/6-siecles-d-histoire",
+    "https://citedelaccordeon.com/sites/default/files/media/2026-02/gros_caracteres_manu_0.pdf"
+  ]
+}

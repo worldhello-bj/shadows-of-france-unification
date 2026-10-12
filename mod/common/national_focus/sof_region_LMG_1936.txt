@@ -1,0 +1,1111 @@
+# Limousin / Limoges, completed regional roster. New starts use LMG's own tree.
+focus_tree = {
+ id = sof_region_LMG_1936
+ country = { factor = 0 modifier = { add = 300 original_tag = LMG } }
+ default = no reset_on_civilwar = no
+ initial_show_position = { focus = sof_lmg_council }
+ continuous_focus_position = { x = 50 y = 4000 }
+ shortcut = { name = sof_lmg_shortcut_politics target = sof_lmg_accounts scroll_wheel_factor = 0.65 }
+ shortcut = { name = sof_lmg_shortcut_industry target = sof_lmg_workshop_census scroll_wheel_factor = 0.65 }
+ shortcut = { name = sof_lmg_shortcut_defense target = sof_lmg_defense_survey scroll_wheel_factor = 0.65 }
+ shortcut = { name = sof_lmg_shortcut_rebirth target = SOF_NR_LMG_mandate scroll_wheel_factor = 0.65 }
+focus = {
+ id = sof_lmg_council icon = GFX_sof_lmg_focus_politics x = 18 y = 0 cost = 3
+ 
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_council_paid } }
+  set_country_flag = sof_lmg_council_paid   sof_tp_focus_office_effect = yes
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_council sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_accounts icon = GFX_sof_lmg_focus_politics x = 6 y = 1 cost = 5
+ prerequisite = { focus = sof_lmg_council }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_accounts_paid } }
+  set_country_flag = sof_lmg_accounts_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_accounts sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_rural_register icon = GFX_sof_lmg_focus_politics x = 2 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_accounts }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_rural_register_paid } }
+  set_country_flag = sof_lmg_rural_register_paid sof_generic_upgrade_administration_1 = yes
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_rural_register sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_delegates icon = GFX_sof_lmg_focus_politics x = 10 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_accounts }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_delegates_paid } }
+  set_country_flag = sof_lmg_delegates_paid  
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_delegates sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_municipal icon = GFX_sof_lmg_focus_politics x = 8 y = 3 cost = 5
+ prerequisite = { focus = sof_lmg_delegates }
+ mutually_exclusive = { focus = sof_lmg_radical }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no has_stability > 0.34 }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no has_stability > 0.34 NOT = { has_country_flag = sof_lmg_municipal_paid } }
+  set_country_flag = sof_lmg_municipal_paid sof_kr_set_party_sfio = yes add_ideas = sof_lmg_municipal_policy
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_municipal sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_radical icon = GFX_sof_lmg_focus_politics x = 12 y = 3 cost = 5
+ prerequisite = { focus = sof_lmg_delegates }
+ mutually_exclusive = { focus = sof_lmg_municipal }
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no has_stability > 0.34 }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no has_stability > 0.34 NOT = { has_country_flag = sof_lmg_radical_paid } }
+  set_country_flag = sof_lmg_radical_paid sof_kr_set_party_prrrs = yes add_ideas = sof_lmg_radical_policy
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_radical sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_public_charter icon = GFX_sof_lmg_focus_politics x = 10 y = 4 cost = 5
+ prerequisite = { focus = sof_lmg_municipal focus = sof_lmg_radical }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_public_charter_paid } }
+  set_country_flag = sof_lmg_public_charter_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_public_charter sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_cooperatives icon = GFX_sof_lmg_focus_politics x = 2 y = 3 cost = 5
+ prerequisite = { focus = sof_lmg_rural_register }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_cooperatives_paid } }
+  set_country_flag = sof_lmg_cooperatives_paid add_ideas = sof_lmg_cooperatives
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_cooperatives sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_rural_credit icon = GFX_sof_lmg_focus_industry x = 2 y = 4 cost = 7
+ prerequisite = { focus = sof_lmg_cooperatives }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 309 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 309 = { NOT = { has_state_flag = sof_lmg_rural_credit_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 309 = { has_state_flag = sof_lmg_rural_credit_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 309 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 309 = { NOT = { has_state_flag = sof_lmg_rural_credit_built } } NOT = { has_country_flag = sof_lmg_rural_credit_paid } }
+  set_country_flag = sof_lmg_rural_credit_paid 309 = { set_state_flag = sof_lmg_rural_credit_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_rural_credit sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_market_routes icon = GFX_sof_lmg_focus_industry x = 2 y = 5 cost = 5
+ prerequisite = { focus = sof_lmg_rural_credit }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 363 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 363 = { NOT = { has_state_flag = sof_lmg_market_routes_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 363 = { has_state_flag = sof_lmg_market_routes_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 363 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 363 = { NOT = { has_state_flag = sof_lmg_market_routes_built } } NOT = { has_country_flag = sof_lmg_market_routes_paid } }
+  set_country_flag = sof_lmg_market_routes_paid 363 = { set_state_flag = sof_lmg_market_routes_built add_building_construction = { type = infrastructure level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_market_routes sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_artisan_leagues icon = GFX_sof_lmg_focus_science x = 6 y = 5 cost = 5
+ prerequisite = { focus = sof_lmg_public_charter }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_artisan_leagues_paid } }
+  set_country_flag = sof_lmg_artisan_leagues_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_artisan_leagues sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_public_school icon = GFX_sof_lmg_focus_science x = 12 y = 5 cost = 5
+ prerequisite = { focus = sof_lmg_public_charter }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_public_school_paid } }
+  set_country_flag = sof_lmg_public_school_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_public_school sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_regional_charter icon = GFX_sof_lmg_focus_politics x = 10 y = 6 cost = 5
+ prerequisite = { focus = sof_lmg_public_charter } prerequisite = { focus = sof_lmg_cooperatives }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_regional_charter_paid } }
+  set_country_flag = sof_lmg_regional_charter_paid sof_generic_upgrade_administration_2 = yes 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_regional_charter sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_depots icon = GFX_sof_lmg_focus_army x = 2 y = 7 cost = 5
+ prerequisite = { focus = sof_lmg_market_routes }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_depots_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 326 = { has_state_flag = sof_lmg_depots_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_depots_built } } NOT = { has_country_flag = sof_lmg_depots_paid } }
+  set_country_flag = sof_lmg_depots_paid 326 = { set_state_flag = sof_lmg_depots_built add_dynamic_modifier = { modifier = sof_lmg_depots_local } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_depots sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_reconstruction icon = GFX_sof_lmg_focus_industry x = 10 y = 8 cost = 5
+ prerequisite = { focus = sof_lmg_regional_charter }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_reconstruction_paid } }
+  set_country_flag = sof_lmg_reconstruction_paid sof_generic_upgrade_civil_industry_2 = yes
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_reconstruction sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_diplomacy icon = GFX_sof_lmg_focus_politics x = 6 y = 8 cost = 7
+ prerequisite = { focus = sof_lmg_regional_charter }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_diplomacy_paid } }
+  set_country_flag = sof_lmg_diplomacy_paid sof609_unlock_factions = yes
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_diplomacy sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_central_compact icon = GFX_sof_lmg_focus_politics x = 2 y = 10 cost = 7
+ prerequisite = { focus = sof_lmg_diplomacy } prerequisite = { focus = sof_lmg_artisan_leagues }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no country_exists = CFR is_subject = no NOT = { has_war_with = CFR } CFR = { is_subject = no has_capitulated = no } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { OR = { NOT = { country_exists = CFR } CFR = { OR = { is_subject = yes has_capitulated = yes } } } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no country_exists = CFR is_subject = no NOT = { has_war_with = CFR } CFR = { is_subject = no has_capitulated = no } NOT = { has_country_flag = sof_lmg_central_compact_paid } }
+  set_country_flag = sof_lmg_central_compact_paid set_country_flag = sof_lmg_compact_pending CFR = { country_event = { id = sof_lmg.2 days = 1 } }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_central_compact sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_mediation icon = GFX_sof_lmg_focus_politics x = 10 y = 10 cost = 5
+ prerequisite = { focus = sof_lmg_diplomacy }
+ 
+ search_filters = { FOCUS_FILTER_POLITICAL }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_mediation_paid } }
+  set_country_flag = sof_lmg_mediation_paid  
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_mediation sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_workshop_census icon = GFX_sof_lmg_focus_industry x = 20 y = 1 cost = 5
+ prerequisite = { focus = sof_lmg_council }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_workshop_census_paid } }
+  set_country_flag = sof_lmg_workshop_census_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_workshop_census sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_kiln_fuels icon = GFX_sof_lmg_focus_industry x = 16 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_workshop_census }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_kiln_fuels_paid } }
+  set_country_flag = sof_lmg_kiln_fuels_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_kiln_fuels sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_porcelain_standard icon = GFX_sof_lmg_focus_science x = 20 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_workshop_census }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_porcelain_standard_paid } }
+  set_country_flag = sof_lmg_porcelain_standard_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_porcelain_standard sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_tulle_inventory icon = GFX_sof_lmg_focus_arms x = 24 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_workshop_census }
+ 
+ search_filters = { FOCUS_FILTER_ARMY_XP }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_tulle_inventory_paid } }
+  set_country_flag = sof_lmg_tulle_inventory_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_tulle_inventory sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_modern_kilns icon = GFX_sof_lmg_focus_industry x = 16 y = 3 cost = 7
+ prerequisite = { focus = sof_lmg_kiln_fuels }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_modern_kilns_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 326 = { has_state_flag = sof_lmg_modern_kilns_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_modern_kilns_built } } NOT = { has_country_flag = sof_lmg_modern_kilns_paid } }
+  set_country_flag = sof_lmg_modern_kilns_paid 326 = { set_state_flag = sof_lmg_modern_kilns_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_modern_kilns sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_legrand icon = GFX_sof_lmg_focus_production x = 20 y = 3 cost = 5
+ prerequisite = { focus = sof_lmg_porcelain_standard }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lmg_legrand_paid } }
+  set_country_flag = sof_lmg_legrand_paid add_ideas = sof_lmg_electrical_workshops 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_legrand sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_tulle_arsenal icon = GFX_sof_lmg_focus_arms x = 24 y = 3 cost = 7
+ prerequisite = { focus = sof_lmg_tulle_inventory }
+ 
+ search_filters = { FOCUS_FILTER_ARMY_XP }
+ available = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_tulle_arsenal_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 354 = { has_state_flag = sof_lmg_tulle_arsenal_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_tulle_arsenal_built } } NOT = { has_country_flag = sof_lmg_tulle_arsenal_paid } }
+  set_country_flag = sof_lmg_tulle_arsenal_paid 354 = { set_state_flag = sof_lmg_tulle_arsenal_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_tulle_arsenal sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_aubusson icon = GFX_sof_lmg_focus_industry x = 14 y = 4 cost = 7
+ prerequisite = { focus = sof_lmg_modern_kilns }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 312 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 312 = { NOT = { has_state_flag = sof_lmg_aubusson_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 312 = { has_state_flag = sof_lmg_aubusson_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 312 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 312 = { NOT = { has_state_flag = sof_lmg_aubusson_built } } NOT = { has_country_flag = sof_lmg_aubusson_paid } }
+  set_country_flag = sof_lmg_aubusson_paid 312 = { set_state_flag = sof_lmg_aubusson_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_aubusson sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_insulation icon = GFX_sof_lmg_focus_science x = 18 y = 4 cost = 5
+ prerequisite = { focus = sof_lmg_legrand }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_insulation_paid } }
+  set_country_flag = sof_lmg_insulation_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_insulation sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_gauging icon = GFX_sof_lmg_focus_arms x = 26 y = 4 cost = 5
+ prerequisite = { focus = sof_lmg_tulle_arsenal }
+ 
+ search_filters = { FOCUS_FILTER_ARMY_XP }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_gauging_paid } }
+  set_country_flag = sof_lmg_gauging_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_gauging sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_grid icon = GFX_sof_lmg_focus_industry x = 18 y = 5 cost = 5
+ prerequisite = { focus = sof_lmg_insulation }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_grid_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 326 = { has_state_flag = sof_lmg_grid_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_grid_built } } NOT = { has_country_flag = sof_lmg_grid_paid } }
+  set_country_flag = sof_lmg_grid_paid 326 = { set_state_flag = sof_lmg_grid_built add_building_construction = { type = infrastructure level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_grid sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_machine_tools icon = GFX_sof_lmg_focus_production x = 22 y = 5 cost = 5
+ prerequisite = { focus = sof_lmg_legrand } prerequisite = { focus = sof_lmg_gauging }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_machine_tools_paid } }
+  set_country_flag = sof_lmg_machine_tools_paid sof_generic_upgrade_mil_industry_1 = yes
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_machine_tools sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_dispersed_workshops icon = GFX_sof_lmg_focus_arms x = 26 y = 5 cost = 7
+ prerequisite = { focus = sof_lmg_gauging }
+ 
+ search_filters = { FOCUS_FILTER_ARMY_XP }
+ available = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_dispersed_workshops_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 354 = { has_state_flag = sof_lmg_dispersed_workshops_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_dispersed_workshops_built } } NOT = { has_country_flag = sof_lmg_dispersed_workshops_paid } }
+  set_country_flag = sof_lmg_dispersed_workshops_paid 354 = { set_state_flag = sof_lmg_dispersed_workshops_built add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_dispersed_workshops sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_apprentices icon = GFX_sof_lmg_focus_science x = 16 y = 6 cost = 5
+ prerequisite = { focus = sof_lmg_aubusson } prerequisite = { focus = sof_lmg_insulation }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_apprentices_paid } }
+  set_country_flag = sof_lmg_apprentices_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_apprentices sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_tungsten icon = GFX_sof_lmg_focus_industry x = 20 y = 6 cost = 5
+ prerequisite = { focus = sof_lmg_grid }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_tungsten_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 326 = { has_state_flag = sof_lmg_tungsten_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_tungsten_built } } NOT = { has_country_flag = sof_lmg_tungsten_paid } }
+  set_country_flag = sof_lmg_tungsten_paid 326 = { set_state_flag = sof_lmg_tungsten_built add_dynamic_modifier = { modifier = sof_lmg_tungsten_local } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_tungsten sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_tulle_tooling icon = GFX_sof_lmg_focus_production x = 24 y = 6 cost = 5
+ prerequisite = { focus = sof_lmg_machine_tools } prerequisite = { focus = sof_lmg_dispersed_workshops }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lmg_tulle_tooling_paid } }
+  set_country_flag = sof_lmg_tulle_tooling_paid add_ideas = sof_lmg_tulle_workshops
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_tulle_tooling sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_technical_classes icon = GFX_sof_lmg_focus_science x = 16 y = 7 cost = 5
+ prerequisite = { focus = sof_lmg_apprentices }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no num_of_factories > 3 }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { amount_research_slots > 2 }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no num_of_factories > 3 NOT = { has_country_flag = sof_lmg_technical_classes_paid } }
+  set_country_flag = sof_lmg_technical_classes_paid if = { limit = { num_of_factories > 3 amount_research_slots < 3 } add_research_slot = 1 }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_technical_classes sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_research_schools icon = GFX_sof_lmg_focus_science x = 18 y = 8 cost = 7
+ prerequisite = { focus = sof_lmg_technical_classes } prerequisite = { focus = sof_lmg_public_school }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no num_of_factories > 9 }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { amount_research_slots > 3 }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no num_of_factories > 9 NOT = { has_country_flag = sof_lmg_research_schools_paid } }
+  set_country_flag = sof_lmg_research_schools_paid if = { limit = { num_of_factories > 9 amount_research_slots < 4 } add_research_slot = 1 }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_research_schools sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_science_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_wartime_conversion icon = GFX_sof_lmg_focus_production x = 24 y = 8 cost = 7
+ prerequisite = { focus = sof_lmg_tulle_tooling }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no num_of_factories > 11 }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no num_of_factories > 11 NOT = { has_country_flag = sof_lmg_wartime_conversion_paid } }
+  set_country_flag = sof_lmg_wartime_conversion_paid sof_generic_upgrade_mil_industry_2 = yes 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_wartime_conversion sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_regional_industry icon = GFX_sof_lmg_focus_industry x = 20 y = 9 cost = 7
+ prerequisite = { focus = sof_lmg_research_schools } prerequisite = { focus = sof_lmg_wartime_conversion }
+ 
+ search_filters = { FOCUS_FILTER_INDUSTRY }
+ available = { original_tag = LMG has_capitulated = no num_of_factories > 15 }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no num_of_factories > 15 NOT = { has_country_flag = sof_lmg_regional_industry_paid } }
+  set_country_flag = sof_lmg_regional_industry_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_regional_industry sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_institute icon = GFX_sof_lmg_focus_science x = 22 y = 11 cost = 7
+ prerequisite = { focus = sof_lmg_regional_industry }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no num_of_factories > 19 }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { amount_research_slots > 4 }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no num_of_factories > 19 NOT = { has_country_flag = sof_lmg_institute_paid } }
+  set_country_flag = sof_lmg_institute_paid if = { limit = { num_of_factories > 19 amount_research_slots < 5 } add_research_slot = 1 }
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_institute sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_science_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_defense_survey icon = GFX_sof_lmg_focus_army x = 34 y = 1 cost = 5
+ prerequisite = { focus = sof_lmg_council }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_defense_survey_paid } }
+  set_country_flag = sof_lmg_defense_survey_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_defense_survey sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_territorial_rolls icon = GFX_sof_lmg_focus_army x = 30 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_defense_survey }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_territorial_rolls_paid } }
+  set_country_flag = sof_lmg_territorial_rolls_paid  
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_territorial_rolls sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_drill icon = GFX_sof_lmg_focus_army x = 34 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_defense_survey }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_drill_paid } }
+  set_country_flag = sof_lmg_drill_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_drill sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_hill_positions icon = GFX_sof_lmg_focus_defense x = 38 y = 2 cost = 5
+ prerequisite = { focus = sof_lmg_defense_survey }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no 349 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 349 = { NOT = { has_state_flag = sof_lmg_hill_positions_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 349 = { has_state_flag = sof_lmg_hill_positions_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 349 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 349 = { NOT = { has_state_flag = sof_lmg_hill_positions_built } } NOT = { has_country_flag = sof_lmg_hill_positions_paid } }
+  set_country_flag = sof_lmg_hill_positions_paid 349 = { set_state_flag = sof_lmg_hill_positions_built add_building_construction = { type = bunker level = 1 instant_build = yes province = 15145 } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_hill_positions sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_logistics_train icon = GFX_sof_lmg_focus_army x = 30 y = 3 cost = 5
+ prerequisite = { focus = sof_lmg_territorial_rolls }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_logistics_train_paid } }
+  set_country_flag = sof_lmg_logistics_train_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_logistics_train sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_reserve_instructors icon = GFX_sof_lmg_focus_arms x = 34 y = 3 cost = 5
+ prerequisite = { focus = sof_lmg_drill }
+ 
+ search_filters = { FOCUS_FILTER_ARMY_XP }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_reserve_instructors_paid } }
+  set_country_flag = sof_lmg_reserve_instructors_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_reserve_instructors sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_correze_forts icon = GFX_sof_lmg_focus_defense x = 38 y = 4 cost = 5
+ prerequisite = { focus = sof_lmg_hill_positions }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_correze_forts_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 354 = { has_state_flag = sof_lmg_correze_forts_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 354 = { NOT = { has_state_flag = sof_lmg_correze_forts_built } } NOT = { has_country_flag = sof_lmg_correze_forts_paid } }
+  set_country_flag = sof_lmg_correze_forts_paid 354 = { set_state_flag = sof_lmg_correze_forts_built add_building_construction = { type = bunker level = 1 instant_build = yes province = 15412 } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_correze_forts sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_signal_corps icon = GFX_sof_lmg_focus_science x = 30 y = 4 cost = 5
+ prerequisite = { focus = sof_lmg_logistics_train }
+ 
+ search_filters = { FOCUS_FILTER_RESEARCH }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_signal_corps_paid } }
+  set_country_flag = sof_lmg_signal_corps_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_signal_corps sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = no }
+ }
+}
+
+focus = {
+ id = sof_lmg_tulle_rifle icon = GFX_sof_lmg_focus_arms x = 34 y = 4 cost = 5
+ prerequisite = { focus = sof_lmg_reserve_instructors } prerequisite = { focus = sof_lmg_tulle_arsenal }
+ 
+ search_filters = { FOCUS_FILTER_ARMY_XP }
+ available = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 354 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lmg_tulle_rifle_paid } }
+  set_country_flag = sof_lmg_tulle_rifle_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_tulle_rifle sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_brive_motor_pool icon = GFX_sof_lmg_focus_army x = 30 y = 5 cost = 5
+ prerequisite = { focus = sof_lmg_signal_corps }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no 363 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 363 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } NOT = { has_country_flag = sof_lmg_brive_motor_pool_paid } }
+  set_country_flag = sof_lmg_brive_motor_pool_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_brive_motor_pool sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_hill_doctrine icon = GFX_sof_lmg_focus_defense x = 38 y = 5 cost = 5
+ prerequisite = { focus = sof_lmg_correze_forts } prerequisite = { focus = sof_lmg_drill }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_hill_doctrine_paid } }
+  set_country_flag = sof_lmg_hill_doctrine_paid add_ideas = sof_lmg_hill_service
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_hill_doctrine sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_central_staff icon = GFX_sof_lmg_focus_army x = 34 y = 6 cost = 5
+ prerequisite = { focus = sof_lmg_tulle_rifle } prerequisite = { focus = sof_lmg_logistics_train }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_central_staff_paid } }
+  set_country_flag = sof_lmg_central_staff_paid  
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_central_staff sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_observer_school icon = GFX_sof_lmg_focus_air x = 30 y = 7 cost = 5
+ prerequisite = { focus = sof_lmg_brive_motor_pool }
+ 
+ search_filters = { FOCUS_FILTER_AIR_XP }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_observer_school_paid } }
+  set_country_flag = sof_lmg_observer_school_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_observer_school sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_airfield icon = GFX_sof_lmg_focus_air x = 34 y = 7 cost = 5
+ prerequisite = { focus = sof_lmg_central_staff }
+ 
+ search_filters = { FOCUS_FILTER_AIR_XP }
+ available = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_airfield_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 326 = { has_state_flag = sof_lmg_airfield_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_airfield_built } } NOT = { has_country_flag = sof_lmg_airfield_paid } }
+  set_country_flag = sof_lmg_airfield_paid 326 = { set_state_flag = sof_lmg_airfield_built add_building_construction = { type = air_base level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_airfield sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_air_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_patrol_wings icon = GFX_sof_lmg_focus_air x = 30 y = 8 cost = 5
+ prerequisite = { focus = sof_lmg_observer_school } prerequisite = { focus = sof_lmg_airfield }
+ 
+ search_filters = { FOCUS_FILTER_AIR_XP }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_patrol_wings_paid } }
+  set_country_flag = sof_lmg_patrol_wings_paid 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_patrol_wings sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_anti_air icon = GFX_sof_lmg_focus_defense x = 38 y = 8 cost = 5
+ prerequisite = { focus = sof_lmg_hill_doctrine }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_anti_air_built } } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ bypass = { 326 = { has_state_flag = sof_lmg_anti_air_built } }
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no 326 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 326 = { NOT = { has_state_flag = sof_lmg_anti_air_built } } NOT = { has_country_flag = sof_lmg_anti_air_paid } }
+  set_country_flag = sof_lmg_anti_air_paid 326 = { set_state_flag = sof_lmg_anti_air_built add_building_construction = { type = anti_air_building level = 1 instant_build = yes } } 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_anti_air sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_combined_exercises icon = GFX_sof_lmg_focus_army x = 34 y = 10 cost = 7
+ prerequisite = { focus = sof_lmg_central_staff } prerequisite = { focus = sof_lmg_patrol_wings } prerequisite = { focus = sof_lmg_hill_doctrine }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no  }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no  NOT = { has_country_flag = sof_lmg_combined_exercises_paid } }
+  set_country_flag = sof_lmg_combined_exercises_paid  
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_combined_exercises sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+
+focus = {
+ id = sof_lmg_war_authorization icon = GFX_sof_lmg_focus_army x = 34 y = 12 cost = 7
+ prerequisite = { focus = sof_lmg_combined_exercises } prerequisite = { focus = sof_lmg_regional_charter }
+ 
+ search_filters = { FOCUS_FILTER_WAR_SUPPORT }
+ available = { original_tag = LMG has_capitulated = no is_subject = no NOT = { has_country_flag = sofzh_unification_complete } }
+ cancel_if_invalid = yes continue_if_invalid = no available_if_capitulated = no
+ 
+ completion_reward = { if = { limit = { original_tag = LMG has_capitulated = no is_subject = no NOT = { has_country_flag = sofzh_unification_complete } NOT = { has_country_flag = sof_lmg_war_authorization_paid } }
+  set_country_flag = sof_lmg_war_authorization_paid set_country_flag = sofzh_unification_started set_country_flag = sofzh_unification_war_ready 
+ } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_lmg_war_authorization sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 10
+  modifier = { factor = 1.6 has_war = yes }
+ }
+}
+focus = { id = SOF_NR_LMG_mandate icon = GFX_sof_lmg_focus_politics x = 36 y = 15 cost = 10
+   prerequisite = { focus = sof_lmg_diplomacy }
+ available = { original_tag = LMG sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_mandate OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } } custom_trigger_tooltip = { tooltip = sof_refined_req_expansion sof_brt_expansion_allowed = yes } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LMG sof_nr_candidate = yes OR = { has_country_flag = sofzh_unification_war_ready AND = { has_country_flag = sof_tp_diplomatic_office has_country_flag = sof_tp_alliance_signed } } sof_brt_expansion_allowed = yes NOT = { has_country_flag = sof_nr_paid_LMG_mandate } } set_country_flag = sof_nr_paid_LMG_mandate sof_nr_begin = yes }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_nr_lmg_mandate sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
+ }
+}
+focus = { id = SOF_NR_LMG_integration icon = GFX_sof_lmg_focus_politics x = 36 y = 17 cost = 10
+ prerequisite = { focus = SOF_NR_LMG_mandate }  available = { original_tag = LMG sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_integration OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LMG sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 49 } AND = { has_country_flag = sof_tp_alliance_signed check_variable = { sof_tp_bloc_states > 49 } } } NOT = { has_country_flag = sof_nr_paid_LMG_integration } } set_country_flag = sof_nr_paid_LMG_integration set_country_flag = sof_nr_congress set_country_flag = sof_van_national_congress add_ideas = sof_nr_convention }  custom_effect_tooltip = sof_tp_focus_congress_tt sof_tp_focus_congress_effect = yes 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_nr_lmg_integration sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 30
+  modifier = { factor = 2.4 has_war = yes }
+  modifier = { factor = 1.6 num_divisions < 6 }
+  modifier = { factor = 1.5 has_war = no }
+  modifier = { factor = 1.6 num_of_military_factories < 6 }
+  modifier = { factor = 2.5 has_war = no }
+ }
+}
+focus = { id = SOF_NR_LMG_unitary icon = GFX_sof_lmg_focus_politics x = 34 y = 19 cost = 10
+ prerequisite = { focus = SOF_NR_LMG_integration } mutually_exclusive = { focus = SOF_NR_LMG_federal } available = { original_tag = LMG sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_state NOT = { has_country_flag = sof_nr_federal } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_federal_charter NOT = { has_country_flag = sof_tp_charter_federal } } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LMG sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_federal } NOT = { has_country_flag = sof_tp_charter_federal } NOT = { has_country_flag = sof_nr_paid_LMG_unitary } } set_country_flag = sof_nr_paid_LMG_unitary set_country_flag = sof_nr_unitary add_ideas = sof_nr_unitary_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_unitary_effect = yes 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_nr_lmg_unitary sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 30
+  modifier = { factor = 3 sof607_ai_centralist = yes }
+  modifier = { factor = 0.6 sof607_ai_pluralist = yes }
+ }
+}
+focus = { id = SOF_NR_LMG_federal icon = GFX_sof_lmg_focus_politics x = 38 y = 19 cost = 10
+ prerequisite = { focus = SOF_NR_LMG_integration } mutually_exclusive = { focus = SOF_NR_LMG_unitary } available = { original_tag = LMG sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_constitution OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_unitary_state NOT = { has_country_flag = sof_nr_unitary } } custom_trigger_tooltip = { tooltip = sof_refined_req_no_central_charter NOT = { has_country_flag = sof_tp_charter_central } } } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LMG sof_nr_candidate = yes OR = { check_variable = { sof_nr_states > 99 } has_country_flag = sof_tp_treaty_signed } NOT = { has_country_flag = sof_nr_unitary } NOT = { has_country_flag = sof_tp_charter_central } NOT = { has_country_flag = sof_nr_paid_LMG_federal } } set_country_flag = sof_nr_paid_LMG_federal set_country_flag = sof_nr_federal add_ideas = sof_nr_federal_state }  custom_effect_tooltip = sof_tp_focus_constitution_tt sof_tp_focus_federal_effect = yes 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_nr_lmg_federal sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 18
+  modifier = { factor = 1.8 has_stability < 0.45 }
+  modifier = { factor = 3 sof607_ai_pluralist = yes }
+  modifier = { factor = 0.6 sof607_ai_centralist = yes }
+ }
+}
+focus = { id = SOF_NR_LMG_proclamation icon = GFX_sof_lmg_focus_politics x = 36 y = 21 cost = 5
+ prerequisite = { focus = SOF_NR_LMG_unitary focus = SOF_NR_LMG_federal }  available = { original_tag = LMG sof_nr_candidate = yes sofzh_unification_all_france = yes has_war = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LMG sof_nr_candidate = yes sofzh_unification_all_france = yes has_war = no NOT = { has_country_flag = sof_nr_paid_LMG_proclamation } } set_country_flag = sof_nr_paid_LMG_proclamation sof_nr_proclaim = yes } 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_nr_lmg_proclamation sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 30 }
+}
+focus = { id = SOF_NR_LMG_settlement icon = GFX_sof_lmg_focus_industry x = 36 y = 23 cost = 10
+ prerequisite = { focus = SOF_NR_LMG_proclamation }  available = { original_tag = LMG sof_nr_candidate = yes custom_trigger_tooltip = { tooltip = sof_refined_req_unification_complete has_country_flag = sofzh_unification_complete } has_war = no } cancel_if_invalid = yes continue_if_invalid = no
+ completion_reward = { sof_nr_count_states = yes if = { limit = { original_tag = LMG sof_nr_candidate = yes has_country_flag = sofzh_unification_complete has_war = no NOT = { has_country_flag = sof_nr_paid_LMG_settlement } } set_country_flag = sof_nr_paid_LMG_settlement sof_nr_finish = yes add_ideas = sof_lmg_national_legacy country_event = { id = sof_lmg.1 days = 1 } }  custom_effect_tooltip = sof_tp_focus_settlement_tt sof_tp_focus_settlement_effect = yes 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_nr_lmg_settlement sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+ ai_will_do = { factor = 30
+  modifier = { factor = 1.8 has_stability < 0.45 }
+ }
+}shared_focus = SOF_PARTY_PCF_PCF_MANDATE
+shared_focus = SOF_PARTY_SFIO_SFIO_OFFICE
+shared_focus = SOF_PARTY_PRRRS_PRRRS_REPUBLIC
+shared_focus = SOF_PARTY_USR_USR_COALITION
+shared_focus = SOF_PARTY_PUP_PUP_BRIDGE
+shared_focus = SOF_PARTY_RG_AD_RG_AD_COMMITTEES
+shared_focus = SOF_PARTY_RG_AD_RG_AD_ACCOUNTS
+shared_focus = SOF_PARTY_FR_URD_FR_URD_NOTABLES
+shared_focus = SOF_PARTY_PDP_PDP_MANDATE
+shared_focus = SOF_PARTY_UPR_UPR_MANDATE
+shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
+
+ # National strategic continuation; geographic projects remain in the home region.
+ shared_focus = SOF_GN_LMG_strategy
+ shortcut = { name = sof_gn_shortcut target = SOF_GN_LMG_strategy scroll_wheel_factor = 0.7 }
+}

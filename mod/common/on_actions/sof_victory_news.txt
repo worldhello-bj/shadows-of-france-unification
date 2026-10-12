@@ -1,0 +1,36 @@
+# State transitions are checked immediately. A daily, human-hosted lock also catches
+# city-only control changes without mistaking them for full-state control.
+on_actions = {
+ on_startup = { effect = { sof_vpn_scan = yes } }
+ on_state_control_changed = { effect = { if = { limit = { FROM.FROM = { state = 36 } } sof_vpn_dkq_check = yes }
+if = { limit = { FROM.FROM = { state = 51 } } sof_vpn_lil_check = yes }
+if = { limit = { FROM.FROM = { state = 70 } } sof_vpn_ami_check = yes }
+if = { limit = { FROM.FROM = { state = 80 } } sof_vpn_hav_check = yes }
+if = { limit = { FROM.FROM = { state = 84 } } sof_vpn_rou_check = yes }
+if = { limit = { FROM.FROM = { state = 111 } } sof_vpn_chl_check = yes }
+if = { limit = { FROM.FROM = { state = 112 } } sof_vpn_met_check = yes }
+if = { limit = { FROM.FROM = { state = 143 } } sof_vpn_prs_check = yes }
+if = { limit = { FROM.FROM = { state = 168 } } sof_vpn_bre_check = yes }
+if = { limit = { FROM.FROM = { state = 173 } } sof_vpn_str_check = yes }
+if = { limit = { FROM.FROM = { state = 188 } } sof_vpn_ren_check = yes }
+if = { limit = { FROM.FROM = { state = 201 } } sof_vpn_orl_check = yes }
+if = { limit = { FROM.FROM = { state = 217 } } sof_vpn_mul_check = yes }
+if = { limit = { FROM.FROM = { state = 225 } } sof_vpn_trs_check = yes }
+if = { limit = { FROM.FROM = { state = 226 } } sof_vpn_dij_check = yes }
+if = { limit = { FROM.FROM = { state = 243 } } sof_vpn_bes_check = yes }
+if = { limit = { FROM.FROM = { state = 249 } } sof_vpn_nan_check = yes }
+if = { limit = { FROM.FROM = { state = 288 } } sof_vpn_poi_check = yes }
+if = { limit = { FROM.FROM = { state = 326 } } sof_vpn_lmg_check = yes }
+if = { limit = { FROM.FROM = { state = 336 } } sof_vpn_lyo_check = yes }
+if = { limit = { FROM.FROM = { state = 345 } } sof_vpn_cfr_check = yes }
+if = { limit = { FROM.FROM = { state = 360 } } sof_vpn_set_check = yes }
+if = { limit = { FROM.FROM = { state = 389 } } sof_vpn_brd_check = yes }
+if = { limit = { FROM.FROM = { state = 439 } } sof_vpn_tou_check = yes }
+if = { limit = { FROM.FROM = { state = 441 } } sof_vpn_mop_check = yes }
+if = { limit = { FROM.FROM = { state = 463 } } sof_vpn_mrs_check = yes }
+if = { limit = { FROM.FROM = { state = 469 } } sof_vpn_tln_check = yes }
+if = { limit = { FROM.FROM = { state = 504 } } sof_vpn_ajc_check = yes } } }
+ on_daily = { effect = { if = { limit = { is_ai = no NOT = { has_global_flag = sof_vpn_daily_lock } }
+ set_global_flag = { flag = sof_vpn_daily_lock days = 1 } sof_vpn_scan = yes
+ } } }
+}

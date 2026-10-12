@@ -106,12 +106,12 @@ sof_tp_weekly = {
     }
    }
    # Fulfil contracts before discretionary projects and repeated trust spending.
-   if = { limit = { NOT = { sof607_ai_outstanding_aid = yes } political_power > 174 check_variable = { sof_tp_reconstruction < 100 } } sof_tp_fund_reconstruction_effect = yes }
-   if = { limit = { NOT = { sof607_ai_outstanding_aid = yes } political_power > 124 OR = { check_variable = { sof_tp_trust < 80 } check_variable = { sof_tp_legitimacy < 70 } } } sof_tp_keep_promises_effect = yes }
+   if = { limit = { NOT = { sof607_ai_outstanding_aid = yes } has_political_power > 174 check_variable = { sof_tp_reconstruction < 100 } } sof_tp_fund_reconstruction_effect = yes }
+   if = { limit = { NOT = { sof607_ai_outstanding_aid = yes } has_political_power > 124 OR = { check_variable = { sof_tp_trust < 80 } check_variable = { sof_tp_legitimacy < 70 } } } sof_tp_keep_promises_effect = yes }
    sof_tp_complete_reconstruction_effect = yes
    if = { limit = { NOT = { has_country_flag = sof_tp_diplomatic_pending } }
-    if = { limit = { political_power < 125 } set_variable = { sof_tp_offer_terms = 2 } }
-    else_if = { limit = { sof607_ai_centralist = yes army_experience > 39 } set_variable = { sof_tp_offer_terms = 3 } }
+    if = { limit = { has_political_power < 125 } set_variable = { sof_tp_offer_terms = 2 } }
+    else_if = { limit = { sof607_ai_centralist = yes has_army_experience > 39 } set_variable = { sof_tp_offer_terms = 3 } }
     else = { set_variable = { sof_tp_offer_terms = 1 } }
    }
   }

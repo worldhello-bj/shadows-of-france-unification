@@ -1,0 +1,53 @@
+# Country and state scopes are deliberately separate.
+
+sof_rpe_region = { OR = { has_focus_tree = sofzh_corsica has_focus_tree = sofzh_paris has_focus_tree = sof_lille_vanilla_pilot has_focus_tree = sof_mrs_red has_focus_tree = sof_region_AMI_1936 has_focus_tree = sof_region_BES_1936 has_focus_tree = sof_region_BRD_1936 has_focus_tree = sof_region_CFR_1936 has_focus_tree = sof_region_CHL_1936 has_focus_tree = sof_region_DIJ_1936 has_focus_tree = sof_region_LMG_1936 has_focus_tree = sof_region_LYO_1936 has_focus_tree = sof_region_MET_1936 has_focus_tree = sof_region_MOP_1936 has_focus_tree = sof_region_NAN_1936 has_focus_tree = sof_region_POI_1936 has_focus_tree = sof_region_ROU_1936 has_focus_tree = sof_region_STR_1936 has_focus_tree = sof_region_TOU_1936 has_focus_tree = sof_region_TRS_1936 } }
+
+sof_rpe_primary_state = { OR = { AND = { ROOT = { has_focus_tree = sofzh_corsica } state = 504 } AND = { ROOT = { has_focus_tree = sofzh_paris } state = 143 } AND = { ROOT = { has_focus_tree = sof_lille_vanilla_pilot } state = 61 } AND = { ROOT = { has_focus_tree = sof_mrs_red } state = 463 } AND = { ROOT = { has_focus_tree = sof_region_AMI_1936 } state = 70 } AND = { ROOT = { has_focus_tree = sof_region_BES_1936 } state = 243 } AND = { ROOT = { has_focus_tree = sof_region_BRD_1936 } state = 389 } AND = { ROOT = { has_focus_tree = sof_region_CFR_1936 } state = 345 } AND = { ROOT = { has_focus_tree = sof_region_CHL_1936 } state = 163 } AND = { ROOT = { has_focus_tree = sof_region_DIJ_1936 } state = 266 } AND = { ROOT = { has_focus_tree = sof_region_LMG_1936 } state = 326 } AND = { ROOT = { has_focus_tree = sof_region_LYO_1936 } state = 336 } AND = { ROOT = { has_focus_tree = sof_region_MET_1936 } state = 94 } AND = { ROOT = { has_focus_tree = sof_region_MOP_1936 } state = 449 } AND = { ROOT = { has_focus_tree = sof_region_NAN_1936 } state = 237 } AND = { ROOT = { has_focus_tree = sof_region_POI_1936 } state = 263 } AND = { ROOT = { has_focus_tree = sof_region_ROU_1936 } state = 109 } AND = { ROOT = { has_focus_tree = sof_region_STR_1936 } state = 217 } AND = { ROOT = { has_focus_tree = sof_region_TOU_1936 } state = 439 } AND = { ROOT = { has_focus_tree = sof_region_TRS_1936 } state = 242 } } }
+
+sof_rpe_primary_control = { any_owned_state = { sof_rpe_primary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT } }
+
+sof_rpe_secondary_state = { OR = { AND = { ROOT = { has_focus_tree = sofzh_corsica } state = 485 } AND = { ROOT = { has_focus_tree = sofzh_paris } state = 143 } AND = { ROOT = { has_focus_tree = sof_lille_vanilla_pilot } state = 36 } AND = { ROOT = { has_focus_tree = sof_mrs_red } state = 446 } AND = { ROOT = { has_focus_tree = sof_region_AMI_1936 } state = 67 } AND = { ROOT = { has_focus_tree = sof_region_BES_1936 } state = 254 } AND = { ROOT = { has_focus_tree = sof_region_BRD_1936 } state = 389 } AND = { ROOT = { has_focus_tree = sof_region_CFR_1936 } state = 372 } AND = { ROOT = { has_focus_tree = sof_region_CHL_1936 } state = 120 } AND = { ROOT = { has_focus_tree = sof_region_DIJ_1936 } state = 226 } AND = { ROOT = { has_focus_tree = sof_region_LMG_1936 } state = 363 } AND = { ROOT = { has_focus_tree = sof_region_LYO_1936 } state = 365 } AND = { ROOT = { has_focus_tree = sof_region_MET_1936 } state = 129 } AND = { ROOT = { has_focus_tree = sof_region_MOP_1936 } state = 441 } AND = { ROOT = { has_focus_tree = sof_region_NAN_1936 } state = 249 } AND = { ROOT = { has_focus_tree = sof_region_POI_1936 } state = 310 } AND = { ROOT = { has_focus_tree = sof_region_ROU_1936 } state = 80 } AND = { ROOT = { has_focus_tree = sof_region_STR_1936 } state = 173 } AND = { ROOT = { has_focus_tree = sof_region_TOU_1936 } state = 453 } AND = { ROOT = { has_focus_tree = sof_region_TRS_1936 } state = 225 } } }
+
+sof_rpe_secondary_control = { any_owned_state = { sof_rpe_secondary_state = yes is_core_of = ROOT is_fully_controlled_by = ROOT } }
+
+sof_rpe_pcf_government = { has_country_flag = sof_kr_party_pcf_in_power has_government = totalist sof_kr_1936_party_presence_pcf = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_pcf_active = { sof_rpe_pcf_government = yes OR = { AND = { has_country_flag = sof_rpe_pcf_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_pcf_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_sfio_government = { has_country_flag = sof_kr_party_sfio_in_power has_government = social_democrat sof_kr_1936_party_presence_sfio = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_sfio_active = { sof_rpe_sfio_government = yes OR = { AND = { has_country_flag = sof_rpe_sfio_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_sfio_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_prrrs_government = { has_country_flag = sof_kr_party_prrrs_in_power has_government = social_liberal sof_kr_1936_party_presence_prrrs = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_prrrs_active = { sof_rpe_prrrs_government = yes OR = { AND = { has_country_flag = sof_rpe_prrrs_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_prrrs_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_usr_government = { has_country_flag = sof_kr_party_usr_in_power has_government = social_democrat sof_kr_1936_party_presence_usr = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_usr_active = { sof_rpe_usr_government = yes OR = { AND = { has_country_flag = sof_rpe_usr_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_usr_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_pup_government = { has_country_flag = sof_kr_party_pup_in_power has_government = radical_socialist sof_kr_1936_party_presence_pup = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_pup_active = { sof_rpe_pup_government = yes OR = { AND = { has_country_flag = sof_rpe_pup_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_pup_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_rg_ad_government = { has_country_flag = sof_kr_party_rg_ad_in_power has_government = market_liberal sof_kr_1936_party_presence_rg_ad = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_rg_ad_active = { sof_rpe_rg_ad_government = yes OR = { AND = { has_country_flag = sof_rpe_rg_ad_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_rg_ad_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_fr_urd_government = { has_country_flag = sof_kr_party_fr_urd_in_power has_government = social_conservative sof_kr_1936_party_presence_fr_urd = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_fr_urd_active = { sof_rpe_fr_urd_government = yes OR = { AND = { has_country_flag = sof_rpe_fr_urd_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_fr_urd_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_pdp_government = { has_country_flag = sof_kr_party_pdp_in_power has_government = social_conservative sof_kr_1936_party_presence_pdp = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_pdp_active = { sof_rpe_pdp_government = yes OR = { AND = { has_country_flag = sof_rpe_pdp_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_pdp_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_upr_government = { has_country_flag = sof_kr_party_upr_in_power has_government = social_conservative sof_kr_1936_party_presence_upr = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_upr_active = { sof_rpe_upr_government = yes OR = { AND = { has_country_flag = sof_rpe_upr_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_upr_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_doriot_government = { has_country_flag = sof_kr_party_doriot_in_power has_government = authoritarian_democrat sof_kr_1936_party_presence_doriot = yes sof_rpe_region = yes has_capitulated = no }
+
+sof_rpe_doriot_active = { sof_rpe_doriot_government = yes OR = { AND = { has_country_flag = sof_rpe_doriot_a_paid sof_rpe_primary_control = yes } AND = { has_country_flag = sof_rpe_doriot_b_paid sof_rpe_secondary_control = yes } } }
+
+sof_rpe_program_active = { OR = { sof_rpe_pcf_active = yes sof_rpe_sfio_active = yes sof_rpe_prrrs_active = yes sof_rpe_usr_active = yes sof_rpe_pup_active = yes sof_rpe_rg_ad_active = yes sof_rpe_fr_urd_active = yes sof_rpe_pdp_active = yes sof_rpe_upr_active = yes sof_rpe_doriot_active = yes } }

@@ -1,0 +1,25 @@
+add_namespace = sof_brt_compact
+country_event = { id = sof_brt_compact.1 title = sof_brt_compact.1.t desc = sof_brt_compact.1.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+ option = { name = sof_brt_compact.1.a trigger = { original_tag = NAN is_subject = no has_capitulated = no NOT = { has_war_with = FROM } FROM = { original_tag = REN exists = yes is_subject = no has_capitulated = no has_country_flag = sof_brt_compact_nantes_pending } } ai_chance = { factor = 65 }
+  if = { limit = { original_tag = NAN is_subject = no has_capitulated = no NOT = { has_war_with = FROM } FROM = { original_tag = REN exists = yes is_subject = no has_capitulated = no has_country_flag = sof_brt_compact_nantes_pending } }
+   add_tech_bonus = { name = sof_brt_compact_nantes bonus = 0.5 uses = 1 category = industry }
+   FROM = { clr_country_flag = sof_brt_compact_nantes_pending set_country_flag = sof_brt_compact_nantes_accepted add_tech_bonus = { name = sof_brt_compact_nantes bonus = 0.5 uses = 1 category = industry } add_political_power = 30 country_event = { id = sof_brt_compact.3 days = 1 } }
+  }
+ }
+ option = { name = sof_brt_compact.1.b ai_chance = { factor = 35 }
+  FROM = { if = { limit = { original_tag = REN has_country_flag = sof_brt_compact_nantes_pending } clr_country_flag = sof_brt_compact_nantes_pending add_political_power = 25 country_event = { id = sof_brt_compact.4 days = 1 } } }
+ }
+}
+country_event = { id = sof_brt_compact.2 title = sof_brt_compact.2.t desc = sof_brt_compact.2.d picture = GFX_report_event_generic_read_write is_triggered_only = yes
+ option = { name = sof_brt_compact.2.a trigger = { original_tag = ROU is_subject = no has_capitulated = no NOT = { has_war_with = FROM } FROM = { original_tag = REN exists = yes is_subject = no has_capitulated = no has_country_flag = sof_brt_compact_rouen_pending } } ai_chance = { factor = 65 }
+  if = { limit = { original_tag = ROU is_subject = no has_capitulated = no NOT = { has_war_with = FROM } FROM = { original_tag = REN exists = yes is_subject = no has_capitulated = no has_country_flag = sof_brt_compact_rouen_pending } }
+   navy_experience = 15
+   FROM = { clr_country_flag = sof_brt_compact_rouen_pending set_country_flag = sof_brt_compact_rouen_accepted navy_experience = 15 add_equipment_to_stockpile = { type = convoy amount = 20 } country_event = { id = sof_brt_compact.3 days = 1 } }
+  }
+ }
+ option = { name = sof_brt_compact.2.b ai_chance = { factor = 35 }
+  FROM = { if = { limit = { original_tag = REN has_country_flag = sof_brt_compact_rouen_pending } clr_country_flag = sof_brt_compact_rouen_pending add_political_power = 25 country_event = { id = sof_brt_compact.4 days = 1 } } }
+ }
+}
+country_event = { id = sof_brt_compact.3 title = sof_brt_compact.3.t desc = sof_brt_compact.3.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_brt_compact.3.a } }
+country_event = { id = sof_brt_compact.4 title = sof_brt_compact.4.t desc = sof_brt_compact.4.d picture = GFX_report_event_generic_read_write is_triggered_only = yes option = { name = sof_brt_compact.4.a } }

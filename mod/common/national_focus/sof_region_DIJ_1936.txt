@@ -17,14 +17,24 @@ focus = {
  ai_will_do = { factor = 1
   modifier = { factor = 3 NOT = { has_country_flag = sof_tp_diplomatic_office } }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_council_paid } } set_country_flag = sof_region_DIJ_1936_council_paid add_political_power = 35 set_country_flag = sofzh_unification_started }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes }
+ 
+
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_council } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_council
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_council } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_council
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_council_paid } } set_country_flag = sof_region_DIJ_1936_council_paid  set_country_flag = sofzh_unification_started }  custom_effect_tooltip = sof_tp_focus_office_tt sof_tp_focus_office_effect = yes 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_council sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_commissions
  icon = GFX_sof_project_sof_region_dij_1936_commissions
  x = 5 y = 1
  cost = 5
- prerequisite = { focus = sof_region_DIJ_1936_council }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -33,27 +43,49 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_commissions_paid } } set_country_flag = sof_region_DIJ_1936_commissions_paid add_political_power = 50 add_stability = 0.03 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_council }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_commissions } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_commissions
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_commissions } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_commissions
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_commissions_paid } } set_country_flag = sof_region_DIJ_1936_commissions_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_commissions sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_fiscal
  icon = GFX_sof_project_sof_region_dij_1936_fiscal
  x = 8 y = 1
  cost = 3
- prerequisite = { focus = sof_region_DIJ_1936_council }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_fiscal_paid } } set_country_flag = sof_region_DIJ_1936_fiscal_paid add_political_power = 30 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_council }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no    NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_fiscal } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_fiscal
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_fiscal } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_fiscal
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_fiscal_paid } } set_country_flag = sof_region_DIJ_1936_fiscal_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_fiscal sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_growers
  icon = GFX_sof_project_sof_region_dij_1936_growers
  x = 5 y = 2
  cost = 3
- prerequisite = { focus = sof_region_DIJ_1936_commissions }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -62,14 +94,25 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_growers_paid } } set_country_flag = sof_region_DIJ_1936_growers_paid add_stability = 0.025 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_commissions }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_growers } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_growers
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_growers } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_growers
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_growers_paid } } set_country_flag = sof_region_DIJ_1936_growers_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_growers sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_merchant
  icon = GFX_sof_project_sof_region_dij_1936_merchant
  x = 3 y = 3
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_growers }
+ 
  mutually_exclusive = { focus = sof_region_DIJ_1936_cooperative }
  available = { original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -78,14 +121,25 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_merchant_paid } } set_country_flag = sof_region_DIJ_1936_merchant_paid sof604_register_region_dij_1936_merchant_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_growers }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_merchant } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_merchant
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_merchant } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_merchant
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_merchant_paid } } set_country_flag = sof_region_DIJ_1936_merchant_paid sof604_register_region_dij_1936_merchant_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_merchant sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_cooperative
  icon = GFX_sof_project_sof_region_dij_1936_cooperative
  x = 6 y = 3
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_growers }
+ 
  mutually_exclusive = { focus = sof_region_DIJ_1936_merchant }
  available = { original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -95,27 +149,49 @@ focus = {
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 2.2 sof607_ai_left = yes }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_cooperative_paid } } set_country_flag = sof_region_DIJ_1936_cooperative_paid sof604_register_region_dij_1936_cooperative_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_growers }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_cooperative } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_cooperative
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_cooperative } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_cooperative
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_cooperative_paid } } set_country_flag = sof_region_DIJ_1936_cooperative_paid sof604_register_region_dij_1936_cooperative_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_cooperative sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_appellation
  icon = GFX_sof_project_sof_region_dij_1936_appellation
  x = 3 y = 4
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_merchant focus = sof_region_DIJ_1936_cooperative }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } date > 1936.7.1 }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_appellation_paid } } set_country_flag = sof_region_DIJ_1936_appellation_paid sof604_register_region_dij_1936_appellation_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_merchant focus = sof_region_DIJ_1936_cooperative }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } date > 1936.7.1  NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_appellation } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_appellation
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_appellation } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_appellation
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_appellation_paid } } set_country_flag = sof_region_DIJ_1936_appellation_paid sof604_register_region_dij_1936_appellation_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_appellation sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_charter
  icon = GFX_sof_project_sof_region_dij_1936_charter
  x = 8 y = 2
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_fiscal } 
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -123,14 +199,25 @@ focus = {
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_charter_paid } } set_country_flag = sof_region_DIJ_1936_charter_paid sof604_register_region_dij_1936_charter_policy = yes set_country_flag = sofzh_unification_war_ready } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_fiscal }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_charter } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_charter
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_charter } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_charter
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_charter_paid } } set_country_flag = sof_region_DIJ_1936_charter_paid sof604_register_region_dij_1936_charter_policy = yes set_country_flag = sofzh_unification_war_ready } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_charter sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_rail_board
  icon = GFX_sof_project_sof_region_dij_1936_rail_board
  x = 9 y = 3
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_charter }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -140,14 +227,25 @@ focus = {
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_rail_board_paid } } set_country_flag = sof_region_DIJ_1936_rail_board_paid add_stability = 0.03 add_political_power = 15 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_charter }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_rail_board } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_rail_board
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_rail_board } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_rail_board
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_rail_board_paid } } set_country_flag = sof_region_DIJ_1936_rail_board_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_rail_board sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_harvest
  icon = GFX_sof_project_sof_region_dij_1936_harvest
  x = 1 y = 5
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_appellation }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 291 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -156,27 +254,50 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_harvest_paid } } set_country_flag = sof_region_DIJ_1936_harvest_paid sof604_register_region_dij_1936_harvest_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_appellation }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 291 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_harvest } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_harvest
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_harvest } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_harvest
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_harvest_paid } } set_country_flag = sof_region_DIJ_1936_harvest_paid sof604_register_region_dij_1936_harvest_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_harvest sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_market
  icon = GFX_sof_project_sof_region_dij_1936_market
  x = 3 y = 6
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_harvest } prerequisite = { focus = sof_region_DIJ_1936_fiscal }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_market_paid } } set_country_flag = sof_region_DIJ_1936_market_paid if = { limit = { 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 279 = { industrial_complex < 20 } } 279 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_market_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_harvest }
+prerequisite = { focus = sof_region_DIJ_1936_fiscal }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_market } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_market
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_market } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_market
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_market_paid } } set_country_flag = sof_region_DIJ_1936_market_paid if = { limit = { 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 279 = { industrial_complex < 20 } } 279 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = {  } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_market sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_audit
  icon = GFX_sof_project_sof_region_dij_1936_audit
  x = 15 y = 3
  cost = 4
- prerequisite = { focus = sof_region_DIJ_1936_charter }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -185,7 +306,18 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_audit_paid } } set_country_flag = sof_region_DIJ_1936_audit_paid add_political_power = 50 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_charter }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_audit } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_audit
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_audit } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_audit
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_audit_paid } } set_country_flag = sof_region_DIJ_1936_audit_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_audit sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_perrigny
@@ -201,59 +333,103 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_perrigny_paid } } set_country_flag = sof_region_DIJ_1936_perrigny_paid add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT } 226 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }  add_tech_bonus = { name = sof_region_DIJ_1936_perrigny_a0_bonus bonus = 1 uses = 1 category = train_tech } } }
+ 
+
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13134   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_perrigny } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_perrigny
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_perrigny } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_perrigny
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_perrigny_paid } } set_country_flag = sof_region_DIJ_1936_perrigny_paid  226 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_perrigny sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_yards
  icon = GFX_sof_project_sof_region_dij_1936_yards
  x = 14 y = 1
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_perrigny }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_yards_paid } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_perrigny }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_yards } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_yards
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_yards } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_yards
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_yards_paid } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } }
     set_country_flag = sof_region_DIJ_1936_yards_paid
     226 = { if = { limit = { industrial_complex < 20 } add_extra_state_shared_building_slots = 1
        if = { limit = { free_building_slots = { building = industrial_complex size > 0 include_locked = no } } add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }
-       else = { ROOT = { add_tech_bonus = { name = sof604_dij_yards_railway bonus = 1 uses = 1 category = train_tech } } }
-    } else = { ROOT = { add_tech_bonus = { name = sof604_dij_yards_railway bonus = 1 uses = 1 category = train_tech } } } }
-   } }
+       else = { ROOT = {  } }
+    } else = { ROOT = {  } } }
+   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_yards sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_repair
  icon = GFX_sof_project_sof_region_dij_1936_repair
  x = 11 y = 1
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_perrigny }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_repair_paid } } set_country_flag = sof_region_DIJ_1936_repair_paid add_tech_bonus = { name = sof_region_DIJ_1936_repair_a0_bonus bonus = 0.75 uses = 1 category = train_tech } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_perrigny }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_repair } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_repair
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_repair } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_repair
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_repair_paid } } set_country_flag = sof_region_DIJ_1936_repair_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_repair sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_telegraph
  icon = GFX_sof_project_sof_region_dij_1936_telegraph
  x = 15 y = 4
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_yards } prerequisite = { focus = sof_region_DIJ_1936_rail_board }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_telegraph_paid } } set_country_flag = sof_region_DIJ_1936_telegraph_paid add_tech_bonus = { name = sof_region_DIJ_1936_telegraph_a0_bonus bonus = 0.4 uses = 1 category = electronics } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_yards }
+prerequisite = { focus = sof_region_DIJ_1936_rail_board }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_telegraph } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_telegraph
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_telegraph } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_telegraph
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_telegraph_paid } } set_country_flag = sof_region_DIJ_1936_telegraph_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_telegraph sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_canal
  icon = GFX_sof_project_sof_region_dij_1936_canal
  x = 14 y = 2
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_yards }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -262,14 +438,25 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_canal_paid } } set_country_flag = sof_region_DIJ_1936_canal_paid if = { limit = { 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 279 = { infrastructure < 5 } } 279 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_canal_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_yards }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_canal } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_canal
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_canal } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_canal
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_canal_paid } } set_country_flag = sof_region_DIJ_1936_canal_paid if = { limit = { 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 279 = { infrastructure < 5 } } 279 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = {  } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_canal sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_sidings
  icon = GFX_sof_project_sof_region_dij_1936_sidings
  x = 18 y = 3
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_repair } prerequisite = { focus = sof_region_DIJ_1936_growers }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -278,7 +465,19 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_sidings_paid } } set_country_flag = sof_region_DIJ_1936_sidings_paid if = { limit = { 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 252 = { infrastructure < 5 } } 252 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_sidings_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_repair }
+prerequisite = { focus = sof_region_DIJ_1936_growers }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_sidings } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_sidings
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_sidings } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_sidings
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_sidings_paid } } set_country_flag = sof_region_DIJ_1936_sidings_paid if = { limit = { 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 252 = { infrastructure < 5 } } 252 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = {  } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_sidings sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_creusot
@@ -291,40 +490,73 @@ focus = {
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_creusot_paid } } set_country_flag = sof_region_DIJ_1936_creusot_paid add_tech_bonus = { name = sof_region_DIJ_1936_creusot_a0_bonus bonus = 0.25 uses = 1 category = industry } } }
+ 
+
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13766   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_creusot } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_creusot
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_creusot } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_creusot
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_creusot_paid } } set_country_flag = sof_region_DIJ_1936_creusot_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_creusot sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_forges
  icon = GFX_sof_project_sof_region_dij_1936_forges
  x = 20 y = 1
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_creusot }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13766  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_forges_paid } } set_country_flag = sof_region_DIJ_1936_forges_paid if = { limit = { 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 266 = { arms_factory < 20 } } 266 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_forges_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_creusot }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13766   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_forges } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_forges
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_forges } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_forges
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_forges_paid } } set_country_flag = sof_region_DIJ_1936_forges_paid if = { limit = { 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 266 = { arms_factory < 20 } } 266 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = {  } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_forges sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_locomotives
  icon = GFX_sof_project_sof_region_dij_1936_locomotives
  x = 21 y = 4
  cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_forges } prerequisite = { focus = sof_region_DIJ_1936_audit }
+  
  mutually_exclusive = { focus = sof_region_DIJ_1936_heavy_guns }
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_locomotives_paid } } set_country_flag = sof_region_DIJ_1936_locomotives_paid sof604_register_region_dij_1936_locomotives_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_forges }
+prerequisite = { focus = sof_region_DIJ_1936_audit }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_locomotives } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_locomotives
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_locomotives } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_locomotives
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_locomotives_paid } } set_country_flag = sof_region_DIJ_1936_locomotives_paid sof604_register_region_dij_1936_locomotives_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_locomotives sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_heavy_guns
  icon = GFX_sof_project_sof_region_dij_1936_heavy_guns
  x = 24 y = 4
  cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_forges } prerequisite = { focus = sof_region_DIJ_1936_audit }
+  
  mutually_exclusive = { focus = sof_region_DIJ_1936_locomotives }
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13766  }
  cancel_if_invalid = yes
@@ -333,53 +565,99 @@ focus = {
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_heavy_guns_paid } } set_country_flag = sof_region_DIJ_1936_heavy_guns_paid add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 120 producer = ROOT } army_experience = 20  sof604_register_region_dij_1936_heavy_guns_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_forges }
+prerequisite = { focus = sof_region_DIJ_1936_audit }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } controls_province = 13766   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_heavy_guns } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_heavy_guns
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_heavy_guns } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_heavy_guns
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_heavy_guns_paid } } set_country_flag = sof_region_DIJ_1936_heavy_guns_paid    sof604_register_region_dij_1936_heavy_guns_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_heavy_guns sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_metallurgy
  icon = GFX_sof_project_sof_region_dij_1936_metallurgy
  x = 20 y = 2
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_forges }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_metallurgy_paid } } set_country_flag = sof_region_DIJ_1936_metallurgy_paid add_tech_bonus = { name = sof_region_DIJ_1936_metallurgy_a0_bonus bonus = 0.4 uses = 1 category = industry } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_forges }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_metallurgy } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_metallurgy
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_metallurgy } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_metallurgy
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_metallurgy_paid } } set_country_flag = sof_region_DIJ_1936_metallurgy_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_metallurgy sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_foundry
  icon = GFX_sof_project_sof_region_dij_1936_foundry
  x = 22 y = 5
  cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_locomotives focus = sof_region_DIJ_1936_heavy_guns } prerequisite = { focus = sof_region_DIJ_1936_metallurgy }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_foundry_paid } } set_country_flag = sof_region_DIJ_1936_foundry_paid 266 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } }  if = { limit = { 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 266 = { arms_factory < 20 } } 266 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_foundry_a0_bonus bonus = 0.15 uses = 1 category = industry } } } add_tech_bonus = { name = sof_region_DIJ_1936_foundry_a1_bonus bonus = 0.5 uses = 1 category = artillery } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_locomotives focus = sof_region_DIJ_1936_heavy_guns }
+prerequisite = { focus = sof_region_DIJ_1936_metallurgy }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_foundry } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_foundry
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_foundry } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_foundry
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_foundry_paid } } set_country_flag = sof_region_DIJ_1936_foundry_paid 266 = { if = { limit = { is_owned_by = ROOT is_fully_controlled_by = ROOT  arms_factory < 20 } add_extra_state_shared_building_slots = 1 if = { limit = { free_building_slots = { building = arms_factory size = 1 include_locked = no } } add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } }  if = { limit = { 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 266 = { arms_factory < 20 } } 266 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = arms_factory level = 1 instant_build = yes } } } else = {  } }  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_foundry sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_chalon
  icon = GFX_sof_project_sof_region_dij_1936_chalon
  x = 21 y = 3
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_canal }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_chalon_paid } } set_country_flag = sof_region_DIJ_1936_chalon_paid if = { limit = { 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 279 = { industrial_complex < 20 } } 279 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_chalon_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_canal }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_chalon } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_chalon
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_chalon } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_chalon
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_chalon_paid } } set_country_flag = sof_region_DIJ_1936_chalon_paid if = { limit = { 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 279 = { industrial_complex < 20 } } 279 = { add_extra_state_shared_building_slots = 1 add_building_construction = { type = industrial_complex level = 1 instant_build = yes } } } else = {  } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_chalon sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_spare_pool
  icon = GFX_sof_project_sof_region_dij_1936_spare_pool
  x = 16 y = 6
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_repair } prerequisite = { focus = sof_region_DIJ_1936_foundry }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -388,53 +666,100 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_spare_pool_paid } } set_country_flag = sof_region_DIJ_1936_spare_pool_paid sof604_register_region_dij_1936_spare_pool_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_repair }
+prerequisite = { focus = sof_region_DIJ_1936_foundry }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_spare_pool } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_spare_pool
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_spare_pool } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_spare_pool
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_spare_pool_paid } } set_country_flag = sof_region_DIJ_1936_spare_pool_paid sof604_register_region_dij_1936_spare_pool_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_spare_pool sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_macon
  icon = GFX_sof_project_sof_region_dij_1936_macon
  x = 18 y = 4
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_chalon }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 297 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_macon_paid } } set_country_flag = sof_region_DIJ_1936_macon_paid if = { limit = { 297 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 297 = { infrastructure < 5 } } 297 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_macon_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_chalon }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 297 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_macon } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_macon
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_macon } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_macon
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_macon_paid } } set_country_flag = sof_region_DIJ_1936_macon_paid if = { limit = { 297 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 297 = { infrastructure < 5 } } 297 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = {  } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_macon sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_north
  icon = GFX_sof_project_sof_region_dij_1936_north
  x = 10 y = 5
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_telegraph }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_north_paid } } set_country_flag = sof_region_DIJ_1936_north_paid if = { limit = { 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 204 = { infrastructure < 5 } } 204 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = { add_tech_bonus = { name = sof_region_DIJ_1936_north_a0_bonus bonus = 0.15 uses = 1 category = industry } } } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_telegraph }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_north } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_north
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_north } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_north
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_north_paid } } set_country_flag = sof_region_DIJ_1936_north_paid if = { limit = { 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } } if = { limit = { 204 = { infrastructure < 5 } } 204 = {  add_building_construction = { type = infrastructure level = 1 instant_build = yes } } } else = {  } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_north sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_network
  icon = GFX_sof_project_sof_region_dij_1936_network
  x = 13 y = 7
- cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_north } prerequisite = { focus = sof_region_DIJ_1936_macon } prerequisite = { focus = sof_region_DIJ_1936_spare_pool }
+ cost = 5
+   
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_network_paid } } set_country_flag = sof_region_DIJ_1936_network_paid sof604_register_region_dij_1936_network_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_north }
+prerequisite = { focus = sof_region_DIJ_1936_macon }
+prerequisite = { focus = sof_region_DIJ_1936_spare_pool }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_network } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_network
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_network } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_network
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_network_paid } } set_country_flag = sof_region_DIJ_1936_network_paid sof604_register_region_dij_1936_network_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_network sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_works_school
  icon = GFX_sof_project_sof_region_dij_1936_works_school
  x = 10 y = 6
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_foundry } prerequisite = { focus = sof_region_DIJ_1936_rail_board }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 2 AND = { amount_research_slots < 3 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } } }
  cancel_if_invalid = yes
@@ -444,14 +769,26 @@ focus = {
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.7 has_war = no }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_works_school_paid } } set_country_flag = sof_region_DIJ_1936_works_school_paid if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_dij_1936_works_school_electronics bonus = 1 uses = 1 category = electronics } }    } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_foundry }
+prerequisite = { focus = sof_region_DIJ_1936_rail_board }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 2 AND = { amount_research_slots < 3 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } }  NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_works_school } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_works_school
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_works_school } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_works_school
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_works_school_paid } } set_country_flag = sof_region_DIJ_1936_works_school_paid if = { limit = { amount_research_slots < 3 } add_research_slot = 1 } else = {  }    } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_works_school sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_reserve
  icon = GFX_sof_project_sof_region_dij_1936_reserve
  x = 12 y = 3
  cost = 5
- prerequisite = { focus = sof_region_DIJ_1936_charter }
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -460,14 +797,29 @@ focus = {
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_reserve_paid } } set_country_flag = sof_region_DIJ_1936_reserve_paid add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 600 producer = ROOT }  army_experience = 15 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_charter }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_reserve } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_reserve
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_reserve } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_reserve
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_reserve_paid } } set_country_flag = sof_region_DIJ_1936_reserve_paid    } 
+}
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_recon } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_recon
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_recon_paid } } set_country_flag = sof_region_DIJ_1936_recon_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_reserve sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_rail_units
  icon = GFX_sof_project_sof_region_dij_1936_rail_units
  x = 7 y = 5
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_reserve } prerequisite = { focus = sof_region_DIJ_1936_telegraph }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -476,14 +828,26 @@ focus = {
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_rail_units_paid } } set_country_flag = sof_region_DIJ_1936_rail_units_paid add_equipment_to_stockpile = { type = motorized_equipment_1 amount = 150 producer = ROOT }  army_experience = 20 add_tech_bonus = { name = sof_region_DIJ_1936_rail_units_a1_bonus bonus = 1 uses = 1 category = train_tech } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_reserve }
+prerequisite = { focus = sof_region_DIJ_1936_telegraph }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_rail_units } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_rail_units
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_rail_units } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_rail_units
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_rail_units_paid } } set_country_flag = sof_region_DIJ_1936_rail_units_paid     } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_rail_units sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_engineers
  icon = GFX_sof_project_sof_region_dij_1936_engineers
  x = 9 y = 4
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_reserve } prerequisite = { focus = sof_region_DIJ_1936_canal }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -494,14 +858,26 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_engineers_paid } } set_country_flag = sof_region_DIJ_1936_engineers_paid add_equipment_to_stockpile = { type = support_equipment_1 amount = 100 producer = ROOT }  add_tech_bonus = { name = sof_region_DIJ_1936_engineers_a0_bonus bonus = 1 uses = 1 category = recon_tech } army_experience = 20 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_reserve }
+prerequisite = { focus = sof_region_DIJ_1936_canal }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_engineers } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_engineers
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_engineers } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_engineers
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_engineers_paid } } set_country_flag = sof_region_DIJ_1936_engineers_paid     } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_engineers sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_artillery_school
  icon = GFX_sof_project_sof_region_dij_1936_artillery_school
  x = 25 y = 5
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_heavy_guns }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -511,14 +887,25 @@ focus = {
   modifier = { factor = 1.6 num_divisions < 6 }
   modifier = { factor = 1.7 has_war = no }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_artillery_school_paid } } set_country_flag = sof_region_DIJ_1936_artillery_school_paid add_doctrine_cost_reduction = { name = sof603_south_dij_artillery_land_doctrine cost_reduction = 0.5 uses = 1 category = land_doctrine }  add_tech_bonus = { name = sof_region_DIJ_1936_artillery_school_a0_bonus bonus = 1 uses = 1 category = artillery } army_experience = 25 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_heavy_guns }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_artillery_school } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_artillery_school
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_artillery_school } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_artillery_school
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_artillery_school_paid } } set_country_flag = sof_region_DIJ_1936_artillery_school_paid     } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_artillery_school sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_rail_school
  icon = GFX_sof_project_sof_region_dij_1936_rail_school
  x = 19 y = 5
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_locomotives }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -530,14 +917,25 @@ focus = {
   modifier = { factor = 1.6 num_of_military_factories < 6 }
   modifier = { factor = 1.7 has_war = no }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_rail_school_paid } } set_country_flag = sof_region_DIJ_1936_rail_school_paid add_tech_bonus = { name = sof_region_DIJ_1936_rail_school_a0_bonus bonus = 0.6 uses = 1 category = train_tech } army_experience = 20 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_locomotives }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_rail_school } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_rail_school
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_rail_school } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_rail_school
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_rail_school_paid } } set_country_flag = sof_region_DIJ_1936_rail_school_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_rail_school sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_magazines
  icon = GFX_sof_project_sof_region_dij_1936_magazines
  x = 7 y = 6
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_rail_units }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 262 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -546,14 +944,25 @@ focus = {
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_magazines_paid } } set_country_flag = sof_region_DIJ_1936_magazines_paid sof604_register_region_dij_1936_magazines_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_rail_units }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 262 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_magazines } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_magazines
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_magazines } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_magazines
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_magazines_paid } } set_country_flag = sof_region_DIJ_1936_magazines_paid sof604_register_region_dij_1936_magazines_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_magazines sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_fieldguns
  icon = GFX_sof_project_sof_region_dij_1936_fieldguns
  x = 13 y = 6
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_artillery_school focus = sof_region_DIJ_1936_rail_school } prerequisite = { focus = sof_region_DIJ_1936_rail_units }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -562,27 +971,50 @@ focus = {
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_fieldguns_paid } } set_country_flag = sof_region_DIJ_1936_fieldguns_paid add_tech_bonus = { name = sof_region_DIJ_1936_fieldguns_a0_bonus bonus = 0.35 uses = 1 category = artillery } add_tech_bonus = { name = sof_region_DIJ_1936_fieldguns_a1_bonus bonus = 0.25 uses = 1 category = motorized_equipment } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_artillery_school focus = sof_region_DIJ_1936_rail_school }
+prerequisite = { focus = sof_region_DIJ_1936_rail_units }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_fieldguns } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_fieldguns
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_fieldguns } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_fieldguns
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_fieldguns_paid } } set_country_flag = sof_region_DIJ_1936_fieldguns_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_fieldguns sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_morvan
  icon = GFX_sof_project_sof_region_dij_1936_morvan
  x = 4 y = 5
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_engineers }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 251 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_morvan_paid } } set_country_flag = sof_region_DIJ_1936_morvan_paid sof604_register_region_dij_1936_morvan_policy = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_engineers }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 251 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_morvan } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_morvan
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_morvan } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_morvan
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_morvan_paid } } set_country_flag = sof_region_DIJ_1936_morvan_paid sof604_register_region_dij_1936_morvan_policy = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_morvan sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_fallback
  icon = GFX_sof_project_sof_region_dij_1936_fallback
  x = 10 y = 7
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_magazines } prerequisite = { focus = sof_region_DIJ_1936_morvan }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
@@ -591,27 +1023,27 @@ focus = {
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_fallback_paid } } set_country_flag = sof_region_DIJ_1936_fallback_paid army_experience = 30 sof604_register_region_dij_1936_fallback_policy = yes } }
-}
-focus = {
- id = sof_region_DIJ_1936_recon
- icon = GFX_sof_project_sof_region_dij_1936_recon
- x = 6 y = 4
- cost = 5
- prerequisite = { focus = sof_region_DIJ_1936_reserve }
+ 
 
- available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
- cancel_if_invalid = yes
- continue_if_invalid = no
- ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_recon_paid } } set_country_flag = sof_region_DIJ_1936_recon_paid air_experience = 15 } }
+prerequisite = { focus = sof_region_DIJ_1936_magazines }
+prerequisite = { focus = sof_region_DIJ_1936_morvan }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no    NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_fallback } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_fallback
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_fallback } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_fallback
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_fallback_paid } } set_country_flag = sof_region_DIJ_1936_fallback_paid  sof604_register_region_dij_1936_fallback_policy = yes } 
 }
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_fallback sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
 focus = {
  id = sof_region_DIJ_1936_air_support
  icon = GFX_sof_project_sof_region_dij_1936_air_support
  x = 4 y = 7
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_recon } prerequisite = { focus = sof_region_DIJ_1936_fieldguns }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -620,14 +1052,26 @@ focus = {
   modifier = { factor = 2.4 has_war = yes }
   modifier = { factor = 1.6 num_divisions < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_air_support_paid } } set_country_flag = sof_region_DIJ_1936_air_support_paid air_experience = 25 add_tech_bonus = { name = sof_region_DIJ_1936_air_support_a1_bonus bonus = 0.3 uses = 1 category = air_equipment } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_reserve }
+prerequisite = { focus = sof_region_DIJ_1936_fieldguns }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_air_support } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_air_support
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_air_support } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_air_support
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_air_support_paid } } set_country_flag = sof_region_DIJ_1936_air_support_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_air_support sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_air_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_arsenal_staff
  icon = GFX_sof_project_sof_region_dij_1936_arsenal_staff
  x = 10 y = 8
- cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_network } prerequisite = { focus = sof_region_DIJ_1936_fallback } prerequisite = { focus = sof_region_DIJ_1936_fieldguns }
+ cost = 5
+   
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no   }
  cancel_if_invalid = yes
@@ -638,14 +1082,27 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_arsenal_staff_paid } } set_country_flag = sof_region_DIJ_1936_arsenal_staff_paid sof604_register_region_dij_1936_arsenal_staff_policy = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_network }
+prerequisite = { focus = sof_region_DIJ_1936_fallback }
+prerequisite = { focus = sof_region_DIJ_1936_fieldguns }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no    NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_arsenal_staff } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_arsenal_staff
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_arsenal_staff } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_arsenal_staff
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_arsenal_staff_paid } } set_country_flag = sof_region_DIJ_1936_arsenal_staff_paid sof604_register_region_dij_1936_arsenal_staff_policy = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_arsenal_staff sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_jura
  icon = GFX_sof_project_sof_region_dij_1936_jura
  x = 0 y = 3
  cost = 3
- prerequisite = { focus = sof_region_DIJ_1936_charter } prerequisite = { focus = sof_region_DIJ_1936_repair }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -653,97 +1110,180 @@ focus = {
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_jura_paid } } set_country_flag = sof_region_DIJ_1936_jura_paid add_political_power = 20 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_charter }
+prerequisite = { focus = sof_region_DIJ_1936_repair }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_jura } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_jura
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_jura } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_jura
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_jura_paid } } set_country_flag = sof_region_DIJ_1936_jura_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_jura sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_offer
  icon = GFX_sof_project_sof_region_dij_1936_offer
  x = 0 y = 4
  cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_jura }
+ 
 
- available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  exists = BES NOT = { has_war_with = BES } BES = { is_subject = no has_capitulated = no } }
+ available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  country_exists = BES NOT = { has_war_with = BES } BES = { is_subject = no has_capitulated = no } }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_offer_paid } } set_country_flag = sof_region_DIJ_1936_offer_paid BES = { country_event = { id = sof_region_DIJ_1936.1 days = 1 } } } }
+ 
 
  bypass = { OR = { NOT = { country_exists = BES } BES = { OR = { is_subject = yes has_capitulated = yes } } } }
+
+prerequisite = { focus = sof_region_DIJ_1936_jura }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  country_exists = BES NOT = { has_war_with = BES } BES = { is_subject = no has_capitulated = no }  NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_offer } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_offer
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_offer } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_offer
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_offer_paid } } set_country_flag = sof_region_DIJ_1936_offer_paid BES = { country_event = { id = sof_region_DIJ_1936.1 days = 1 } } } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_offer sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_accepted
  icon = GFX_sof_project_sof_region_dij_1936_accepted
  x = 7 y = 7
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_offer } prerequisite = { focus = sof_region_DIJ_1936_works_school }
+ cost = 5
+  
 
- available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_country_flag = sof_region_DIJ_1936_accepted exists = BES NOT = { has_war_with = BES } BES = { is_subject = no has_capitulated = no } }
+ available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_country_flag = sof_region_DIJ_1936_accepted country_exists = BES NOT = { has_war_with = BES } BES = { is_subject = no has_capitulated = no } }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_accepted_paid } } set_country_flag = sof_region_DIJ_1936_accepted_paid add_tech_bonus = { name = sof_region_DIJ_1936_accepted_a0_bonus bonus = 0.65 uses = 1 category = motorized_equipment } add_tech_bonus = { name = sof_region_DIJ_1936_accepted_a1_bonus bonus = 0.35 uses = 1 category = industry } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_offer }
+prerequisite = { focus = sof_region_DIJ_1936_works_school }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } has_country_flag = sof_region_DIJ_1936_accepted country_exists = BES NOT = { has_war_with = BES } BES = { is_subject = no has_capitulated = no }  NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_accepted } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_accepted
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_accepted } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_accepted
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_accepted_paid } } set_country_flag = sof_region_DIJ_1936_accepted_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_accepted sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_self_support
  icon = GFX_sof_project_sof_region_dij_1936_self_support
  x = 12 y = 4
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_jura } prerequisite = { focus = sof_region_DIJ_1936_metallurgy }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_self_support_paid } } set_country_flag = sof_region_DIJ_1936_self_support_paid add_tech_bonus = { name = sof_region_DIJ_1936_self_support_a0_bonus bonus = 0.4 uses = 1 category = industry } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_jura }
+prerequisite = { focus = sof_region_DIJ_1936_metallurgy }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_self_support } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_self_support
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_self_support } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_self_support
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_self_support_paid } } set_country_flag = sof_region_DIJ_1936_self_support_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_self_support sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_commission
  icon = GFX_sof_project_sof_region_dij_1936_commission
  x = 1 y = 7
  cost = 5
- prerequisite = { focus = sof_region_DIJ_1936_market } prerequisite = { focus = sof_region_DIJ_1936_charter }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_commission_paid } } set_country_flag = sof_region_DIJ_1936_commission_paid add_stability = 0.03 add_political_power = 25 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_market }
+prerequisite = { focus = sof_region_DIJ_1936_charter }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_commission } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_commission
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_commission } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_commission
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_commission_paid } } set_country_flag = sof_region_DIJ_1936_commission_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_commission sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_mandate
  icon = GFX_sof_project_sof_region_dij_1936_mandate
  x = 9 y = 9
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_arsenal_staff } prerequisite = { focus = sof_region_DIJ_1936_commission }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_mandate_paid } } set_country_flag = sof_region_DIJ_1936_mandate_paid set_country_flag = sofzh_unification_war_ready add_political_power = 40 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_arsenal_staff }
+prerequisite = { focus = sof_region_DIJ_1936_commission }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_mandate } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_mandate
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_mandate } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_mandate
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_mandate_paid } } set_country_flag = sof_region_DIJ_1936_mandate_paid set_country_flag = sofzh_unification_war_ready  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_mandate sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_priority
  icon = GFX_sof_project_sof_region_dij_1936_priority
  x = 12 y = 10
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_mandate } prerequisite = { focus = sof_region_DIJ_1936_network }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_priority_paid } } set_country_flag = sof_region_DIJ_1936_priority_paid sof604_register_region_dij_1936_priority_policy = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_mandate }
+prerequisite = { focus = sof_region_DIJ_1936_network }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 204 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_priority } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_priority
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_priority } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_priority
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_priority_paid } } set_country_flag = sof_region_DIJ_1936_priority_paid sof604_register_region_dij_1936_priority_policy = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_priority sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_industry_pact
  icon = GFX_sof_project_sof_region_dij_1936_industry_pact
  x = 9 y = 10
  cost = 3
- prerequisite = { focus = sof_region_DIJ_1936_mandate } prerequisite = { focus = sof_region_DIJ_1936_foundry }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -752,14 +1292,26 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_industry_pact_paid } } set_country_flag = sof_region_DIJ_1936_industry_pact_paid add_political_power = 35 add_stability = 0.025 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_mandate }
+prerequisite = { focus = sof_region_DIJ_1936_foundry }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_industry_pact } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_industry_pact
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_industry_pact } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_industry_pact
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_industry_pact_paid } } set_country_flag = sof_region_DIJ_1936_industry_pact_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_industry_pact sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_industry_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_food_security
  icon = GFX_sof_project_sof_region_dij_1936_food_security
  x = 5 y = 10
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_mandate } prerequisite = { focus = sof_region_DIJ_1936_appellation } prerequisite = { focus = sof_region_DIJ_1936_market }
+ cost = 5
+   
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -768,14 +1320,27 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_food_security_paid } } set_country_flag = sof_region_DIJ_1936_food_security_paid sof604_register_region_dij_1936_food_security_network = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_mandate }
+prerequisite = { focus = sof_region_DIJ_1936_appellation }
+prerequisite = { focus = sof_region_DIJ_1936_market }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_food_security } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_food_security
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_food_security } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_food_security
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_food_security_paid } } set_country_flag = sof_region_DIJ_1936_food_security_paid sof604_register_region_dij_1936_food_security_network = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_food_security sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_congress
  icon = GFX_sof_project_sof_region_dij_1936_congress
  x = 9 y = 11
- cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_priority } prerequisite = { focus = sof_region_DIJ_1936_industry_pact } prerequisite = { focus = sof_region_DIJ_1936_food_security }
+ cost = 5
+   
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } check_variable = { num_owned_states > 99 } num_of_controlled_states > 99 }
  cancel_if_invalid = yes
@@ -783,40 +1348,75 @@ focus = {
  ai_will_do = { factor = 1
   modifier = { factor = 1.8 has_stability < 0.45 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_congress_paid } } set_country_flag = sof_region_DIJ_1936_congress_paid set_country_flag = sof_van_national_congress add_political_power = 40 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_priority }
+prerequisite = { focus = sof_region_DIJ_1936_industry_pact }
+prerequisite = { focus = sof_region_DIJ_1936_food_security }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 252 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } check_variable = { num_owned_states > 99 } num_of_controlled_states > 99  NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_congress } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_congress
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_congress } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_congress
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_congress_paid } } set_country_flag = sof_region_DIJ_1936_congress_paid set_country_flag = sof_van_national_congress  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_congress sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_settlement
  icon = GFX_sof_project_sof_region_dij_1936_settlement
  x = 9 y = 12
- cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_congress }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_settlement_paid } } set_country_flag = sof_region_DIJ_1936_settlement_paid add_stability = 0.04 sof604_register_region_dij_1936_settlement_policy = yes } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_congress }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_settlement } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_settlement
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_settlement } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_settlement
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_settlement_paid } } set_country_flag = sof_region_DIJ_1936_settlement_paid  sof604_register_region_dij_1936_settlement_policy = yes } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_settlement sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_signals
  icon = GFX_sof_project_sof_region_dij_1936_signals
  x = 13 y = 5
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_telegraph }
+ cost = 5
+ 
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
  continue_if_invalid = no
  ai_will_do = { factor = 1 }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_signals_paid } } set_country_flag = sof_region_DIJ_1936_signals_paid add_tech_bonus = { name = sof_region_DIJ_1936_signals_a0_bonus bonus = 0.35 uses = 1 category = electronics } } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_telegraph }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 226 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_signals } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_signals
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_signals } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_signals
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_signals_paid } } set_country_flag = sof_region_DIJ_1936_signals_paid  } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_signals sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_army_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_bridges_test
  icon = GFX_sof_project_sof_region_dij_1936_bridges_test
  x = 16 y = 5
- cost = 7
- prerequisite = { focus = sof_region_DIJ_1936_metallurgy } prerequisite = { focus = sof_region_DIJ_1936_engineers }
+ cost = 5
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }  }
  cancel_if_invalid = yes
@@ -827,14 +1427,26 @@ focus = {
   modifier = { factor = 1.5 has_war = no }
   modifier = { factor = 1.6 num_of_military_factories < 6 }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_bridges_test_paid } } set_country_flag = sof_region_DIJ_1936_bridges_test_paid add_tech_bonus = { name = sof_region_DIJ_1936_bridges_test_a0_bonus bonus = 0.35 uses = 1 category = industry } army_experience = 10 } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_metallurgy }
+prerequisite = { focus = sof_region_DIJ_1936_engineers }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT } 279 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_bridges_test } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_bridges_test
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_bridges_test } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_bridges_test
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_bridges_test_paid } } set_country_flag = sof_region_DIJ_1936_bridges_test_paid   } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_bridges_test sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 focus = {
  id = sof_region_DIJ_1936_archives
  icon = GFX_sof_project_sof_region_dij_1936_archives
  x = 16 y = 7
  cost = 5
- prerequisite = { focus = sof_region_DIJ_1936_audit } prerequisite = { focus = sof_region_DIJ_1936_works_school }
+  
 
  available = { original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 3 AND = { amount_research_slots < 3 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } }  has_completed_focus = sof_region_DIJ_1936_works_school }
  cancel_if_invalid = yes
@@ -842,7 +1454,19 @@ focus = {
  ai_will_do = { factor = 1
   modifier = { factor = 1.7 has_war = no }
  }
- completion_reward = { if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_archives_paid } } set_country_flag = sof_region_DIJ_1936_archives_paid if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = { add_tech_bonus = { name = sof603_south_sof_region_dij_1936_archives_electronics bonus = 1 uses = 1 category = electronics } }  add_political_power = 20  } }
+ 
+
+prerequisite = { focus = sof_region_DIJ_1936_audit }
+prerequisite = { focus = sof_region_DIJ_1936_works_school }
+completion_reward = { if = { limit = {  original_tag = DIJ is_subject = no has_capitulated = no 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT }   OR = { amount_research_slots > 3 AND = { amount_research_slots < 3 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 1 arms_factory > 1 } } AND = { amount_research_slots > 2 266 = { is_owned_by = ROOT is_fully_controlled_by = ROOT industrial_complex > 2 arms_factory > 2 } } }  has_completed_focus = sof_region_DIJ_1936_works_school  NOT = { has_country_flag = sof_rc_stage_sof_region_dij_1936_archives } }
+set_country_flag = sof_rc_stage_sof_region_dij_1936_archives
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof_region_dij_1936_archives } }
+ set_country_flag = sof_rc_component_sof_region_dij_1936_archives
+ if = { limit = { NOT = { has_country_flag = sof_region_DIJ_1936_archives_paid } } set_country_flag = sof_region_DIJ_1936_archives_paid if = { limit = { amount_research_slots < 4 } add_research_slot = 1 } else = {  }    } 
+}
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof_region_dij_1936_archives sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
 }
 
  shared_focus = SOF_NR_DIJ_mandate
@@ -862,12 +1486,27 @@ shared_focus = SOF_PARTY_UPR_UPR_MANDATE
 shared_focus = SOF_PARTY_DORIOT_DORIOT_RAYON
 # SOF_PARTY_BRANCHES_END
 
-focus = { id = SOF609_DIJ_diplomatic_ratification icon = GFX_sof_project_sof_region_dij_1936_offer x = -2 y = 5 cost = 10
- prerequisite = { focus = sof_region_DIJ_1936_offer }
+focus = { id = SOF609_DIJ_diplomatic_ratification icon = GFX_sof_project_sof_region_dij_1936_offer x = -2 y = 5 cost = 5
+ 
  search_filters = { FOCUS_FILTER_POLITICAL }
  available = { is_subject = no has_capitulated = no }
  cancel_if_invalid = yes continue_if_invalid = no
- completion_reward = { custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes }
+ 
  ai_will_do = { factor = 8 modifier = { factor = 2 has_war = yes } modifier = { factor = 0.25 has_stability < 0.35 } }
+
+prerequisite = { focus = sof_region_DIJ_1936_offer }
+completion_reward = { if = { limit = {  is_subject = no has_capitulated = no  NOT = { has_country_flag = sof_rc_stage_sof609_dij_diplomatic_ratification } }
+set_country_flag = sof_rc_stage_sof609_dij_diplomatic_ratification
+if = { limit = { NOT = { has_country_flag = sof_rc_component_sof609_dij_diplomatic_ratification } }
+ set_country_flag = sof_rc_component_sof609_dij_diplomatic_ratification
+ custom_effect_tooltip = sof609_faction_unlocked_tt sof609_unlock_factions = yes 
 }
+} 
+ hidden_effect = { set_country_flag = sof_sc_done_sof609_dij_diplomatic_ratification sof_sc_sync = yes }
+ custom_effect_tooltip = sof_sc_politics_tt }
+}
+
+ # National strategic continuation; geographic projects remain in the home region.
+ shared_focus = SOF_GN_DIJ_strategy
+ shortcut = { name = sof_gn_shortcut target = SOF_GN_DIJ_strategy scroll_wheel_factor = 0.7 }
 }
