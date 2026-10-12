@@ -111,7 +111,7 @@ frame = 2
 sof_gov_page_campaign_gui = {
 context_type = player_context
 window_name = "sof_gov_page_campaign"
-parent_window_name = "sof_government_window"
+parent_scripted_gui = "sof_government_gui"
 ai_enabled = { always = no }
 visible = {  sofzh_unification_candidate = yes check_variable = { sof_ui_window = 1 }  }
 effects = {
@@ -140,7 +140,7 @@ sof_cw_neighbour_list = { array = sof_cw_neighbours index = i change_scope = yes
 sof_gov_page_national_gui = {
 context_type = player_context
 window_name = "sof_gov_page_national"
-parent_window_name = "sof_government_window"
+parent_scripted_gui = "sof_government_gui"
 ai_enabled = { always = no }
 visible = { 
    sof_tp_country = yes
@@ -1187,7 +1187,7 @@ sof_tp_a3_project_state_list = {
 sof_gov_page_council_gui = {
 context_type = player_context
 window_name = "sof_gov_page_council"
-parent_window_name = "sof_government_window"
+parent_scripted_gui = "sof_government_gui"
 ai_enabled = { always = no }
 visible = {  sof_brt_active = yes check_variable = { sof_ui_window = 2 }  }
 effects = {
@@ -1340,7 +1340,7 @@ sof_brt_active_tab_funds = { frame = 2 }
 sof_gov_page_politics_gui = {
 context_type = player_context
 window_name = "sof_gov_page_politics"
-parent_window_name = "sof_government_window"
+parent_scripted_gui = "sof_government_gui"
 ai_enabled = { always = no }
 visible = {  check_variable = { sof_ui_window = 3 }  }
 triggers = {
@@ -1372,7 +1372,7 @@ sof606_large_party_ppf_visible = { has_country_flag = sof_kr_party_doriot_in_pow
 sof_gov_page_cabinet_gui = {
 context_type = player_context
 window_name = "sof_gov_page_cabinet"
-parent_window_name = "sof_government_window"
+parent_scripted_gui = "sof_government_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -1409,7 +1409,7 @@ set_variable = { sof_gov_cabinet_office = 7 } sof_gov_cabinet_layout = yes
 sof_gov_page_spirits_gui = {
 context_type = player_context
 window_name = "sof_gov_page_spirits"
-parent_window_name = "sof_government_window"
+parent_scripted_gui = "sof_government_gui"
 ai_enabled = { always = no }
 visible = { 
 sof_gov_french_candidate = yes check_variable = { sof_ui_window = 6 }
@@ -1420,7 +1420,7 @@ sof_gov_french_candidate = yes check_variable = { sof_ui_window = 6 }
 sof_gov_office_page_executive_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_executive"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -1580,7 +1580,7 @@ x = sof_gov_x_sof_hist_ita_vittorio_emanuele_orlando y = sof_gov_y_sof_hist_ita_
 sof_gov_office_page_interior_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_interior"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -1710,7 +1710,7 @@ x = sof_gov_x_sof_hist_ita_mario_scelba y = sof_gov_y_sof_hist_ita_mario_scelba
 sof_gov_office_page_treasury_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_treasury"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -1830,7 +1830,7 @@ x = sof_gov_x_sof_hist_ita_antonio_pesenti y = sof_gov_y_sof_hist_ita_antonio_pe
 sof_gov_office_page_industry_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_industry"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -1930,7 +1930,7 @@ x = sof_gov_x_sof_hist_ita_fausto_gullo y = sof_gov_y_sof_hist_ita_fausto_gullo
 sof_gov_office_page_defence_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_defence"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -2040,7 +2040,7 @@ x = sof_gov_x_sof_hist_ita_luigi_longo y = sof_gov_y_sof_hist_ita_luigi_longo
 sof_gov_office_page_naval_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_naval"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -2130,7 +2130,7 @@ x = sof_gov_x_sof_hist_ita_domenico_cavagnari y = sof_gov_y_sof_hist_ita_domenic
 sof_gov_office_page_science_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_science"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
@@ -2240,7 +2240,7 @@ x = sof_gov_x_sof_hist_ita_enrico_fermi y = sof_gov_y_sof_hist_ita_enrico_fermi
 sof_gov_office_page_foreign_gui = {
 context_type = player_context
 window_name = "sof_gov_office_page_foreign"
-parent_window_name = "sof_gov_candidate_canvas"
+parent_scripted_gui = "sof_gov_page_cabinet_gui"
 ai_enabled = { always = no }
 visible = { 
 sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }

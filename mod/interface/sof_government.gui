@@ -2,8 +2,8 @@ guiTypes = {
 containerWindowType = {
 name = "sof_government_window"
 orientation = UPPER_LEFT
-position = { x = 2% y = 64 }
-size = { width = 96% height = 100%% max = { width = 1220 height = 940 } }
+position = { x = 16 y = 64 }
+size = { width = 100%% height = 100%% max = { width = 1220 height = 940 } }
 clipping = yes
 click_to_front = yes
 background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
@@ -11,35 +11,62 @@ iconType = { name = "sof_gov_tricolour" position = { x = 20 y = 10 } spriteType 
 instantTextBoxType = { name = "sof_gov_title" position = { x = 98 y = 6 } font = "hoi_24header" text = "sof_gov_title" maxWidth = 700 maxHeight = 36 multiline = yes fixedsize = yes alwaystransparent = yes }
 instantTextBoxType = { name = "sof_gov_subtitle" position = { x = 98 y = 46 } font = "hoi_16mbs" text = "sof_gov_subtitle" maxWidth = 800 maxHeight = 28 multiline = yes fixedsize = yes alwaystransparent = yes }
 buttonType = { name = "sof_gov_close" position = { x = -44 y = 12 } orientation = UPPER_RIGHT quadTextureSprite = "GFX_sof_tp_popup_close" buttonText = "sof_gov_close" buttonFont = "hoi_16mbs" shortcut = "ESCAPE" clicksound = click_close }
-buttonType = { name = "sof_gov_tab_campaign" position = { x = 2% y = 86 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_campaign" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
-iconType = { name = "sof_gov_active_campaign" position = { x = 2% y = 86 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
-instantTextBoxType = { name = "sof_gov_label_campaign" position = { x = 2% y = 90 } font = "hoi_16mbs" text = "sof_gov_tab_campaign" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes }
-buttonType = { name = "sof_gov_tab_national" position = { x = 18% y = 86 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_national" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
-iconType = { name = "sof_gov_active_national" position = { x = 18% y = 86 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
-instantTextBoxType = { name = "sof_gov_label_national" position = { x = 18% y = 90 } font = "hoi_16mbs" text = "sof_gov_tab_national" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes }
-buttonType = { name = "sof_gov_tab_council" position = { x = 34% y = 86 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_council" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
-iconType = { name = "sof_gov_active_council" position = { x = 34% y = 86 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
-instantTextBoxType = { name = "sof_gov_label_council" position = { x = 34% y = 90 } font = "hoi_16mbs" text = "sof_gov_tab_council" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes }
-buttonType = { name = "sof_gov_tab_politics" position = { x = 50% y = 86 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_politics" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
-iconType = { name = "sof_gov_active_politics" position = { x = 50% y = 86 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
-instantTextBoxType = { name = "sof_gov_label_politics" position = { x = 50% y = 90 } font = "hoi_16mbs" text = "sof_gov_tab_politics" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes }
-buttonType = { name = "sof_gov_tab_cabinet" position = { x = 66% y = 86 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_cabinet" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
-iconType = { name = "sof_gov_active_cabinet" position = { x = 66% y = 86 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
-instantTextBoxType = { name = "sof_gov_label_cabinet" position = { x = 66% y = 90 } font = "hoi_16mbs" text = "sof_gov_tab_cabinet" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes }
-buttonType = { name = "sof_gov_tab_spirits" position = { x = 82% y = 86 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_spirits" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
-iconType = { name = "sof_gov_active_spirits" position = { x = 82% y = 86 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
-instantTextBoxType = { name = "sof_gov_label_spirits" position = { x = 82% y = 90 } font = "hoi_16mbs" text = "sof_gov_tab_spirits" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes }
+margin = { left = 0 right = 16 top = 0 bottom = 16 }
+containerWindowType = {
+name = "sof_gov_tabs_viewport"
+position = { x = 8 y = 82 }
+size = { width = 100%% height = 46 }
+margin = { left = 0 right = 8 top = 0 bottom = 0 }
+clipping = yes
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+containerWindowType = {
+name = "sof_gov_tabs_canvas"
+position = { x = 0 y = 0 }
+size = { width = 1170 height = 32 }
+buttonType = { name = "sof_gov_tab_campaign" position = { x = 16 y = 2 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_campaign" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
+iconType = { name = "sof_gov_active_campaign" position = { x = 16 y = 2 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
+instantTextBoxType = { name = "sof_gov_label_campaign" position = { x = 16 y = 6 } font = "hoi_16mbs" text = "sof_gov_tab_campaign" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes
+format = centre
+}
+buttonType = { name = "sof_gov_tab_national" position = { x = 208 y = 2 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_national" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
+iconType = { name = "sof_gov_active_national" position = { x = 208 y = 2 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
+instantTextBoxType = { name = "sof_gov_label_national" position = { x = 208 y = 6 } font = "hoi_16mbs" text = "sof_gov_tab_national" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes
+format = centre
+}
+buttonType = { name = "sof_gov_tab_council" position = { x = 400 y = 2 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_council" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
+iconType = { name = "sof_gov_active_council" position = { x = 400 y = 2 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
+instantTextBoxType = { name = "sof_gov_label_council" position = { x = 400 y = 6 } font = "hoi_16mbs" text = "sof_gov_tab_council" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes
+format = centre
+}
+buttonType = { name = "sof_gov_tab_politics" position = { x = 592 y = 2 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_politics" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
+iconType = { name = "sof_gov_active_politics" position = { x = 592 y = 2 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
+instantTextBoxType = { name = "sof_gov_label_politics" position = { x = 592 y = 6 } font = "hoi_16mbs" text = "sof_gov_tab_politics" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes
+format = centre
+}
+buttonType = { name = "sof_gov_tab_cabinet" position = { x = 784 y = 2 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_cabinet" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
+iconType = { name = "sof_gov_active_cabinet" position = { x = 784 y = 2 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
+instantTextBoxType = { name = "sof_gov_label_cabinet" position = { x = 784 y = 6 } font = "hoi_16mbs" text = "sof_gov_tab_cabinet" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes
+format = centre
+}
+buttonType = { name = "sof_gov_tab_spirits" position = { x = 976 y = 2 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_tab_spirits" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button }
+iconType = { name = "sof_gov_active_spirits" position = { x = 976 y = 2 } spriteType = "GFX_sof_brt_ui_tab" scale = 1 alwaystransparent = yes }
+instantTextBoxType = { name = "sof_gov_label_spirits" position = { x = 976 y = 6 } font = "hoi_16mbs" text = "sof_gov_tab_spirits" maxWidth = 110 maxHeight = 22 multiline = yes fixedsize = yes alwaystransparent = yes
+format = centre
+}
+}
 
-margin = { left = 0 right = 0 top = 0 bottom = 84 }
+}
+
 }
 
 containerWindowType = {
   name = "sof_gov_page_campaign"
   orientation = UPPER_LEFT
-  position = { x = 0 y = 128 }
+  position = { x = 8 y = 136 }
   size = { width = 100%% height = 100%% }
   clipping = yes
-  click_to_front = yes
+
   
   instantTextBoxType = {
    name = "sof_cw_decision_window_scroll_hint"
@@ -683,15 +710,17 @@ containerWindowType = {
 }
   
  
-margin = { left = 0 right = 0 top = 0 bottom = 144 }
+margin = { left = 0 right = 8 top = 0 bottom = 8 }
+
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
 }
 containerWindowType = {
   name = "sof_gov_page_national"
   orientation = UPPER_LEFT
-  position = { x = 0 y = 128 }
+  position = { x = 8 y = 136 }
   size = { width = 100%% height = 100%% }
   clipping = yes
-  click_to_front = yes
+
   
   instantTextBoxType = {
    name = "sof_tp_popup_window_scroll_hint"
@@ -2952,15 +2981,17 @@ containerWindowType = {
 }
   
  
-margin = { left = 0 right = 0 top = 0 bottom = 144 }
+margin = { left = 0 right = 8 top = 0 bottom = 8 }
+
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
 }
 containerWindowType = {
   name = "sof_gov_page_council"
   orientation = UPPER_LEFT
-  position = { x = 0 y = 128 }
+  position = { x = 8 y = 136 }
   size = { width = 100%% height = 100%% }
   clipping = yes
-  click_to_front = yes
+
   
 containerWindowType = {
  name = "sof_brt_council_window_viewport"
@@ -4911,7 +4942,7 @@ instantTextBoxType = {
 }
 
 
-containerWindowType = { name = "sof_brt_tab_slot_members" position = { x = 2% y = 78 } size = { width = 118 height = 30 } clipping = no
+containerWindowType = { name = "sof_brt_tab_slot_members" position = { x = 18 y = 78 } size = { width = 118 height = 30 } clipping = no
 buttonType = {
    name = "sof_brt_tab_members"
    position = { x = 0 y = 0 }
@@ -4943,7 +4974,7 @@ instantTextBoxType = {
  multiline = yes
 }
 }
-containerWindowType = { name = "sof_brt_tab_slot_bills" position = { x = 26% y = 78 } size = { width = 118 height = 30 } clipping = no
+containerWindowType = { name = "sof_brt_tab_slot_bills" position = { x = 256 y = 78 } size = { width = 118 height = 30 } clipping = no
 buttonType = {
    name = "sof_brt_tab_bills"
    position = { x = 0 y = 0 }
@@ -4975,7 +5006,7 @@ instantTextBoxType = {
  multiline = yes
 }
 }
-containerWindowType = { name = "sof_brt_tab_slot_forces" position = { x = 50% y = 78 } size = { width = 118 height = 30 } clipping = no
+containerWindowType = { name = "sof_brt_tab_slot_forces" position = { x = 494 y = 78 } size = { width = 118 height = 30 } clipping = no
 buttonType = {
    name = "sof_brt_tab_forces"
    position = { x = 0 y = 0 }
@@ -5007,7 +5038,7 @@ instantTextBoxType = {
  multiline = yes
 }
 }
-containerWindowType = { name = "sof_brt_tab_slot_funds" position = { x = 74% y = 78 } size = { width = 118 height = 30 } clipping = no
+containerWindowType = { name = "sof_brt_tab_slot_funds" position = { x = 732 y = 78 } size = { width = 118 height = 30 } clipping = no
 buttonType = {
    name = "sof_brt_tab_funds"
    position = { x = 0 y = 0 }
@@ -5040,15 +5071,17 @@ instantTextBoxType = {
 }
 }
  
-margin = { left = 0 right = 0 top = 0 bottom = 144 }
+margin = { left = 0 right = 8 top = 0 bottom = 8 }
+
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
 }
 containerWindowType = {
   name = "sof_gov_page_politics"
   orientation = UPPER_LEFT
-  position = { x = 0 y = 128 }
+  position = { x = 8 y = 136 }
   size = { width = 100%% height = 100%% }
   clipping = yes
-  click_to_front = yes
+
   
   instantTextBoxType = {
    name = "sof_large_politics_window_scroll_hint"
@@ -5702,10 +5735,12 @@ instantTextBoxType = { name = "sof606_large_party_ppf" position = { x = 24 y = 8
 }
   
  
-margin = { left = 0 right = 0 top = 0 bottom = 144 }
+margin = { left = 0 right = 8 top = 0 bottom = 8 }
+
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
 }
 containerWindowType = {
-name = "sof_gov_page_cabinet" position = { x = 0 y = 128 } size = { width = 100%% height = 100%% } clipping = yes 
+name = "sof_gov_page_cabinet" position = { x = 8 y = 136 } size = { width = 100%% height = 100%% } clipping = yes
 containerWindowType = {
 name = "sof_gov_office_viewport" position = { x = 0 y = 12 } size = { width = 198 height = 100%% }
 margin = { left = 0 right = 18 top = 0 bottom = 22 } clipping = yes verticalScrollbar = "right_vertical_slider" horizontalScrollbar = "sof_cw_horizontal_scrollbar" smooth_scrolling = yes scroll_wheel_factor = 40
@@ -5723,36 +5758,15 @@ instantTextBoxType = { name = "sof_gov_cabinet_side_hint" position = { x = 12 y 
 }
 
 }
-containerWindowType = {
-name = "sof_gov_candidate_viewport" position = { x = 198 y = 12 } size = { width = 100%% height = 100%% }
-margin = { left = 8 right = 22 top = 0 bottom = 22 } clipping = yes verticalScrollbar = "right_vertical_slider" horizontalScrollbar = "sof_cw_horizontal_scrollbar" smooth_scrolling = yes scroll_wheel_factor = 40
-containerWindowType = {
-name = "sof_gov_candidate_canvas" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
 
 
 
+margin = { left = 0 right = 8 top = 0 bottom = 8 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-}
-
-
-margin = { left = 0 right = 0 top = 0 bottom = 144 }
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
 }
 containerWindowType = {
-name = "sof_gov_page_spirits" position = { x = 0 y = 128 } size = { width = 100%% height = 100%% } clipping = yes 
+name = "sof_gov_page_spirits" position = { x = 8 y = 136 } size = { width = 100%% height = 100%% } clipping = yes
 containerWindowType = {
 name = "sof_gov_spirit_viewport" position = { x = 0 y = 8 } size = { width = 100%% height = 100%% }
 margin = { left = 8 right = 22 top = 0 bottom = 22 } clipping = yes verticalScrollbar = "right_vertical_slider" horizontalScrollbar = "sof_cw_horizontal_scrollbar" smooth_scrolling = yes scroll_wheel_factor = 40
@@ -5795,423 +5809,468 @@ instantTextBoxType = { name = "sof_gov_spirit_hint" position = { x = 24 y = 790 
 }
 
 
-margin = { left = 0 right = 0 top = 0 bottom = 144 }
+margin = { left = 0 right = 8 top = 0 bottom = 8 }
+
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
 }
 containerWindowType = {
-name = "sof_gov_office_page_executive" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_executive"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_executive_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_executive" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_executive_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_leon_blum" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_leon_blum_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_leon_blum" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_leon_blum_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_leon_blum" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_leon_blum_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_leon_blum_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_leon_blum_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_leon_blum_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_leon_blum_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_leon_blum_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_rene_nicod" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_rene_nicod_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_rene_nicod" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_rene_nicod_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_rene_nicod" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_rene_nicod_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_rene_nicod_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_rene_nicod_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_rene_nicod_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_rene_nicod_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_rene_nicod_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_camille_chautemps" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_camille_chautemps_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_camille_chautemps" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_camille_chautemps_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_camille_chautemps" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_camille_chautemps_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_camille_chautemps_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_camille_chautemps_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_camille_chautemps_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_camille_chautemps_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_camille_chautemps_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_executive_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_executive_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_executive_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_executive_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_executive_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_executive_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_executive_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_executive_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_executive_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_executive_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_executive_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_executive_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_executive_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_executive_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_executive_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_executive_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_executive_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_executive_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_executive_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_executive_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_executive_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_executive_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_executive_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_executive_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_executive_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_italo_balbo" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_italo_balbo_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_italo_balbo" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_italo_balbo_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_italo_balbo" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_italo_balbo_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_italo_balbo_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_italo_balbo_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_italo_balbo_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_italo_balbo_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_italo_balbo_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_dino_grandi" position = { x = 332 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_dino_grandi_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_dino_grandi" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_dino_grandi_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_dino_grandi" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_dino_grandi_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_dino_grandi_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_dino_grandi_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_dino_grandi_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_dino_grandi_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_dino_grandi_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii" position = { x = 652 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_vittorio_emanuele_iii" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_vittorio_emanuele_iii" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_vittorio_emanuele_iii_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi" position = { x = 12 y = 766 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_alcide_de_gasperi" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_alcide_de_gasperi" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_alcide_de_gasperi_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi" position = { x = 332 y = 766 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_ivanoe_bonomi" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_ivanoe_bonomi" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_ivanoe_bonomi_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_antonio_gramsci" position = { x = 652 y = 766 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_antonio_gramsci_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_antonio_gramsci" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_antonio_gramsci_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_antonio_gramsci" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_antonio_gramsci_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_antonio_gramsci_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_antonio_gramsci_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_antonio_gramsci_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_antonio_gramsci_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_antonio_gramsci_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga" position = { x = 12 y = 996 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_amadeo_bordiga" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_amadeo_bordiga" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_amadeo_bordiga_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_amadeo_bordiga_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando" position = { x = 332 y = 996 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_vittorio_emanuele_orlando" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_vittorio_emanuele_orlando" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_vittorio_emanuele_orlando_desc" }
 }
+}
 
 }
+
 containerWindowType = {
-name = "sof_gov_office_page_interior" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_interior"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_interior_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_interior" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_interior_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_charles_maurras" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_charles_maurras_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_charles_maurras" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_charles_maurras_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_charles_maurras" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_charles_maurras_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_charles_maurras_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_charles_maurras_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_charles_maurras_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_charles_maurras_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_charles_maurras_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_georges_mandel" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_georges_mandel_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_georges_mandel" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_georges_mandel_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_georges_mandel" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_georges_mandel_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_georges_mandel_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_georges_mandel_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_georges_mandel_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_georges_mandel_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_georges_mandel_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_albert_sarraut" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_albert_sarraut_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_albert_sarraut" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_albert_sarraut_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_albert_sarraut" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_albert_sarraut_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_albert_sarraut_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_albert_sarraut_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_albert_sarraut_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_albert_sarraut_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_albert_sarraut_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_interior_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_interior_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_interior_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_interior_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_interior_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_interior_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_interior_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_interior_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_interior_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_interior_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_interior_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_interior_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_interior_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_interior_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_interior_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_interior_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_interior_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_interior_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_interior_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_interior_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_interior_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_interior_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_interior_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_interior_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_interior_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_pietro_d_acquarone" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_pietro_d_acquarone" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_pietro_d_acquarone_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_achille_starace" position = { x = 332 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_achille_starace_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_achille_starace" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_achille_starace_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_achille_starace" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_achille_starace_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_achille_starace_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_achille_starace_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_achille_starace_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_achille_starace_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_achille_starace_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_renato_ricci" position = { x = 652 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_renato_ricci_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_renato_ricci" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_renato_ricci_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_renato_ricci" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_renato_ricci_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_renato_ricci_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_renato_ricci_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_renato_ricci_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_renato_ricci_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_renato_ricci_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_adelchi_serena" position = { x = 12 y = 766 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_adelchi_serena_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_adelchi_serena" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_adelchi_serena_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_adelchi_serena" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_adelchi_serena_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_adelchi_serena_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_adelchi_serena_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_adelchi_serena_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_adelchi_serena_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_adelchi_serena_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_mario_scelba" position = { x = 332 y = 766 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_mario_scelba_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_mario_scelba" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_mario_scelba_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_mario_scelba" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_mario_scelba_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_mario_scelba_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_mario_scelba_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_mario_scelba_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_mario_scelba_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_mario_scelba_desc" }
 }
+}
 
 }
+
 containerWindowType = {
-name = "sof_gov_office_page_treasury" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_treasury"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_treasury_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_treasury" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_treasury_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_vincent_auriol" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_vincent_auriol_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_vincent_auriol" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_vincent_auriol_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_vincent_auriol" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_vincent_auriol_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_vincent_auriol_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_vincent_auriol_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_vincent_auriol_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_vincent_auriol_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_vincent_auriol_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_paul_reynaud" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_paul_reynaud_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_paul_reynaud" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_paul_reynaud_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_paul_reynaud" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_paul_reynaud_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_paul_reynaud_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_paul_reynaud_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_paul_reynaud_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_paul_reynaud_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_paul_reynaud_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_charles_spinasse" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_charles_spinasse_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_charles_spinasse" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_charles_spinasse_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_charles_spinasse" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_charles_spinasse_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_charles_spinasse_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_charles_spinasse_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_charles_spinasse_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_charles_spinasse_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_charles_spinasse_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_treasury_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_treasury_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_treasury_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_treasury_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_treasury_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_treasury_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_treasury_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_treasury_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_treasury_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_treasury_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_treasury_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_treasury_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_treasury_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_treasury_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_treasury_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_treasury_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_treasury_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_treasury_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_treasury_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_treasury_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_treasury_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_treasury_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_treasury_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_treasury_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_treasury_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_luigi_einaudi" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_luigi_einaudi_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_luigi_einaudi" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_luigi_einaudi_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_luigi_einaudi" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_luigi_einaudi_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_luigi_einaudi_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_luigi_einaudi_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_luigi_einaudi_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_luigi_einaudi_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_luigi_einaudi_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani" position = { x = 332 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_alberto_de_stefani" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_alberto_de_stefani" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_alberto_de_stefani_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_alberto_de_stefani_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_guido_jung" position = { x = 652 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_guido_jung_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_guido_jung" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_guido_jung_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_guido_jung" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_guido_jung_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_guido_jung_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_guido_jung_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_guido_jung_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_guido_jung_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_guido_jung_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_antonio_pesenti" position = { x = 12 y = 766 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_antonio_pesenti_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_antonio_pesenti" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_antonio_pesenti_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_antonio_pesenti" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_antonio_pesenti_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_antonio_pesenti_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_antonio_pesenti_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_antonio_pesenti_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_antonio_pesenti_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_antonio_pesenti_desc" }
 }
+}
 
 }
+
 containerWindowType = {
-name = "sof_gov_office_page_industry" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_industry"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_industry_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_industry" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_industry_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_louis_renault" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_louis_renault_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_louis_renault" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_louis_renault_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_louis_renault" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_louis_renault_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_louis_renault_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_louis_renault_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_louis_renault_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_louis_renault_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_louis_renault_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_raoul_dautry" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_raoul_dautry_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_raoul_dautry" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_raoul_dautry_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_raoul_dautry" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_raoul_dautry_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_raoul_dautry_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_raoul_dautry_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_raoul_dautry_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_raoul_dautry_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_raoul_dautry_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_pierre_cot" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_pierre_cot_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_pierre_cot" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_pierre_cot_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_pierre_cot" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_pierre_cot_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_pierre_cot_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_pierre_cot_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_pierre_cot_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_pierre_cot_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_pierre_cot_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_industry_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_industry_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_industry_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_industry_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_industry_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_industry_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_industry_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_industry_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_industry_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_industry_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_industry_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_industry_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_industry_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_industry_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_industry_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_industry_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_industry_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_industry_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_industry_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_industry_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_industry_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_industry_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_industry_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_industry_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_industry_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_giovanni_duca" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_giovanni_duca_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_giovanni_duca" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_giovanni_duca_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_giovanni_duca" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_giovanni_duca_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_giovanni_duca_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_giovanni_duca_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_giovanni_duca_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_giovanni_duca_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_giovanni_duca_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_fausto_gullo" position = { x = 332 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_fausto_gullo_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_fausto_gullo" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_fausto_gullo_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_fausto_gullo" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_fausto_gullo_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_fausto_gullo_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_fausto_gullo_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_fausto_gullo_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_fausto_gullo_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_fausto_gullo_desc" }
 }
+}
 
 }
+
 containerWindowType = {
-name = "sof_gov_office_page_defence" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_defence"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_defence_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_defence" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_defence_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_maxime_weygand" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_maxime_weygand_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_maxime_weygand" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_maxime_weygand_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_maxime_weygand" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_maxime_weygand_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_maxime_weygand_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_maxime_weygand_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_maxime_weygand_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_maxime_weygand_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_maxime_weygand_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_maurice_gamelin" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_maurice_gamelin_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_maurice_gamelin" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_maurice_gamelin_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_maurice_gamelin" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_maurice_gamelin_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_maurice_gamelin_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_maurice_gamelin_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_maurice_gamelin_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_maurice_gamelin_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_maurice_gamelin_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_edouard_daladier" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_edouard_daladier_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_edouard_daladier" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_edouard_daladier_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_edouard_daladier" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_edouard_daladier_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_edouard_daladier_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_edouard_daladier_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_edouard_daladier_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_edouard_daladier_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_edouard_daladier_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_defence_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_defence_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_defence_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_defence_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_defence_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_defence_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_defence_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_defence_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_defence_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_defence_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_defence_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_defence_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_defence_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_defence_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_defence_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_defence_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_defence_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_defence_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_defence_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_defence_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_defence_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_defence_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_defence_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_defence_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_defence_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_alberto_pariani" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_alberto_pariani_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_alberto_pariani" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_pariani_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_alberto_pariani" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_pariani_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alberto_pariani_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_pariani_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alberto_pariani_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_alberto_pariani_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_alberto_pariani_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi" position = { x = 332 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_randolfo_pacciardi" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_randolfo_pacciardi" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_randolfo_pacciardi_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_luigi_longo" position = { x = 652 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_luigi_longo_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_luigi_longo" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_luigi_longo_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_luigi_longo" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_luigi_longo_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_luigi_longo_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_luigi_longo_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_luigi_longo_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_luigi_longo_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_luigi_longo_desc" }
 }
+}
 
 }
+
 containerWindowType = {
-name = "sof_gov_office_page_naval" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_naval"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_naval_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_naval" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_naval_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_francois_darlan" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_francois_darlan_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_francois_darlan" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_francois_darlan_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_francois_darlan" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_francois_darlan_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_francois_darlan_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_francois_darlan_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_francois_darlan_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_francois_darlan_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_francois_darlan_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_victor_denain" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_victor_denain_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_victor_denain" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_victor_denain_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_victor_denain" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_victor_denain_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_victor_denain_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_victor_denain_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_victor_denain_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_victor_denain_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_victor_denain_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_emile_muselier" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_emile_muselier_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_emile_muselier" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_emile_muselier_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_emile_muselier" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_emile_muselier_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_emile_muselier_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_emile_muselier_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_emile_muselier_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_emile_muselier_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_emile_muselier_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_naval_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_naval_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_naval_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_naval_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_naval_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_naval_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_naval_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_naval_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_naval_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_naval_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_naval_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_naval_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_naval_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_naval_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_naval_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_naval_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_naval_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_naval_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_naval_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_naval_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_naval_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_naval_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_naval_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_naval_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_naval_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_domenico_cavagnari" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_domenico_cavagnari" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_domenico_cavagnari_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_domenico_cavagnari_desc" }
 }
+}
 
 }
+
 containerWindowType = {
-name = "sof_gov_office_page_science" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_science"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_science_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_science" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_science_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_irene_joliot_curie" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_irene_joliot_curie" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_irene_joliot_curie_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_irene_joliot_curie_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_frederic_joliot_curie" scale = 0.27619 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_frederic_joliot_curie" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_frederic_joliot_curie_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_jean_zay" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_jean_zay_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_jean_zay" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_jean_zay_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_jean_zay" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_jean_zay_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_jean_zay_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_jean_zay_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_jean_zay_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_jean_zay_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_jean_zay_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_science_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_science_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_science_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_science_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_science_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_science_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_science_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_science_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_science_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_science_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_science_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_science_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_science_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_science_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_science_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_science_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_science_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_science_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_science_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_science_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_science_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_science_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_science_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_science_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_science_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_giuseppe_bottai" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_giuseppe_bottai" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_giuseppe_bottai_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_giuseppe_bottai_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero" position = { x = 332 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_guido_de_ruggiero" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_guido_de_ruggiero" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_guido_de_ruggiero_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_enrico_fermi" position = { x = 652 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_enrico_fermi_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_enrico_fermi" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_enrico_fermi_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_enrico_fermi" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_enrico_fermi_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_enrico_fermi_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_enrico_fermi_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_enrico_fermi_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_enrico_fermi_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_enrico_fermi_desc" }
 }
+}
 
 }
+
 containerWindowType = {
-name = "sof_gov_office_page_foreign" position = { x = 0 y = 0 } size = { width = 980 height = 1226 } clipping = yes 
+name = "sof_gov_office_page_foreign"
+position = { x = 198 y = 12 }
+size = { width = 100%% height = 100%% }
+margin = { left = 8 right = 22 top = 0 bottom = 12 }
+clipping = yes
+verticalScrollbar = "right_vertical_slider"
+horizontalScrollbar = "sof_cw_horizontal_scrollbar"
+smooth_scrolling = yes
+background = { name = "Background" quadTextureSprite = "GFX_tiled_plain_bg" alwaystransparent = no }
+containerWindowType = {
+name = "sof_gov_office_page_foreign_canvas"
+position = { x = 0 y = 0 }
+size = { width = 980 height = 1226 }
 instantTextBoxType = { name = "sof_gov_current_foreign" position = { x = 12 y = 6 } font = "hoi_18mbs" text = "sof_gov_office_foreign_current" maxWidth = 950 maxHeight = 52 multiline = yes fixedsize = yes alwaystransparent = yes }
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_rene_massigli" position = { x = 12 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_rene_massigli_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_rene_massigli" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_rene_massigli_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_rene_massigli" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_rene_massigli_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_rene_massigli_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_rene_massigli_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_rene_massigli_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_rene_massigli_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_rene_massigli_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_georges_bonnet" position = { x = 332 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_georges_bonnet_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_georges_bonnet" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_georges_bonnet_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_georges_bonnet" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_georges_bonnet_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_georges_bonnet_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_georges_bonnet_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_georges_bonnet_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_georges_bonnet_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_georges_bonnet_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_fra_yvon_delbos" position = { x = 652 y = 76 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_fra_yvon_delbos_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_fra_yvon_delbos" scale = 0.87879 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_yvon_delbos_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_fra_yvon_delbos" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_yvon_delbos_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_yvon_delbos_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_fra_yvon_delbos_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_fra_yvon_delbos_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_fra_yvon_delbos_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_fra_yvon_delbos_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_foreign_1" position = { x = 12 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_foreign_1_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_foreign_1" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_1_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_foreign_1" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_1_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_foreign_1_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_1_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_foreign_1_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_foreign_1_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_foreign_1_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_foreign_2" position = { x = 332 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_foreign_2_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_foreign_2" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_2_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_foreign_2" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_2_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_foreign_2_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_2_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_foreign_2_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_foreign_2_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_foreign_2_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sofzh_minister_foreign_3" position = { x = 652 y = 306 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sofzh_minister_foreign_3_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sofzh_minister_portrait_foreign_3" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_3_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sofzh_minister_foreign_3" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_3_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_foreign_3_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sofzh_minister_foreign_3_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sofzh_minister_foreign_3_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sofzh_minister_foreign_3_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sofzh_minister_foreign_3_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_curzio_malaparte" position = { x = 12 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_curzio_malaparte_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_curzio_malaparte" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_curzio_malaparte_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_curzio_malaparte" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_curzio_malaparte_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_curzio_malaparte_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_curzio_malaparte_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_curzio_malaparte_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_curzio_malaparte_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_curzio_malaparte_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano" position = { x = 332 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_gian_galeazzo_ciano" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_gian_galeazzo_ciano" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_gian_galeazzo_ciano_desc" }
 }
-
 containerWindowType = {
 name = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani" position = { x = 652 y = 536 } size = { width = 304 height = 220 } clipping = yes background = { name = "Background" quadTextureSprite = "GFX_tiled_window_1b_border" } 
 iconType = { name = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani_portrait" position = { x = 10 y = 12 } spriteType = "GFX_idea_sof_hist_ita_alberto_tarchiani" scale = 0.86154 alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani_name" position = { x = 78 y = 10 } font = "hoi_18mbs" text = "sof_hist_ita_alberto_tarchiani" maxWidth = 210 maxHeight = 56 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani_bio_text" position = { x = 12 y = 74 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani_bio" maxWidth = 280 maxHeight = 104 multiline = yes fixedsize = yes alwaystransparent = yes }instantTextBoxType = { name = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani_cost_text" position = { x = 12 y = 184 } font = "hoi_16mbs" text = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani_cost" maxWidth = 154 maxHeight = 26 multiline = yes fixedsize = yes alwaystransparent = yes }buttonType = { name = "sof_gov_candidate_sof_hist_ita_alberto_tarchiani_appoint" position = { x = 172 y = 180 } quadTextureSprite = "GFX_sof_brt_ui_tab" buttonText = "sof_gov_appoint" buttonFont = "hoi_16mbs" clicksound = decisions_ui_button pdx_tooltip = "sof_hist_ita_alberto_tarchiani_desc" }
 }
+}
 
 }
+
 }
