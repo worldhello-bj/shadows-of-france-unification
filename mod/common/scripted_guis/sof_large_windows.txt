@@ -1,6 +1,16 @@
 scripted_gui = {
  sof_large_launcher_gui = {
-context_type = player_context window_name = "sof_large_launcher_window" ai_enabled = { always = no } visible = { sof_gov_country = yes NOT = { check_variable = { var = sof_ui_window value = 0 compare = greater_than } } } effects = { sof_gov_open_click = { set_variable = { sof_ui_window = 3 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open } }
+context_type = player_context window_name = "sof_large_launcher_window" ai_enabled = { always = no } visible = { sof_gov_country = yes NOT = { check_variable = { var = sof_ui_window value = 0 compare = greater_than } } } effects = { sof_gov_open_click = {
+sof_gov_np_initialize = yes
+sof_sc_sync = yes
+if = { limit = { sof_tp_country = yes } set_variable = { sof_ui_window = 4 } set_country_flag = sof_tp_popup_open sof_tp_popup_refresh_effect = yes }
+else_if = { limit = { sofzh_unification_candidate = yes } set_variable = { sof_ui_window = 1 } clr_country_flag = sof_tp_popup_open sof_cw_refresh = yes sof_tp_popup_refresh_effect = yes }
+else_if = { limit = { sof_brt_active = yes } set_variable = { sof_ui_window = 2 } clr_country_flag = sof_tp_popup_open sof_brt_count_support = yes }
+else_if = { limit = { sof_gov_french_candidate = yes } set_variable = { sof_ui_window = 7 } clr_country_flag = sof_tp_popup_open sof_tp_popup_refresh_effect = yes }
+else = { set_variable = { sof_ui_window = 0 } clr_country_flag = sof_tp_popup_open }
+
+}
+ }
 }
 
  sof_cw_launcher_gui = {
@@ -16,7 +26,9 @@ context_type = player_context window_name = "sof_large_launcher_window" ai_enabl
      sof_ui_window = 1
     }
     clr_country_flag = sof_tp_popup_open
-    sof_sc_sync = yes }
+    sof_sc_sync = yes
+sof_tp_popup_refresh_effect = yes
+}
   }
  }
  sof_brt_launcher_gui = {

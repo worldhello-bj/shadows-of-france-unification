@@ -1,0 +1,201 @@
+sof_gov_np_select_eligible_page = {
+ if = { limit = { sof_tp_country = yes } set_variable = { sof_ui_window = 4 } set_country_flag = sof_tp_popup_open sof_tp_popup_refresh_effect = yes }
+ else_if = { limit = { sofzh_unification_candidate = yes } set_variable = { sof_ui_window = 1 } clr_country_flag = sof_tp_popup_open sof_cw_refresh = yes sof_tp_popup_refresh_effect = yes }
+ else_if = { limit = { sof_brt_active = yes } set_variable = { sof_ui_window = 2 } clr_country_flag = sof_tp_popup_open sof_brt_count_support = yes }
+ else_if = { limit = { sof_gov_french_candidate = yes } set_variable = { sof_ui_window = 7 } clr_country_flag = sof_tp_popup_open sof_tp_popup_refresh_effect = yes }
+ else = { set_variable = { sof_ui_window = 0 } clr_country_flag = sof_tp_popup_open }
+}
+# All mutations recheck their controller trigger. Every project pays once.
+sof_gov_np_refresh = {
+ set_variable = { sof_gov_np_meter_frame = sof_gov_np_progress }
+ add_to_variable = { sof_gov_np_meter_frame = 1 }
+ clamp_variable = { var = sof_gov_np_meter_frame min = 1 max = 101 }
+ set_variable = { sof_gov_np_eta_days = 100 }
+ subtract_from_variable = { sof_gov_np_eta_days = sof_gov_np_progress }
+ divide_variable = { sof_gov_np_eta_days = 2 }
+ clamp_variable = { var = sof_gov_np_eta_days min = 0 max = 50 }
+ set_variable = { sof_gov_np_completed = 0 }
+ if = { limit = { has_country_flag = sof_gov_np_done_transport } add_to_variable = { sof_gov_np_completed = 1 } }
+ if = { limit = { has_country_flag = sof_gov_np_done_armaments } add_to_variable = { sof_gov_np_completed = 1 } }
+ if = { limit = { has_country_flag = sof_gov_np_done_staff } add_to_variable = { sof_gov_np_completed = 1 } }
+ if = { limit = { has_country_flag = sof_gov_np_done_treasury } add_to_variable = { sof_gov_np_completed = 1 } }
+ if = { limit = { NOT = { has_country_flag = sof_gov_np_active } } set_variable = { sof_gov_np_eta_days = 0 } }
+ if = { limit = { NOT = { has_country_flag = sof_gov_np_invest_cooldown } } set_variable = { sof_gov_np_invest_days_left = 0 } }
+}
+sof_gov_np_initialize = {
+ if = { limit = { NOT = { has_variable = sof_gov_np_type } } set_variable = { sof_gov_np_type = 0 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_last_type } } set_variable = { sof_gov_np_last_type = 0 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_progress } } set_variable = { sof_gov_np_progress = 0 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_meter_frame } } set_variable = { sof_gov_np_meter_frame = 1 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_boosts } } set_variable = { sof_gov_np_boosts = 0 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_eta_days } } set_variable = { sof_gov_np_eta_days = 0 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_cost } } set_variable = { sof_gov_np_cost = 0 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_invest_days_left } } set_variable = { sof_gov_np_invest_days_left = 0 } }
+ if = { limit = { NOT = { has_variable = sof_gov_np_completed } } set_variable = { sof_gov_np_completed = 0 } }
+ if = { limit = { has_idea = sof_gov_np_transport } set_country_flag = sof_gov_np_done_transport }
+ if = { limit = { has_idea = sof_gov_np_armaments } set_country_flag = sof_gov_np_done_armaments }
+ if = { limit = { has_idea = sof_gov_np_staff } set_country_flag = sof_gov_np_done_staff }
+ if = { limit = { has_idea = sof_gov_np_treasury } set_country_flag = sof_gov_np_done_treasury }
+ if = {
+ limit = { NOT = { has_country_flag = sof_gov_np_ui611_migrated } }
+ if = {
+  limit = {
+   check_variable = { sof_ui_window > 0 }
+   NOT = { OR = {
+    AND = { check_variable = { sof_ui_window = 4 } sof_tp_country = yes }
+    AND = { check_variable = { sof_ui_window = 1 } sofzh_unification_candidate = yes }
+    AND = { check_variable = { sof_ui_window = 2 } sof_brt_active = yes }
+    AND = { check_variable = { sof_ui_window = 7 } sof_gov_french_candidate = yes }
+   } }
+  }
+  sof_gov_np_select_eligible_page = yes
+ }
+ set_country_flag = sof_gov_np_ui611_migrated
+}
+ set_country_flag = sof_gov_np_initialized
+ sof_gov_np_refresh = yes
+}
+sof_gov_np_clear = {
+ clr_country_flag = sof_gov_np_active
+ clr_country_flag = sof_gov_np_invest_cooldown
+ set_variable = { sof_gov_np_type = 0 }
+ set_variable = { sof_gov_np_progress = 0 }
+ set_variable = { sof_gov_np_boosts = 0 }
+ set_variable = { sof_gov_np_cost = 0 }
+ set_variable = { sof_gov_np_invest_days_left = 0 }
+ sof_gov_np_refresh = yes
+}
+sof_gov_np_start_transport_effect = {
+ sof_gov_np_initialize = yes
+ sof_sc_sync = yes
+ if = {
+  limit = { sof_gov_np_can_start_transport = yes }
+  add_political_power = -100
+  set_variable = { sof_gov_np_cost = 100 }
+  set_variable = { sof_gov_np_type = 1 }
+  set_variable = { sof_gov_np_progress = 0 }
+  set_variable = { sof_gov_np_boosts = 0 }
+  set_variable = { sof_gov_np_invest_days_left = 0 }
+  clr_country_flag = sof_gov_np_invest_cooldown
+  set_country_flag = sof_gov_np_active
+  sof_gov_np_refresh = yes
+ }
+}
+sof_gov_np_start_armaments_effect = {
+ sof_gov_np_initialize = yes
+ sof_sc_sync = yes
+ if = {
+  limit = { sof_gov_np_can_start_armaments = yes }
+  add_political_power = -150
+  set_variable = { sof_gov_np_cost = 150 }
+  set_variable = { sof_gov_np_type = 2 }
+  set_variable = { sof_gov_np_progress = 0 }
+  set_variable = { sof_gov_np_boosts = 0 }
+  set_variable = { sof_gov_np_invest_days_left = 0 }
+  clr_country_flag = sof_gov_np_invest_cooldown
+  set_country_flag = sof_gov_np_active
+  sof_gov_np_refresh = yes
+ }
+}
+sof_gov_np_start_staff_effect = {
+ sof_gov_np_initialize = yes
+ sof_sc_sync = yes
+ if = {
+  limit = { sof_gov_np_can_start_staff = yes }
+  add_political_power = -100
+ army_experience = -25
+  set_variable = { sof_gov_np_cost = 100 }
+  set_variable = { sof_gov_np_type = 3 }
+  set_variable = { sof_gov_np_progress = 0 }
+  set_variable = { sof_gov_np_boosts = 0 }
+  set_variable = { sof_gov_np_invest_days_left = 0 }
+  clr_country_flag = sof_gov_np_invest_cooldown
+  set_country_flag = sof_gov_np_active
+  sof_gov_np_refresh = yes
+ }
+}
+sof_gov_np_start_treasury_effect = {
+ sof_gov_np_initialize = yes
+ sof_sc_sync = yes
+ if = {
+  limit = { sof_gov_np_can_start_treasury = yes }
+  add_political_power = -150
+  set_variable = { sof_gov_np_cost = 150 }
+  set_variable = { sof_gov_np_type = 4 }
+  set_variable = { sof_gov_np_progress = 0 }
+  set_variable = { sof_gov_np_boosts = 0 }
+  set_variable = { sof_gov_np_invest_days_left = 0 }
+  clr_country_flag = sof_gov_np_invest_cooldown
+  set_country_flag = sof_gov_np_active
+  sof_gov_np_refresh = yes
+ }
+}
+sof_gov_np_complete = {
+ if = {
+  limit = { sof_gov_np_can_advance = yes check_variable = { sof_gov_np_progress > 99 } }
+  if = {
+   limit = { check_variable = { sof_gov_np_type = 1 } NOT = { has_country_flag = sof_gov_np_done_transport } }
+   set_country_flag = sof_gov_np_done_transport
+   add_ideas = sof_gov_np_transport
+   if = { limit = { sof_tp_has_charter = yes } add_to_variable = { sof_tp_reconstruction = 10 } sof_tp_refresh = yes }
+  }
+  else_if = {
+   limit = { check_variable = { sof_gov_np_type = 2 } NOT = { has_country_flag = sof_gov_np_done_armaments } }
+   set_country_flag = sof_gov_np_done_armaments
+   add_ideas = sof_gov_np_armaments
+  }
+  else_if = {
+   limit = { check_variable = { sof_gov_np_type = 3 } NOT = { has_country_flag = sof_gov_np_done_staff } }
+   set_country_flag = sof_gov_np_done_staff
+   add_ideas = sof_gov_np_staff
+  }
+  else_if = {
+   limit = { check_variable = { sof_gov_np_type = 4 } NOT = { has_country_flag = sof_gov_np_done_treasury } }
+   set_country_flag = sof_gov_np_done_treasury
+   add_ideas = sof_gov_np_treasury
+   add_to_variable = { sof_tp_trust = 10 }
+   sof_tp_refresh = yes
+  }
+  set_variable = { sof_gov_np_last_type = sof_gov_np_type }
+  sof_gov_np_clear = yes
+  set_variable = { sof_gov_np_progress = 100 }
+  sof_gov_np_refresh = yes
+  sof_sc_sync = yes
+  force_update_dynamic_modifier = yes
+ }
+}
+sof_gov_np_invest_effect = {
+ if = {
+  limit = { sof_gov_np_can_invest = yes }
+  add_political_power = -25
+  add_to_variable = { sof_gov_np_boosts = 1 }
+  add_to_variable = { sof_gov_np_progress = 10 }
+  clamp_variable = { var = sof_gov_np_progress min = 0 max = 100 }
+  set_country_flag = { flag = sof_gov_np_invest_cooldown days = 10 }
+  set_variable = { sof_gov_np_invest_days_left = 10 }
+  sof_gov_np_refresh = yes
+  sof_gov_np_complete = yes
+ }
+}
+sof_gov_np_cancel_effect = {
+ if = {
+  limit = { sof_gov_np_can_cancel = yes }
+  if = { limit = { check_variable = { sof_gov_np_cost = 100 } } add_political_power = 50 }
+  else_if = { limit = { check_variable = { sof_gov_np_cost = 150 } } add_political_power = 75 }
+  sof_gov_np_clear = yes
+ }
+}
+sof_gov_np_daily = {
+ if = { limit = { NOT = { has_country_flag = sof_gov_np_initialized } } sof_gov_np_initialize = yes }
+ if = {
+  limit = { has_country_flag = sof_gov_np_active }
+  if = { limit = { check_variable = { sof_gov_np_invest_days_left > 0 } } subtract_from_variable = { sof_gov_np_invest_days_left = 1 } }
+  if = {
+   limit = { sof_gov_np_can_advance = yes }
+   add_to_variable = { sof_gov_np_progress = 2 }
+   clamp_variable = { var = sof_gov_np_progress min = 0 max = 100 }
+   sof_gov_np_complete = yes
+  }
+  sof_gov_np_refresh = yes
+ }
+}

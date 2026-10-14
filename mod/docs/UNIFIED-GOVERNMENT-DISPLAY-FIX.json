@@ -1,26 +1,55 @@
 {
+  "version": "6.0.11",
   "visual_windows": 1,
-  "mutually_exclusive_pages": 6,
-  "scripted_page_controllers": 15,
-  "office_pages": 8,
+  "mutually_exclusive_pages": 4,
+  "scripted_page_controllers": 5,
+  "cabinet_mirror_pages": 0,
+  "root_max_size": [
+    1220,
+    940
+  ],
+  "content_canvas_width": 980,
+  "parent_binding_type": "parent_scripted_gui",
   "parent_bindings": {
-    "sof_gov_page_campaign": "sof_government_window",
-    "sof_gov_page_national": "sof_government_window",
-    "sof_gov_page_council": "sof_government_window",
-    "sof_gov_page_politics": "sof_government_window",
-    "sof_gov_page_cabinet": "sof_government_window",
-    "sof_gov_page_spirits": "sof_government_window",
-    "sof_gov_office_page_executive": "sof_gov_candidate_canvas",
-    "sof_gov_office_page_interior": "sof_gov_candidate_canvas",
-    "sof_gov_office_page_treasury": "sof_gov_candidate_canvas",
-    "sof_gov_office_page_industry": "sof_gov_candidate_canvas",
-    "sof_gov_office_page_defence": "sof_gov_candidate_canvas",
-    "sof_gov_office_page_naval": "sof_gov_candidate_canvas",
-    "sof_gov_office_page_science": "sof_gov_candidate_canvas",
-    "sof_gov_office_page_foreign": "sof_gov_candidate_canvas"
+    "sof_gov_page_campaign_gui": "sof_government_gui",
+    "sof_gov_page_national_gui": "sof_government_gui",
+    "sof_gov_page_council_gui": "sof_government_gui",
+    "sof_gov_page_plans_gui": "sof_government_gui"
   },
-  "spirit_card_height": 214,
-  "main_bottom_margin": 84,
-  "page_bottom_margin": 144,
-  "all_callbacks_preserved": true
+  "pages": {
+    "national": {
+      "value": 4,
+      "purpose": "Unification map, agreements and national constitution"
+    },
+    "campaign": {
+      "value": 1,
+      "purpose": "Campaign readiness and existing guarded enforcement orders"
+    },
+    "council": {
+      "value": 2,
+      "purpose": "100-seat parliament, lobbying and legislation"
+    },
+    "plans": {
+      "value": 7,
+      "purpose": "Four national execution programmes and unchanged legacy reconstruction"
+    }
+  },
+  "removed_mirrors": [
+    "party overview",
+    "national spirit totals",
+    "scripted cabinet recruitment"
+  ],
+  "native_politics": "Existing ideas, parties and historical cabinet remain available through the native politics window.",
+  "legacy_ui_migration": {
+    "closed_page_0": "Remains closed during startup initialization",
+    "eligible_live_pages": [
+      1,
+      2,
+      4,
+      7
+    ],
+    "retired_or_ineligible_positive_page": "Select first eligible national 4, campaign 1, council 2, plans 7; otherwise close 0",
+    "initialization": "One-time migration; project progress and old reconstruction fields retained"
+  },
+  "art_provenance": "design/atelier-art.json"
 }

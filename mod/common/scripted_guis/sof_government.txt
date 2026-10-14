@@ -3,2346 +3,1677 @@ sof_government_gui = {
 context_type = player_context
 window_name = "sof_government_window"
 ai_enabled = { always = no }
-visible = {  sof_gov_country = yes check_variable = { var = sof_ui_window value = 0 compare = greater_than }  }
+visible = { sof_gov_country = yes check_variable = { var = sof_ui_window value = 0 compare = greater_than } }
 effects = {
-sof_gov_close_click = {
-set_variable = { sof_ui_window = 0 } clr_country_flag = sof_tp_popup_open
-}
-sof_gov_tab_campaign_click = {
-if = { limit = { sofzh_unification_candidate = yes } set_variable = { sof_ui_window = 1 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open sof_cw_refresh = yes }
-}
+sof_gov_close_click = { set_variable = { sof_ui_window = 0 } clr_country_flag = sof_tp_popup_open }
 sof_gov_tab_national_click = {
 if = { limit = { sof_tp_country = yes } set_variable = { sof_ui_window = 4 } sof_sc_sync = yes set_country_flag = sof_tp_popup_open sof_tp_popup_refresh_effect = yes }
 }
+
+sof_gov_tab_campaign_click = {
+if = { limit = { sofzh_unification_candidate = yes } set_variable = { sof_ui_window = 1 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open sof_cw_refresh = yes sof_tp_popup_refresh_effect = yes }
+}
+
 sof_gov_tab_council_click = {
 if = { limit = { sof_brt_active = yes } set_variable = { sof_ui_window = 2 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open sof_brt_count_support = yes }
 }
-sof_gov_tab_politics_click = {
-if = { limit = { always = yes } set_variable = { sof_ui_window = 3 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open }
-}
-sof_gov_tab_cabinet_click = {
-if = { limit = { sofzh_cabinet_country = yes } set_variable = { sof_ui_window = 5 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open sof_gov_cabinet_layout = yes }
 
-if = { limit = { NOT = { has_variable = sof_gov_cabinet_office } } set_variable = { sof_gov_cabinet_office = 0 } }
+sof_gov_tab_plans_click = {
+if = { limit = { sof_gov_french_candidate = yes } set_variable = { sof_ui_window = 7 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open sof_gov_np_initialize = yes sof_tp_popup_refresh_effect = yes }
 }
-sof_gov_tab_spirits_click = {
-if = { limit = { sof_gov_french_candidate = yes } set_variable = { sof_ui_window = 6 } sof_sc_sync = yes clr_country_flag = sof_tp_popup_open }
-}
+
 }
 triggers = {
-sof_gov_tab_campaign_click_enabled = {
-sofzh_unification_candidate = yes
-}
-sof_gov_active_campaign_visible = {
-check_variable = { sof_ui_window = 1 }
-}
-sof_gov_label_campaign_visible = {
-check_variable = { sof_ui_window = 1 }
-}
-sof_gov_tab_national_click_enabled = {
-sof_tp_country = yes
-}
-sof_gov_active_national_visible = {
-check_variable = { sof_ui_window = 4 }
-}
-sof_gov_label_national_visible = {
-check_variable = { sof_ui_window = 4 }
-}
-sof_gov_tab_council_click_enabled = {
-sof_brt_active = yes
-}
-sof_gov_active_council_visible = {
-check_variable = { sof_ui_window = 2 }
-}
-sof_gov_label_council_visible = {
-check_variable = { sof_ui_window = 2 }
-}
-sof_gov_tab_politics_click_enabled = {
-always = yes
-}
-sof_gov_active_politics_visible = {
-check_variable = { sof_ui_window = 3 }
-}
-sof_gov_label_politics_visible = {
-check_variable = { sof_ui_window = 3 }
-}
-sof_gov_tab_cabinet_click_enabled = {
-sofzh_cabinet_country = yes
-}
-sof_gov_active_cabinet_visible = {
-check_variable = { sof_ui_window = 5 }
-}
-sof_gov_label_cabinet_visible = {
-check_variable = { sof_ui_window = 5 }
-}
-sof_gov_tab_spirits_click_enabled = {
-sof_gov_french_candidate = yes
-}
-sof_gov_active_spirits_visible = {
-check_variable = { sof_ui_window = 6 }
-}
-sof_gov_label_spirits_visible = {
-check_variable = { sof_ui_window = 6 }
-}
+sof_gov_tab_national_click_enabled = { sof_tp_country = yes }
+sof_gov_active_national_visible = { check_variable = { sof_ui_window = 4 } }
+sof_gov_label_national_visible = { check_variable = { sof_ui_window = 4 } }
+sof_gov_tab_campaign_click_enabled = { sofzh_unification_candidate = yes }
+sof_gov_active_campaign_visible = { check_variable = { sof_ui_window = 1 } }
+sof_gov_label_campaign_visible = { check_variable = { sof_ui_window = 1 } }
+sof_gov_tab_council_click_enabled = { sof_brt_active = yes }
+sof_gov_active_council_visible = { check_variable = { sof_ui_window = 2 } }
+sof_gov_label_council_visible = { check_variable = { sof_ui_window = 2 } }
+sof_gov_tab_plans_click_enabled = { sof_gov_french_candidate = yes }
+sof_gov_active_plans_visible = { check_variable = { sof_ui_window = 7 } }
+sof_gov_label_plans_visible = { check_variable = { sof_ui_window = 7 } }
 }
 properties = {
-sof_gov_active_campaign = {
-frame = 2
-}
-sof_gov_active_national = {
-frame = 2
-}
-sof_gov_active_council = {
-frame = 2
-}
-sof_gov_active_politics = {
-frame = 2
-}
-sof_gov_active_cabinet = {
-frame = 2
-}
-sof_gov_active_spirits = {
-frame = 2
-}
+sof_gov_active_national = { frame = 2 }
+sof_gov_active_campaign = { frame = 2 }
+sof_gov_active_council = { frame = 2 }
+sof_gov_active_plans = { frame = 2 }
 }
 
 }
 
 sof_gov_page_campaign_gui = {
-context_type = player_context
-window_name = "sof_gov_page_campaign"
-parent_window_name = "sof_government_window"
-ai_enabled = { always = no }
-visible = {  sofzh_unification_candidate = yes check_variable = { sof_ui_window = 1 }  }
-effects = {
-sof_cw_refresh_click = { sof_cw_refresh = yes }
-}
-triggers = {
-sof_cw_empty_visible = { check_variable = { var = sof_cw_neighbour_count value = 0 compare = equals } }
-sof_cw_terrain_mountain_known_badge_visible = { has_country_flag = sof20_terrain_mountain }
-sof_cw_terrain_river_known_badge_visible = { has_country_flag = sof20_terrain_river }
-sof_cw_terrain_urban_known_badge_visible = { has_country_flag = sof20_terrain_urban }
-sof_cw_terrain_coast_known_badge_visible = { has_country_flag = sof20_terrain_coast }
-sof_cw_terrain_forest_known_badge_visible = { has_country_flag = sof20_terrain_forest }
-sof_cw_terrain_plain_known_badge_visible = { has_country_flag = sof20_terrain_plain }
-}
-properties = {
-sof_cw_order_meter = { frame = sof_cw_order_percent }
-sof_cw_control_meter = { frame = sof_cw_control_percent }
-sof_cw_neighbour_flag = { image = "[This.GetFlag]" }
-}
-dynamic_lists = {
-sof_cw_neighbour_list = { array = sof_cw_neighbours index = i change_scope = yes entry_container = "sof_cw_neighbour_entry" }
-}
+  context_type = player_context
+  window_name = "sof_gov_page_campaign"
+  parent_scripted_gui = "sof_government_gui"
+  ai_enabled = {
+    always = no
+  }
+  visible = {
+    sofzh_unification_candidate = yes
+    check_variable = {
+      sof_ui_window = 1
+    }
+  }
+  effects = {
+    sof_cw_refresh_click = {
+      sof_cw_refresh = yes
 
+sof_tp_popup_refresh_effect = yes
+}
+    sof_tp_selected_challenge_click = {
+      sof_tp_selected_challenge_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_selected_enforce_click = {
+      sof_tp_selected_enforce_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+  }
+  triggers = {
+    sof_cw_empty_visible = {
+      check_variable = {
+        var = sof_cw_neighbour_count
+        value = 0
+        compare = equals
+      }
+    }
+    sof_cw_terrain_mountain_known_badge_visible = {
+      has_country_flag = sof20_terrain_mountain
+    }
+    sof_cw_terrain_river_known_badge_visible = {
+      has_country_flag = sof20_terrain_river
+    }
+    sof_cw_terrain_urban_known_badge_visible = {
+      has_country_flag = sof20_terrain_urban
+    }
+    sof_cw_terrain_coast_known_badge_visible = {
+      has_country_flag = sof20_terrain_coast
+    }
+    sof_cw_terrain_forest_known_badge_visible = {
+      has_country_flag = sof20_terrain_forest
+    }
+    sof_cw_terrain_plain_known_badge_visible = {
+      has_country_flag = sof20_terrain_plain
+    }
+    sof_tp_selected_challenge_click_enabled = {
+      sof_tp_can_selected_challenge = yes
+    }
+    sof_tp_selected_enforce_click_enabled = {
+      sof_tp_can_selected_enforce = yes
+    }
+    sof_atelier_cw_no_target_visible = {
+      NOT = {
+        sof_tp_has_valid_selection = yes
+      }
+    }
+    sof_atelier_cw_selected_detail_visible = {
+      sof_tp_has_valid_selection = yes
+    }
+  }
+  properties = {
+    sof_cw_order_meter = {
+      frame = sof_cw_order_percent
+    }
+    sof_cw_control_meter = {
+      frame = sof_cw_control_percent
+    }
+    sof_cw_neighbour_flag = {
+      image = "[This.GetFlag]"
+    }
+    sof_tp_selected_flag = {
+      image = "[This.GetFlag]"
+    }
+  }
+  dynamic_lists = {
+    sof_cw_neighbour_list = {
+      array = sof_cw_neighbours
+      index = i
+      change_scope = yes
+      entry_container = "sof_cw_neighbour_entry"
+    }
+    sof_atelier_cw_selected_detail = {
+      array = sof_tp_selected_country_list
+      index = sof_atelier_cw_selected_i
+      change_scope = yes
+      entry_container = "sof_tp_selected_entry"
+    }
+  }
 }
 
 sof_gov_page_national_gui = {
-context_type = player_context
-window_name = "sof_gov_page_national"
-parent_window_name = "sof_government_window"
-ai_enabled = { always = no }
-visible = { 
-   sof_tp_country = yes
-   check_variable = {
-    sof_ui_window = 4
-   }
-   }
-effects = {
-sof_tp_popup_refresh_click = {
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_form_bloc_click = {
-    if = {
-     limit = {
-      sof_tp_can_form_bloc = yes
-     }
-     sof_tp_form_bloc_effect = yes
+  context_type = player_context
+  window_name = "sof_gov_page_national"
+  parent_scripted_gui = "sof_government_gui"
+  ai_enabled = {
+    always = no
+  }
+  visible = {
+    sof_tp_country = yes
+    check_variable = {
+      sof_ui_window = 4
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_leave_bloc_click = {
-    if = {
-     limit = {
-      sof_tp_can_leave_bloc = yes
-     }
-     sof_tp_leave_bloc_effect = yes
+  }
+  effects = {
+    sof_tp_popup_refresh_click = {
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_claim_victory_click = {
-    if = {
-     limit = {
-      sof_tp_can_claim_victory = yes
-     }
-     sof_tp_claim_victory_effect = yes
+    sof_tp_form_bloc_click = {
+      if = {
+        limit = {
+          sof_tp_can_form_bloc = yes
+        }
+        sof_tp_form_bloc_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_open_congress_click = {
-    if = {
-     limit = {
-      sof_tp_can_open_congress = yes
-     }
-     sof_tp_open_congress_effect = yes
+    sof_tp_leave_bloc_click = {
+      if = {
+        limit = {
+          sof_tp_can_leave_bloc = yes
+        }
+        sof_tp_leave_bloc_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_adopt_federal_click = {
-    if = {
-     limit = {
-      sof_tp_can_adopt_federal = yes
-     }
-     sof_tp_adopt_federal_effect = yes
+    sof_tp_claim_victory_click = {
+      if = {
+        limit = {
+          sof_tp_can_claim_victory = yes
+        }
+        sof_tp_claim_victory_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_adopt_central_click = {
-    if = {
-     limit = {
-      sof_tp_can_adopt_central = yes
-     }
-     sof_tp_adopt_central_effect = yes
+    sof_tp_open_congress_click = {
+      if = {
+        limit = {
+          sof_tp_can_open_congress = yes
+        }
+        sof_tp_open_congress_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_fund_reconstruction_click = {
-    if = {
-     limit = {
-      sof_tp_can_fund_reconstruction = yes
-     }
-     sof_tp_fund_reconstruction_effect = yes
+    sof_tp_adopt_federal_click = {
+      if = {
+        limit = {
+          sof_tp_can_adopt_federal = yes
+        }
+        sof_tp_adopt_federal_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_keep_promises_click = {
-    if = {
-     limit = {
-      sof_tp_can_keep_promises = yes
-     }
-     sof_tp_keep_promises_effect = yes
+    sof_tp_adopt_central_click = {
+      if = {
+        limit = {
+          sof_tp_can_adopt_central = yes
+        }
+        sof_tp_adopt_central_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_break_promises_click = {
-    if = {
-     limit = {
-      sof_tp_can_break_promises = yes
-     }
-     sof_tp_break_promises_effect = yes
+    sof_tp_fund_reconstruction_click = {
+      if = {
+        limit = {
+          sof_tp_can_fund_reconstruction = yes
+        }
+        sof_tp_fund_reconstruction_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_complete_reconstruction_click = {
-    if = {
-     limit = {
-      sof_tp_can_complete_reconstruction = yes
-     }
-     sof_tp_complete_reconstruction_effect = yes
+    sof_tp_keep_promises_click = {
+      if = {
+        limit = {
+          sof_tp_can_keep_promises = yes
+        }
+        sof_tp_keep_promises_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_membership_click = {
-    sof_tp_selected_membership_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_congress_click = {
-    sof_tp_selected_congress_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_union_click = {
-    sof_tp_selected_union_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_claim_click = {
-    sof_tp_selected_claim_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_settlement_click = {
-    sof_tp_selected_settlement_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_aid_click = {
-    sof_tp_selected_aid_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_challenge_click = {
-    sof_tp_selected_challenge_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_selected_enforce_click = {
-    sof_tp_selected_enforce_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_PRS_click = {
-    sof_tp_select_PRS_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_AJC_click = {
-    sof_tp_select_AJC_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_REN_click = {
-    sof_tp_select_REN_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_MRS_click = {
-    sof_tp_select_MRS_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_LIL_click = {
-    sof_tp_select_LIL_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_MET_click = {
-    sof_tp_select_MET_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_STR_click = {
-    sof_tp_select_STR_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_ROU_click = {
-    sof_tp_select_ROU_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_LYO_click = {
-    sof_tp_select_LYO_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_BRD_click = {
-    sof_tp_select_BRD_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_TOU_click = {
-    sof_tp_select_TOU_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_NAN_click = {
-    sof_tp_select_NAN_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_CFR_click = {
-    sof_tp_select_CFR_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_DIJ_click = {
-    sof_tp_select_DIJ_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_BES_click = {
-    sof_tp_select_BES_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_TRS_click = {
-    sof_tp_select_TRS_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_AMI_click = {
-    sof_tp_select_AMI_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_CHL_click = {
-    sof_tp_select_CHL_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_MOP_click = {
-    sof_tp_select_MOP_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_map_POI_click = {
-    sof_tp_select_POI_effect = yes
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_a3_tab_talks_click = {
-    set_variable = {
-     sof_tp_ui_target_tab = 0
+    sof_tp_break_promises_click = {
+      if = {
+        limit = {
+          sof_tp_can_break_promises = yes
+        }
+        sof_tp_break_promises_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-   }
-sof_tp_a3_tab_terms_click = {
-    set_variable = {
-     sof_tp_ui_target_tab = 1
+    sof_tp_complete_reconstruction_click = {
+      if = {
+        limit = {
+          sof_tp_can_complete_reconstruction = yes
+        }
+        sof_tp_complete_reconstruction_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
     }
-   }
-sof_tp_a3_tab_work_click = {
-    set_variable = {
-     sof_tp_ui_target_tab = 2
+    sof_tp_selected_membership_click = {
+      sof_tp_selected_membership_effect = yes
+      sof_tp_popup_refresh_effect = yes
     }
-   }
-sof_tp_a3_tab_force_click = {
-    set_variable = {
-     sof_tp_ui_target_tab = 3
+    sof_tp_selected_congress_click = {
+      sof_tp_selected_congress_effect = yes
+      sof_tp_popup_refresh_effect = yes
     }
-   }
-sof_tp_a3_bottom_agenda_click = {
-    set_variable = {
-     sof_tp_ui_footer_tab = 0
+    sof_tp_selected_union_click = {
+      sof_tp_selected_union_effect = yes
+      sof_tp_popup_refresh_effect = yes
     }
-   }
-sof_tp_a3_bottom_projects_click = {
-    set_variable = {
-     sof_tp_ui_footer_tab = 1
+    sof_tp_selected_claim_click = {
+      sof_tp_selected_claim_effect = yes
+      sof_tp_popup_refresh_effect = yes
     }
-   }
-sof_tp_choose_industry_terms_click = {
-    if = {
-     limit = {
-      sof_tp_can_choose_industry_terms = yes
-     }
-     sof_tp_choose_industry_terms_effect = yes
+    sof_tp_selected_settlement_click = {
+      sof_tp_selected_settlement_effect = yes
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_choose_transition_terms_click = {
-    if = {
-     limit = {
-      sof_tp_can_choose_transition_terms = yes
-     }
-     sof_tp_choose_transition_terms_effect = yes
+    sof_tp_selected_aid_click = {
+      sof_tp_selected_aid_effect = yes
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_choose_army_terms_click = {
-    if = {
-     limit = {
-      sof_tp_can_choose_army_terms = yes
-     }
-     sof_tp_choose_army_terms_effect = yes
+    sof_tp_map_PRS_click = {
+      sof_tp_select_PRS_effect = yes
+      sof_tp_popup_refresh_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_a3_send_offer_click = {
-    sof_tp_popup_refresh_effect = yes
-    if = {
-     limit = {
+    sof_tp_map_AJC_click = {
+      sof_tp_select_AJC_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_REN_click = {
+      sof_tp_select_REN_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_MRS_click = {
+      sof_tp_select_MRS_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_LIL_click = {
+      sof_tp_select_LIL_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_MET_click = {
+      sof_tp_select_MET_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_STR_click = {
+      sof_tp_select_STR_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_ROU_click = {
+      sof_tp_select_ROU_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_LYO_click = {
+      sof_tp_select_LYO_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_BRD_click = {
+      sof_tp_select_BRD_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_TOU_click = {
+      sof_tp_select_TOU_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_NAN_click = {
+      sof_tp_select_NAN_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_CFR_click = {
+      sof_tp_select_CFR_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_DIJ_click = {
+      sof_tp_select_DIJ_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_BES_click = {
+      sof_tp_select_BES_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_TRS_click = {
+      sof_tp_select_TRS_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_AMI_click = {
+      sof_tp_select_AMI_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_CHL_click = {
+      sof_tp_select_CHL_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_MOP_click = {
+      sof_tp_select_MOP_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_map_POI_click = {
+      sof_tp_select_POI_effect = yes
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_a3_tab_talks_click = {
+      set_variable = {
+        sof_tp_ui_target_tab = 0
+      }
+    }
+    sof_tp_a3_tab_terms_click = {
+      set_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_a3_tab_work_click = {
+      set_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_tab_force_click = {
+      set_variable = {
+        sof_tp_ui_target_tab = 3
+      }
+    }
+    sof_tp_choose_industry_terms_click = {
+      if = {
+        limit = {
+          sof_tp_can_choose_industry_terms = yes
+        }
+        sof_tp_choose_industry_terms_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_choose_transition_terms_click = {
+      if = {
+        limit = {
+          sof_tp_can_choose_transition_terms = yes
+        }
+        sof_tp_choose_transition_terms_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_choose_army_terms_click = {
+      if = {
+        limit = {
+          sof_tp_can_choose_army_terms = yes
+        }
+        sof_tp_choose_army_terms_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_a3_send_offer_click = {
+      sof_tp_popup_refresh_effect = yes
+      if = {
+        limit = {
+          NOT = {
+            check_variable = {
+              sof_tp_selected_contract_status = 3
+            }
+          }
+          sof_tp_can_selected_union = yes
+        }
+        sof_tp_selected_union_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_a3_final_approval_click = {
+      sof_tp_popup_refresh_effect = yes
+      if = {
+        limit = {
+          check_variable = {
+            sof_tp_selected_contract_status = 3
+          }
+          check_variable = {
+            sof_tp_selected_contract_is_ours = 1
+          }
+          sof_tp_can_selected_union = yes
+        }
+        sof_tp_selected_union_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
+    }
+    sof_tp_end_selected_contract_click = {
+      if = {
+        limit = {
+          sof_tp_can_end_selected_contract = yes
+        }
+        sof_tp_end_selected_contract_effect = yes
+      }
+      sof_tp_popup_refresh_effect = yes
+    }
+  }
+  triggers = {
+    sof_tp_ui_war_phase_visible = {
       NOT = {
-       check_variable = {
+        has_global_flag = sof_tp_reconstruction
+      }
+    }
+    sof_tp_ui_peace_phase_visible = {
+      has_global_flag = sof_tp_reconstruction
+    }
+    sof_tp_selected_panel_visible = {
+      sof_tp_has_valid_selection = yes
+    }
+    sof_tp_popup_no_target_visible = {
+      NOT = {
+        sof_tp_has_valid_selection = yes
+      }
+    }
+    sof_tp_form_bloc_click_enabled = {
+      sof_tp_can_form_bloc = yes
+    }
+    sof_tp_leave_bloc_click_enabled = {
+      sof_tp_can_leave_bloc = yes
+    }
+    sof_tp_claim_victory_click_enabled = {
+      sof_tp_can_claim_victory = yes
+    }
+    sof_tp_open_congress_click_enabled = {
+      sof_tp_can_open_congress = yes
+    }
+    sof_tp_adopt_federal_click_enabled = {
+      sof_tp_can_adopt_federal = yes
+    }
+    sof_tp_adopt_central_click_enabled = {
+      sof_tp_can_adopt_central = yes
+    }
+    sof_tp_fund_reconstruction_click_enabled = {
+      sof_tp_can_fund_reconstruction = yes
+    }
+    sof_tp_keep_promises_click_enabled = {
+      sof_tp_can_keep_promises = yes
+    }
+    sof_tp_break_promises_click_enabled = {
+      sof_tp_can_break_promises = yes
+    }
+    sof_tp_complete_reconstruction_click_enabled = {
+      sof_tp_can_complete_reconstruction = yes
+    }
+    sof_tp_selected_membership_click_enabled = {
+      sof_tp_can_selected_membership = yes
+    }
+    sof_tp_selected_congress_click_enabled = {
+      sof_tp_can_selected_congress = yes
+    }
+    sof_tp_selected_union_click_enabled = {
+      sof_tp_can_selected_union = yes
+    }
+    sof_tp_selected_claim_click_enabled = {
+      sof_tp_can_selected_claim = yes
+    }
+    sof_tp_selected_settlement_click_enabled = {
+      sof_tp_can_selected_settlement = yes
+    }
+    sof_tp_selected_aid_click_enabled = {
+      sof_tp_can_selected_aid = yes
+    }
+    sof_tp_map_PRS_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = PRS
+      }
+    }
+    sof_tp_map_AJC_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = AJC
+      }
+    }
+    sof_tp_map_REN_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = REN
+      }
+    }
+    sof_tp_map_MRS_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = MRS
+      }
+    }
+    sof_tp_map_LIL_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = LIL
+      }
+    }
+    sof_tp_map_MET_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = MET
+      }
+    }
+    sof_tp_map_STR_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = STR
+      }
+    }
+    sof_tp_map_ROU_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = ROU
+      }
+    }
+    sof_tp_map_LYO_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = LYO
+      }
+    }
+    sof_tp_map_BRD_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = BRD
+      }
+    }
+    sof_tp_map_TOU_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = TOU
+      }
+    }
+    sof_tp_map_NAN_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = NAN
+      }
+    }
+    sof_tp_map_CFR_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = CFR
+      }
+    }
+    sof_tp_map_DIJ_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = DIJ
+      }
+    }
+    sof_tp_map_BES_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = BES
+      }
+    }
+    sof_tp_map_TRS_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = TRS
+      }
+    }
+    sof_tp_map_AMI_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = AMI
+      }
+    }
+    sof_tp_map_CHL_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = CHL
+      }
+    }
+    sof_tp_map_MOP_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = MOP
+      }
+    }
+    sof_tp_map_POI_selected_visible = {
+      sof_tp_has_valid_selection = yes
+      var:sof_tp_selected_country = {
+        tag = POI
+      }
+    }
+    sof_tp_a3_page_talks_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_active_talks_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_page_terms_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_a3_active_terms_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_a3_page_work_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_active_work_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_page_force_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 3
+      }
+    }
+    sof_tp_a3_active_force_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 3
+      }
+    }
+    sof_tp_a3_page_agenda_visible = {
+      always = yes
+    }
+    sof_tp_choose_industry_terms_click_enabled = {
+      sof_tp_can_choose_industry_terms = yes
+    }
+    sof_tp_choose_transition_terms_click_enabled = {
+      sof_tp_can_choose_transition_terms = yes
+    }
+    sof_tp_choose_army_terms_click_enabled = {
+      sof_tp_can_choose_army_terms = yes
+    }
+    sof_tp_a3_send_offer_click_enabled = {
+      NOT = {
+        check_variable = {
+          sof_tp_selected_contract_status = 3
+        }
+      }
+      sof_tp_can_selected_union = yes
+    }
+    sof_tp_a3_final_approval_click_enabled = {
+      check_variable = {
         sof_tp_selected_contract_status = 3
-       }
-      }
-      sof_tp_can_selected_union = yes
-     }
-     sof_tp_selected_union_effect = yes
-    }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_a3_final_approval_click = {
-    sof_tp_popup_refresh_effect = yes
-    if = {
-     limit = {
-      check_variable = {
-       sof_tp_selected_contract_status = 3
       }
       check_variable = {
-       sof_tp_selected_contract_is_ours = 1
+        sof_tp_selected_contract_is_ours = 1
       }
       sof_tp_can_selected_union = yes
-     }
-     sof_tp_selected_union_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
-sof_tp_end_selected_contract_click = {
-    if = {
-     limit = {
+    sof_tp_a3_partner_panel_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+      sof_tp_has_valid_selection = yes
+    }
+    sof_tp_end_selected_contract_click_enabled = {
       sof_tp_can_end_selected_contract = yes
-     }
-     sof_tp_end_selected_contract_effect = yes
     }
-    sof_tp_popup_refresh_effect = yes
-   }
+    sof_tp_a3_talks_status_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_selected_membership_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_cost_membership_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_selected_congress_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_cost_congress_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_selected_settlement_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_cost_settlement_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_selected_union_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_cost_union_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_next_action_visible = {
+      NOT = {
+        check_variable = {
+          sof_tp_ui_target_tab > 0
+        }
+      }
+    }
+    sof_tp_a3_offer_summary_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_choose_industry_terms_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_choose_transition_terms_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_choose_army_terms_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_a3_send_offer_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_a3_terms_hint_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 1
+      }
+    }
+    sof_tp_a3_contract_heading_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_contract_status_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_selected_aid_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_final_approval_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_cost_aid_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_cost_final_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_end_selected_contract_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_work_next_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 2
+      }
+    }
+    sof_tp_a3_force_warning_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 3
+      }
+    }
+    sof_tp_selected_claim_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 3
+      }
+    }
+    sof_tp_a3_cost_claim_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 3
+      }
+    }
+    sof_tp_a3_force_next_visible = {
+      check_variable = {
+        sof_tp_ui_target_tab = 3
+      }
+    }
+    sof_tp_form_bloc_visible = {
+      always = yes
+    }
+    sof_tp_leave_bloc_visible = {
+      always = yes
+    }
+    sof_tp_claim_victory_visible = {
+      always = yes
+    }
+    sof_tp_open_congress_visible = {
+      always = yes
+    }
+    sof_tp_adopt_federal_visible = {
+      always = yes
+    }
+    sof_tp_adopt_central_visible = {
+      always = yes
+    }
+    sof_tp_fund_reconstruction_visible = {
+      always = yes
+    }
+    sof_tp_keep_promises_visible = {
+      always = yes
+    }
+    sof_tp_break_promises_visible = {
+      always = yes
+    }
+    sof_tp_complete_reconstruction_visible = {
+      always = yes
+    }
+  }
+  properties = {
+    sof_tp_selected_flag = {
+      image = "[This.GetFlag]"
+    }
+    sof_tp_map_PRS_colour = {
+      frame = sof_tp_map_PRS_frame
+    }
+    sof_tp_map_AJC_colour = {
+      frame = sof_tp_map_AJC_frame
+    }
+    sof_tp_map_REN_colour = {
+      frame = sof_tp_map_REN_frame
+    }
+    sof_tp_map_MRS_colour = {
+      frame = sof_tp_map_MRS_frame
+    }
+    sof_tp_map_LIL_colour = {
+      frame = sof_tp_map_LIL_frame
+    }
+    sof_tp_map_MET_colour = {
+      frame = sof_tp_map_MET_frame
+    }
+    sof_tp_map_STR_colour = {
+      frame = sof_tp_map_STR_frame
+    }
+    sof_tp_map_ROU_colour = {
+      frame = sof_tp_map_ROU_frame
+    }
+    sof_tp_map_LYO_colour = {
+      frame = sof_tp_map_LYO_frame
+    }
+    sof_tp_map_BRD_colour = {
+      frame = sof_tp_map_BRD_frame
+    }
+    sof_tp_map_TOU_colour = {
+      frame = sof_tp_map_TOU_frame
+    }
+    sof_tp_map_NAN_colour = {
+      frame = sof_tp_map_NAN_frame
+    }
+    sof_tp_map_CFR_colour = {
+      frame = sof_tp_map_CFR_frame
+    }
+    sof_tp_map_DIJ_colour = {
+      frame = sof_tp_map_DIJ_frame
+    }
+    sof_tp_map_BES_colour = {
+      frame = sof_tp_map_BES_frame
+    }
+    sof_tp_map_TRS_colour = {
+      frame = sof_tp_map_TRS_frame
+    }
+    sof_tp_map_AMI_colour = {
+      frame = sof_tp_map_AMI_frame
+    }
+    sof_tp_map_CHL_colour = {
+      frame = sof_tp_map_CHL_frame
+    }
+    sof_tp_map_MOP_colour = {
+      frame = sof_tp_map_MOP_frame
+    }
+    sof_tp_map_POI_colour = {
+      frame = sof_tp_map_POI_frame
+    }
+    sof_tp_a3_active_talks = {
+      frame = 2
+    }
+    sof_tp_a3_active_terms = {
+      frame = 2
+    }
+    sof_tp_a3_active_work = {
+      frame = 2
+    }
+    sof_tp_a3_active_force = {
+      frame = 2
+    }
+  }
+  dynamic_lists = {
+    sof_tp_selected_detail = {
+      array = sof_tp_selected_country_list
+      index = sof_tp_selected_i
+      change_scope = yes
+      entry_container = "sof_tp_selected_entry"
+    }
+    sof_tp_a3_partner_list = {
+      array = sof_tp_selected_contract_partner_list
+      index = sof_tp_partner_i
+      change_scope = yes
+      entry_container = "sof_tp_a3_partner_entry"
+    }
+  }
+}
+
+sof_gov_page_council_gui = {
+  context_type = player_context
+  window_name = "sof_gov_page_council"
+  parent_scripted_gui = "sof_government_gui"
+  ai_enabled = {
+    always = no
+  }
+  visible = {
+    sof_brt_active = yes
+    check_variable = {
+      sof_ui_window = 2
+    }
+  }
+  effects = {
+    sof_brt_tab_members_click = {
+      set_variable = {
+        sof_brt_ui_tab = 0
+      }
+    }
+    sof_brt_tab_bills_click = {
+      set_variable = {
+        sof_brt_ui_tab = 1
+      }
+    }
+    sof_brt_tab_forces_click = {
+      set_variable = {
+        sof_brt_ui_tab = 2
+      }
+    }
+    sof_brt_tab_funds_click = {
+      set_variable = {
+        sof_brt_ui_tab = 3
+      }
+    }
+    sof_brt_lobby_chateau_click = {
+      sof_brt_gui_lobby_chateau = yes
+    }
+    sof_brt_lobby_lemaistre_click = {
+      sof_brt_gui_lobby_lemaistre = yes
+    }
+    sof_brt_lobby_bahon_click = {
+      sof_brt_gui_lobby_bahon = yes
+    }
+    sof_brt_lobby_legorgeu_click = {
+      sof_brt_gui_lobby_legorgeu = yes
+    }
+    sof_brt_lobby_tremintin_click = {
+      sof_brt_gui_lobby_tremintin = yes
+    }
+    sof_brt_lobby_prigent_click = {
+      sof_brt_gui_lobby_prigent = yes
+    }
+  }
+  triggers = {
+    sof_brt_page_members_visible = {
+      NOT = {
+        OR = {
+          check_variable = {
+            sof_brt_ui_tab = 1
+          }
+          check_variable = {
+            sof_brt_ui_tab = 2
+          }
+          check_variable = {
+            sof_brt_ui_tab = 3
+          }
+        }
+      }
+    }
+    sof_brt_active_tab_members_visible = {
+      NOT = {
+        OR = {
+          check_variable = {
+            sof_brt_ui_tab = 1
+          }
+          check_variable = {
+            sof_brt_ui_tab = 2
+          }
+          check_variable = {
+            sof_brt_ui_tab = 3
+          }
+        }
+      }
+    }
+    sof_brt_active_label_members_visible = {
+      NOT = {
+        OR = {
+          check_variable = {
+            sof_brt_ui_tab = 1
+          }
+          check_variable = {
+            sof_brt_ui_tab = 2
+          }
+          check_variable = {
+            sof_brt_ui_tab = 3
+          }
+        }
+      }
+    }
+    sof_brt_page_bills_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 1
+      }
+    }
+    sof_brt_active_tab_bills_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 1
+      }
+    }
+    sof_brt_active_label_bills_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 1
+      }
+    }
+    sof_brt_page_forces_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 2
+      }
+    }
+    sof_brt_active_tab_forces_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 2
+      }
+    }
+    sof_brt_active_label_forces_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 2
+      }
+    }
+    sof_brt_page_funds_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 3
+      }
+    }
+    sof_brt_active_tab_funds_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 3
+      }
+    }
+    sof_brt_active_label_funds_visible = {
+      check_variable = {
+        sof_brt_ui_tab = 3
+      }
+    }
+    sof_brt_lobby_chateau_click_enabled = {
+      sof_brt_active = yes
+      is_subject = no
+      has_capitulated = no
+      has_completed_focus = SOF_BRT_P1
+      NOT = {
+        has_country_flag = sof_brt_pledge_chateau
+      }
+      NOT = {
+        has_country_flag = sof_brt_suspended_chateau
+      }
+      NOT = {
+        has_political_power < 25
+      }
+    }
+    sof_brt_lobby_lemaistre_click_enabled = {
+      sof_brt_active = yes
+      is_subject = no
+      has_capitulated = no
+      has_completed_focus = SOF_BRT_P1
+      NOT = {
+        has_country_flag = sof_brt_pledge_lemaistre
+      }
+      NOT = {
+        has_country_flag = sof_brt_suspended_lemaistre
+      }
+      NOT = {
+        has_political_power < 25
+      }
+    }
+    sof_brt_lobby_bahon_click_enabled = {
+      sof_brt_active = yes
+      is_subject = no
+      has_capitulated = no
+      has_completed_focus = SOF_BRT_P1
+      NOT = {
+        has_country_flag = sof_brt_pledge_bahon
+      }
+      NOT = {
+        has_country_flag = sof_brt_suspended_bahon
+      }
+      NOT = {
+        has_political_power < 30
+      }
+    }
+    sof_brt_lobby_legorgeu_click_enabled = {
+      sof_brt_active = yes
+      is_subject = no
+      has_capitulated = no
+      has_completed_focus = SOF_BRT_P1
+      NOT = {
+        has_country_flag = sof_brt_pledge_legorgeu
+      }
+      NOT = {
+        has_country_flag = sof_brt_suspended_legorgeu
+      }
+      NOT = {
+        has_political_power < 35
+      }
+    }
+    sof_brt_lobby_tremintin_click_enabled = {
+      sof_brt_active = yes
+      is_subject = no
+      has_capitulated = no
+      has_completed_focus = SOF_BRT_P1
+      NOT = {
+        has_country_flag = sof_brt_pledge_tremintin
+      }
+      NOT = {
+        has_country_flag = sof_brt_suspended_tremintin
+      }
+      NOT = {
+        has_political_power < 25
+      }
+    }
+    sof_brt_lobby_prigent_click_enabled = {
+      sof_brt_active = yes
+      is_subject = no
+      has_capitulated = no
+      has_completed_focus = SOF_BRT_P1
+      NOT = {
+        has_country_flag = sof_brt_pledge_prigent
+      }
+      NOT = {
+        has_country_flag = sof_brt_suspended_prigent
+      }
+      NOT = {
+        has_political_power < 30
+      }
+    }
+  }
+  properties = {
+    sof_brt_badge_chateau = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_badge_lemaistre = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_badge_bahon = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_badge_legorgeu = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_badge_tremintin = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_badge_prigent = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_0 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_1 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_2 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_3 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_4 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_5 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_6 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_7 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_8 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_9 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_10 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_11 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_12 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_13 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_14 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_15 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_16 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_17 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_18 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_19 = {
+      frame = sof_brt_ui_chateau
+    }
+    sof_brt_seat_20 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_21 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_22 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_23 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_24 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_25 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_26 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_27 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_28 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_29 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_30 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_31 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_32 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_33 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_34 = {
+      frame = sof_brt_ui_lemaistre
+    }
+    sof_brt_seat_35 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_36 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_37 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_38 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_39 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_40 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_41 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_42 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_43 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_44 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_45 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_46 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_47 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_48 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_49 = {
+      frame = sof_brt_ui_bahon
+    }
+    sof_brt_seat_50 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_51 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_52 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_53 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_54 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_55 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_56 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_57 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_58 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_59 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_60 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_61 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_62 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_63 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_64 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_65 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_66 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_67 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_68 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_69 = {
+      frame = sof_brt_ui_legorgeu
+    }
+    sof_brt_seat_70 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_71 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_72 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_73 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_74 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_75 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_76 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_77 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_78 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_79 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_80 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_81 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_82 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_83 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_84 = {
+      frame = sof_brt_ui_tremintin
+    }
+    sof_brt_seat_85 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_86 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_87 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_88 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_89 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_90 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_91 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_92 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_93 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_94 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_95 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_96 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_97 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_98 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_seat_99 = {
+      frame = sof_brt_ui_prigent
+    }
+    sof_brt_active_tab_members = {
+      frame = 2
+    }
+    sof_brt_active_tab_bills = {
+      frame = 2
+    }
+    sof_brt_active_tab_forces = {
+      frame = 2
+    }
+    sof_brt_active_tab_funds = {
+      frame = 2
+    }
+  }
+}
+
+sof_gov_page_plans_gui = {
+context_type = player_context
+window_name = "sof_gov_page_plans"
+parent_scripted_gui = "sof_government_gui"
+ai_enabled = { always = no }
+visible = { sof_gov_french_candidate = yes check_variable = { sof_ui_window = 7 } }
+effects = {
 sof_tp_start_transport_project_click = {
     if = {
-     limit = {
-      sof_tp_can_start_transport_project = yes
-     }
-     sof_tp_start_transport_project_effect = yes
+      limit = {
+        sof_tp_can_start_transport_project = yes
+      }
+      sof_tp_start_transport_project_effect = yes
     }
     sof_tp_popup_refresh_effect = yes
-   }
+  }
 sof_tp_start_industry_project_click = {
     if = {
-     limit = {
-      sof_tp_can_start_industry_project = yes
-     }
-     sof_tp_start_industry_project_effect = yes
+      limit = {
+        sof_tp_can_start_industry_project = yes
+      }
+      sof_tp_start_industry_project_effect = yes
     }
     sof_tp_popup_refresh_effect = yes
-   }
+  }
 sof_tp_start_demobilisation_project_click = {
     if = {
-     limit = {
-      sof_tp_can_start_demobilisation_project = yes
-     }
-     sof_tp_start_demobilisation_project_effect = yes
+      limit = {
+        sof_tp_can_start_demobilisation_project = yes
+      }
+      sof_tp_start_demobilisation_project_effect = yes
     }
     sof_tp_popup_refresh_effect = yes
-   }
+  }
 sof_tp_cancel_project_click = {
     if = {
-     limit = {
-      sof_tp_can_cancel_project = yes
-     }
-     sof_tp_cancel_project_effect = yes
+      limit = {
+        sof_tp_can_cancel_project = yes
+      }
+      sof_tp_cancel_project_effect = yes
     }
     sof_tp_popup_refresh_effect = yes
-   }
+  }
+sof_atelier_np_start_transport_click = { sof_gov_np_start_transport_effect = yes }
+sof_atelier_np_start_armaments_click = { sof_gov_np_start_armaments_effect = yes }
+sof_atelier_np_start_staff_click = { sof_gov_np_start_staff_effect = yes }
+sof_atelier_np_start_treasury_click = { sof_gov_np_start_treasury_effect = yes }
+sof_atelier_np_invest_click = { sof_gov_np_invest_effect = yes }
+sof_atelier_np_cancel_click = { sof_gov_np_cancel_effect = yes }
 }
 triggers = {
-sof_tp_ui_war_phase_visible = {
-    NOT = {
-     has_global_flag = sof_tp_reconstruction
-    }
-   }
-sof_tp_ui_peace_phase_visible = {
-    has_global_flag = sof_tp_reconstruction
-   }
-sof_tp_selected_panel_visible = {
-    sof_tp_has_valid_selection = yes
-   }
-sof_tp_popup_no_target_visible = {
-    NOT = {
-     sof_tp_has_valid_selection = yes
-    }
-   }
-sof_tp_form_bloc_click_enabled = {
-    sof_tp_can_form_bloc = yes
-   }
-sof_tp_leave_bloc_click_enabled = {
-    sof_tp_can_leave_bloc = yes
-   }
-sof_tp_claim_victory_click_enabled = {
-    sof_tp_can_claim_victory = yes
-   }
-sof_tp_open_congress_click_enabled = {
-    sof_tp_can_open_congress = yes
-   }
-sof_tp_adopt_federal_click_enabled = {
-    sof_tp_can_adopt_federal = yes
-   }
-sof_tp_adopt_central_click_enabled = {
-    sof_tp_can_adopt_central = yes
-   }
-sof_tp_fund_reconstruction_click_enabled = {
-    sof_tp_can_fund_reconstruction = yes
-   }
-sof_tp_keep_promises_click_enabled = {
-    sof_tp_can_keep_promises = yes
-   }
-sof_tp_break_promises_click_enabled = {
-    sof_tp_can_break_promises = yes
-   }
-sof_tp_complete_reconstruction_click_enabled = {
-    sof_tp_can_complete_reconstruction = yes
-   }
-sof_tp_selected_membership_click_enabled = {
-    sof_tp_can_selected_membership = yes
-   }
-sof_tp_selected_congress_click_enabled = {
-    sof_tp_can_selected_congress = yes
-   }
-sof_tp_selected_union_click_enabled = {
-    sof_tp_can_selected_union = yes
-   }
-sof_tp_selected_claim_click_enabled = {
-    sof_tp_can_selected_claim = yes
-   }
-sof_tp_selected_settlement_click_enabled = {
-    sof_tp_can_selected_settlement = yes
-   }
-sof_tp_selected_aid_click_enabled = {
-    sof_tp_can_selected_aid = yes
-   }
-sof_tp_selected_challenge_click_enabled = {
-    sof_tp_can_selected_challenge = yes
-   }
-sof_tp_selected_enforce_click_enabled = {
-    sof_tp_can_selected_enforce = yes
-   }
-sof_tp_map_PRS_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = PRS
-    }
-   }
-sof_tp_map_AJC_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = AJC
-    }
-   }
-sof_tp_map_REN_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = REN
-    }
-   }
-sof_tp_map_MRS_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = MRS
-    }
-   }
-sof_tp_map_LIL_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = LIL
-    }
-   }
-sof_tp_map_MET_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = MET
-    }
-   }
-sof_tp_map_STR_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = STR
-    }
-   }
-sof_tp_map_ROU_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = ROU
-    }
-   }
-sof_tp_map_LYO_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = LYO
-    }
-   }
-sof_tp_map_BRD_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = BRD
-    }
-   }
-sof_tp_map_TOU_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = TOU
-    }
-   }
-sof_tp_map_NAN_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = NAN
-    }
-   }
-sof_tp_map_CFR_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = CFR
-    }
-   }
-sof_tp_map_DIJ_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = DIJ
-    }
-   }
-sof_tp_map_BES_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = BES
-    }
-   }
-sof_tp_map_TRS_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = TRS
-    }
-   }
-sof_tp_map_AMI_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = AMI
-    }
-   }
-sof_tp_map_CHL_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = CHL
-    }
-   }
-sof_tp_map_MOP_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = MOP
-    }
-   }
-sof_tp_map_POI_selected_visible = {
-    sof_tp_has_valid_selection = yes
-    var:sof_tp_selected_country = {
-     tag = POI
-    }
-   }
-sof_tp_a3_page_talks_visible = {
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-   }
-sof_tp_a3_active_talks_visible = {
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-   }
-sof_tp_a3_page_terms_visible = {
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-   }
-sof_tp_a3_active_terms_visible = {
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-   }
-sof_tp_a3_page_work_visible = {
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-   }
-sof_tp_a3_active_work_visible = {
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-   }
-sof_tp_a3_page_force_visible = {
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-   }
-sof_tp_a3_active_force_visible = {
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-   }
-sof_tp_a3_page_agenda_visible = {
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-   }
-sof_tp_a3_active_agenda_visible = {
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-   }
-sof_tp_a3_page_projects_visible = {
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-   }
-sof_tp_a3_active_projects_visible = {
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-   }
-sof_tp_choose_industry_terms_click_enabled = {
-    sof_tp_can_choose_industry_terms = yes
-   }
-sof_tp_choose_transition_terms_click_enabled = {
-    sof_tp_can_choose_transition_terms = yes
-   }
-sof_tp_choose_army_terms_click_enabled = {
-    sof_tp_can_choose_army_terms = yes
-   }
-sof_tp_a3_send_offer_click_enabled = {
-    NOT = {
-     check_variable = {
-      sof_tp_selected_contract_status = 3
-     }
-    }
-    sof_tp_can_selected_union = yes
-   }
-sof_tp_a3_final_approval_click_enabled = {
-    check_variable = {
-     sof_tp_selected_contract_status = 3
-    }
-    check_variable = {
-     sof_tp_selected_contract_is_ours = 1
-    }
-    sof_tp_can_selected_union = yes
-   }
-sof_tp_a3_partner_panel_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-   
-    sof_tp_has_valid_selection = yes
-    }
-sof_tp_end_selected_contract_click_enabled = {
-    sof_tp_can_end_selected_contract = yes
-   }
 sof_tp_start_transport_project_click_enabled = {
     sof_tp_can_start_transport_project = yes
-   }
+  }
 sof_tp_start_industry_project_click_enabled = {
     sof_tp_can_start_industry_project = yes
-   }
+  }
 sof_tp_start_demobilisation_project_click_enabled = {
     sof_tp_can_start_demobilisation_project = yes
-   }
+  }
 sof_tp_cancel_project_click_enabled = {
     sof_tp_can_cancel_project = yes
-   }
-sof_tp_a3_talks_status_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_selected_membership_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_a3_cost_membership_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_selected_congress_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_a3_cost_congress_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_selected_settlement_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_a3_cost_settlement_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_selected_union_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_a3_cost_union_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_a3_next_action_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_target_tab > 0
-     }
-    }
-    }
-sof_tp_a3_offer_summary_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-    }
-sof_tp_choose_industry_terms_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-    }
-sof_tp_choose_transition_terms_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-    }
-sof_tp_choose_army_terms_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-    }
-sof_tp_a3_send_offer_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-    }
-sof_tp_a3_terms_hint_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 1
-    }
-    }
-sof_tp_a3_contract_heading_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_a3_contract_status_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_selected_aid_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_a3_final_approval_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_a3_cost_aid_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_a3_cost_final_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_end_selected_contract_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_a3_work_next_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 2
-    }
-    }
-sof_tp_a3_force_warning_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_selected_claim_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_a3_cost_claim_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_selected_challenge_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_a3_cost_challenge_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_selected_enforce_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_a3_cost_enforce_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_a3_force_next_visible = { 
-    check_variable = {
-     sof_tp_ui_target_tab = 3
-    }
-    }
-sof_tp_form_bloc_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_leave_bloc_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_claim_victory_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_open_congress_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_adopt_federal_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_adopt_central_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_fund_reconstruction_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_keep_promises_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_break_promises_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_complete_reconstruction_visible = { 
-    NOT = {
-     check_variable = {
-      sof_tp_ui_footer_tab > 0
-     }
-    }
-    }
-sof_tp_a3_project_transport_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_a3_project_transport_status_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_start_transport_project_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_a3_project_industry_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_a3_project_industry_status_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_start_industry_project_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_a3_project_demobilisation_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_a3_project_demobilisation_status_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_start_demobilisation_project_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
-sof_tp_cancel_project_visible = { 
-    check_variable = {
-     sof_tp_ui_footer_tab = 1
-    }
-    }
+  }
+sof_tp_a3_project_transport_visible = {
+    always = yes
+  }
+sof_tp_a3_project_transport_status_visible = {
+    always = yes
+  }
+sof_tp_start_transport_project_visible = {
+    always = yes
+  }
+sof_tp_a3_project_industry_visible = {
+    always = yes
+  }
+sof_tp_a3_project_industry_status_visible = {
+    always = yes
+  }
+sof_tp_start_industry_project_visible = {
+    always = yes
+  }
+sof_tp_a3_project_demobilisation_visible = {
+    always = yes
+  }
+sof_tp_a3_project_demobilisation_status_visible = {
+    always = yes
+  }
+sof_tp_start_demobilisation_project_visible = {
+    always = yes
+  }
+sof_tp_cancel_project_visible = {
+    always = yes
+  }
+sof_atelier_np_start_transport_click_enabled = { sof_gov_np_can_start_transport = yes }
+sof_atelier_np_start_armaments_click_enabled = { sof_gov_np_can_start_armaments = yes }
+sof_atelier_np_start_staff_click_enabled = { sof_gov_np_can_start_staff = yes }
+sof_atelier_np_start_treasury_click_enabled = { sof_gov_np_can_start_treasury = yes }
+sof_atelier_np_invest_click_enabled = { sof_gov_np_can_invest = yes }
+sof_atelier_np_cancel_click_enabled = { sof_gov_np_can_cancel = yes }
 }
 properties = {
-sof_tp_selected_flag = {
-    image = "[This.GetFlag]"
-   }
-sof_tp_map_PRS_colour = {
-    frame = sof_tp_map_PRS_frame
-   }
-sof_tp_map_AJC_colour = {
-    frame = sof_tp_map_AJC_frame
-   }
-sof_tp_map_REN_colour = {
-    frame = sof_tp_map_REN_frame
-   }
-sof_tp_map_MRS_colour = {
-    frame = sof_tp_map_MRS_frame
-   }
-sof_tp_map_LIL_colour = {
-    frame = sof_tp_map_LIL_frame
-   }
-sof_tp_map_MET_colour = {
-    frame = sof_tp_map_MET_frame
-   }
-sof_tp_map_STR_colour = {
-    frame = sof_tp_map_STR_frame
-   }
-sof_tp_map_ROU_colour = {
-    frame = sof_tp_map_ROU_frame
-   }
-sof_tp_map_LYO_colour = {
-    frame = sof_tp_map_LYO_frame
-   }
-sof_tp_map_BRD_colour = {
-    frame = sof_tp_map_BRD_frame
-   }
-sof_tp_map_TOU_colour = {
-    frame = sof_tp_map_TOU_frame
-   }
-sof_tp_map_NAN_colour = {
-    frame = sof_tp_map_NAN_frame
-   }
-sof_tp_map_CFR_colour = {
-    frame = sof_tp_map_CFR_frame
-   }
-sof_tp_map_DIJ_colour = {
-    frame = sof_tp_map_DIJ_frame
-   }
-sof_tp_map_BES_colour = {
-    frame = sof_tp_map_BES_frame
-   }
-sof_tp_map_TRS_colour = {
-    frame = sof_tp_map_TRS_frame
-   }
-sof_tp_map_AMI_colour = {
-    frame = sof_tp_map_AMI_frame
-   }
-sof_tp_map_CHL_colour = {
-    frame = sof_tp_map_CHL_frame
-   }
-sof_tp_map_MOP_colour = {
-    frame = sof_tp_map_MOP_frame
-   }
-sof_tp_map_POI_colour = {
-    frame = sof_tp_map_POI_frame
-   }
+sof_atelier_np_meter = { frame = sof_gov_np_meter_frame }
 }
 dynamic_lists = {
-sof_tp_selected_detail = {
-    array = sof_tp_selected_country_list
-    index = sof_tp_selected_i
-    change_scope = yes
-    entry_container = "sof_tp_selected_entry"
-   }
-sof_tp_a3_partner_list = {
-    array = sof_tp_selected_contract_partner_list
-    index = sof_tp_partner_i
-    change_scope = yes
-    entry_container = "sof_tp_a3_partner_entry"
-   }
 sof_tp_a3_project_state_list = {
     array = sof_tp_project_state_list
     index = sof_tp_project_state_i
     change_scope = yes
     entry_container = "sof_tp_a3_project_state_entry"
-   }
-}
-
-}
-
-sof_gov_page_council_gui = {
-context_type = player_context
-window_name = "sof_gov_page_council"
-parent_window_name = "sof_government_window"
-ai_enabled = { always = no }
-visible = {  sof_brt_active = yes check_variable = { sof_ui_window = 2 }  }
-effects = {
-sof_brt_tab_members_click = { set_variable = { sof_brt_ui_tab = 0 } }
-sof_brt_tab_bills_click = { set_variable = { sof_brt_ui_tab = 1 } }
-sof_brt_tab_forces_click = { set_variable = { sof_brt_ui_tab = 2 } }
-sof_brt_tab_funds_click = { set_variable = { sof_brt_ui_tab = 3 } }
-sof_brt_lobby_chateau_click = { sof_brt_gui_lobby_chateau = yes }
-sof_brt_lobby_lemaistre_click = { sof_brt_gui_lobby_lemaistre = yes }
-sof_brt_lobby_bahon_click = { sof_brt_gui_lobby_bahon = yes }
-sof_brt_lobby_legorgeu_click = { sof_brt_gui_lobby_legorgeu = yes }
-sof_brt_lobby_tremintin_click = { sof_brt_gui_lobby_tremintin = yes }
-sof_brt_lobby_prigent_click = { sof_brt_gui_lobby_prigent = yes }
-}
-triggers = {
-sof_brt_page_members_visible = { NOT = { OR = { check_variable = { sof_brt_ui_tab = 1 } check_variable = { sof_brt_ui_tab = 2 } check_variable = { sof_brt_ui_tab = 3 } } } }
-sof_brt_active_tab_members_visible = { NOT = { OR = { check_variable = { sof_brt_ui_tab = 1 } check_variable = { sof_brt_ui_tab = 2 } check_variable = { sof_brt_ui_tab = 3 } } } }
-sof_brt_active_label_members_visible = { NOT = { OR = { check_variable = { sof_brt_ui_tab = 1 } check_variable = { sof_brt_ui_tab = 2 } check_variable = { sof_brt_ui_tab = 3 } } } }
-sof_brt_page_bills_visible = { check_variable = { sof_brt_ui_tab = 1 } }
-sof_brt_active_tab_bills_visible = { check_variable = { sof_brt_ui_tab = 1 } }
-sof_brt_active_label_bills_visible = { check_variable = { sof_brt_ui_tab = 1 } }
-sof_brt_page_forces_visible = { check_variable = { sof_brt_ui_tab = 2 } }
-sof_brt_active_tab_forces_visible = { check_variable = { sof_brt_ui_tab = 2 } }
-sof_brt_active_label_forces_visible = { check_variable = { sof_brt_ui_tab = 2 } }
-sof_brt_page_funds_visible = { check_variable = { sof_brt_ui_tab = 3 } }
-sof_brt_active_tab_funds_visible = { check_variable = { sof_brt_ui_tab = 3 } }
-sof_brt_active_label_funds_visible = { check_variable = { sof_brt_ui_tab = 3 } }
-sof_brt_lobby_chateau_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_chateau } NOT = { has_country_flag = sof_brt_suspended_chateau } NOT = { has_political_power < 25 } }
-sof_brt_lobby_lemaistre_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_lemaistre } NOT = { has_country_flag = sof_brt_suspended_lemaistre } NOT = { has_political_power < 25 } }
-sof_brt_lobby_bahon_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_bahon } NOT = { has_country_flag = sof_brt_suspended_bahon } NOT = { has_political_power < 30 } }
-sof_brt_lobby_legorgeu_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_legorgeu } NOT = { has_country_flag = sof_brt_suspended_legorgeu } NOT = { has_political_power < 35 } }
-sof_brt_lobby_tremintin_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_tremintin } NOT = { has_country_flag = sof_brt_suspended_tremintin } NOT = { has_political_power < 25 } }
-sof_brt_lobby_prigent_click_enabled = { sof_brt_active = yes is_subject = no has_capitulated = no has_completed_focus = SOF_BRT_P1 NOT = { has_country_flag = sof_brt_pledge_prigent } NOT = { has_country_flag = sof_brt_suspended_prigent } NOT = { has_political_power < 30 } }
-}
-properties = {
-sof_brt_badge_chateau = { frame = sof_brt_ui_chateau }
-sof_brt_badge_lemaistre = { frame = sof_brt_ui_lemaistre }
-sof_brt_badge_bahon = { frame = sof_brt_ui_bahon }
-sof_brt_badge_legorgeu = { frame = sof_brt_ui_legorgeu }
-sof_brt_badge_tremintin = { frame = sof_brt_ui_tremintin }
-sof_brt_badge_prigent = { frame = sof_brt_ui_prigent }
-sof_brt_seat_0 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_1 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_2 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_3 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_4 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_5 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_6 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_7 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_8 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_9 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_10 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_11 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_12 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_13 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_14 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_15 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_16 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_17 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_18 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_19 = { frame = sof_brt_ui_chateau }
-sof_brt_seat_20 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_21 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_22 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_23 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_24 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_25 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_26 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_27 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_28 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_29 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_30 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_31 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_32 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_33 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_34 = { frame = sof_brt_ui_lemaistre }
-sof_brt_seat_35 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_36 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_37 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_38 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_39 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_40 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_41 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_42 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_43 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_44 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_45 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_46 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_47 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_48 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_49 = { frame = sof_brt_ui_bahon }
-sof_brt_seat_50 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_51 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_52 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_53 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_54 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_55 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_56 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_57 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_58 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_59 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_60 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_61 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_62 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_63 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_64 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_65 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_66 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_67 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_68 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_69 = { frame = sof_brt_ui_legorgeu }
-sof_brt_seat_70 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_71 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_72 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_73 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_74 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_75 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_76 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_77 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_78 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_79 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_80 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_81 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_82 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_83 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_84 = { frame = sof_brt_ui_tremintin }
-sof_brt_seat_85 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_86 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_87 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_88 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_89 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_90 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_91 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_92 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_93 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_94 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_95 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_96 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_97 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_98 = { frame = sof_brt_ui_prigent }
-sof_brt_seat_99 = { frame = sof_brt_ui_prigent }
-sof_brt_active_tab_members = { frame = 2 }
-sof_brt_active_tab_bills = { frame = 2 }
-sof_brt_active_tab_forces = { frame = 2 }
-sof_brt_active_tab_funds = { frame = 2 }
-}
-
-}
-
-sof_gov_page_politics_gui = {
-context_type = player_context
-window_name = "sof_gov_page_politics"
-parent_window_name = "sof_government_window"
-ai_enabled = { always = no }
-visible = {  check_variable = { sof_ui_window = 3 }  }
-triggers = {
-sof_party_ruling_totalist_visible = { has_government = totalist }
-sof_party_ruling_syndicalist_visible = { has_government = syndicalist }
-sof_party_ruling_radical_socialist_visible = { has_government = radical_socialist }
-sof_party_ruling_social_democrat_visible = { has_government = social_democrat }
-sof_party_ruling_social_liberal_visible = { has_government = social_liberal }
-sof_party_ruling_market_liberal_visible = { has_government = market_liberal }
-sof_party_ruling_social_conservative_visible = { has_government = social_conservative }
-sof_party_ruling_authoritarian_democrat_visible = { has_government = authoritarian_democrat }
-sof_party_ruling_paternal_autocrat_visible = { has_government = paternal_autocrat }
-sof_party_ruling_national_populist_visible = { has_government = national_populist }
-sof606_large_party_pcf_visible = { has_country_flag = sof_kr_party_pcf_in_power }
-sof606_large_party_sfio_visible = { has_country_flag = sof_kr_party_sfio_in_power }
-sof606_large_party_prrrs_visible = { has_country_flag = sof_kr_party_prrrs_in_power }
-sof606_large_party_usr_visible = { has_country_flag = sof_kr_party_usr_in_power }
-sof606_large_party_pup_visible = { has_country_flag = sof_kr_party_pup_in_power }
-sof606_large_party_rg_ad_visible = { has_country_flag = sof_kr_party_rg_ad_in_power }
-sof606_large_party_fr_urd_visible = { has_country_flag = sof_kr_party_fr_urd_in_power }
-sof606_large_party_pdp_visible = { has_country_flag = sof_kr_party_pdp_in_power }
-sof606_large_party_upr_visible = { has_country_flag = sof_kr_party_upr_in_power }
-sof606_large_party_doriot_visible = { has_country_flag = sof_kr_party_doriot_in_power  NOT = { has_country_flag = sof_right_doriot_ppf_route } }
-sof606_large_party_ppf_visible = { has_country_flag = sof_kr_party_doriot_in_power has_country_flag = sof_right_doriot_ppf_route }
-}
-
-}
-
-sof_gov_page_cabinet_gui = {
-context_type = player_context
-window_name = "sof_gov_page_cabinet"
-parent_window_name = "sof_government_window"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
- }
-effects = {
-sof_gov_office_executive_click = {
-set_variable = { sof_gov_cabinet_office = 0 } sof_gov_cabinet_layout = yes
-}
-sof_gov_office_interior_click = {
-set_variable = { sof_gov_cabinet_office = 1 } sof_gov_cabinet_layout = yes
-}
-sof_gov_office_treasury_click = {
-set_variable = { sof_gov_cabinet_office = 2 } sof_gov_cabinet_layout = yes
-}
-sof_gov_office_industry_click = {
-set_variable = { sof_gov_cabinet_office = 3 } sof_gov_cabinet_layout = yes
-}
-sof_gov_office_defence_click = {
-set_variable = { sof_gov_cabinet_office = 4 } sof_gov_cabinet_layout = yes
-}
-sof_gov_office_naval_click = {
-set_variable = { sof_gov_cabinet_office = 5 } sof_gov_cabinet_layout = yes
-}
-sof_gov_office_science_click = {
-set_variable = { sof_gov_cabinet_office = 6 } sof_gov_cabinet_layout = yes
-}
-sof_gov_office_foreign_click = {
-set_variable = { sof_gov_cabinet_office = 7 } sof_gov_cabinet_layout = yes
-}
-}
-
-}
-
-sof_gov_page_spirits_gui = {
-context_type = player_context
-window_name = "sof_gov_page_spirits"
-parent_window_name = "sof_government_window"
-ai_enabled = { always = no }
-visible = { 
-sof_gov_french_candidate = yes check_variable = { sof_ui_window = 6 }
- }
-
-}
-
-sof_gov_office_page_executive_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_executive"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 0 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_leon_blum_appoint_click = {
-sof_gov_appoint_sof_hist_fra_leon_blum = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_rene_nicod_appoint_click = {
-sof_gov_appoint_sof_hist_fra_rene_nicod = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_camille_chautemps_appoint_click = {
-sof_gov_appoint_sof_hist_fra_camille_chautemps = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_executive_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_executive_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_executive_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_executive_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_executive_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_executive_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_italo_balbo_appoint_click = {
-sof_gov_appoint_sof_hist_ita_italo_balbo = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_dino_grandi_appoint_click = {
-sof_gov_appoint_sof_hist_ita_dino_grandi = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_appoint_click = {
-sof_gov_appoint_sof_hist_ita_vittorio_emanuele_iii = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_appoint_click = {
-sof_gov_appoint_sof_hist_ita_alcide_de_gasperi = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_appoint_click = {
-sof_gov_appoint_sof_hist_ita_ivanoe_bonomi = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_antonio_gramsci_appoint_click = {
-sof_gov_appoint_sof_hist_ita_antonio_gramsci = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_amadeo_bordiga_appoint_click = {
-sof_gov_appoint_sof_hist_ita_amadeo_bordiga = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_appoint_click = {
-sof_gov_appoint_sof_hist_ita_vittorio_emanuele_orlando = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_leon_blum_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = PRS } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_leon_blum_appoint_click_enabled = {
-sof_hist_fra_leon_blum_available = yes
-}
-sof_gov_candidate_sof_hist_fra_rene_nicod_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = LYO } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }
-sof_gov_candidate_sof_hist_fra_rene_nicod_appoint_click_enabled = {
-sof_hist_fra_rene_nicod_available = yes
-}
-sof_gov_candidate_sof_hist_fra_camille_chautemps_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = TRS } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_camille_chautemps_appoint_click_enabled = {
-sof_hist_fra_camille_chautemps_available = yes
-}
-sof_gov_candidate_sofzh_minister_executive_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_executive_1_appoint_click_enabled = {
-sofzh_minister_executive_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_executive_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_executive_2_appoint_click_enabled = {
-sofzh_minister_executive_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_executive_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_executive_3_appoint_click_enabled = {
-sofzh_minister_executive_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_italo_balbo_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_italo_balbo AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_italo_balbo_focus } OR = { OR = { has_government = national_populist } }  } } }
-sof_gov_candidate_sof_hist_ita_italo_balbo_appoint_click_enabled = {
-sof_hist_ita_italo_balbo_available = yes
-}
-sof_gov_candidate_sof_hist_ita_dino_grandi_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_dino_grandi AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_believe_obey_fight has_completed_focus = SFC_dino_grandi_focus } OR = { OR = { has_government = national_populist } OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }  } } }
-sof_gov_candidate_sof_hist_ita_dino_grandi_appoint_click_enabled = {
-sof_hist_ita_dino_grandi_available = yes
-}
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_vittorio_emanuele_iii AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_power_to_the_king has_completed_focus = SFC_democratic_king } OR = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } } NOT = { has_completed_focus = SFC_the_italian_republic } } } }
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii_appoint_click_enabled = {
-sof_hist_ita_vittorio_emanuele_iii_available = yes
-}
-sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_alcide_de_gasperi AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_revoke_the_acerbo_law has_completed_focus = SFC_disband_the_blackshirts has_completed_focus = SFC_common_ground has_completed_focus = SFC_christian_democracy } OR = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }  } } }
-sof_gov_candidate_sof_hist_ita_alcide_de_gasperi_appoint_click_enabled = {
-sof_hist_ita_alcide_de_gasperi_available = yes
-}
-sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_ivanoe_bonomi AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_unite_the_opposition has_completed_focus = SFC_defy_the_duce has_completed_focus = SFC_italian_socialism has_completed_focus = SFC_the_italian_republic } OR = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }  } } }
-sof_gov_candidate_sof_hist_ita_ivanoe_bonomi_appoint_click_enabled = {
-sof_hist_ita_ivanoe_bonomi_available = yes
-}
-sof_gov_candidate_sof_hist_ita_antonio_gramsci_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_antonio_gramsci AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_liberate_gramsci } OR = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }  } } }
-sof_gov_candidate_sof_hist_ita_antonio_gramsci_appoint_click_enabled = {
-sof_hist_ita_antonio_gramsci_available = yes
-}
-sof_gov_candidate_sof_hist_ita_amadeo_bordiga_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_amadeo_bordiga AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_unite_the_opposition has_completed_focus = SFC_defy_the_duce has_completed_focus = SFC_the_popular_front } OR = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }  } } }
-sof_gov_candidate_sof_hist_ita_amadeo_bordiga_appoint_click_enabled = {
-sof_hist_ita_amadeo_bordiga_available = yes
-}
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_vittorio_emanuele_orlando AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_meritocracy has_completed_focus = SFC_monarchia_d_italia has_completed_focus = SFC_common_ground } OR = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }  } } }
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando_appoint_click_enabled = {
-sof_hist_ita_vittorio_emanuele_orlando_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_leon_blum = {
-x = sof_gov_x_sof_hist_fra_leon_blum y = sof_gov_y_sof_hist_fra_leon_blum
-}
-sof_gov_candidate_sof_hist_fra_rene_nicod = {
-x = sof_gov_x_sof_hist_fra_rene_nicod y = sof_gov_y_sof_hist_fra_rene_nicod
-}
-sof_gov_candidate_sof_hist_fra_camille_chautemps = {
-x = sof_gov_x_sof_hist_fra_camille_chautemps y = sof_gov_y_sof_hist_fra_camille_chautemps
-}
-sof_gov_candidate_sofzh_minister_executive_1 = {
-x = sof_gov_x_sofzh_minister_executive_1 y = sof_gov_y_sofzh_minister_executive_1
-}
-sof_gov_candidate_sofzh_minister_executive_2 = {
-x = sof_gov_x_sofzh_minister_executive_2 y = sof_gov_y_sofzh_minister_executive_2
-}
-sof_gov_candidate_sofzh_minister_executive_3 = {
-x = sof_gov_x_sofzh_minister_executive_3 y = sof_gov_y_sofzh_minister_executive_3
-}
-sof_gov_candidate_sof_hist_ita_italo_balbo = {
-x = sof_gov_x_sof_hist_ita_italo_balbo y = sof_gov_y_sof_hist_ita_italo_balbo
-}
-sof_gov_candidate_sof_hist_ita_dino_grandi = {
-x = sof_gov_x_sof_hist_ita_dino_grandi y = sof_gov_y_sof_hist_ita_dino_grandi
-}
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_iii = {
-x = sof_gov_x_sof_hist_ita_vittorio_emanuele_iii y = sof_gov_y_sof_hist_ita_vittorio_emanuele_iii
-}
-sof_gov_candidate_sof_hist_ita_alcide_de_gasperi = {
-x = sof_gov_x_sof_hist_ita_alcide_de_gasperi y = sof_gov_y_sof_hist_ita_alcide_de_gasperi
-}
-sof_gov_candidate_sof_hist_ita_ivanoe_bonomi = {
-x = sof_gov_x_sof_hist_ita_ivanoe_bonomi y = sof_gov_y_sof_hist_ita_ivanoe_bonomi
-}
-sof_gov_candidate_sof_hist_ita_antonio_gramsci = {
-x = sof_gov_x_sof_hist_ita_antonio_gramsci y = sof_gov_y_sof_hist_ita_antonio_gramsci
-}
-sof_gov_candidate_sof_hist_ita_amadeo_bordiga = {
-x = sof_gov_x_sof_hist_ita_amadeo_bordiga y = sof_gov_y_sof_hist_ita_amadeo_bordiga
-}
-sof_gov_candidate_sof_hist_ita_vittorio_emanuele_orlando = {
-x = sof_gov_x_sof_hist_ita_vittorio_emanuele_orlando y = sof_gov_y_sof_hist_ita_vittorio_emanuele_orlando
-}
-}
-
-}
-
-sof_gov_office_page_interior_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_interior"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 1 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_charles_maurras_appoint_click = {
-sof_gov_appoint_sof_hist_fra_charles_maurras = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_georges_mandel_appoint_click = {
-sof_gov_appoint_sof_hist_fra_georges_mandel = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_albert_sarraut_appoint_click = {
-sof_gov_appoint_sof_hist_fra_albert_sarraut = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_interior_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_interior_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_interior_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_interior_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_interior_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_interior_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_appoint_click = {
-sof_gov_appoint_sof_hist_ita_pietro_d_acquarone = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_achille_starace_appoint_click = {
-sof_gov_appoint_sof_hist_ita_achille_starace = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_renato_ricci_appoint_click = {
-sof_gov_appoint_sof_hist_ita_renato_ricci = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_adelchi_serena_appoint_click = {
-sof_gov_appoint_sof_hist_ita_adelchi_serena = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_mario_scelba_appoint_click = {
-sof_gov_appoint_sof_hist_ita_mario_scelba = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_charles_maurras_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = MRS } OR = { has_government = authoritarian_democrat has_government = paternal_autocrat has_government = national_populist } }
-sof_gov_candidate_sof_hist_fra_charles_maurras_appoint_click_enabled = {
-sof_hist_fra_charles_maurras_available = yes
-}
-sof_gov_candidate_sof_hist_fra_georges_mandel_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = BRD } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_georges_mandel_appoint_click_enabled = {
-sof_hist_fra_georges_mandel_available = yes
-}
-sof_gov_candidate_sof_hist_fra_albert_sarraut_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = MOP } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_albert_sarraut_appoint_click_enabled = {
-sof_hist_fra_albert_sarraut_available = yes
-}
-sof_gov_candidate_sofzh_minister_interior_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_interior_1_appoint_click_enabled = {
-sofzh_minister_interior_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_interior_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_interior_2_appoint_click_enabled = {
-sofzh_minister_interior_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_interior_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_interior_3_appoint_click_enabled = {
-sofzh_minister_interior_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_pietro_d_acquarone AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_convene_the_grand_council } OR = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } OR = { has_government = national_populist } }  } } }
-sof_gov_candidate_sof_hist_ita_pietro_d_acquarone_appoint_click_enabled = {
-sof_hist_ita_pietro_d_acquarone_available = yes
-}
-sof_gov_candidate_sof_hist_ita_achille_starace_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_achille_starace AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_army_leaders } OR = { OR = { has_government = national_populist } } NOT = { has_completed_focus = SFC_disband_the_blackshirts } } } }
-sof_gov_candidate_sof_hist_ita_achille_starace_appoint_click_enabled = {
-sof_hist_ita_achille_starace_available = yes
-}
-sof_gov_candidate_sof_hist_ita_renato_ricci_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_renato_ricci AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_security_militias } OR = { OR = { has_government = national_populist } } NOT = { has_completed_focus = SFC_disband_the_blackshirts } } } }
-sof_gov_candidate_sof_hist_ita_renato_ricci_appoint_click_enabled = {
-sof_hist_ita_renato_ricci_available = yes
-}
-sof_gov_candidate_sof_hist_ita_adelchi_serena_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_adelchi_serena AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_culto_del_duce } OR = { OR = { has_government = national_populist } } NOT = { has_completed_focus = SFC_disband_the_blackshirts } } } }
-sof_gov_candidate_sof_hist_ita_adelchi_serena_appoint_click_enabled = {
-sof_hist_ita_adelchi_serena_available = yes
-}
-sof_gov_candidate_sof_hist_ita_mario_scelba_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_mario_scelba AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_christian_democracy has_completed_focus = SFC_common_ground } OR = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }  } } }
-sof_gov_candidate_sof_hist_ita_mario_scelba_appoint_click_enabled = {
-sof_hist_ita_mario_scelba_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_charles_maurras = {
-x = sof_gov_x_sof_hist_fra_charles_maurras y = sof_gov_y_sof_hist_fra_charles_maurras
-}
-sof_gov_candidate_sof_hist_fra_georges_mandel = {
-x = sof_gov_x_sof_hist_fra_georges_mandel y = sof_gov_y_sof_hist_fra_georges_mandel
-}
-sof_gov_candidate_sof_hist_fra_albert_sarraut = {
-x = sof_gov_x_sof_hist_fra_albert_sarraut y = sof_gov_y_sof_hist_fra_albert_sarraut
-}
-sof_gov_candidate_sofzh_minister_interior_1 = {
-x = sof_gov_x_sofzh_minister_interior_1 y = sof_gov_y_sofzh_minister_interior_1
-}
-sof_gov_candidate_sofzh_minister_interior_2 = {
-x = sof_gov_x_sofzh_minister_interior_2 y = sof_gov_y_sofzh_minister_interior_2
-}
-sof_gov_candidate_sofzh_minister_interior_3 = {
-x = sof_gov_x_sofzh_minister_interior_3 y = sof_gov_y_sofzh_minister_interior_3
-}
-sof_gov_candidate_sof_hist_ita_pietro_d_acquarone = {
-x = sof_gov_x_sof_hist_ita_pietro_d_acquarone y = sof_gov_y_sof_hist_ita_pietro_d_acquarone
-}
-sof_gov_candidate_sof_hist_ita_achille_starace = {
-x = sof_gov_x_sof_hist_ita_achille_starace y = sof_gov_y_sof_hist_ita_achille_starace
-}
-sof_gov_candidate_sof_hist_ita_renato_ricci = {
-x = sof_gov_x_sof_hist_ita_renato_ricci y = sof_gov_y_sof_hist_ita_renato_ricci
-}
-sof_gov_candidate_sof_hist_ita_adelchi_serena = {
-x = sof_gov_x_sof_hist_ita_adelchi_serena y = sof_gov_y_sof_hist_ita_adelchi_serena
-}
-sof_gov_candidate_sof_hist_ita_mario_scelba = {
-x = sof_gov_x_sof_hist_ita_mario_scelba y = sof_gov_y_sof_hist_ita_mario_scelba
-}
-}
-
-}
-
-sof_gov_office_page_treasury_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_treasury"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 2 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_vincent_auriol_appoint_click = {
-sof_gov_appoint_sof_hist_fra_vincent_auriol = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_paul_reynaud_appoint_click = {
-sof_gov_appoint_sof_hist_fra_paul_reynaud = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_charles_spinasse_appoint_click = {
-sof_gov_appoint_sof_hist_fra_charles_spinasse = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_treasury_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_treasury_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_treasury_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_treasury_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_treasury_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_treasury_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_luigi_einaudi_appoint_click = {
-sof_gov_appoint_sof_hist_ita_luigi_einaudi = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_alberto_de_stefani_appoint_click = {
-sof_gov_appoint_sof_hist_ita_alberto_de_stefani = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_guido_jung_appoint_click = {
-sof_gov_appoint_sof_hist_ita_guido_jung = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_antonio_pesenti_appoint_click = {
-sof_gov_appoint_sof_hist_ita_antonio_pesenti = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_vincent_auriol_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = TOU } }
-sof_gov_candidate_sof_hist_fra_vincent_auriol_appoint_click_enabled = {
-sof_hist_fra_vincent_auriol_available = yes
-}
-sof_gov_candidate_sof_hist_fra_paul_reynaud_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = MRS } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_paul_reynaud_appoint_click_enabled = {
-sof_hist_fra_paul_reynaud_available = yes
-}
-sof_gov_candidate_sof_hist_fra_charles_spinasse_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = LMG } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal } }
-sof_gov_candidate_sof_hist_fra_charles_spinasse_appoint_click_enabled = {
-sof_hist_fra_charles_spinasse_available = yes
-}
-sof_gov_candidate_sofzh_minister_treasury_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_treasury_1_appoint_click_enabled = {
-sofzh_minister_treasury_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_treasury_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_treasury_2_appoint_click_enabled = {
-sofzh_minister_treasury_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_treasury_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_treasury_3_appoint_click_enabled = {
-sofzh_minister_treasury_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_luigi_einaudi_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_luigi_einaudi AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_revoke_the_acerbo_law has_completed_focus = SFC_common_ground } OR = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }  } } }
-sof_gov_candidate_sof_hist_ita_luigi_einaudi_appoint_click_enabled = {
-sof_hist_ita_luigi_einaudi_available = yes
-}
-sof_gov_candidate_sof_hist_ita_alberto_de_stefani_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_alberto_de_stefani AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_cooperate_with_moderates has_completed_focus = SFC_power_to_the_king } OR = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } OR = { has_government = national_populist } }  } } }
-sof_gov_candidate_sof_hist_ita_alberto_de_stefani_appoint_click_enabled = {
-sof_hist_ita_alberto_de_stefani_available = yes
-}
-sof_gov_candidate_sof_hist_ita_guido_jung_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_guido_jung AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_new_industrialization_program } OR = { OR = { has_government = national_populist } OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } } NOT = { has_completed_focus = SFC_pact_of_steel } } } }
-sof_gov_candidate_sof_hist_ita_guido_jung_appoint_click_enabled = {
-sof_hist_ita_guido_jung_available = yes
-}
-sof_gov_candidate_sof_hist_ita_antonio_pesenti_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_antonio_pesenti AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_common_ground has_completed_focus = SFC_the_popular_front } OR = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }  } } }
-sof_gov_candidate_sof_hist_ita_antonio_pesenti_appoint_click_enabled = {
-sof_hist_ita_antonio_pesenti_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_vincent_auriol = {
-x = sof_gov_x_sof_hist_fra_vincent_auriol y = sof_gov_y_sof_hist_fra_vincent_auriol
-}
-sof_gov_candidate_sof_hist_fra_paul_reynaud = {
-x = sof_gov_x_sof_hist_fra_paul_reynaud y = sof_gov_y_sof_hist_fra_paul_reynaud
-}
-sof_gov_candidate_sof_hist_fra_charles_spinasse = {
-x = sof_gov_x_sof_hist_fra_charles_spinasse y = sof_gov_y_sof_hist_fra_charles_spinasse
-}
-sof_gov_candidate_sofzh_minister_treasury_1 = {
-x = sof_gov_x_sofzh_minister_treasury_1 y = sof_gov_y_sofzh_minister_treasury_1
-}
-sof_gov_candidate_sofzh_minister_treasury_2 = {
-x = sof_gov_x_sofzh_minister_treasury_2 y = sof_gov_y_sofzh_minister_treasury_2
-}
-sof_gov_candidate_sofzh_minister_treasury_3 = {
-x = sof_gov_x_sofzh_minister_treasury_3 y = sof_gov_y_sofzh_minister_treasury_3
-}
-sof_gov_candidate_sof_hist_ita_luigi_einaudi = {
-x = sof_gov_x_sof_hist_ita_luigi_einaudi y = sof_gov_y_sof_hist_ita_luigi_einaudi
-}
-sof_gov_candidate_sof_hist_ita_alberto_de_stefani = {
-x = sof_gov_x_sof_hist_ita_alberto_de_stefani y = sof_gov_y_sof_hist_ita_alberto_de_stefani
-}
-sof_gov_candidate_sof_hist_ita_guido_jung = {
-x = sof_gov_x_sof_hist_ita_guido_jung y = sof_gov_y_sof_hist_ita_guido_jung
-}
-sof_gov_candidate_sof_hist_ita_antonio_pesenti = {
-x = sof_gov_x_sof_hist_ita_antonio_pesenti y = sof_gov_y_sof_hist_ita_antonio_pesenti
-}
-}
-
-}
-
-sof_gov_office_page_industry_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_industry"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 3 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_louis_renault_appoint_click = {
-sof_gov_appoint_sof_hist_fra_louis_renault = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_raoul_dautry_appoint_click = {
-sof_gov_appoint_sof_hist_fra_raoul_dautry = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_pierre_cot_appoint_click = {
-sof_gov_appoint_sof_hist_fra_pierre_cot = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_industry_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_industry_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_industry_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_industry_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_industry_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_industry_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_giovanni_duca_appoint_click = {
-sof_gov_appoint_sof_hist_ita_giovanni_duca = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_fausto_gullo_appoint_click = {
-sof_gov_appoint_sof_hist_ita_fausto_gullo = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_louis_renault_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = PRS } }
-sof_gov_candidate_sof_hist_fra_louis_renault_appoint_click_enabled = {
-sof_hist_fra_louis_renault_available = yes
-}
-sof_gov_candidate_sof_hist_fra_raoul_dautry_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = CFR } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative has_government = authoritarian_democrat has_government = paternal_autocrat } }
-sof_gov_candidate_sof_hist_fra_raoul_dautry_appoint_click_enabled = {
-sof_hist_fra_raoul_dautry_available = yes
-}
-sof_gov_candidate_sof_hist_fra_pierre_cot_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = LYO } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal } }
-sof_gov_candidate_sof_hist_fra_pierre_cot_appoint_click_enabled = {
-sof_hist_fra_pierre_cot_available = yes
-}
-sof_gov_candidate_sofzh_minister_industry_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_industry_1_appoint_click_enabled = {
-sofzh_minister_industry_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_industry_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_industry_2_appoint_click_enabled = {
-sofzh_minister_industry_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_industry_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_industry_3_appoint_click_enabled = {
-sofzh_minister_industry_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_giovanni_duca_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_giovanni_duca AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_meritocracy has_completed_focus = SFC_common_ground } OR = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }  } } }
-sof_gov_candidate_sof_hist_ita_giovanni_duca_appoint_click_enabled = {
-sof_hist_ita_giovanni_duca_available = yes
-}
-sof_gov_candidate_sof_hist_ita_fausto_gullo_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_fausto_gullo AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_common_ground has_completed_focus = SFC_the_popular_front } OR = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }  } } }
-sof_gov_candidate_sof_hist_ita_fausto_gullo_appoint_click_enabled = {
-sof_hist_ita_fausto_gullo_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_louis_renault = {
-x = sof_gov_x_sof_hist_fra_louis_renault y = sof_gov_y_sof_hist_fra_louis_renault
-}
-sof_gov_candidate_sof_hist_fra_raoul_dautry = {
-x = sof_gov_x_sof_hist_fra_raoul_dautry y = sof_gov_y_sof_hist_fra_raoul_dautry
-}
-sof_gov_candidate_sof_hist_fra_pierre_cot = {
-x = sof_gov_x_sof_hist_fra_pierre_cot y = sof_gov_y_sof_hist_fra_pierre_cot
-}
-sof_gov_candidate_sofzh_minister_industry_1 = {
-x = sof_gov_x_sofzh_minister_industry_1 y = sof_gov_y_sofzh_minister_industry_1
-}
-sof_gov_candidate_sofzh_minister_industry_2 = {
-x = sof_gov_x_sofzh_minister_industry_2 y = sof_gov_y_sofzh_minister_industry_2
-}
-sof_gov_candidate_sofzh_minister_industry_3 = {
-x = sof_gov_x_sofzh_minister_industry_3 y = sof_gov_y_sofzh_minister_industry_3
-}
-sof_gov_candidate_sof_hist_ita_giovanni_duca = {
-x = sof_gov_x_sof_hist_ita_giovanni_duca y = sof_gov_y_sof_hist_ita_giovanni_duca
-}
-sof_gov_candidate_sof_hist_ita_fausto_gullo = {
-x = sof_gov_x_sof_hist_ita_fausto_gullo y = sof_gov_y_sof_hist_ita_fausto_gullo
-}
-}
-
-}
-
-sof_gov_office_page_defence_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_defence"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 4 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_maxime_weygand_appoint_click = {
-sof_gov_appoint_sof_hist_fra_maxime_weygand = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_maurice_gamelin_appoint_click = {
-sof_gov_appoint_sof_hist_fra_maurice_gamelin = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_edouard_daladier_appoint_click = {
-sof_gov_appoint_sof_hist_fra_edouard_daladier = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_defence_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_defence_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_defence_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_defence_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_defence_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_defence_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_alberto_pariani_appoint_click = {
-sof_gov_appoint_sof_hist_ita_alberto_pariani = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_appoint_click = {
-sof_gov_appoint_sof_hist_ita_randolfo_pacciardi = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_luigi_longo_appoint_click = {
-sof_gov_appoint_sof_hist_ita_luigi_longo = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_maxime_weygand_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = PRS } }
-sof_gov_candidate_sof_hist_fra_maxime_weygand_appoint_click_enabled = {
-sof_hist_fra_maxime_weygand_available = yes
-}
-sof_gov_candidate_sof_hist_fra_maurice_gamelin_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = PRS } }
-sof_gov_candidate_sof_hist_fra_maurice_gamelin_appoint_click_enabled = {
-sof_hist_fra_maurice_gamelin_available = yes
-}
-sof_gov_candidate_sof_hist_fra_edouard_daladier_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = MRS } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_edouard_daladier_appoint_click_enabled = {
-sof_hist_fra_edouard_daladier_available = yes
-}
-sof_gov_candidate_sofzh_minister_defence_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_defence_1_appoint_click_enabled = {
-sofzh_minister_defence_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_defence_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_defence_2_appoint_click_enabled = {
-sofzh_minister_defence_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_defence_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_defence_3_appoint_click_enabled = {
-sofzh_minister_defence_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_alberto_pariani_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_alberto_pariani AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_a_bandits_war }  } } }
-sof_gov_candidate_sof_hist_ita_alberto_pariani_appoint_click_enabled = {
-sof_hist_ita_alberto_pariani_available = yes
-}
-sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_randolfo_pacciardi AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_common_ground has_completed_focus = SFC_italian_socialism } OR = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }  } } }
-sof_gov_candidate_sof_hist_ita_randolfo_pacciardi_appoint_click_enabled = {
-sof_hist_ita_randolfo_pacciardi_available = yes
-}
-sof_gov_candidate_sof_hist_ita_luigi_longo_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_luigi_longo AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_common_ground has_completed_focus = SFC_the_popular_front } OR = { OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }  } } }
-sof_gov_candidate_sof_hist_ita_luigi_longo_appoint_click_enabled = {
-sof_hist_ita_luigi_longo_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_maxime_weygand = {
-x = sof_gov_x_sof_hist_fra_maxime_weygand y = sof_gov_y_sof_hist_fra_maxime_weygand
-}
-sof_gov_candidate_sof_hist_fra_maurice_gamelin = {
-x = sof_gov_x_sof_hist_fra_maurice_gamelin y = sof_gov_y_sof_hist_fra_maurice_gamelin
-}
-sof_gov_candidate_sof_hist_fra_edouard_daladier = {
-x = sof_gov_x_sof_hist_fra_edouard_daladier y = sof_gov_y_sof_hist_fra_edouard_daladier
-}
-sof_gov_candidate_sofzh_minister_defence_1 = {
-x = sof_gov_x_sofzh_minister_defence_1 y = sof_gov_y_sofzh_minister_defence_1
-}
-sof_gov_candidate_sofzh_minister_defence_2 = {
-x = sof_gov_x_sofzh_minister_defence_2 y = sof_gov_y_sofzh_minister_defence_2
-}
-sof_gov_candidate_sofzh_minister_defence_3 = {
-x = sof_gov_x_sofzh_minister_defence_3 y = sof_gov_y_sofzh_minister_defence_3
-}
-sof_gov_candidate_sof_hist_ita_alberto_pariani = {
-x = sof_gov_x_sof_hist_ita_alberto_pariani y = sof_gov_y_sof_hist_ita_alberto_pariani
-}
-sof_gov_candidate_sof_hist_ita_randolfo_pacciardi = {
-x = sof_gov_x_sof_hist_ita_randolfo_pacciardi y = sof_gov_y_sof_hist_ita_randolfo_pacciardi
-}
-sof_gov_candidate_sof_hist_ita_luigi_longo = {
-x = sof_gov_x_sof_hist_ita_luigi_longo y = sof_gov_y_sof_hist_ita_luigi_longo
-}
-}
-
-}
-
-sof_gov_office_page_naval_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_naval"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 5 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_francois_darlan_appoint_click = {
-sof_gov_appoint_sof_hist_fra_francois_darlan = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_victor_denain_appoint_click = {
-sof_gov_appoint_sof_hist_fra_victor_denain = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_emile_muselier_appoint_click = {
-sof_gov_appoint_sof_hist_fra_emile_muselier = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_naval_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_naval_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_naval_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_naval_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_naval_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_naval_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_domenico_cavagnari_appoint_click = {
-sof_gov_appoint_sof_hist_ita_domenico_cavagnari = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_francois_darlan_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = BRD original_tag = REN } }
-sof_gov_candidate_sof_hist_fra_francois_darlan_appoint_click_enabled = {
-sof_hist_fra_francois_darlan_available = yes
-}
-sof_gov_candidate_sof_hist_fra_victor_denain_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = TOU } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative has_government = authoritarian_democrat has_government = paternal_autocrat } }
-sof_gov_candidate_sof_hist_fra_victor_denain_appoint_click_enabled = {
-sof_hist_fra_victor_denain_available = yes
-}
-sof_gov_candidate_sof_hist_fra_emile_muselier_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = MRS original_tag = REN } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative has_government = authoritarian_democrat has_government = paternal_autocrat } }
-sof_gov_candidate_sof_hist_fra_emile_muselier_appoint_click_enabled = {
-sof_hist_fra_emile_muselier_available = yes
-}
-sof_gov_candidate_sofzh_minister_naval_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_naval_1_appoint_click_enabled = {
-sofzh_minister_naval_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_naval_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_naval_2_appoint_click_enabled = {
-sofzh_minister_naval_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_naval_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_naval_3_appoint_click_enabled = {
-sofzh_minister_naval_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_domenico_cavagnari_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_domenico_cavagnari AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_supermarina }  } } }
-sof_gov_candidate_sof_hist_ita_domenico_cavagnari_appoint_click_enabled = {
-sof_hist_ita_domenico_cavagnari_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_francois_darlan = {
-x = sof_gov_x_sof_hist_fra_francois_darlan y = sof_gov_y_sof_hist_fra_francois_darlan
-}
-sof_gov_candidate_sof_hist_fra_victor_denain = {
-x = sof_gov_x_sof_hist_fra_victor_denain y = sof_gov_y_sof_hist_fra_victor_denain
-}
-sof_gov_candidate_sof_hist_fra_emile_muselier = {
-x = sof_gov_x_sof_hist_fra_emile_muselier y = sof_gov_y_sof_hist_fra_emile_muselier
-}
-sof_gov_candidate_sofzh_minister_naval_1 = {
-x = sof_gov_x_sofzh_minister_naval_1 y = sof_gov_y_sofzh_minister_naval_1
-}
-sof_gov_candidate_sofzh_minister_naval_2 = {
-x = sof_gov_x_sofzh_minister_naval_2 y = sof_gov_y_sofzh_minister_naval_2
-}
-sof_gov_candidate_sofzh_minister_naval_3 = {
-x = sof_gov_x_sofzh_minister_naval_3 y = sof_gov_y_sofzh_minister_naval_3
-}
-sof_gov_candidate_sof_hist_ita_domenico_cavagnari = {
-x = sof_gov_x_sof_hist_ita_domenico_cavagnari y = sof_gov_y_sof_hist_ita_domenico_cavagnari
-}
-}
-
-}
-
-sof_gov_office_page_science_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_science"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 6 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_irene_joliot_curie_appoint_click = {
-sof_gov_appoint_sof_hist_fra_irene_joliot_curie = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_appoint_click = {
-sof_gov_appoint_sof_hist_fra_frederic_joliot_curie = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_jean_zay_appoint_click = {
-sof_gov_appoint_sof_hist_fra_jean_zay = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_science_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_science_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_science_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_science_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_science_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_science_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_giuseppe_bottai_appoint_click = {
-sof_gov_appoint_sof_hist_ita_giuseppe_bottai = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_appoint_click = {
-sof_gov_appoint_sof_hist_ita_guido_de_ruggiero = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_enrico_fermi_appoint_click = {
-sof_gov_appoint_sof_hist_ita_enrico_fermi = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_irene_joliot_curie_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = PRS } }
-sof_gov_candidate_sof_hist_fra_irene_joliot_curie_appoint_click_enabled = {
-sof_hist_fra_irene_joliot_curie_available = yes
-}
-sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = PRS } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist has_government = social_democrat has_government = social_liberal } }
-sof_gov_candidate_sof_hist_fra_frederic_joliot_curie_appoint_click_enabled = {
-sof_hist_fra_frederic_joliot_curie_available = yes
-}
-sof_gov_candidate_sof_hist_fra_jean_zay_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = TRS } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_jean_zay_appoint_click_enabled = {
-sof_hist_fra_jean_zay_available = yes
-}
-sof_gov_candidate_sofzh_minister_science_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_science_1_appoint_click_enabled = {
-sofzh_minister_science_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_science_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_science_2_appoint_click_enabled = {
-sofzh_minister_science_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_science_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_science_3_appoint_click_enabled = {
-sofzh_minister_science_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_giuseppe_bottai_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_giuseppe_bottai AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_legge_bottai }  } } }
-sof_gov_candidate_sof_hist_ita_giuseppe_bottai_appoint_click_enabled = {
-sof_hist_ita_giuseppe_bottai_available = yes
-}
-sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_guido_de_ruggiero AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_cooperate_with_moderates has_completed_focus = SFC_common_ground } OR = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } OR = { has_government = totalist has_government = syndicalist has_government = radical_socialist } }  } } }
-sof_gov_candidate_sof_hist_ita_guido_de_ruggiero_appoint_click_enabled = {
-sof_hist_ita_guido_de_ruggiero_available = yes
-}
-sof_gov_candidate_sof_hist_ita_enrico_fermi_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_enrico_fermi AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_combined_research_effort }  } } }
-sof_gov_candidate_sof_hist_ita_enrico_fermi_appoint_click_enabled = {
-sof_hist_ita_enrico_fermi_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_irene_joliot_curie = {
-x = sof_gov_x_sof_hist_fra_irene_joliot_curie y = sof_gov_y_sof_hist_fra_irene_joliot_curie
-}
-sof_gov_candidate_sof_hist_fra_frederic_joliot_curie = {
-x = sof_gov_x_sof_hist_fra_frederic_joliot_curie y = sof_gov_y_sof_hist_fra_frederic_joliot_curie
-}
-sof_gov_candidate_sof_hist_fra_jean_zay = {
-x = sof_gov_x_sof_hist_fra_jean_zay y = sof_gov_y_sof_hist_fra_jean_zay
-}
-sof_gov_candidate_sofzh_minister_science_1 = {
-x = sof_gov_x_sofzh_minister_science_1 y = sof_gov_y_sofzh_minister_science_1
-}
-sof_gov_candidate_sofzh_minister_science_2 = {
-x = sof_gov_x_sofzh_minister_science_2 y = sof_gov_y_sofzh_minister_science_2
-}
-sof_gov_candidate_sofzh_minister_science_3 = {
-x = sof_gov_x_sofzh_minister_science_3 y = sof_gov_y_sofzh_minister_science_3
-}
-sof_gov_candidate_sof_hist_ita_giuseppe_bottai = {
-x = sof_gov_x_sof_hist_ita_giuseppe_bottai y = sof_gov_y_sof_hist_ita_giuseppe_bottai
-}
-sof_gov_candidate_sof_hist_ita_guido_de_ruggiero = {
-x = sof_gov_x_sof_hist_ita_guido_de_ruggiero y = sof_gov_y_sof_hist_ita_guido_de_ruggiero
-}
-sof_gov_candidate_sof_hist_ita_enrico_fermi = {
-x = sof_gov_x_sof_hist_ita_enrico_fermi y = sof_gov_y_sof_hist_ita_enrico_fermi
-}
-}
-
-}
-
-sof_gov_office_page_foreign_gui = {
-context_type = player_context
-window_name = "sof_gov_office_page_foreign"
-parent_window_name = "sof_gov_candidate_canvas"
-ai_enabled = { always = no }
-visible = { 
-sofzh_cabinet_country = yes check_variable = { sof_ui_window = 5 }
-
-
-check_variable = { sof_gov_cabinet_office = 7 }
- }
-effects = {
-sof_gov_candidate_sof_hist_fra_rene_massigli_appoint_click = {
-sof_gov_appoint_sof_hist_fra_rene_massigli = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_georges_bonnet_appoint_click = {
-sof_gov_appoint_sof_hist_fra_georges_bonnet = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_fra_yvon_delbos_appoint_click = {
-sof_gov_appoint_sof_hist_fra_yvon_delbos = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_foreign_1_appoint_click = {
-sof_gov_appoint_sofzh_minister_foreign_1 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_foreign_2_appoint_click = {
-sof_gov_appoint_sofzh_minister_foreign_2 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sofzh_minister_foreign_3_appoint_click = {
-sof_gov_appoint_sofzh_minister_foreign_3 = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_curzio_malaparte_appoint_click = {
-sof_gov_appoint_sof_hist_ita_curzio_malaparte = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_appoint_click = {
-sof_gov_appoint_sof_hist_ita_gian_galeazzo_ciano = yes sof_gov_cabinet_layout = yes
-}
-sof_gov_candidate_sof_hist_ita_alberto_tarchiani_appoint_click = {
-sof_gov_appoint_sof_hist_ita_alberto_tarchiani = yes sof_gov_cabinet_layout = yes
-}
-}
-triggers = {
-sof_gov_candidate_sof_hist_fra_rene_massigli_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = STR } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_rene_massigli_appoint_click_enabled = {
-sof_hist_fra_rene_massigli_available = yes
-}
-sof_gov_candidate_sof_hist_fra_georges_bonnet_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = BRD } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_georges_bonnet_appoint_click_enabled = {
-sof_hist_fra_georges_bonnet_available = yes
-}
-sof_gov_candidate_sof_hist_fra_yvon_delbos_visible =  { sofzh_cabinet_country = yes sof_gov_french_candidate = yes OR = { original_tag = PRS has_country_flag = sof_nr_mandate original_tag = BRD } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }
-sof_gov_candidate_sof_hist_fra_yvon_delbos_appoint_click_enabled = {
-sof_hist_fra_yvon_delbos_available = yes
-}
-sof_gov_candidate_sofzh_minister_foreign_1_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_foreign_1_appoint_click_enabled = {
-sofzh_minister_foreign_1_available = yes
-}
-sof_gov_candidate_sofzh_minister_foreign_2_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_foreign_2_appoint_click_enabled = {
-sofzh_minister_foreign_2_available = yes
-}
-sof_gov_candidate_sofzh_minister_foreign_3_visible =  { sofzh_cabinet_country = yes }
-sof_gov_candidate_sofzh_minister_foreign_3_appoint_click_enabled = {
-sofzh_minister_foreign_3_available = yes
-}
-sof_gov_candidate_sof_hist_ita_curzio_malaparte_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_curzio_malaparte AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_cooperate_with_moderates } OR = { OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }  } } }
-sof_gov_candidate_sof_hist_ita_curzio_malaparte_appoint_click_enabled = {
-sof_hist_ita_curzio_malaparte_available = yes
-}
-sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_gian_galeazzo_ciano AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_foreign_affairs } OR = { OR = { has_government = national_populist } OR = { has_government = authoritarian_democrat has_government = paternal_autocrat } }  } } }
-sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano_appoint_click_enabled = {
-sof_hist_ita_gian_galeazzo_ciano_available = yes
-}
-sof_gov_candidate_sof_hist_ita_alberto_tarchiani_visible =  { sofzh_cabinet_country = yes OR = { has_idea = sof_hist_ita_alberto_tarchiani AND = { has_focus_tree = sofzh_corsica OR = { has_completed_focus = SFC_common_ground has_completed_focus = SFC_italian_socialism } OR = { OR = { has_government = social_democrat has_government = social_liberal has_government = market_liberal has_government = social_conservative } }  } } }
-sof_gov_candidate_sof_hist_ita_alberto_tarchiani_appoint_click_enabled = {
-sof_hist_ita_alberto_tarchiani_available = yes
-}
-}
-properties = {
-sof_gov_candidate_sof_hist_fra_rene_massigli = {
-x = sof_gov_x_sof_hist_fra_rene_massigli y = sof_gov_y_sof_hist_fra_rene_massigli
-}
-sof_gov_candidate_sof_hist_fra_georges_bonnet = {
-x = sof_gov_x_sof_hist_fra_georges_bonnet y = sof_gov_y_sof_hist_fra_georges_bonnet
-}
-sof_gov_candidate_sof_hist_fra_yvon_delbos = {
-x = sof_gov_x_sof_hist_fra_yvon_delbos y = sof_gov_y_sof_hist_fra_yvon_delbos
-}
-sof_gov_candidate_sofzh_minister_foreign_1 = {
-x = sof_gov_x_sofzh_minister_foreign_1 y = sof_gov_y_sofzh_minister_foreign_1
-}
-sof_gov_candidate_sofzh_minister_foreign_2 = {
-x = sof_gov_x_sofzh_minister_foreign_2 y = sof_gov_y_sofzh_minister_foreign_2
-}
-sof_gov_candidate_sofzh_minister_foreign_3 = {
-x = sof_gov_x_sofzh_minister_foreign_3 y = sof_gov_y_sofzh_minister_foreign_3
-}
-sof_gov_candidate_sof_hist_ita_curzio_malaparte = {
-x = sof_gov_x_sof_hist_ita_curzio_malaparte y = sof_gov_y_sof_hist_ita_curzio_malaparte
-}
-sof_gov_candidate_sof_hist_ita_gian_galeazzo_ciano = {
-x = sof_gov_x_sof_hist_ita_gian_galeazzo_ciano y = sof_gov_y_sof_hist_ita_gian_galeazzo_ciano
-}
-sof_gov_candidate_sof_hist_ita_alberto_tarchiani = {
-x = sof_gov_x_sof_hist_ita_alberto_tarchiani y = sof_gov_y_sof_hist_ita_alberto_tarchiani
-}
+  }
 }
 
 }

@@ -1,0 +1,4 @@
+on_actions = {
+ on_startup = { effect = { every_country = { sof_sc_sync = yes set_country_flag = sof_sc_v610_reconciled } } }
+ on_daily = { effect = { if = { limit = { NOT = { has_country_flag = sof_sc_v610_reconciled } } sof_sc_sync = yes set_country_flag = sof_sc_v610_reconciled } } }
+}
