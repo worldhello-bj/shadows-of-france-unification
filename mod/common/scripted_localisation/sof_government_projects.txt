@@ -1,0 +1,52 @@
+defined_text = { name = GetSofGovNpName
+ text = { trigger = { check_variable = { sof_gov_np_type = 1 } } localization_key = sof_gov_np_transport_title }
+ text = { trigger = { check_variable = { sof_gov_np_type = 2 } } localization_key = sof_gov_np_armaments_title }
+ text = { trigger = { check_variable = { sof_gov_np_type = 3 } } localization_key = sof_gov_np_staff_title }
+ text = { trigger = { check_variable = { sof_gov_np_type = 4 } } localization_key = sof_gov_np_treasury_title }
+ text = { trigger = { NOT = { has_country_flag = sof_gov_np_active } check_variable = { sof_gov_np_progress = 100 } check_variable = { sof_gov_np_last_type = 1 } } localization_key = sof_gov_np_transport_title }
+ text = { trigger = { NOT = { has_country_flag = sof_gov_np_active } check_variable = { sof_gov_np_progress = 100 } check_variable = { sof_gov_np_last_type = 2 } } localization_key = sof_gov_np_armaments_title }
+ text = { trigger = { NOT = { has_country_flag = sof_gov_np_active } check_variable = { sof_gov_np_progress = 100 } check_variable = { sof_gov_np_last_type = 3 } } localization_key = sof_gov_np_staff_title }
+ text = { trigger = { NOT = { has_country_flag = sof_gov_np_active } check_variable = { sof_gov_np_progress = 100 } check_variable = { sof_gov_np_last_type = 4 } } localization_key = sof_gov_np_treasury_title }
+ text = { localization_key = sof_gov_np_no_project }
+}
+defined_text = { name = GetSofGovNpStatus
+ text = { trigger = { has_country_flag = sof_gov_np_active NOT = { sof_gov_np_can_advance = yes } } localization_key = sof_gov_np_status_paused }
+ text = { trigger = { has_country_flag = sof_gov_np_active } localization_key = sof_gov_np_status_active }
+ text = { trigger = { check_variable = { sof_gov_np_completed = 4 } } localization_key = sof_gov_np_status_all_complete }
+ text = { trigger = { NOT = { has_country_flag = sof_gov_np_active } check_variable = { sof_gov_np_progress = 100 } } localization_key = sof_gov_np_status_complete }
+ text = { localization_key = sof_gov_np_status_idle }
+}
+defined_text = { name = GetSofGovNpEta
+ text = { trigger = { has_country_flag = sof_gov_np_active NOT = { sof_gov_np_can_advance = yes } } localization_key = sof_gov_np_eta_paused }
+ text = { trigger = { has_country_flag = sof_gov_np_active } localization_key = sof_gov_np_eta_active }
+ text = { trigger = { NOT = { has_country_flag = sof_gov_np_active } check_variable = { sof_gov_np_progress = 100 } } localization_key = sof_gov_np_eta_complete }
+ text = { localization_key = sof_gov_np_eta_none }
+}
+defined_text = { name = GetSofGovNpTransportStatus
+ text = { trigger = { has_country_flag = sof_gov_np_done_transport } localization_key = sof_gov_np_status_complete }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 1 } NOT = { sof_gov_np_can_advance = yes } } localization_key = sof_gov_np_status_paused }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 1 } } localization_key = sof_gov_np_status_active }
+ text = { trigger = { sof_gov_np_can_start_transport = yes } localization_key = sof_gov_np_status_ready }
+ text = { localization_key = sof_gov_np_status_locked }
+}
+defined_text = { name = GetSofGovNpArmamentsStatus
+ text = { trigger = { has_country_flag = sof_gov_np_done_armaments } localization_key = sof_gov_np_status_complete }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 2 } NOT = { sof_gov_np_can_advance = yes } } localization_key = sof_gov_np_status_paused }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 2 } } localization_key = sof_gov_np_status_active }
+ text = { trigger = { sof_gov_np_can_start_armaments = yes } localization_key = sof_gov_np_status_ready }
+ text = { localization_key = sof_gov_np_status_locked }
+}
+defined_text = { name = GetSofGovNpStaffStatus
+ text = { trigger = { has_country_flag = sof_gov_np_done_staff } localization_key = sof_gov_np_status_complete }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 3 } NOT = { sof_gov_np_can_advance = yes } } localization_key = sof_gov_np_status_paused }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 3 } } localization_key = sof_gov_np_status_active }
+ text = { trigger = { sof_gov_np_can_start_staff = yes } localization_key = sof_gov_np_status_ready }
+ text = { localization_key = sof_gov_np_status_locked }
+}
+defined_text = { name = GetSofGovNpTreasuryStatus
+ text = { trigger = { has_country_flag = sof_gov_np_done_treasury } localization_key = sof_gov_np_status_complete }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 4 } NOT = { sof_gov_np_can_advance = yes } } localization_key = sof_gov_np_status_paused }
+ text = { trigger = { has_country_flag = sof_gov_np_active check_variable = { sof_gov_np_type = 4 } } localization_key = sof_gov_np_status_active }
+ text = { trigger = { sof_gov_np_can_start_treasury = yes } localization_key = sof_gov_np_status_ready }
+ text = { localization_key = sof_gov_np_status_locked }
+}

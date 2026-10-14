@@ -1,30 +1,55 @@
 {
+  "version": "6.0.11",
   "visual_windows": 1,
-  "mutually_exclusive_pages": 6,
-  "scripted_page_controllers": 15,
-  "office_pages": 8,
+  "mutually_exclusive_pages": 4,
+  "scripted_page_controllers": 5,
+  "cabinet_mirror_pages": 0,
+  "root_max_size": [
+    1220,
+    940
+  ],
+  "content_canvas_width": 980,
+  "parent_binding_type": "parent_scripted_gui",
   "parent_bindings": {
     "sof_gov_page_campaign_gui": "sof_government_gui",
     "sof_gov_page_national_gui": "sof_government_gui",
     "sof_gov_page_council_gui": "sof_government_gui",
-    "sof_gov_page_politics_gui": "sof_government_gui",
-    "sof_gov_page_cabinet_gui": "sof_government_gui",
-    "sof_gov_page_spirits_gui": "sof_government_gui",
-    "sof_gov_office_page_executive_gui": "sof_gov_page_cabinet_gui",
-    "sof_gov_office_page_interior_gui": "sof_gov_page_cabinet_gui",
-    "sof_gov_office_page_treasury_gui": "sof_gov_page_cabinet_gui",
-    "sof_gov_office_page_industry_gui": "sof_gov_page_cabinet_gui",
-    "sof_gov_office_page_defence_gui": "sof_gov_page_cabinet_gui",
-    "sof_gov_office_page_naval_gui": "sof_gov_page_cabinet_gui",
-    "sof_gov_office_page_science_gui": "sof_gov_page_cabinet_gui",
-    "sof_gov_office_page_foreign_gui": "sof_gov_page_cabinet_gui"
+    "sof_gov_page_plans_gui": "sof_government_gui"
   },
-  "spirit_card_height": 214,
-  "main_bottom_margin": 16,
-  "page_bottom_margin": 8,
-  "all_callbacks_preserved": true,
-  "parent_binding_type": "parent_scripted_gui",
-  "office_scrolling": "Each office owns a horizontal and vertical scroll viewport.",
-  "modifier_display": "Separate base idea and dynamic institutional growth; force dynamic update after sync.",
-  "header": "Fixed-spacing tabs in a clipped horizontal scroll viewport."
+  "pages": {
+    "national": {
+      "value": 4,
+      "purpose": "Unification map, agreements and national constitution"
+    },
+    "campaign": {
+      "value": 1,
+      "purpose": "Campaign readiness and existing guarded enforcement orders"
+    },
+    "council": {
+      "value": 2,
+      "purpose": "100-seat parliament, lobbying and legislation"
+    },
+    "plans": {
+      "value": 7,
+      "purpose": "Four national execution programmes and unchanged legacy reconstruction"
+    }
+  },
+  "removed_mirrors": [
+    "party overview",
+    "national spirit totals",
+    "scripted cabinet recruitment"
+  ],
+  "native_politics": "Existing ideas, parties and historical cabinet remain available through the native politics window.",
+  "legacy_ui_migration": {
+    "closed_page_0": "Remains closed during startup initialization",
+    "eligible_live_pages": [
+      1,
+      2,
+      4,
+      7
+    ],
+    "retired_or_ineligible_positive_page": "Select first eligible national 4, campaign 1, council 2, plans 7; otherwise close 0",
+    "initialization": "One-time migration; project progress and old reconstruction fields retained"
+  },
+  "art_provenance": "design/atelier-art.json"
 }

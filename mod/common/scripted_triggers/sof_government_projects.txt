@@ -1,0 +1,61 @@
+# National engineering uses its own fields; legacy sof_tp_project_* is untouched.
+sof_gov_np_country = { sof_nr_french_origin = yes is_subject = no has_capitulated = no }
+sof_gov_np_authorised = {
+ is_ai = no
+ sof_gov_np_country = yes
+ sof_gov_french_candidate = yes
+ NOT = { has_country_flag = sof_gov_np_active }
+}
+sof_gov_np_can_advance = {
+ has_country_flag = sof_gov_np_active
+ sof_gov_np_country = yes
+ OR = { check_variable = { sof_gov_np_type = 3 } has_war = no }
+}
+sof_gov_np_can_invest = {
+ is_ai = no
+ sof_gov_np_can_advance = yes
+ NOT = { has_political_power < 25 }
+ check_variable = { sof_gov_np_boosts < 2 }
+ check_variable = { sof_gov_np_progress < 100 }
+ NOT = { has_country_flag = sof_gov_np_invest_cooldown }
+}
+sof_gov_np_can_cancel = {
+ is_ai = no
+ has_country_flag = sof_gov_np_active
+ sof_nr_french_origin = yes
+}
+sof_gov_np_can_start_transport = {
+ sof_gov_np_authorised = yes
+ NOT = { has_country_flag = sof_gov_np_done_transport }
+ NOT = { has_idea = sof_gov_np_transport }
+ NOT = { has_political_power < 100 }
+ has_war = no
+ has_country_flag = sof_nr_mandate
+}
+sof_gov_np_can_start_armaments = {
+ sof_gov_np_authorised = yes
+ NOT = { has_country_flag = sof_gov_np_done_armaments }
+ NOT = { has_idea = sof_gov_np_armaments }
+ NOT = { has_political_power < 150 }
+ has_war = no
+ has_country_flag = sof_nr_mandate
+ check_variable = { var = sof_sc_completed_industry value = 2 compare = greater_than }
+}
+sof_gov_np_can_start_staff = {
+ sof_gov_np_authorised = yes
+ NOT = { has_country_flag = sof_gov_np_done_staff }
+ NOT = { has_idea = sof_gov_np_staff }
+ NOT = { has_political_power < 100 }
+ has_country_flag = sofzh_unification_war_ready
+ OR = { NOT = { original_tag = REN } sof_brt_expansion_allowed = yes }
+ NOT = { has_army_experience < 25 }
+}
+sof_gov_np_can_start_treasury = {
+ sof_gov_np_authorised = yes
+ NOT = { has_country_flag = sof_gov_np_done_treasury }
+ NOT = { has_idea = sof_gov_np_treasury }
+ NOT = { has_political_power < 150 }
+ has_war = no
+ has_country_flag = sof_tp_congress_open
+ sof_tp_has_charter = yes
+}
